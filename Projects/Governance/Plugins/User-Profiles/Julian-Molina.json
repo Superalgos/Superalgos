@@ -11567,8 +11567,8 @@
                                 "id": "05dbee49-3868-48e2-a8fa-ffe0eaed9e2d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5025.06066091365,
-                                        "y": 34105.478534759604
+                                        "x": 5025.386838895217,
+                                        "y": 34096.91705715055
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11608,8 +11608,8 @@
                                 "id": "a85d03c7-341d-487d-ba61-be10e30374cb",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5005.545928436439,
-                                        "y": 34197.28813275031
+                                        "x": 5011.2267966680365,
+                                        "y": 34181.123695567694
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11649,8 +11649,8 @@
                                 "id": "9c845a00-e0b5-45f9-a9f4-b39ba66c17cb",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4958.61558892437,
-                                        "y": 34278.57386520167
+                                        "x": 4973.91658410069,
+                                        "y": 34257.93002855899
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11690,8 +11690,8 @@
                                 "id": "ea448134-472d-418f-9f8b-7cadc8257bb2",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4888.863510991787,
-                                        "y": 34341.37891827035
+                                        "x": 4916.478852723005,
+                                        "y": 34321.113663810334
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11731,8 +11731,8 @@
                                 "id": "e3f51764-601a-451b-9ab5-306ea840e397",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4803.117514018035,
-                                        "y": 34379.55549577344
+                                        "x": 4843.566865935861,
+                                        "y": 34365.55583896122
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11772,8 +11772,8 @@
                                 "id": "59ac6f78-16f7-46fe-aeff-0ea40af108da",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4709.771013614395,
-                                        "y": 34389.366608313096
+                                        "x": 4761.08751928447,
+                                        "y": 34387.65611328871
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11813,8 +11813,8 @@
                                 "id": "56cdaec3-042b-464d-8bc2-d3f14f294fc9",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4617.9614156236885,
-                                        "y": 34369.851875835884
+                                        "x": 4675.722798910966,
+                                        "y": 34385.624054002175
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11854,8 +11854,8 @@
                                 "id": "607c5bd6-a324-4923-8b43-475d58ecffc5",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4536.675683172327,
-                                        "y": 34322.92153632381
+                                        "x": 4594.388446776471,
+                                        "y": 34359.624286459904
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11893,8 +11893,8 @@
                                 "id": "4d6311db-4710-45f1-ac1f-31aedc5e9ff1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4473.870630103651,
-                                        "y": 34253.16945839123
+                                        "x": 4523.673688376903,
+                                        "y": 34311.76315720159
                                     },
                                     "targetPosition": {
                                         "x": 4725.471800487278,
@@ -11919,6 +11919,45 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "gustavohcorradi",
+                                            "User Profile"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "User Delegate",
+                                "name": "superharoun",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "593be9c8-59e3-46d8-a6ef-74681df83f1c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4469.307412880934,
+                                        "y": 34245.91809027864
+                                    },
+                                    "targetPosition": {
+                                        "x": 4725.471800487278,
+                                        "y": 34089.77774788672
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "User Profile",
+                                        "name": "superharoun",
+                                        "id": "47c64eac-831d-4277-b9ce-4bd3d7e803c1"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "superharoun",
                                             "User Profile"
                                         ]
                                     ]

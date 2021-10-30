@@ -127,12 +127,12 @@
             "id": "69b4f8d0-c9bb-4716-84fa-4fa392fe0ef1",
             "savedPayload": {
                 "position": {
-                    "x": 18092.558823529413,
-                    "y": 27919.999999999996
+                    "x": 4861.764705882353,
+                    "y": 37550
                 },
                 "targetPosition": {
-                    "x": 18092.558823529413,
-                    "y": 28369.999999999996
+                    "x": 4861.764705882353,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1365,14 +1365,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "b56b7314-47ee-4634-987e-9bf20051133a"
+                                "id": "321f170c-2486-4cdd-9bad-923708d555b6"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile",
-                                    "Governance",
-                                    "b56b7314-47ee-4634-987e-9bf20051133a"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -1982,14 +1980,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "b56b7314-47ee-4634-987e-9bf20051133a"
+                                "id": "321f170c-2486-4cdd-9bad-923708d555b6"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile",
-                                    "Governance",
-                                    "b56b7314-47ee-4634-987e-9bf20051133a"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -2362,12 +2358,12 @@
             "id": "fd803f47-976b-4c5f-a1d2-e9c54b96d2d2",
             "savedPayload": {
                 "position": {
-                    "x": 18542.558823529413,
-                    "y": 28369.999999999996
+                    "x": 5311.764705882353,
+                    "y": 38000
                 },
                 "targetPosition": {
-                    "x": 18092.558823529413,
-                    "y": 28369.999999999996
+                    "x": 4861.764705882353,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2819,12 +2815,12 @@
                 "id": "e1c97e30-7fca-46e3-bc12-f88bf6bdade2",
                 "savedPayload": {
                     "position": {
-                        "x": 18482.27025523241,
-                        "y": 29044.999999999996
+                        "x": 5251.47613758535,
+                        "y": 38675
                     },
                     "targetPosition": {
-                        "x": 18092.558823529413,
-                        "y": 28819.999999999996
+                        "x": 4861.764705882353,
+                        "y": 38450
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2855,12 +2851,12 @@
                         "id": "44fa0f13-708b-4822-b4e6-2784cde4bb07",
                         "savedPayload": {
                             "position": {
-                                "x": 18037.262563291242,
-                                "y": 29346.108772861484
+                                "x": 4806.468445644184,
+                                "y": 38976.10877286149
                             },
                             "targetPosition": {
-                                "x": 17702.847391826414,
-                                "y": 29044.999999999996
+                                "x": 4472.053274179356,
+                                "y": 38675
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -2887,12 +2883,12 @@
                         "id": "b2d05aa7-cbea-4e07-8a56-77aaf761b3eb",
                         "savedPayload": {
                             "position": {
-                                "x": 17519.815902442304,
-                                "y": 29456.09545593917
+                                "x": 4289.021784795245,
+                                "y": 39086.09545593917
                             },
                             "targetPosition": {
-                                "x": 17702.847391826414,
-                                "y": 29044.999999999996
+                                "x": 4472.053274179356,
+                                "y": 38675
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -2936,12 +2932,12 @@
                                                 "id": "bc293646-b308-4489-b41b-5dd1412b45fe",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 16249.038901712307,
-                                                        "y": 31136.827917669343
+                                                        "x": 3018.244784065249,
+                                                        "y": 40766.82791766933
                                                     },
                                                     "targetPosition": {
-                                                        "x": 16523.58613578847,
-                                                        "y": 30520.184733760587
+                                                        "x": 3292.7920181414142,
+                                                        "y": 40150.18473376058
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3003,12 +2999,12 @@
                                         "id": "5389d30e-1aaf-417e-b5f9-ae71dc3c0576",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 16523.58613578847,
-                                                "y": 30520.184733760587
+                                                "x": 3292.7920181414142,
+                                                "y": 40150.18473376058
                                             },
                                             "targetPosition": {
-                                                "x": 16798.133369864638,
-                                                "y": 29903.54154985183
+                                                "x": 3567.3392522175795,
+                                                "y": 39533.54154985183
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3065,12 +3061,12 @@
                                 "id": "03bccd84-207c-4b41-9feb-aa3f20816df6",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 16798.133369864638,
-                                        "y": 29903.54154985183
+                                        "x": 3567.3392522175795,
+                                        "y": 39533.54154985183
                                     },
                                     "targetPosition": {
-                                        "x": 17072.680603940804,
-                                        "y": 29286.898365943074
+                                        "x": 3841.886486293745,
+                                        "y": 38916.898365943074
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3137,12 +3133,12 @@
                                                 "id": "10eed26a-2fb0-41b7-bcad-6b7fcf0c4c9d",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15884.609765887784,
-                                                        "y": 30510.987149871075
+                                                        "x": 2823.4512764656006,
+                                                        "y": 40030.86188571483
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15267.966581979028,
-                                                        "y": 30236.43991579491
+                                                        "x": 2581.552910522523,
+                                                        "y": 39400.69509782922
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3202,18 +3198,18 @@
                                             },
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "Team Leader Twitter Team",
+                                                "name": "Team Member Twitter Team",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "064dd34f-535e-4195-9e55-68c4f071fd64",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 14993.419347902864,
-                                                        "y": 30853.083099703665
+                                                        "x": 1951.3861226369118,
+                                                        "y": 39642.5934637723
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15267.966581979028,
-                                                        "y": 30236.43991579491
+                                                        "x": 2581.552910522523,
+                                                        "y": 39400.69509782922
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3228,45 +3224,33 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position",
-                                                        "name": "Team Leader",
-                                                        "id": "91fb9b5c-f7db-4e39-89dd-f1f0cc95ff7f"
+                                                        "name": "Team Member",
+                                                        "id": "bff24898-e892-4096-bec1-623995cca9aa"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                            "Positions"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Twitter Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "151e981a-7a2f-465b-8ff3-851ee06d447c"
+                                                            "Position Class"
                                                         ],
                                                         [
-                                                            "Team Leader",
-                                                            "Position",
-                                                            "Governance",
-                                                            "91fb9b5c-f7db-4e39-89dd-f1f0cc95ff7f"
+                                                            "Team Member",
+                                                            "Position"
                                                         ]
                                                     ]
                                                 }
@@ -3279,12 +3263,12 @@
                                                 "id": "42246c94-19fc-4df2-ac8f-46f407c18d7f",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 14637.799794093416,
-                                                        "y": 30478.338281737986
+                                                        "x": 1964.9097266137674,
+                                                        "y": 39126.14786375306
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15267.966581979028,
-                                                        "y": 30236.43991579491
+                                                        "x": 2581.552910522523,
+                                                        "y": 39400.69509782922
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3300,44 +3284,32 @@
                                                     "referenceParent": {
                                                         "type": "Position",
                                                         "name": "Team Member",
-                                                        "id": "3842be82-17aa-4e88-90d7-cc245d9808e2"
+                                                        "id": "bff24898-e892-4096-bec1-623995cca9aa"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                            "Positions"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Twitter Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "151e981a-7a2f-465b-8ff3-851ee06d447c"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Team Member",
-                                                            "Position",
-                                                            "Governance",
-                                                            "3842be82-17aa-4e88-90d7-cc245d9808e2"
+                                                            "Position"
                                                         ]
                                                     ]
                                                 }
@@ -3346,12 +3318,12 @@
                                         "id": "34ac4d9c-445d-4f29-a1ab-7581b61dc3c3",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 15267.966581979028,
-                                                "y": 30236.43991579491
+                                                "x": 2581.552910522523,
+                                                "y": 39400.69509782922
                                             },
                                             "targetPosition": {
-                                                "x": 15542.513816055192,
-                                                "y": 29619.796731886152
+                                                "x": 3211.719698408134,
+                                                "y": 39158.79673188615
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3402,585 +3374,23 @@
                                                 ]
                                             ]
                                         }
-                                    },
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Facebook Team Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [],
-                                        "positionContributionClaims": [
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Creator Julian-Molina Facebook Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "19e92f71-d8f9-47be-aaab-8a596abf864b",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 14637.799794093416,
-                                                        "y": 30478.338281737986
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 14912.34702816958,
-                                                        "y": 29861.69509782923
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Creator Julian-Molina",
-                                                        "id": "73bea818-1907-4612-903c-2d218a8273f5"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                        ],
-                                                        [
-                                                            "Facebook Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2d71aa9f-b5e7-4078-9622-735a2e56bcbd"
-                                                        ],
-                                                        [
-                                                            "Team Creator Julian-Molina",
-                                                            "Position",
-                                                            "Governance",
-                                                            "73bea818-1907-4612-903c-2d218a8273f5"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Leader Facebook Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "0af8639d-312c-46fb-86b8-d0d39b12dc8a",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 14282.18024028397,
-                                                        "y": 30103.593463772308
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 14912.34702816958,
-                                                        "y": 29861.69509782923
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 1,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Leader",
-                                                        "id": "032c5aeb-0ed1-4743-a75c-0a5c29e8b151"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                        ],
-                                                        [
-                                                            "Facebook Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2d71aa9f-b5e7-4078-9622-735a2e56bcbd"
-                                                        ],
-                                                        [
-                                                            "Team Leader",
-                                                            "Position",
-                                                            "Governance",
-                                                            "032c5aeb-0ed1-4743-a75c-0a5c29e8b151"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Member Facebook Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "7f8e12fa-38ed-4b65-944a-29d44b45cda1",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 14295.703844260825,
-                                                        "y": 29587.147863753064
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 14912.34702816958,
-                                                        "y": 29861.69509782923
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Member",
-                                                        "id": "ffc9d3da-704e-4a7d-ba80-4efc68089cdc"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                        ],
-                                                        [
-                                                            "Facebook Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2d71aa9f-b5e7-4078-9622-735a2e56bcbd"
-                                                        ],
-                                                        [
-                                                            "Team Member",
-                                                            "Position",
-                                                            "Governance",
-                                                            "ffc9d3da-704e-4a7d-ba80-4efc68089cdc"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "id": "e5c4e045-00d0-4f56-abe3-9920e0d439b4",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 14912.34702816958,
-                                                "y": 29861.69509782923
-                                            },
-                                            "targetPosition": {
-                                                "x": 15542.513816055192,
-                                                "y": 29619.796731886152
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Facebook Team",
-                                                "id": "2d71aa9f-b5e7-4078-9622-735a2e56bcbd"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Superalgos",
-                                                    "Positions",
-                                                    "Governance",
-                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                ],
-                                                [
-                                                    "Roles Played @ Beta-12",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                ],
-                                                [
-                                                    "Marketing Teams",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                ],
-                                                [
-                                                    "Social Network Teams",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                ],
-                                                [
-                                                    "Facebook Team",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "2d71aa9f-b5e7-4078-9622-735a2e56bcbd"
-                                                ]
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Youtube Team Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [],
-                                        "positionContributionClaims": [
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Creator Julian-Molina Youtube Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "9324cc89-8fac-4630-a2b6-3cd549d67405",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 14295.703844260825,
-                                                        "y": 29587.147863753064
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 14925.870632146436,
-                                                        "y": 29345.249497809986
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Creator Julian-Molina",
-                                                        "id": "54843fbe-b911-4803-9983-6136975bba47"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                        ],
-                                                        [
-                                                            "Youtube Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "36f4fbdf-0c47-4770-b1fc-c01d278a8cd9"
-                                                        ],
-                                                        [
-                                                            "Team Creator Julian-Molina",
-                                                            "Position",
-                                                            "Governance",
-                                                            "54843fbe-b911-4803-9983-6136975bba47"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Leader Youtube Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "67e4f3cd-a31c-46d6-a440-59cde49a271b",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 14309.22744823768,
-                                                        "y": 29070.70226373382
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 14925.870632146436,
-                                                        "y": 29345.249497809986
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Leader",
-                                                        "id": "68462793-d601-45be-97e9-fa8685403179"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                        ],
-                                                        [
-                                                            "Youtube Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "36f4fbdf-0c47-4770-b1fc-c01d278a8cd9"
-                                                        ],
-                                                        [
-                                                            "Team Leader",
-                                                            "Position",
-                                                            "Governance",
-                                                            "68462793-d601-45be-97e9-fa8685403179"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Member Youtube Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "da696100-a3f8-431b-9375-60ee5b8b6af2",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 14683.972266203358,
-                                                        "y": 28715.082709924376
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 14925.870632146436,
-                                                        "y": 29345.249497809986
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Member",
-                                                        "id": "86e8277f-be7a-4e2b-87d5-0945d3e7c541"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                        ],
-                                                        [
-                                                            "Youtube Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "36f4fbdf-0c47-4770-b1fc-c01d278a8cd9"
-                                                        ],
-                                                        [
-                                                            "Team Member",
-                                                            "Position",
-                                                            "Governance",
-                                                            "86e8277f-be7a-4e2b-87d5-0945d3e7c541"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "id": "5d05052c-bab9-4fe2-81be-4fb983655edd",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 14925.870632146436,
-                                                "y": 29345.249497809986
-                                            },
-                                            "targetPosition": {
-                                                "x": 15542.513816055192,
-                                                "y": 29619.796731886152
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Youtube Team",
-                                                "id": "36f4fbdf-0c47-4770-b1fc-c01d278a8cd9"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Superalgos",
-                                                    "Positions",
-                                                    "Governance",
-                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                ],
-                                                [
-                                                    "Roles Played @ Beta-12",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                ],
-                                                [
-                                                    "Marketing Teams",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
-                                                ],
-                                                [
-                                                    "Social Network Teams",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
-                                                ],
-                                                [
-                                                    "Youtube Team",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "36f4fbdf-0c47-4770-b1fc-c01d278a8cd9"
-                                                ]
-                                            ]
-                                        }
                                     }
                                 ],
                                 "positionContributionClaims": [],
                                 "id": "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 15542.513816055192,
-                                        "y": 29619.796731886152
+                                        "x": 3211.719698408134,
+                                        "y": 39158.79673188615
                                     },
                                     "targetPosition": {
-                                        "x": 17072.680603940804,
-                                        "y": 29286.898365943074
+                                        "x": 3841.886486293745,
+                                        "y": 38916.898365943074
                                     },
                                     "floatingObject": {
-                                        "isPinned": true,
+                                        "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 3,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -4042,12 +3452,12 @@
                                                 "id": "98682daa-f84a-421b-9fca-9d63638e2198",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15533.97027247755,
-                                                        "y": 29934.418279421403
+                                                        "x": 2370.176154830493,
+                                                        "y": 39871.41827942141
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15871.47027247755,
-                                                        "y": 29349.851131866908
+                                                        "x": 2707.676154830493,
+                                                        "y": 39286.85113186691
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4107,12 +3517,12 @@
                                                 "id": "29ecf297-25c9-426a-a504-8cd3e477ef8e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15196.47027247755,
-                                                        "y": 29349.851131866908
+                                                        "x": 2032.676154830493,
+                                                        "y": 39286.85113186691
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15871.47027247755,
-                                                        "y": 29349.851131866908
+                                                        "x": 2707.676154830493,
+                                                        "y": 39286.85113186691
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4168,17 +3578,17 @@
                                         "id": "ac2c57bf-25d5-46c5-8a6b-302ca955af5f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 15871.47027247755,
-                                                "y": 29349.851131866908
+                                                "x": 2963.0765144993784,
+                                                "y": 38792.249497809986
                                             },
                                             "targetPosition": {
-                                                "x": 16456.037420032048,
-                                                "y": 29012.351131866908
+                                                "x": 3225.2433023849894,
+                                                "y": 38642.35113186691
                                             },
                                             "floatingObject": {
-                                                "isPinned": false,
+                                                "isPinned": true,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -4234,12 +3644,12 @@
                                                 "id": "9bc70d1c-78b7-48c0-a757-0e640ea36169",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15113.43286128488,
-                                                        "y": 28871.237706455573
+                                                        "x": 1991.9569345674786,
+                                                        "y": 38093.25666371459
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15784.735140658464,
-                                                        "y": 28941.79441916124
+                                                        "x": 2608.600118476234,
+                                                        "y": 38367.80389779075
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4295,17 +3705,17 @@
                                         "id": "aa492878-084a-4dc7-a697-8ecf229825f2",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 15784.735140658464,
-                                                "y": 28941.79441916124
+                                                "x": 2608.600118476234,
+                                                "y": 38367.80389779075
                                             },
                                             "targetPosition": {
-                                                "x": 16456.037420032048,
-                                                "y": 29012.351131866908
+                                                "x": 3225.2433023849894,
+                                                "y": 38642.35113186691
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -4361,12 +3771,12 @@
                                                 "id": "d477afb4-fef7-400b-8990-15407654c4b1",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15280.339726875469,
-                                                        "y": 28596.014743038668
+                                                        "x": 2366.701752533156,
+                                                        "y": 37737.63710990514
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15954.414662834806,
-                                                        "y": 28560.68797257468
+                                                        "x": 2983.3449364419116,
+                                                        "y": 38012.1843439813
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4387,33 +3797,23 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                            "Positions"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Translations Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Team Creator Harrell harrellbm",
-                                                            "Position",
-                                                            "Governance",
-                                                            "fcf22cc9-ab82-4cf4-9f9d-b64f331df7c9"
+                                                            "Position"
                                                         ]
                                                     ]
                                                 }
@@ -4426,12 +3826,12 @@
                                                 "id": "59e4d528-c779-47dd-b06b-2571018f6bab",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15452.791905637565,
-                                                        "y": 28109.024813282453
+                                                        "x": 2741.446570498834,
+                                                        "y": 37382.01755609569
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15954.414662834806,
-                                                        "y": 28560.68797257468
+                                                        "x": 2983.3449364419116,
+                                                        "y": 38012.1843439813
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4452,33 +3852,23 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                            "Positions"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Translations Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Team Leader mARTin1978",
-                                                            "Position",
-                                                            "Governance",
-                                                            "6ed15f3b-1d23-44c3-8e33-25983b433280"
+                                                            "Position"
                                                         ]
                                                     ]
                                                 }
@@ -4491,12 +3881,12 @@
                                                 "id": "641517ae-337b-4dd0-8192-c32e3309ab40",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15919.087892370819,
-                                                        "y": 27886.613036615345
+                                                        "x": 3257.8921705180765,
+                                                        "y": 37395.54116007255
                                                     },
                                                     "targetPosition": {
-                                                        "x": 15954.414662834806,
-                                                        "y": 28560.68797257468
+                                                        "x": 2983.3449364419116,
+                                                        "y": 38012.1843439813
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -4517,33 +3907,23 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                            "Positions"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "Translations Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
+                                                            "Position Class"
                                                         ],
                                                         [
                                                             "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
-                                                            "Position",
-                                                            "Governance",
-                                                            "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
+                                                            "Position"
                                                         ]
                                                     ]
                                                 }
@@ -4552,17 +3932,17 @@
                                         "id": "76278056-b7a7-439b-b5ec-955872cd7b0e",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 15954.414662834806,
-                                                "y": 28560.68797257468
+                                                "x": 2983.3449364419116,
+                                                "y": 38012.1843439813
                                             },
                                             "targetPosition": {
-                                                "x": 16456.037420032048,
-                                                "y": 29012.351131866908
+                                                "x": 3225.2433023849894,
+                                                "y": 38642.35113186691
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -4602,210 +3982,18 @@
                                                 ]
                                             ]
                                         }
-                                    },
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Workspaces Team Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [],
-                                        "positionContributionClaims": [
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Creator Harrell harrellbm Workspaces Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "3faa5fdb-8818-4ada-86c6-c261642b73b4",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 15864.03386943783,
-                                                        "y": 27850.478744174347
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 16315.69702873006,
-                                                        "y": 28352.101501371588
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Creator Harrell harrellbm",
-                                                        "id": "c0d9b98f-069d-48fa-8738-f1c86f397934"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Education Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
-                                                        ],
-                                                        [
-                                                            "Workspaces Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "99c0b7a7-db57-4491-8559-d6d493183534"
-                                                        ],
-                                                        [
-                                                            "Team Creator Harrell harrellbm",
-                                                            "Position",
-                                                            "Governance",
-                                                            "c0d9b98f-069d-48fa-8738-f1c86f397934"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Team Leader PiyanthaK piyanthak Workspaces Team",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "9f87a310-180c-42e8-80cb-d52e3e5efe24",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 16524.28349993315,
-                                                        "y": 27710.13835287236
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 16315.69702873006,
-                                                        "y": 28352.101501371588
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Leader PiyanthaK piyanthak",
-                                                        "id": "94de54da-01db-41a6-a3ab-e7498407790a"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Superalgos",
-                                                            "Positions",
-                                                            "Governance",
-                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                        ],
-                                                        [
-                                                            "Roles Played @ Beta-12",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                        ],
-                                                        [
-                                                            "Education Teams",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
-                                                        ],
-                                                        [
-                                                            "Workspaces Team",
-                                                            "Position Class",
-                                                            "Governance",
-                                                            "99c0b7a7-db57-4491-8559-d6d493183534"
-                                                        ],
-                                                        [
-                                                            "Team Leader PiyanthaK piyanthak",
-                                                            "Position",
-                                                            "Governance",
-                                                            "94de54da-01db-41a6-a3ab-e7498407790a"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "id": "a23ff57a-d19e-41de-91ba-7db2f82d0abf",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 16315.69702873006,
-                                                "y": 28352.101501371588
-                                            },
-                                            "targetPosition": {
-                                                "x": 16456.037420032048,
-                                                "y": 29012.351131866908
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Workspaces Team",
-                                                "id": "99c0b7a7-db57-4491-8559-d6d493183534"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Superalgos",
-                                                    "Positions",
-                                                    "Governance",
-                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                                ],
-                                                [
-                                                    "Roles Played @ Beta-12",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                                ],
-                                                [
-                                                    "Education Teams",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
-                                                ],
-                                                [
-                                                    "Workspaces Team",
-                                                    "Position Class",
-                                                    "Governance",
-                                                    "99c0b7a7-db57-4491-8559-d6d493183534"
-                                                ]
-                                            ]
-                                        }
                                     }
                                 ],
                                 "positionContributionClaims": [],
                                 "id": "d686a7ea-1959-486c-a6f1-da07ff0f7bfe",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 16456.037420032048,
-                                        "y": 29012.351131866908
+                                        "x": 3225.2433023849894,
+                                        "y": 38642.35113186691
                                     },
                                     "targetPosition": {
-                                        "x": 17072.680603940804,
-                                        "y": 29286.898365943074
+                                        "x": 3841.886486293745,
+                                        "y": 38916.898365943074
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4850,12 +4038,12 @@
                         "id": "a481a830-dfa5-443e-9f76-124cabdc1e45",
                         "savedPayload": {
                             "position": {
-                                "x": 17072.680603940804,
-                                "y": 29286.898365943074
+                                "x": 3841.886486293745,
+                                "y": 38916.898365943074
                             },
                             "targetPosition": {
-                                "x": 17702.847391826414,
-                                "y": 29044.999999999996
+                                "x": 4472.053274179356,
+                                "y": 38675
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4897,12 +4085,12 @@
                     "id": "78429ced-c906-4a40-9c84-f3021d1e9d7a",
                     "savedPayload": {
                         "position": {
-                            "x": 17609.287130958422,
-                            "y": 28604.833579669783
+                            "x": 4378.493013311364,
+                            "y": 38234.83357966979
                         },
                         "targetPosition": {
-                            "x": 17702.847391826414,
-                            "y": 29044.999999999996
+                            "x": 4472.053274179356,
+                            "y": 38675
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4920,12 +4108,12 @@
                 "id": "c4a134bd-cb94-4104-b48d-fd7f5601eb37",
                 "savedPayload": {
                     "position": {
-                        "x": 17702.847391826414,
-                        "y": 29044.999999999996
+                        "x": 4472.053274179356,
+                        "y": 38675
                     },
                     "targetPosition": {
-                        "x": 18092.558823529413,
-                        "y": 28819.999999999996
+                        "x": 4861.764705882353,
+                        "y": 38450
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4943,12 +4131,12 @@
             "id": "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33",
             "savedPayload": {
                 "position": {
-                    "x": 18092.558823529413,
-                    "y": 28819.999999999996
+                    "x": 4861.764705882353,
+                    "y": 38450
                 },
                 "targetPosition": {
-                    "x": 18092.558823529413,
-                    "y": 28369.999999999996
+                    "x": 4861.764705882353,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4966,12 +4154,12 @@
         "id": "5daefc7c-340a-4a60-8c5d-884d2e262729",
         "savedPayload": {
             "position": {
-                "x": 18092.558823529413,
-                "y": 28369.999999999996
+                "x": 4861.764705882353,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 17642.558823529413,
-                "y": 28369.999999999996
+                "x": 4411.764705882353,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4993,12 +4181,12 @@
         "id": "057b6d0e-2ae5-4c54-99f2-b6d262bde1b5",
         "savedPayload": {
             "position": {
-                "x": 17342.558823529413,
-                "y": 28369.999999999996
+                "x": 4111.764705882353,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 17642.558823529413,
-                "y": 28369.999999999996
+                "x": 4411.764705882353,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -5016,12 +4204,12 @@
     "id": "501b09ca-778e-479b-98ff-7d2e6e8f2bb8",
     "savedPayload": {
         "position": {
-            "x": 17642.558823529413,
-            "y": 28369.999999999996
+            "x": 4411.764705882353,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 17642.558823529413,
-            "y": 28369.999999999996
+            "x": 4411.764705882353,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": true,

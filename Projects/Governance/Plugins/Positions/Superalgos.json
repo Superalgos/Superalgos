@@ -409,7 +409,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 3,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -2165,7 +2165,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -2927,12 +2927,12 @@
                                             "id": "8bd435fc-ced9-4690-b985-e8071a8878d4",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 20272.306423063244,
-                                                    "y": 44408.16188059625
+                                                    "x": 20274.306423063244,
+                                                    "y": 44402.16188059625
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20532.114044198577,
-                                                    "y": 44558.16188059625
+                                                    "x": 20534.114044198577,
+                                                    "y": 44552.16188059625
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -2952,12 +2952,12 @@
                                     "id": "7a3f7a91-4df9-45bc-bfdb-d02c9410bd42",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20532.114044198577,
-                                            "y": 44558.16188059625
+                                            "x": 20534.114044198577,
+                                            "y": 44552.16188059625
                                         },
                                         "targetPosition": {
-                                            "x": 20791.92166533391,
-                                            "y": 44708.16188059625
+                                            "x": 20793.92166533391,
+                                            "y": 44702.16188059625
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -2988,12 +2988,12 @@
                                             "id": "9d78dfb8-8f70-4478-ab46-13978d642304",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 20636.630238272395,
-                                                    "y": 44128.60638482281
+                                                    "x": 20638.630238272395,
+                                                    "y": 44122.60638482281
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20714.275951803153,
-                                                    "y": 44418.38413270953
+                                                    "x": 20716.275951803153,
+                                                    "y": 44412.38413270953
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3013,12 +3013,12 @@
                                     "id": "62046cd6-4576-4ca7-ad67-302458dd617e",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20714.275951803153,
-                                            "y": 44418.38413270953
+                                            "x": 20716.275951803153,
+                                            "y": 44412.38413270953
                                         },
                                         "targetPosition": {
-                                            "x": 20791.92166533391,
-                                            "y": 44708.16188059625
+                                            "x": 20793.92166533391,
+                                            "y": 44702.16188059625
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3049,12 +3049,12 @@
                                             "id": "e97d5b5b-bf6f-4e68-9485-f527976d09c1",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 20981.079522999924,
-                                                    "y": 44150.92080104877
+                                                    "x": 20983.079522999924,
+                                                    "y": 44144.92080104877
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20941.92166533391,
-                                                    "y": 44448.35425946092
+                                                    "x": 20943.92166533391,
+                                                    "y": 44442.35425946092
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3079,12 +3079,12 @@
                                             "id": "89eee7fc-9472-48ce-b59d-6830208c7a7b",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21091.92166533391,
-                                                    "y": 44188.546638325584
+                                                    "x": 21093.92166533391,
+                                                    "y": 44182.546638325584
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20941.92166533391,
-                                                    "y": 44448.35425946092
+                                                    "x": 20943.92166533391,
+                                                    "y": 44442.35425946092
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3101,7 +3101,7 @@
                                         },
                                         {
                                             "type": "Position",
-                                            "name": "Team Member",
+                                            "name": "4 Team Members @gustavohcorradi @gitforkgit @Soligann_Prepheadrus",
                                             "config": "{}",
                                             "project": "Governance",
                                             "positions": [],
@@ -3109,12 +3109,12 @@
                                             "id": "3fb8793e-5bea-4d0f-8e04-80fed71911e3",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 21179.92766742128,
-                                                    "y": 44265.7258307583
+                                                    "x": 21181.92766742128,
+                                                    "y": 44259.7258307583
                                                 },
                                                 "targetPosition": {
-                                                    "x": 20941.92166533391,
-                                                    "y": 44448.35425946092
+                                                    "x": 20943.92166533391,
+                                                    "y": 44442.35425946092
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3134,12 +3134,12 @@
                                     "id": "9a30cf3a-1f96-4f43-836b-522e856f28ef",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20941.92166533391,
-                                            "y": 44448.35425946092
+                                            "x": 20943.92166533391,
+                                            "y": 44442.35425946092
                                         },
                                         "targetPosition": {
-                                            "x": 20791.92166533391,
-                                            "y": 44708.16188059625
+                                            "x": 20793.92166533391,
+                                            "y": 44702.16188059625
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3168,7 +3168,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -3192,7 +3192,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0

@@ -63,7 +63,7 @@ exports.newPortfolioManagementBotModulesPortfolioStrategy = function (processInd
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Portfolio Engine data structure.
         */
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngine.portfolioCurrent.strategy, portfolioEngine.portfolioLast.strategy)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngine.portfolioCurrent.strategy, portfolioEngine.portfolioLast.strategy)
     }
 
     function updateEnds() {
@@ -75,7 +75,7 @@ exports.newPortfolioManagementBotModulesPortfolioStrategy = function (processInd
 
     function resetPortfolioEngineDataStructure() {
         if (portfolioEngine.portfolioCurrent.strategy.status.value === 'Closed') {
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.portfolioCurrent.strategy)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.portfolioCurrent.strategy)
         }
     }
 

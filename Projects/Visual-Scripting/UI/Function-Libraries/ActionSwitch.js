@@ -50,6 +50,10 @@ function newVisualScriptingActionSwitch() {
                 UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
+            case 'Syncronize Portfolio Sessions': {
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd()
+            }
+                break
             case 'Syncronize Learning Sessions': {
                 UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
             }

@@ -270,15 +270,18 @@ function newFoundationsFloatingSpace() {
 
         /* Exceptions that are never considered far. */
         if (
-            payload.node.type === 'Trading System' ||
-            payload.node.type === 'Learning System' ||
-            payload.node.type === 'Trading Engine' ||
-            payload.node.type === 'Learning Engine' ||
-            payload.node.type === 'LAN Network' ||
-            payload.node.type === 'Crypto Ecosystem' ||
-            payload.node.type === 'Charting Space' ||
-            payload.node.type === 'Data Mine' ||
-            payload.node.type === 'Trading Mine' ||
+            payload.node.type === 'Trading System'      ||
+            payload.node.type === 'Portfolio System'    ||
+            payload.node.type === 'Learning System'     ||
+            payload.node.type === 'Trading Engine'      ||
+            payload.node.type === 'Portfolio Engine'    ||
+            payload.node.type === 'Learning Engine'     ||
+            payload.node.type === 'LAN Network'         ||
+            payload.node.type === 'Crypto Ecosystem'    ||
+            payload.node.type === 'Charting Space'      ||
+            payload.node.type === 'Data Mine'           ||
+            payload.node.type === 'Trading Mine'        ||
+            payload.node.type === 'Portfolio Mine'      ||
             payload.node.type === 'Learning Mine'
         ) {
             return false

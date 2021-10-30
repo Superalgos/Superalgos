@@ -295,7 +295,7 @@ exports.newPortfolioManagementBotModulesPortfolioStages = function (processIndex
                 let portfolioEngineStage = portfolioEngine.portfolioCurrent.strategyOpenStage
 
                 /* Reset the Exchange Orders data structure to its initial value */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.exchangeOrders)
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.exchangeOrders)
 
                 /* Entry Position size and rate */
                 portfolioSystem.evalFormulas(portfolioSystemStage, 'Initial Targets')
@@ -1231,7 +1231,7 @@ exports.newPortfolioManagementBotModulesPortfolioStages = function (processIndex
             resetStage(portfolioEngine.portfolioCurrent.strategyCloseStage)
         }
         function resetStage(stage) {
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(stage)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initializeNode(stage)
         }
     }
 

@@ -44,6 +44,11 @@
                 "text": "Superalgos ermöglicht es, den Client auf einem Rechner auszuführen und über den Browser von einem anderen Rechner im Netzwerk darauf zuzugreifen.",
                 "updated": 1634160581763,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, İstemciyi bir makinede çalıştırmaya ve ağdaki başka bir makineden tarayıcı aracılığıyla ona erişmeye izin verir.",
+                "updated": 1635577594164
             }
         ],
         "updated": 1616410688496
@@ -86,7 +91,13 @@
                 {
                     "language": "DE",
                     "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputern wie dem Raspberry Pi oder auf einem eigenen PC auszuführen, den sie beim Live-Handel immer eingeschaltet lassen können. Der My Computer Network Node stellt den Rechner dar, auf dem der Client ausgeführt wird.",
-                    "updated": 1634168869002
+                    "updated": 1634168869002,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Birçok kullanıcı İstemciyi ( Client ) bulutta, Raspberry Pi gibi makinelerde veya canlı işlem yaparken her zaman açık bırakabilecekleri özel bir bilgisayarda çalıştırmayı tercih eder. Bilgisayarım Ağ Düğümü ( Node ), İstemcinin ( Client ) üzerinde çalıştığı makineyi temsil eder.",
+                    "updated": 1635578604315
                 }
             ]
         },
@@ -124,6 +135,11 @@
                     "text": "Superalgos hat derzeit keine Form der Sicherheit implementiert. Sie sollten das System nur im Rahmen eines beschränkten LANs verwenden. Wenn Sie sich dafür entscheiden, den Client in der Cloud laufen zu lassen, müssen Sie Ihre eigene Sicherheit implementieren.",
                     "updated": 1634160832892,
                     "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu aşamada Superalgos herhangi bir güvenlik şekli uygulamamaktadır. Sistemi yalnızca kısıtlı bir Yerel Alan Ağı bağlamında kullanmalısınız. İstemciyi bulutta çalıştırmayı seçtiyseniz, kendi güvenliğinizi uygulamanız gerekir.",
+                    "updated": 1635578525124
                 }
             ]
         }

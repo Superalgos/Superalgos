@@ -137,7 +137,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -863,14 +863,74 @@
                                 "config": "{}",
                                 "project": "Governance",
                                 "claimVotesSwitch": [],
-                                "positionClaimVotes": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "EvaMaria70 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "52d4be66-7380-4f30-9ebb-d3af356e54ff",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 26920.58823529412,
+                                                "y": 33459.80762113533
+                                            },
+                                            "targetPosition": {
+                                                "x": 26920.58823529412,
+                                                "y": 33759.80762113533
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "EvaMaria70",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
                                 "assetClaimVotes": [],
                                 "featureClaimVotes": [],
                                 "id": "8db18298-8dda-445c-95ad-a9e88a9ec6d1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 27070.58823529412,
-                                        "y": 33800
+                                        "x": 26920.58823529412,
+                                        "y": 33759.80762113533
                                     },
                                     "targetPosition": {
                                         "x": 26920.58823529412,
@@ -890,20 +950,114 @@
                                 }
                             }
                         ],
-                        "weightVotesSwitch": [],
+                        "weightVotesSwitch": [
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "New Weight Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Non-Tech-Users Community Team Team Leader",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "5b8b92d0-1df5-45f1-9ae7-75c87a8302db",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 27520.58823529412,
+                                                "y": 34059.80762113533
+                                            },
+                                            "targetPosition": {
+                                                "x": 27220.58823529412,
+                                                "y": 34059.80762113533
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Team Leader",
+                                                "id": "89eee7fc-9472-48ce-b59d-6830208c7a7b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Other Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Community Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Non-Tech-Users Community Team",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Team Leader",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "37a9c875-a9bc-4ab1-a00e-f248f818f311",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 27220.58823529412,
+                                        "y": 34059.80762113533
+                                    },
+                                    "targetPosition": {
+                                        "x": 26920.58823529412,
+                                        "y": 34059.80762113533
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
                         "userProfileVotesSwitch": [
                             {
                                 "type": "User Profile Votes Switch",
                                 "name": "New User Profile Votes Switch",
-                                "config": "{}",
+                                "config": "{\"percentage\": 0}",
                                 "project": "Governance",
                                 "userProfileVotesSwitch": [],
                                 "userProfileVote": [],
                                 "id": "e8e3f63a-b9fb-47d7-8fc9-c0634a0f2425",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 27070.58823529412,
-                                        "y": 34319.615242270665
+                                        "x": 26920.58823529412,
+                                        "y": 34359.80762113533
                                     },
                                     "targetPosition": {
                                         "x": 26920.58823529412,
@@ -954,8 +1108,8 @@
                     "id": "1e334525-2ffb-4808-bc7c-9e621cee282f",
                     "savedPayload": {
                         "position": {
-                            "x": 26570.58823529412,
-                            "y": 34146.41016151378
+                            "x": 26545.58823529412,
+                            "y": 34189.711431703
                         },
                         "targetPosition": {
                             "x": 26620.58823529412,
@@ -966,7 +1120,7 @@
                             "isFrozen": false,
                             "isCollapsed": false,
                             "angleToParent": 1,
-                            "distanceToParent": 1,
+                            "distanceToParent": 2,
                             "arrangementStyle": 0
                         },
                         "uiObject": {
@@ -1000,7 +1154,7 @@
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
-                "config": "{}",
+                "config": "{\"percentage\": 70}",
                 "project": "Governance",
                 "assetClaimsFolders": [],
                 "featureClaimsFolders": [],

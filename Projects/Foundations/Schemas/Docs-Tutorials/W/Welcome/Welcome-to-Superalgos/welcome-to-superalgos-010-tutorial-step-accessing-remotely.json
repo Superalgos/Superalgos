@@ -42,7 +42,13 @@
             {
                 "language": "DE",
                 "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen!",
-                "updated": 1634161773115
+                "updated": 1634161773115,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Если Вы получаете доступ к Client с того же самого устройства, то можете кликнуть на кнопку Next и пропустить этот шаг на этом этапе.",
+                "updated": 1635581922558
             }
         ]
     },
@@ -84,7 +90,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Netzwerkknoten-konfiguration anpassen, bevor Sie fortfahren.",
-                    "updated": 1634161862309
+                    "updated": 1634161862309,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если Вы работаете на машине удаленно, то необходимо отрегулировать конфигурацию the Network Node перед тем, как Вы продолжите.",
+                    "updated": 1635517885096
                 }
             ]
         },
@@ -132,13 +144,19 @@
                 {
                     "language": "DE",
                     "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Netzwerkknoten-Menüs.",
-                    "updated": 1634161879485
+                    "updated": 1634161879485,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Configure в правом верхнем углу в меню the Network Node;",
+                    "updated": 1635517953808
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" config parameter.",
+            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss://mydomain.com:443\" config parameter.",
             "translations": [
                 {
                     "language": "ID",
@@ -160,7 +178,7 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" dans les paramètres de configuration ",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss://mydomain.com:443\" dans les paramètres de configuration ",
                     "updated": 1623958474738,
                     "style": "List"
                 },
@@ -173,7 +191,8 @@
                 {
                     "language": "DE",
                     "text": "Ändern Sie den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.",
-                    "updated": 1634161891685
+                    "updated": 1634161891685,
+                    "style": "List"
                 }
             ]
         },
@@ -220,7 +239,13 @@
                 {
                     "language": "DE",
                     "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
-                    "updated": 1634161900103
+                    "updated": 1634161900103,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выйдите из конфигурации, убрав указатель мыши из пузырька конфигурации! Если конфигурация происходит верно, то сообщение об ошибке в  Network Node должно исчезнуть через минуту!",
+                    "updated": 1635581935285
                 }
             ]
         }

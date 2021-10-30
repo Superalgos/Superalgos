@@ -36,7 +36,14 @@
             {
                 "language": "DE",
                 "text": "Der Knoten Data Tasks steuert alle für diesen Netzwerkknoten definierten Data-Mining-Aufgaben.",
-                "updated": 1634162078401
+                "updated": 1634162078401,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для Network Node.",
+                "updated": 1635611514856,
+                "style": "Definition"
             }
         ]
     },
@@ -72,7 +79,14 @@
                 {
                     "language": "DE",
                     "text": "Sie sind dabei, die erste der folgenden Aktivitäten zu starten, die wir in den nächsten Minuten behandeln werden:",
-                    "updated": 1634162092086
+                    "updated": 1634162092086,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь Вы готовы приступить к первому из следующих действий, которые мы рассмотрим через несколько минут:",
+                    "updated": 1635582572477,
+                    "style": "Text"
                 }
             ]
         },
@@ -107,7 +121,14 @@
                 {
                     "language": "DE",
                     "text": "Starten Sie eine Data-Mining-Operation, um Daten für den BTC/USDT Market von Binance zu erhalten.",
-                    "updated": 1634162101738
+                    "updated": 1634162101738,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Run a data mining, чтобы получить данны BTC/USDT Market от Binance.",
+                    "updated": 1635583091531,
+                    "style": "List"
                 }
             ],
             "updated": 1616414602356
@@ -143,7 +164,13 @@
                 {
                     "language": "DE",
                     "text": "Führen Sie eine Backtesting Session mit einer bestehenden Open-Source-Strategie durch.",
-                    "updated": 1634162110500
+                    "updated": 1634162110500,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Run a Backtesting Session с использованием существующей стратегии с открытым исходным кодом.",
+                    "updated": 1635583981313
                 }
             ],
             "updated": 1616414607531
@@ -179,7 +206,13 @@
                 {
                     "language": "DE",
                     "text": "Führen Sie eine Live Trading Session mit minimalen Mitteln durch, um die kritischen Aspekte des Systems zu testen.",
-                    "updated": 1634162119027
+                    "updated": 1634162119027,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Run a Live Trading Session с минимальными средствами, чтобы проверить критические аспекты системы.",
+                    "updated": 1635584028882
                 }
             ],
             "updated": 1616414612909
@@ -215,7 +248,13 @@
                 {
                     "language": "DE",
                     "text": "Sind Sie damit einverstanden? Sollen wir anfangen?",
-                    "updated": 1634162125495
+                    "updated": 1634162125495,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вас это устраивает? Мы можем начать?",
+                    "updated": 1635584052704
                 }
             ]
         }

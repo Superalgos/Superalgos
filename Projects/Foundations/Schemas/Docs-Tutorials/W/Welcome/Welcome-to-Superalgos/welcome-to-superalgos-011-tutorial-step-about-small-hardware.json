@@ -49,7 +49,13 @@
             {
                 "language": "DE",
                 "text": "Minimale Rechner wie der Raspberry Pi können mit dem Superalgos-Client umgehen, um Daten- oder Handelsaufgaben auszuführen. Einige Prozesse sind jedoch möglicherweise zu groß für effektives arbeiten!",
-                "updated": 1634161449946
+                "updated": 1634161449946,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "В то время как минималистическое аппаратное устройство, такое как Raspberry Pi, может обрабатывать Superalgos Client для выполнения как данных, так и торговых задач, некоторые из них могут быть слишком малы для активной работы.",
+                "updated": 1635581958903
             }
         ]
     },
@@ -92,7 +98,13 @@
                 {
                     "language": "DE",
                     "text": "Der Kerngedanke hinter dem Betrieb des Clients auf kleiner physischer oder virtueller Hardware ist die Maximierung der Kosteneffizienz. In solchen Kontexten wird die Benutzeroberfläche auf ein Minimum reduziert.",
-                    "updated": 1634161727057
+                    "updated": 1634161727057,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Основная идея, лежащая в основе запуска Клиента на небольшом физическом или виртуальном устройстве, заключается в максимилизации эффективности затрат при развертывании в производствнных условиях. В таких контекстах UI используется по минимуму.",
+                    "updated": 1635581983754
                 }
             ]
         },
@@ -140,7 +152,13 @@
                 {
                     "language": "DE",
                     "text": "Wir empfehlen zu erlernen von Superalgos einen ausreichend großen Computer. Wenn Sie feststellen, dass dieses Tutorials zu langsam ist, sollten Sie die Installation auf normaler Hardware in Erwägung ziehen, bis Sie das System erlernt haben, Ihre ersten Strategien erstellt haben und bereit sind, es einzusetzen. Andernfalls kann es frustrierend sein.",
-                    "updated": 1634161690929
+                    "updated": 1634161690929,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы настоятельно рекомендуем изучать Superalgos на полномасштабном устройстве во время работы. Если Вы заметили, что Ваше оборудование работает слишком медленно во время этого ознакомления с системой, рассмотрите возможность установки ее на обычное оборудование, пока Вы не изучите систему, не разработаете свои первые стратегии и не будете готовы к развитию. В обратном случае, Вы можете разочароваться.",
+                    "updated": 1635581399970
                 }
             ]
         }

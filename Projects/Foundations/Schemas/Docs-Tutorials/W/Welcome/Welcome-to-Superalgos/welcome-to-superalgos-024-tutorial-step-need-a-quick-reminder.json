@@ -36,7 +36,13 @@
             {
                 "language": "NL",
                 "text": "Op dit punt, overspoel ik waarschijnlijk je hippocampus! Maak je geen zorgen... je kan teruggaan naar elke vorige stap!",
-                "updated": 1635181798322
+                "updated": 1635181798322,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "В этот момент я, вероятно, перезагружаю Ваш мозг. Но не волнуйтесь... Вы можете вернуться к любому предыдущему шагу.",
+                "updated": 1635611688610
             }
         ]
     },
@@ -72,7 +78,13 @@
                 {
                     "language": "NL",
                     "text": "Heb je een reminder nodig over deze onderwerpen?",
-                    "updated": 1635181965170
+                    "updated": 1635181965170,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если Вам когда-нибудь понадобится напоминание по любой из этих тем...",
+                    "updated": 1635611733808
                 }
             ]
         },
@@ -107,7 +119,13 @@
                 {
                     "language": "NL",
                     "text": "Vind een Tutorial Topic en speel het af! Je kan mij in de linkerbenedenhoek van de ontwerpruimte, vouw mij uit en loop door de hiërarchie van onderwerpen en stappen, kies je onderwerp en klik op Play. Onderwerpen zijn gerangschikt met de klok mee, startend rechts van de hoofdknoop van de Tutorial.",
-                    "updated": 1635182170565
+                    "updated": 1635182170565,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите Tutorial Topic и повторите ее! Вы можете найти меня в левом нижнем углу пространства дизайна, развернуть, просмотреть иерархию тем и шагов и нажать Play на любом шаге или теме. Темы расположены по часовой стрелке, начиная с правой стороны главного узла Tutorial.",
+                    "updated": 1635612033411
                 }
             ]
         },
@@ -143,7 +161,13 @@
                 {
                     "language": "NL",
                     "text": "\"Need a Quick Reminder?\" Vind deze stap onder het \"Tutorials & Help\" onderwerp. Klik dan op Stop en herstart door op Play te klikken van de Tutorial Step!",
-                    "updated": 1635182294956
+                    "updated": 1635182294956,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "\"Нужно быстрое напоминание?\" Найдите этот шаг в разделе \"Tutorials & Help\" - ниже. Затем нажмите Stop и перезапустите, нажав Play на указанном Tutorial Step!",
+                    "updated": 1635612228869
                 }
             ]
         }

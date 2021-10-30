@@ -1,7 +1,14 @@
 {
     "type": "Tutorial Topic",
     "definition": {
-        "text": "A tutorial topic is an organizational device that helps to keep tutorial step nodes arranged in a logical hierarchy by topics and subtopics."
+        "text": "A tutorial topic is an organizational device that helps to keep tutorial step nodes arranged in a logical hierarchy by topics and subtopics.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Учебная тема - это организационное устройство, которое помогает упорядочивать узлы этапов обучения в логической иерархии по темам и подтемам.",
+                "updated": 1635612097339
+            }
+        ]
     },
     "paragraphs": [
         {

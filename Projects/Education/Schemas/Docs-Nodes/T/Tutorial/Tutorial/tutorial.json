@@ -13,7 +13,13 @@
             {
                 "language": "DE",
                 "text": "Die Tutorial-Hierarchie besteht aus einer freien Anordnung von Tutorial Topic (Themen) und Tutorial Step nodes (Schritten), die ein Tutorial ausmachen. Jede node in der Hierarchie, einschließlich des übergeordneten Tutorial-nodes, stellt eine HTML-Seite dar, die sowohl über dem Design Space als auch dem Charting Space eingeblendet werden kann. Übersetzt ins deutsche von gitforkgit.",
-                "updated": 1633975790458
+                "updated": 1633975790458,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия данного пособия содержит свободное расположение Tutorial Topic и узлов Tutorial Step, которые вместе составляют это учебное пособие. Каждый узел в иерархии, включая родительский узел пособия, представляет собой HTML-страницу, которая может быть наложена поверх Design Space и Charting Space.",
+                "updated": 1635509527381
             }
         ]
     },
@@ -30,7 +36,8 @@
                 {
                     "language": "DE",
                     "text": "Die Nodes in der Hierarchie können frei angeordnet werden, das heißt es können beliebig viele Tutorial-Themen (topic) und Tutorial-Steps vorhanden sein. Tutorial Themen können Tutorial Schritte aber auch andere Tutorial Themen enthalten. Dies erlaubt es verschachtelte Themen als Unterthemen verwendet werden.",
-                    "updated": 1633975991952
+                    "updated": 1633975991952,
+                    "style": "Text"
                 }
             ]
         },
@@ -42,7 +49,8 @@
                 {
                     "language": "DE",
                     "text": "Das System wertet die Hierarchie - wie üblich - im Uhrzeigersinn aus, beginnend mit dem Knoten rechts vom übergeordneten Tutorial-Knoten, zum tiefsten Knoten jedes Zweigs geht, bevor es zum nächsten geht.",
-                    "updated": 1633976627129
+                    "updated": 1633976627129,
+                    "style": "Text"
                 }
             ]
         },
@@ -54,7 +62,8 @@
                 {
                     "language": "DE",
                     "text": "Im Allgemeinen verhalten sich alle nodes ähnlich in dem Sinne, dass jede node, unabhängig vom genauen Typ, für sich genommen einen Lernschritt darstellt. Das heißt, alle nodes, einschließlich der obersten Tutorial-node, der Tutorial Topic node und der Tutorial Step node können eine Inhaltsseite als Schritt im Tutorial anzeigen. Feinere Unterschiede sind gegebenenfalls hervorzuheben.",
-                    "updated": 1633976586338
+                    "updated": 1633976586338,
+                    "style": "Callout"
                 }
             ]
         },
@@ -66,7 +75,8 @@
                 {
                     "language": "DE",
                     "text": "Die wichtigste Gemeinsamkeit aller Knotentypen in der Hierarchie ist, dass sie alle Inhalte aus der Sammlung der Dokumentseiten des Tutorials beziehen können. Das heißt, jeder Knoten in der Hierarchie zeigt auf eine Docs Page (Dokumentationsseite), und es ist diese Seite in den Dokumenten, die den Inhalt für den gegebenen Schritt anzeigt. Der Zeiger wird in der Konfiguration jedes Knotens angegeben (siehe die Eigenschaft docs).",
-                    "updated": 1633976778899
+                    "updated": 1633976778899,
+                    "style": "Note"
                 }
             ]
         },
@@ -82,7 +92,8 @@
                 {
                     "language": "DE",
                     "text": "Tutorial Konfiguration",
-                    "updated": 1633976794872
+                    "updated": 1633976794872,
+                    "style": "Title"
                 }
             ]
         },
@@ -94,7 +105,8 @@
                 {
                     "language": "DE",
                     "text": "Die Konfiguration jedes Knotens in der Tutorial-Hierarchie bestimmt den Inhalt und das Verhalten der einzelnen Schritte. Alle node-typen haben die gleiche Grundkonfiguration. Tutorial Step nodes haben jedoch zusätzliche Eigenschaften, die auf der Seite \" Tutorial Step nodes \" beschrieben werden.",
-                    "updated": 1633977045116
+                    "updated": 1633977045116,
+                    "style": "Text"
                 }
             ]
         },
@@ -106,7 +118,8 @@
                 {
                     "language": "DE",
                     "text": "Die auf dieser Seite beschriebenen Konfigurationseigenschaften gelten für alle Arten von Nodes in der Hierarchie.",
-                    "updated": 1633977077545
+                    "updated": 1633977077545,
+                    "style": "Success"
                 }
             ]
         },
@@ -118,7 +131,8 @@
                 {
                     "language": "DE",
                     "text": "Das Layout der HTML-Seite folgt dem Layout der zugehörigen Seite in den Docs, wird aber innerhalb der Grenzen des Tutorial-Fensters angezeigt.",
-                    "updated": 1633977110132
+                    "updated": 1633977110132,
+                    "style": "Text"
                 }
             ]
         },
@@ -130,7 +144,8 @@
                 {
                     "language": "DE",
                     "text": "Mit anderen Worten beeinflussen Sie das Layout des jeweiligen Schritts, indem Sie Inhalte schreiben und Stile auf einzelne Absätze in der zugehörigen Docs-Page anwenden.",
-                    "updated": 1633977352460
+                    "updated": 1633977352460,
+                    "style": "Callout"
                 }
             ]
         },
@@ -142,7 +157,8 @@
                 {
                     "language": "DE",
                     "text": "Die HTML / Tutorial -Seite verfügt über einen begrenzten Platz und unterstützt kein Scrollen. Wenn zu viele Informationen in der zugehörigen Docs Page definiert werden, übersteigt der resultierende Inhalt den verfügbaren Platz im Tutorial-Fenster. Es gibt keine systemseitige Kontrolle, um mit solchen Text-Überläufen (in den Tutorial fenstern) umzugehen, so dass es an Ihnen liegt, die Informationen auf mehrere Schritte zu verteilen und jede Seite innerhalb ihrer Grenzen zu halten.",
-                    "updated": 1633977528479
+                    "updated": 1633977528479,
+                    "style": "Note"
                 }
             ]
         },
@@ -154,7 +170,8 @@
                 {
                     "language": "DE",
                     "text": "Eigenschaften der Konfiguration",
-                    "updated": 1633977545673
+                    "updated": 1633977545673,
+                    "style": "Title"
                 }
             ]
         },
@@ -171,7 +188,8 @@
                 {
                     "language": "DE",
                     "text": "Das Eigenschaftssymbol benötigt zwei Definitionen:",
-                    "updated": 1633977572877
+                    "updated": 1633977572877,
+                    "style": "Text"
                 }
             ]
         },
@@ -182,7 +200,8 @@
                 {
                     "language": "DE",
                     "text": "Der \"name\" des Symbols ohne die Erweiterung;",
-                    "updated": 1633977609627
+                    "updated": 1633977609627,
+                    "style": "List"
                 }
             ]
         },
@@ -193,7 +212,8 @@
                 {
                     "language": "DE",
                     "text": "Das \"project\", zu dem das Symbol gehört.",
-                    "updated": 1633977635502
+                    "updated": 1633977635502,
+                    "style": "List"
                 }
             ]
         },
@@ -204,7 +224,8 @@
                 {
                     "language": "DE",
                     "text": "Zu Ihrer Information: Die Icons (Symbole) werden unter folgendem Pfad gespeichert:",
-                    "updated": 1633977674577
+                    "updated": 1633977674577,
+                    "style": "Text"
                 }
             ]
         },
@@ -221,7 +242,8 @@
                 {
                     "language": "DE",
                     "text": "Verwenden Sie die vorhandene Sammlung von Icons (Symbolen), um jeden Schritt des Tutorials zu illustrieren. Diese Illustrationen tragen sehr viel zu einer überzeugenderen Kommunikation bei.",
-                    "updated": 1633977745001
+                    "updated": 1633977745001,
+                    "style": "Success"
                 }
             ]
         },
@@ -233,7 +255,8 @@
                 {
                     "language": "DE",
                     "text": "Wenn die Konfiguration vorhanden ist, wird das Symbol in einer Tabelle neben dem Textblock platziert, der das Definitionsfeld der zugehörigen Docs Page bildet. Wenn kein Symbol vorhanden ist, nimmt die Definition die gesamte Breite der Seite ein.",
-                    "updated": 1633977797138
+                    "updated": 1633977797138,
+                    "style": "Text"
                 }
             ]
         },
@@ -250,7 +273,8 @@
                 {
                     "language": "DE",
                     "text": "Die obige Konfiguration platziert das Symbol balance.png des Superalgos-Projekts in der Tabelle der entsprechenden Docs-Seite (siehe die docs Eigenschaft unten).",
-                    "updated": 1633977851249
+                    "updated": 1633977851249,
+                    "style": "Text"
                 }
             ]
         },
@@ -267,7 +291,8 @@
                 {
                     "language": "DE",
                     "text": "Die Eigenschaft \"position\" bestimmt die Position des fließenden HTML-Dokuments (Tutorial-Fensters). Es gibt drei Alternativen... \"Links\", \"Rechts\", oder lassen Sie das Feld leer, um die Seite in der Mitte des Bildschirms zu positionieren.",
-                    "updated": 1633977968939
+                    "updated": 1633977968939,
+                    "style": "Text"
                 }
             ]
         },
@@ -284,7 +309,8 @@
                 {
                     "language": "DE",
                     "text": "Bei der obigen Konfiguration befindet sich das Tutorial-Fenster auf der linken Seite des Bildschirms.",
-                    "updated": 1633978012441
+                    "updated": 1633978012441,
+                    "style": "Text"
                 }
             ]
         },
@@ -300,7 +326,8 @@
                 {
                     "language": "DE",
                     "text": "Die Eigenschaft slider bestimmt die Position des horizontalen Schiebereglers. Es gibt drei Alternativen... \"toTop\", \"toBottom\", \"toMiddle\".",
-                    "updated": 1633978051324
+                    "updated": 1633978051324,
+                    "style": "Text"
                 }
             ]
         },
@@ -331,7 +358,8 @@
                 {
                     "language": "DE",
                     "text": "Mit der Eigenschaft pressButton können Sie das Tutorial zwangsweise \"anhalten\", zum \"nächsten\" Schritt gehen, zum \"vorherigen\" Schritt gehen oder einen Schritt \"überspringen\". Wenn ein Schritt geladen wird und eine dieser Optionen in dieser Eigenschaft konfiguriert ist, wird die Aktion sofort ausgeführt.",
-                    "updated": 1633978127988
+                    "updated": 1633978127988,
+                    "style": "Text"
                 }
             ]
         },
@@ -343,7 +371,8 @@
                 {
                     "language": "DE",
                     "text": "Eine häufige Verwendung dieser Funktion ist das Überspringen eines Schrittes, z.B. einer Tutorial-topic-node, die ausschließlich für organisatorische Zwecke innerhalb der Hierarchie verwendet wird und daher keinen Inhalt hat. Lassen Sie das Feld leer, damit der Schritt auf die übliche Weise abgespielt wird.",
-                    "updated": 1633978359504
+                    "updated": 1633978359504,
+                    "style": "Note"
                 }
             ]
         },
@@ -360,7 +389,8 @@
                 {
                     "language": "DE",
                     "text": "Die obige Konfiguration führt den Benutzer zum nächsten Schritt des Tutorials, ohne dass der Inhalt der betreffenden node angezeigt wird.",
-                    "updated": 1633978461463
+                    "updated": 1633978461463,
+                    "style": "Text"
                 }
             ]
         },
@@ -372,7 +402,8 @@
                 {
                     "language": "DE",
                     "text": "Sie können Tutorial Topic nodes nur zu organisatorischen Zwecken verwenden, z.B. um die Hierarchie so anzuordnen, dass sie einfach zu lesen und zu pflegen ist. Themen mit zu vielen Schritten sind später schwieriger zu handhaben. Mit anderen Worten: Sie können einen Tutorial Topic node verwenden, um mehrere Schritte zu gruppieren, auch wenn Sie nicht beabsichtigen, dass die Tutorial Topic node irgendeinen Inhalt anzeigt. In solchen Fällen können Sie diese Eigenschaft verwenden, um den Schritt zu überspringen, der nicht für die Anzeige von Inhalten vorgesehen ist.",
-                    "updated": 1633979074457
+                    "updated": 1633979074457,
+                    "style": "Success"
                 }
             ]
         },
@@ -389,7 +420,8 @@
                 {
                     "language": "DE",
                     "text": "Die docs-Eigenschaft wird verwendet, um auf die Docs Tutorial Page zu verweisen, die den Inhalt für den jeweiligen Tutorial-Schritt liefert. Die Definition erfordert den Namen des Project (Projekts), die Docs Page Category (Kategorie) welche immer \"Tutorial\" ist, und den vollständigen Namen der Docs Page, das heißt den \"Typ\", wie in der JSON-Datei angegeben.",
-                    "updated": 1633979212224
+                    "updated": 1633979212224,
+                    "style": "Text"
                 }
             ]
         },
@@ -410,7 +442,8 @@
                 {
                     "language": "DE",
                     "text": "Die Eigenschaft wird verwendet, um das Verhalten des Docs-Panels zu steuern. Innerhalb von controlDocs sind mehrere Eigenschaften verfügbar, die alle optional sind. Sehen wir uns jede im Detail an.",
-                    "updated": 1633979296433
+                    "updated": 1633979296433,
+                    "style": "Text"
                 }
             ]
         },
@@ -422,7 +455,8 @@
                 {
                     "language": "DE",
                     "text": "Die Panel-Eigenschaft kann auf \"Öffnen\" oder \"Schließen\" eingestellt werden. Diese Eigenschaft steuert die Registerkarte, mit der Sie das Doku-Panel in einem Schritt öffnen und in einem anderen Schritt wieder schließen können, wenn es nicht mehr benötigt wird.",
-                    "updated": 1633979356912
+                    "updated": 1633979356912,
+                    "style": "Text"
                 }
             ]
         },
@@ -443,7 +477,8 @@
                 {
                     "language": "DE",
                     "text": "Wenn das Docs Panel geschlossen ist, sind die restlichen Eigenschaften irgendwie irrelevant. Wenn das Docs-Panel jedoch geöffnet ist, steuern die restlichen Eigenschaften, was im Docs-Panel angezeigt wird.",
-                    "updated": 1633979402232
+                    "updated": 1633979402232,
+                    "style": "Success"
                 }
             ]
         },
@@ -455,7 +490,8 @@
                 {
                     "language": "DE",
                     "text": "Die Eigenschaft closeTutorialEditor kann den Docs-Editor ein- und ausschalten. Wenn die Eigenschaft auf false gesetzt ist oder wenn es keine Definition gibt und wenn keine spezifische Docs-Seite aufgerufen wird (siehe controlDocs unten), zeigt das Docs-Panel die Seite, die mit dem aktuellen Tutorial-Schritt im Bearbeitungsmodus verbunden ist.",
-                    "updated": 1633979594120
+                    "updated": 1633979594120,
+                    "style": "Text"
                 }
             ]
         },
@@ -472,7 +508,8 @@
                 {
                     "language": "DE",
                     "text": "Da diese Definition standardmäßig auf false gesetzt ist, ist dies das standardmäßige Verhalten. Das heißt, wenn das Docs-Bedienfeld geöffnet wird, während ein Tutorial-Schritt abgespielt wird, zeigt das Docs-Bedienfeld standardmäßig die Docs-Seite an, die mit dem jeweiligen Schritt verknüpft ist, so dass die Seite direkt an Ort und Stelle bearbeitet werden kann.",
-                    "updated": 1633979921238
+                    "updated": 1633979921238,
+                    "style": "Success"
                 }
             ]
         },
@@ -484,7 +521,8 @@
                 {
                     "language": "DE",
                     "text": "Wenn die Eigenschaft closeTutorialEditor auf true gesetzt ist und keine Anforderung zum Öffnen einer Dokumentseite vorliegt (siehe Eigenschaft page weiter unten), dann zeigt das Dokumentseiten-Panel die Dokumentseite an, die im vorherigen Schritt angezeigt wurde.",
-                    "updated": 1633979700958
+                    "updated": 1633979700958,
+                    "style": "Text"
                 }
             ]
         },
@@ -501,7 +539,8 @@
                 {
                     "language": "DE",
                     "text": "Es kann sinnvoll sein, den Tutorial Editor zu schließen, wenn der Benutzer von einem Schritt zum nächsten mit den Docs interagieren soll. Nehmen wir zum Beispiel an, das Tutorial weist den Benutzer an, eine Suche durchzuführen und dieses Ergebnis im nächsten Schritt zu besprechen. In diesem Fall möchten Sie, dass der Editor des Tutorials geschlossen bleibt, da sonst die vom Benutzer durchgeführte Suche verloren ginge und stattdessen die Seite geladen würde, die dem neuen Schritt des Tutorials entspricht.",
-                    "updated": 1633979902886
+                    "updated": 1633979902886,
+                    "style": "Success"
                 }
             ]
         },
@@ -513,7 +552,8 @@
                 {
                     "language": "DE",
                     "text": "Die Eigenschaft searchPage überschreibt die Einstellungen des Tutorial-Editors und lädt die Hauptsuchseite mit dem Suchfeld in der Mitte.",
-                    "updated": 1633979953175
+                    "updated": 1633979953175,
+                    "style": "Text"
                 }
             ]
         },
@@ -530,7 +570,8 @@
                 {
                     "language": "DE",
                     "text": "Verwenden Sie die obige Einstellung, wenn Sie möchten, dass der Benutzer das saubere Suchfeld erhält, um eine Suche durchzuführen oder einen Befehl auszuführen.",
-                    "updated": 1633980006636
+                    "updated": 1633980006636,
+                    "style": "Success"
                 }
             ]
         },
@@ -542,7 +583,8 @@
                 {
                     "language": "DE",
                     "text": "Mit der page property legen Sie fest, welche Docs Page geladen werden soll. Sie müssen das Project (Projekt), die Docs Page Category (Kategorie) und den \"type\" (Typ), also den vollständigen Namen der Seite, angeben. Die optionale Eigenschaft anchor ermöglicht es Ihnen, den Benutzer mit dem Docs Anchor Style auf einen bestimmten Absatz der Seite zu verweisen.",
-                    "updated": 1633980112889
+                    "updated": 1633980112889,
+                    "style": "Text"
                 }
             ]
         },
@@ -559,7 +601,8 @@
                 {
                     "language": "DE",
                     "text": "Verwenden Sie die obige Konfiguration, wenn Sie möchten, dass der Benutzer eine bestimmte Seite in den Docs liest.",
-                    "updated": 1633980693215
+                    "updated": 1633980693215,
+                    "style": "Success"
                 }
             ]
         }

@@ -37,7 +37,13 @@
             {
                 "language": "NL",
                 "text": "Open het \"Data Tasks\" knooppunt menu en zoek de \"Run all project data tasks\" knop in de rechter bovenhoek...",
-                "updated": 1634455832255
+                "updated": 1634455832255,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Получите доступ в мню узла Data Tasks и найдите кнопку \"Run all project data tasks\" в правом верхнем углу...",
+                "updated": 1635591220354
             }
         ]
     },
@@ -74,7 +80,13 @@
                 {
                     "language": "NL",
                     "text": "Klik op de knop \"Run all project data tasks\"! Bevestig het starten door een tweede keer op de knop te klikken.",
-                    "updated": 1634455913719
+                    "updated": 1634455913719,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку \"Run all project data tasks\"! Подтвердите запрос, нажав кнопку во второй раз.",
+                    "updated": 1635591295731
                 }
             ]
         },
@@ -109,7 +121,13 @@
                 {
                     "language": "NL",
                     "text": "Na ongeveer 30 seconden hoor je een statusbericht te zien onder de Data Tasks knooppunt, dat aangeeft dat 1 van de 1 \"Exchange Data Tasks\" knooppunten draait.",
-                    "updated": 1634456056619
+                    "updated": 1634456056619,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Примерно через 30 секунд Вы должны увидеть уведомление о состоянии под узлом Data Tasks nоказывающее, что 1 из 1 узла Exchange Data Tasks - запущен.",
+                    "updated": 1635591483326
                 }
             ],
             "updated": 1622190035816
@@ -145,7 +163,13 @@
                 {
                     "language": "NL",
                     "text": "De console van de app zou er ongeveer zo uit moeten zien als de video in de volgende stap.",
-                    "updated": 1634456127607
+                    "updated": 1634456127607,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваше консольное приложение должно показать что-то похожее на то, как показано на видео в следующем шаге.",
+                    "updated": 1635591567030
                 }
             ]
         }

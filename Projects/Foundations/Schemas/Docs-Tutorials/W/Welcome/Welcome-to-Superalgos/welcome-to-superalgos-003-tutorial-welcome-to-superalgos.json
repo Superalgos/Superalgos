@@ -44,6 +44,11 @@
                 "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, die Ihnen den Einstieg erleichtern und Ihnen alle Grundlagen vermitteln soll!",
                 "updated": 1634070025309,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я - интерактивное учебное пособие, первое в серии, предназначенное для облегчения Вашей адаптации и обучения всем основам.",
+                "updated": 1635448912724
             }
         ],
         "updated": 1633159917192
@@ -88,6 +93,11 @@
                     "text": "Ich werde Ihnen die Werkzeuge zeigen, mit denen Sie sich bequem zurechtfinden, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
                     "updated": 1634159537847,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я помогу Вам начать, покажу панель инструментов, с помощью которых Вы сможете комфортно передвигаться и раскрыть все интересные вещи, которые Superalgos может сделать для Вас.",
+                    "updated": 1635449021102
                 }
             ],
             "updated": 1633159949363
@@ -131,6 +141,11 @@
                     "text": "Tutorials sind der beste Start in Superalgos!  Keine andere Ressource wird Sie schneller einarbeiten. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
                     "updated": 1634159523866,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Это учебное пособие является окончательным инструментом для адаптации в системе Superalgos. Начинать ознакомление с этой системой каким-либо другим образом, является ошибкой, так как никакой другой ресурс не поможет Вам ускорить процесс. Вам следовало бы ознакомиться с полным учебным пособием, прежде чем пытаться реализовать свои собственные идеи!",
+                    "updated": 1635449358224
                 }
             ],
             "updated": 1633159975051
@@ -180,6 +195,11 @@
                     "text": " Bitte klicken Sie immer auf Weiter, um fortzufahren!",
                     "updated": 1634070092386,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, всегда нажимайте Next, чтобы продолжить.",
+                    "updated": 1635449400949
                 }
             ]
         }

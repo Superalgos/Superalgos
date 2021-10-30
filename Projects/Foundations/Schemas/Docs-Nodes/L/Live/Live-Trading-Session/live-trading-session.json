@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "Un live trading session es un modo de trading mediante el cual el trading bot lee instantáneamente una fuente de datos de mercado en vivo, aplica las reglas definidas en el  Trading System asociado, coloca las órdenes correspondientes en el exchange asociado y almacena los productos de datos definidos.",
-                "updated": 1624375128544
+                "updated": 1624375128544,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Торговая сессия в реальном времени - это режим торговли, с помощью которого экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, размещает заданные ордера на соответствующей бирже и сохраняет определенные данные продуктов.",
+                "updated": 1635452817783
             }
         ]
     },

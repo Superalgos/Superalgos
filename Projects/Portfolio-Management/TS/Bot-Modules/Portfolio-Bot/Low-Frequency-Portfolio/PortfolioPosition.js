@@ -103,7 +103,7 @@ exports.newPortfolioManagementBotModulesPortfolioPosition = function (processInd
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Portfolio Engine data structure.
         */
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngine.portfolioCurrent.position, portfolioEngine.portfolioLast.position)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.cloneValues(portfolioEngine.portfolioCurrent.position, portfolioEngine.portfolioLast.position)
 
         cycleBasedStatistics()
 
@@ -416,7 +416,7 @@ exports.newPortfolioManagementBotModulesPortfolioPosition = function (processInd
 
     function resetPortfolioEngineDataStructure() {
         if (portfolioEngine.portfolioCurrent.position.status.value === 'Closed') {
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.portfolioCurrent.position)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_ENGINE_MODULE_OBJECT.initializeNode(portfolioEngine.portfolioCurrent.position)
         }
     }
 

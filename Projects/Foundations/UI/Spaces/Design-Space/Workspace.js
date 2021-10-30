@@ -157,6 +157,7 @@ function newWorkspace() {
     function runTasksAndSessions() {
         executeAction({ name: 'Syncronize Tasks', project: 'Visual-Scripting' })
         executeAction({ name: 'Syncronize Trading Sessions', project: 'Visual-Scripting' })
+        executeAction({ name: 'Syncronize Portfolio Sessions', project: 'Visual-Scripting' })
         executeAction({ name: 'Syncronize Learning Sessions', project: 'Visual-Scripting' })
     }
 
@@ -513,6 +514,14 @@ function newWorkspace() {
                         if (lanNetworkNode.productionTradingTasks !== undefined && lanNetworkNode.productionTradingTasks.payload !== undefined) {
                             lanNetworkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                             lanNetworkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
+                        }
+                        if (lanNetworkNode.testingPortfolioTasks !== undefined && lanNetworkNode.testingPortfolioTasks.payload !== undefined) {
+                            lanNetworkNode.testingPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                            lanNetworkNode.testingPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                        }
+                        if (lanNetworkNode.productionPortfolioTasks !== undefined && lanNetworkNode.productionPortfolioTasks.payload !== undefined) {
+                            lanNetworkNode.productionPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                            lanNetworkNode.productionPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
                         }
                     }
                 }

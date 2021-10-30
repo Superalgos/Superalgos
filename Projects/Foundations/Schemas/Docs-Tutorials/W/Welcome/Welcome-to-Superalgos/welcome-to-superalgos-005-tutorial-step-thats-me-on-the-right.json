@@ -48,7 +48,8 @@
             {
                 "language": "DE",
                 "text": "Tutorien werden innerhalb des Systems definiert, Sie können also mehrere von uns erstellen, wenn Sie möchten! Aber wir werden diese Fähigkeit später besprechen. Konzentrieren wir uns erst einmal auf die Grundlagen!",
-                "updated": 1634070459015
+                "updated": 1634070459015,
+                "style": "Definition"
             }
         ]
     },
@@ -96,7 +97,8 @@
                 {
                     "language": "DE",
                     "text": "Superalgos ist von Natur aus ein visuelles Werkzeug. Das System stellt Informationen in hierarchischen Strukturen aus miteinander verbundenen Knoten dar, die durch Icons repräsentiert werden. Was Sie auf der rechten Seite sehen, ist eine dieser Hierarchien - insbesondere eine Tutorial-Hierarchie. In diesem Fall ist \"Tutorial\" der Typ des Knotens und \"Willkommen bei Superalgos\" ist der Name des Knotens.",
-                    "updated": 1634070485959
+                    "updated": 1634070485959,
+                    "style": "Text"
                 }
             ],
             "updated": 1616410534255
@@ -145,7 +147,13 @@
                 {
                     "language": "DE",
                     "text": "Bewegen Sie Ihren Mauszeiger über den Knoten Tutorial und sehen Sie, was passiert! Wahnsinn! Cool, oder? Das sind eine Menge Knöpfe!",
-                    "updated": 1634070500067
+                    "updated": 1634070500067,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme!",
+                    "updated": 1635577498974
                 }
             ]
         }

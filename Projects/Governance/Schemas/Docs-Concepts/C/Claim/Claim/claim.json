@@ -1,7 +1,7 @@
 {
     "type": "Claim",
     "definition": {
-        "text": "The token distribution is based on claims made by contributors that they have done something for the project. Anyone can make a claim, but without votes from the community, that claim will not be rewareded with tokens. ",
+        "text": "The token distribution is based on claims made by contributors that they have done something for the project. Anyone can make a claim, but without votes from the community, that claim will not be rewarded with tokens. ",
         "updated": 1623007004449,
         "translations": [
             {
@@ -126,7 +126,7 @@
         },
         {
             "style": "Javascript",
-            "text": "/*\nWe will use the concept of Vote Ratio for the situation in which the total votes in claims exeeds the\namount of votes for wigthing. When this happen the Votes Ratio will be used to redude the amount of \ntokens awarded proportionally to how much was exeeded.\n*/\nlet votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsVotes\nif (votesRatio > 1) { votesRatio = 1 }\n/*\n    Share Count means the amount to claims pointing to the same potential tokens reward.\n*/\nlet shareCount = node.payload.referenceParent.payload.claimsCount\nlet sharePercentage = node.payload.votingProgram.votes * 100 / node.payload.referenceParent.payload.claimsVotes\nlet awarded = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * node.payload.referenceParent.payload.tokens * votesRatio\nlet awardedPercentage = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * 100 * votesRatio",
+            "text": "/*\nWe will use the concept of Vote Ratio for the situation in which the total votes in claims exceeds the\namount of votes for wigthing. When this happen the Votes Ratio will be used to reduce the amount of \ntokens awarded proportionally to how much was exceeded.\n*/\nlet votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsVotes\nif (votesRatio > 1) { votesRatio = 1 }\n/*\n    Share Count means the amount to claims pointing to the same potential tokens reward.\n*/\nlet shareCount = node.payload.referenceParent.payload.claimsCount\nlet sharePercentage = node.payload.votingProgram.votes * 100 / node.payload.referenceParent.payload.claimsVotes\nlet awarded = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * node.payload.referenceParent.payload.tokens * votesRatio\nlet awardedPercentage = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * 100 * votesRatio",
             "updated": 1623007674072
         },
         {

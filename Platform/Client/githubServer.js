@@ -316,7 +316,7 @@ exports.newGithubServer = function newGithubServer() {
                                     owner: owner,
                                     repo: repo,
                                     issue_number: pullRequest.number,
-                                    body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothning else but that file. All validations were successfull.'
+                                    body: 'This Pull Request was automatically merged by the Superalgos Governance System because it was detected that the Github User " ' + githubUsername + '" who submitted it, modified its own User Profile Plugin File and nothing else but that file. All validations were successful.'
                                 });
                             }
 
@@ -378,7 +378,7 @@ exports.newGithubServer = function newGithubServer() {
                                 fileName = splittedFileName[0]
                                 githubUsername = pullRequest.user.login
 
-                                if (githubUsername !== fileName) {
+                                if (githubUsername.toLowerCase() !== fileName.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #2 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the File Name. -> Github Username = ' + githubUsername + '-> fileName = ' + fileName)
 
                                     await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
@@ -420,7 +420,7 @@ exports.newGithubServer = function newGithubServer() {
                                 */
                                 let config = JSON.parse(userProfile.config)
                                 let messageSigned = config.signature.message
-                                if (messageSigned !== githubUsername) {
+                                if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #4 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the Message Signed at the User Profile. -> Github Username = ' + githubUsername + '-> messageSigned = ' + messageSigned)
 
                                     await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
@@ -480,7 +480,7 @@ exports.newGithubServer = function newGithubServer() {
                                 /*
                                 Validation #6: The name of the User Profile node is not the Github Username.
                                 */
-                                if (userProfile.name !== githubUsername) {
+                                if (userProfile.name.toLowerCase() !== githubUsername.toLowerCase()) {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #6 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Github Username is not equal to the User Profile node\'s name. -> Github Username = ' + githubUsername + '-> userProfile.name = ' + userProfile.name)
 
                                     await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
@@ -628,7 +628,7 @@ exports.newGithubServer = function newGithubServer() {
                                         */
                                         let messageSigned = config.signature.message
 
-                                        if (messageSigned !== githubUsername) {
+                                        if (messageSigned.toLowerCase() !== githubUsername.toLowerCase()) {
                                             console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #9 Failed -> Pull Request "' + pullRequest.title + '" not merged because the Signing Account ' + signingAccount.name + ' has not signed the current Github User Account, but something else. -> messageSigned = ' + messageSigned + '-> githubUsername = ' + githubUsername)
 
                                             await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
@@ -775,6 +775,7 @@ exports.newGithubServer = function newGithubServer() {
                     }
 
                 } catch (err) {
+                    if (err === undefined) { return }
                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> err.stack = ' + err.stack)
                 }
             }

@@ -275,7 +275,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             dataTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
                         }
                         /*
-                        We will make ourserves sure that the Project Data Tasks nodes are there.
+                        We will make ourselves sure that the Project Data Tasks nodes are there.
                         */
                         dataTasks.payload.uiObject.menu.internalClick('Add Missing Project Data Tasks')
                         dataTasks.payload.uiObject.menu.internalClick('Add Missing Project Data Tasks')
@@ -308,7 +308,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             learningTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
                         }
                         /*
-                        We will make ourserves sure that the Project Learning Tasks nodes are there.
+                        We will make ourselves sure that the Project Learning Tasks nodes are there.
                         */
                         learningTasks.payload.uiObject.menu.internalClick('Add Missing Project Learning Tasks')
                         learningTasks.payload.uiObject.menu.internalClick('Add Missing Project Learning Tasks')
@@ -355,14 +355,14 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installEnvironment(environmentType) {
                             /*
-                            Now we install the environmnet at the current Network Node
+                            Now we install the environment at the current Network Node
                             */
                             let tradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
                                 tradingTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
                             }
                             /*
-                             We will make ourserves sure that the Project Trading Tasks nodes are there.
+                             We will make ourselves sure that the Project Trading Tasks nodes are there.
                              */
                             tradingTasks.payload.uiObject.menu.internalClick('Add Missing Project Trading Tasks')
                             tradingTasks.payload.uiObject.menu.internalClick('Add Missing Project Trading Tasks')
@@ -414,7 +414,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
                         dataMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
-                        We will make ourserves sure that the Project Data Products nodes are there.
+                        We will make ourselves sure that the Project Data Products nodes are there.
                         */
                         dataMinesData.payload.uiObject.menu.internalClick('Add Missing Project Data Products')
                         dataMinesData.payload.uiObject.menu.internalClick('Add Missing Project Data Products')
@@ -453,7 +453,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
                         learningMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
-                        We will make ourserves sure that the Project Learning Products nodes are there.
+                        We will make ourselves sure that the Project Learning Products nodes are there.
                         */
                         learningMinesData.payload.uiObject.menu.internalClick('Add Missing Project Learning Products')
                         learningMinesData.payload.uiObject.menu.internalClick('Add Missing Project Learning Products')
@@ -508,7 +508,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
                         tradingMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
-                        We will make ourserves sure that the Project Trading Products nodes are there.
+                        We will make ourselves sure that the Project Trading Products nodes are there.
                         */
                         tradingMinesData.payload.uiObject.menu.internalClick('Add Missing Project Trading Products')
                         tradingMinesData.payload.uiObject.menu.internalClick('Add Missing Project Trading Products')
@@ -553,7 +553,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function installInChartingSpace(chartingSpace) {
                 /*
-                We will make ourserves sure that the Project Data Tasks nodes are there.
+                We will make ourselves sure that the Project Data Tasks nodes are there.
                 */
                 chartingSpace.payload.uiObject.menu.internalClick('Add Missing Project Dashboards')
                 chartingSpace.payload.uiObject.menu.internalClick('Add Missing Project Dashboards')
@@ -579,7 +579,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         We delete all the existing Time Machines related to the market we are currently installing. 
                         For that, we make a new array with the existing Time Machines so that the deleting
-                        of each node does not affect the proccessing of the whole set.
+                        of each node does not affect the processing of the whole set.
                         */
                         let timeMachines = []
                         for (let i = 0; i < dashboard.timeMachines.length; i++) {
@@ -591,7 +591,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let session = timeMachine.payload.referenceParent
                             if (session === undefined || session.cleaned === true) {
                                 /* 
-                                This is what usually happens, that the intall process make these 
+                                This is what usually happens, that the install process make these
                                 time machines to lose their reference parent since the install
                                 process deletes them.
                                 */
@@ -638,7 +638,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function uninstallInChartingSpace(chartingSpace) {
 
-                /* Delete all time machines which are referencing sessions inside the market being unistalled. */
+                /* Delete all time machines which are referencing sessions inside the market being uninstalled. */
                 let timeMachines = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(chartingSpace, 'Time Machine')
                 for (let i = 0; i < timeMachines.length; i++) {
                     let timeMachine = timeMachines[i]
@@ -675,7 +675,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     }
                 }
 
-                /* Scan Networks for the market being unistalled to delete it. */
+                /* Scan Networks for the market being uninstalled to delete it. */
                 for (let i = 0; i < rootNodes.length; i++) {
                     let rootNode = rootNodes[i]
                     if (rootNode.type === 'LAN Network') {

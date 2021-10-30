@@ -23,7 +23,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "97c272a1-855b-45e1-b92f-eb9e12569126",
+                    "id": "adc3402b-c72b-43b0-8698-2d01bc6a50de",
                     "savedPayload": {
                         "position": {
                             "x": 21176.656341247235,
@@ -46,7 +46,7 @@
                         }
                     }
                 },
-                "id": "389412da-5f37-4fae-ac38-578c06afe545",
+                "id": "44074743-a474-454d-b0b0-d52c4c9dfd4e",
                 "savedPayload": {
                     "position": {
                         "x": 21470.100621467376,
@@ -78,7 +78,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "e81919a3-c2a3-48bf-91b7-0be924ac6b31",
+                    "id": "3ffff16a-fede-434b-86bf-8fe8cbea6238",
                     "savedPayload": {
                         "position": {
                             "x": 22165.023265502834,
@@ -101,7 +101,7 @@
                         }
                     }
                 },
-                "id": "27b54a41-3c45-4ee2-ae97-722f710a3732",
+                "id": "872182bc-60f6-47e8-a580-e7d4c29d0600",
                 "savedPayload": {
                     "position": {
                         "x": 21964.284083595176,
@@ -124,15 +124,15 @@
                     }
                 }
             },
-            "id": "4571c876-8ced-4548-8f88-ce9bc02382f9",
+            "id": "45700602-34de-4e09-8708-14b5ab33d6f9",
             "savedPayload": {
                 "position": {
                     "x": 13442.589019334575,
-                    "y": 37714.68304511145
+                    "y": 13714.683045111457
                 },
                 "targetPosition": {
                     "x": 13535.29411764706,
-                    "y": 38000
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -163,7 +163,7 @@
                         "name": "Julian-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "5bde97b8-e7bd-4e83-b1e0-737e6aa3504f",
+                        "id": "38c64859-fabf-49d9-8b15-804e89811866",
                         "savedPayload": {
                             "position": {
                                 "x": 46675.354418524534,
@@ -204,7 +204,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "949910ab-d832-43b0-a0a7-57fe7693c5b3",
+                    "id": "225242bc-deab-4797-9cc1-d20d751154e2",
                     "savedPayload": {
                         "position": {
                             "x": 46565.5467973892,
@@ -231,7 +231,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "c8488f17-2c60-41f1-929f-a0ce94b60143",
+                    "id": "045b5a1d-5bfd-45c6-a5dc-637c2c318078",
                     "savedPayload": {
                         "position": {
                             "x": 46975.354418524534,
@@ -254,7 +254,7 @@
                         }
                     }
                 },
-                "id": "8a5d4e00-fa35-4ec9-9bbb-ad518f25a84b",
+                "id": "c7d7950a-4b4c-492e-8b2d-6011c02267b4",
                 "savedPayload": {
                     "position": {
                         "x": 46825.354418524534,
@@ -288,7 +288,7 @@
                         "name": "Julian-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "21007593-91ad-49d7-ae0b-7a9932820f5f",
+                        "id": "83346cd7-f299-4480-b7ed-65c9378bf803",
                         "savedPayload": {
                             "position": {
                                 "x": 46961.09840236709,
@@ -329,7 +329,7 @@
                         "name": "harrellbm",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "cf79da1b-1115-481f-8ce0-cc9a3918915d",
+                        "id": "aceb3628-b9c8-460c-afd0-8aa179310c30",
                         "savedPayload": {
                             "position": {
                                 "x": 46941.71775943972,
@@ -370,7 +370,7 @@
                         "name": "Luis-Fernando-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "aa9a69db-5047-41b2-aa36-fa08b9a8ed3d",
+                        "id": "426e2c3d-1e8b-457c-aded-45ba7d491c0b",
                         "savedPayload": {
                             "position": {
                                 "x": 47034.42285775221,
@@ -411,7 +411,7 @@
                         "name": "ssplatt",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "c6071d95-a73f-4973-a28a-68242b6de4ac",
+                        "id": "bceb18e1-6ff2-4634-a004-b459cc98e882",
                         "savedPayload": {
                             "position": {
                                 "x": 47203.80350067957,
@@ -452,7 +452,7 @@
                         "name": "9808us",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "3e995414-1717-4222-afc1-50dcfd93c61d",
+                        "id": "5ce5fc1f-bb72-48e9-bb10-6feb3c63d4e9",
                         "savedPayload": {
                             "position": {
                                 "x": 47385.16203965987,
@@ -493,7 +493,7 @@
                         "name": "Smidy13",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "067fe834-1f6e-49ec-b6f0-c336c251c3ec",
+                        "id": "e2581a1c-9d5f-403b-b7fc-10336688a0cf",
                         "savedPayload": {
                             "position": {
                                 "x": 47509.22567695265,
@@ -534,7 +534,7 @@
                         "name": "cozed-gh",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "a046af87-e430-421a-b7f7-0c5925f1c94c",
+                        "id": "2fccf510-aac2-4bfd-aac5-89de11c29c5c",
                         "savedPayload": {
                             "position": {
                                 "x": 47528.606319880004,
@@ -575,7 +575,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "4036544b-4ef4-401c-80e4-63ffb0f9cf7b",
+                    "id": "cdaef094-0932-4c0a-bfbf-fc1d022bcc3e",
                     "savedPayload": {
                         "position": {
                             "x": 47435.901221567525,
@@ -602,7 +602,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "254aecda-c846-4496-89e3-448bc06b71d9",
+                    "id": "6aebd0d2-f14b-494a-9836-5be04eb32e47",
                     "savedPayload": {
                         "position": {
                             "x": 47266.520578640164,
@@ -625,7 +625,7 @@
                         }
                     }
                 },
-                "id": "0681f798-0a30-4ad7-a6a0-0989fb413381",
+                "id": "f42d2391-1128-40e2-87ca-e6fed09f0f84",
                 "savedPayload": {
                     "position": {
                         "x": 47235.16203965987,
@@ -659,7 +659,7 @@
                         "name": "Luis-Fernando-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "68687b25-3c7b-4b3f-b8cf-7da8a8e758a1",
+                        "id": "b6240c8f-0148-4d12-8d24-f0836f7f3f21",
                         "savedPayload": {
                             "position": {
                                 "x": 47407.34316804053,
@@ -700,7 +700,7 @@
                         "name": "PLuv",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "42edab99-c92b-4c78-a782-3c958e2380f0",
+                        "id": "57a852b8-e5e2-4f97-bbd3-78ebb8a01868",
                         "savedPayload": {
                             "position": {
                                 "x": 47643.326229405684,
@@ -741,7 +741,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "c24cf7f6-284e-4d32-b96f-a6a8deb48f51",
+                    "id": "316d5ead-8e58-4959-ab60-c0e8b0719d18",
                     "savedPayload": {
                         "position": {
                             "x": 47466.99065371794,
@@ -768,7 +768,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "e0594a6e-a866-4b51-82f8-a41dc2f886ed",
+                    "id": "46342e76-0777-4ed4-b10f-4999a4a776ea",
                     "savedPayload": {
                         "position": {
                             "x": 47122.026213151985,
@@ -791,7 +791,7 @@
                         }
                     }
                 },
-                "id": "0d69601d-1fb9-42d4-adb6-ce22a13dd21d",
+                "id": "4896f3a4-a147-4162-acda-d4e8ef5ebad9",
                 "savedPayload": {
                     "position": {
                         "x": 47344.9696607952,
@@ -814,15 +814,15 @@
                     }
                 }
             },
-            "id": "941dfbfd-ed39-4708-a967-c97fbc8c4fa2",
+            "id": "db0eb781-e730-47e0-b384-1f82ca1842b2",
             "savedPayload": {
                 "position": {
                     "x": 13777.999215959544,
-                    "y": 37823.66442431226
+                    "y": 13823.66442431226
                 },
                 "targetPosition": {
                     "x": 13535.29411764706,
-                    "y": 38000
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -845,7 +845,7 @@
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 95\n}",
+                "config": "{\n    \"percentage\": 0\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -866,7 +866,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "2abb789f-32e4-4a4c-bf18-ae6d5224a7fc",
+                                "id": "92db60fe-096c-46fe-8e1f-6df9e8ee883d",
                                 "savedPayload": {
                                     "position": {
                                         "x": 21777.35775493984,
@@ -930,7 +930,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "0eabc12c-930f-48ac-b868-66d04a4b9eb5",
+                                "id": "6cee69dc-4200-4130-9f96-b085551f27e4",
                                 "savedPayload": {
                                     "position": {
                                         "x": 21808.716293920137,
@@ -994,7 +994,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "3bcbe6ce-e1d2-47c4-b6de-342929f95be2",
+                                "id": "1f4d07e8-e7f7-4f4a-ae20-7e4c2f22e3bc",
                                 "savedPayload": {
                                     "position": {
                                         "x": 22082.779931212917,
@@ -1058,7 +1058,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "dd7ab2be-ecad-4e27-aff9-d797ac28130e",
+                                "id": "0c9dd269-5e44-419a-88ce-3a11227286be",
                                 "savedPayload": {
                                     "position": {
                                         "x": 22325.4850295254,
@@ -1128,7 +1128,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "ea8e1412-9fff-439a-9cf6-de90e03d630f",
+                                "id": "73cda421-bd94-4d95-a55e-2893c3c34e4a",
                                 "savedPayload": {
                                     "position": {
                                         "x": 22294.126490545103,
@@ -1190,7 +1190,7 @@
                             }
                         ],
                         "userProfileVotesSwitch": [],
-                        "id": "6a4f50ca-0a57-4352-909b-61083d62c110",
+                        "id": "41759da5-236b-4a59-917c-4b1f48431ffc",
                         "savedPayload": {
                             "position": {
                                 "x": 22051.42139223262,
@@ -1218,7 +1218,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "c2fd0b05-c23b-4022-b1d9-a4c01a1ec3a8",
+                    "id": "027aed68-b31d-4b2b-98b6-805312052d76",
                     "savedPayload": {
                         "position": {
                             "x": 22262.767951564805,
@@ -1241,15 +1241,15 @@
                         }
                     }
                 },
-                "id": "daa71ec9-d928-4f58-b8a2-aedef62cb01d",
+                "id": "c08ce501-a9c9-48cf-be87-36db23afcfe5",
                 "savedPayload": {
                     "position": {
                         "x": 14052.062853252324,
-                        "y": 38054.314582765
+                        "y": 14054.314582765004
                     },
                     "targetPosition": {
                         "x": 13777.999215959544,
-                        "y": 38176.33557568774
+                        "y": 14176.335575687744
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1267,7 +1267,7 @@
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
-                "config": "{\n    \"percentage\": 5\n}",
+                "config": "{\n    \"percentage\": 100\n}",
                 "project": "Governance",
                 "assetClaimsFolders": [],
                 "featureClaimsFolders": [],
@@ -1284,15 +1284,15 @@
                                 "name": "Team Member Superalgos Blog Team",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "8950121b-1bf8-49fe-ab40-923a3b5f6561",
+                                "id": "9d20e390-2609-44f5-b724-d8ca31f8e5b2",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14082.050873604217,
-                                        "y": 38365.71076509742
+                                        "y": 14365.710765097423
                                     },
                                     "targetPosition": {
                                         "x": 13989.345775291733,
-                                        "y": 38651.02771998597
+                                        "y": 14651.027719985968
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1355,15 +1355,15 @@
                                 "name": "",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "3bbf2a76-7233-4d62-a57f-2477d5608bbc",
+                                "id": "84112244-a682-45dc-9848-b8b6d1334ca8",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14289.345775291733,
-                                        "y": 38651.02771998597
+                                        "y": 14651.027719985968
                                     },
                                     "targetPosition": {
                                         "x": 13989.345775291733,
-                                        "y": 38651.02771998597
+                                        "y": 14651.027719985968
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1426,15 +1426,15 @@
                                 "name": "Project Leader Thomas-Raplh2502 Data Mining Project",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "50f2ad8f-3af9-4e19-8f89-76d77b4282a1",
+                                "id": "463312d8-66b6-49d3-a282-af936653f274",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14082.050873604217,
-                                        "y": 38936.34467487452
+                                        "y": 14936.344674874514
                                     },
                                     "targetPosition": {
                                         "x": 13989.345775291733,
-                                        "y": 38651.02771998597
+                                        "y": 14651.027719985968
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1497,15 +1497,15 @@
                                 "name": "1 Team Member  Thomas-Raplh2502 Forum Team",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "58165274-4b9a-43a1-800f-703891aa1b81",
+                                "id": "6c7bd6f0-8d79-4f60-a356-924a8261cd91",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13746.640676979248,
-                                        "y": 38827.36329567371
+                                        "y": 14827.363295673711
                                     },
                                     "targetPosition": {
                                         "x": 13989.345775291733,
-                                        "y": 38651.02771998597
+                                        "y": 14651.027719985968
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1526,41 +1526,53 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Other Teams",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
                                         ],
                                         [
                                             "Chat Platforms Teams",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "15850aa9-709f-413e-b0e7-0d843c4d17dd"
                                         ],
                                         [
                                             "Forum Team",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "b779f4a3-91c0-419c-b41b-d264c0e6b055"
                                         ],
                                         [
                                             "1 Team Member  Thomas-Raplh2502",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "432278ee-b4d8-43a8-81ae-91e5ce7ae95a"
                                         ]
                                     ]
                                 }
                             }
                         ],
-                        "id": "df2395af-83ca-4a6c-8f15-65532d43d61f",
+                        "id": "24908c35-1e5f-44e4-99a2-8b58e060e651",
                         "savedPayload": {
                             "position": {
                                 "x": 13989.345775291733,
-                                "y": 38651.02771998597
+                                "y": 14651.027719985968
                             },
                             "targetPosition": {
                                 "x": 13746.640676979248,
-                                "y": 38474.69214429823
+                                "y": 14474.692144298226
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1605,15 +1617,15 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "ad334fed-96a5-4775-82a5-a9fcfdba5ae3",
+                    "id": "b39a8d3c-c02b-4a89-b89e-9387dd8f9cf7",
                     "savedPayload": {
                         "position": {
                             "x": 13472.577039686468,
-                            "y": 38596.71313722097
+                            "y": 14596.713137220966
                         },
                         "targetPosition": {
                             "x": 13746.640676979248,
-                            "y": 38474.69214429823
+                            "y": 14474.692144298226
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1628,15 +1640,15 @@
                         }
                     }
                 },
-                "id": "73077a71-3212-4f35-b460-17e0290faaf8",
+                "id": "a9b3e1e9-a57a-43db-8249-8ea0b749ef7c",
                 "savedPayload": {
                     "position": {
                         "x": 13746.640676979248,
-                        "y": 38474.69214429823
+                        "y": 14474.692144298226
                     },
                     "targetPosition": {
                         "x": 13777.999215959544,
-                        "y": 38176.33557568774
+                        "y": 14176.335575687744
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1651,15 +1663,15 @@
                     }
                 }
             },
-            "id": "10b8df91-20d9-4101-8d69-54f81d92c667",
+            "id": "bbc881f7-db32-4407-9221-3e2b38e3230b",
             "savedPayload": {
                 "position": {
                     "x": 13777.999215959544,
-                    "y": 38176.33557568774
+                    "y": 14176.335575687744
                 },
                 "targetPosition": {
                     "x": 13535.29411764706,
-                    "y": 38000
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1688,7 +1700,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "506de85d-264b-47eb-87e1-3dec4777a315",
+                    "id": "8c1cf78d-e8e1-46a7-b79e-516a39475306",
                     "savedPayload": {
                         "position": {
                             "x": 25160.38470506255,
@@ -1711,7 +1723,7 @@
                         }
                     }
                 },
-                "id": "f7b2590f-1ef9-41e6-9331-e1a1ed1dd363",
+                "id": "ad25c8d8-30da-4b43-89bd-d51b6605f98f",
                 "savedPayload": {
                     "position": {
                         "x": 25253.089803375035,
@@ -1734,15 +1746,15 @@
                     }
                 }
             },
-            "id": "072b1edb-41d2-420b-818c-1152f66256b0",
+            "id": "413d7a55-0ac3-499d-873c-c3c60b6067b7",
             "savedPayload": {
                 "position": {
                     "x": 13442.589019334575,
-                    "y": 38285.31695488855
+                    "y": 14285.316954888547
                 },
                 "targetPosition": {
                     "x": 13535.29411764706,
-                    "y": 38000
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1757,15 +1769,15 @@
                 }
             }
         },
-        "id": "8217dc91-334b-4d94-845c-d5c38a6f8be3",
+        "id": "53e6bbab-873f-45ac-8629-a97a0158f8d4",
         "savedPayload": {
             "position": {
                 "x": 13535.29411764706,
-                "y": 38000
+                "y": 14000.000000000002
             },
             "targetPosition": {
                 "x": 13235.29411764706,
-                "y": 38000
+                "y": 14000.000000000002
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1784,15 +1796,15 @@
         "type": "Tokens Mined",
         "name": "New Tokens Mined",
         "project": "Governance",
-        "id": "5241e9c2-3525-4286-8e96-c4cbcdba0ace",
+        "id": "8f1460ff-371c-4b99-8341-05a6720193d0",
         "savedPayload": {
             "position": {
                 "x": 12935.29411764706,
-                "y": 38000
+                "y": 14000.000000000002
             },
             "targetPosition": {
                 "x": 13235.29411764706,
-                "y": 38000
+                "y": 14000.000000000002
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1807,15 +1819,15 @@
             }
         }
     },
-    "id": "321f170c-2486-4cdd-9bad-923708d555b6",
+    "id": "b6d4c2fe-f1ec-4d05-9897-c6bf0571c4f3",
     "savedPayload": {
         "position": {
             "x": 13235.29411764706,
-            "y": 38000
+            "y": 14000.000000000002
         },
         "targetPosition": {
             "x": 13235.29411764706,
-            "y": 38000
+            "y": 14000.000000000002
         },
         "floatingObject": {
             "isPinned": false,

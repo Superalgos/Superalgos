@@ -174,12 +174,13 @@ function newGovernanceReportsCommmandInterface() {
             let url = 'GOV' // We will access the default Client GOV endpoint.
 
             httpRequest(JSON.stringify(params), url, onResponse)
+            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Starting Automated User Profile Contribution')
 
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 data = JSON.parse(data)
                 if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Contribute User Profile Done')
+                    UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Automated User Profile Contribute Done')
                 } else {
                     if (data.docs === undefined) {return}
                     UI.projects.education.spaces.docsSpace.navigateTo(

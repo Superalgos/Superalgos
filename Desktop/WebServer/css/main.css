@@ -22,6 +22,17 @@
     font-style: normal;
   }
   
+<<<<<<< HEAD
+  kbd {
+    padding: 2px 8px;
+    font-size: 125%;
+    font-weight: 500;
+    color: #000;
+    background-color: #bcd643;
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 1px;
+=======
   .body{
     overflow-y: hidden;
     overflow-x: hidden;
@@ -306,4 +317,5 @@
   .profile-to-unfollow-button {
     float: right;
     background-color: red;
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
   }

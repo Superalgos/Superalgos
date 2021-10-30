@@ -8,6 +8,9 @@
         "icon": {
             "name": "User\\user-profile",
             "project": "Governance"
+<<<<<<< HEAD
+        }
+=======
         },
         "translations": [
             {
@@ -17,11 +20,15 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Click the configuration option on your User Profile node and take a look at what's inside.",
+<<<<<<< HEAD
+            "updated": 1629554250933
+=======
             "updated": 1629554250933,
             "translations": [
                 {
@@ -31,10 +38,14 @@
                     "style": "Callout"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Note",
             "text": "Wow that’s a lot of numbers! Again, this is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
+<<<<<<< HEAD
+            "updated": 1629554289159
+=======
             "updated": 1629554289159,
             "translations": [
                 {
@@ -44,6 +55,7 @@
                     "style": "Note"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

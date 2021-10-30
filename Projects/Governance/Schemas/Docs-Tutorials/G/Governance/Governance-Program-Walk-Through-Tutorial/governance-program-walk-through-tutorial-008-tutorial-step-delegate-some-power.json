@@ -1,0 +1,20 @@
+{
+    "tutorial": "Governance Program Walk Through Tutorial",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Delegate some Power",
+    "definition": {
+        "text": "Helping new users join in governance is the ultimate act of open collaboration!",
+        "icon": {
+            "name": "Programs\\delegation-program",
+            "project": "Governance"
+        },
+        "updated": 1630012095620
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Read the following Docs page to get an idea of how this program works.",
+            "updated": 1630012020882
+        }
+    ]
+}

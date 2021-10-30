@@ -8,6 +8,9 @@
             "name": "User\\user-profile",
             "project": "Governance"
         },
+<<<<<<< HEAD
+        "updated": 1630658421560
+=======
         "updated": 1630658421560,
         "translations": [
             {
@@ -17,11 +20,15 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "While we didn’t have to break a sweat making your profile, some pretty amazing things happened behind the scenes. ",
+<<<<<<< HEAD
+            "updated": 1629553522636
+=======
             "updated": 1629553522636,
             "translations": [
                 {
@@ -31,10 +38,14 @@
                     "style": "Text"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Note",
             "text": "The constructor just generated your user profile, and either linked your address or created a unique SA Token Governance Address.",
+<<<<<<< HEAD
+            "updated": 1630599816232
+=======
             "updated": 1630599816232,
             "translations": [
                 {
@@ -44,6 +55,7 @@
                     "style": "Note"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

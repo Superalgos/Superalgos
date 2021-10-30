@@ -8,6 +8,9 @@
         "icon": {
             "name": "User\\user-referrer",
             "project": "Governance"
+<<<<<<< HEAD
+        }
+=======
         },
         "translations": [
             {
@@ -17,11 +20,15 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "These programs help organize the types of development and community relationships you want to reward.",
+<<<<<<< HEAD
+            "updated": 1630657777891
+=======
             "updated": 1630657777891,
             "translations": [
                 {
@@ -31,10 +38,18 @@
                     "style": "Text"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Note",
             "text": "For instance, the Claims Program lets you present claims for the work you’ve done. While the Support Program lets you thank other Superalgos users that have helped you with technical support. ",
+<<<<<<< HEAD
+            "updated": 1629166416422
+        },
+        {
+            "style": "Text",
+            "text": "We’ll cover all these and other programs in detail once you have a working profile!"
+=======
             "updated": 1629166416422,
             "translations": [
                 {
@@ -56,6 +71,7 @@
                     "style": "Text"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

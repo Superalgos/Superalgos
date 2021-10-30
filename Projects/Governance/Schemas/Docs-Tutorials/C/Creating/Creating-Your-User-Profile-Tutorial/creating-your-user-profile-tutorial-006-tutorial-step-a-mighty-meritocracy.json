@@ -8,6 +8,9 @@
         "icon": {
             "name": "Position\\positions",
             "project": "Governance"
+<<<<<<< HEAD
+        }
+=======
         },
         "translations": [
             {
@@ -17,11 +20,15 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The fancy word for this kind of project governance is meritocracy. In other words, the more you contribute to the improvement of Superalgos and to the support of our Community, the more Token Power and Reputation you earn to influence the future of the project.",
+<<<<<<< HEAD
+            "updated": 1630605980783
+=======
             "updated": 1630605980783,
             "translations": [
                 {
@@ -31,10 +38,14 @@
                     "style": "Text"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Note",
             "text": "This is a collaboration! Only together can we continue to make Superalgos the game changer it is today no matter what the future may bring.",
+<<<<<<< HEAD
+            "updated": 1629165548280
+=======
             "updated": 1629165548280,
             "translations": [
                 {
@@ -44,6 +55,7 @@
                     "style": "Note"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

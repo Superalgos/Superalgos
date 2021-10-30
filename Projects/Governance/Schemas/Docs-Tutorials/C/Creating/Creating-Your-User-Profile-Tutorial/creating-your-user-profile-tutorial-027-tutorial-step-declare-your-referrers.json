@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 27,
+    "type": "Tutorial Step - Declare Your Referrers",
+    "definition": {
+        "text": "The program is deployed! Now you have to declare your referrer to fulfill the second requirement!",
+        "icon": {
+            "name": "User\\user-referrer",
+            "project": "Governance"
+        },
+        "updated": 1630669057039
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!",
+            "updated": 1630669214566
+        },
+        {
+            "style": "Success",
+            "text": "Declaring your referrers is the best way to thank the people that may have written that article or tweet, produced that video, maintained the website, or told you about Superalgos!",
+            "updated": 1630669976768
+        },
+        {
+            "style": "Text",
+            "text": "To declare a referrer, you must establish a reference from the User Referrer node to the User Profile of your referrer! Does your referrer have a User Profile?",
+            "updated": 1630681537614
+        }
+    ]
+}

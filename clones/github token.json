@@ -1,0 +1,55 @@
+{
+    "type": "APIs",
+    "name": "New APIs",
+    "project": "Foundations",
+    "githubAPI": {
+        "type": "Github API",
+        "name": "New Github API",
+        "config": "{\n    \"username\": \"end-debug\",\n    \"token\": \"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\"\n}",
+        "project": "Foundations",
+        "id": "9ea7bee2-c4db-4cee-a05f-63fcf3a86a4a",
+        "savedPayload": {
+            "position": {
+                "x": 31351.208333333332,
+                "y": 10754.819458631257
+            },
+            "targetPosition": {
+                "x": 31051.208333333332,
+                "y": 10754.819458631257
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "23021bb7-9997-4fe6-8199-71ebf70aef76",
+    "savedPayload": {
+        "position": {
+            "x": 31051.208333333332,
+            "y": 10754.819458631257
+        },
+        "targetPosition": {
+            "x": 31051.208333333332,
+            "y": 10754.819458631257
+        },
+        "floatingObject": {
+            "isPinned": true,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

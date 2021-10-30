@@ -8,6 +8,9 @@
         "icon": {
             "name": "Pool\\pools",
             "project": "Governance"
+<<<<<<< HEAD
+        }
+=======
         },
         "translations": [
             {
@@ -17,11 +20,15 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We've got a lot of exciting things to talk about, but I want to make sure you can follow along easily.",
+<<<<<<< HEAD
+            "updated": 1630657385662
+=======
             "updated": 1630657385662,
             "translations": [
                 {
@@ -31,10 +38,19 @@
                     "style": "Text"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Callout",
             "text": "Make sure you go through the tutorials in the Getting Started Tutorials Plugin Workspace before continuing if you haven't yet!",
+<<<<<<< HEAD
+            "updated": 1630598529991
+        },
+        {
+            "style": "Success",
+            "text": "No need to be an expert, but you will need some general knowledge of the system to understand what this is all about!",
+            "updated": 1629720316727
+=======
             "updated": 1630598529991,
             "translations": [
                 {
@@ -57,6 +73,7 @@
                     "style": "Success"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

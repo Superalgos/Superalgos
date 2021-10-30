@@ -1,0 +1,30 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 40,
+    "type": "Tutorial Step - Deep Governance",
+    "definition": {
+        "text": "Are you ready to go deeper into the Governance rabbit hole?<br/> If you're just starting with Superalgos, you don't <i>need</i> to go any further at this point!",
+        "icon": {
+            "name": "governance",
+            "project": "Governance"
+        },
+        "updated": 1630753677065
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, if you're invested in the project and wish to place some Contribution Claims or cast some votes, then you have some reading to do!",
+            "updated": 1630753559879
+        },
+        {
+            "style": "Callout",
+            "text": "The Governance Project book on the right takes you deep into all Governance Programs, including those we haven't covered yet!",
+            "updated": 1630753327041
+        },
+        {
+            "style": "Success",
+            "text": "You're on your own from here on! If you have any questions about governance or the token, please join the Token Group in Telegram!",
+            "updated": 1630753481035
+        }
+    ]
+}

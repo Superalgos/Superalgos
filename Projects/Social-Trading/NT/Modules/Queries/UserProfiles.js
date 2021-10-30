@@ -5,7 +5,11 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
     and provide them with alternative of who to follow.
     */
     let thisObject = {
+<<<<<<< HEAD
+        array: undefined,
+=======
         profiles: undefined,
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -17,11 +21,24 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
     return thisObject
 
     function finalize() {
+<<<<<<< HEAD
+        thisObject.array = undefined
+=======
         thisObject.profiles = undefined
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     }
 
     function initialize(queryReceived) {
 
+<<<<<<< HEAD
+        thisObject.array = Array.from(
+            NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID, 
+            x => x[1]
+            )
+        thisObject.array.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
+
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
+=======
         thisObject.profiles = Array.from(
             SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID, 
             x => x[1]
@@ -29,6 +46,7 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
         thisObject.profiles.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)
 
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.profiles)
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
 
     }
 
@@ -37,6 +55,21 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
         let response = []
 
         switch (thisObject.direction) {
+<<<<<<< HEAD
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
+                for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
+                    let arrayItem = thisObject.array[i]
+                    if (arrayItem === undefined) { break }
+                    addToResponse(arrayItem)
+                }
+                break
+            }
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                    let arrayItem = thisObject.array[i]
+                    if (arrayItem === undefined) { break }
+                    addToResponse(arrayItem)
+=======
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let profile = thisObject.profiles[i]
@@ -50,6 +83,7 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
                     let profile = thisObject.profiles[i]
                     if (profile === undefined) { break }
                     addToResponse(profile)
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
                 }
                 break
             }

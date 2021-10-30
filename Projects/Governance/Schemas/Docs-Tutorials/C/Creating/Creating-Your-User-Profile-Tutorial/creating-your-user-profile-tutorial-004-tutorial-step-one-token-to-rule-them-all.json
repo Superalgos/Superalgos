@@ -8,6 +8,9 @@
         "icon": {
             "name": "Programs\\staking-program",
             "project": "Governance"
+<<<<<<< HEAD
+        }
+=======
         },
         "translations": [
             {
@@ -17,11 +20,19 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The SA Token is a BEP20 token on the Binance Smart Chain (BSC). Your token holdings embody your contributions to the Superalgos Project and Community, as the token is used to reward the user base and grow the development pool.",
+<<<<<<< HEAD
+            "updated": 1630657545503
+        },
+        {
+            "style": "Note",
+            "text": "The project distributes tokens exclusively among contributors!"
+=======
             "updated": 1630657545503,
             "translations": [
                 {
@@ -43,10 +54,14 @@
                     "style": "Note"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Success",
             "text": "The more you contribute to the project and help others, the more tokens you will earn!",
+<<<<<<< HEAD
+            "updated": 1630657555715
+=======
             "updated": 1630657555715,
             "translations": [
                 {
@@ -56,6 +71,7 @@
                     "style": "Success"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         },
         {
             "style": "Text",

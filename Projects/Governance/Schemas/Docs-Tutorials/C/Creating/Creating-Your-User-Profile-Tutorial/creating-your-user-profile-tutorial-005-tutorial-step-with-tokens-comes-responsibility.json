@@ -8,6 +8,9 @@
         "icon": {
             "name": "governance",
             "project": "Governance"
+<<<<<<< HEAD
+        }
+=======
         },
         "translations": [
             {
@@ -17,11 +20,19 @@
                 "style": "Definition"
             }
         ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The more tokens you hold the more influence you can have over the direction of the project. This means, by owning SA Tokens, you hold the power to use those tokens to exert influence over what parts of the system will be developed and how the community will evolve.",
+<<<<<<< HEAD
+            "updated": 1629165111109
+        },
+        {
+            "style": "Note",
+            "text": "This works in a cycle. The more you contribute, the more tokens you earn, the more say you have!"
+=======
             "updated": 1629165111109,
             "translations": [
                 {
@@ -43,6 +54,7 @@
                     "style": "Note"
                 }
             ]
+>>>>>>> d641a7e3b4a9f76cadee3d5dc0a02ed29d6b88ef
         }
     ]
 }

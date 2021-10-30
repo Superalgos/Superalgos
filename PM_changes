@@ -1,0 +1,60 @@
+----- Changes made outside of /Projects/Portfolio-Management/ -----
+
+Projects/ProjectsSchema.json:
+	cp Algorithmic-Trading Portfolio-Management - Some stuff definitely unneded here
+
+Projects/Community-Plugins/UI/Function-Libraries/
+	ActionSwitch.js:
+		cp case 'Add Missing Plugin Trading Mines'	case 'Add Missing Plugin Portfolio Mines'
+		cp case 'Add Missing Plugin Trading Systems'	case 'Add Missing Plugin Portfolio Systems'
+		cp case 'Add Missing Plugin Trading Engines'	case 'Add Missing Plugin Portfolio Engines'
+
+	PluginsFunctions.js:
+		cp addMissingPluginTradingMines		addMissingPluginPortfolioMines
+		cp addMissingPluginTradingSystems	addMissingPluginPortfolioSystems
+		cp addMissingPluginTradingEngines	addMissingPluginPortfolioEngines
+
+	../Utilities/Plugins.js:
+		function getPluginFolderNamesByNodeType(nodeType):
+			 add case 'Portfolio Engine'
+			 add case 'Portfolio Mine'
+			 add case 'Portfolio System'
+
+Projects/Data-Mining/UI/Function-Libraries/
+	MineFunctions.js:
+		cp scanBotArray(dataMine.tradingBots) scanBotArray(dataMine.portfolioBots)
+
+Skipping:
+	Projects/Foundations/TS/Function-Libraries/OutputManagementFunctions.js:
+		tradingProcessDate, VARS...INDEX_MAP->TRADING_PROCESSING_DAILY_FILES, ...
+
+
+Projects/Foundations/TS/Function-Libraries/
+	SingleMarketFunctions.js:
+		cp findNodeInNodeMesh(outputDatasetNode, 'Trading Bot') ...'Portfolio Bot')
+		Line 117 if...else add portfolioMineNode
+
+Projects/Foundations/TS/Process-Modules/
+	Dataset.js:
+		cp startingNode.type === 'Market Trading Products'
+	ProcessOutput.js:
+		cp line 27-29, 124-126
+	StatusReport.js:
+		Lines 102, 116, cp 172-222 dealing with finding process definitions the report depends on has been cloned from Trading -> Portfolio
+
+Projects/Foundations/UI/Function-Libraries/
+	ActionSwitch.js:
+		cp case statements run-all, stop-all, add-missing, references, products, etc.
+		Line 506 && 512 may not need to have been cloned but I did for now - regarding live and paper trading.
+
+Skipping:
+	Projects/Foundations/UI/Function-Libraries/ChartingSpaceFunctions.js
+	Projects/Foundations/UI/Function-Libraries/CryptoEcosystemFunctions.js
+
+Projects/Foundations/UI/Function-Libraries/
+	DataStorageFunctions.js:
+		Many things cloned.  But on line 156 only did 'addMissingSession(livePortfolioSessionArray) not back|forward|paper
+
+Skipping:
+	Projects/Foundations/UI/Function-Libraries - Appears 'tradingSystem' var here is just a parameter so no need change.
+

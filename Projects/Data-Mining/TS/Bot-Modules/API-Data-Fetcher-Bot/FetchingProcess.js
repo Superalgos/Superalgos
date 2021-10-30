@@ -50,7 +50,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ")
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return;
                     }
@@ -193,7 +193,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             We will assume that each Dataset is built fetching data from a single endpointNode at the target API.                        
                             To get the endpointNode node, we will go through the references at the Record Definition. 
                             We will check that all references are pointing to fields belonging to the same endpointNode node.
-                            If they are not, we will consider the user did not define well the relationaships between nodes
+                            If they are not, we will consider the user did not define well the relationships between nodes
                             and abort the process.                    
                             */
                             for (let j = 0; j < productDefinition.record.properties.length; j++) {
@@ -204,7 +204,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         let endpointNodeFound = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
                                         /*
                                         Every Record Property with an apiResponseFieldReference must be on the path 
-                                        to a certain enpoint.
+                                        to a certain endpoint.
                                         */
                                         if (endpointNodeFound === undefined) {
                                             TS.projects.foundations.utilities.errorHandlingFunctions.throwHandledException(
@@ -223,11 +223,11 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         }
 
                                         /*
-                                        Here we check all enpoints are actually the same endpoiht.
+                                        Here we check all endpoints are actually the same endpoint.
                                         */
                                         if (endpointNodeFound.id !== endpointNode.id) {
                                             /*
-                                            We can not reference fields from different enpoints.
+                                            We can not reference fields from different endpoints.
                                             */
                                             TS.projects.foundations.utilities.errorHandlingFunctions.throwHandledException(
                                                 processIndex,
@@ -244,7 +244,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                             if (endpointNode === undefined) {
                                 /*
-                                API Endpoint counld not be found. Check that the at least one Record Property 
+                                API Endpoint could not be found. Check that the at least one Record Property
                                 has an API Response Field Reference child, and that this one is referencing an 
                                 API Response Field.
                                 */
@@ -263,10 +263,10 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                             /*
                             Each record property references an API Response Field, which can be deep into the
                             data structure received from the API call. What we need to do, is to find for each
-                            record proeprty the nodePath that will help us later retrieve the value of that 
-                            particular proeprty.
+                            record property the nodePath that will help us later retrieve the value of that
+                            particular property.
                             
-                            To do so, we will have to recursivelly climb the API Map until reaching the API Response
+                            To do so, we will have to recursively climb the API Map until reaching the API Response
                             Schema node, which is the one from where we will get the root object of the response data
                             structure.
                             */
@@ -606,7 +606,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                         let errorCodeReceived
 
                                         /*
-                                        At this point we have received the first http reponse from the API server, 
+                                        At this point we have received the first http response from the API server,
                                         and from it we can extract the status code, which is the html code of the 
                                         response of our request.
                                         
@@ -665,7 +665,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                             response.text().then(body => {
                                                 apiResponseReceivedText = body
                                                 /*
-                                                If we received an errror code, we abort the processing at this point.
+                                                If we received an error code, we abort the processing at this point.
                                                 */
                                                 if (errorCodeReceived === true) {
                                                     resolve('ERROR_CODE_RECEIVED')
@@ -719,7 +719,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                                     resolve('PAGE_FETCHED')
                                                 }
                                                 /*
-                                                If we received an errror code, we abort the processing at this point.
+                                                If we received an error code, we abort the processing at this point.
                                                 */
                                                 if (errorCodeReceived === true) {
                                                     resolve('ERROR_CODE_RECEIVED')
@@ -829,7 +829,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                 function appendToExistingDataset() {
                                     /* 
-                                    We are going to append the curernt apiResponseReceivedText to the existing file.
+                                    We are going to append the current apiResponseReceivedText to the existing file.
                                     */
                                     let existingFileArray = JSON.parse(existingFileContent)
                                     /*
@@ -929,7 +929,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 contextVariables.lastFile = file.date
                                 /*
                                 For One-Min type of datasets, since they are saved as Daily Files, there is no need
-                                to read the already existing content to append to it. In this case is enought to 
+                                to read the already existing content to append to it. In this case is enough to
                                 set the existing content to an empty array.
                                 */
                                 existingFileContent = "[]"
@@ -938,7 +938,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
 
                                 function appendToExistingDataset() {
                                     /* 
-                                    We are going to append the curernt apiResponseReceivedText to the existing file.
+                                    We are going to append the current apiResponseReceivedText to the existing file.
                                     */
                                     let existingFileArray = JSON.parse(existingFileContent)
                                     /*
@@ -1108,7 +1108,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                     }
 
                     /*
-                    When all Output Datasets have been succesfully written, we can go and write
+                    When all Output Datasets have been successfully written, we can go and write
                     the Status Report.
                     */
                     writeStatusReport()

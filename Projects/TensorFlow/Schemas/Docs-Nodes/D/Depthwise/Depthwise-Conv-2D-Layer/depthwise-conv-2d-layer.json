@@ -1,7 +1,7 @@
 {
     "type": "Depthwise Conv 2D Layer",
     "definition": {
-        "text": "Depthwise separable 2D convolution. Depthwise Separable convolutions consists in performing just the first step in a depthwise spatial convolution (which acts on each input channel separately). The depthMultplier argument controls how many output channels are generated per input channel in the depthwise step.",
+        "text": "Depthwise separable 2D convolution. Depthwise Separable convolutions consists in performing just the first step in a depthwise spatial convolution (which acts on each input channel separately). The depthMultiplier argument controls how many output channels are generated per input channel in the depthwise step.",
         "updated": 1613218906419
     },
     "paragraphs": [

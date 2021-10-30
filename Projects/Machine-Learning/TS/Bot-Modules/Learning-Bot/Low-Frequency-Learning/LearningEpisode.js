@@ -134,7 +134,7 @@ exports.newMachineLearningBotModulesLearningEpisode = function (processIndex) {
     }
 
     function updatedistanceToLearningEventsCounters() {
-        /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
+        /* Keeping Distance Counters Up-to-date while avoiding counting before the first event happens. */
         /*
         if (
             learningEngine.learningCurrent.learningEpisode.distanceToLearningEvent.triggerOn.value > 0

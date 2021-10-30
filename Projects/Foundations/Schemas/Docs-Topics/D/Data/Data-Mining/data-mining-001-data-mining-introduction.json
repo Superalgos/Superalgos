@@ -3,13 +3,13 @@
     "pageNumber": 1,
     "type": "Data Mining - Introduction",
     "definition": {
-        "text": "Data Mining in Superalgos means extracting data from external sources and processing that data in order to have it ready for consumption by trading strategies.",
-        "updated": 1622200589433,
+        "text": "Data Mining in Superalgos means extracting data from external sources and processing that data in order to have it ready for consumption by trading strategies.\n",
+        "updated": 1635521444812,
         "translations": [
             {
                 "language": "DE",
                 "text": "Data Mining in Superalgos bedeutet die Extraktion von Daten aus externen Quellen und die Verarbeitung dieser Daten, um sie für Handelsstrategien nutzbar zu machen. Ins deutsche übersetzt von gitforkgit.",
-                "updated": 1634502828004
+                "updated": 1635521809616
             }
         ]
     },
@@ -27,6 +27,22 @@
             ]
         },
         {
+            "style": "Important",
+            "text": "At the end of this Docs-Chapter there is a Video Series that shows you the entire process of building an indicator, step by step. If you feel that you do not know how to practically perform the steps explained in this chapter, just have a look at the last article: \"Data Mining - How to Build an Indicator - Video Series\"",
+            "updated": 1635521763763,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Am Ende dieses Docs-Kapitels finden Sie eine Video-Serie, die Ihnen den gesamten Prozess der Erstellung eines Indicators Schritt für Schritt zeigt. Wenn Sie das Gefühl haben, dass Sie nicht wissen, wie Sie die in diesem Kapitel erläuterten Schritte praktisch durchführen können, schauen Sie sich einfach den letzten Artikel an: \"Data Mining - How to Build an Indicator - Video Series\"",
+                    "updated": 1635521851687
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
             "style": "Title",
             "text": "The Big Picture",
             "updated": 1622188702833,
@@ -37,6 +53,10 @@
                     "updated": 1634502312960
                 }
             ]
+        },
+        {
+            "style": "Title",
+            "text": ""
         },
         {
             "style": "Text",

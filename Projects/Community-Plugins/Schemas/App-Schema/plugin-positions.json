@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Features",
+    "type": "Plugin Positions",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Features",
-            "label": "Add Missing Features",
+            "action": "Add Missing Plugin Positions",
+            "label": "Add Missing Positions",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Features",
+            "relatedUiObject": "Positions",
             "actionFunction": "payload.executeAction",
             "actionProject": "Governance",
             "relatedUiObjectProject": "Governance"
@@ -25,7 +25,8 @@
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginFeatures",
+    "propertyNameAtParent": "pluginPositions",
+    "alternativeIcons": "Use Reference Parent Parent",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

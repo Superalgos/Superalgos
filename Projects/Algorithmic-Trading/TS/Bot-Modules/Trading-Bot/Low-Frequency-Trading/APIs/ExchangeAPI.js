@@ -228,7 +228,7 @@
                 logError('key.length:' + exchangeApiKey.config.codeName.length)
                 logError('secret.length:' + exchangeApiKey.config.secret.length)
                 logError('Double check that you copied the key at the codeName property and the secret at secret property without bringing any invisible caracter from the exchange web site, or leaving any character from the sample text. Also check that the keys are not disabled at the exchange ot that they are not restricted by IP.')
-                logError('As a remainder. Binance key and secret are 64 bytes in lenght each one. ')
+                logError('As a remainder. Binance key and secret are 64 bytes in length each one. ')
             }
         }
     }

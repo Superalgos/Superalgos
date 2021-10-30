@@ -12,7 +12,7 @@ function newAutoScaleButton() {
         finalize: finalize
     }
 
-    /* Cointainer stuff */
+    /* Container stuff */
     thisObject.container = newContainer()
     thisObject.container.name = 'Auto Scale Button'
     thisObject.container.initialize()

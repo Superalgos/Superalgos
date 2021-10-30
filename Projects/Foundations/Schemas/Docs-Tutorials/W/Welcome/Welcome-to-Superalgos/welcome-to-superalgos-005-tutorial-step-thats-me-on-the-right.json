@@ -163,7 +163,11 @@
                 {
                     "language": "RU",
                     "text": "Наведите курсор мыши на узел Tutorial и посмотрите, что произойдет! Ух ты! Круто, правда? Так много кнопок!",
-                    "updated": 1635451952870
+                    "updated": 1635451952870},
+                    {
+                    "language": "TR",
+                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme!",
+                    "updated": 1635577498974
                 }
             ]
         }

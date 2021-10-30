@@ -327,11 +327,11 @@ function newCoordinateSystem() {
     function transformThisPoint(point) {
         /*
 
-        This is the straigh fordward transformation this object provides. The input is a point on the data set that wants to be plotted in a timeline.
+        This is the straight forward transformation this object provides. The input is a point on the data set that wants to be plotted in a timeline.
         The x value of the point must be a datetime.valueOf() and is going to be transformed into an x value on the coordinate system of the timeline.
         The y value should be a value in the dataset at that moment in time. Depending on how this coordinate system was initialized then are the
         possible values y can have. For sure it must be in the range between the min and max y declared at initialization. The y value has a special
-        treatment since the browser canvas object used, has a zero y value at the top, while the timeline we use has a zero y value at the botton,
+        treatment since the browser canvas object used, has a zero y value at the top, while the timeline we use has a zero y value at the bottom,
         for that reason y is flipped.
 
         Besides this, what we do is to multiply by the scale, which in turn is calculated at initialization time depending on the values provided.

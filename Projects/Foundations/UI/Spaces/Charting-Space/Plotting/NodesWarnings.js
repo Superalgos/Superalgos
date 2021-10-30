@@ -32,7 +32,7 @@ function newNodesWarnings() {
                 let arrayItem = array[i]
                 let docs = arrayItem[2]
                 let nodeIdArray = arrayItem[0]
-                /* We migth receive here and array of node Ids. If we dont, we receive at least one node id*/
+                /* We might receive here and array of node Ids. If we dont, we receive at least one node id*/
                 if (Array.isArray(nodeIdArray) === true) {
                     for (let j = 0; j < nodeIdArray.length; j++) {
                         let nodeId = nodeIdArray[j]
@@ -58,7 +58,7 @@ function newNodesWarnings() {
             let docs = arrayItem[2]
             let nodeId
             let nodeIdArray = arrayItem[0]
-            /* We migth receive here and array of node Ids. If we dont, we receive at least one node id*/
+            /* We might receive here and array of node Ids. If we dont, we receive at least one node id*/
             if (Array.isArray(nodeIdArray) === true) {
                 /* For repositioning the design space we will pick the first Id at the Node Id Array */
                 nodeId = nodeIdArray[0]

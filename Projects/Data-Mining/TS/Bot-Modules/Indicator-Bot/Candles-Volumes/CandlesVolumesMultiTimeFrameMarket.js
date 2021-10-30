@@ -45,7 +45,7 @@
         in-memory arrays. We will then append to this arrays the new information we will get from Exchange Raw Data.
     
         2. We know from our status report which was the last DAY we processed from Exchange Raw Data, 
-        but we must be carefull, because that day might  not have been completed yet, if the
+        but we must be carefully, because that day might  not have been completed yet, if the
         last loop found the head of the market. That means that we have to be carefull not to append candles 
         that are already there. To simplify what we do is to discard all candles of the last processed day, 
         and then we can process that full day again adding all the candles.
@@ -71,7 +71,7 @@
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Starting Point')
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
@@ -80,7 +80,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return
                     }
@@ -112,7 +112,7 @@
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Ending Point')
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
@@ -121,7 +121,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -148,7 +148,7 @@
                     /* Finally we get our own Status Report. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
@@ -157,7 +157,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                            "[ERROR] start -> getContextVariables -> Can not continue because self dependency Status Report is corrupt. Aborting Process.");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return
                     }
@@ -168,7 +168,7 @@
 
                         beginingOfMarket = new Date(thisReport.beginingOfMarket);
 
-                        if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                        if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Beginning of the Market
 
                             beginingOfMarket = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
@@ -291,7 +291,7 @@
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                             "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> err = " + err.stack);
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                            "[ERROR] start -> findPreviousContent -> loopBody -> getCandles -> onFileReceived -> Assuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
@@ -337,7 +337,7 @@
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                             "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> err = " + err.stack);
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                            "[ERROR] start -> findPreviousContent -> loopBody -> getVolumes -> onFileReceived -> Assuming this is a temporary situation. Requesting a Retry.");
                                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                     }
                                 } else {
@@ -373,7 +373,7 @@
                     let fromDate = new Date(contextVariables.datetimeLastProducedFile.valueOf())
                     let lastDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(new Date())
                     /*
-                    Firstly we prepere the arrays that will accumulate all the information for each output file.
+                    Firstly we prepare the arrays that will accumulate all the information for each output file.
                     */
                     let outputCandles = [];
                     let outputVolumes = [];
@@ -426,7 +426,7 @@
 
                     function timeframesLoop() {
                         /*
-                        We will iterate through all posible time frames.
+                        We will iterate through all possible time frames.
                         */
                         let n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
 
@@ -539,7 +539,7 @@
                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                     "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Assuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return
                                             }
@@ -550,7 +550,7 @@
                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                     "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Dependency Not Ready -> err = " + JSON.stringify(err));
                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[WARN] start -> buildCandles -> timeframesLoop -> loopBody -> nextCandleFile -> onFileReceived -> Assuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return
 
@@ -567,8 +567,8 @@
                                         let totalOutputCandles = inputFilePeriod / outputPeriod; // this should be 2 in this case.
                                         let beginingOutputTime = contextVariables.datetimeLastProducedFile.valueOf();
                                         /*
-                                        The algorithm that follows is going to agregate candles of 1 min timeFrame read from Exchange Raw Data, into candles of each timeFrame
-                                        that Candles Volumes generates. For market files those timePediods goes from 1h to 24hs.
+                                        The algorithm that follows is going to aggregate candles of 1 min timeFrame read from Exchange Raw Data, into candles of each timeFrame
+                                        that Candles Volumes generates. For market files those time periods goes from 1h to 24hs.
                                         */
                                         for (let i = 0; i < totalOutputCandles; i++) {
 
@@ -667,7 +667,7 @@
                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                                     "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Error Parsing JSON -> err = " + err.stack);
                                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.");
+                                                    "[ERROR] start -> buildCandles -> timeframesLoop -> loopBody -> nextVolumeFile -> onFileReceived -> Assuming this is a temporary situation. Requesting a Retry.");
                                                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                                                 return;
                                             }
@@ -753,7 +753,7 @@
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[INFO] start -> writeFiles -> Entering function.")
                 /*
-                Here we will write the contents of the Candles and Volumens files.
+                Here we will write the contents of the Candles and Volumes files.
                 */
                 try {
                     writeCandles()

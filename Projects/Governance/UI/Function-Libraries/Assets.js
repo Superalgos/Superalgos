@@ -47,7 +47,7 @@ function newGovernanceFunctionLibraryAssets() {
         function removeFirstFromArray(array) {
             /*
             Don't want to use splice here because this will be used 
-            recursivelly and can have problems because we will be
+            recursively and can have problems because we will be
             passing a pointer to the array at several branches.
             */
             let newArray = []
@@ -69,7 +69,7 @@ function newGovernanceFunctionLibraryAssets() {
             if (schemaDocument === undefined) { return }
 
             /*
-            Here we will check that the node corersponding to the next item does not already exist.
+            Here we will check that the node corresponding to the next item does not already exist.
             */
             let exist = false
             if (schemaDocument.childrenNodesProperties !== undefined) {

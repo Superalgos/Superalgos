@@ -396,7 +396,7 @@ function newCircularMenuItem() {
                     setStatus(thisObject.workingLabel, UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
+                /* Execute the action and wait for callbacks to update our status. */
                 let relatedNodeProject = thisObject.actionProject
                 if (thisObject.relatedUiObjectProject !== undefined) {
                     relatedNodeProject = thisObject.relatedUiObjectProject
@@ -420,7 +420,7 @@ function newCircularMenuItem() {
                     setStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
+                /* Execute the action and wait for callbacks to update our status. */
                 thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
                 return
             }
@@ -477,7 +477,7 @@ function newCircularMenuItem() {
         labelToPrint = text
         backgroundColorToUse = backgroundColor
         temporaryStatus = newStatus
-        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic reseting.
+        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic resetting.
         if (waitingCycles !== undefined) { // This will override the often negative value with a positive one that will tend to zero onto the default state.
             temporaryStatusCounter = waitingCycles
         }

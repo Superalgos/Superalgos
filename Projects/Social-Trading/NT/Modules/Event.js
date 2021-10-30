@@ -17,7 +17,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         targetBotProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
-        /* Event Unitque Properties */
+        /* Event Unique Properties */
         eventType: undefined,
         timestamp: undefined,
         /* Bot Related Properties */

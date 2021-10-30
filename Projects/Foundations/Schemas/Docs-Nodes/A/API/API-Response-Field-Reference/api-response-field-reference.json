@@ -33,12 +33,12 @@
         },
         {
             "style": "Text",
-            "text": "In order to extract individual values for each Record Property, the API Data Fetcher Bot needs to dynamically discover the nodePath for each Record Propety at the response data structure and can do it as long as the API Response Field referenced is under the Data Root. To autodiscover the nodePath it uses the API Response Schema nodePath to locate the Data Root, and then it follows the reference from the API Response Field Reference node to the API Response Field and climbs upwards until it reach the API Response Schema. While climbing upwards it discovers the nodePath that it needs to grab the value from the response data structure. That is how it works.",
+            "text": "In order to extract individual values for each Record Property, the API Data Fetcher Bot needs to dynamically discover the nodePath for each Record Property at the response data structure and can do it as long as the API Response Field referenced is under the Data Root. To auto discover the nodePath it uses the API Response Schema nodePath to locate the Data Root, and then it follows the reference from the API Response Field Reference node to the API Response Field and climbs upwards until it reach the API Response Schema. While climbing upwards it discovers the nodePath that it needs to grab the value from the response data structure. That is how it works.",
             "updated": 1622372741883
         },
         {
             "style": "Text",
-            "text": "When the referenced API Response Field is outside the scope of the Data Root, the process is not able to auto dicover this path and need users to manually define the nodePath (from the API Response Schema to the API Response Field that holds the value) and set it in this proeprty. That happens for instance when the API Response Field is part of the header of the API Server response.",
+            "text": "When the referenced API Response Field is outside the scope of the Data Root, the process is not able to auto discover this path and need users to manually define the nodePath (from the API Response Schema to the API Response Field that holds the value) and set it in this property. That happens for instance when the API Response Field is part of the header of the API Server response.",
             "updated": 1621972505639
         },
         {

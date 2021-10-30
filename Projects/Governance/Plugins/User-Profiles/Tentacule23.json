@@ -26,12 +26,12 @@
                     "id": "deaea400-fa7f-48fd-a3fe-653b1bd18650",
                     "savedPayload": {
                         "position": {
-                            "x": 26903.112030456607,
-                            "y": 23040.192378864667
+                            "x": 27034.135279128353,
+                            "y": 18113.204681296138
                         },
                         "targetPosition": {
-                            "x": 27162.91965159194,
-                            "y": 23190.192378864667
+                            "x": 27257.07872677157,
+                            "y": 18313.943863203796
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "97ae26ad-542d-4373-806a-593e979e1a1b",
                 "savedPayload": {
                     "position": {
-                        "x": 27162.91965159194,
-                        "y": 23190.192378864667
+                        "x": 27257.07872677157,
+                        "y": 18313.943863203796
                     },
                     "targetPosition": {
-                        "x": 27422.727272727272,
-                        "y": 23340.192378864667
+                        "x": 27480.02217441479,
+                        "y": 18514.683045111455
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "54a2fcd6-e80c-4a30-84c0-d80ae9d197e9",
                     "savedPayload": {
                         "position": {
-                            "x": 27422.727272727272,
-                            "y": 22740.192378864667
+                            "x": 27604.769188905444,
+                            "y": 17927.794484671173
                         },
                         "targetPosition": {
-                            "x": 27422.727272727272,
-                            "y": 23040.192378864667
+                            "x": 27542.395681660117,
+                            "y": 18221.238764891314
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "786e62d1-6b32-49d9-8046-9c8577dbcd87",
                 "savedPayload": {
                     "position": {
-                        "x": 27422.727272727272,
-                        "y": 23040.192378864667
+                        "x": 27542.395681660117,
+                        "y": 18221.238764891314
                     },
                     "targetPosition": {
-                        "x": 27422.727272727272,
-                        "y": 23340.192378864667
+                        "x": 27480.02217441479,
+                        "y": 18514.683045111455
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,12 +127,12 @@
             "id": "7e7f3e6e-30f4-400d-a1f6-b3611498b7bf",
             "savedPayload": {
                 "position": {
-                    "x": 27422.727272727272,
-                    "y": 23340.192378864667
+                    "x": 27480.02217441479,
+                    "y": 18514.683045111455
                 },
                 "targetPosition": {
                     "x": 27572.727272727272,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -528,12 +528,12 @@
             "id": "db99bd94-cded-4ef0-bfb2-979cac295f7f",
             "savedPayload": {
                 "position": {
-                    "x": 28092.342514997934,
-                    "y": 23300
+                    "x": 28143.361182504363,
+                    "y": 18614.58980337503
                 },
                 "targetPosition": {
                     "x": 27572.727272727272,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -565,25 +565,170 @@
                         "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
-                        "claimVotesSwitch": [
+                        "claimVotesSwitch": [],
+                        "weightVotesSwitch": [
                             {
-                                "type": "Claim Votes Switch",
-                                "name": "New Claim Votes Switch",
+                                "type": "Weight Votes Switch",
+                                "name": "Governance Project",
                                 "config": "{}",
                                 "project": "Governance",
-                                "claimVotesSwitch": [],
-                                "positionClaimVotes": [],
-                                "assetClaimVotes": [],
-                                "featureClaimVotes": [],
-                                "id": "008b3b69-cc01-4e09-9122-ec885a882d76",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Governance Project Project Creator Luis-Fernando-Molina",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "a90e32de-3cb6-4fa0-9400-e8120506039f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 28594.539752281664,
+                                                "y": 17694.052387214924
+                                            },
+                                            "targetPosition": {
+                                                "x": 28798.83547716446,
+                                                "y": 18095.00532309969
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Creator Luis-Fernando-Molina",
+                                                "id": "b555c1fb-e0d3-445f-b46d-9428818b5fe5"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Governance Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina",
+                                                    "Position",
+                                                    "Governance",
+                                                    "b555c1fb-e0d3-445f-b46d-9428818b5fe5"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Governance Project Project Contributor Smidy13 Tentacule23",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "c2f4b7f6-31f4-4322-bc86-894795f7da63",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29043.923042921222,
+                                                "y": 17717.60356752425
+                                            },
+                                            "targetPosition": {
+                                                "x": 28798.83547716446,
+                                                "y": 18095.00532309969
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Contributor Smidy13 Tentacule23",
+                                                "id": "5a13709f-761a-410b-b0e9-1542e341f19e"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Governance Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                                ],
+                                                [
+                                                    "Project Contributor Smidy13 Tentacule23",
+                                                    "Position",
+                                                    "Governance",
+                                                    "5a13709f-761a-410b-b0e9-1542e341f19e"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "31d58dc1-0acd-4683-823f-1961ace21df4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 28862.43870443027,
-                                        "y": 22595.577136594
+                                        "x": 28798.83547716446,
+                                        "y": 18095.00532309969
                                     },
                                     "targetPosition": {
-                                        "x": 28637.43870443027,
-                                        "y": 22985.288568297
+                                        "x": 28775.284296855134,
+                                        "y": 18544.388613739247
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -595,21 +740,554 @@
                                     },
                                     "uiObject": {
                                         "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Governance Project",
+                                        "id": "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Governance Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "Visual Scripting Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Visual Scripting Project Project Creator Luis-Fernando-Molina",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "7a4f217d-be5c-4eb1-9ae3-d4ed00fb4a13",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29248.75711578869,
+                                                "y": 17815.30440854494
+                                            },
+                                            "targetPosition": {
+                                                "x": 29109.699468319963,
+                                                "y": 18243.27984087776
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Creator Luis-Fernando-Molina",
+                                                "id": "f1a2b5fb-fbe6-4c59-9778-568d3acb4abe"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Visual Scripting Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "0a5a7864-efff-4715-a435-f4bf35d1517e"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina",
+                                                    "Position",
+                                                    "Governance",
+                                                    "f1a2b5fb-fbe6-4c59-9778-568d3acb4abe"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Visual Scripting Project 1 Project Contributor Tentacle23",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "5d72e9b0-6c64-45f0-aef3-2a72183d4187",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29549.865888650176,
+                                                "y": 18149.71958000977
+                                            },
+                                            "targetPosition": {
+                                                "x": 29109.699468319963,
+                                                "y": 18243.27984087776
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "1 Project Contributor Tentacle23",
+                                                "id": "e897f662-4c6c-43df-b42b-f350e6f2d8a5"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Visual Scripting Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "0a5a7864-efff-4715-a435-f4bf35d1517e"
+                                                ],
+                                                [
+                                                    "1 Project Contributor Tentacle23",
+                                                    "Position",
+                                                    "Governance",
+                                                    "e897f662-4c6c-43df-b42b-f350e6f2d8a5"
+                                                ]
+                                            ]
+                                        }
                                     }
+                                ],
+                                "id": "61af0a63-beca-4b33-a62b-53b4f0642a9d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 29109.699468319963,
+                                        "y": 18243.27984087776
+                                    },
+                                    "targetPosition": {
+                                        "x": 28775.284296855134,
+                                        "y": 18544.388613739247
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Visual Scripting Project",
+                                        "id": "0a5a7864-efff-4715-a435-f4bf35d1517e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Visual Scripting Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "0a5a7864-efff-4715-a435-f4bf35d1517e"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "Education Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Education Project Project Creator Luis-Fernando-Molina",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "4af2d1b5-edf9-4534-9d74-23fad351947e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29559.08275895952,
+                                                "y": 18266.831021187085
+                                            },
+                                            "targetPosition": {
+                                                "x": 29224.667587494692,
+                                                "y": 18567.939794048572
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Creator Luis-Fernando-Molina",
+                                                "id": "03d477da-ec71-471f-a330-696aa188b31f"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Education Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "21bdec2e-d471-4b64-a3e0-6e2b31c5adcc"
+                                                ],
+                                                [
+                                                    "Project Creator Luis-Fernando-Molina",
+                                                    "Position",
+                                                    "Governance",
+                                                    "03d477da-ec71-471f-a330-696aa188b31f"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Education Project Project Leader Harrell harrellbm",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "e80bc3d5-3991-4133-9050-2bbfd2664ece",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29674.05087813425,
+                                                "y": 18591.490974357897
+                                            },
+                                            "targetPosition": {
+                                                "x": 29224.667587494692,
+                                                "y": 18567.939794048572
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Project Leader Harrell harrellbm",
+                                                "id": "5e9d7e8f-895b-4e9e-b8a5-c6571b8e2932"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Education Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "21bdec2e-d471-4b64-a3e0-6e2b31c5adcc"
+                                                ],
+                                                [
+                                                    "Project Leader Harrell harrellbm",
+                                                    "Position",
+                                                    "Governance",
+                                                    "5e9d7e8f-895b-4e9e-b8a5-c6571b8e2932"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Weight Vote",
+                                        "name": "Education Project Team Member",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "92fb5460-faf3-48b6-807e-632c0c36d7ab",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 29525.77636035618,
+                                                "y": 18902.3549655134
+                                            },
+                                            "targetPosition": {
+                                                "x": 29224.667587494692,
+                                                "y": 18567.939794048572
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Team Member",
+                                                "id": "70d8cddf-50a6-4ce0-b9ff-d27dcf12be4e"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                                ],
+                                                [
+                                                    "Education Project",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "21bdec2e-d471-4b64-a3e0-6e2b31c5adcc"
+                                                ],
+                                                [
+                                                    "Team Member",
+                                                    "Position",
+                                                    "Governance",
+                                                    "70d8cddf-50a6-4ce0-b9ff-d27dcf12be4e"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "eae7858b-35f2-405f-a252-5422ebc9d3bd",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 29224.667587494692,
+                                        "y": 18567.939794048572
+                                    },
+                                    "targetPosition": {
+                                        "x": 28775.284296855134,
+                                        "y": 18544.388613739247
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Education Project",
+                                        "id": "21bdec2e-d471-4b64-a3e0-6e2b31c5adcc"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Education Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "21bdec2e-d471-4b64-a3e0-6e2b31c5adcc"
+                                        ]
+                                    ]
                                 }
                             }
                         ],
-                        "weightVotesSwitch": [],
                         "userProfileVotesSwitch": [],
                         "id": "fb7f7b7e-a2fb-421f-8158-faa5006f4636",
                         "savedPayload": {
                             "position": {
-                                "x": 28637.43870443027,
-                                "y": 22985.288568297
+                                "x": 28775.284296855134,
+                                "y": 18544.388613739247
                             },
                             "targetPosition": {
-                                "x": 28412.43870443027,
-                                "y": 23375
+                                "x": 28440.869125390305,
+                                "y": 18845.497386600735
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -632,12 +1310,12 @@
                     "id": "2bc7d2be-bd4a-47b8-966f-349202f799bf",
                     "savedPayload": {
                         "position": {
-                            "x": 28862.43870443027,
-                            "y": 23375
+                            "x": 28868.844557723125,
+                            "y": 18984.55503406946
                         },
                         "targetPosition": {
-                            "x": 28412.43870443027,
-                            "y": 23375
+                            "x": 28440.869125390305,
+                            "y": 18845.497386600735
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -655,12 +1333,12 @@
                 "id": "f16e524c-4e32-4a6e-840b-bfdd6080f20c",
                 "savedPayload": {
                     "position": {
-                        "x": 28412.43870443027,
-                        "y": 23375
+                        "x": 28440.869125390305,
+                        "y": 18845.497386600735
                     },
                     "targetPosition": {
-                        "x": 28022.727272727272,
-                        "y": 23600
+                        "x": 28000.702705060092,
+                        "y": 18939.057647468726
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -681,216 +1359,7 @@
                 "config": "{}",
                 "project": "Governance",
                 "assetClaimsFolders": [],
-                "featureClaimsFolders": [
-                    {
-                        "type": "Feature Claims Folder",
-                        "name": "New Feature Claims Folder",
-                        "config": "{\n    \"percentage\": 90\n}",
-                        "project": "Governance",
-                        "featureClaimsFolders": [],
-                        "featureContributionClaims": [
-                            {
-                                "type": "Feature Contribution Claim",
-                                "name": "",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "d7c5da08-3757-46b4-8175-bc9a7b02359f",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 29401.938637175394,
-                                        "y": 23065.729997001305
-                                    },
-                                    "targetPosition": {
-                                        "x": 29064.438637175394,
-                                        "y": 23650.2971445558
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Feature",
-                                        "name": "Quick Position Node Feature",
-                                        "id": "98b5642a-faba-4a04-bf72-6efec86de56a"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Foundations-Project",
-                                            "Features",
-                                            "Governance",
-                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
-                                        ],
-                                        [
-                                            "Foundations Project",
-                                            "Feature Class",
-                                            "Governance",
-                                            "136b6e7a-f042-441b-84be-395b56b65b70"
-                                        ],
-                                        [
-                                            "Visual Designer",
-                                            "Feature Class",
-                                            "Governance",
-                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
-                                        ],
-                                        [
-                                            "Quick Position Node Feature",
-                                            "Feature",
-                                            "Governance",
-                                            "98b5642a-faba-4a04-bf72-6efec86de56a"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Feature Contribution Claim",
-                                "name": "",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "5d6b30bc-4f05-4001-87ba-45cba35fe1ce",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 29716.438569920516,
-                                        "y": 23475.5942891116
-                                    },
-                                    "targetPosition": {
-                                        "x": 29064.438637175394,
-                                        "y": 23650.2971445558
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Feature",
-                                        "name": "Tutorial Tab Feature",
-                                        "id": "5ac7a46b-f462-4dc4-a627-2c7588a67e7a"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Foundations-Project",
-                                            "Features",
-                                            "Governance",
-                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
-                                        ],
-                                        [
-                                            "Foundations Project",
-                                            "Feature Class",
-                                            "Governance",
-                                            "136b6e7a-f042-441b-84be-395b56b65b70"
-                                        ],
-                                        [
-                                            "Visual Designer",
-                                            "Feature Class",
-                                            "Governance",
-                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
-                                        ],
-                                        [
-                                            "Tutorial Tab Feature",
-                                            "Feature",
-                                            "Governance",
-                                            "5ac7a46b-f462-4dc4-a627-2c7588a67e7a"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Feature Contribution Claim",
-                                "name": "",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "faa99198-6c04-4722-bbc2-f4dd4f9d297f",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 29649.00578472989,
-                                        "y": 23987.7971445558
-                                    },
-                                    "targetPosition": {
-                                        "x": 29064.438637175394,
-                                        "y": 23650.2971445558
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Feature",
-                                        "name": "Node Menu Tool Tip Feature",
-                                        "id": "402b540e-4e1f-4756-9cb8-8445a672b36d"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Foundations-Project",
-                                            "Features",
-                                            "Governance",
-                                            "1d2c1985-c762-4ece-b350-15bd893bd1f4"
-                                        ],
-                                        [
-                                            "Foundations Project",
-                                            "Feature Class",
-                                            "Governance",
-                                            "136b6e7a-f042-441b-84be-395b56b65b70"
-                                        ],
-                                        [
-                                            "Visual Designer",
-                                            "Feature Class",
-                                            "Governance",
-                                            "18584f3f-6e48-4a68-89f1-0268185156e9"
-                                        ],
-                                        [
-                                            "Node Menu Tool Tip Feature",
-                                            "Feature",
-                                            "Governance",
-                                            "402b540e-4e1f-4756-9cb8-8445a672b36d"
-                                        ]
-                                    ]
-                                }
-                            }
-                        ],
-                        "id": "eb425c2c-6b7c-460d-a74e-650691f52fc7",
-                        "savedPayload": {
-                            "position": {
-                                "x": 29064.438637175394,
-                                "y": 23650.2971445558
-                            },
-                            "targetPosition": {
-                                "x": 28412.43870443027,
-                                "y": 23825
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 2,
-                                "distanceToParent": 4,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    }
-                ],
+                "featureClaimsFolders": [],
                 "positionClaimsFolders": [
                     {
                         "type": "Position Claims Folder",
@@ -901,18 +1370,18 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "Project Contributor Smidy13 Tentacule23 Governance Project",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "9c74a2a8-4bcf-42b7-b53d-7ba68f3acfc2",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 29191.86156783627,
-                                        "y": 24275
+                                        "x": 29169.953330584613,
+                                        "y": 19318.97020553429
                                     },
                                     "targetPosition": {
-                                        "x": 28802.15013613327,
-                                        "y": 24050
+                                        "x": 28729.7869102544,
+                                        "y": 19412.53046640228
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -927,33 +1396,116 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Moderator",
-                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                        "name": "Project Contributor Smidy13 Tentacule23",
+                                        "id": "5a13709f-761a-410b-b0e9-1542e341f19e"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
                                             "Positions",
                                             "Governance",
-                                            "50c68665-5da2-48a8-b229-7a1563ae82d2"
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
-                                            "Rewarded Positions",
+                                            "Roles Played @ Beta-12",
                                             "Position Class",
                                             "Governance",
                                             "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
-                                            "Community Management",
+                                            "Software Projects",
                                             "Position Class",
                                             "Governance",
-                                            "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
                                         ],
                                         [
-                                            "Moderator",
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Governance Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "68dd2990-457e-48df-b752-6e1fd02081a3"
+                                        ],
+                                        [
+                                            "Project Contributor Smidy13 Tentacule23",
                                             "Position",
                                             "Governance",
-                                            "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                            "5a13709f-761a-410b-b0e9-1542e341f19e"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "1 Project Contributor Tentacle23 Visual Scripting Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "0adbd33f-c572-4d29-bb67-ed8269aa168d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 29030.895683115887,
+                                        "y": 19746.94563786711
+                                    },
+                                    "targetPosition": {
+                                        "x": 28729.7869102544,
+                                        "y": 19412.53046640228
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "1 Project Contributor Tentacle23",
+                                        "id": "e897f662-4c6c-43df-b42b-f350e6f2d8a5"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Visual Scripting Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "0a5a7864-efff-4715-a435-f4bf35d1517e"
+                                        ],
+                                        [
+                                            "1 Project Contributor Tentacle23",
+                                            "Position",
+                                            "Governance",
+                                            "e897f662-4c6c-43df-b42b-f350e6f2d8a5"
                                         ]
                                     ]
                                 }
@@ -962,12 +1514,12 @@
                         "id": "be3ab259-2505-4200-a8cc-a373874aedb0",
                         "savedPayload": {
                             "position": {
-                                "x": 28802.15013613327,
-                                "y": 24050
+                                "x": 28729.7869102544,
+                                "y": 19412.53046640228
                             },
                             "targetPosition": {
-                                "x": 28412.43870443027,
-                                "y": 23825
+                                "x": 28301.81147792158,
+                                "y": 19273.472818933555
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -990,12 +1542,12 @@
                     "id": "9673136d-ac9a-40b7-bd6f-6c8c3fbbb384",
                     "savedPayload": {
                         "position": {
-                            "x": 28528.907274726407,
-                            "y": 24259.66662183008
+                            "x": 28395.37173878957,
+                            "y": 19713.639239263768
                         },
                         "targetPosition": {
-                            "x": 28412.43870443027,
-                            "y": 23825
+                            "x": 28301.81147792158,
+                            "y": 19273.472818933555
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1013,12 +1565,12 @@
                 "id": "cce1f59a-bb5d-4700-abf8-ab8d2932ff6a",
                 "savedPayload": {
                     "position": {
-                        "x": 28412.43870443027,
-                        "y": 23825
+                        "x": 28301.81147792158,
+                        "y": 19273.472818933555
                     },
                     "targetPosition": {
-                        "x": 28022.727272727272,
-                        "y": 23600
+                        "x": 28000.702705060092,
+                        "y": 18939.057647468726
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1036,43 +1588,15 @@
             "id": "705bfab3-e851-4469-ab70-ac972950de6c",
             "savedPayload": {
                 "position": {
-                    "x": 28022.727272727272,
-                    "y": 23600
+                    "x": 28000.702705060092,
+                    "y": 18939.057647468726
                 },
                 "targetPosition": {
                     "x": 27572.727272727272,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
-                    "isFrozen": false,
-                    "isCollapsed": false,
-                    "angleToParent": 2,
-                    "distanceToParent": 4,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
-                }
-            }
-        },
-        "financialPrograms": {
-            "type": "Financial Programs",
-            "name": "New Financial Programs",
-            "config": "{}",
-            "project": "Governance",
-            "id": "d120d972-5bec-4e8a-9811-3a51b8bd70b4",
-            "savedPayload": {
-                "position": {
-                    "x": 4842.835575687742,
-                    "y": 33536.70509831249
-                },
-                "targetPosition": {
-                    "x": 27572.727272727272,
-                    "y": 23600
-                },
-                "floatingObject": {
-                    "isPinned": true,
                     "isFrozen": false,
                     "isCollapsed": false,
                     "angleToParent": 2,
@@ -1102,12 +1626,12 @@
                         "id": "9d22ff3c-eff9-42de-8824-81fee7a51a9d",
                         "savedPayload": {
                             "position": {
-                                "x": 28641.477272727272,
-                                "y": 25451.129300589237
+                                "x": 28829.118249502437,
+                                "y": 20529.273825476448
                             },
                             "targetPosition": {
-                                "x": 28135.227272727272,
-                                "y": 24574.278579257494
+                                "x": 28233.985681556307,
+                                "y": 19710.144118671815
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1125,12 +1649,12 @@
                     "id": "b8658ca8-482a-4dda-9101-43c22a45caad",
                     "savedPayload": {
                         "position": {
-                            "x": 28135.227272727272,
-                            "y": 24574.278579257494
+                            "x": 28233.985681556307,
+                            "y": 19710.144118671815
                         },
                         "targetPosition": {
-                            "x": 27797.727272727272,
-                            "y": 23989.711431703
+                            "x": 27837.230636258886,
+                            "y": 19164.057647468726
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1149,17 +1673,17 @@
             "id": "a46bb98a-4ee4-4801-a0ff-60bc1c7eb1cd",
             "savedPayload": {
                 "position": {
-                    "x": 27797.727272727272,
-                    "y": 23989.711431703
+                    "x": 27837.230636258886,
+                    "y": 19164.057647468726
                 },
                 "targetPosition": {
                     "x": 27572.727272727272,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 4,
                     "arrangementStyle": 0
@@ -1173,11 +1697,11 @@
         "savedPayload": {
             "position": {
                 "x": 27572.727272727272,
-                "y": 23600
+                "y": 18800
             },
             "targetPosition": {
                 "x": 27272.727272727272,
-                "y": 23600
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1200,11 +1724,11 @@
         "savedPayload": {
             "position": {
                 "x": 26972.727272727272,
-                "y": 23600
+                "y": 18800
             },
             "targetPosition": {
                 "x": 27272.727272727272,
-                "y": 23600
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1223,11 +1747,11 @@
     "savedPayload": {
         "position": {
             "x": 27272.727272727272,
-            "y": 23600
+            "y": 18800
         },
         "targetPosition": {
             "x": 27272.727272727272,
-            "y": 23600
+            "y": 18800
         },
         "floatingObject": {
             "isPinned": false,

@@ -565,8 +565,8 @@
                                 "id": "2571cea1-2b6d-40f5-9331-8786bf57c184",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5711.350074904405,
-                                        "y": 32712.54666533391
+                                        "x": 5638.995788435162,
+                                        "y": 32682.57653858252
                                     },
                                     "targetPosition": {
                                         "x": 5561.350074904405,
@@ -586,7 +586,699 @@
                                 }
                             }
                         ],
-                        "claimVotesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{\n    \"percentage\": 10\n}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Support to new Devs Work",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "Tentacule23",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [
+                                                    {
+                                                        "type": "Claim Votes Switch",
+                                                        "name": "New Position Claims Folder",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "claimVotesSwitch": [],
+                                                        "positionClaimVotes": [
+                                                            {
+                                                                "type": "Position Claim Vote",
+                                                                "name": "Tentacule23 Project Contributor Smidy13 Tentacule23 Governance Project",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "ab341408-2073-46aa-9390-2396bdebf79b",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 6158.611030705825,
+                                                                        "y": 31803.02104280908
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 6236.256744236582,
+                                                                        "y": 32092.7987906958
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Contribution Claim",
+                                                                        "name": "Project Contributor Smidy13 Tentacule23 Governance Project",
+                                                                        "id": "9c74a2a8-4bcf-42b7-b53d-7ba68f3acfc2"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Tentacule23",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "New Position Claims Folder",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Project Contributor Smidy13 Tentacule23 Governance Project",
+                                                                            "Position Contribution Claim"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Position Claim Vote",
+                                                                "name": "Tentacule23 1 Project Contributor Tentacle23 Visual Scripting Project",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "ac17837f-37f5-4c27-a1c4-c667afb5153c",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 6448.388778592546,
+                                                                        "y": 31880.666756339837
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 6236.256744236582,
+                                                                        "y": 32092.7987906958
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Contribution Claim",
+                                                                        "name": "1 Project Contributor Tentacle23 Visual Scripting Project",
+                                                                        "id": "0adbd33f-c572-4d29-bb67-ed8269aa168d"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Tentacule23",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "New Position Claims Folder",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "1 Project Contributor Tentacle23 Visual Scripting Project",
+                                                                            "Position Contribution Claim"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetClaimVotes": [],
+                                                        "featureClaimVotes": [],
+                                                        "id": "65e4cba9-ff8e-4767-9e08-0edfaf1debc1",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 6236.256744236582,
+                                                                "y": 32092.7987906958
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 6158.611030705825,
+                                                                "y": 32382.57653858252
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Claims Folder",
+                                                                "name": "New Position Claims Folder",
+                                                                "id": "be3ab259-2505-4200-a8cc-a373874aedb0"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Tentacule23",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "New Position Claims Folder",
+                                                                    "Position Claims Folder"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "positionClaimVotes": [],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [],
+                                                "id": "7cdfb2cb-0b39-418c-98bb-84146d51194c",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 6158.611030705825,
+                                                        "y": 32382.57653858252
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 6080.965317175069,
+                                                        "y": 32672.354286469243
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "Binaries Team Position Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [],
+                                                "positionClaimVotes": [
+                                                    {
+                                                        "type": "Position Claim Vote",
+                                                        "name": "NAmorim Team Creator Nuno Distribution Team",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "75e88f67-17dc-4210-8f6c-25b01da7576f",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 6600.580559445732,
+                                                                "y": 32372.354286469243
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 6340.772938310401,
+                                                                "y": 32522.354286469243
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Contribution Claim",
+                                                                "name": "Team Creator Nuno Distribution Team",
+                                                                "id": "0e810835-bca3-4d12-8b58-4642b7d983d6"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "NAmorim",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12 Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Teams Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Tech Teams Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Binaries Team Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Team Creator Nuno Distribution Team",
+                                                                    "Position Contribution Claim"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [],
+                                                "id": "1c0fd841-1016-4a53-90d3-bcfd376b3502",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 6340.772938310401,
+                                                        "y": 32522.354286469243
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 6080.965317175069,
+                                                        "y": 32672.354286469243
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Claims Folder",
+                                                        "name": "Binaries Team Position Class",
+                                                        "id": "30d1b9a9-756a-466b-b606-7c31b629bdcf"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "NAmorim",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12 Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Teams Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Tech Teams Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Binaries Team Position Class",
+                                                            "Position Claims Folder"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "alexandrustefan",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [
+                                                    {
+                                                        "type": "Claim Votes Switch",
+                                                        "name": "Forum Team Position Class",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "claimVotesSwitch": [],
+                                                        "positionClaimVotes": [
+                                                            {
+                                                                "type": "Position Claim Vote",
+                                                                "name": "alexandrustefan Team Creator Alexandru Forum Team",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "122bea90-803d-4d2b-9af0-46197571b24d",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 6950.298560835229,
+                                                                        "y": 32594.708572938485
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 6660.520812948509,
+                                                                        "y": 32672.354286469243
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Contribution Claim",
+                                                                        "name": "Team Creator Alexandru Forum Team",
+                                                                        "id": "64319edb-7d43-4c1a-9a1a-fd5b8be149c8"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "alexandrustefan",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "Forum Team Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Team Creator Alexandru Forum Team",
+                                                                            "Position Contribution Claim"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetClaimVotes": [],
+                                                        "featureClaimVotes": [],
+                                                        "id": "89105005-a117-4b14-9848-49bf8f1b0c18",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 6660.520812948509,
+                                                                "y": 32672.354286469243
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 6370.743065061789,
+                                                                "y": 32750
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Claims Folder",
+                                                                "name": "Forum Team Position Class",
+                                                                "id": "6658d0c8-00b6-49fd-a17f-50a4d6c18756"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "alexandrustefan",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "Forum Team Position Class",
+                                                                    "Position Claims Folder"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Claim Votes Switch",
+                                                        "name": "Data Mining Project Position Class",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "claimVotesSwitch": [],
+                                                        "positionClaimVotes": [
+                                                            {
+                                                                "type": "Position Claim Vote",
+                                                                "name": "alexandrustefan 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "bf243dfe-b8f5-4d74-83a1-c54ec50fe5b9",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 6795.007133773718,
+                                                                        "y": 33174.26406871193
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 6582.8750994177535,
+                                                                        "y": 32962.132034355964
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Contribution Claim",
+                                                                        "name": "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
+                                                                        "id": "285d8109-5341-48f0-a19e-94112f7508c4"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "alexandrustefan",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "Data Mining Project Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
+                                                                            "Position Contribution Claim"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetClaimVotes": [],
+                                                        "featureClaimVotes": [],
+                                                        "id": "c5ee654c-e4c0-4315-9452-552941817051",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 6582.8750994177535,
+                                                                "y": 32962.132034355964
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 6370.743065061789,
+                                                                "y": 32750
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Claims Folder",
+                                                                "name": "Data Mining Project Position Class",
+                                                                "id": "0979d2c4-c661-469b-835b-77c5144ae51e"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "alexandrustefan",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "Data Mining Project Position Class",
+                                                                    "Position Claims Folder"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "positionClaimVotes": [],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [],
+                                                "id": "447ed9e1-b43e-43b6-813b-38ed0bd78c9a",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 6370.743065061789,
+                                                        "y": 32750
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 6080.965317175069,
+                                                        "y": 32672.354286469243
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "af60f74b-2ce6-42bf-8078-bb82259184d1",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 6080.965317175069,
+                                                "y": 32672.354286469243
+                                            },
+                                            "targetPosition": {
+                                                "x": 5821.157696039737,
+                                                "y": 32822.35428646924
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "positionClaimVotes": [],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "75487f1d-1ec0-4431-8693-ce9653018e81",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5821.157696039737,
+                                        "y": 32822.35428646924
+                                    },
+                                    "targetPosition": {
+                                        "x": 5561.350074904405,
+                                        "y": 32972.35428646924
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
                         "weightVotesSwitch": [
                             {
                                 "type": "Weight Votes Switch",
@@ -2663,12 +3355,12 @@
                                         "id": "800e3388-1ea6-40ee-ace5-1811a3373e39",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 6011.350074904405,
-                                                "y": 32712.54666533391
+                                                "x": 6063.25985714709,
+                                                "y": 32837.867965644036
                                             },
                                             "targetPosition": {
-                                                "x": 5861.350074904405,
-                                                "y": 32972.35428646924
+                                                "x": 5851.127822791125,
+                                                "y": 33050
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -9919,12 +10611,12 @@
                                         "id": "aa848510-1260-46ed-a855-6c0fb9dca9eb",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 6121.157696039737,
-                                                "y": 32822.35428646924
+                                                "x": 6140.905570677845,
+                                                "y": 32972.35428646924
                                             },
                                             "targetPosition": {
-                                                "x": 5861.350074904405,
-                                                "y": 32972.35428646924
+                                                "x": 5851.127822791125,
+                                                "y": 33050
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10161,12 +10853,12 @@
                                         "id": "12a12abf-c6f9-4a62-a21e-4442b2fbbada",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 6161.350074904405,
-                                                "y": 32972.35428646924
+                                                "x": 6140.905570677845,
+                                                "y": 33127.64571353076
                                             },
                                             "targetPosition": {
-                                                "x": 5861.350074904405,
-                                                "y": 32972.35428646924
+                                                "x": 5851.127822791125,
+                                                "y": 33050
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10279,12 +10971,12 @@
                                         "id": "f1ef36d6-3284-408b-9601-aa1bf4875c0a",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 6121.157696039737,
-                                                "y": 33122.35428646924
+                                                "x": 6063.25985714709,
+                                                "y": 33262.132034355964
                                             },
                                             "targetPosition": {
-                                                "x": 5861.350074904405,
-                                                "y": 32972.35428646924
+                                                "x": 5851.127822791125,
+                                                "y": 33050
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10348,12 +11040,12 @@
                                                                 "id": "71846ab2-14c4-4387-9da9-0e31c6f93d37",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 6880.6833185645655,
-                                                                        "y": 33465.09904819685
+                                                                        "x": 6708.196399727877,
+                                                                        "y": 33789.77774788672
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 6590.905570677845,
-                                                                        "y": 33387.45333466609
+                                                                        "x": 6448.388778592545,
+                                                                        "y": 33639.77774788672
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -10403,12 +11095,12 @@
                                                         "id": "45de81df-1349-49ef-9e25-1c6d3ddbc80f",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 6590.905570677845,
-                                                                "y": 33387.45333466609
+                                                                "x": 6448.388778592545,
+                                                                "y": 33639.77774788672
                                                             },
                                                             "targetPosition": {
-                                                                "x": 6301.127822791125,
-                                                                "y": 33309.80762113533
+                                                                "x": 6188.5811574572135,
+                                                                "y": 33489.77774788672
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -10458,12 +11150,12 @@
                                                 "id": "cfb8794f-e7bc-4fe1-b8c2-62bac334c6df",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 6301.127822791125,
-                                                        "y": 33309.80762113533
+                                                        "x": 6188.5811574572135,
+                                                        "y": 33489.77774788672
                                                     },
                                                     "targetPosition": {
-                                                        "x": 6011.350074904405,
-                                                        "y": 33232.161907604575
+                                                        "x": 5928.773536321882,
+                                                        "y": 33339.77774788672
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10502,12 +11194,12 @@
                                                                 "id": "d13e8401-2a24-41ee-bdce-b3b21dd13678",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 6461.350074904405,
-                                                                        "y": 34011.58477101057
+                                                                        "x": 6161.710676914151,
+                                                                        "y": 34209.110991546884
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 6311.350074904405,
-                                                                        "y": 33751.77714987524
+                                                                        "x": 6084.064963383395,
+                                                                        "y": 33919.33324366016
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -10553,12 +11245,12 @@
                                                         "id": "fbe182c7-c24c-4ed6-9091-1c4fb079a176",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 6311.350074904405,
-                                                                "y": 33751.77714987524
+                                                                "x": 6084.064963383395,
+                                                                "y": 33919.33324366016
                                                             },
                                                             "targetPosition": {
-                                                                "x": 6161.350074904405,
-                                                                "y": 33491.96952873991
+                                                                "x": 6006.419249852638,
+                                                                "y": 33629.55549577344
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -10604,12 +11296,12 @@
                                                 "id": "7e7445e0-7788-45a1-843d-ea44550a7f83",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 6161.350074904405,
-                                                        "y": 33491.96952873991
+                                                        "x": 6006.419249852638,
+                                                        "y": 33629.55549577344
                                                     },
                                                     "targetPosition": {
-                                                        "x": 6011.350074904405,
-                                                        "y": 33232.161907604575
+                                                        "x": 5928.773536321882,
+                                                        "y": 33339.77774788672
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10648,12 +11340,12 @@
                                                                 "id": "1d858fb4-834a-42d6-86be-04ca2500eb40",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 5778.412934312136,
-                                                                        "y": 34101.49515126474
+                                                                        "x": 5478.773536321882,
+                                                                        "y": 34119.20061129272
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 5856.058647842892,
-                                                                        "y": 33811.71740337802
+                                                                        "x": 5628.773536321882,
+                                                                        "y": 33859.39299015739
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -10703,12 +11395,12 @@
                                                         "id": "1f4ad876-80c2-411f-8411-448ac383db8f",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 5856.058647842892,
-                                                                "y": 33811.71740337802
+                                                                "x": 5628.773536321882,
+                                                                "y": 33859.39299015739
                                                             },
                                                             "targetPosition": {
-                                                                "x": 5933.704361373649,
-                                                                "y": 33521.9396554913
+                                                                "x": 5778.773536321882,
+                                                                "y": 33599.585369022054
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -10758,12 +11450,12 @@
                                                 "id": "9843ae6d-a478-4520-a1e1-c320fda2ffdb",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 5933.704361373649,
-                                                        "y": 33521.9396554913
+                                                        "x": 5778.773536321882,
+                                                        "y": 33599.585369022054
                                                     },
                                                     "targetPosition": {
-                                                        "x": 6011.350074904405,
-                                                        "y": 33232.161907604575
+                                                        "x": 5928.773536321882,
+                                                        "y": 33339.77774788672
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10786,12 +11478,12 @@
                                         "id": "4ece8c41-7a25-4514-9ff5-de3f609c7a00",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 6011.350074904405,
-                                                "y": 33232.161907604575
+                                                "x": 5928.773536321882,
+                                                "y": 33339.77774788672
                                             },
                                             "targetPosition": {
-                                                "x": 5861.350074904405,
-                                                "y": 32972.35428646924
+                                                "x": 5851.127822791125,
+                                                "y": 33050
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10814,8 +11506,8 @@
                                 "id": "1d398124-3f36-40a1-8b3b-6c77ad489b92",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5861.350074904405,
-                                        "y": 32972.35428646924
+                                        "x": 5851.127822791125,
+                                        "y": 33050
                                     },
                                     "targetPosition": {
                                         "x": 5561.350074904405,

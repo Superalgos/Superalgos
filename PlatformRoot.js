@@ -48,6 +48,7 @@ SA.nodeModules = {
     http: require('http'),
     ccxt: require('ccxt'),
     octokit: require("@octokit/rest"),
+    graphql: require("@octokit/graphql"),
     simpleGit: require('simple-git'),
     lookpath: require('lookpath'),
     process: require('process'),

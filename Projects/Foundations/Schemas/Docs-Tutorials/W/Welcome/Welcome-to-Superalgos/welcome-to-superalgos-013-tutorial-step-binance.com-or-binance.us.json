@@ -36,7 +36,13 @@
             {
                 "language": "DE",
                 "text": "Bevor wir mit dem Data Mining beginnen, habe ich eine kleine Frage an Sie: Handeln Sie bei binance.com, binance.us oder keinem von beiden?",
-                "updated": 1634162511903
+                "updated": 1634162511903,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliğine başlamadan önce size küçük bir sorum var: binance.com'da mı, binance.us'ta mı işlem yapıyorsunuz yoksa hiçbirinde mi?",
+                "updated": 1635582493156
             }
         ],
         "updated": 1622189667210
@@ -73,7 +79,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie bei binance.com oder gar nicht mit Binance handeln, dann können Sie diesen und den nächsten Schritt überspringen!",
-                    "updated": 1634162370036
+                    "updated": 1634162370036,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Binance.com'da işlem yapıyorsanız veya Binance ile hiç işlem yapmıyorsanız, bu ve sonraki adımı atlayabilirsiniz!",
+                    "updated": 1635582549143
                 }
             ]
         },
@@ -109,7 +121,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie bei binance.us handeln, konfigurieren Sie den Binance-Knoten auf der rechten Seite! Das Video im nächsten Schritt zeigt Ihnen wie!",
-                    "updated": 1634162445222
+                    "updated": 1634162445222,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımdaki video size nasıl olduğunu gösteriyor!",
+                    "updated": 1635582592953
                 }
             ]
         },
@@ -145,7 +163,13 @@
                 {
                     "language": "DE",
                     "text": "Rufen Sie die Konfiguration auf und ändern Sie den codeName in \"binanceus\". Bewegen Sie den Mauszeiger aus der Konfigurationsblase und sie wird automatisch geschlossen und gespeichert.",
-                    "updated": 1634162409313
+                    "updated": 1634162409313,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya (Configure) erişin ve kod adını \"binanceus\" olarak değiştirin. Fare işaretçisini yapılandırma balonunun dışına çıkarın, otomatik olarak kapanacak ve kaydedilecektir.",
+                    "updated": 1635582755655
                 }
             ]
         },
@@ -181,7 +205,13 @@
                 {
                     "language": "DE",
                     "text": "Ändern Sie die Bezeichnung des Knotens in \"Binanceus\".",
-                    "updated": 1634162417265
+                    "updated": 1634162417265,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi düğüm etiketini \"Binanceus\" olarak görüyor olmalısın.",
+                    "updated": 1635582726102
                 }
             ]
         }

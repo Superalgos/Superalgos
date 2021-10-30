@@ -21,7 +21,13 @@
             {
                 "language": "DE",
                 "text": "Ihre Beiträge wurden in Ihren Superalgos Fork hochgeladen und ein Pull Request wurde an das Haupt-Repository von Superalgos gesendet.",
-                "updated": 1634163888387
+                "updated": 1634163888387,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Katkılarınız Superalgos Çatalınıza yüklendi ve ana Superalgos deposuna bir Çekme Talebi gönderildi.",
+                "updated": 1635576753406
             }
         ]
     },
@@ -40,7 +46,13 @@
                 {
                     "language": "DE",
                     "text": "Es ist keine weitere Aktion von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Problem auf Github.com verfolgen.",
-                    "updated": 1634163896241
+                    "updated": 1634163896241,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir işlem yapmanız gerekmez. Birisi, Çekme Talebinizi gözden geçirecek ve her şeyin yolunda olması durumunda onu yazılımın en son sürümüyle birleştirecektir. Değişiklikleriniz herhangi bir nedenle reddedilirse, sorunu Github.com adresinden takip etmeniz gerekecektir.",
+                    "updated": 1635576806375
                 }
             ]
         }

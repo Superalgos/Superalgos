@@ -253,7 +253,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                                 console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                                 webhookMessages = []
@@ -301,7 +301,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
                                 break
@@ -881,7 +881,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
                                                 await runNodeSetup()
-                                                // Return to UI that Branch is suggessfully changed 
+                                                // Return to UI that Branch is successfully changed
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -1028,7 +1028,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             case 'FixAppSchema': {
                                 /*
-                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fixt the
+                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fix the
                                 actions where this node was referenced, so that it points to the new project where the node has moved to. 
                                 */
                                 let customResponse = {
@@ -1129,7 +1129,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                             let fileProject = allAppSchemasFileProjects[i]
                                                             //console.log(fileProject, project)
                                                             if (fileProject === project) {
-                                                                /* If the projec of the file is the same as the project found, then we consider this a match*/
+                                                                /* If the project of the file is the same as the project found, then we consider this a match*/
                                                                 hits = 1
                                                                 continue
                                                             }
@@ -1812,7 +1812,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let folder = unescape(requestPath[3])
                                 let fileName = unescape(requestPath[4])
 
-                                /*Beta 12 Refactoring Code: Remove this before realeasing beta 12.*/
+                                /*Beta 12 Refactoring Code: Remove this before releasing beta 12.*/
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }

@@ -1606,7 +1606,7 @@
                                 },
                                 {
                                     "type": "Position",
-                                    "name": "1 Team Member Tentacle23",
+                                    "name": "2 Team Member Tentacle23 quantum8",
                                     "config": "{}",
                                     "project": "Governance",
                                     "positions": [],
@@ -1675,8 +1675,38 @@
                                     "id": "fdeccdcd-0ed5-4549-b343-67242a533bb2",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21316.785196624965,
-                                            "y": 46012.57353826007
+                                            "x": 21387.47180881699,
+                                            "y": 45978.85775375515
+                                        },
+                                        "targetPosition": {
+                                            "x": 21224.080098312483,
+                                            "y": 45727.25658337152
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 3,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "1 Team Member quantum8",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "3c0015fa-c06a-4ee1-a000-b283cad18c16",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21239.780885185366,
+                                            "y": 46026.845443797894
                                         },
                                         "targetPosition": {
                                             "x": 21224.080098312483,
@@ -2683,8 +2713,8 @@
                                             "id": "71389baa-502a-4df3-bed5-66618ccb5495",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 20032.204261955892,
-                                                    "y": 45297.231055544486
+                                                    "x": 20054.005881003854,
+                                                    "y": 45329.8594842471
                                                 },
                                                 "targetPosition": {
                                                     "x": 20292.011883091225,
@@ -2713,8 +2743,38 @@
                                             "id": "b756d2de-2a22-421a-840c-629646e8851b",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 19992.011883091225,
+                                                    "x": 20002.234135204504,
+                                                    "y": 45224.87676907524
+                                                },
+                                                "targetPosition": {
+                                                    "x": 20292.011883091225,
                                                     "y": 45147.231055544486
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 3,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "type": "Position",
+                                            "name": "1 Team Member quantum8",
+                                            "config": "{}",
+                                            "project": "Governance",
+                                            "positions": [],
+                                            "positionClasss": [],
+                                            "id": "6393cd1d-7c45-4ba5-a81b-05c2b1bc382e",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 19994.578424679083,
+                                                    "y": 45108.07319787847
                                                 },
                                                 "targetPosition": {
                                                     "x": 20292.011883091225,

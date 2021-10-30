@@ -281,6 +281,8 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     Here we will validate that users can not vote for their own claims. 
                     */
                     let votedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+
+                    if (votedUserProfile === undefined || userProfile === undefined) { return }
                     if (votedUserProfile.id === userProfile.id) {
                         node.payload.uiObject.setErrorMessage('Voting your own claims is not allowed.')
                         return

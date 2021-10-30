@@ -42,7 +42,13 @@
             {
                 "language": "DE",
                 "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen!",
-                "updated": 1634161773115
+                "updated": 1634161773115,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
+                "updated": 1635579026048
             }
         ]
     },
@@ -84,7 +90,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Netzwerkknoten-konfiguration anpassen, bevor Sie fortfahren.",
-                    "updated": 1634161862309
+                    "updated": 1634161862309,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemciye ( Client ) uzak bir makineden erişiyorsanız, devam etmeden önce Ağ Düğümü ( Node )  yapılandırmasını ayarlamanız gerekir.",
+                    "updated": 1635579070105
                 }
             ]
         },
@@ -132,13 +144,19 @@
                 {
                     "language": "DE",
                     "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Netzwerkknoten-Menüs.",
-                    "updated": 1634161879485
+                    "updated": 1634161879485,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
+                    "updated": 1635579264884
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" config parameter.",
+            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss://mydomain.com:443\" config parameter.",
             "translations": [
                 {
                     "language": "ID",
@@ -160,7 +178,7 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss:\/\/mydomain.com:443\" dans les paramètres de configuration ",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss://mydomain.com:443\" dans les paramètres de configuration ",
                     "updated": 1623958474738,
                     "style": "List"
                 },
@@ -173,7 +191,13 @@
                 {
                     "language": "DE",
                     "text": "Ändern Sie den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.",
-                    "updated": 1634161891685
+                    "updated": 1634161891685,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin. Ters proxy kullanıyorsanız, \"webSocketsExternalURL\": \"wss://mydomain.com:443\" yapılandırma parametresini manuel olarak eklemelisiniz.",
+                    "updated": 1635579170033
                 }
             ]
         },
@@ -220,7 +244,13 @@
                 {
                     "language": "DE",
                     "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
-                    "updated": 1634161900103
+                    "updated": 1634161900103,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
+                    "updated": 1635579204588
                 }
             ]
         }

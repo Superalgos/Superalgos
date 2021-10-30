@@ -1365,14 +1365,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "321f170c-2486-4cdd-9bad-923708d555b6"
+                                "id": "b6d4c2fe-f1ec-4d05-9897-c6bf0571c4f3"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile",
-                                    "Governance",
-                                    "321f170c-2486-4cdd-9bad-923708d555b6"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -1982,14 +1980,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Raplh2502",
-                                "id": "321f170c-2486-4cdd-9bad-923708d555b6"
+                                "id": "b6d4c2fe-f1ec-4d05-9897-c6bf0571c4f3"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile",
-                                    "Governance",
-                                    "321f170c-2486-4cdd-9bad-923708d555b6"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -4595,17 +4591,17 @@
     "id": "501b09ca-778e-479b-98ff-7d2e6e8f2bb8",
     "savedPayload": {
         "position": {
-            "x": 17647.058823529413,
-            "y": 23600
+            "x": 13235.29411764706,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 17647.058823529413,
-            "y": 23600
+            "x": 13235.29411764706,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": true,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

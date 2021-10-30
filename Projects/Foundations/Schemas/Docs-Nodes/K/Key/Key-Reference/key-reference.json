@@ -10,7 +10,7 @@
         },
         {
             "style": "Text",
-            "text": "Usually, exchanges require autentication via your exchange account key for monetary transactions only. However, some exchanges may require autentication in other contexts as well, for instance, to retrieve information above a certain quota, or to retrieve raw trades data instead of OHLCV data."
+            "text": "Usually, exchanges require authentication via your exchange account key for monetary transactions only. However, some exchanges may require autentication in other contexts as well, for instance, to retrieve information above a certain quota, or to retrieve raw trades data instead of OHLCV data."
         },
         {
             "style": "Text",

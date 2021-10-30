@@ -1,7 +1,7 @@
 /*
     This module represent one layer of many possible layers that could be at the Floating Space. Objects in the same layer are subject to
     the same physics, and by being at the same level, they interact with each other. For example, they can bounce when one hit the other.
-    This module posesses its own physics engine. There are different types of floating objects, but this layer takes care of each of them.
+    This module possesses its own physics engine. There are different types of floating objects, but this layer takes care of each of them.
 
     Floating Objects Types:
 
@@ -42,7 +42,7 @@ function newFloatingLayer() {
     let invisibleFloatingObjects = []
 
     /*
-    Floating objects are accesible to plotters because they carry a "payload" object that was creted by them. This object includes the position
+    Floating objects are accessible to plotters because they carry a "payload" object that was created by them. This object includes the position
     and visible property. When visible turns to true, this layer module will move the reference of the floating object from the invisible array
     to the visibleFloatingObjects array. If the plotter decides that the object is to far from the what the user is seeing, it can eventually
     turn the visible property off again, forcing the layer to remove the object from the visibleFloatingObjects and place it again at the invisible
@@ -109,7 +109,7 @@ function newFloatingLayer() {
         /*
         There are two ways to look for a floating object: by handle or by index. The search by handle is done on the visible and invisible array.
         The search by index is done only on the visible ones. The search by index is usually needed when mouse events occurs. In those cases
-        only objects visible to the end usser matters.
+        only objects visible to the end user matters.
         */
 
         try {
@@ -165,7 +165,7 @@ function newFloatingLayer() {
             floatingObject.drawForeground()
         }
 
-        /* Invisible objects on focus (freezed) should still have some priority */
+        /* Invisible objects on focus (frozen) should still have some priority */
         for (let i = 0; i < invisibleFloatingObjects.length; i++) {
             let floatingObject = invisibleFloatingObjects[i]
             floatingObject.drawOnFocus()
@@ -256,7 +256,7 @@ function newFloatingLayer() {
         floating object has a position and a speed. In fact, each floating object has two positions at the same time:
 
         1. The current position: is the position of the ball, floating around.
-        2. The anchor position: is the position of where the ball is achored on the plot. This one is inside the payload object controlled by the
+        2. The anchor position: is the position of where the ball is anchored on the plot. This one is inside the payload object controlled by the
            plotter.
 
         The anchor position influences the current position, since the Physics engine will apply a gravity force to the ball's position in order
@@ -295,7 +295,7 @@ function newFloatingLayer() {
             }
 
             function enginePhysics() {
-                /* This function makes all the calculations to apply phisycs on all visible floatingObjects in this layer. */
+                /* This function makes all the calculations to apply physics on all visible floatingObjects in this layer. */
 
                 try {
 
@@ -319,8 +319,8 @@ function newFloatingLayer() {
                             floatingObject.friction = floatingObject.friction - 0.00001
                         }
 
-                        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Desaceleration factor.
-                        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Desaceleration factor.
+                        floatingObject.currentSpeed.x = floatingObject.currentSpeed.x * floatingObject.friction  // Deceleration factor.
+                        floatingObject.currentSpeed.y = floatingObject.currentSpeed.y * floatingObject.friction  // Deceleration factor.
 
                         let payload = {
                             position: undefined,
@@ -473,7 +473,7 @@ function newFloatingLayer() {
 
     function repulsionForceBetweenFloatingObjects(currentFloatingObject) {
         try {
-            /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
+            /* We generate a repulsion force between floatingObjects, that prevents them to be collision so often. */
 
             const coulomb = 2
 
@@ -522,7 +522,7 @@ function newFloatingLayer() {
                         y: unitVector.y * force
                     }
 
-                    /* We substract the force vector to the speed vector of the current floatingObject */
+                    /* We subtract the force vector to the speed vector of the current floatingObject */
                     if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
                         floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x
                         floatingObject1.currentSpeed.y = floatingObject1.currentSpeed.y - forceVector.y
@@ -570,7 +570,7 @@ function newFloatingLayer() {
 
     function targetRepulsionForce(currentFloatingObject) {
         try {
-            /* We generate a repulsion force between floatingObjects, that prevents them to be collisioning so often. */
+            /* We generate a repulsion force between floatingObjects, that prevents them to be collision so often. */
 
             const coulomb = 2
 
@@ -631,7 +631,7 @@ function newFloatingLayer() {
                         y: unitVector.y * force
                     }
 
-                    /* We substract the force vector to the speed vector of the current floatingObject */
+                    /* We subtract the force vector to the speed vector of the current floatingObject */
 
                     if (isNaN(forceVector.x) === false && isNaN(forceVector.y) === false) {
                         floatingObject1.currentSpeed.x = floatingObject1.currentSpeed.x - forceVector.x

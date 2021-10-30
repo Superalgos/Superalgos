@@ -15,7 +15,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function isMissingChildrenById(startingNode, checkNode, checkReferenceParent) {
         /*
-        This functioin scan all the children of a node and returns true or false
+        This function scan all the children of a node and returns true or false
         depending if the checkNode is a missing children. 
         */
         if (startingNode === undefined) { return }
@@ -78,7 +78,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function isMissingChildrenByName(startingNode, nodeName) {
         /*
-        This functioin scan all the children of a node and returns true or false
+        This function scan all the children of a node and returns true or false
         depending if the node has a children with a certain name.  
         */
         if (startingNode === undefined) { return }
@@ -121,7 +121,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function isMissingChildrenByType(startingNode, nodeType) {
         /*
-        This functioin scan all the children of a node and returns true or false
+        This function scan all the children of a node and returns true or false
         depending if the node has a children with a certain type.  
         */
         if (startingNode === undefined) { return }
@@ -164,7 +164,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function findChildReferencingThisNode(startingNode, checkNode) {
         /*
-        This functioin scan all the children of a node and returns the child
+        This function scan all the children of a node and returns the child
         that is referencing the checkNode. 
         */
         if (startingNode === undefined) { return }
@@ -215,7 +215,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function findChildByType(startingNode, nodeType) {
         /*
-        This functioin scan all the children of a node and returns the child
+        This function scan all the children of a node and returns the child
         that has a type  as specified via parameter.
         */
         if (startingNode === undefined) { return }
@@ -262,7 +262,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function findChildByCodeName(startingNode, checkCodeName) {
         /*
-        This functioin scan all the children of a node and returns the child
+        This function scan all the children of a node and returns the child
         that has a codeName as specified via parameter.
         */
         if (startingNode === undefined) { return }
@@ -316,8 +316,8 @@ function newVisualScriptingUtilitiesNodeChildren() {
     function findOrCreateChildWithReference(startingNode, childType, referencedNode) {
         /*
         This function find the child node of starting node that references
-        refereced node. If there is none, then it creates a child and stablish
-        the referecen.
+        referenced node. If there is none, then it creates a child and establish
+        the reference.
         */
         let child
         if (isMissingChildrenById(startingNode, referencedNode, true) === true) {
@@ -347,7 +347,7 @@ function newVisualScriptingUtilitiesNodeChildren() {
 
     function findChildIndexAtParentNode(startingNode) {
         /*
-        This functioin scan all the children of a node's parent and returns the child
+        This function scan all the children of a node's parent and returns the child
         index at the node property array that contains it. 
         */
         if (startingNode === undefined) { return }

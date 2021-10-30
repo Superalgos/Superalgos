@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
-    "ccxt": "^1.57.36",
+    "ccxt": "^1.59.55",
     "child_process": "^1.0.2",
     "electron-updater": "^4.3.9",
     "ethereumjs-common": "^1.5.2",

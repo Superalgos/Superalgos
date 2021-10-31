@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "PLuv",
-    "config": "{\n    \"signature\": {\n        \"message\": \"PLuv\",\n        \"messageHash\": \"0x0eaaef6eb4d29b8d7b9bdaaba0c49956f6876e058ed2587d4557537b616f9292\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xd7774dd22aa66e97a82b409a253af28633293f913efbddc90b898502361871fb\",\n        \"s\": \"0x219bda49b628166533f4b3fb2301479d680104311cd52145a32cd8e40067321b\",\n        \"signature\": \"0xd7774dd22aa66e97a82b409a253af28633293f913efbddc90b898502361871fb219bda49b628166533f4b3fb2301479d680104311cd52145a32cd8e40067321b1b\"\n    },\n    \"codeName\": \"PLuv\"\n}",
+    "config": "{\"signature\":{\"message\":\"PLuv\",\"messageHash\":\"0x0eaaef6eb4d29b8d7b9bdaaba0c49956f6876e058ed2587d4557537b616f9292\",\"v\":\"0x1b\",\"r\":\"0xd7774dd22aa66e97a82b409a253af28633293f913efbddc90b898502361871fb\",\"s\":\"0x219bda49b628166533f4b3fb2301479d680104311cd52145a32cd8e40067321b\",\"signature\":\"0xd7774dd22aa66e97a82b409a253af28633293f913efbddc90b898502361871fb219bda49b628166533f4b3fb2301479d680104311cd52145a32cd8e40067321b1b\"},\"codeName\":\"PLuv\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{\n    \"percentage\": 30\n}",
+            "config": "{\n    \"percentage\": 25\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -233,7 +233,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -395,7 +397,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b6d4c2fe-f1ec-4d05-9897-c6bf0571c4f3"
                                 ]
                             ]
                         }
@@ -475,7 +479,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "piyanthak",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b1ce221b-2752-4419-ae53-8410e8a93798"
                                 ]
                             ]
                         }
@@ -943,27 +949,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "piyanthak",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "b1ce221b-2752-4419-ae53-8410e8a93798"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "91519c6e-8c07-488c-98dd-255890a00d6e"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "bc73fcad-a3b2-4094-931e-c8f3d608a99c"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "d5b96ff4-c6ec-4139-8cc1-259d0940196b"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "4e0c4cd4-dc98-4913-a8dc-72cbae46776a"
                                                                 ],
                                                                 [
                                                                     "Team Member Exchange Relationships Team",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "73709060-77aa-4aed-b75a-df5a73d711b9"
                                                                 ]
                                                             ]
                                                         }
@@ -1002,27 +1020,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "piyanthak",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "b1ce221b-2752-4419-ae53-8410e8a93798"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "91519c6e-8c07-488c-98dd-255890a00d6e"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "bc73fcad-a3b2-4094-931e-c8f3d608a99c"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "d5b96ff4-c6ec-4139-8cc1-259d0940196b"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "4e0c4cd4-dc98-4913-a8dc-72cbae46776a"
                                                                 ],
                                                                 [
                                                                     "Team Leader PiyanthaK piyanthak Workspaces Team",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
                                                                 ]
                                                             ]
                                                         }
@@ -7572,7 +7602,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Claim Vote",
-                                                                                "name": "prepheadrus 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                                                "name": "prepheadrus 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "9e0ec12e-ed0d-453e-8bf9-37b8a9c0e0b7",
@@ -7598,7 +7628,7 @@
                                                                                     },
                                                                                     "referenceParent": {
                                                                                         "type": "Position Contribution Claim",
-                                                                                        "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                                                         "id": "072aefce-a3f2-4781-b40c-d63271fb421b"
                                                                                     },
                                                                                     "referenceParentCombinedNodePath": [
@@ -7645,7 +7675,7 @@
                                                                                             "2cdb321a-d1b8-4628-afe5-9aeeeea7b817"
                                                                                         ],
                                                                                         [
-                                                                                            "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                                                             "Position Contribution Claim",
                                                                                             "Governance",
                                                                                             "072aefce-a3f2-4781-b40c-d63271fb421b"
@@ -9426,7 +9456,7 @@
                             {
                                 "type": "User Profile Votes Switch",
                                 "name": "New User Profile Votes Switch",
-                                "config": "{\n    \"percentage\": 30\n}",
+                                "config": "{\n    \"percentage\": 10\n}",
                                 "project": "Governance",
                                 "userProfileVotesSwitch": [],
                                 "userProfileVote": [
@@ -9438,8 +9468,8 @@
                                         "id": "cac7005b-c5f3-4bdf-9fd0-551d4eebb74b",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 6347.614751896907,
-                                                "y": 22694.972330278906
+                                                "x": 6159.164646536656,
+                                                "y": 22558.055314327594
                                             },
                                             "targetPosition": {
                                                 "x": 5997.899069241271,
@@ -9464,6 +9494,47 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "piyanthak",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "b1ce221b-2752-4419-ae53-8410e8a93798"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "User Profile Vote",
+                                        "name": "cozed-gh",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "9a8d337e-a10b-40ac-a23e-8e95dd61a8a2",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 6442.3588225090825,
+                                                "y": 22907.770996983232
+                                            },
+                                            "targetPosition": {
+                                                "x": 5997.899069241271,
+                                                "y": 22978.166506251335
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "User Profile",
+                                                "name": "cozed-gh",
+                                                "id": "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "cozed-gh",
                                                     "User Profile"
                                                 ]
                                             ]
@@ -9520,7 +9591,7 @@
                     {
                         "type": "Votes Switch",
                         "name": "My Stuff",
-                        "config": "{\n    \"percentage\": 25\n}",
+                        "config": "{\n    \"percentage\": 5\n}",
                         "project": "Governance",
                         "votesSwitch": [],
                         "claimVotesSwitch": [],
@@ -9534,7 +9605,7 @@
                                     {
                                         "type": "Weight Votes Switch",
                                         "name": "New Weight Votes Switch",
-                                        "config": "{\n    \"percentage\": 30\n}",
+                                        "config": "{\n    \"percentage\": 50\n}",
                                         "project": "Governance",
                                         "weightVotesSwitch": [],
                                         "poolWeightVotes": [],
@@ -9549,8 +9620,8 @@
                                                 "id": "37ea862e-7640-463f-bd6e-30c26ec0373f",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 6620.6498931706465,
-                                                        "y": 22503.816394994836
+                                                        "x": 6503.2165754320995,
+                                                        "y": 22506.891494642747
                                                     },
                                                     "targetPosition": {
                                                         "x": 6573.612084700203,
@@ -9575,23 +9646,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Education Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
                                                         ],
                                                         [
                                                             "Workspaces Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "99c0b7a7-db57-4491-8559-d6d493183534"
                                                         ],
                                                         [
                                                             "Team Leader PiyanthaK piyanthak",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "94de54da-01db-41a6-a3ab-e7498407790a"
                                                         ]
                                                     ]
                                                 }
@@ -9604,8 +9685,8 @@
                                                 "id": "44885286-ee62-446c-8052-8aaa9816f3cd",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 6984.707540639373,
-                                                        "y": 22768.31975852645
+                                                        "x": 6838.115448231816,
+                                                        "y": 22587.293600441833
                                                     },
                                                     "targetPosition": {
                                                         "x": 6573.612084700203,
@@ -9630,6 +9711,71 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                                        ],
+                                                        [
+                                                            "Education Teams",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
+                                                        ],
+                                                        [
+                                                            "Workspaces Team",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "99c0b7a7-db57-4491-8559-d6d493183534"
+                                                        ],
+                                                        [
+                                                            "Team Creator Harrell harrellbm",
+                                                            "Position",
+                                                            "Governance",
+                                                            "c0d9b98f-069d-48fa-8738-f1c86f397934"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Weight Vote",
+                                                "name": "Workspaces Team 1 Team Member PLuv",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "6e754c20-c78c-4e46-8e58-e5ad76648c6b",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 7018.071837968015,
+                                                        "y": 22880.955738642457
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 6573.612084700203,
+                                                        "y": 22951.35124791056
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "1 Team Member PLuv",
+                                                        "id": "4e96d424-f80f-4693-bdfb-f39338ca9a1e"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
                                                             "Positions"
                                                         ],
                                                         [
@@ -9645,7 +9791,7 @@
                                                             "Position Class"
                                                         ],
                                                         [
-                                                            "Team Creator Harrell harrellbm",
+                                                            "1 Team Member PLuv",
                                                             "Position"
                                                         ]
                                                     ]
@@ -9714,27 +9860,39 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                 ],
                                                 [
                                                     "Roles Played @ Beta-12",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                 ],
                                                 [
                                                     "Software Projects",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "864ef810-2d34-4776-946d-2f4bd68b45c5"
                                                 ],
                                                 [
                                                     "Active Projects",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "75998134-fe6b-4dd0-9995-6beb613cd165"
                                                 ],
                                                 [
                                                     "Data Mining Project",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "96e5c443-f932-47e4-9e5d-48e986dcc637"
                                                 ],
                                                 [
                                                     "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
-                                                    "Position"
+                                                    "Position",
+                                                    "Governance",
+                                                    "96ef6745-3340-4f59-a174-41deedf4f074"
                                                 ]
                                             ]
                                         }
@@ -10344,12 +10502,12 @@
                                 "id": "9aafb0d5-3526-4307-9f8c-211228e4413c",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4397.166432285043,
-                                        "y": 24953.17670370355
+                                        "x": 3916.896790453883,
+                                        "y": 25143.990969995506
                                     },
                                     "targetPosition": {
-                                        "x": 4712.975488582839,
-                                        "y": 24632.607460075444
+                                        "x": 4138.975488582839,
+                                        "y": 24752.607460075444
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10370,6 +10528,77 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                        ],
+                                        [
+                                            "Software Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class",
+                                            "Governance",
+                                            "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                        ],
+                                        [
+                                            "Data Mining Project",
+                                            "Position Class",
+                                            "Governance",
+                                            "96e5c443-f932-47e4-9e5d-48e986dcc637"
+                                        ],
+                                        [
+                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
+                                            "Position",
+                                            "Governance",
+                                            "96ef6745-3340-4f59-a174-41deedf4f074"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "1 Team Member PLuv Workspaces Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "1bfd5e17-70a3-4523-9556-615f78fca1a2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 3750.9579394037555,
+                                        "y": 24980.51617322406
+                                    },
+                                    "targetPosition": {
+                                        "x": 4138.975488582839,
+                                        "y": 24752.607460075444
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "1 Team Member PLuv",
+                                        "id": "4e96d424-f80f-4693-bdfb-f39338ca9a1e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
                                             "Positions"
                                         ],
                                         [
@@ -10377,19 +10606,15 @@
                                             "Position Class"
                                         ],
                                         [
-                                            "Software Projects",
+                                            "Education Teams",
                                             "Position Class"
                                         ],
                                         [
-                                            "Active Projects",
+                                            "Workspaces Team",
                                             "Position Class"
                                         ],
                                         [
-                                            "Data Mining Project",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
+                                            "1 Team Member PLuv",
                                             "Position"
                                         ]
                                     ]
@@ -10399,15 +10624,15 @@
                         "id": "5cbec4c5-0432-4cf9-b105-34342ca701db",
                         "savedPayload": {
                             "position": {
-                                "x": 4712.975488582839,
-                                "y": 24632.607460075444
+                                "x": 4138.975488582839,
+                                "y": 24752.607460075444
                             },
                             "targetPosition": {
                                 "x": 5028.784544880635,
                                 "y": 24312.038216447338
                             },
                             "floatingObject": {
-                                "isPinned": false,
+                                "isPinned": true,
                                 "isFrozen": false,
                                 "isCollapsed": false,
                                 "angleToParent": 2,
@@ -10496,7 +10721,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 25\n}",
+            "config": "{\n    \"percentage\": 15\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -10600,7 +10825,9 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "piyanthak",
-                                            "User Profile"
+                                            "User Profile",
+                                            "Governance",
+                                            "b1ce221b-2752-4419-ae53-8410e8a93798"
                                         ]
                                     ]
                                 }
@@ -10716,7 +10943,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -10766,7 +10993,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

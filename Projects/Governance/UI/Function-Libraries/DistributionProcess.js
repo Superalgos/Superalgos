@@ -127,6 +127,11 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles,
             'BUSD'
         )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'ETH'
+        )
         /*
         Run the Claims Program
         */

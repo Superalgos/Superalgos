@@ -690,7 +690,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -729,7 +731,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "PLuv",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                 ]
                             ]
                         }
@@ -768,7 +772,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "ssplatt",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "56600855-7a91-49e8-8a58-2fa28d07efd1"
                                 ]
                             ]
                         }
@@ -807,7 +813,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -846,7 +854,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -885,7 +895,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "end-debug",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "2ba902c6-59f4-40f4-91f5-44d12f807061"
                                 ]
                             ]
                         }
@@ -2408,12 +2420,12 @@
                                 "id": "f0e1e431-9ae9-4a14-9caf-2a74377d5d92",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 22828.852941176476,
-                                        "y": 44337
+                                        "x": 23339.852941176476,
+                                        "y": 44294
                                     },
                                     "targetPosition": {
-                                        "x": 23088.66056231181,
-                                        "y": 44487
+                                        "x": 23599.66056231181,
+                                        "y": 44444
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2434,15 +2446,21 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Tech Teams",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "1ce8dec7-122f-4a03-bce0-f74a4a1e7a94"
                                         ]
                                     ]
                                 }
@@ -2460,12 +2478,12 @@
                                 "id": "dd1383d2-dc74-46d0-a89d-008818d94589",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 22938.66056231181,
-                                        "y": 44227.19237886467
+                                        "x": 23449.66056231181,
+                                        "y": 44184.19237886467
                                     },
                                     "targetPosition": {
-                                        "x": 23088.66056231181,
-                                        "y": 44487
+                                        "x": 23599.66056231181,
+                                        "y": 44444
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2486,15 +2504,21 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Software Projects",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "864ef810-2d34-4776-946d-2f4bd68b45c5"
                                         ]
                                     ]
                                 }
@@ -2512,12 +2536,12 @@
                                 "id": "a7734ec3-7dad-485a-bb2a-37ca739f494d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23088.66056231181,
-                                        "y": 44187
+                                        "x": 23599.66056231181,
+                                        "y": 44144
                                     },
                                     "targetPosition": {
-                                        "x": 23088.66056231181,
-                                        "y": 44487
+                                        "x": 23599.66056231181,
+                                        "y": 44444
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2538,15 +2562,21 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Other Teams",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
                                         ]
                                     ]
                                 }
@@ -2607,27 +2637,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                                 ],
                                                                 [
                                                                     "Twitter Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "151e981a-7a2f-465b-8ff3-851ee06d447c"
                                                                 ],
                                                                 [
                                                                     "Team Creator Julian-Molina",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "689b181e-42f2-412c-9c09-3ae51ecfa28f"
                                                                 ]
                                                             ]
                                                         }
@@ -2666,27 +2708,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                                 ],
                                                                 [
                                                                     "Twitter Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "151e981a-7a2f-465b-8ff3-851ee06d447c"
                                                                 ],
                                                                 [
                                                                     "Team Member",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "bff24898-e892-4096-bec1-623995cca9aa"
                                                                 ]
                                                             ]
                                                         }
@@ -2695,12 +2749,12 @@
                                                 "id": "4dd4e425-c65a-4df7-8c8c-21cb3d36281c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 22152.94072083189,
-                                                        "y": 44213.904246114354
+                                                        "x": 23391.94072083189,
+                                                        "y": 43786.904246114354
                                                     },
                                                     "targetPosition": {
-                                                        "x": 22433.01484878105,
-                                                        "y": 44321.414630977946
+                                                        "x": 23672.01484878105,
+                                                        "y": 43894.414630977946
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2733,12 +2787,12 @@
                                                         "id": "c6be84f2-aa05-4748-9a1d-bacd0e6cde7e",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 22002.321181020034,
-                                                                "y": 43933.616310672456
+                                                                "x": 23345.231427772036,
+                                                                "y": 43391.21229021069
                                                             },
                                                             "targetPosition": {
-                                                                "x": 22269.623138276544,
-                                                                "y": 44069.81346059432
+                                                                "x": 23508.623138276544,
+                                                                "y": 43642.81346059432
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2759,86 +2813,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                                 ],
                                                                 [
                                                                     "Facebook Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "2d71aa9f-b5e7-4078-9622-735a2e56bcbd"
                                                                 ],
                                                                 [
                                                                     "Team Creator Julian-Molina",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "Position Weight Vote",
-                                                        "name": "Facebook Team Team Member (that Likes, Shares & Comments on Links)",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "fc592ddc-7626-4de9-aba3-636fbe7e00fc",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 22253.92235140366,
-                                                                "y": 43770.224600167945
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 22269.623138276544,
-                                                                "y": 44069.81346059432
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Member (that Likes, Shares & Comments on Links)",
-                                                                "id": "a7c17546-7662-4fdd-9005-ededca677260"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Roles Played @ Beta-12",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Network Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Facebook Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Member (that Likes, Shares & Comments on Links)",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "73bea818-1907-4612-903c-2d218a8273f5"
                                                                 ]
                                                             ]
                                                         }
@@ -2847,17 +2854,17 @@
                                                 "id": "9fb2afeb-c7bd-46ee-bd73-8b317166bc9c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 22269.623138276544,
-                                                        "y": 44069.81346059432
+                                                        "x": 23508.623138276544,
+                                                        "y": 43642.81346059432
                                                     },
                                                     "targetPosition": {
-                                                        "x": 22433.01484878105,
-                                                        "y": 44321.414630977946
+                                                        "x": 23672.01484878105,
+                                                        "y": 43894.414630977946
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": true,
+                                                        "isCollapsed": false,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -2911,27 +2918,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                                 ],
                                                                 [
                                                                     "Reddit Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "44213dd4-f80b-4df9-b19f-00d6aac500c6"
                                                                 ],
                                                                 [
                                                                     "Team Creator Julian-Molina",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "cdf330b0-a11f-4045-94fc-5e44df0a786b"
                                                                 ]
                                                             ]
                                                         }
@@ -2970,27 +2989,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                                 ],
                                                                 [
                                                                     "Reddit Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "44213dd4-f80b-4df9-b19f-00d6aac500c6"
                                                                 ],
                                                                 [
                                                                     "Team Leader Brett",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "af91654f-e6e1-475d-bd43-1bd870b50f84"
                                                                 ]
                                                             ]
                                                         }
@@ -2999,17 +3030,17 @@
                                                 "id": "1d871917-9703-4e1c-89bd-900865a80b71",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 22448.715635653934,
-                                                        "y": 44021.82577055157
+                                                        "x": 23687.715635653934,
+                                                        "y": 43594.82577055157
                                                     },
                                                     "targetPosition": {
-                                                        "x": 22433.01484878105,
-                                                        "y": 44321.414630977946
+                                                        "x": 23672.01484878105,
+                                                        "y": 43894.414630977946
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": false,
+                                                        "isCollapsed": true,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -3025,36 +3056,7 @@
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [],
-                                                "poolWeightVotes": [
-                                                    {
-                                                        "type": "Pool Weight Vote",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "37a0a8d8-2f96-465a-9ef0-cb21b0998190",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 22544.165252565246,
-                                                                "y": 43798.493094654135
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 22621.810966096004,
-                                                                "y": 44088.27084254086
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            }
-                                                        }
-                                                    }
-                                                ],
+                                                "poolWeightVotes": [],
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [
@@ -3066,8 +3068,8 @@
                                                         "id": "ffb51529-3317-4f6d-8d61-87017412bb20",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 22729.321350959595,
-                                                                "y": 43808.19671459169
+                                                                "x": 22810.607083410956,
+                                                                "y": 43855.12705410377
                                                             },
                                                             "targetPosition": {
                                                                 "x": 22621.810966096004,
@@ -3092,145 +3094,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6235a447-4974-4e79-aa5e-b98115c560d7"
                                                                 ],
                                                                 [
                                                                     "Youtube Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "36f4fbdf-0c47-4770-b1fc-c01d278a8cd9"
                                                                 ],
                                                                 [
                                                                     "Team Creator Julian-Molina",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "Position Weight Vote",
-                                                        "name": "Youtube Team  Member( that watchs videos)",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "4d5383ed-94ab-4f0e-9b83-0bc870fed3fb",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 22873.41213647963,
-                                                                "y": 43924.879132036345
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 22621.810966096004,
-                                                                "y": 44088.27084254086
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": " Member( that watchs videos)",
-                                                                "id": "43f3222d-aef2-4301-b086-b72a8933c987"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Roles Played @ Beta-12",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Network Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Youtube Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Member( That's watchers videos)",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "Position Weight Vote",
-                                                        "name": "Youtube Team Member (that shares,likes & comments on videos)",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "4dd90826-86ac-4693-9bf0-daa3335caaca",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 22921.399826522374,
-                                                                "y": 44103.97162941374
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 22621.810966096004,
-                                                                "y": 44088.27084254086
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Member (that shares,likes & comments on videos)",
-                                                                "id": "d2bef2ec-2837-4301-978a-9134653d104d"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Superalgos",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Roles Played @ Beta-12",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Network Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Youtube Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Member (that shares,likes & comments on videos)",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "54843fbe-b911-4803-9983-6136975bba47"
                                                                 ]
                                                             ]
                                                         }
@@ -3239,17 +3135,17 @@
                                                 "id": "28026b55-465d-4b66-8471-57c72b74b901",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 22621.810966096004,
-                                                        "y": 44088.27084254086
+                                                        "x": 23860.810966096004,
+                                                        "y": 43661.27084254086
                                                     },
                                                     "targetPosition": {
-                                                        "x": 22433.01484878105,
-                                                        "y": 44321.414630977946
+                                                        "x": 23672.01484878105,
+                                                        "y": 43894.414630977946
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": false,
+                                                        "isCollapsed": true,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -3267,15 +3163,15 @@
                                         "id": "b0f7023d-1637-4c01-9602-11ff2c6d1ec8",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 22433.01484878105,
-                                                "y": 44321.414630977946
+                                                "x": 23672.01484878105,
+                                                "y": 43894.414630977946
                                             },
                                             "targetPosition": {
-                                                "x": 23238.66056231181,
-                                                "y": 44227.19237886467
+                                                "x": 23749.66056231181,
+                                                "y": 44184.19237886467
                                             },
                                             "floatingObject": {
-                                                "isPinned": true,
+                                                "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": false,
                                                 "angleToParent": 2,
@@ -3311,12 +3207,12 @@
                                                         "id": "bb370115-a28a-41f9-8c05-d41616afd331",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 32457.259610508652,
-                                                                "y": 31800.829261955892
+                                                                "x": 23233.369135250294,
+                                                                "y": 43387.82926195589
                                                             },
                                                             "targetPosition": {
-                                                                "x": 32379.613896977895,
-                                                                "y": 32090.607009842613
+                                                                "x": 23311.01484878105,
+                                                                "y": 43677.60700984261
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -3337,27 +3233,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Content Creation Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6304827a-8366-48a8-ae11-35881c14e135"
                                                                 ],
                                                                 [
                                                                     "Superalgos.org Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "be501c00-014a-431f-920e-ec3cd2398e90"
                                                                 ],
                                                                 [
                                                                     "Team Creator Julian-Molina",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "e8eedc0b-4bae-4dc8-ba0c-40032ffcb335"
                                                                 ]
                                                             ]
                                                         }
@@ -3366,12 +3274,12 @@
                                                 "id": "e6ffdd8b-8fde-4328-a54a-291b9fc7f3ac",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32379.613896977895,
-                                                        "y": 32090.607009842613
+                                                        "x": 23311.01484878105,
+                                                        "y": 43677.60700984261
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32301.968183447138,
-                                                        "y": 32380.384757729335
+                                                        "x": 23388.66056231181,
+                                                        "y": 43967.384757729335
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3430,27 +3338,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Content Creation Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6304827a-8366-48a8-ae11-35881c14e135"
                                                                 ],
                                                                 [
                                                                     "Superalgos Blog Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "20b27683-75ab-40d8-a5d8-12f6dc41cf6c"
                                                                 ],
                                                                 [
                                                                     "Team Creator Julian-Molina",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "7a2f9c42-6eb2-40f2-a540-563ffeb2f30f"
                                                                 ]
                                                             ]
                                                         }
@@ -3489,27 +3409,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Content Creation Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6304827a-8366-48a8-ae11-35881c14e135"
                                                                 ],
                                                                 [
                                                                     "Superalgos Blog Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "20b27683-75ab-40d8-a5d8-12f6dc41cf6c"
                                                                 ],
                                                                 [
                                                                     "Team Member",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "ff6c7dfa-caca-4a7c-9f98-6560e124b082"
                                                                 ]
                                                             ]
                                                         }
@@ -3518,12 +3450,12 @@
                                                 "id": "bb77ae30-f419-400b-aafe-93512cf4cca9",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32561.77580458247,
-                                                        "y": 32230.384757729335
+                                                        "x": 23538.66056231181,
+                                                        "y": 43707.577136594
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32301.968183447138,
-                                                        "y": 32380.384757729335
+                                                        "x": 23388.66056231181,
+                                                        "y": 43967.384757729335
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3582,27 +3514,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Content Creation Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6304827a-8366-48a8-ae11-35881c14e135"
                                                                 ],
                                                                 [
                                                                     "Brett Live Streaming and Videos Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "50541550-ad5d-479e-b7fd-dfcd11a60d23"
                                                                 ],
                                                                 [
                                                                     "Team Member",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "bf66de3e-a8bf-4c20-bb12-c0a64dfb7df5"
                                                                 ]
                                                             ]
                                                         }
@@ -3641,27 +3585,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Content Creation Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6304827a-8366-48a8-ae11-35881c14e135"
                                                                 ],
                                                                 [
                                                                     "Brett Live Streaming and Videos Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "50541550-ad5d-479e-b7fd-dfcd11a60d23"
                                                                 ],
                                                                 [
                                                                     "Team Leader",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "dba40c20-334a-4feb-aed4-cb9cfeba9412"
                                                                 ]
                                                             ]
                                                         }
@@ -3700,27 +3656,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Positions"
+                                                                    "Positions",
+                                                                    "Governance",
+                                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                                 ],
                                                                 [
                                                                     "Roles Played @ Beta-12",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                                 ],
                                                                 [
                                                                     "Content Creation Teams",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "6304827a-8366-48a8-ae11-35881c14e135"
                                                                 ],
                                                                 [
                                                                     "Brett Live Streaming and Videos Team",
-                                                                    "Position Class"
+                                                                    "Position Class",
+                                                                    "Governance",
+                                                                    "50541550-ad5d-479e-b7fd-dfcd11a60d23"
                                                                 ],
                                                                 [
                                                                     "Team Creator Brett",
-                                                                    "Position"
+                                                                    "Position",
+                                                                    "Governance",
+                                                                    "390c3a42-ccf1-4085-92fd-50d6aba1cd71"
                                                                 ]
                                                             ]
                                                         }
@@ -3729,12 +3697,12 @@
                                                 "id": "271ad785-cb4b-443a-9eb2-b8ce078c2254",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32591.74593133386,
-                                                        "y": 32458.030471260092
+                                                        "x": 23678.43831019853,
+                                                        "y": 43889.73904419858
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32301.968183447138,
-                                                        "y": 32380.384757729335
+                                                        "x": 23388.66056231181,
+                                                        "y": 43967.384757729335
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3757,12 +3725,12 @@
                                         "id": "810b3f77-b3e3-40b9-9420-6563921d5d55",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23388.66056231181,
-                                                "y": 43967.384757729335
+                                                "x": 23899.66056231181,
+                                                "y": 43924.384757729335
                                             },
                                             "targetPosition": {
-                                                "x": 23238.66056231181,
-                                                "y": 44227.19237886467
+                                                "x": 23749.66056231181,
+                                                "y": 44184.19237886467
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3821,23 +3789,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Marketing Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                         ],
                                                         [
                                                             "Exchange Relationships Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "17c9d4f0-82da-4304-b1e8-b075048ce79c"
                                                         ],
                                                         [
                                                             "Team Creator Julian-Molina",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "3fb3029e-5796-4a37-aed3-0360d8f807e2"
                                                         ]
                                                     ]
                                                 }
@@ -3876,23 +3854,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                         ],
                                                         [
                                                             "Roles Played @ Beta-12",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                         ],
                                                         [
                                                             "Marketing Teams",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
                                                         ],
                                                         [
                                                             "Exchange Relationships Team",
-                                                            "Position Class"
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "17c9d4f0-82da-4304-b1e8-b075048ce79c"
                                                         ],
                                                         [
                                                             "Team Member",
-                                                            "Position"
+                                                            "Position",
+                                                            "Governance",
+                                                            "952609db-1f04-45fb-9acd-948a6fa52d20"
                                                         ]
                                                     ]
                                                 }
@@ -3901,12 +3889,12 @@
                                         "id": "86e1609d-eb1e-4c48-9963-23eb7cb06aee",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23528.43831019853,
-                                                "y": 44149.54666533391
+                                                "x": 24039.43831019853,
+                                                "y": 44106.54666533391
                                             },
                                             "targetPosition": {
-                                                "x": 23238.66056231181,
-                                                "y": 44227.19237886467
+                                                "x": 23749.66056231181,
+                                                "y": 44184.19237886467
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3929,12 +3917,12 @@
                                 "id": "5ee345cc-2e0a-4736-bfcc-358ce3d16cd8",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23238.66056231181,
-                                        "y": 44227.19237886467
+                                        "x": 23749.66056231181,
+                                        "y": 44184.19237886467
                                     },
                                     "targetPosition": {
-                                        "x": 23088.66056231181,
-                                        "y": 44487
+                                        "x": 23599.66056231181,
+                                        "y": 44444
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3962,12 +3950,12 @@
                                 "id": "a6f12830-d028-449f-ba4d-3ea63d764807",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23348.46818344714,
-                                        "y": 44337
+                                        "x": 23859.46818344714,
+                                        "y": 44294
                                     },
                                     "targetPosition": {
-                                        "x": 23088.66056231181,
-                                        "y": 44487
+                                        "x": 23599.66056231181,
+                                        "y": 44444
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3988,15 +3976,21 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                         ],
                                         [
                                             "Roles Played @ Beta-12",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                         ],
                                         [
                                             "Education Teams",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
                                         ]
                                     ]
                                 }
@@ -4006,17 +4000,17 @@
                         "id": "5edccc71-2481-467a-b960-8c852e6a9e75",
                         "savedPayload": {
                             "position": {
-                                "x": 23088.66056231181,
-                                "y": 44487
+                                "x": 31742.160562311805,
+                                "y": 32750
                             },
                             "targetPosition": {
                                 "x": 31742.160562311805,
                                 "y": 33050
                             },
                             "floatingObject": {
-                                "isPinned": true,
+                                "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -4076,11 +4070,15 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Assets"
+                                                    "Assets",
+                                                    "Governance",
+                                                    "0e1a2d5f-5e3e-4fb6-9197-7c41f89f7ddc"
                                                 ],
                                                 [
                                                     "Beta-12-New-Assets by Casual Contributors",
-                                                    "Asset Class"
+                                                    "Asset Class",
+                                                    "Governance",
+                                                    "2b4ec759-9ac7-40c5-b1dc-36bb11dbf5ee"
                                                 ]
                                             ]
                                         }
@@ -4187,11 +4185,15 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Features"
+                                                    "Features",
+                                                    "Governance",
+                                                    "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6"
                                                 ],
                                                 [
                                                     "Beta-12-New-Features by Casual Contributors",
-                                                    "Feature Class"
+                                                    "Feature Class",
+                                                    "Governance",
+                                                    "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
                                                 ]
                                             ]
                                         }
@@ -4287,7 +4289,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -4315,13 +4317,13 @@
                             {
                                 "type": "Position Contribution Claim",
                                 "name": "Team Member Exchange Relationships Team",
-                                "config": "{}",
+                                "config": "{\"percentage\":80}",
                                 "project": "Governance",
                                 "id": "45426982-a2c9-44e4-875b-17b7cb8c3b29",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 32232.352941176472,
-                                        "y": 33459.80762113533
+                                        "x": 32144.484975532436,
+                                        "y": 33247.67558677937
                                     },
                                     "targetPosition": {
                                         "x": 31932.352941176472,
@@ -4331,7 +4333,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 1,
+                                        "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -4373,6 +4375,124 @@
                                             "Position",
                                             "Governance",
                                             "952609db-1f04-45fb-9acd-948a6fa52d20"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Twitter Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "8176b809-e886-4cf2-b8e0-9d88294b96d6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 32232.352941176472,
+                                        "y": 33459.80762113533
+                                    },
+                                    "targetPosition": {
+                                        "x": 31932.352941176472,
+                                        "y": 33459.80762113533
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "bff24898-e892-4096-bec1-623995cca9aa"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Social Network Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Twitter Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Superalgos Blog Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "ebcbac9d-de1b-4b85-b68a-f7c51ee100d2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 32144.484975532436,
+                                        "y": 33671.9396554913
+                                    },
+                                    "targetPosition": {
+                                        "x": 31932.352941176472,
+                                        "y": 33459.80762113533
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "ff6c7dfa-caca-4a7c-9f98-6560e124b082"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Content Creation Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Superalgos Blog Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position"
                                         ]
                                     ]
                                 }

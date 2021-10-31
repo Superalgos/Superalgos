@@ -1011,7 +1011,7 @@
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 65\n}",
+                "config": "{\n    \"percentage\":5\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -13943,7 +13943,7 @@
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
-                "config": "{\n    \"pecentage\": 35\n}",
+                "config": "{\n    \"pecentage\": 95\n}",
                 "project": "Governance",
                 "assetClaimsFolders": [],
                 "featureClaimsFolders": [],
@@ -13958,7 +13958,7 @@
                             {
                                 "type": "Position Contribution Claim",
                                 "name": "Team Member Exchange Relationships Team",
-                                "config": "{\"percentage\":80}",
+                                "config": "{\n    \"percentage\": 90\n}",
                                 "project": "Governance",
                                 "id": "45426982-a2c9-44e4-875b-17b7cb8c3b29",
                                 "savedPayload": {
@@ -14176,7 +14176,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 1,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -14227,7 +14227,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -14250,7 +14250,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

@@ -46,6 +46,10 @@
                 "style": "Definition"
             },
             {
+                "language": "RU",
+                "text": "Если Вы получаете доступ к Client с того же самого устройства, то можете кликнуть на кнопку Next и пропустить этот шаг на этом этапе.",
+                "updated": 1635581922558},
+                {
                 "language": "TR",
                 "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
                 "updated": 1635579026048
@@ -94,6 +98,10 @@
                     "style": "Text"
                 },
                 {
+                    "language": "RU",
+                    "text": "Если Вы работаете на машине удаленно, то необходимо отрегулировать конфигурацию the Network Node перед тем, как Вы продолжите.",
+                    "updated": 1635517885096},
+                    {
                     "language": "TR",
                     "text": "İstemciye ( Client ) uzak bir makineden erişiyorsanız, devam etmeden önce Ağ Düğümü ( Node )  yapılandırmasını ayarlamanız gerekir.",
                     "updated": 1635579070105
@@ -148,6 +156,10 @@
                     "style": "List"
                 },
                 {
+                    "language": "RU",
+                    "text": "Нажмите Configure в правом верхнем углу в меню the Network Node;",
+                    "updated": 1635517953808},
+                    {
                     "language": "TR",
                     "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
                     "updated": 1635579264884
@@ -248,6 +260,10 @@
                     "style": "List"
                 },
                 {
+                    "language": "RU",
+                    "text": "Выйдите из конфигурации, убрав указатель мыши из пузырька конфигурации! Если конфигурация происходит верно, то сообщение об ошибке в  Network Node должно исчезнуть через минуту!",
+                    "updated": 1635581935285},
+                    {
                     "language": "TR",
                     "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
                     "updated": 1635579204588

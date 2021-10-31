@@ -1,7 +1,14 @@
 {
     "type": "Tutorial Step",
     "definition": {
-        "text": "A tutorial step is a type of node within a tutorial that may not have offspring. As such, it is the smallest unit of information in the hierarchy."
+        "text": "A tutorial step is a type of node within a tutorial that may not have offspring. As such, it is the smallest unit of information in the hierarchy.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Шаг учебного пособия - это тип узла в пособии, который может не иметь потомков. Таким образом, это самая маленькая единица информации в иерархии.",
+                "updated": 1635612531097
+            }
+        ]
     },
     "paragraphs": [
         {

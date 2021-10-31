@@ -36,7 +36,13 @@
             {
                 "language": "NL",
                 "text": "Er is nog een hulpmiddel dat je wellicht nuttig vindt om de ruimtetijd te manipuleren! De zoom functie van de browser!",
-                "updated": 1635180926329
+                "updated": 1635180926329,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Есть еще один инструмент, который может оказаться полезным для управлением временным простарнством! Встроенная функция масштабирования браузера!",
+                "updated": 1635609923705
             }
         ]
     },
@@ -73,7 +79,13 @@
                 {
                     "language": "NL",
                     "text": "Soms wil je grotere delen van de Design Space te visualiseren dan het scherm toelaat.",
-                    "updated": 1635181009086
+                    "updated": 1635181009086,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": " Может, у Вас возникнет желание визуализировать большие участки Design Space , чем позволяет Ваш экран.",
+                    "updated": 1635610025598
                 }
             ]
         },
@@ -109,7 +121,13 @@
                 {
                     "language": "NL",
                     "text": "Druk Ctrl in en scroll met je muiswiel op Windows of ⌘ en - of + op Mac.",
-                    "updated": 1635181100849
+                    "updated": 1635181100849,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl и прокрутите колесико мыши в Windows или нажмите ⌘ и \"+\" или \"-\" на Mac.",
+                    "updated": 1635610153211
                 }
             ]
         },
@@ -149,7 +167,13 @@
                 {
                     "language": "NL",
                     "text": "Chrome geeft het zoomniveau aan in de rechterbovenhoek. Wanneer je in- of uitzoomt, wordt de ontwerpruimte gecentreerd op het scherm. Gebruik de kaart van de ontwerpruimte om terug te gaan naar waar je was gebleven.",
-                    "updated": 1635181242967
+                    "updated": 1635181242967,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Chrome указывает уровень масштабирования в правом верхнем углу. Когда Вы увеличиваете или уменьшаете масштаб, пространство дизайна центрируется на экране. Используйте карту пространства дизайна, чтобы вернуться туда, где Вы были.",
+                    "updated": 1635610570380
                 }
             ]
         }

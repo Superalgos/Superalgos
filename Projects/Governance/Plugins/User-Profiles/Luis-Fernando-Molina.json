@@ -1380,7 +1380,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -10355,7 +10355,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Non-Tech-Users Community Team Team Leader",
+                                                                                "name": "Non-Tech-Users Community Team Team Leader @gustavohcorradi ",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "6272ebdf-0161-438d-8279-c672aa1c7ae2",
@@ -10381,7 +10381,7 @@
                                                                                     },
                                                                                     "referenceParent": {
                                                                                         "type": "Position",
-                                                                                        "name": "Team Leader",
+                                                                                        "name": "Team Leader @gustavohcorradi ",
                                                                                         "id": "89eee7fc-9472-48ce-b59d-6830208c7a7b"
                                                                                     },
                                                                                     "referenceParentCombinedNodePath": [
@@ -10416,7 +10416,7 @@
                                                                                             "9a30cf3a-1f96-4f43-836b-522e856f28ef"
                                                                                         ],
                                                                                         [
-                                                                                            "Team Leader",
+                                                                                            "Team Leader @gustavohcorradi ",
                                                                                             "Position",
                                                                                             "Governance",
                                                                                             "89eee7fc-9472-48ce-b59d-6830208c7a7b"
@@ -10426,7 +10426,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Non-Tech-Users Community Team 4 Team Members @gustavohcorradi @gitforkgit @Soligann_Prepheadrus",
+                                                                                "name": "Non-Tech-Users Community Team 3 Team Members @gitforkgit @Soligann_Prepheadrus",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "eda22c0b-6077-4fda-b56e-1ed961fab476",
@@ -10452,7 +10452,7 @@
                                                                                     },
                                                                                     "referenceParent": {
                                                                                         "type": "Position",
-                                                                                        "name": "4 Team Members @gustavohcorradi @gitforkgit @Soligann_Prepheadrus",
+                                                                                        "name": "3 Team Members @gitforkgit @Soligann_Prepheadrus",
                                                                                         "id": "3fb8793e-5bea-4d0f-8e04-80fed71911e3"
                                                                                     },
                                                                                     "referenceParentCombinedNodePath": [
@@ -10487,7 +10487,7 @@
                                                                                             "9a30cf3a-1f96-4f43-836b-522e856f28ef"
                                                                                         ],
                                                                                         [
-                                                                                            "4 Team Members @gustavohcorradi @gitforkgit @Soligann_Prepheadrus",
+                                                                                            "3 Team Members @gitforkgit @Soligann_Prepheadrus",
                                                                                             "Position",
                                                                                             "Governance",
                                                                                             "3fb8793e-5bea-4d0f-8e04-80fed71911e3"
@@ -10771,12 +10771,12 @@
                                                 "id": "b530b885-04f5-46e3-a2f7-79eccd53870b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35295.05073671135,
-                                                        "y": 18784.486320825206
+                                                        "x": 6374.049359114936,
+                                                        "y": 23338.849596215805
                                                     },
                                                     "targetPosition": {
-                                                        "x": 34995.05073671135,
-                                                        "y": 18784.486320825206
+                                                        "x": 6140.905570677845,
+                                                        "y": 23527.645713530757
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10797,33 +10797,23 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools",
-                                                            "Governance",
-                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                            "Pools"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "00bbb418-2315-4845-aa39-8362489a360b"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Liquidity Program",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "477faa7a-da4f-4949-9439-a2475ed683de"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Liquidity Rewards BTCB",
-                                                            "Pool",
-                                                            "Governance",
-                                                            "a7651e92-ab96-49fc-af9c-f936682dd7a4"
+                                                            "Pool"
                                                         ]
                                                     ]
                                                 }
@@ -10831,17 +10821,17 @@
                                             {
                                                 "type": "Pool Weight Vote",
                                                 "name": "Liquidity Rewards BNB Pool",
-                                                "config": "{}",
+                                                "config": "{\n    \"percentage\": 10\n}",
                                                 "project": "Governance",
                                                 "id": "e9168842-6196-405e-9ead-0456a45eecf5",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35207.18277106732,
-                                                        "y": 18996.61835518117
+                                                        "x": 6440.494431104217,
+                                                        "y": 23511.944926657874
                                                     },
                                                     "targetPosition": {
-                                                        "x": 34995.05073671135,
-                                                        "y": 18784.486320825206
+                                                        "x": 6140.905570677845,
+                                                        "y": 23527.645713530757
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10862,33 +10852,23 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools",
-                                                            "Governance",
-                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                            "Pools"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "00bbb418-2315-4845-aa39-8362489a360b"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Liquidity Program",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "477faa7a-da4f-4949-9439-a2475ed683de"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Liquidity Rewards BNB",
-                                                            "Pool",
-                                                            "Governance",
-                                                            "e7c21a28-fea6-48cc-a97c-cc43470bb2fc"
+                                                            "Pool"
                                                         ]
                                                     ]
                                                 }
@@ -10896,17 +10876,17 @@
                                             {
                                                 "type": "Pool Weight Vote",
                                                 "name": "Liquidity Rewards BUSD Pool",
-                                                "config": "{}",
+                                                "config": "{\n    \"percentage\": 10\n}",
                                                 "project": "Governance",
                                                 "id": "bcb67429-673a-4d80-9824-1f827c8de47c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 34995.05073671135,
-                                                        "y": 19084.486320825206
+                                                        "x": 6392.506741061473,
+                                                        "y": 23691.037424035265
                                                     },
                                                     "targetPosition": {
-                                                        "x": 34995.05073671135,
-                                                        "y": 18784.486320825206
+                                                        "x": 6140.905570677845,
+                                                        "y": 23527.645713530757
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10927,33 +10907,78 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools",
-                                                            "Governance",
-                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
+                                                            "Pools"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "00bbb418-2315-4845-aa39-8362489a360b"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Liquidity Program",
-                                                            "Pool Class",
-                                                            "Governance",
-                                                            "477faa7a-da4f-4949-9439-a2475ed683de"
+                                                            "Pool Class"
                                                         ],
                                                         [
                                                             "Liquidity Rewards BUSD",
-                                                            "Pool",
-                                                            "Governance",
-                                                            "962d9bc1-4e54-463c-86ae-43aec1db0f0f"
+                                                            "Pool"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Liquidity Rewards ETH Pool",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "89e5b66f-bee5-491a-a9ad-6d8887554bb7",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 6248.415955541435,
+                                                        "y": 23807.719841479917
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 6140.905570677845,
+                                                        "y": 23527.645713530757
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Liquidity Rewards ETH",
+                                                        "id": "e89ba06e-2f6c-42d0-8b3e-6cfa596f0058"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Incentives for Providing Liquidity to SA Markets",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Liquidity Program",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Liquidity Rewards ETH",
+                                                            "Pool"
                                                         ]
                                                     ]
                                                 }
@@ -10975,7 +11000,7 @@
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -11662,7 +11687,7 @@
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0

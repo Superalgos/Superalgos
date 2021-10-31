@@ -15,7 +15,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     let waitingForResponses = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 5
+    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
     let reputationByAddress = new Map()
 
     return thisObject
@@ -449,15 +449,16 @@ function newGovernanceUserProfileSpace() {
                     waitingForResponses++
                     waitingForResponses++
                     waitingForResponses++
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 4, userProfile, blockchainAccount, 'ETH', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_ETH_CONTRACT_ADDRESS)
 
                     /* 
                     Now we get the SA Tokens Balance.
                     */
                     waitingForResponses++
-                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 4, userProfile, blockchainAccount)
+                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 5, userProfile, blockchainAccount)
                 }
             }
         }

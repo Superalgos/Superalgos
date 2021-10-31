@@ -449,6 +449,7 @@ function newGovernanceUserProfileSpace() {
                     waitingForResponses++
                     waitingForResponses++
                     waitingForResponses++
+                    waitingForResponses++
                     setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
                     setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
                     setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 5 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)

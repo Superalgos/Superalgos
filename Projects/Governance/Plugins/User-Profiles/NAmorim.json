@@ -127,12 +127,12 @@
             "id": "f88e2ac9-88e0-4816-b765-be4c4d1b400d",
             "savedPayload": {
                 "position": {
-                    "x": 4561.764705882353,
-                    "y": 18540.192378864667
+                    "x": 10864.285714285714,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 4711.764705882353,
-                    "y": 18800
+                    "x": 11014.285714285714,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -150,12 +150,12 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{\n    \"percentage\": 0\n}",
+            "config": "{\n    \"percentage\": 5\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
                 "name": "New Referral Program",
-                "config": "{}",
+                "config": "{\"percentage\": 0\n}",
                 "project": "Governance",
                 "userReferrers": [
                     {
@@ -257,18 +257,101 @@
                 "id": "3a8ef207-973f-4579-8acc-c98271e770ed",
                 "savedPayload": {
                     "position": {
-                        "x": 5472.910196624969,
-                        "y": 18447.328848624515
+                        "x": 11164.285714285714,
+                        "y": 23040.192378864667
                     },
                     "targetPosition": {
-                        "x": 5230.205098312485,
-                        "y": 18623.664424312257
+                        "x": 11164.285714285714,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": true,
-                        "angleToParent": 1,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "supportProgram": {
+                "type": "Support Program",
+                "name": "New Support Program",
+                "config": "{}",
+                "project": "Governance",
+                "userSupporters": [],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "3c0b10a2-6e51-4469-b3e7-58702b5e07ea",
+                    "savedPayload": {
+                        "position": {
+                            "x": 11574.093335421045,
+                            "y": 22930.384757729335
+                        },
+                        "targetPosition": {
+                            "x": 11424.093335421045,
+                            "y": 23190.192378864667
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "f4eb8721-8b57-4290-81d4-9527fa51e19f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 11724.093335421045,
+                            "y": 23190.192378864667
+                        },
+                        "targetPosition": {
+                            "x": 11424.093335421045,
+                            "y": 23190.192378864667
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "a070561c-7495-40ad-aa9d-929fab0ac49f",
+                "savedPayload": {
+                    "position": {
+                        "x": 11424.093335421045,
+                        "y": 23190.192378864667
+                    },
+                    "targetPosition": {
+                        "x": 11164.285714285714,
+                        "y": 23340.192378864667
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -280,17 +363,17 @@
             "id": "1f6187e8-4878-43d1-a7df-9b33a73ccb57",
             "savedPayload": {
                 "position": {
-                    "x": 4861.764705882353,
-                    "y": 18540.192378864667
+                    "x": 11164.285714285714,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 4711.764705882353,
-                    "y": 18800
+                    "x": 11014.285714285714,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -303,12 +386,12 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 80\n}",
+            "config": "{\n    \"percentage\": 90\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
                 "name": "New Voting Program",
-                "config": "{\n    \"percentage\": 40\n}",
+                "config": "{\n    \"percentage\": 10\n}",
                 "project": "Governance",
                 "votesSwitch": [
                     {
@@ -372,56 +455,56 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Creator Soligann_Prepheadrus Turkish Community Team",
-                                                                        "id": "bc293646-b308-4489-b41b-5dd1412b45fe"
+                                                                        "id": "42b417ae-31ac-4501-8351-3da319a3ed41"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Community Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "03bccd84-207c-4b41-9feb-aa3f20816df6"
+                                                                            "fffd624a-5052-44fd-a6b9-b6cbc9bbf849"
                                                                         ],
                                                                         [
                                                                             "Turkish Community Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "5389d30e-1aaf-417e-b5f9-ae71dc3c0576"
+                                                                            "8b0d3726-5167-4291-af96-272daa023fef"
                                                                         ],
                                                                         [
                                                                             "Team Creator Soligann_Prepheadrus Turkish Community Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "bc293646-b308-4489-b41b-5dd1412b45fe"
+                                                                            "42b417ae-31ac-4501-8351-3da319a3ed41"
                                                                         ]
                                                                     ]
                                                                 }
@@ -453,50 +536,50 @@
                                                             "referenceParent": {
                                                                 "type": "Position Claims Folder",
                                                                 "name": "Turkish Community Team Position Class",
-                                                                "id": "5389d30e-1aaf-417e-b5f9-ae71dc3c0576"
+                                                                "id": "8b0d3726-5167-4291-af96-272daa023fef"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "prepheadrus",
                                                                     "User Profile",
                                                                     "Governance",
-                                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
                                                                     "Token Power Switch",
                                                                     "Governance",
-                                                                    "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
                                                                     "Votes And Claims Programs",
                                                                     "Governance",
-                                                                    "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
                                                                     "Claims Program",
                                                                     "Governance",
-                                                                    "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                 ],
                                                                 [
                                                                     "Community Teams Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "03bccd84-207c-4b41-9feb-aa3f20816df6"
+                                                                    "fffd624a-5052-44fd-a6b9-b6cbc9bbf849"
                                                                 ],
                                                                 [
                                                                     "Turkish Community Team Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "5389d30e-1aaf-417e-b5f9-ae71dc3c0576"
+                                                                    "8b0d3726-5167-4291-af96-272daa023fef"
                                                                 ]
                                                             ]
                                                         }
@@ -529,44 +612,44 @@
                                                     "referenceParent": {
                                                         "type": "Position Claims Folder",
                                                         "name": "Community Teams Position Class",
-                                                        "id": "03bccd84-207c-4b41-9feb-aa3f20816df6"
+                                                        "id": "fffd624a-5052-44fd-a6b9-b6cbc9bbf849"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "prepheadrus",
                                                             "User Profile",
                                                             "Governance",
-                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
                                                             "Token Power Switch",
                                                             "Governance",
-                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
                                                             "Votes And Claims Programs",
                                                             "Governance",
-                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                         ],
                                                         [
                                                             "New Claims Program",
                                                             "Claims Program",
                                                             "Governance",
-                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
                                                             "Position Claims Folder",
                                                             "Governance",
-                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                         ],
                                                         [
                                                             "Community Teams Position Class",
                                                             "Position Claims Folder",
                                                             "Governance",
-                                                            "03bccd84-207c-4b41-9feb-aa3f20816df6"
+                                                            "fffd624a-5052-44fd-a6b9-b6cbc9bbf849"
                                                         ]
                                                     ]
                                                 }
@@ -613,63 +696,63 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Creator Julian-Molina Twitter Team",
-                                                                        "id": "10eed26a-2fb0-41b7-bcad-6b7fcf0c4c9d"
+                                                                        "id": "7770d804-d5c8-4ac3-a38c-00ecc16ead7d"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Social Network Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba"
+                                                                            "741a74e3-892b-4b72-a0d0-c1d485eaa454"
                                                                         ],
                                                                         [
                                                                             "Twitter Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "34ac4d9c-445d-4f29-a1ab-7581b61dc3c3"
+                                                                            "79079ed7-db5c-4083-b019-0746f4b76d3a"
                                                                         ],
                                                                         [
                                                                             "Team Creator Julian-Molina Twitter Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "10eed26a-2fb0-41b7-bcad-6b7fcf0c4c9d"
+                                                                            "7770d804-d5c8-4ac3-a38c-00ecc16ead7d"
                                                                         ]
                                                                     ]
                                                                 }
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "c50fc57c-569f-4ec7-90a1-731a153d4c36",
@@ -779,56 +862,56 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Member Twitter Team",
-                                                                        "id": "42246c94-19fc-4df2-ac8f-46f407c18d7f"
+                                                                        "id": "96f9dd5f-988f-48a8-922b-6705be3c3cac"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Social Network Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba"
+                                                                            "741a74e3-892b-4b72-a0d0-c1d485eaa454"
                                                                         ],
                                                                         [
                                                                             "Twitter Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "34ac4d9c-445d-4f29-a1ab-7581b61dc3c3"
+                                                                            "79079ed7-db5c-4083-b019-0746f4b76d3a"
                                                                         ],
                                                                         [
                                                                             "Team Member Twitter Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "42246c94-19fc-4df2-ac8f-46f407c18d7f"
+                                                                            "96f9dd5f-988f-48a8-922b-6705be3c3cac"
                                                                         ]
                                                                     ]
                                                                 }
@@ -860,50 +943,50 @@
                                                             "referenceParent": {
                                                                 "type": "Position Claims Folder",
                                                                 "name": "Twitter Team Position Class",
-                                                                "id": "34ac4d9c-445d-4f29-a1ab-7581b61dc3c3"
+                                                                "id": "79079ed7-db5c-4083-b019-0746f4b76d3a"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "prepheadrus",
                                                                     "User Profile",
                                                                     "Governance",
-                                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
                                                                     "Token Power Switch",
                                                                     "Governance",
-                                                                    "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
                                                                     "Votes And Claims Programs",
                                                                     "Governance",
-                                                                    "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
                                                                     "Claims Program",
                                                                     "Governance",
-                                                                    "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba"
+                                                                    "741a74e3-892b-4b72-a0d0-c1d485eaa454"
                                                                 ],
                                                                 [
                                                                     "Twitter Team Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "34ac4d9c-445d-4f29-a1ab-7581b61dc3c3"
+                                                                    "79079ed7-db5c-4083-b019-0746f4b76d3a"
                                                                 ]
                                                             ]
                                                         }
@@ -917,7 +1000,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus Team Creator Julian-Molina Facebook Team",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "85d1f8f4-f357-40ba-9b5d-e1e143b83df5",
@@ -1000,7 +1083,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "3e0c0ce8-4ed9-4e80-abde-a75d199d0918",
@@ -1083,7 +1166,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "25d6d59a-5db8-4402-8023-99f513abe246",
@@ -1248,7 +1331,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus Team Creator Julian-Molina Youtube Team",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "a9af2878-7f2b-428f-abde-d546f66b33f6",
@@ -1331,7 +1414,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "62387ebb-c5e4-4529-b7ea-300b1945dac4",
@@ -1414,7 +1497,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "bd4bdfbc-89ec-4403-a010-16ded3457d75",
@@ -1598,44 +1681,44 @@
                                                     "referenceParent": {
                                                         "type": "Position Claims Folder",
                                                         "name": "Social Network Teams Position Class",
-                                                        "id": "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba"
+                                                        "id": "741a74e3-892b-4b72-a0d0-c1d485eaa454"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "prepheadrus",
                                                             "User Profile",
                                                             "Governance",
-                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
                                                             "Token Power Switch",
                                                             "Governance",
-                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
                                                             "Votes And Claims Programs",
                                                             "Governance",
-                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                         ],
                                                         [
                                                             "New Claims Program",
                                                             "Claims Program",
                                                             "Governance",
-                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
                                                             "Position Claims Folder",
                                                             "Governance",
-                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                         ],
                                                         [
                                                             "Social Network Teams Position Class",
                                                             "Position Claims Folder",
                                                             "Governance",
-                                                            "e09cdb75-b1c7-4e51-b2a3-6ff0949e66ba"
+                                                            "741a74e3-892b-4b72-a0d0-c1d485eaa454"
                                                         ]
                                                     ]
                                                 }
@@ -1682,63 +1765,63 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Creator Harrell harrellbm Docs Teams",
-                                                                        "id": "98682daa-f84a-421b-9fca-9d63638e2198"
+                                                                        "id": "0f584b76-ba57-45cf-b014-623e7c269d34"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Education Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                            "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                         ],
                                                                         [
                                                                             "Docs Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "ac2c57bf-25d5-46c5-8a6b-302ca955af5f"
+                                                                            "78e7b8ae-d27c-4d7e-8d80-365c5f25cbec"
                                                                         ],
                                                                         [
                                                                             "Team Creator Harrell harrellbm Docs Teams",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "98682daa-f84a-421b-9fca-9d63638e2198"
+                                                                            "0f584b76-ba57-45cf-b014-623e7c269d34"
                                                                         ]
                                                                     ]
                                                                 }
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus 1 Team Member Tentacle23 Docs Teams",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "34439cd7-ce4d-491d-9d01-5f05f68210d8",
@@ -1846,50 +1929,50 @@
                                                             "referenceParent": {
                                                                 "type": "Position Claims Folder",
                                                                 "name": "Docs Teams Position Class",
-                                                                "id": "ac2c57bf-25d5-46c5-8a6b-302ca955af5f"
+                                                                "id": "78e7b8ae-d27c-4d7e-8d80-365c5f25cbec"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "prepheadrus",
                                                                     "User Profile",
                                                                     "Governance",
-                                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
                                                                     "Token Power Switch",
                                                                     "Governance",
-                                                                    "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
                                                                     "Votes And Claims Programs",
                                                                     "Governance",
-                                                                    "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
                                                                     "Claims Program",
                                                                     "Governance",
-                                                                    "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                 ],
                                                                 [
                                                                     "Education Teams Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                    "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                 ],
                                                                 [
                                                                     "Docs Teams Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "ac2c57bf-25d5-46c5-8a6b-302ca955af5f"
+                                                                    "78e7b8ae-d27c-4d7e-8d80-365c5f25cbec"
                                                                 ]
                                                             ]
                                                         }
@@ -1930,56 +2013,56 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Creator Harrell harrellbm Tutorials Team",
-                                                                        "id": "9bc70d1c-78b7-48c0-a757-0e640ea36169"
+                                                                        "id": "1306e5e3-4d99-4dec-86e7-dbc66f33ce97"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Education Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                            "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                         ],
                                                                         [
                                                                             "Tutorials Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "aa492878-084a-4dc7-a697-8ecf229825f2"
+                                                                            "a2fafb68-56ce-4d01-a7af-705fba879557"
                                                                         ],
                                                                         [
                                                                             "Team Creator Harrell harrellbm Tutorials Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "9bc70d1c-78b7-48c0-a757-0e640ea36169"
+                                                                            "1306e5e3-4d99-4dec-86e7-dbc66f33ce97"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2011,50 +2094,50 @@
                                                             "referenceParent": {
                                                                 "type": "Position Claims Folder",
                                                                 "name": "Tutorials Team Position Class",
-                                                                "id": "aa492878-084a-4dc7-a697-8ecf229825f2"
+                                                                "id": "a2fafb68-56ce-4d01-a7af-705fba879557"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "prepheadrus",
                                                                     "User Profile",
                                                                     "Governance",
-                                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
                                                                     "Token Power Switch",
                                                                     "Governance",
-                                                                    "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
                                                                     "Votes And Claims Programs",
                                                                     "Governance",
-                                                                    "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
                                                                     "Claims Program",
                                                                     "Governance",
-                                                                    "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                 ],
                                                                 [
                                                                     "Education Teams Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                    "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                 ],
                                                                 [
                                                                     "Tutorials Team Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "aa492878-084a-4dc7-a697-8ecf229825f2"
+                                                                    "a2fafb68-56ce-4d01-a7af-705fba879557"
                                                                 ]
                                                             ]
                                                         }
@@ -2095,56 +2178,56 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Creator Harrell harrellbm Translations Team",
-                                                                        "id": "d477afb4-fef7-400b-8990-15407654c4b1"
+                                                                        "id": "2f9d5381-5b21-40d7-8587-7410a26091fe"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Education Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                            "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                         ],
                                                                         [
                                                                             "Translations Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "76278056-b7a7-439b-b5ec-955872cd7b0e"
+                                                                            "2cdb321a-d1b8-4628-afe5-9aeeeea7b817"
                                                                         ],
                                                                         [
                                                                             "Team Creator Harrell harrellbm Translations Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "d477afb4-fef7-400b-8990-15407654c4b1"
+                                                                            "2f9d5381-5b21-40d7-8587-7410a26091fe"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2178,63 +2261,63 @@
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
                                                                         "name": "Team Leader mARTin1978 Translations Team",
-                                                                        "id": "59e4d528-c779-47dd-b06b-2571018f6bab"
+                                                                        "id": "095ebc30-e7ca-4ec4-bab7-be90f511f18c"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Education Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                            "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                         ],
                                                                         [
                                                                             "Translations Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "76278056-b7a7-439b-b5ec-955872cd7b0e"
+                                                                            "2cdb321a-d1b8-4628-afe5-9aeeeea7b817"
                                                                         ],
                                                                         [
                                                                             "Team Leader mARTin1978 Translations Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "59e4d528-c779-47dd-b06b-2571018f6bab"
+                                                                            "095ebc30-e7ca-4ec4-bab7-be90f511f18c"
                                                                         ]
                                                                     ]
                                                                 }
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                                "name": "prepheadrus 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "2f627f3b-cd03-4ef8-aece-154093e4224d",
@@ -2260,57 +2343,57 @@
                                                                     },
                                                                     "referenceParent": {
                                                                         "type": "Position Contribution Claim",
-                                                                        "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
-                                                                        "id": "641517ae-337b-4dd0-8192-c32e3309ab40"
+                                                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
+                                                                        "id": "072aefce-a3f2-4781-b40c-d63271fb421b"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "prepheadrus",
                                                                             "User Profile",
                                                                             "Governance",
-                                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
                                                                             "Token Power Switch",
                                                                             "Governance",
-                                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
                                                                             "Votes And Claims Programs",
                                                                             "Governance",
-                                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
                                                                             "Claims Program",
                                                                             "Governance",
-                                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                         ],
                                                                         [
                                                                             "Education Teams Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                            "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                         ],
                                                                         [
                                                                             "Translations Team Position Class",
                                                                             "Position Claims Folder",
                                                                             "Governance",
-                                                                            "76278056-b7a7-439b-b5ec-955872cd7b0e"
+                                                                            "2cdb321a-d1b8-4628-afe5-9aeeeea7b817"
                                                                         ],
                                                                         [
-                                                                            "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                                             "Position Contribution Claim",
                                                                             "Governance",
-                                                                            "641517ae-337b-4dd0-8192-c32e3309ab40"
+                                                                            "072aefce-a3f2-4781-b40c-d63271fb421b"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2342,50 +2425,50 @@
                                                             "referenceParent": {
                                                                 "type": "Position Claims Folder",
                                                                 "name": "Translations Team Position Class",
-                                                                "id": "76278056-b7a7-439b-b5ec-955872cd7b0e"
+                                                                "id": "2cdb321a-d1b8-4628-afe5-9aeeeea7b817"
                                                             },
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "prepheadrus",
                                                                     "User Profile",
                                                                     "Governance",
-                                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
                                                                     "Token Power Switch",
                                                                     "Governance",
-                                                                    "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
                                                                     "Votes And Claims Programs",
                                                                     "Governance",
-                                                                    "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
                                                                     "Claims Program",
                                                                     "Governance",
-                                                                    "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                                 ],
                                                                 [
                                                                     "Education Teams Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                                    "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                                 ],
                                                                 [
                                                                     "Translations Team Position Class",
                                                                     "Position Claims Folder",
                                                                     "Governance",
-                                                                    "76278056-b7a7-439b-b5ec-955872cd7b0e"
+                                                                    "2cdb321a-d1b8-4628-afe5-9aeeeea7b817"
                                                                 ]
                                                             ]
                                                         }
@@ -2399,7 +2482,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus Team Creator Harrell harrellbm Workspaces Team",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ec34d1b9-0244-4284-bbde-ae2ee81c0bf6",
@@ -2482,7 +2565,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus Team Leader PiyanthaK piyanthak Workspaces Team",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "b8c40e75-b414-4bb7-b5d9-327cbcbedb51",
@@ -2666,44 +2749,44 @@
                                                     "referenceParent": {
                                                         "type": "Position Claims Folder",
                                                         "name": "Education Teams Position Class",
-                                                        "id": "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                        "id": "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "prepheadrus",
                                                             "User Profile",
                                                             "Governance",
-                                                            "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                            "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
                                                             "Token Power Switch",
                                                             "Governance",
-                                                            "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                            "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
                                                             "Votes And Claims Programs",
                                                             "Governance",
-                                                            "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                            "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                         ],
                                                         [
                                                             "New Claims Program",
                                                             "Claims Program",
                                                             "Governance",
-                                                            "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                            "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
                                                             "Position Claims Folder",
                                                             "Governance",
-                                                            "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                            "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                         ],
                                                         [
                                                             "Education Teams Position Class",
                                                             "Position Claims Folder",
                                                             "Governance",
-                                                            "d686a7ea-1959-486c-a6f1-da07ff0f7bfe"
+                                                            "f85b3512-530d-44ac-9515-9cc69cceb355"
                                                         ]
                                                     ]
                                                 }
@@ -2715,19 +2798,19 @@
                                         "id": "9a0e4850-5e03-40c5-8679-84c29e5477c5",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4692.8982898359545,
-                                                "y": 18183.261688762
+                                                "x": 10574.548828272676,
+                                                "y": 23081.115978978574
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": true,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 3,
+                                                "distanceToParent": 4,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -2736,38 +2819,38 @@
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
                                                 "name": "New Position Claims Folder",
-                                                "id": "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                "id": "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "prepheadrus",
                                                     "User Profile",
                                                     "Governance",
-                                                    "501b09ca-778e-479b-98ff-7d2e6e8f2bb8"
+                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
                                                     "Token Power Switch",
                                                     "Governance",
-                                                    "5daefc7c-340a-4a60-8c5d-884d2e262729"
+                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
                                                     "Votes And Claims Programs",
                                                     "Governance",
-                                                    "697a49ca-c2ee-4e1b-a6f9-5ff740c7ba33"
+                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
                                                 ],
                                                 [
                                                     "New Claims Program",
                                                     "Claims Program",
                                                     "Governance",
-                                                    "c4a134bd-cb94-4104-b48d-fd7f5601eb37"
+                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
                                                 ],
                                                 [
                                                     "New Position Claims Folder",
                                                     "Position Claims Folder",
                                                     "Governance",
-                                                    "a481a830-dfa5-443e-9f76-124cabdc1e45"
+                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
                                                 ]
                                             ]
                                         }
@@ -2923,7 +3006,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "eb3beec3-716a-4aba-9713-925dba310078",
@@ -2994,7 +3077,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "dcabeed0-82b2-4c57-a5da-512ad23454fb",
@@ -3140,12 +3223,12 @@
                                         "id": "10cfedff-d26a-473c-a7b4-957d5ae6d5c0",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4663.216411573825,
-                                                "y": 18117.311260665265
+                                                "x": 10721.340164113002,
+                                                "y": 22870.619905210548
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4252,19 +4335,19 @@
                                         "id": "4f66ef3f-f023-47ea-92a4-bc87aade8a29",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4650.1800052593935,
-                                                "y": 18046.173893735388
+                                                "x": 10475.33192107383,
+                                                "y": 22797.570348700454
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": true,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 3,
+                                                "distanceToParent": 4,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -4464,12 +4547,12 @@
                                         "id": "b6bacd17-9393-4617-aa43-388915d3d5b9",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4654.546699442246,
-                                                "y": 17973.983833164533
+                                                "x": 10698.91716829981,
+                                                "y": 22671.610313084235
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4530,7 +4613,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "EvaMaria70 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                "name": "EvaMaria70 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "f3818f4e-50a9-464f-86f3-87bcbb0150b2",
@@ -4556,7 +4639,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                         "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -4591,7 +4674,7 @@
                                                             "01e4c26e-e6a4-4688-bf6c-3c35fda086b8"
                                                         ],
                                                         [
-                                                            "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                             "Position Contribution Claim",
                                                             "Governance",
                                                             "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
@@ -4605,19 +4688,19 @@
                                         "id": "c5c9fb05-1353-424a-8d9b-f5a990e4b352",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4676.0627177287615,
-                                                "y": 17904.936502872875
+                                                "x": 10508.96641479362,
+                                                "y": 22499.055960510985
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": true,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 3,
+                                                "distanceToParent": 4,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -4817,12 +4900,12 @@
                                         "id": "6728163b-bb2d-412a-9ad5-87b8b6b793d9",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4713.477627343674,
-                                                "y": 17843.04468272014
+                                                "x": 10765.06177309904,
+                                                "y": 22482.57989289882
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4877,13 +4960,13 @@
                                     {
                                         "type": "Claim Votes Switch",
                                         "name": "ssplat claims",
-                                        "config": "{\"percentage\": 20}",
+                                        "config": "{\n    \"percentage\": 10\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "ssplatt ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "66c3002e-4c3b-4655-b640-61b15bc563a1",
@@ -4958,19 +5041,19 @@
                                         "id": "8ee98c9a-8f69-4eff-8f6b-d326a325ddd7",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4764.617009737825,
-                                                "y": 17791.905300325987
+                                                "x": 10668.790585450848,
+                                                "y": 22244.697250029803
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": true,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 3,
+                                                "distanceToParent": 4,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -5024,7 +5107,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "e-Nut 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                "name": "e-Nut 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "70af5cfa-98f8-429b-ab29-09a6cfcc2d8f",
@@ -5050,7 +5133,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                         "id": "ff345961-00ae-43fc-9c46-7349b7ac49af"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -5085,7 +5168,7 @@
                                                             "87c58d46-4897-4142-bca6-7375992f9c17"
                                                         ],
                                                         [
-                                                            "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                             "Position Contribution Claim",
                                                             "Governance",
                                                             "ff345961-00ae-43fc-9c46-7349b7ac49af"
@@ -5099,12 +5182,12 @@
                                         "id": "7178b345-e4a6-42dc-b89e-320272288f51",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4826.508829890561,
-                                                "y": 17754.49039071108
+                                                "x": 10906.673228319867,
+                                                "y": 22340.968437677995
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5311,19 +5394,19 @@
                                         "id": "4339be01-65c9-46d3-aa75-ecd574618b87",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4895.556160182217,
-                                                "y": 17732.97437242456
+                                                "x": 10923.149295932031,
+                                                "y": 22084.873079372574
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": true,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 3,
+                                                "distanceToParent": 4,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -5377,7 +5460,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "e-Nut 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                "name": "e-Nut 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "7e188f1e-33d1-442b-a026-f0226a72a1f7",
@@ -5403,7 +5486,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                         "id": "ff345961-00ae-43fc-9c46-7349b7ac49af"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -5438,7 +5521,7 @@
                                                             "87c58d46-4897-4142-bca6-7375992f9c17"
                                                         ],
                                                         [
-                                                            "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                             "Position Contribution Claim",
                                                             "Governance",
                                                             "ff345961-00ae-43fc-9c46-7349b7ac49af"
@@ -5452,12 +5535,12 @@
                                         "id": "457b18fc-c151-429c-9e12-afd2b3cd62c5",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 4967.746220753074,
-                                                "y": 17728.607678241708
+                                                "x": 11095.70364850528,
+                                                "y": 22274.823832878763
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5511,7 +5594,7 @@
                                     },
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "Forum Team Position Class",
+                                        "name": "alexandrustefan Claims",
                                         "config": "{}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
@@ -5524,12 +5607,12 @@
                                                 "id": "17f68862-0d21-481a-a172-ec0b1e053428",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 5128.134503839511,
-                                                        "y": 17455.22782460358
+                                                        "x": 11547.716785456294,
+                                                        "y": 21433.121157544185
                                                     },
                                                     "targetPosition": {
-                                                        "x": 5038.88358768295,
-                                                        "y": 17741.64408455614
+                                                        "x": 11346.902224104031,
+                                                        "y": 22077.557742437453
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -5550,27 +5633,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "alexandrustefan",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "4c987083-b506-4f26-9821-e678dd3880d1"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "32edddeb-10a4-4e67-8ebc-518ae17b60e0"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "ee5ffc96-e933-4775-bd4c-6c7f6856a147"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "91e48ec1-f2c4-49b5-a92c-d30b9f0a4a00"
                                                         ],
                                                         [
                                                             "Forum Team Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "6658d0c8-00b6-49fd-a17f-50a4d6c18756"
                                                         ],
                                                         [
                                                             "Team Creator Alexandru Forum Team",
-                                                            "Position Contribution Claim"
+                                                            "Position Contribution Claim",
+                                                            "Governance",
+                                                            "64319edb-7d43-4c1a-9a1a-fd5b8be149c8"
                                                         ]
                                                     ]
                                                 }
@@ -5581,19 +5676,19 @@
                                         "id": "d2b47eb1-e9ca-4925-a25f-1d07c13244f1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 5038.88358768295,
-                                                "y": 17741.64408455614
+                                                "x": 11221.6636841215,
+                                                "y": 22051.238585652784
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 3,
+                                                "distanceToParent": 4,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -5607,23 +5702,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "alexandrustefan",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "4c987083-b506-4f26-9821-e678dd3880d1"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "32edddeb-10a4-4e67-8ebc-518ae17b60e0"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "ee5ffc96-e933-4775-bd4c-6c7f6856a147"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "91e48ec1-f2c4-49b5-a92c-d30b9f0a4a00"
                                                 ],
                                                 [
                                                     "Forum Team Position Class",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "6658d0c8-00b6-49fd-a17f-50a4d6c18756"
                                                 ]
                                             ]
                                         }
@@ -5637,18 +5742,18 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "cozed-gh 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 Data Mining Project",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "76799ea4-d1d4-4a96-8def-4bfd45d013fb",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 5260.035360032983,
-                                                        "y": 17514.591581127832
+                                                        "x": 11443.338818511416,
+                                                        "y": 21872.499330053193
                                                     },
                                                     "targetPosition": {
-                                                        "x": 5104.834015779686,
-                                                        "y": 17771.325962818268
+                                                        "x": 11294.713240631592,
+                                                        "y": 22297.246828691957
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -5700,17 +5805,17 @@
                                         "id": "a95a3613-9ca4-4d4e-aede-bbc498674d49",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 5104.834015779686,
-                                                "y": 17771.325962818268
+                                                "x": 11294.713240631592,
+                                                "y": 22297.246828691957
                                             },
                                             "targetPosition": {
-                                                "x": 4949.632671526389,
-                                                "y": 18028.060344508704
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -5746,6 +5851,125 @@
                                                 ]
                                             ]
                                         }
+                                    },
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "cozed-gh Claims",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [],
+                                        "positionClaimVotes": [
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "cozed-gh 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "230f382c-5cd9-4520-924f-ac15dc3c7230",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 11624.91653161557,
+                                                        "y": 21959.94254802527
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 11385.50209718367,
+                                                        "y": 22340.968437677995
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
+                                                        "id": "667d2fb7-ef65-4ffd-adb9-aad819d5a065"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "cozed-gh",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "Data Mining Project Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "dda2e540-d593-45e5-b541-a11c846e3414",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 11385.50209718367,
+                                                "y": 22340.968437677995
+                                            },
+                                            "targetPosition": {
+                                                "x": 11146.087662751768,
+                                                "y": 22721.99432733072
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Claims Folder",
+                                                "name": "Data Mining Project Position Class",
+                                                "id": "0377d112-8545-4694-9c74-5205b2919ac3"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "cozed-gh",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "Data Mining Project Position Class",
+                                                    "Position Claims Folder"
+                                                ]
+                                            ]
+                                        }
                                     }
                                 ],
                                 "positionClaimVotes": [],
@@ -5754,19 +5978,19 @@
                                 "id": "99ff6a26-c31b-4321-811a-5861e7406366",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4949.632671526389,
-                                        "y": 18028.060344508704
+                                        "x": 11146.087662751768,
+                                        "y": 22721.99432733072
                                     },
                                     "targetPosition": {
-                                        "x": 5161.764705882353,
-                                        "y": 18240.192378864667
+                                        "x": 11464.285714285714,
+                                        "y": 23040.192378864667
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
                                         "angleToParent": 2,
-                                        "distanceToParent": 3,
+                                        "distanceToParent": 4,
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
@@ -6800,7 +7024,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Data Mining Project 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8",
+                                                                "name": "Data Mining Project 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "676aa4fd-6ae8-401e-bb6b-b1d9c8755fb5",
@@ -6826,7 +7050,7 @@
                                                                     },
                                                                     "referenceParent": {
                                                                         "type": "Position",
-                                                                        "name": "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8",
+                                                                        "name": "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
                                                                         "id": "96ef6745-3340-4f59-a174-41deedf4f074"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
@@ -6861,7 +7085,7 @@
                                                                             "96e5c443-f932-47e4-9e5d-48e986dcc637"
                                                                         ],
                                                                         [
-                                                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8",
+                                                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
                                                                             "Position",
                                                                             "Governance",
                                                                             "96ef6745-3340-4f59-a174-41deedf4f074"
@@ -6942,7 +7166,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Algorithmic Trading Project Project Creator Luis-Fernando-Molina",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "8810e213-aeed-422d-88bb-ef16daacfc9c",
@@ -7013,7 +7237,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Algorithmic Trading Project Project Leader Phil PLuv",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "26ee1c95-7e25-48be-9047-8b1077d82e14",
@@ -7084,7 +7308,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Algorithmic Trading Project Project Contributor",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "21d89dd3-bfa8-4c83-9905-4c85e8e74149",
@@ -12520,7 +12744,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Binaries Team Team Creator Nuno",
+                                                                "name": "Distribution Team Team Creator Nuno",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "0bbc5f61-1a91-4996-94a4-e9d94a4a49ba",
@@ -12569,7 +12793,7 @@
                                                                             "1ce8dec7-122f-4a03-bce0-f74a4a1e7a94"
                                                                         ],
                                                                         [
-                                                                            "Binaries Team",
+                                                                            "Distribution Team",
                                                                             "Position Class",
                                                                             "Governance",
                                                                             "f262aaf0-240e-488b-8cdd-ab8d79701a23"
@@ -12585,7 +12809,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Binaries Team Team Leader",
+                                                                "name": "",
                                                                 "config": "{\"percentage\": 0}",
                                                                 "project": "Governance",
                                                                 "id": "081115a1-d705-4bd8-bc7d-8482d9709336",
@@ -12650,7 +12874,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Binaries Team Team Member",
+                                                                "name": "",
                                                                 "config": "{\"percentage\": 0}",
                                                                 "project": "Governance",
                                                                 "id": "446babee-6c82-4993-ae50-83b3ca0a5386",
@@ -12737,7 +12961,7 @@
                                                             },
                                                             "referenceParent": {
                                                                 "type": "Position Class",
-                                                                "name": "Binaries Team",
+                                                                "name": "Distribution Team",
                                                                 "id": "f262aaf0-240e-488b-8cdd-ab8d79701a23"
                                                             },
                                                             "referenceParentCombinedNodePath": [
@@ -12760,7 +12984,7 @@
                                                                     "1ce8dec7-122f-4a03-bce0-f74a4a1e7a94"
                                                                 ],
                                                                 [
-                                                                    "Binaries Team",
+                                                                    "Distribution Team",
                                                                     "Position Class",
                                                                     "Governance",
                                                                     "f262aaf0-240e-488b-8cdd-ab8d79701a23"
@@ -14690,7 +14914,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Docs Teams 1 Team Member Tentacle23",
+                                                                "name": "Docs Teams 2 Team Member Tentacle23 quantum8",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ce8fe9f6-7b71-4820-8d21-08de79f71250",
@@ -14716,7 +14940,7 @@
                                                                     },
                                                                     "referenceParent": {
                                                                         "type": "Position",
-                                                                        "name": "1 Team Member Tentacle23",
+                                                                        "name": "2 Team Member Tentacle23 quantum8",
                                                                         "id": "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
@@ -14745,7 +14969,7 @@
                                                                             "edc33bd7-55db-4e8e-82df-81c976c83088"
                                                                         ],
                                                                         [
-                                                                            "1 Team Member Tentacle23",
+                                                                            "2 Team Member Tentacle23 quantum8",
                                                                             "Position",
                                                                             "Governance",
                                                                             "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
@@ -15210,7 +15434,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Translations Team 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
+                                                                "name": "Translations Team 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "75184ab2-a78b-4ffe-991b-d598019626fd",
@@ -15236,7 +15460,7 @@
                                                                     },
                                                                     "referenceParent": {
                                                                         "type": "Position",
-                                                                        "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
+                                                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
                                                                         "id": "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
@@ -15265,7 +15489,7 @@
                                                                             "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
                                                                         ],
                                                                         [
-                                                                            "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
+                                                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
                                                                             "Position",
                                                                             "Governance",
                                                                             "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
@@ -15702,12 +15926,12 @@
                                 "id": "14678a50-7232-48ff-b54b-f9108d2c3207",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5161.764705882353,
-                                        "y": 17940.192378864667
+                                        "x": 11464.285714285714,
+                                        "y": 22740.192378864667
                                     },
                                     "targetPosition": {
-                                        "x": 5161.764705882353,
-                                        "y": 18240.192378864667
+                                        "x": 11464.285714285714,
+                                        "y": 23040.192378864667
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -17810,12 +18034,12 @@
                                 "id": "9ca0cf8d-0c5c-4fe2-ba6d-34c358d40b51",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5373.896740238318,
-                                        "y": 18028.060344508704
+                                        "x": 11676.417748641677,
+                                        "y": 22828.060344508704
                                     },
                                     "targetPosition": {
-                                        "x": 5161.764705882353,
-                                        "y": 18240.192378864667
+                                        "x": 11464.285714285714,
+                                        "y": 23040.192378864667
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -17848,17 +18072,17 @@
                         "id": "c75db0e3-5d5d-4305-8719-570f65435b6a",
                         "savedPayload": {
                             "position": {
-                                "x": 5161.764705882353,
-                                "y": 18240.192378864667
+                                "x": 11724.093335421045,
+                                "y": 23190.192378864667
                             },
                             "targetPosition": {
-                                "x": 5161.764705882353,
-                                "y": 18540.192378864667
+                                "x": 11574.093335421045,
+                                "y": 23450
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -17876,12 +18100,12 @@
                     "id": "24eb804b-c4a6-436e-904e-e8ba52598ecf",
                     "savedPayload": {
                         "position": {
-                            "x": 5421.572327017685,
-                            "y": 18390.192378864667
+                            "x": 11874.093335421045,
+                            "y": 23450
                         },
                         "targetPosition": {
-                            "x": 5161.764705882353,
-                            "y": 18540.192378864667
+                            "x": 11574.093335421045,
+                            "y": 23450
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17899,18 +18123,18 @@
                 "id": "a050da11-c431-4118-996a-fcfd04726c45",
                 "savedPayload": {
                     "position": {
-                        "x": 5161.764705882353,
-                        "y": 18540.192378864667
+                        "x": 11574.093335421045,
+                        "y": 23450
                     },
                     "targetPosition": {
-                        "x": 5011.764705882353,
-                        "y": 18800
+                        "x": 11314.285714285714,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
@@ -17936,18 +18160,18 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Team Creator Nuno Binaries Team",
+                                "name": "Team Creator Nuno Distribution Team",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "e5777796-f646-4dc7-a2a9-24e07f6a14ae",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5831.379948153017,
-                                        "y": 18800
+                                        "x": 12133.900956556376,
+                                        "y": 23600
                                     },
                                     "targetPosition": {
-                                        "x": 5571.572327017685,
-                                        "y": 18950
+                                        "x": 11874.093335421045,
+                                        "y": 23750
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -17985,7 +18209,7 @@
                                             "1ce8dec7-122f-4a03-bce0-f74a4a1e7a94"
                                         ],
                                         [
-                                            "Binaries Team",
+                                            "Distribution Team",
                                             "Position Class",
                                             "Governance",
                                             "f262aaf0-240e-488b-8cdd-ab8d79701a23"
@@ -18002,17 +18226,17 @@
                             {
                                 "type": "Position Contribution Claim",
                                 "name": "Team Member Superalgos Blog Team",
-                                "config": "{}",
+                                "config": "{\n    \"percentage\": 5\n}",
                                 "project": "Governance",
                                 "id": "e97f9675-7bb8-4e5f-8bb5-6d5735cc335d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5831.379948153017,
-                                        "y": 19100
+                                        "x": 12133.900956556376,
+                                        "y": 23900
                                     },
                                     "targetPosition": {
-                                        "x": 5571.572327017685,
-                                        "y": 18950
+                                        "x": 11874.093335421045,
+                                        "y": 23750
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -18074,12 +18298,12 @@
                         "id": "aa81c376-fedf-4018-9134-37f355bcb56b",
                         "savedPayload": {
                             "position": {
-                                "x": 5571.572327017685,
-                                "y": 18950
+                                "x": 11874.093335421045,
+                                "y": 23750
                             },
                             "targetPosition": {
-                                "x": 5271.572327017685,
-                                "y": 18950
+                                "x": 11574.093335421045,
+                                "y": 23750
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -18121,15 +18345,15 @@
                     "id": "07e3c879-4e99-4305-a6c8-4458c3a3afe1",
                     "savedPayload": {
                         "position": {
-                            "x": 5757.929644041532,
-                            "y": 19409.09282617584
+                            "x": 11724.093335421045,
+                            "y": 24009.807621135333
                         },
                         "targetPosition": {
-                            "x": 5271.572327017685,
-                            "y": 18950
+                            "x": 11574.093335421045,
+                            "y": 23750
                         },
                         "floatingObject": {
-                            "isPinned": true,
+                            "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
                             "angleToParent": 2,
@@ -18144,12 +18368,12 @@
                 "id": "488ba3d0-4093-4994-9410-f62f82107907",
                 "savedPayload": {
                     "position": {
-                        "x": 5271.572327017685,
-                        "y": 18950
+                        "x": 11574.093335421045,
+                        "y": 23750
                     },
                     "targetPosition": {
-                        "x": 5011.764705882353,
-                        "y": 18800
+                        "x": 11314.285714285714,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -18167,12 +18391,12 @@
             "id": "bde9318f-5bb3-4f37-bd64-cd188bfcf104",
             "savedPayload": {
                 "position": {
-                    "x": 5011.764705882353,
-                    "y": 18800
+                    "x": 11314.285714285714,
+                    "y": 23600
                 },
                 "targetPosition": {
-                    "x": 4711.764705882353,
-                    "y": 18800
+                    "x": 11014.285714285714,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -18204,12 +18428,12 @@
                     "id": "75dedb7b-3c3a-49c1-b7e0-39db11a9c4b5",
                     "savedPayload": {
                         "position": {
-                            "x": 5847.307621135332,
-                            "y": 18950
+                            "x": 11793.708577691707,
+                            "y": 24050
                         },
                         "targetPosition": {
-                            "x": 5547.307621135332,
-                            "y": 18950
+                            "x": 11533.900956556376,
+                            "y": 23900
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -18227,68 +18451,12 @@
                 "id": "5e92eb55-f735-42c3-b9de-e940ebde432d",
                 "savedPayload": {
                     "position": {
-                        "x": 5547.307621135332,
-                        "y": 18950
+                        "x": 11533.900956556376,
+                        "y": 23900
                     },
                     "targetPosition": {
-                        "x": 5247.307621135332,
-                        "y": 18950
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "delegationProgram": {
-                "type": "Delegation Program",
-                "name": "New Delegation Program",
-                "config": "{\"percentage\": 0}",
-                "project": "Governance",
-                "delegatePowerSwitch": [],
-                "tokensBonus": {
-                    "type": "Tokens Bonus",
-                    "name": "New Tokens Bonus",
-                    "project": "Governance",
-                    "id": "00e8cbb6-ec94-44b0-8bd3-e8d89fa4ea4d",
-                    "savedPayload": {
-                        "position": {
-                            "x": 5547.307621135332,
-                            "y": 19469.615242270665
-                        },
-                        "targetPosition": {
-                            "x": 5397.307621135332,
-                            "y": 19209.807621135333
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "fc5b9428-8209-4c83-bc1a-cc0f79a88ee4",
-                "savedPayload": {
-                    "position": {
-                        "x": 5397.307621135332,
-                        "y": 19209.807621135333
-                    },
-                    "targetPosition": {
-                        "x": 5247.307621135332,
-                        "y": 18950
+                        "x": 11274.093335421045,
+                        "y": 23750
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -18306,17 +18474,17 @@
             "id": "830095ca-398a-4467-b2ca-4b1344253af9",
             "savedPayload": {
                 "position": {
-                    "x": 4971.572327017685,
-                    "y": 18950
+                    "x": 11274.093335421045,
+                    "y": 23750
                 },
                 "targetPosition": {
-                    "x": 4711.764705882353,
-                    "y": 18800
+                    "x": 11014.285714285714,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -18344,12 +18512,12 @@
                         "id": "1f168cf5-73ee-44bc-a797-9aba9fbe5e6f",
                         "savedPayload": {
                             "position": {
-                                "x": 5161.764705882353,
-                                "y": 19579.422863406
+                                "x": 11464.285714285714,
+                                "y": 24379.422863406
                             },
                             "targetPosition": {
-                                "x": 5011.764705882353,
-                                "y": 19319.615242270665
+                                "x": 11314.285714285714,
+                                "y": 24119.615242270665
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -18367,12 +18535,12 @@
                     "id": "9da80d2e-2d07-4156-ad67-2fc0359051fc",
                     "savedPayload": {
                         "position": {
-                            "x": 5011.764705882353,
-                            "y": 19319.615242270665
+                            "x": 11314.285714285714,
+                            "y": 24119.615242270665
                         },
                         "targetPosition": {
-                            "x": 4861.764705882353,
-                            "y": 19059.807621135333
+                            "x": 11164.285714285714,
+                            "y": 23859.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -18391,12 +18559,12 @@
             "id": "d3789d9f-90a9-472b-acdf-45de0f311db1",
             "savedPayload": {
                 "position": {
-                    "x": 4861.764705882353,
-                    "y": 19059.807621135333
+                    "x": 11164.285714285714,
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
-                    "x": 4711.764705882353,
-                    "y": 18800
+                    "x": 11014.285714285714,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -18414,12 +18582,12 @@
         "id": "2d11ec65-8e01-49af-910c-1d6151e1ebe9",
         "savedPayload": {
             "position": {
-                "x": 4711.764705882353,
-                "y": 18800
+                "x": 11014.285714285714,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 4411.764705882353,
-                "y": 18800
+                "x": 10714.285714285714,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -18441,12 +18609,12 @@
         "id": "97c7a5e1-8144-44fa-8dc4-348740e688a9",
         "savedPayload": {
             "position": {
-                "x": 4111.764705882353,
-                "y": 18800
+                "x": 10414.285714285714,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 4411.764705882353,
-                "y": 18800
+                "x": 10714.285714285714,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -18464,12 +18632,12 @@
     "id": "d611eda3-4202-438a-af65-8981a90e742a",
     "savedPayload": {
         "position": {
-            "x": 4411.764705882353,
-            "y": 18800
+            "x": 10714.285714285714,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 4411.764705882353,
-            "y": 18800
+            "x": 10714.285714285714,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": true,

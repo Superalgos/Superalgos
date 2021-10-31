@@ -26,12 +26,12 @@
                     "id": "c9ec2b57-c2a3-451b-9fe2-0e91b019477a",
                     "savedPayload": {
                         "position": {
-                            "x": 13786.363636363636,
-                            "y": 17470.577136594
+                            "x": 34882.117647058825,
+                            "y": 18390.442378864667
                         },
                         "targetPosition": {
-                            "x": 13936.363636363636,
-                            "y": 17730.384757729335
+                            "x": 35182.117647058825,
+                            "y": 18390.442378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "82456675-a25a-4655-85fb-b56e20861b2b",
                 "savedPayload": {
                     "position": {
-                        "x": 13936.363636363636,
-                        "y": 17730.384757729335
+                        "x": 35182.117647058825,
+                        "y": 18390.442378864667
                     },
                     "targetPosition": {
-                        "x": 14086.363636363636,
-                        "y": 17990.192378864667
+                        "x": 35482.117647058825,
+                        "y": 18390.442378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "ee49551c-4a7f-408e-a671-92f7478d9e15",
                     "savedPayload": {
                         "position": {
-                            "x": 14686.363636363636,
-                            "y": 17990.192378864667
+                            "x": 35782.117647058825,
+                            "y": 17870.827136594
                         },
                         "targetPosition": {
-                            "x": 14386.363636363636,
-                            "y": 17990.192378864667
+                            "x": 35632.117647058825,
+                            "y": 18130.634757729335
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,17 +104,17 @@
                 "id": "d19515b3-2180-496c-a0d6-ebdfd56650a2",
                 "savedPayload": {
                     "position": {
-                        "x": 14386.363636363636,
-                        "y": 17990.192378864667
+                        "x": 35632.117647058825,
+                        "y": 18130.634757729335
                     },
                     "targetPosition": {
-                        "x": 14086.363636363636,
-                        "y": 17990.192378864667
+                        "x": 35482.117647058825,
+                        "y": 18390.442378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -127,17 +127,17 @@
             "id": "d1d5d745-af31-450b-8e90-96f99ddda58a",
             "savedPayload": {
                 "position": {
-                    "x": 14086.363636363636,
-                    "y": 17990.192378864667
+                    "x": 15946.117647058825,
+                    "y": 45127.94237886467
                 },
                 "targetPosition": {
-                    "x": 13936.363636363636,
-                    "y": 18250
+                    "x": 16096.117647058825,
+                    "y": 45387.75
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -255,12 +257,12 @@
                 "id": "b456f6f4-959e-47bc-b9f6-f1bd238d8650",
                 "savedPayload": {
                     "position": {
-                        "x": 14346.171257498967,
-                        "y": 18359.807621135333
+                        "x": 36003.92526819416,
+                        "y": 18909.807621135333
                     },
                     "targetPosition": {
-                        "x": 14086.363636363636,
-                        "y": 18509.807621135333
+                        "x": 35744.117647058825,
+                        "y": 19059.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -315,7 +317,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -349,12 +353,14 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -393,7 +399,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -456,12 +464,12 @@
                 "id": "5d9cb63f-30f0-4b75-bb40-0d57385ee4b0",
                 "savedPayload": {
                     "position": {
-                        "x": 14236.363636363636,
-                        "y": 18769.615242270665
+                        "x": 35894.117647058825,
+                        "y": 19319.615242270665
                     },
                     "targetPosition": {
-                        "x": 14086.363636363636,
-                        "y": 18509.807621135333
+                        "x": 35744.117647058825,
+                        "y": 19059.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -490,12 +498,12 @@
                         "id": "4441d08b-31fe-43f8-a044-92bdf29cf472",
                         "savedPayload": {
                             "position": {
-                                "x": 14049.499462871523,
-                                "y": 18860.54680304299
+                                "x": 35707.253473566714,
+                                "y": 29010.54680304299
                             },
                             "targetPosition": {
-                                "x": 13826.556015228305,
-                                "y": 18659.807621135333
+                                "x": 35484.31002592349,
+                                "y": 28809.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -516,7 +524,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -529,12 +539,12 @@
                         "id": "5709decd-446b-47ef-8a53-65f961b81de9",
                         "savedPayload": {
                             "position": {
-                                "x": 13704.535022305565,
-                                "y": 18933.871258428113
+                                "x": 35362.28903300075,
+                                "y": 29083.871258428113
                             },
                             "targetPosition": {
-                                "x": 13826.556015228305,
-                                "y": 18659.807621135333
+                                "x": 35484.31002592349,
+                                "y": 28809.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -550,12 +560,14 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -568,12 +580,12 @@
                     "id": "63362bfd-94f9-40e7-8125-a0a8e0c5ccf7",
                     "savedPayload": {
                         "position": {
-                            "x": 13528.199446617824,
-                            "y": 18628.449082155035
+                            "x": 35185.95345731301,
+                            "y": 28778.449082155035
                         },
                         "targetPosition": {
-                            "x": 13826.556015228305,
-                            "y": 18659.807621135333
+                            "x": 35484.31002592349,
+                            "y": 28809.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -595,12 +607,12 @@
                     "id": "d56f1b31-c3ea-411c-8c99-14859e97f311",
                     "savedPayload": {
                         "position": {
-                            "x": 13764.182507982978,
-                            "y": 18366.36334091519
+                            "x": 35421.936518678165,
+                            "y": 28516.36334091519
                         },
                         "targetPosition": {
-                            "x": 13826.556015228305,
-                            "y": 18659.807621135333
+                            "x": 35484.31002592349,
+                            "y": 28809.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -618,17 +630,17 @@
                 "id": "0d8e56cf-a925-4822-9a30-31df50743147",
                 "savedPayload": {
                     "position": {
-                        "x": 13826.556015228305,
-                        "y": 18659.807621135333
+                        "x": 35484.31002592349,
+                        "y": 19209.807621135333
                     },
                     "targetPosition": {
-                        "x": 14086.363636363636,
-                        "y": 18509.807621135333
+                        "x": 35744.117647058825,
+                        "y": 19059.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -641,12 +653,1551 @@
             "id": "b47a7be7-985a-4ab1-baea-68ef554cb8a7",
             "savedPayload": {
                 "position": {
-                    "x": 14086.363636363636,
-                    "y": 18509.807621135333
+                    "x": 16246.117647058825,
+                    "y": 45127.94237886467
                 },
                 "targetPosition": {
-                    "x": 13936.363636363636,
-                    "y": 18250
+                    "x": 16096.117647058825,
+                    "y": 45387.75
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "pools",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [],
+                        "weightVotesSwitch": [
+                            {
+                                "type": "Weight Votes Switch",
+                                "name": "pools",
+                                "config": "{}",
+                                "project": "Governance",
+                                "weightVotesSwitch": [
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Positions, Assets & Features",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [],
+                                        "poolWeightVotes": [
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Features Pool",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "ef9c542c-4088-4e4e-a9d0-e95ce3b0cbbf",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16365.583059584707,
+                                                        "y": 44555.209739856604
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16515.583059584707,
+                                                        "y": 44555.209739856604
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Features",
+                                                        "id": "4b7384bc-93ba-454f-9de8-1add9c4d84ce"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Positions, Assets & Features",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Features",
+                                                            "Pool"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Assets Pool",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "33c2b7f3-96f3-429d-b0a1-4a59e7277798",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16409.517042406726,
+                                                        "y": 44449.14372267862
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16515.583059584707,
+                                                        "y": 44555.209739856604
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Assets",
+                                                        "id": "16a7dd84-e3e8-4118-a17d-ac227e55ff92"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Positions, Assets & Features",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Assets",
+                                                            "Pool"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Positions Pool",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "7b8a48ff-7ad9-4923-9684-2ba251c0856a",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16515.583059584707,
+                                                        "y": 44405.209739856604
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16515.583059584707,
+                                                        "y": 44555.209739856604
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Positions",
+                                                        "id": "a289d3a4-bd49-467b-b8d9-d0ba1152a131"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Positions, Assets & Features",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Positions",
+                                                            "Pool"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "c641c0de-9322-42b2-9a7d-107ffd6d2048",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 15952.583059584707,
+                                                "y": 44848.209739856604
+                                            },
+                                            "targetPosition": {
+                                                "x": 16058.64907676269,
+                                                "y": 44954.275757034586
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": true,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Governance Program",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Community Building Programs",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Referrals Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "686f8a1f-23db-4d3b-b0cb-47a2ae29f412",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 15685.968869837263,
+                                                                "y": 44222.99204963891
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 15910.339724203028,
+                                                                "y": 44206.177778581965
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Support Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "d03fd66a-87e8-4aa8-a01b-20e94cfcc6ce",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 15739.7960864953,
+                                                                "y": 44059.413111044385
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 15910.339724203028,
+                                                                "y": 44206.177778581965
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Mentorship Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "17b2441a-4b69-4aa7-85cc-c2aeca59884b",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 15893.525453146081,
+                                                                "y": 43981.8069242162
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 15910.339724203028,
+                                                                "y": 44206.177778581965
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "76dd9ce2-2e02-49fe-b266-1d7c50f7404d",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 15946.339724203028,
+                                                        "y": 44590.177778581965
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16116.883361910755,
+                                                        "y": 44736.942446119545
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": true,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Onboarding Programs",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Airdrop Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Airdrop Rewards Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "55c3d3f8-1f8e-4fb3-817c-34c25c476a10",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 15628.838655543814,
+                                                                        "y": 43879.49685504073
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 15809.873155991314,
+                                                                        "y": 44013.10639679476
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Airdrop Rewards",
+                                                                        "id": "0e10c82f-94b3-4f39-b673-15eaf0551df4"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Onboarding Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Airdrop Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Airdrop Rewards",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "89cdbc2f-beec-441a-9472-ca4ad3fb72bd",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 15809.873155991314,
+                                                                "y": 44013.10639679476
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 15990.907656438814,
+                                                                "y": 44146.7159385488
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Github Prgoram",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Github Rewards Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "3813a523-4e23-4495-acf9-84e32a504885",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16041.291670685301,
+                                                                        "y": 43699.54544409684
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16016.099663562058,
+                                                                        "y": 43923.13069132282
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Github Rewards",
+                                                                        "id": "8829c80f-028b-4315-85a1-82ad502f0687"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Onboarding Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Github Prgoram",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Github Rewards",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "cb0bbb2d-e0a8-4102-b5df-f66b84f66925",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16016.099663562058,
+                                                                "y": 43923.13069132282
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 15990.907656438814,
+                                                                "y": 44146.7159385488
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "39f4c3ce-7a8a-41a4-9898-f777d57ab0ca",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16026.907656438814,
+                                                        "y": 44530.7159385488
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16116.883361910755,
+                                                        "y": 44736.942446119545
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": true,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Incentives for Voting",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Voting Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Voting Bonus Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "7073a676-88bd-4049-904e-d7e1107783fc",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16106.122418047276,
+                                                                        "y": 43678.41447038737
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16097.709399335103,
+                                                                        "y": 43903.25712896476
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": true,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Voting Bonus",
+                                                                        "id": "9eb846a4-effb-4380-9487-1a82011b0488"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Voting",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Voting Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Voting Bonus",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "a6713ab6-6963-4659-8d64-1de3f993e369",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16097.709399335103,
+                                                                "y": 43903.25712896476
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16089.296380622929,
+                                                                "y": 44128.09978754215
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "bc00fe14-06d2-4d80-82d3-be41d65ef55e",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16125.296380622929,
+                                                        "y": 44512.09978754215
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16116.883361910755,
+                                                        "y": 44736.942446119545
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": true,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Incentives for Providing Liquidity to SA Markets",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "a0cb941b-e8cf-4440-81ae-d06bfde65e6a",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16222.018803272194,
+                                                        "y": 44538.016482581006
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16116.883361910755,
+                                                        "y": 44736.942446119545
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Incentives for Providing Liquidity to SA Markets",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "New Weight Votes Switch",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Liquidity Rewards BTCB Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "be2231b5-8c1b-4db2-a471-6c6c8cf0fbf5",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16566.94514247377,
+                                                                        "y": 44065.42803327627
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16569.469613029505,
+                                                                        "y": 44402.91859173445
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Liquidity Rewards BTCB",
+                                                                        "id": "a7651e92-ab96-49fc-af9c-f936682dd7a4"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Providing Liquidity to SA Markets",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Rewards BTCB",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Liquidity Rewards BNB Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "9ce43452-4091-43f8-adee-4047a93e703e",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16765.799246497783,
+                                                                        "y": 44128.39914793819
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16569.469613029505,
+                                                                        "y": 44402.91859173445
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Liquidity Rewards BNB",
+                                                                        "id": "e7c21a28-fea6-48cc-a97c-cc43470bb2fc"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Providing Liquidity to SA Markets",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Rewards BNB",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Liquidity Rewards BUSD Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "804ad92a-dc5d-464b-808d-8d147992ae27",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16889.662103535724,
+                                                                        "y": 44296.22735955755
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16569.469613029505,
+                                                                        "y": 44402.91859173445
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Liquidity Rewards BUSD",
+                                                                        "id": "962d9bc1-4e54-463c-86ae-43aec1db0f0f"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Providing Liquidity to SA Markets",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Rewards BUSD",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Liquidity Rewards ETH Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "4ed89c3a-b397-4802-bd0d-344601ae3edb",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16891.222312142767,
+                                                                        "y": 44504.807995566895
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16569.469613029505,
+                                                                        "y": 44402.91859173445
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Liquidity Rewards ETH",
+                                                                        "id": "e89ba06e-2f6c-42d0-8b3e-6cfa596f0058"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Providing Liquidity to SA Markets",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Liquidity Rewards ETH",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "bf1297f4-3aeb-4fe2-bda5-047c5fcd1727",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16569.469613029505,
+                                                                "y": 44402.91859173445
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16297.917862358256,
+                                                                "y": 44603.33290436551
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 4,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "9bc9218c-d220-4a2b-a102-b8738ee0851e",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16297.917862358256,
+                                                        "y": 44603.33290436551
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16116.883361910755,
+                                                        "y": 44736.942446119545
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": true,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Incentives for Staking & Delegating SA Tokens",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Staking Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Staking Rewards Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "43c9ac1d-3c67-4081-ab11-28df12406293",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16679.0480938037,
+                                                                        "y": 44401.58299943273
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16508.504456095972,
+                                                                        "y": 44548.34766697031
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Staking Rewards",
+                                                                        "id": "d2cf4c65-b4bd-4fa8-b0da-f73a38b8419a"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Staking & Delegating SA Tokens",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Staking Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Staking Rewards",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "6a8ad96d-32af-4d61-9125-b871c0522ba6",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16508.504456095972,
+                                                                "y": 44548.34766697031
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16337.960818388245,
+                                                                "y": 44695.11233450789
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Delegation Program",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [],
+                                                        "poolWeightVotes": [
+                                                            {
+                                                                "type": "Pool Weight Vote",
+                                                                "name": "Delegation Bonus Pool",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "6fe88636-aa76-4d78-af7a-fe960e8c450d",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 16762.708317027013,
+                                                                        "y": 44843.73791238771
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 16550.33456770763,
+                                                                        "y": 44769.4251234478
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Pool",
+                                                                        "name": "Delegation Bonus",
+                                                                        "id": "24e62dd3-4d7b-4eba-b401-493c155d85d0"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Superalgos",
+                                                                            "Pools"
+                                                                        ],
+                                                                        [
+                                                                            "Governance Programs",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Incentives for Staking & Delegating SA Tokens",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Delegation Program",
+                                                                            "Pool Class"
+                                                                        ],
+                                                                        [
+                                                                            "Delegation Bonus",
+                                                                            "Pool"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "2b26e5ca-db5d-468b-bdd2-73d5be262024",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16550.33456770763,
+                                                                "y": 44769.4251234478
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16337.960818388245,
+                                                                "y": 44695.11233450789
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "poolWeightVotes": [],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "f584ace3-6bc8-4685-9c7b-82d6e683f316",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16337.960818388245,
+                                                        "y": 44695.11233450789
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 16116.883361910755,
+                                                        "y": 44736.942446119545
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "poolWeightVotes": [],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "eb1d2fb7-ead9-4dc1-9e31-deb8ff19baaa",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 16116.883361910755,
+                                                "y": 44736.942446119545
+                                            },
+                                            "targetPosition": {
+                                                "x": 16058.64907676269,
+                                                "y": 44954.275757034586
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 4,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "poolWeightVotes": [],
+                                "assetWeightVotes": [],
+                                "featureWeightVotes": [],
+                                "positionWeightVotes": [],
+                                "id": "485ee1d5-8917-4446-8033-0ce091f3ee99",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16058.64907676269,
+                                        "y": 44954.275757034586
+                                    },
+                                    "targetPosition": {
+                                        "x": 16052.471933528068,
+                                        "y": 44929.164630977946
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": true,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "userProfileVotesSwitch": [],
+                        "id": "987ee901-e64a-42ad-ac6b-057865e9d7ae",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16052.471933528068,
+                                "y": 44929.164630977946
+                            },
+                            "targetPosition": {
+                                "x": 16206.117647058825,
+                                "y": 45112.94237886467
+                            },
+                            "floatingObject": {
+                                "isPinned": true,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "5edccc71-2481-467a-b960-8c852e6a9e75",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16356.117647058825,
+                                "y": 44853.134757729335
+                            },
+                            "targetPosition": {
+                                "x": 16206.117647058825,
+                                "y": 45112.94237886467
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "740b0e2f-6ffd-4f52-8325-cf6363d1fb30",
+                    "savedPayload": {
+                        "position": {
+                            "x": 16465.925268194158,
+                            "y": 45262.94237886467
+                        },
+                        "targetPosition": {
+                            "x": 16206.117647058825,
+                            "y": 45112.94237886467
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "3eb8c64c-3864-4faf-974c-fab5bffdc973",
+                "savedPayload": {
+                    "position": {
+                        "x": 16206.117647058825,
+                        "y": 45112.94237886467
+                    },
+                    "targetPosition": {
+                        "x": 16396.117647058825,
+                        "y": 45387.75
+                    },
+                    "floatingObject": {
+                        "isPinned": true,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Member Exchange Relationships Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "45426982-a2c9-44e4-875b-17b7cb8c3b29",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 36591.117647058825,
+                                        "y": 18004.634757729335
+                                    },
+                                    "targetPosition": {
+                                        "x": 36441.117647058825,
+                                        "y": 18264.442378864667
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Member",
+                                        "id": "952609db-1f04-45fb-9acd-948a6fa52d20"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Exchange Relationships Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Member",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "76879fb6-eeb8-49c3-b3df-6e046074ffdd",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36441.117647058825,
+                                "y": 18264.442378864667
+                            },
+                            "targetPosition": {
+                                "x": 36291.117647058825,
+                                "y": 18524.25
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "e23316ba-bde4-48ce-aef2-e9e37b2df211",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36441.117647058825,
+                            "y": 18784.057621135333
+                        },
+                        "targetPosition": {
+                            "x": 36291.117647058825,
+                            "y": 18524.25
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "b139671c-2415-41c4-9fa4-86eee29bc95d",
+                "savedPayload": {
+                    "position": {
+                        "x": 16546.117647058825,
+                        "y": 45647.55762113533
+                    },
+                    "targetPosition": {
+                        "x": 16396.117647058825,
+                        "y": 45387.75
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "01108aa7-6972-4d9f-9707-b64431d3f096",
+            "savedPayload": {
+                "position": {
+                    "x": 16396.117647058825,
+                    "y": 45387.75
+                },
+                "targetPosition": {
+                    "x": 16096.117647058825,
+                    "y": 45387.75
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -661,18 +2212,241 @@
                 }
             }
         },
+        "financialPrograms": {
+            "type": "Financial Programs",
+            "name": "New Financial Programs",
+            "config": "{}",
+            "project": "Governance",
+            "stakingProgram": {
+                "type": "Staking Program",
+                "name": "New Staking Program",
+                "config": "{}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "99132e21-188e-4b52-9e35-668d15a2841f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36126.117647058825,
+                            "y": 19490.422863406
+                        },
+                        "targetPosition": {
+                            "x": 35976.117647058825,
+                            "y": 19230.615242270665
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "67a30ce8-7646-460e-8e31-b4629265a3f6",
+                "savedPayload": {
+                    "position": {
+                        "x": 35976.117647058825,
+                        "y": 19230.615242270665
+                    },
+                    "targetPosition": {
+                        "x": 35826.117647058825,
+                        "y": 18970.807621135333
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "93b34fb5-56ff-46f5-99d1-8dcc56cacf2a",
+            "savedPayload": {
+                "position": {
+                    "x": 16246.117647058825,
+                    "y": 45647.55762113533
+                },
+                "targetPosition": {
+                    "x": 16096.117647058825,
+                    "y": 45387.75
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "liquidityPrograms": {
+            "type": "Liquidity Programs",
+            "name": "New Liquidity Programs",
+            "config": "{}",
+            "project": "Governance",
+            "liquidityProgram": [
+                {
+                    "type": "Liquidity Program",
+                    "name": "New Liquidity Program",
+                    "config": "{\n\"asset\": \"BTCB\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "e6a10baa-2e72-45bb-b599-f39b6c595e91",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35902.890912561656,
+                                "y": 19531.20385017498
+                            },
+                            "targetPosition": {
+                                "x": 35702.151730654,
+                                "y": 19308.260402531763
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "efe9ac25-bf78-45e9-a5a9-f11a315041aa",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35702.151730654,
+                            "y": 19308.260402531763
+                        },
+                        "targetPosition": {
+                            "x": 35501.41254874634,
+                            "y": 19085.316954888545
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Liquidity Program",
+                    "name": "New Liquidity Program",
+                    "config": "{\n    \"asset\": \"BNB\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "9ae1a5f2-3b62-4457-adcc-9c28d2777b10",
+                        "savedPayload": {
+                            "position": {
+                                "x": 34914.52398830605,
+                                "y": 19210.0639693792
+                            },
+                            "targetPosition": {
+                                "x": 35207.968268526194,
+                                "y": 19147.690462133873
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "23fd9f7a-43b4-4f85-90b5-6bf0309eaa3a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35207.968268526194,
+                            "y": 19147.690462133873
+                        },
+                        "targetPosition": {
+                            "x": 35501.41254874634,
+                            "y": 19085.316954888545
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "05fc60f4-4c52-46cc-a608-25ffeec88578",
+            "savedPayload": {
+                "position": {
+                    "x": 15946.117647058825,
+                    "y": 45647.55762113533
+                },
+                "targetPosition": {
+                    "x": 16096.117647058825,
+                    "y": 45387.75
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
         "id": "1c8787dc-31af-4852-9c50-4fd2abeac607",
         "savedPayload": {
             "position": {
-                "x": 13936.363636363636,
-                "y": 18250
+                "x": 16096.117647058825,
+                "y": 45387.75
             },
             "targetPosition": {
-                "x": 13636.363636363636,
-                "y": 18250
+                "x": 16224.117647058825,
+                "y": 45295.75
             },
             "floatingObject": {
-                "isPinned": false,
+                "isPinned": true,
                 "isFrozen": false,
                 "isCollapsed": false,
                 "angleToParent": 1,
@@ -691,12 +2465,12 @@
         "id": "4d63da9f-7429-4ac4-b66c-b51c585ea14b",
         "savedPayload": {
             "position": {
-                "x": 13336.363636363636,
-                "y": 18250
+                "x": 15924.117647058825,
+                "y": 45295.75
             },
             "targetPosition": {
-                "x": 13636.363636363636,
-                "y": 18250
+                "x": 16224.117647058825,
+                "y": 45295.75
             },
             "floatingObject": {
                 "isPinned": false,
@@ -714,12 +2488,12 @@
     "id": "2ba902c6-59f4-40f4-91f5-44d12f807061",
     "savedPayload": {
         "position": {
-            "x": 13636.363636363636,
-            "y": 18250
+            "x": 16224.117647058825,
+            "y": 45295.75
         },
         "targetPosition": {
-            "x": 13636.363636363636,
-            "y": 18250
+            "x": 16224.117647058825,
+            "y": 45295.75
         },
         "floatingObject": {
             "isPinned": false,

@@ -150,8 +150,10 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
+ 
                     let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
-                    let newReputation = previousReputation | 0 + currentReputation
+                    if (previousReputation === undefined) {previousReputation = 0}
+                    let newReputation = previousReputation + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
                 //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
@@ -446,6 +448,7 @@ function newGovernanceUserProfileSpace() {
                         BUSD: 0
                     }
 
+                    waitingForResponses++
                     waitingForResponses++
                     waitingForResponses++
                     waitingForResponses++

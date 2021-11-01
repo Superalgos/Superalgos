@@ -152,7 +152,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
         }
 
         function drawProgram(node) {
-            if (node.payload !== undefined) {
+            if (node.payload !== undefined && node.payload.liquidityProgram.ownPower !== undefined) {
 
                 const ownPowerText = parseFloat(node.payload.liquidityProgram.ownPower.toFixed(2)).toLocaleString('en')
                 const percentageText = parseFloat(node.payload.liquidityProgram.awarded.percentage.toFixed(2)).toLocaleString('en')

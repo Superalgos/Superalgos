@@ -33,7 +33,13 @@
             {
                 "language": "ES",
                 "text": "Data tasks refiere a la minería de datos, es decir, la actividad de procesamiento de datos. Necesitarás procesar datos para alimentar gráficos y para que sus sistemas de trading puedan tomar decisiones basadas en información de calidad.",
-                "updated": 1624283536808
+                "updated": 1624283536808,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Задачи обработки данных относятся к интеллектуальному анализу данных, т.е. к деятельности по обработке данных. Вам необходимо обрабатывать данные для подачи графиков, чтобы Ваши торговые системы могли принимать решения на основе качественной информации.",
+                "updated": 1635516654645
             }
         ]
     }

@@ -48,7 +48,13 @@
             {
                 "language": "DE",
                 "text": "Bevor ich Ihnen den Rest des Menüs zeige, lassen Sie uns einen Blick auf eine andere Hierarchie werfen: das Netzwerk.",
-                "updated": 1634160400461
+                "updated": 1634160400461,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Прежде, чем я покажу Вам остальную часть меню, давайте посмотрим на другую иерархию - Network.\n",
+                "updated": 1635510334014
             }
         ]
     },
@@ -96,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Die Netzwerkhierarchie ist der Kontrollraum des Systems. Von hier aus steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Tasks.",
-                    "updated": 1634160438707
+                    "updated": 1634160438707,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Сетевая иерархия - это управленческая комната системы. Именно здесь Вы управляете своими Data Tasks, Testing Trading Tasks, and Production Trading Tasks операциями.",
+                    "updated": 1635510485010
                 }
             ]
         },
@@ -143,7 +155,13 @@
                 {
                     "language": "DE",
                     "text": "Erweitern Sie die Hierarchie und schauen Sie rein!",
-                    "updated": 1634160512829
+                    "updated": 1634160512829,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните иерархию и посмотрите внутрь!",
+                    "updated": 1635510510872
                 }
             ]
         },
@@ -191,7 +209,13 @@
                 {
                     "language": "DE",
                     "text": "Sehen Sie die Knoten, die ich bereits erwähnt habe? Cool! Wir sind hier, um Ihre allererste Data-Mining-Operation zu starten.",
-                    "updated": 1634160465920
+                    "updated": 1634160465920,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы видите узлы, о которых я упоминал ранее? Отлично! Мы здесь для того, чтобы начать Вашу первую операцию интеллектуального анализа данных.",
+                    "updated": 1635510685551
                 }
             ]
         },
@@ -238,7 +262,13 @@
                 {
                     "language": "DE",
                     "text": "Doch bevor wir beginnen, habe ich eine kurze Frage an Sie: Greifen Sie per Fernzugriff auf den Client zu?",
-                    "updated": 1634160524428
+                    "updated": 1634160524428,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Но прежде чем мы начнем, у меня к Вам есть небольшой вопрос: получаете ли Вы доступ к Client удаленно?",
+                    "updated": 1635511033016
                 }
             ]
         }

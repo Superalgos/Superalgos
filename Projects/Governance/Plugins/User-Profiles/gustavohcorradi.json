@@ -127,12 +127,12 @@
             "id": "1cd251c3-5a87-435e-a262-42323aed0bc4",
             "savedPayload": {
                 "position": {
-                    "x": 26730.39585642945,
-                    "y": 33350
+                    "x": 30798.160562311805,
+                    "y": 19086
                 },
                 "targetPosition": {
-                    "x": 26470.58823529412,
-                    "y": 33500
+                    "x": 30538.352941176472,
+                    "y": 19236
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -819,12 +819,12 @@
             "id": "b7c934fd-8031-4615-bf9c-94280e452511",
             "savedPayload": {
                 "position": {
-                    "x": 26860.299666997118,
-                    "y": 33725
+                    "x": 30928.06437287947,
+                    "y": 19461
                 },
                 "targetPosition": {
-                    "x": 26470.58823529412,
-                    "y": 33500
+                    "x": 30538.352941176472,
+                    "y": 19236
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -866,18 +866,18 @@
                                 "positionClaimVotes": [
                                     {
                                         "type": "Position Claim Vote",
-                                        "name": "EvaMaria70 4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                        "name": "EvaMaria70 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "52d4be66-7380-4f30-9ebb-d3af356e54ff",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26920.58823529412,
-                                                "y": 33459.80762113533
+                                                "x": 30988.352941176472,
+                                                "y": 19195.807621135333
                                             },
                                             "targetPosition": {
-                                                "x": 26920.58823529412,
-                                                "y": 33759.80762113533
+                                                "x": 30988.352941176472,
+                                                "y": 19495.807621135333
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -892,33 +892,45 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Contribution Claim",
-                                                "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
+                                                "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
                                                 "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "EvaMaria70",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "b96160c4-e1e8-4ad4-bbf6-a6cd35076877"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "fe79f40b-9d30-4e86-bda2-1fd8a81599bf"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "3e15e7ab-6a1b-4a71-adbc-6fafbf6d9114"
                                                 ],
                                                 [
                                                     "New Position Claims Folder",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "01e4c26e-e6a4-4688-bf6c-3c35fda086b8"
                                                 ],
                                                 [
-                                                    "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart Translations Team",
-                                                    "Position Contribution Claim"
+                                                    "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
+                                                    "Position Contribution Claim",
+                                                    "Governance",
+                                                    "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
                                                 ]
                                             ]
                                         }
@@ -929,12 +941,12 @@
                                 "id": "8db18298-8dda-445c-95ad-a9e88a9ec6d1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 26920.58823529412,
-                                        "y": 33759.80762113533
+                                        "x": 30988.352941176472,
+                                        "y": 19495.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 26920.58823529412,
-                                        "y": 34059.80762113533
+                                        "x": 30988.352941176472,
+                                        "y": 19795.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -963,18 +975,18 @@
                                 "positionWeightVotes": [
                                     {
                                         "type": "Position Weight Vote",
-                                        "name": "Non-Tech-Users Community Team Team Leader",
+                                        "name": "Non-Tech-Users Community Team Team Leader @gustavohcorradi ",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "5b8b92d0-1df5-45f1-9ae7-75c87a8302db",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 27520.58823529412,
-                                                "y": 34059.80762113533
+                                                "x": 31588.352941176472,
+                                                "y": 19795.807621135333
                                             },
                                             "targetPosition": {
-                                                "x": 27220.58823529412,
-                                                "y": 34059.80762113533
+                                                "x": 31288.352941176472,
+                                                "y": 19795.807621135333
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -989,33 +1001,45 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position",
-                                                "name": "Team Leader",
+                                                "name": "Team Leader @gustavohcorradi ",
                                                 "id": "89eee7fc-9472-48ce-b59d-6830208c7a7b"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
                                                 ],
                                                 [
                                                     "Roles Played @ Beta-12",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                                                 ],
                                                 [
                                                     "Other Teams",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
                                                 ],
                                                 [
                                                     "Community Teams",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "2c0e0545-3886-4209-ab2e-7123b89b2f03"
                                                 ],
                                                 [
                                                     "Non-Tech-Users Community Team",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "9a30cf3a-1f96-4f43-836b-522e856f28ef"
                                                 ],
                                                 [
-                                                    "Team Leader",
-                                                    "Position"
+                                                    "Team Leader @gustavohcorradi ",
+                                                    "Position",
+                                                    "Governance",
+                                                    "89eee7fc-9472-48ce-b59d-6830208c7a7b"
                                                 ]
                                             ]
                                         }
@@ -1024,12 +1048,12 @@
                                 "id": "37a9c875-a9bc-4ab1-a00e-f248f818f311",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 27220.58823529412,
-                                        "y": 34059.80762113533
+                                        "x": 31288.352941176472,
+                                        "y": 19795.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 26920.58823529412,
-                                        "y": 34059.80762113533
+                                        "x": 30988.352941176472,
+                                        "y": 19795.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1056,12 +1080,12 @@
                                 "id": "e8e3f63a-b9fb-47d7-8fc9-c0634a0f2425",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 26920.58823529412,
-                                        "y": 34359.80762113533
+                                        "x": 30988.352941176472,
+                                        "y": 20095.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 26920.58823529412,
-                                        "y": 34059.80762113533
+                                        "x": 30988.352941176472,
+                                        "y": 19795.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1080,12 +1104,12 @@
                         "id": "352b5f30-d971-478b-9085-4c9ff9ddb388",
                         "savedPayload": {
                             "position": {
-                                "x": 26920.58823529412,
-                                "y": 34059.80762113533
+                                "x": 30988.352941176472,
+                                "y": 19795.807621135333
                             },
                             "targetPosition": {
-                                "x": 26620.58823529412,
-                                "y": 34059.80762113533
+                                "x": 30688.352941176472,
+                                "y": 19795.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1108,12 +1132,12 @@
                     "id": "1e334525-2ffb-4808-bc7c-9e621cee282f",
                     "savedPayload": {
                         "position": {
-                            "x": 26545.58823529412,
-                            "y": 34189.711431703
+                            "x": 30613.352941176472,
+                            "y": 19925.711431703
                         },
                         "targetPosition": {
-                            "x": 26620.58823529412,
-                            "y": 34059.80762113533
+                            "x": 30688.352941176472,
+                            "y": 19795.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1131,12 +1155,12 @@
                 "id": "c063e64b-1c1e-48f6-bcfd-4fa747f779ae",
                 "savedPayload": {
                     "position": {
-                        "x": 26620.58823529412,
-                        "y": 34059.80762113533
+                        "x": 30688.352941176472,
+                        "y": 19795.807621135333
                     },
                     "targetPosition": {
-                        "x": 26470.58823529412,
-                        "y": 33800
+                        "x": 30538.352941176472,
+                        "y": 19536
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1174,12 +1198,12 @@
                                 "id": "6dda0146-c5eb-4a8e-942c-630756f4add3",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 26470.58823529412,
-                                        "y": 34400
+                                        "x": 30538.352941176472,
+                                        "y": 20136
                                     },
                                     "targetPosition": {
-                                        "x": 26210.780614158786,
-                                        "y": 34250
+                                        "x": 30278.54532004114,
+                                        "y": 19986
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1233,18 +1257,18 @@
                             },
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Team Leader Non-Tech-Users Community Team",
+                                "name": "Team Leader @gustavohcorradi  Non-Tech-Users Community Team",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "1f64f90f-61a4-4592-bc05-3f5de5313683",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25950.972993023453,
-                                        "y": 34400
+                                        "x": 30018.737698905807,
+                                        "y": 20136
                                     },
                                     "targetPosition": {
-                                        "x": 26210.780614158786,
-                                        "y": 34250
+                                        "x": 30278.54532004114,
+                                        "y": 19986
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1259,7 +1283,7 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Team Leader",
+                                        "name": "Team Leader @gustavohcorradi ",
                                         "id": "89eee7fc-9472-48ce-b59d-6830208c7a7b"
                                     },
                                     "referenceParentCombinedNodePath": [
@@ -1294,7 +1318,7 @@
                                             "9a30cf3a-1f96-4f43-836b-522e856f28ef"
                                         ],
                                         [
-                                            "Team Leader",
+                                            "Team Leader @gustavohcorradi ",
                                             "Position",
                                             "Governance",
                                             "89eee7fc-9472-48ce-b59d-6830208c7a7b"
@@ -1306,12 +1330,12 @@
                         "id": "061bd94b-488e-4b40-8f89-fc5176407ec8",
                         "savedPayload": {
                             "position": {
-                                "x": 26210.780614158786,
-                                "y": 34250
+                                "x": 30278.54532004114,
+                                "y": 19986
                             },
                             "targetPosition": {
-                                "x": 26210.780614158786,
-                                "y": 33950
+                                "x": 30278.54532004114,
+                                "y": 19686
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1334,12 +1358,12 @@
                     "id": "46a6d1f4-c357-4848-a71b-c20e66e4d2d8",
                     "savedPayload": {
                         "position": {
-                            "x": 26080.87680359112,
-                            "y": 33875
+                            "x": 30148.641509473473,
+                            "y": 19611
                         },
                         "targetPosition": {
-                            "x": 26210.780614158786,
-                            "y": 33950
+                            "x": 30278.54532004114,
+                            "y": 19686
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1357,12 +1381,12 @@
                 "id": "87c55f3a-5d89-469c-90c0-798d369605d5",
                 "savedPayload": {
                     "position": {
-                        "x": 26210.780614158786,
-                        "y": 33950
+                        "x": 30278.54532004114,
+                        "y": 19686
                     },
                     "targetPosition": {
-                        "x": 26470.58823529412,
-                        "y": 33800
+                        "x": 30538.352941176472,
+                        "y": 19536
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1380,12 +1404,12 @@
             "id": "b7006f04-6506-4871-a5e1-e28c2c86d7b4",
             "savedPayload": {
                 "position": {
-                    "x": 26470.58823529412,
-                    "y": 33800
+                    "x": 30538.352941176472,
+                    "y": 19536
                 },
                 "targetPosition": {
-                    "x": 26470.58823529412,
-                    "y": 33500
+                    "x": 30538.352941176472,
+                    "y": 19236
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1417,12 +1441,12 @@
                     "id": "3fa791bd-0c1b-4b7b-816f-eb1b995cb953",
                     "savedPayload": {
                         "position": {
-                            "x": 25626.213466604288,
-                            "y": 33987.5
+                            "x": 29693.97817248664,
+                            "y": 19723.5
                         },
                         "targetPosition": {
-                            "x": 25821.069182455787,
-                            "y": 33875
+                            "x": 29888.83388833814,
+                            "y": 19611
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1440,12 +1464,12 @@
                 "id": "72c2c3b4-c615-4142-b4d1-e8cd7be78331",
                 "savedPayload": {
                     "position": {
-                        "x": 25821.069182455787,
-                        "y": 33875
+                        "x": 29888.83388833814,
+                        "y": 19611
                     },
                     "targetPosition": {
-                        "x": 26210.780614158786,
-                        "y": 33650
+                        "x": 30278.54532004114,
+                        "y": 19386
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1463,12 +1487,12 @@
             "id": "5dca1e4e-5fa1-4b07-b6a3-b12782221e0b",
             "savedPayload": {
                 "position": {
-                    "x": 26210.780614158786,
-                    "y": 33650
+                    "x": 30278.54532004114,
+                    "y": 19386
                 },
                 "targetPosition": {
-                    "x": 26470.58823529412,
-                    "y": 33500
+                    "x": 30538.352941176472,
+                    "y": 19236
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1491,8 +1515,8 @@
             "liquidityProgram": [
                 {
                     "type": "Liquidity Program",
-                    "name": "New Liquidity Program",
-                    "config": "{\n\"asset\": \"BTCB\"\n}",
+                    "name": "SA/BUSD",
+                    "config": "{\n    \"asset\": \"BUSD\"\n}",
                     "project": "Governance",
                     "tokensAwarded": {
                         "type": "Tokens Awarded",
@@ -1501,12 +1525,12 @@
                         "id": "a851317c-1283-40e1-9434-a78c5c88caaa",
                         "savedPayload": {
                             "position": {
-                                "x": 25691.16537188812,
-                                "y": 33050
+                                "x": 29758.930077770474,
+                                "y": 18786
                             },
                             "targetPosition": {
-                                "x": 25950.972993023453,
-                                "y": 33200
+                                "x": 30018.737698905807,
+                                "y": 18936
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1524,12 +1548,12 @@
                     "id": "663a7d1a-bb5d-42b4-93c7-a2387f5daae5",
                     "savedPayload": {
                         "position": {
-                            "x": 25950.972993023453,
-                            "y": 33200
+                            "x": 30018.737698905807,
+                            "y": 18936
                         },
                         "targetPosition": {
-                            "x": 26210.780614158786,
-                            "y": 33350
+                            "x": 30278.54532004114,
+                            "y": 19086
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1548,12 +1572,12 @@
             "id": "46d76b2d-c54a-4f77-b206-03ac9afa095e",
             "savedPayload": {
                 "position": {
-                    "x": 26210.780614158786,
-                    "y": 33350
+                    "x": 30278.54532004114,
+                    "y": 19086
                 },
                 "targetPosition": {
-                    "x": 26470.58823529412,
-                    "y": 33500
+                    "x": 30538.352941176472,
+                    "y": 19236
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1571,12 +1595,12 @@
         "id": "b70247f5-4442-4433-b35f-aa64a2f7c174",
         "savedPayload": {
             "position": {
-                "x": 26470.58823529412,
-                "y": 33500
+                "x": 30538.352941176472,
+                "y": 19236
             },
             "targetPosition": {
-                "x": 26470.58823529412,
-                "y": 33200
+                "x": 30538.352941176472,
+                "y": 18936
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1598,12 +1622,12 @@
         "id": "899f92f8-5e00-42a0-8316-10c95dd2a6b1",
         "savedPayload": {
             "position": {
-                "x": 26170.58823529412,
-                "y": 33200
+                "x": 30238.352941176472,
+                "y": 18936
             },
             "targetPosition": {
-                "x": 26470.58823529412,
-                "y": 33200
+                "x": 30538.352941176472,
+                "y": 18936
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1621,12 +1645,12 @@
     "id": "96ccf2bc-e544-4b27-aa23-a7a734798fb4",
     "savedPayload": {
         "position": {
-            "x": 26470.58823529412,
-            "y": 33200
+            "x": 30538.352941176472,
+            "y": 18936
         },
         "targetPosition": {
-            "x": 26470.58823529412,
-            "y": 33200
+            "x": 30538.352941176472,
+            "y": 18936
         },
         "floatingObject": {
             "isPinned": true,

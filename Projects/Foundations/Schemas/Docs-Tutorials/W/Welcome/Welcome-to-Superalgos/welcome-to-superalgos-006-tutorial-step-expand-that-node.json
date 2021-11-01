@@ -47,9 +47,14 @@
             },
             {
                 "language": "DE",
-                "text": "Jede Node verfügt über ein Menü. Mit der Schaltfläche unten links können Sie die Struktur der Knoten unterhalb des aktuellen Knotens auf- und zuklappen.",
-                "updated": 1635724240523,
+                "text": "Jeder Knoten verfügt über ein Menü. Mit der Schaltfläche unten links können Sie die Struktur der Knoten unterhalb des aktuellen Knotens auf- und zuklappen.",
+                "updated": 1634160270495,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "В каждом узле есть меню. Кнопка в левом нижнем углу раскрывает и сворачивает структуру узлов внизу текущего узла.",
+                "updated": 1635509730475
             }
         ]
     },
@@ -99,6 +104,11 @@
                     "text": "Klicken Sie einfach auf die Schaltfläche \"Erweitern\"!",
                     "updated": 1634160281971,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Идите вперед и нажмите кнопку развернуть.",
+                    "updated": 1635509803681
                 }
             ]
         },
@@ -147,6 +157,11 @@
                     "text": "Der Knoten Tutorial hat mehrere Unterknoten, und diese haben wiederum mehrere Unterknoten. Das ist der Grund, warum es eine Hierarchie ist!",
                     "updated": 1634160340549,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "У узла Tutorial есть несколько потомков и у этих потомков есть намного больше потомков. Вот почему это называется иерархией.",
+                    "updated": 1635510024525
                 }
             ]
         },
@@ -195,6 +210,11 @@
                     "text": "Strukturierte visuelle Darstellungen von Informationen sind das Herzstück von Superalgos, um die Komplexität hinter flexiblen und skalierbaren Handelsoperationen zu verwalten.",
                     "updated": 1634160347110,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Структурированные визуальные представления информации лежат в основе того, как Superalgos в целом выполняет торговые операции гибко и в полном масштабе.",
+                    "updated": 1635510247771
                 }
             ]
         }

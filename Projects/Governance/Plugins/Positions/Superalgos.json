@@ -409,7 +409,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": true,
+                                            "isCollapsed": false,
                                             "angleToParent": 3,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -1697,7 +1697,7 @@
                                 },
                                 {
                                     "type": "Position",
-                                    "name": "4 Team Members : EvaMaria70 gitforkgit e-Nut Lennart",
+                                    "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
                                     "config": "{}",
                                     "project": "Governance",
                                     "positions": [],
@@ -1766,8 +1766,8 @@
                                     "id": "c0d9b98f-069d-48fa-8738-f1c86f397934",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20699.873784372565,
-                                            "y": 45851.4189926078
+                                            "x": 20731.920332272734,
+                                            "y": 45874.06725347694
                                         },
                                         "targetPosition": {
                                             "x": 20888.669901687517,
@@ -1796,8 +1796,38 @@
                                     "id": "94de54da-01db-41a6-a3ab-e7498407790a",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20608.595773738358,
-                                            "y": 45725.785589034305
+                                            "x": 20645.964803375035,
+                                            "y": 45794.610779858456
+                                        },
+                                        "targetPosition": {
+                                            "x": 20888.669901687517,
+                                            "y": 45618.27520417071
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 3,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "1 Team Member PLuv",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "4e96d424-f80f-4693-bdfb-f39338ca9a1e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20596.958925568215,
+                                            "y": 45688.30881332749
                                         },
                                         "targetPosition": {
                                             "x": 20888.669901687517,
@@ -1855,7 +1885,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -2431,7 +2461,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -2772,7 +2802,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -3168,7 +3198,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -3241,7 +3271,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -47,8 +47,9 @@
             },
             {
                 "language": "DE",
-                "text": "Jeder Knoten verfügt über ein Menü. Mit der Schaltfläche unten links können Sie die Struktur der Knoten unterhalb des aktuellen Knotens auf- und zuklappen.",
-                "updated": 1634160270495
+                "text": "Jede Node verfügt über ein Menü. Mit der Schaltfläche unten links können Sie die Struktur der Knoten unterhalb des aktuellen Knotens auf- und zuklappen.",
+                "updated": 1635724240523,
+                "style": "Definition"
             }
         ]
     },
@@ -96,7 +97,8 @@
                 {
                     "language": "DE",
                     "text": "Klicken Sie einfach auf die Schaltfläche \"Erweitern\"!",
-                    "updated": 1634160281971
+                    "updated": 1634160281971,
+                    "style": "Callout"
                 }
             ]
         },
@@ -143,7 +145,8 @@
                 {
                     "language": "DE",
                     "text": "Der Knoten Tutorial hat mehrere Unterknoten, und diese haben wiederum mehrere Unterknoten. Das ist der Grund, warum es eine Hierarchie ist!",
-                    "updated": 1634160340549
+                    "updated": 1634160340549,
+                    "style": "Text"
                 }
             ]
         },
@@ -190,7 +193,8 @@
                 {
                     "language": "DE",
                     "text": "Strukturierte visuelle Darstellungen von Informationen sind das Herzstück von Superalgos, um die Komplexität hinter flexiblen und skalierbaren Handelsoperationen zu verwalten.",
-                    "updated": 1634160347110
+                    "updated": 1634160347110,
+                    "style": "Note"
                 }
             ]
         }

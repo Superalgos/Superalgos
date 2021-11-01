@@ -166,7 +166,7 @@
                         "id": "982253cd-6526-43ab-be70-b7bf7ee92f51",
                         "savedPayload": {
                             "position": {
-                                "x": 13535.29411764706,
+                                "x": 14135.29411764706,
                                 "y": 23300
                             },
                             "targetPosition": {
@@ -291,8 +291,8 @@
                         "id": "ada671e7-03f8-4565-ac5c-d22e07f02462",
                         "savedPayload": {
                             "position": {
-                                "x": 14707.29411764706,
-                                "y": 22881.192378864667
+                                "x": 15157.294117647061,
+                                "y": 23141
                             },
                             "targetPosition": {
                                 "x": 14857.29411764706,
@@ -332,8 +332,8 @@
                         "id": "e6a1ab19-0a27-4ffc-98b2-3ff170ffe18a",
                         "savedPayload": {
                             "position": {
-                                "x": 15007.29411764706,
-                                "y": 22881.192378864667
+                                "x": 14949.999215959544,
+                                "y": 23426.316954888545
                             },
                             "targetPosition": {
                                 "x": 14857.29411764706,
@@ -358,7 +358,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "EvaMaria70",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
                                 ]
                             ]
                         }
@@ -371,8 +373,8 @@
                         "id": "13015a17-d4db-40e8-a211-49641ea490f1",
                         "savedPayload": {
                             "position": {
-                                "x": 15157.29411764706,
-                                "y": 23141
+                                "x": 14614.589019334575,
+                                "y": 23317.335575687743
                             },
                             "targetPosition": {
                                 "x": 14857.29411764706,
@@ -397,7 +399,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "gustavohcorradi",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "96ccf2bc-e544-4b27-aa23-a7a734798fb4"
                                 ]
                             ]
                         }
@@ -561,7 +565,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "gustavohcorradi",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "96ccf2bc-e544-4b27-aa23-a7a734798fb4"
                                 ]
                             ]
                         }
@@ -600,7 +606,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "EvaMaria70",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
                                 ]
                             ]
                         }
@@ -639,7 +647,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "harrellbm",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "3af73d3b-7c0e-4de7-a1e1-a72238081740"
                                 ]
                             ]
                         }
@@ -1251,17 +1261,17 @@
     "id": "a600818b-6702-4be1-94ea-46478a914cb4",
     "savedPayload": {
         "position": {
-            "x": 13235.29411764706,
-            "y": 23600
+            "x": 30882.352941176472,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 13235.29411764706,
-            "y": 23600
+            "x": 30882.352941176472,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

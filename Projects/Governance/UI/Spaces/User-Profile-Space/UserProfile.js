@@ -15,7 +15,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     let waitingForResponses = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
+    const BSC_SCAN_RATE_LIMIT_DELAY = 10000 * 6
     let reputationByAddress = new Map()
 
     return thisObject

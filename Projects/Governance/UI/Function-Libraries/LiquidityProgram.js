@@ -122,7 +122,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Liquidity Tokens into Liquidity Power. 
-            As per system rules Liquidity Powar = userProfile.payload.liquidityTokens
+            As per system rules Liquidity Power = userProfile.payload.liquidityTokens
             */
             let programPower = userProfile.payload.liquidityTokens[asset]
             programNode.payload.liquidityProgram.ownPower = programPower
@@ -152,7 +152,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
         }
 
         function drawProgram(node) {
-            if (node.payload !== undefined) {
+            if (node.payload !== undefined && node.payload.liquidityProgram.ownPower !== undefined) {
 
                 const ownPowerText = parseFloat(node.payload.liquidityProgram.ownPower.toFixed(2)).toLocaleString('en')
                 const percentageText = parseFloat(node.payload.liquidityProgram.awarded.percentage.toFixed(2)).toLocaleString('en')

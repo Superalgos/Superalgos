@@ -14,7 +14,7 @@
         },
         {
             "style": "Text",
-            "text": "Maybe you realized that you are doing repetitive actions at the Design Space and you can benefit from automating them. If your actions are constrained to manipulating the nodes at the workspace, by either creating new nodes, deleting existing ones, changing nodes configs, establishing references or something similar, then you might be able to create an Action function that can automate all this. This will allow you to complete the action with the click of a button and stop doing those repetitive tasks youself. Not to mention help make Superalgos easier to use for everyone once you contribute your action!",
+            "text": "Maybe you realized that you are doing repetitive actions at the Design Space and you can benefit from automating them. If your actions are constrained to manipulating the nodes at the workspace, by either creating new nodes, deleting existing ones, changing nodes configs, establishing references or something similar, then you might be able to create an Action function that can automate all this. This will allow you to complete the action with the click of a button and stop doing those repetitive tasks yourself. Not to mention help make Superalgos easier to use for everyone once you contribute your action!",
             "updated": 1628255167092
         },
         {

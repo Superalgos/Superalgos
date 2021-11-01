@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "Un data product representa la recopilación de conjuntos de datos generados por la instancia de un bot según se define en la mina de datos o mina de trading correspondiente.",
-                "updated": 1624284305118
+                "updated": 1624284305118,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Продукт данных представляет собой совокупность наборов данных, сгенерированных экземпляром бота, как определено в соответствующей шахте данных или торговой шахте.",
+                "updated": 1635595053948
             }
         ]
     },

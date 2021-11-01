@@ -295,7 +295,7 @@ exports.newGithubServer = function newGithubServer() {
                             let fileContent     // File content of the only file at the PR
                             let userProfile     // User Profile Object
                             let githubUsername  // The Github user name of who is submitting the Pull Request
-                            let mergeResponse   // The response received from the call to Gihub to merge the Pull Request
+                            let mergeResponse   // The response received from the call to Github to merge the Pull Request
 
                             if (await validatePrHasMoreThanOneFile() === false) { continue }
                             if (await validateFileNameEqualsGithubUsername() === false) { continue }
@@ -310,7 +310,7 @@ exports.newGithubServer = function newGithubServer() {
                             if (await mergePullRequest() === false) {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
                             } else {
-                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> Merge Succed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
+                                console.log('[INFO] Github Server -> mergeGithubPullRequests -> Merge Succeed -> Pull Request "' + pullRequest.title + '" successfully merged. -> mergeResponse.message = ' + mergeResponse.data.message)
                                 await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 await octokit.rest.issues.createComment({
                                     owner: owner,
@@ -743,7 +743,7 @@ exports.newGithubServer = function newGithubServer() {
                                     owner: owner,
                                     repo: repo,
                                     issue_number: pullRequest.number,
-                                    body: 'Hi, this is the Superalgos Governance System taking notice that you have submitted a pull request directly to the master branch.\n\nThanks for submitting a PR to the Superalgos Project. We value every contribution and everyone is welcome to send PRs. Unfortunatelly we are not merging pull requests directly into the master branch. Consider resubmitting to the develop branch intstead. For your convinienve, you can swithch branches from within the app, at the footer of the Docs tab. \n\n I will close this pull request now and look forward for your next contribution either to the develop branch or any other branch available for this purpose.'
+                                    body: 'Hi, this is the Superalgos Governance System taking notice that you have submitted a pull request directly to the master branch.\n\nThanks for submitting a PR to the Superalgos Project. We value every contribution and everyone is welcome to send PRs. Unfortunately we are not merging pull requests directly into the master branch. Consider resubmitting to the develop branch instead. For your convenience, you can switch branches from within the app, at the footer of the Docs tab. \n\n I will close this pull request now and look forward for your next contribution either to the develop branch or any other branch available for this purpose.'
                                 });
 
                                 await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)

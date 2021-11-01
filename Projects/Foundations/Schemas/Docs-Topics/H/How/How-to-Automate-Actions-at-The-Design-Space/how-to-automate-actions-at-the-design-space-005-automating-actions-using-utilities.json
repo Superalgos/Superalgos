@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is a very good idea to invest some time at the Utilities folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on utilities functions defined at one of the files within the Utilities folder.",
+            "text": "It is a very good idea to invest some time at the Utilities folder, scanning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on utilities functions defined at one of the files within the Utilities folder.",
             "updated": 1628257595439
         },
         {
@@ -49,7 +49,7 @@
         },
         {
             "style": "Text",
-            "text": "This is the way you programatically manipulate the config of a Node:"
+            "text": "This is the way you programmatically manipulate the config of a Node:"
         },
         {
             "style": "Javascript",

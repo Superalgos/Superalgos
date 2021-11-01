@@ -21,7 +21,7 @@
                 return;
             }
             /* 
-            We will store here the session key, which we will need everytine
+            We will store here the session key, which we will need everytime
             we need to emit an event related to the session itself.
             */
             let VARIABLES_BY_PROCESS_INDEX = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex)
@@ -84,13 +84,13 @@
             function onSessionStatus() {
                 if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS === 'Running') {
                     let event = {
-                        status: 'Learning Session Runnning'
+                        status: 'Learning Session Running'
                     }
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Status Response', event)
                 } else {
                     let event = {
-                        status: 'Learning Session Not Runnning'
+                        status: 'Learning Session Not Running'
                     }
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Status Response', event)
@@ -109,7 +109,7 @@
                         return
                     }
 
-                    /* We are going to initialize here these constants whose values are comming at the event. */
+                    /* We are going to initialize here these constants whose values are coming at the event. */
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE = JSON.parse(message.event.learningSystem)
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE = JSON.parse(message.event.learningEngine)
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE = JSON.parse(message.event.session)

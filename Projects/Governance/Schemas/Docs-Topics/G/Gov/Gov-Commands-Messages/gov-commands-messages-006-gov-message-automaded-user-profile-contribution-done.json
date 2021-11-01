@@ -1,9 +1,9 @@
 {
-    "topic": "App Commands Messages",
-    "pageNumber": "1",
-    "type": "App Message - Contribution Done",
+    "topic": "Gov Commands Messages",
+    "pageNumber": "6",
+    "type": "Gov Message - Automated User Profile Contribute Done",
     "definition": {
-        "text": "Your contributions were uploaded to your Superalgos Fork and a Pull Request was submitted to the main Superalgos repository.",
+        "text": "Your user profile was uploaded to your Superalgos Fork and a Pull Request was submitted to the main Superalgos repository.",
         "updated": 1611002547907,
         "translations": [
             {

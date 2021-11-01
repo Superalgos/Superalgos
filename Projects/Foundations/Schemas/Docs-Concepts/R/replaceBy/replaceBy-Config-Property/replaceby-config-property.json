@@ -137,7 +137,7 @@
         },
         {
             "style": "List",
-            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the begining of the current minute."
+            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the beginning of the current minute."
         },
         {
             "style": "Javascript",

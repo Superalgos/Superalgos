@@ -226,7 +226,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             let situationName = await checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
             if (situationName !== undefined) {
 
-                /* Simulate Order Cancelation, if needed. */
+                /* Simulate Order Cancellation, if needed. */
                 simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
 
                 /* Cancel the order at the Exchange, if needed. */
@@ -731,8 +731,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
             /* 
-            We must be carefull here not to overide an already defined exitType. It can happen
-            for instance that the order was cancellerd from the but veryfing the cancellation
+            We must be carefully here not to override an already defined exitType. It can happen
+            for instance that the order was cancelled from the but verifying the cancellation
             was not possible because of a connection to the exchange problem. In that case
             the exit type was defined but the order was kept open until the verification could be done.
             */
@@ -764,7 +764,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         }
 
         /*
-        If the order happens to be at least partially filled, there is a syncronization work 
+        If the order happens to be at least partially filled, there is a synchronization work
         we need to do, that includes discovering which is the Actual Rate the order is being filled,
         the Fees Paid and many other thing we need to account for.
         */
@@ -1118,7 +1118,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             if (order.status === 'NotFound') {
                 /*
                 Some exchanges, like Coinbase Pro, deletes orders after being cancelled, and when we request information
-                about them, it returns null. We will interprate this as ORDER NOT FOUND.
+                about them, it returns null. We will interpret this as ORDER NOT FOUND.
                 */
                 const message = 'Order Not Found at the Exchange'
                 let docs = {
@@ -1136,8 +1136,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     ]
                 )
                 /*
-                We must be carefull here not to overide an already defined exitType. It can happen
-                for instance that the order was cancellerd from the but veryfing the cancellation
+                We must be carefully here not to overide an already defined exitType. It can happen
+                for instance that the order was cancelled from the but verifying the cancellation
                 was not possible because of a connection to the exchange problem. In that case
                 the exit type was defined but the order was kept open until the verification could be done.
                 */
@@ -1148,7 +1148,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
             /* 
             Close this Order. Note that we are not closing the order until we have the exchange 
-            response with the order details that we can use to syncronize with our accoounting.
+            response with the order details that we can use to synchronize with our accounting.
             Otherwise if the connection to the exchange fails, we would have a closed order not 
             accounted in any way. 
             */
@@ -1182,8 +1182,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     async function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
         /* 
         Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage 
-        Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
-        only the part filled can be considered placed, so we need to substract from the stage size 
+        Size Placed accumulates for each asset, the order size placed at the exchange. A cancellation means that
+        only the part filled can be considered placed, so we need to subtract from the stage size
         the remainder. To achieve this with the information we currently have, we are going first 
         to unaccount the order actual size, and the account only the sizeFilled + the feesPaid.
         */

@@ -110,7 +110,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type === 'Feature Contribution Claim'
                 ) { return }
                 /*
-                For Votes to Profiles there is a special treamtment that needs to be done
+                For Votes to Profiles there is a special treatment that needs to be done
                 so that votes can flow from Profiles to the Program without being affected
                 by Percentages.
                 */
@@ -132,7 +132,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 }
                 /*
                 If there is a reference parent defined, this means that the voting power is 
-                transfered to it and not distributed among children.
+                transferred to it and not distributed among children.
                 */
                 if (
                     node.payload.referenceParent !== undefined &&
@@ -232,7 +232,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type === 'Feature Contribution Claim'
                 ) { return }
                 /*
-                For Votes to Profiles there is a special treamtment that needs to be done
+                For Votes to Profiles there is a special treatment that needs to be done
                 so that votes can flow from Profiles to the Program without being affected
                 by Percentages.
                 */
@@ -268,7 +268,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 }
                 /*
                 If there is a reference parent defined, this means that the voting power is 
-                transfered to it and not distributed among children.
+                transferred to it and not distributed among children.
                 */
                 if (
                     node.payload.referenceParent !== undefined &&

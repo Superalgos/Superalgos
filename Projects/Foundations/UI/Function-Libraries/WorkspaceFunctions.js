@@ -38,7 +38,7 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
                 for (let [key, value] of nodes) {
                     // Check nodes that have a saved reference parent
                     if (value.savedPayload.referenceParent !== undefined) {
-                        // Highlight nodes that do not have an active reference connected to their referance parent
+                        // Highlight nodes that do not have an active reference connected to their reference parent
                         if (value.payload.referenceParent === undefined) {
                             console.log("[WARN] Reference Parent not found in the current workspace.\n Node:", value.name, " Type:", value.type, " ID:", key, " Node Object:", value)
                             UI.projects.foundations.spaces.floatingSpace.inMapMode = true

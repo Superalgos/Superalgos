@@ -45,7 +45,7 @@ function newGovernanceFunctionLibraryTokens() {
         node.payload.tokens = 0
         /*
         If there is a reference parent defined, this means that the token flow is 
-        transfered to it and not distributed among children.
+        transferred to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
             resetTokenFlow(node.payload.referenceParent)
@@ -101,7 +101,7 @@ function newGovernanceFunctionLibraryTokens() {
         let schemaDocument = getSchemaDocument(node)
         if (schemaDocument === undefined) { return }
         /*
-        At hierarchy heads we will shouw how many tokens are comming in.
+        At hierarchy heads we will show how many tokens are coming in.
         */
         if (
             schemaDocument.isHierarchyHead === true
@@ -121,7 +121,7 @@ function newGovernanceFunctionLibraryTokens() {
         }
         /*
         If there is a reference parent defined, this means that the token flow is 
-        transfered to it and not distributed among children.
+        transferred to it and not distributed among children.
         */
         if (node.payload.referenceParent !== undefined) {
             distributeTokens(node.payload.referenceParent, node.payload.tokens)

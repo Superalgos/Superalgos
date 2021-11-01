@@ -1,7 +1,7 @@
 {
     "type": "Project Schema File",
     "definition": {
-        "text": "It is the most basic and low level system-wide configuration file. You will find it at the Projects folder. It contains a list of all integrated projects and for each one the list of javascript modules organized in different categories, like Function Libraries, Utilities, Spaces, Globals, etc; in turn organized into the broather categories UI, TS and PL.",
+        "text": "It is the most basic and low level system-wide configuration file. You will find it at the Projects folder. It contains a list of all integrated projects and for each one the list of javascript modules organized in different categories, like Function Libraries, Utilities, Spaces, Globals, etc; in turn organized into the broader categories UI, TS and PL.",
         "updated": 1614939492529
     },
     "paragraphs": [

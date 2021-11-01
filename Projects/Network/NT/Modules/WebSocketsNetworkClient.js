@@ -76,7 +76,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             User Profile Handle.
          
                             This Handle will be signed by the Network Node to prove
-                            it's ouwn identity, and later we will sign it's own handle
+                            it's own identity, and later we will sign it's own handle
                             to prove ours.
                             */
                             socketClient.onmessage = socketMessage => { stepOneResponse(socketMessage) }
@@ -145,7 +145,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             }
                             /*
                             We will check that the profile handle we sent to the Network Node, is returned at the
-                            signed message, to avoid man in the middle attackts.
+                            signed message, to avoid man in the middle attacks.
                             */
                             if (signedMessage.callerProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
@@ -154,7 +154,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             }
                             /*
                             We will also check that the callerTimestamp we sent to the Network Node, is returned at the
-                            signed message, also to avoid man in the middle attackts.
+                            signed message, also to avoid man in the middle attacks.
                             */
                             if (signedMessage.callerTimestamp !== callerTimestamp) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
@@ -196,7 +196,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 return
                             }
                             /*
-                            This was the end of the Handshake producere. We are connected to the 
+                            This was the end of the Handshake procedure. We are connected to the
                             Network Node and from now on, all response messages will be received
                             at this following function.
                             */
@@ -260,7 +260,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         let response = JSON.parse(socketMessage.data)
         /*
-        We get the functioin that is going to resolve or reject the promise given.
+        We get the function that is going to resolve or reject the promise given.
         */
         onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
         onMessageFunctionsMap.delete(response.messageId)

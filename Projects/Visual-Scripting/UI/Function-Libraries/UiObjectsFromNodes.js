@@ -66,7 +66,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     for (let j = 0; j < plugins.pluginProjects.length; j++) {
                         let project = plugins.pluginProjects[j]
                         /*
-                        Miscelaneours Plugin Types
+                        Miscellaneous Plugin Types
                         */
                         if (project.pluginDataMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginDataMines.pluginFiles.length
@@ -180,8 +180,8 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             }
 
                             /* 
-                            If the workspace already contains a root node with the id of the head of the hirierchy
-                            we are loading, we remove it because the plugin file has precedende.
+                            If the workspace already contains a root node with the id of the head of the hierarchy
+                            we are loading, we remove it because the plugin file has precedence.
                             */
                             for (let i = 0; i < node.rootNodes.length; i++) {
                                 let rootNode = node.rootNodes[i]
@@ -226,7 +226,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         }
 
         function addUserDefinedNodes() {
-            /* Create the workspace UI OBject and then continue with the root nodes. */
+            /* Create the workspace UI OObject and then continue with the root nodes. */
             createUiObject(false, 'Workspace', node.name, node, undefined, undefined, 'Workspace')
             if (node.rootNodes !== undefined) {
                 UI.projects.foundations.utilities.statusBar.changeStatus("Setting up Rootnodes...")
@@ -403,7 +403,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     }
 
     function migrateCodeToConfig(node, schemaDocument) {
-        /* Code needed to Migrante from Beta 5 to Beta a Workspace */
+        /* Code needed to Migrate from Beta 5 to Beta a Workspace */
         if (schemaDocument.editors !== undefined) {
             if (schemaDocument.editors.config === true) {
                 if (node.code !== undefined) {
@@ -556,7 +556,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
             /* Create Children */
             if (schemaDocument.childrenNodesProperties !== undefined) {
-                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
                     if (node[property.name] !== undefined) {
@@ -692,7 +692,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         function connectToParent() {
             /* Connect to Parent */
             if (parentSchemaDocument.childrenNodesProperties !== undefined) {
-                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
                 for (let i = 0; i < parentSchemaDocument.childrenNodesProperties.length; i++) {
                     let property = parentSchemaDocument.childrenNodesProperties[i]
                     if (property.childType === type) {
@@ -728,7 +728,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         function autoAddChildren() {
             /* Auto Add more Children */
             if (schemaDocument.childrenNodesProperties !== undefined) {
-                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                     let property = schemaDocument.childrenNodesProperties[i]
 
@@ -764,7 +764,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
         /* Connect to Parent */
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
                 if (property.type === 'node') {
@@ -820,7 +820,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                 return
             }
 
-            /* If there is not a position offset, which happens when we are dropping a node into the designer, we create a cero vector then. */
+            /* If there is not a position offset, which happens when we are dropping a node into the designer, we create a zero vector then. */
             if (positionOffset === undefined) {
                 positionOffset = {
                     x: 0,
@@ -853,7 +853,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
         /* If we are adding a new object, then we set the initial values for position and targetPosition */
         if (userAddingNew === true || uiObjectType === 'Workspace') {
-            /* Workspace allways to the spawn position */
+            /* Workspace always to the spawn position */
             if (uiObjectType === 'Workspace') {
                 payload.position = {
                     x: spawnPosition.x,
@@ -925,7 +925,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         /* This is the point where we build a map with all nodes present at the workspace */
         mapOfNodes.set(node.id, node)
 
-        /* We will collect all tasks at the workspace in order to later syncronize them with the client */
+        /* We will collect all tasks at the workspace in order to later synchronize them with the client */
         if (userAddingNew === false && uiObjectType === 'Task' && node.savedPayload !== undefined) {
             if (tasksFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a task that was backed up
                 tasksFoundAtWorkspace.push(node)

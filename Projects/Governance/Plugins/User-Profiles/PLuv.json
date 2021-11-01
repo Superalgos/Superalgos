@@ -923,12 +923,12 @@
                                                         "id": "e9fcb362-9a65-4102-8a8a-9ed95ba92cbc",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 4428.712453755473,
-                                                                "y": 32206.4072531341
+                                                                "x": 19306.506399881364,
+                                                                "y": 39017.588696057814
                                                             },
                                                             "targetPosition": {
-                                                                "x": 4634.260181725058,
-                                                                "y": 32114.891508442044
+                                                                "x": 19512.054127850948,
+                                                                "y": 38926.07295136576
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -989,17 +989,17 @@
                                                     {
                                                         "type": "Position Claim Vote",
                                                         "name": "piyanthak Team Leader PiyanthaK piyanthak Workspaces Team",
-                                                        "config": "{\n    \"percentage\": 30\n}",
+                                                        "config": "{\n    \"percentage\": 50\n}",
                                                         "project": "Governance",
                                                         "id": "5e2ec648-1372-4129-8832-ac667f3dcabe",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 4452.231357990695,
-                                                                "y": 31982.639826676237
+                                                                "x": 19330.025304116585,
+                                                                "y": 38793.821269599954
                                                             },
                                                             "targetPosition": {
-                                                                "x": 4634.260181725058,
-                                                                "y": 32114.891508442044
+                                                                "x": 19512.054127850948,
+                                                                "y": 38926.07295136576
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1063,15 +1063,15 @@
                                                 "id": "fa4dba65-32b3-4df3-929c-dd2b1ec67e38",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 4634.260181725058,
-                                                        "y": 32114.891508442044
+                                                        "x": 19512.054127850948,
+                                                        "y": 38926.07295136576
                                                     },
                                                     "targetPosition": {
                                                         "x": 5081.795034640781,
                                                         "y": 32161.929316912487
                                                     },
                                                     "floatingObject": {
-                                                        "isPinned": false,
+                                                        "isPinned": true,
                                                         "isFrozen": false,
                                                         "isCollapsed": false,
                                                         "angleToParent": 2,

@@ -58,7 +58,7 @@
                     /* We look first for Exchange Raw Data in order to get when the market starts. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Starting Point')
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
@@ -67,7 +67,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -99,7 +99,7 @@
                     /* Second, we get the report from Exchange Raw Data, to know when the marted ends. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Market Ending Point')
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
@@ -108,7 +108,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -132,7 +132,7 @@
                     /* Finally we get our own Status Report. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get('Self Reference')
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
@@ -141,7 +141,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.");
+                            "[ERROR] start -> getContextVariables -> Can not continue because self dependency Status Report is corrupt. Aborting Process.");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                         return;
                     }
@@ -152,7 +152,7 @@
 
                         beginingOfMarket = new Date(thisReport.beginingOfMarket);
 
-                        if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Begining of the Market
+                        if (beginingOfMarket.valueOf() !== contextVariables.datetimeBeginingOfMarketFile.valueOf()) { // Reset Mechanism for Beginning of the Market
 
                             beginingOfMarket = new Date(
                                 contextVariables.datetimeBeginingOfMarketFile.getUTCFullYear() + "-" +
@@ -192,7 +192,7 @@
                     } else {
 
                         /*
-                        In the case when there is no status report, we take the date of the file with the first trades as the begining of the market. Then we will
+                        In the case when there is no status report, we take the date of the file with the first trades as the beginning of the market. Then we will
                         go one day further in time, so that the previous day does fine a file at the begining of the market.
                         */
                         contextVariables.lastBandFile = new Date(
@@ -237,7 +237,7 @@
 
                 try {
                     let n;
-                    processDate = new Date(contextVariables.lastBandFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the begining of the loop.
+                    processDate = new Date(contextVariables.lastBandFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS); // Go back one day to start well when we advance time at the beginning of the loop.
                     let fromDate = new Date(processDate.valueOf())
                     let lastDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(new Date())
 
@@ -293,7 +293,7 @@
 
                         try {
                             /*
-                            We will iterate through all posible timeFrames
+                            We will iterate through all possible timeFrames
                             */
                             n = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
                             loopBody();
@@ -520,7 +520,7 @@
                                         let numberOfPreviousPeriods;
                                         let currentPosition = pBArray.length;
 
-                                        if (currentPosition < numberOfPeriodsPB) { // Avoinding to get into negative array indexes
+                                        if (currentPosition < numberOfPeriodsPB) { // Avoiding to get into negative array indexes
                                             numberOfPreviousPeriods = currentPosition;
                                         } else {
                                             numberOfPreviousPeriods = numberOfPeriodsPB;

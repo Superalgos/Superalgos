@@ -7,7 +7,8 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
 
     function calculate(
         pools,
-        userProfiles
+        userProfiles,
+        asset
     ) {
         let programPoolTokenReward
         /*
@@ -20,7 +21,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
         /* Scan Pools Until finding the Pool for this program*/
         for (let i = 0; i < pools.length; i++) {
             let poolsNode = pools[i]
-            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Liquidity-Rewards")
+            programPoolTokenReward = UI.projects.governance.utilities.pools.findPool(poolsNode, "Liquidity-Rewards-" + asset)
             if (programPoolTokenReward !== undefined) { break }
         }
         if (programPoolTokenReward === undefined || programPoolTokenReward === 0) { return }
@@ -29,7 +30,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Liquidity Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
@@ -39,7 +40,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Liquidity Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
 
@@ -49,7 +50,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Liquidity Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
             if (program.payload.liquidityProgram.isActive === false) { continue }
@@ -60,7 +61,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             let userProfile = userProfiles[i]
 
             if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, "Liquidity Program")
+            let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, "Liquidity Program", 'asset', asset)
             if (program === undefined) { continue }
             if (program.payload === undefined) { continue }
             if (program.payload.liquidityProgram.isActive === false) { continue }
@@ -107,7 +108,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             ) {
                 node.payload.liquidityProgram.isActive = false
                 userProfile.payload.uiObject.setErrorMessage(
-                    "Waiting for liquidity balance. It takes 6 seconds to load the liquidity provided by each profile, bacause you are using a free API provided by BSC Scan.",
+                    "Waiting for liquidity balance. It takes 1 minute to load the liquidity provided by each profile, bacause you are using a free API provided by BSC Scan.",
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                 )
                 return
@@ -121,9 +122,9 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Liquidity Tokens into Liquidity Power. 
-            As per system rules Liquidity Powar = userProfile.payload.liquidityTokens
+            As per system rules Liquidity Power = userProfile.payload.liquidityTokens
             */
-            let programPower = userProfile.payload.liquidityTokens
+            let programPower = userProfile.payload.liquidityTokens[asset]
             programNode.payload.liquidityProgram.ownPower = programPower
 
             accumulatedProgramPower = accumulatedProgramPower + programPower
@@ -151,7 +152,7 @@ function newGovernanceFunctionLibraryLiquidityProgram() {
         }
 
         function drawProgram(node) {
-            if (node.payload !== undefined) {
+            if (node.payload !== undefined && node.payload.liquidityProgram.ownPower !== undefined) {
 
                 const ownPowerText = parseFloat(node.payload.liquidityProgram.ownPower.toFixed(2)).toLocaleString('en')
                 const percentageText = parseFloat(node.payload.liquidityProgram.awarded.percentage.toFixed(2)).toLocaleString('en')

@@ -7,7 +7,13 @@
             {
                 "language": "ES",
                 "text": "El Design Space es el entorno visual que alberga todas las definiciones de usuario y del sistema. En términos prácticos, es el espacio negro debajo del control deslizante que divide la pantalla horizontalmente, separando el Design Space en la parte inferior del\n Charting Space en la parte superior. Como jerarquía, presenta nodos que permiten al usuario controlar ciertos aspectos del aspecto, la sensación y el comportamiento del espacio.",
-                "updated": 1624286217210
+                "updated": 1624286217210,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Пространство дизайна - это визуальная среда, в которой размещаются все системные и пользовательские определения. С практической точки зрения - это черное пространство под ползунком, которое разделяет экран по горизонтали, отделяя пространства дизайна внизу от Charting Space - сверху. Как иерархия, он сожержит узлы, которые позволяют контролировать определенные аспекты внешнего вида, ощущения и поведения пространства.",
+                "updated": 1635612281255
             }
         ]
     },

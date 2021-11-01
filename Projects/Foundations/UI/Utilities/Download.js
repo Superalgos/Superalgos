@@ -20,7 +20,7 @@ function newFoundationsUtilitiesDownload() {
 
     function downloadCanvas(filename, canvasToUse) {
         let data = canvasToUse.toDataURL('image/png', 1)
-        /* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+        /* Change MIME type to trick the browser to download the file instead of displaying it */
         data = data.replace(/^data:image\/[^;]*/, 'data:application/octet-stream')
 
         /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
@@ -40,7 +40,7 @@ function newFoundationsUtilitiesDownload() {
         let FINAL_WIDTH = browserCanvas.width - INITIAL_WIDTH
 
         if (ARE_WE_RECORDING_A_MARKET_PANORAMA === false) {
-            /* We start recording the panorame. */
+            /* We start recording the panorama. */
             ARE_WE_RECORDING_A_MARKET_PANORAMA = true
             marketPanoramaCanvas = document.createElement('canvas')
             marketPanoramaCanvas.width = INITIAL_WIDTH * 50

@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node platform minMemo noBrowser",
     "setup": "node setup noShortcuts",
-    "dist": "electron-builder",
+    "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {

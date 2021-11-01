@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "Un market es la definición de assets (i.e.: BTC-USDT) listados como mercado en el correspondiente exchange.",
-                "updated": 1628045938159
+                "updated": 1628045938159,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Рынок - это определение пары активов (например, BTC-USDT), перечисленных на соответствующей бирже.",
+                "updated": 1635592307113
             }
         ]
     },

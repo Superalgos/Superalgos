@@ -15,6 +15,7 @@ The SA object is accesible everywhere at the Superalgos Desktop App.
 It provides access to all modules built for Superalgos in general.
 */
 global.SA = {}
+
 /* Load Environment Variables */
 let ENVIRONMENT = require('./Environment.js');
 let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
@@ -47,6 +48,7 @@ SA.nodeModules = {
     http: require('http'),
     ccxt: require('ccxt'),
     octokit: require("@octokit/rest"),
+    graphql: require("@octokit/graphql"),
     simpleGit: require('simple-git'),
     lookpath: require('lookpath'),
     process: require('process'),
@@ -84,4 +86,7 @@ async function run(initialWorkspace) {
     PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
     await PL.app.run(initialWorkspace)
     console.log('Superalgos Platform App is Running!')
+    if(process.send) {
+        process.send("Running")
+    }
 }

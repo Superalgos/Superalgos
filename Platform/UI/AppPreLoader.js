@@ -47,7 +47,7 @@ function loadSuperalgos() {
     loadDebugModule()
 
     if ((browser.name !== "Chrome" && browser.name!=="Safari") || (browser.name === "Chrome" && parseInt(browser.version) < 85) || (browser.name === "Safari" && parseInt(browser.version) < 13)) {
-        alert("Superalgos is officially supported on Google Chrome 85 or Safari 13.1 and above. Your browser version has been detected as potentially beneath this. If you continue you may experience some functionaility issues.\n\nDetected Browser: " + browser.name + "\nVersion: " + browser.version)
+        alert("Superalgos is officially supported on Google Chrome 85 or Safari 13.1 and above. Your browser version has been detected as potentially beneath this. If you continue you may experience some functionality issues.\n\nDetected Browser: " + browser.name + "\nVersion: " + browser.version)
     }
 
     function checkBrowserVersion () {
@@ -131,7 +131,7 @@ function loadSuperalgos() {
         }
     }
 
-    /* And Finally, we start loading all the scripts we will inmediatelly need. */
+    /* And Finally, we start loading all the scripts we will immediately need. */
     function loadModules() {
         let path = "AppLoader.js"
         REQUIREJS([path], onRequired)

@@ -1,12 +1,12 @@
 exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (processIndex) {
     /*
-        This module is about converting a One-Min Daily typeo of data set into a Multi Time Frame Market type.
+        This module is about converting a One-Min Daily type of data set into a Multi Time Frame Market type.
 
         The process to do so involves:
     
-        Reading the elements (elements, volumens, bolllinger bands, news, asset metrics, etc.) from a
+        Reading the elements (elements, volumes, bollinger bands, news, asset metrics, etc.) from a
         One-Min Dataset (a dataset that is organized with elements spanning one min, like one min begin-end-elements,
-        or elements with a timestamp captured approximatelly one minute from each other)
+        or elements with a timestamp captured approximately one minute from each other)
         organized in Daily Files.
         
         It is going to output a Market Files dataset for every Market Time Frame, aggregating the 
@@ -35,7 +35,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
 
     let statusDependenciesModule
     let dataDependenciesModule
-    let node = {}               // Usefull nodes for this module will be stored here.
+    let node = {}               // Useful nodes for this module will be stored here.
 
     return thisObject;
 
@@ -67,7 +67,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                 datetimeLastProducedFile: undefined,                        // Datetime of the last file files successfully produced by this process.
                 datetimeBeginingOfMarketFile: undefined,                    // Datetime of the first trade file in the whole market history.
                 datetimeLastAvailableDependencyFile: undefined,             // Datetime of the last file available to be used as an input of this process.
-                beginingOfMarket: undefined                                 // Datetime of the begining of the market.
+                beginingOfMarket: undefined                                 // Datetime of the beginning of the market.
             }
 
             TS.projects.foundations.functionLibraries.fromOneMinToMultiTimeFrameFunctions.getContextVariables(
@@ -129,7 +129,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                             "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> err = " + err.stack)
                                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> Asuming this is a temporary situation. Requesting a Retry.")
+                                            "[ERROR] start -> loadExistingFiles -> loopBody -> readExistingFile -> onFileReceived -> Assuming this is a temporary situation. Requesting a Retry.")
                                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                                     }
                                 } else {
@@ -167,7 +167,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                     let fromDate = new Date(contextVariables.datetimeLastProducedFile.valueOf())
                     let lastDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(new Date())
                     /*
-                    Firstly we prepere the arrays that will accumulate all the information for each output file.
+                    Firstly we prepare the arrays that will accumulate all the information for each output file.
                     */
                     let outputElements = []
 
@@ -191,7 +191,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
 
                     function timeframesLoop() {
                         /*
-                        We will iterate through all posible time frames.
+                        We will iterate through all possible time frames.
                         */
                         let timeFrameArrayIndex = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
 
@@ -252,7 +252,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket = function (proc
                             function aggregateAndWriteOutputFile(dependencyDailyFile) {
                                 /*
                                 Here we call the function that will aggregate all the information 
-                                at the dependency file into standarized begin-end-elements. 
+                                at the dependency file into standardized begin-end-elements.
                                 */
                                 TS.projects.foundations.functionLibraries.fromOneMinToMultiTimeFrameFunctions.aggregateFileContent(
                                     node,

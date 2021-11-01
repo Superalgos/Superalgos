@@ -45,7 +45,14 @@ function newGovernanceReportsLiquidity() {
                     "textAlign": "left"
                 },
                 {
-                    "name": "LiquidityPower",
+                    "name": "market",
+                    "label": "Market",
+                    "type": "string",
+                    "order": "ascending",
+                    "textAlign": "center"
+                },
+                {
+                    "name": "liquidityPower",
                     "label": "Liquidity Power",
                     "type": "number",
                     "order": "descending",
@@ -53,7 +60,7 @@ function newGovernanceReportsLiquidity() {
                     "format": "2 decimals"
                 },
                 {
-                    "name": "Percentage",
+                    "name": "percentage",
                     "label": "Percentage",
                     "type": "number",
                     "order": "descending",
@@ -77,24 +84,28 @@ function newGovernanceReportsLiquidity() {
         /*
         Transform the result array into table records.
         */
+
         for (let j = 0; j < userProfiles.length; j++) {
             let userProfile = userProfiles[j]
+            for (let j = 0; j < UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS.length; j++) {
+                let asset = UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_ASSETS[j]
+                if (userProfile.tokenPowerSwitch === undefined) { continue }
+                let program = UI.projects.governance.utilities.validations.onlyOneProgramBasedOnConfigProperty(userProfile, programName, 'asset', asset)
+                if (program === undefined) { continue }
+                if (program.payload === undefined) { continue }
+                if (program.payload[programPropertyName] === undefined) { continue }
 
-            if (userProfile.tokenPowerSwitch === undefined) { continue }
-            let program = UI.projects.governance.utilities.validations.onlyOneProgram(userProfile, programName)
-            if (program === undefined) { continue }
-            if (program.payload === undefined) { continue }
-            if (program.payload[programPropertyName] === undefined) { continue }
+                let tableRecord = {
+                    "name": userProfile.name,
+                    "market": 'SA / ' + asset,
+                    "liquidityPower": program.payload[programPropertyName].ownPower,
+                    "percentage": program.payload[programPropertyName].awarded.percentage / 100,
+                    "tokensAwarded": program.payload[programPropertyName].awarded.tokens | 0
+                }
 
-            let tableRecord = {
-                "name": userProfile.name,
-                "LiquidityPower": program.payload[programPropertyName].ownPower,
-                "percentage": program.payload[programPropertyName].awarded.percentage,
-                "tokensAwarded": program.payload[programPropertyName].awarded.tokens | 0
-            }
-
-            if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {
-                tableRecords.push(tableRecord)
+                if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {
+                    tableRecords.push(tableRecord)
+                }
             }
         }
         /*

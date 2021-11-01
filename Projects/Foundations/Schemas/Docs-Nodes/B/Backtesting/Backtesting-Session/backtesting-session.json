@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "Un backtesting sessiones un modo de trading mediante el cual la instancia del bot de trading lee datos históricos del mercado en un rango de fecha y hora definido por el usuario, aplica las reglas definidas en el Trading System asociado y genera una simulación trading.",
-                "updated": 1624454803124
+                "updated": 1624454803124,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Сессия Обратного тестирования - это торговый режим, с помощью которого экземпляр торгового бота считывает исторические рыночные данные в заданном пользователем диапазоне дат и времени, применяет правила, определенные в соответствующей торговой системе и генерирует торговую симуляцию.",
+                "updated": 1635592132857
             }
         ]
     },

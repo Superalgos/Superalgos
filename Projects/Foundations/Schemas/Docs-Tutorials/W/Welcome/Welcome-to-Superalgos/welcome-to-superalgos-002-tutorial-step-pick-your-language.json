@@ -39,6 +39,11 @@
                 "text": "Die Übersetzungen werden von Unterstützern aus der Community beigetragen, so dass Sie Ihre bevorzugte Sprache wählen können! Diese Community ist großartig!",
                 "updated": 1634159799660,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Пользователи предоставляют переводы для выбора предпочитаемого языка. Это потрясающее Community! ",
+                "updated": 1635453127908
             }
         ]
     },
@@ -77,6 +82,11 @@
                     "text": "So funktioniert es: Standard ist Englisch. Wenn Sie eine andere Sprache wählen und es eine Übersetzung für die aktuelle Seite gibt, erhalten Sie diese in der gewählten Sprache. Andernfalls erhalten Sie die Seite auf Englisch!",
                     "updated": 1634159943189,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Как это работает: английский - язык по умолчанию. В случае, если Вы выберете какой-нибудь другой язык, где существует перевод текущей страницы, у Вас появится возможность перевода на данном предпочитаемом языке. В обратном случае, язык остается  - английский.",
+                    "updated": 1635448551187
                 }
             ]
         },
@@ -114,6 +124,11 @@
                     "text": "Um die bevorzugte Sprache zu ändern scrollen Sie die Docs auf der rechten Seite ganz nach unten und klicken Sie auf die entsprechende Flagge.",
                     "updated": 1634159894831,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте колесико мыши, чтобы прокрутить страницу в правильном направлении вниз. Нажмите на флажок, чтобы изменить предпочитаемый язык, если Вы желаете.",
+                    "updated": 1635448656834
                 }
             ]
         },
@@ -151,6 +166,11 @@
                     "text": "Nur die Docs und Tutorials dürfen übersetzt werden, nicht aber das Interface oder die Titel!",
                     "updated": 1634070001415,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Только документы и учебное пособие могут быть переведены, но не интерфейс, ни заголовки.",
+                    "updated": 1635448708836
                 }
             ]
         }

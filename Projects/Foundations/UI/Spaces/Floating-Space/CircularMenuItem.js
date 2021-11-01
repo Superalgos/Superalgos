@@ -28,6 +28,7 @@ function newCircularMenuItem() {
         secondaryWorkDoneLabel: undefined,
         secondaryWorkFailedLabel: undefined,
         secondaryIcon: undefined,
+        booleanProperty: undefined,
         nextAction: undefined,
         visible: false,
         iconPathOn: undefined,
@@ -121,7 +122,18 @@ function newCircularMenuItem() {
 
         containerPhysics()
 
-        thisObject.nextAction = thisObject.action
+        if (thisObject.booleanProperty !== undefined) {
+            let config = JSON.parse(thisObject.payload.node.config)
+
+            if (config[thisObject.booleanProperty] === true) {
+                thisObject.nextAction = thisObject.secondaryAction
+                setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+            } else {
+                thisObject.nextAction = thisObject.action
+            }
+        } else {
+            thisObject.nextAction = thisObject.action
+        }
     }
 
     function getContainer(point) {
@@ -265,8 +277,13 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
-            thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            if (thisObject.iconProject !== undefined) {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+            } else {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            }
         } else {
 
             /*
@@ -335,6 +352,7 @@ function newCircularMenuItem() {
     }
 
     function internalClick() {
+        if (thisObject.payload === undefined) { return }
         if (thisObject.shorcutNumber !== undefined) {
             let label = thisObject.payload.node.name + ' ' + labelToPrint
             UI.projects.foundations.spaces.cockpitSpace.setStatus(label, 4, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
@@ -378,11 +396,11 @@ function newCircularMenuItem() {
                     setStatus(thisObject.workingLabel, UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
+                /* Execute the action and wait for callbacks to update our status. */
                 let relatedNodeProject = thisObject.actionProject
                 if (thisObject.relatedUiObjectProject !== undefined) {
                     relatedNodeProject = thisObject.relatedUiObjectProject
-                } 
+                }
 
                 thisObject.actionFunction(
                     {
@@ -402,7 +420,7 @@ function newCircularMenuItem() {
                     setStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
+                /* Execute the action and wait for callbacks to update our status. */
                 thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
                 return
             }
@@ -459,7 +477,7 @@ function newCircularMenuItem() {
         labelToPrint = text
         backgroundColorToUse = backgroundColor
         temporaryStatus = newStatus
-        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic reseting.
+        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic resetting.
         if (waitingCycles !== undefined) { // This will override the often negative value with a positive one that will tend to zero onto the default state.
             temporaryStatusCounter = waitingCycles
         }

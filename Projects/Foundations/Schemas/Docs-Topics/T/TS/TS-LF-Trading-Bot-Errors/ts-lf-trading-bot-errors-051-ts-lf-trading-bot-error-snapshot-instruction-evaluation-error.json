@@ -3,7 +3,7 @@
     "pageNumber": 51,
     "type": "TS LF Trading Bot Error - Snapshot Instruction Evaluation Error",
     "definition": {
-        "text": "This error occured while evaluating an instruction as part of the process of generating a Snapshot. This did not prevent the Snapshot from being created, but the value for the particular instruction was set to zero.",
+        "text": "This error occurred while evaluating an instruction as part of the process of generating a Snapshot. This did not prevent the Snapshot from being created, but the value for the particular instruction was set to zero.",
         "updated": 1611949667634
     },
     "paragraphs": [
@@ -30,7 +30,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -42,7 +42,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -54,7 +54,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -66,7 +66,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -103,7 +103,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the context information preserved when the error occured:",
+            "text": "The following is the context information preserved when the error occurred:",
             "updated": 1611681225358
         },
         {

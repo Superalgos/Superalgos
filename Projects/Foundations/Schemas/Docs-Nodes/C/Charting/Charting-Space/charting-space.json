@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "El charting space  es la jerarquía que gobierna la configuración de los gráficos y el espacio bidimensional en el que se dibujan los gráficos.",
-                "updated": 1624286299025
+                "updated": 1624286299025,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Пространство построения графиков - это иерархия, которая управляет конфигурацией диаграмм и двумерным пространством, в котором создаются диаграммы.",
+                "updated": 1635609547337
             }
         ]
     },

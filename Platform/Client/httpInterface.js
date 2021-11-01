@@ -1,3 +1,4 @@
+const {graphql} = require("@octokit/graphql");
 exports.newHttpInterface = function newHttpInterface() {
 
     /*
@@ -44,7 +45,11 @@ exports.newHttpInterface = function newHttpInterface() {
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
-
+                case 'Environment':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
+                    }
+                    break
                 case 'WEB3':
                     {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
@@ -248,7 +253,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                                 console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                                 webhookMessages = []
@@ -296,7 +301,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
                                 break
@@ -598,7 +603,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 function createNewDir(path) {
                                     try {
-                                        fs.mkdirSync(path)
+                                        fs.mkdirSync(path, {recursive: true})
                                     } catch (err) {
                                         if (err.message.indexOf('file already exists') < 0) {
                                             throw (err)
@@ -719,7 +724,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
                                             console.log('')
-                                            console.log('Torubleshooting Tips:')
+                                            console.log('Troubleshooting Tips:')
                                             console.log('')
                                             console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
                                             console.log('2. Make sure you are running the latest version of Git available for your OS.')
@@ -876,7 +881,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
                                                 await runNodeSetup()
-                                                // Return to UI that Branch is suggessfully changed 
+                                                // Return to UI that Branch is successfully changed
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -1023,7 +1028,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             case 'FixAppSchema': {
                                 /*
-                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fixt the
+                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fix the
                                 actions where this node was referenced, so that it points to the new project where the node has moved to. 
                                 */
                                 let customResponse = {
@@ -1124,7 +1129,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                             let fileProject = allAppSchemasFileProjects[i]
                                                             //console.log(fileProject, project)
                                                             if (fileProject === project) {
-                                                                /* If the projec of the file is the same as the project found, then we consider this a match*/
+                                                                /* If the project of the file is the same as the project found, then we consider this a match*/
                                                                 hits = 1
                                                                 continue
                                                             }
@@ -1269,6 +1274,200 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         return
                                     }
+
+                                    case 'UserProfile': {
+                                        try {
+
+                                            let mess = unescape(params.commitMessage)
+                                            const username =  unescape(params.username)
+                                            const token =   unescape(params.token)
+                                            const currentBranch =  unescape(params.currentBranch)
+                                            const contributionsBranch =  unescape(params.contributionsBranch)
+
+                                            let error
+
+                                            await updateUser()
+
+                                            async function updateUser() {
+
+                                                await doGithubUser()
+                                                if (error !== undefined) {
+
+                                                    let docs = {
+                                                        project: 'Governance',
+                                                        category: 'Topic',
+                                                        type: 'Gov Error - Contribution Not Sent',
+                                                        anchor: undefined,
+                                                        placeholder: {}
+                                                    }
+                                                    console.log('respond with docs ')
+
+                                                    respondWithDocsObject(docs, error)
+                                                    return
+                                                }
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                            }
+
+                                            async function doGithubUser() {
+
+                                                const { Octokit } = SA.nodeModules.octokit
+
+                                                const octokit = new Octokit({
+                                                    auth: token,
+                                                    userAgent: 'Superalgos Beta 12'
+                                                })
+
+                                                const repo = 'Superalgos'
+                                                const owner = 'Superalgos'
+                                                const head = username + ':' + contributionsBranch
+                                                const base = currentBranch
+                                                const title = 'Contribution: ' + mess
+                                                const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json' ;
+
+                                                const sha = await getSHA(path);
+
+                                                if (sha === undefined){
+                                                    console.log('***** Abort GOV.USERPROFILE *****')
+                                                    return
+                                                }
+
+                                                let file = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
+                                                    'Governance',
+                                                    'User-Profiles',
+                                                    username  + '.json'
+                                                )
+
+                                                let buff = new Buffer.from(file, 'utf-8');
+                                                let encodedFile = buff.toString('base64');
+
+                                                try {
+                                                    await octokit.repos.createOrUpdateFileContents({
+                                                        owner: username,
+                                                        repo: "Superalgos",
+                                                        path,
+                                                        message: title,
+                                                        content: encodedFile,
+                                                        sha,
+                                                        branch: base
+                                                    });
+                                                } catch (err) {
+                                                    if (err.stack.indexOf('Error User Commit') >= 0) {
+                                                        return
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        error = err
+                                                    }
+                                                }
+
+                                                try {
+                                                    await octokit.pulls.create({
+                                                        owner,
+                                                        repo,
+                                                        title,
+                                                        head,
+                                                        base,
+                                                    });
+                                                } catch (err) {
+                                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                        return
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        error = err
+                                                    }
+
+                                                }
+
+
+                                            }
+
+                                            async function getSHA(path) {
+                                                let sha = ''
+                                                const { graphql } = SA.nodeModules.graphql
+
+                                                try{
+
+                                                    const { repository } = await graphql(
+                                                      '{  ' +
+                                                        '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                        '    object(expression: "develop:' + path +'") {' +
+                                                        '      ... on Blob {' +
+                                                        '        oid' +
+                                                        '      }' +
+                                                        '    }' +
+                                                        '    name' +
+                                                        '  }' +
+                                                        '}',
+                                                            {
+                                                                headers: {
+                                                                    authorization: 'token ' + token
+                                                                },
+                                                            }
+                                                        )
+
+                                                    if (repository.name === undefined){
+                                                        console.log('***** Token permission needed : User:READ *****')
+                                                        sha = undefined
+                                                        error = '***** Token permission needed : User:READ *****'
+                                                        return sha
+                                                    }
+
+                                                    if(repository.object === null ){
+                                                        console.log("[User Not Found] -> Creating new user")
+                                                        return sha
+                                                    }
+                                                    sha = repository.object.oid
+                                                    return sha
+
+                                                } catch (err) {
+
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                    return sha
+
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
+
+                                            let error = {
+                                                result: 'Fail Because',
+                                                message: err.message,
+                                                stack: err.stack
+                                            }
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                        }
+                                        break
+                                    }
+
                                     case 'payContributors': {
                                         console.log('----------------------------------------------------------------------------------------------')
                                         console.log('DISTRIBUTION PROCESS STARTED')
@@ -1613,7 +1812,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let folder = unescape(requestPath[3])
                                 let fileName = unescape(requestPath[4])
 
-                                /*Beta 12 Refactoring Code: Remove this before realeasing beta 12.*/
+                                /*Beta 12 Refactoring Code: Remove this before releasing beta 12.*/
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }
@@ -1805,7 +2004,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 /* Create Dir if it does not exist */
                                 if (!fs.existsSync(dir)) {
-                                    fs.mkdirSync(dir);
+                                    fs.mkdirSync(dir, {recursive: true});
                                 }
 
                                 fs.writeFile(filePath, fileContent, onFileWritten)

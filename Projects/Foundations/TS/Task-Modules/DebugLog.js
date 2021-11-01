@@ -113,7 +113,7 @@ exports.newFoundationsTaskModulesDebugLog = function (processIndex) {
 
             writeLog();
 
-            /* This is the implementation of the mechanism to auto-mantain logs. */
+            /* This is the implementation of the mechanism to auto-maintain logs. */
             if (contentToPersist.indexOf('[ERROR]') < 0 && contentToPersist.indexOf('[PERSIST]') < 0 && contentToPersist.indexOf('[IMPORTANT]') < 0) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).LOGS_TO_DELETE_QUEUE.push(filePath + '/' + fileName)
             }

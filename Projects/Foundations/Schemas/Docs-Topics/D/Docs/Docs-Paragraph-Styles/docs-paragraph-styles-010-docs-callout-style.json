@@ -3,20 +3,48 @@
     "pageNumber": 10,
     "type": "Docs Callout Style",
     "definition": {
-        "text": "A callout paragraph is used to call the attention of readers."
+        "text": "A callout paragraph is used to call the attention of readers.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein Callout-Absatz wird verwendet, um die Aufmerksamkeit des Lesers zu wecken.",
+                "updated": 1633954607093
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Anything you type while editing a callout will be rendered like in the example below."
+            "text": "Anything you type while editing a callout will be rendered like in the example below.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alles, was Sie während der Bearbeitung eines Callouts eingeben, wird wie im folgenden Beispiel dargestellt.",
+                    "updated": 1633954656065
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633954662776
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "This is a callout paragraph."
+            "text": "This is a callout paragraph.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Aufforderungsabsatz.",
+                    "updated": 1633954699461
+                }
+            ]
         }
     ]
 }

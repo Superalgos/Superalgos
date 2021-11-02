@@ -1,15 +1,20 @@
-Data-Storage
-Log-Files
-My-Workspaces
+**/Data-Storage
+**/My-Data-Storage
+**/Log-Files
+**/My-Log-Files
+**/My-Workspaces
 debug.log
 
 *.db
 
-.git*
-.vscode
 README.md
 LICENSE
-CONTRIBUITING.md
+CONTRIBUTING.md
 CODE_OF_CONDUCT.md
-./**/.vscode
-Dockerfile
+.git*
+.docker*
+**/.vscode
+**/Dockerfile*
+**/docker-compose.yml
+**/node_modules
+**/.env*

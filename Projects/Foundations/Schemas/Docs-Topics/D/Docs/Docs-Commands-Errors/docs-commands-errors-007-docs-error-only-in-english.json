@@ -4,7 +4,14 @@
     "type": "Docs Error - Only In English",
     "definition": {
         "text": "You may only use this command in the English version of the Docs.",
-        "updated": 1610977499324
+        "updated": 1610977499324,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sie können diesen command (Befehl) nur in der englischen Version der Docs verwenden.",
+                "updated": 1633897115018
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "This command is available only while browsing the Docs in English language.",
-            "updated": 1610977476368
+            "updated": 1610977476368,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieser Befehl ist nur verfügbar, wenn Sie die Docs in englischer Sprache durchsuchen.",
+                    "updated": 1633897157011
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Set English as your preferred language on the footer of this page and try again.",
-            "updated": 1610977454296
+            "updated": 1610977454296,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Stellen Sie in der Fußzeile dieser Seite Englisch als Ihre bevorzugte Sprache ein und versuchen Sie es erneut.",
+                    "updated": 1633897180372
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633897190987
+                }
+            ]
         },
         {
             "style": "List",

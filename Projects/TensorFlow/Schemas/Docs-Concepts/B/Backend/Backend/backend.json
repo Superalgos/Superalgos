@@ -1,7 +1,7 @@
 {
     "type": "Backend",
     "definition": {
-        "text": "TensorFlow.js support multiple different backends that implement tensor storage and mathematical operations. At any given time, only one backend is active. Most of the time, TensorFlow.js will automatically choose the best backend for you given the current Execution Environmet.",
+        "text": "TensorFlow.js support multiple different backends that implement tensor storage and mathematical operations. At any given time, only one backend is active. Most of the time, TensorFlow.js will automatically choose the best backend for you given the current Execution Environment.",
         "updated": 1613059266937
     },
     "paragraphs": [

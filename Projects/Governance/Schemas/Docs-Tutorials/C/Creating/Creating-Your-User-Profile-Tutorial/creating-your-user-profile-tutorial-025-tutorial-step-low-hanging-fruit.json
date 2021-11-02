@@ -1,0 +1,62 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 25,
+    "type": "Tutorial Step - Low Hanging Fruit",
+    "definition": {
+        "text": "Now I'll hook you up with the Community Building Programs, which are also quite easy to set up and will earn you more tokens!",
+        "updated": 1630660957861,
+        "icon": {
+            "name": "Programs\\community-building-programs",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora te conectaré con el Community Building Programs, que también son bastante fáciles de configurar y te harán ganar más tokens.",
+                "updated": 1630892980021,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Token Power Switch node and select <i>Add Comunity Building Programs</i> from the menu.",
+            "updated": 1630661290597,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ve a el nodo Token Power Switch y selecciona Add Comunity Building Programs del menú.",
+                    "updated": 1630893046476,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Superalgos thrives through contributions and collaboration. We designed these programs to foster a community in which members are always ready to help and give back!",
+            "updated": 1630661420122,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos prospera a través de contribuciones y colaboración. ¡Diseñamos estos programas para fomentar una comunidad en la que los miembros siempre estén listos para ayudar!",
+                    "updated": 1630893106465,
+                    "style": "Note"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "These programs are a bit more elaborate in their workings... you'll love them!",
+            "updated": 1630661576265,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos programas son un poco más elaborados en su funcionamiento ... ¡te encantarán!",
+                    "updated": 1630893135626,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

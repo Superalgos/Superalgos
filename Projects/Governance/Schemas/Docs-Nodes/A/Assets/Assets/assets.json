@@ -16,7 +16,8 @@
         },
         {
             "style": "Text",
-            "text": "The hierarchy features Asset Class nodes, an organizational device, and Asset nodes, the representation of actual assets. Both types of nodes may accept incoming Weight Votes but only Asset nodes may accept Contributor Claims."
+            "text": "The hierarchy features Asset Class nodes, an organizational device, and Asset nodes, the representation of actual assets. Both types of nodes may accept incoming Weight Votes but only Asset nodes may accept Contribution Claims.",
+            "updated": 1630434541690
         },
         {
             "style": "Success",
@@ -24,13 +25,18 @@
             "updated": 1624709216096
         },
         {
-            "style": "Title",
+            "style": "Subtitle",
             "text": "Install Missing Assets",
             "updated": 1624709536566
         },
         {
+            "style": "Note",
+            "text": "The Install Missing Assets feature is oriented to people maintaining Project Definition Hierarchies. You may safely skip this explanation if you are a regular user learning about governance.",
+            "updated": 1630434796338
+        },
+        {
             "style": "Text",
-            "text": "Both the Assets node and the Asset Class nodes support the Install Assets command available on the menu. Because Assets map digital files shipping with the system, the Install Assets feature is designed to map files on disk into a hierarchical structure of nodes below the node where the Install Assets command is run. In the resulting structure of nodes, Asset Class nodes represent folders, and Asset nodes represent files."
+            "text": "Both the Assets node and Asset Class nodes support the Install Missing Assets command available on the menu. Because Asset nodes map digital files shipping with the system, the Install Missing Assets feature is designed to map files on disk into a hierarchical structures of nodes below the node where the Install Missing Assets command is run. In the resulting structure of nodes, Asset Class nodes represent folders, and Asset nodes represent files."
         },
         {
             "style": "Text",
@@ -47,7 +53,8 @@
         },
         {
             "style": "Text",
-            "text": "Using the above configuration, the Install Assets command creates a Superalgos Asset Class node (the root of the Superalgos folder), and the UI Asset Class node as an offspring node. Then, the contents of the UI folder are mapped as offspring of the UI Asset Class node."
+            "text": "Using the above configuration, the Install Missing Assets command creates a Superalgos Asset Class node (the root of the Superalgos folder), and the UI Asset Class node as an offspring node. Then, the contents of the UI folder are mapped as offspring of the UI Asset Class node.",
+            "updated": 1630434897746
         },
         {
             "style": "Block",

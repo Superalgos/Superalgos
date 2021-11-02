@@ -1,0 +1,61 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 24,
+    "type": "Tutorial Step - Save Your Profile!",
+    "definition": {
+        "text": "Cool! We've covered the basics! Now you have a working User Profile and are already participating in the first two Governance Programs!",
+        "updated": 1630601962359,
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": " ¡Hemos cubierto los conceptos básicos! ¡Ahora tiene un perfil de usuario en funcionamiento y ya está participando en los dos primeros programas de gobernanza!",
+                "updated": 1630892778890,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It's time to save your User Profile! ",
+            "updated": 1630603392015,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es hora de salvar tu User Profile!",
+                    "updated": 1630892799650,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Click Ctrl + Shift + Alt + Key-S to save the Current Workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Clic Ctrl + Shift + Alt + Key-S para salvar el Current Workspace.",
+                    "updated": 1630892824874,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "We set your profile to save as a Plugin every time you save the workspace! So that should save your User Profile too! ",
+            "updated": 1630603485216,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Configuramos tu perfil para que se guarde como un complemento cada vez que guardes el espacio de trabajo! Entonces eso debería salvar tu User Profile también!",
+                    "updated": 1630892880261,
+                    "style": "Success"
+                }
+            ]
+        }
+    ]
+}

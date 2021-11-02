@@ -258,7 +258,7 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Change Distance to Paarent',
+                action: 'Change Distance to Parent',
                 actionFunction: floatingObject.distanceToParentToggle,
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,
@@ -322,7 +322,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Backup',
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'backup-entity',
@@ -337,7 +337,7 @@ function newUiObjectConstructor() {
             {
                 action: 'Clone',
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'clone-entity',
@@ -353,7 +353,7 @@ function newUiObjectConstructor() {
                 {
                     action: 'Share',
                     actionFunction: floatingObject.payload.executeAction,
-                    actionProject: 'Foundations',
+                    actionProject: 'Visual-Scripting',
                     label: undefined,
                     visible: true,
                     iconPathOn: 'share-entity',
@@ -367,11 +367,43 @@ function newUiObjectConstructor() {
         }
         menuItemsInitialValues.push(
             {
+                action: 'Save node to be moved',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Foundations',
+                label: undefined,
+                visible: true,
+                //placeholder icon : https://www.iconpacks.net/free-icon/pin-48.html
+                iconPathOn: 'copy-position',
+                iconPathOff: 'copy-position',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 2
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Snap saved node to position',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Foundations',
+                label: undefined,
+                visible: true,
+                //placeholder icon: https://www.iconpacks.net/free-icon/pins-53.html
+                iconPathOn: 'snap-position',
+                iconPathOff: 'snap-position',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 2
+            }
+        )
+        menuItemsInitialValues.push(
+            {
                 action: 'Parent Detach',
                 askConfirmation: true,
                 confirmationLabel: "Confirm to Detach",
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'detach-node',
@@ -388,7 +420,7 @@ function newUiObjectConstructor() {
                 askConfirmation: true,
                 confirmationLabel: "Confirm to Detach",
                 actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Foundations',
+                actionProject: 'Visual-Scripting',
                 label: undefined,
                 visible: true,
                 iconPathOn: 'delink-node',

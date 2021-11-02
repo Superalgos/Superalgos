@@ -3,12 +3,26 @@
     "pageNumber": 17,
     "type": "Docs YouTube Video Style",
     "definition": {
-        "text": "It is possible to embed YouTube videos at a Docs page. All you need to know is to copy and pate the YouTube video id into a paragraph with Youtube style."
+        "text": "It is possible to embed YouTube videos at a Docs page. All you need to know is to copy and pate the YouTube video id into a paragraph with Youtube style.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es ist möglich, YouTube-Videos in eine Docs-Seite einzubetten. Alles, was Sie dazu wissen müssen, ist, die YouTube-Video-ID zu kopieren und in einen Absatz mit dem Youtube-Stil einzufügen.",
+                "updated": 1633957183556
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The syntax to embed a YouTube video at a Docs page is the following:"
+            "text": "The syntax to embed a YouTube video at a Docs page is the following:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Syntax zum Einbetten eines YouTube-Videos in eine Docs-Seite lautet wie folgt:",
+                    "updated": 1633957198374
+                }
+            ]
         },
         {
             "style": "Json",
@@ -17,7 +31,14 @@
         {
             "style": "Text",
             "text": "If you wish the video to autoplay, that is, to start playing without user intervention like an animated GIF would, add the following string immediately after the videoId:",
-            "updated": 1616182813822
+            "updated": 1616182813822,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie möchten, dass das Video automatisch abgespielt wird, d. h. dass die Wiedergabe ohne Benutzereingriff beginnt, wie bei einem animierten GIF, fügen Sie die folgende Zeichenfolge unmittelbar nach der videoId ein:",
+                    "updated": 1633957228484
+                }
+            ]
         },
         {
             "style": "Json",
@@ -25,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633957244489
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,7 +62,14 @@
         },
         {
             "style": "Text",
-            "text": "This would render the following video:"
+            "text": "This would render the following video:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies würde das folgende Video wiedergeben:",
+                    "updated": 1633957260647
+                }
+            ]
         },
         {
             "style": "Youtube",
@@ -43,7 +78,14 @@
         {
             "style": "Success",
             "text": "To edit a YouTube video paragraph, right-click slightly above the upper border of the video, not on the video itself.",
-            "updated": 1616182753529
+            "updated": 1616182753529,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um den Absatz eines YouTube-Videos zu bearbeiten, klicken Sie mit der rechten Maustaste etwas oberhalb des oberen Randes des Videos, nicht auf das Video selbst.",
+                    "updated": 1633957388424
+                }
+            ]
         }
     ]
 }

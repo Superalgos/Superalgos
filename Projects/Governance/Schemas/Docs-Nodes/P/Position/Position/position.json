@@ -1,8 +1,8 @@
 {
     "type": "Position",
     "definition": {
-        "text": "A Position node represents a role within the project’s organization. However, unlike traditional organizations, positions within Superalgos are open, in the sense that any Contributor may assume any position at any point. If you spend time working in a position, you may produce a Position Claim and rally the Community to support your claim so that you may earn tokens allocated to the said position.",
-        "updated": 1624707652230
+        "text": "A Position node represents a role within the project’s organization. However, unlike traditional organizations, positions within Superalgos are open, in the sense that any Contributor may assume any position at any point. If you spend time working in a position, you may produce a Position Contribution Claim and rally the Community to support your claim so that you may earn Token Rewards allocated to the said position.",
+        "updated": 1630427602367
     },
     "paragraphs": [
         {
@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "You may direct Weight Votes to a Position node to support the particular position."
+            "text": "You may direct Weight Votes to a Position node to incetivize the particular position.",
+            "updated": 1630427617707
         },
         {
             "style": "Block",

@@ -1,0 +1,83 @@
+{
+    "type": "Social Bots",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Telegram Bot",
+            "relatedUiObject": "Telegram Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Discord Bot",
+            "relatedUiObject": "Discord Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Slack Bot",
+            "relatedUiObject": "Slack Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Twitter Bot",
+            "relatedUiObject": "Twitter Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 4,
+    "attachingRules": {
+        "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Back Learning Session->Live Learning Session->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "telegramBots",
+            "type": "array",
+            "childType": "Telegram Bot",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        },
+        {
+            "name": "discordBots",
+            "type": "array",
+            "childType": "Discord Bot",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        },
+        {
+            "name": "slackBots",
+            "type": "array",
+            "childType": "Slack Bot",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        },
+        {
+            "name": "twitterBots",
+            "type": "array",
+            "childType": "Twitter Bot",
+            "autoAdd": true,
+            "project": "Social-Bots"
+        }
+    ],
+    "propertyNameAtParent": "socialBots"
+}

@@ -15,9 +15,9 @@
             "text": "You may cast Weight Votes on individual Feature nodes to incentivize the improvement, development, and maintenance of the said feature."
         },
         {
-            "style": "Text",
-            "text": "If you are involved in the development or maintenance of the said feature, you may place a Feature Contribution Claim and rally the Community to support your claim so that you may be compensated for your work.",
-            "updated": 1624708816194
+            "style": "Callout",
+            "text": "If you are involved in the development or maintenance of a feature, you may place a Feature Contribution Claim and rally the Community to support your claim with Feature Claim Vote nodes so that you may be rewarded for your work.",
+            "updated": 1630428072285
         },
         {
             "style": "Block",

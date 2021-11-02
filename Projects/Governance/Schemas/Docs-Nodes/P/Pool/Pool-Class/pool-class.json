@@ -1,8 +1,8 @@
 {
     "type": "Pool Class",
     "definition": {
-        "text": "The Pool Class node is an organizational device used to arrange Pool nodes in suitable hierarchical structures.",
-        "updated": 1624707077159
+        "text": "The Pool Class node is an organizational device used to arrange Pool nodes in suitable hierarchical structures. Use this node to spawn other Pool Class nodes and Pool nodes.",
+        "updated": 1630427259648
     },
     "paragraphs": [
         {
@@ -11,8 +11,9 @@
             "updated": 1624707110607
         },
         {
-            "style": "Text",
-            "text": "Their main purpose is to help organize Pool nodes in the most appropriate manner."
+            "style": "Note",
+            "text": "The main purpose of this node is to help organize Pool nodes in the most appropriate manner.",
+            "updated": 1630426852609
         },
         {
             "style": "Block",

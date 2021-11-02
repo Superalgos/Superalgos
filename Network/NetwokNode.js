@@ -1,28 +1,28 @@
+exports.newNetworkNode = function newNetworkNode() {
 
+    let thisObject = {
+        socialGraphService: undefined,
+        storage: undefined,
+        run: run
+    }
 
-global.NT = {
-    memory: {
-        maps: {
-            USER_PROFILES_BY_ID: new Map(),         // Here we will store the user profiles by User Profile Id.
-            USER_PROFILES_BY_HANDLE: new Map(),     // Here we will store the user profiles by User Profile Handle.
-            POSTS: new Map(),                       // This are all the posts we are keeping track of.
-            EVENTS: new Map(),                      // This is the registry of all events received that prevents processing them more than once.
-        },
-        arrays: {
-            EVENTS: [],                             // A time ordered list of events.
-            NETWORK_CLIENTS: [],                    // These are the Network Clients connected to this Network Node ordered by Ranking.
-            NETWORK_PEERS: [],                      // These are the Network Peers connected to this Network Node ordered by Ranking.
-        }
-    },
-    modules: {
-        USER_PROFILE: require('./UserProfile.js'),
-        EVENT: require('./Event.js'),
-        POST: require('./Post.js'),
-        BOT: require('./Bot.js'),
-        QUERY: require('./Query.js'),
-        QUERY_PROFILE_STATS: require('./Queries/ProfileStats.js'),
-        QUERY_PROFILE_POSTS: require('./Queries/ProfilePosts.js'),
-        QUERY_POST_REPLIES: require('./Queries/ProfileReplies.js'),
-        QUERY_EVENTS: require('./Queries/Events.js')
+    return thisObject
+
+    async function run() {
+        /*
+        Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
+        */
+        NT.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+        NT.webSocketsInterface.initialize()
+        /*
+        The Social Graph Service is the first and for now, the only service this Network Node provides.
+        */
+        thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
+        await thisObject.socialGraphService.initialize()
+        /*
+        The Sotrage deals with persisting the Social Graph.
+        */
+        thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
+        thisObject.storage.initialize()
     }
 }

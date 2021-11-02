@@ -23,8 +23,8 @@ function newFoundationsDocsSearchEngine() {
         */
         let docsSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
         if (docsSpaceNode !== undefined) {
-            if (docsSpaceNode.spaceSettings !== undefined) {
-                let indexContent = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(docsSpaceNode.spaceSettings.payload, 'indexContent')
+            if (docsSpaceNode.docsSpaceSettings !== undefined) {
+                let indexContent = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(docsSpaceNode.docsSpaceSettings.payload, 'indexContent')
                 if (indexContent === false) {
                     callbackFunction()
                     return
@@ -280,7 +280,7 @@ function newFoundationsDocsSearchEngine() {
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode !== null) {
-                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(rootNode)
+                let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(rootNode)
                 allNodesFound = allNodesFound.concat(nodeArray)
             }
         }
@@ -296,7 +296,7 @@ function newFoundationsDocsSearchEngine() {
                 let node = allNodesFound[i]
 
                 if (node.project === project) {
-                    let nodeNameTypePath = UI.projects.foundations.utilities.hierarchy.getNodeNameTypePath(node)
+                    let nodeNameTypePath = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(node)
 
                     let docsSchemaDocument = {
                         nodeId: node.id,

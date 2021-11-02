@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Construyamos la madre de todas las estrategias trading: The Moving Average Cross",
-                "updated": 1629342995750
+                "updated": 1629342995750,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Construisons la mère de toutes les stratégies de trading : Le croisement des moyennes mobiles !",
+                "updated": 1630680395371
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Para este tutorial supongo que:",
-                    "updated": 1629343108610
+                    "updated": 1629343108610,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Pour ce tuto nous partirons du principe que:",
+                    "updated": 1630680728706
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Has hecho el Welcome Tutorial en el Getting Started Workspace",
-                    "updated": 1629343127301
+                    "updated": 1629343127301,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous avez fait le Welcome Tutorial à l'intérieur du Getting Started Workspace",
+                    "updated": 1630680751819
                 }
             ],
             "updated": 1629342770748
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "Te sientes cómodo moviéndote por el Workspace y los Charts",
-                    "updated": 1629343147093
+                    "updated": 1629343147093,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous êtes à l'aise afin de vous déplacer dans les workspaces ainsi que sur les graphiques",
+                    "updated": 1630680807222
                 }
             ],
             "updated": 1629342792390
@@ -92,7 +116,13 @@
                 {
                     "language": "ES",
                     "text": "Tienes un conocimiento básico sobre lo que es un Trading Bot y una estrategia",
-                    "updated": 1629343167648
+                    "updated": 1629343167648,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Vous possédez une compréhension basique de ce qu'est un Trading Bot et une stratégie",
+                    "updated": 1630680872076
                 }
             ]
         },
@@ -110,7 +140,13 @@
                 {
                     "language": "ES",
                     "text": "Construiremos un bot para probar una estrategia basada en Simple Moving Average Cross entre SMA50 y SMA200 en 4h TF, ¡un clásico!",
-                    "updated": 1629343206412
+                    "updated": 1629343206412,
+                    "style": "Note"
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous allons construire un bot afin de Backtester une stratégi basée sur le croisement des moyennes mobiles SMA50 et SMA200 sur une période de 4heures, un classique!",
+                    "updated": 1630680963598
                 }
             ]
         },

@@ -16,7 +16,8 @@
         },
         {
             "style": "Text",
-            "text": "Any Position and Position Class node within the hierarchy may receive Weight Votes to determine how the Token Rewards in the hierarchy is distributed. How many tokens each Position is awarded depends on the relative weight of the position determined by the number of Weight Votes each position receives from Contributors."
+            "text": "Any Position and Position Class node within the hierarchy may receive Weight Votes to determine how the Token Rewards in the hierarchy is distributed. How many tokens each Position is awarded depends on the relative weight of the position determined by the number of Weight Votes each position receives from users.",
+            "updated": 1630427395380
         }
     ]
 }

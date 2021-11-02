@@ -1,0 +1,116 @@
+{
+    "topic": "Governance Workspaces",
+    "pageNumber": "2",
+    "type": "Token Distribution Superalgos Governance Workspace",
+    "definition": {
+        "text": "This is the main governance workspace where broad Superalgos Project definitions live.",
+        "updated": 1630575735214
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Tutorials",
+            "updated": 1630576501552
+        },
+        {
+            "style": "List",
+            "text": "Creating Your User Profile Tutorial",
+            "updated": 1630576522747
+        },
+        {
+            "style": "Title",
+            "text": "User Profiles"
+        },
+        {
+            "style": "List",
+            "text": "Profiles of Core Team members and Community Mods."
+        },
+        {
+            "style": "Title",
+            "text": "Scope of Definitions"
+        },
+        {
+            "style": "Text",
+            "text": "The workspace features definitions that span the whole Superalgos Project.",
+            "updated": 1630576025223
+        },
+        {
+            "style": "Subtitle",
+            "text": "Pools"
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Pools hierarchy.",
+            "updated": 1630576375102
+        },
+        {
+            "style": "Subtitle",
+            "text": "Positions"
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Marketing (project-wide marketing-related positions),",
+            "updated": 1630576292069
+        },
+        {
+            "style": "List",
+            "text": "Superalgos (project-wide positions such as Community Mods, Core Team, or Business Lead).",
+            "updated": 1630576271333
+        },
+        {
+            "style": "Subtitle",
+            "text": "Features"
+        },
+        {
+            "style": "List",
+            "text": "Superalgos (project-wide features such as the Charting Space, the Visual Designer, the Tensor Flow integration, and so on).",
+            "updated": 1630576362020
+        },
+        {
+            "style": "Subtitle",
+            "text": "Assets"
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Exchanges (assets related to exchange listings),",
+            "updated": 1630576480397
+        },
+        {
+            "style": "List",
+            "text": "Superalgos Marketing (project-wide, marketing-related assets),",
+            "updated": 1630576486012
+        },
+        {
+            "style": "List",
+            "text": "Client,",
+            "updated": 1630576385365
+        },
+        {
+            "style": "List",
+            "text": "UI,",
+            "updated": 1630576390127
+        },
+        {
+            "style": "List",
+            "text": "TS,",
+            "updated": 1630576395166
+        },
+        {
+            "style": "List",
+            "text": "Docker,"
+        },
+        {
+            "style": "List",
+            "text": "Launch Scripts,"
+        },
+        {
+            "style": "List",
+            "text": "Root Directory.",
+            "updated": 1630576402835
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

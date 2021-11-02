@@ -39,6 +39,27 @@
                 "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif !",
                 "updated": 1623959646265,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Hoewel minimalistische hardware zoals de Raspberry Pi de Superalgos Client aankan voor zowel gegevens- als handelstaken, zijn sommige misschien te klein voor het werk!",
+                "updated": 1633885810600,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Minimale Rechner wie der Raspberry Pi können mit dem Superalgos-Client umgehen, um Daten- oder Handelsaufgaben auszuführen. Einige Prozesse sind jedoch möglicherweise zu groß für effektives arbeiten!",
+                "updated": 1634161449946,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "В то время как минималистическое аппаратное устройство, такое как Raspberry Pi, может обрабатывать Superalgos Client для выполнения как данных, так и торговых задач, некоторые из них могут быть слишком малы для активной работы.",
+                "updated": 1635581958903},
+                {
+                "language": "TR",
+                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazıları aktif çalışma için çok küçük olabilir!",
+                "updated": 1635578710092
             }
         ]
     },
@@ -71,6 +92,27 @@
                     "text": "L'idée principale pour executer le Client dans un petit matériel physique ou virtuel est de maximiser la rentabilité pour un faible cout. Dans ce contexte, le UI est utilisée au minimum.",
                     "updated": 1623959843971,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het idee achter het draaien van de client op minimalistische of virtuele hardware is om de kosten te reduceren bij live implementaties van het systeem. In dergelijke situaties wordt de UI tot een minimum beperkt.",
+                    "updated": 1633886121478,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Kerngedanke hinter dem Betrieb des Clients auf kleiner physischer oder virtueller Hardware ist die Maximierung der Kosteneffizienz. In solchen Kontexten wird die Benutzeroberfläche auf ein Minimum reduziert.",
+                    "updated": 1634161727057,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Основная идея, лежащая в основе запуска Клиента на небольшом физическом или виртуальном устройстве, заключается в максимилизации эффективности затрат при развертывании в производствнных условиях. В таких контекстах UI используется по минимуму.",
+                    "updated": 1635581983754},
+                    {
+                    "language": "TR",
+                    "text": "İstemciyi ( Client ) küçük fiziksel veya sanal donanımda çalıştırmanın arkasındaki temel fikir, üretim dağıtımlarında maliyet verimliliğini en üst düzeye çıkarmaktır. Bu tür bağlamlarda, kullanıcı arayüzü ( UI ) minimumda kullanılır.",
+                    "updated": 1635578789059
                 }
             ]
         },
@@ -108,6 +150,27 @@
                     "text": "Nous recommandons vivement d'apprendre Superalgos en l'exécutant dans une machine de puissance commune. Si vous remarquez que votre petite machine est trop lente pendant ce tutoriel, envisagez d'utiliser du matériel de meilleurs capacité, jusqu'à ce que vous appreniez le système, construisiez vos premières stratégies. et soyez prêt à vous déployer. Sinon, cela peut être frustrant.",
                     "updated": 1623960113019,
                     "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "We raden aan om Superalgos te leren en verkennen op een volwaardige machine. Als je merkt dat de hardware te traag is tijdens deze tutorial, installeer Superalgos dan op gewone hardware totdat je bekend bent met het systeem, je eerste strategieën hebt gebouwd, en klaar bent om live te gaan, om frustraties te voorkomen.",
+                    "updated": 1633890998414,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir empfehlen zu erlernen von Superalgos einen ausreichend großen Computer. Wenn Sie feststellen, dass dieses Tutorials zu langsam ist, sollten Sie die Installation auf normaler Hardware in Erwägung ziehen, bis Sie das System erlernt haben, Ihre ersten Strategien erstellt haben und bereit sind, es einzusetzen. Andernfalls kann es frustrierend sein.",
+                    "updated": 1634161690929,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы настоятельно рекомендуем изучать Superalgos на полномасштабном устройстве во время работы. Если Вы заметили, что Ваше оборудование работает слишком медленно во время этого ознакомления с системой, рассмотрите возможность установки ее на обычное оборудование, пока Вы не изучите систему, не разработаете свои первые стратегии и не будете готовы к развитию. В обратном случае, Вы можете разочароваться.",
+                    "updated": 1635581399970},
+                    {
+                    "language": "TR",
+                    "text": "Superalgos'u donanımı iyi bir makinede öğrenmenizi şiddetle tavsiye ederiz. Bu eğitim sırasında düşük donanımınızın çok yavaş olduğunu fark ederseniz, sistemi öğrenene, ilk stratejilerinizi oluşturana ve dağıtıma hazır olana kadar normal donanıma yüklemeyi düşünün. Aksi takdirde, sinir bozucu olabilir.",
+                    "updated": 1635578874162
                 }
             ]
         }

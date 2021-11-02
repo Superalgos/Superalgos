@@ -14,7 +14,9 @@
             "propertyToCheckFor": "apiQueryParameters",
             "label": "Add API Query Parameters",
             "relatedUiObject": "API Query Parameters",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +24,9 @@
             "propertyToCheckFor": "apiPathParameters",
             "label": "Add API Path Parameters",
             "relatedUiObject": "API Path Parameters",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -30,10 +34,13 @@
             "propertyToCheckFor": "apiQueryResponses",
             "label": "Add API Query Responses",
             "relatedUiObject": "API Query Responses",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

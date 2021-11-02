@@ -21,6 +21,11 @@
                 "text": "La razón por la cual la distancia al nodo principal es relativa a la distancia del principal al principal es para que pueda afectar las estructuras largas de los nodos.",
                 "updated": 1625957988594,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Grund, warum der Abstand zum übergeordneten Knoten relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten ist, ist, dass Sie lange Strukturen von Knoten beeinflussen können!",
+                "updated": 1634332747191
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Haz clic una vez en el botón Distance to Parent del nodo Network.",
                     "updated": 1625958052161,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie einmal auf die Schaltfläche Abstand zum übergeordneten Knoten des Netzwerkknotens!",
+                    "updated": 1634332754400
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
                     "updated": 1625958134928,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wahnsinn! Sehen Sie? Mit diesen Werkzeugen haben Sie die volle Kontrolle darüber, wie Sie Hierarchien visuell organisieren!",
+                    "updated": 1634332763485
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "¡Intenta cancelar la configuración Distance to Parent en el nodo Testing Trading Task! Como puedes ver, puedes establecer cualquier distancia arbitraria al nodo principal, pero el ángulo con el principal permanece fijo.",
                     "updated": 1625958242191,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Versuchen Sie, die Einstellung \"Abstand zum Übergeordneten\" auf dem Knoten Testing Trading Tasks aufzuheben! Wie Sie sehen, können Sie einen beliebigen Abstand zum übergeordneten Knoten einstellen, aber der Winkel zum übergeordneten Knoten bleibt fest.",
+                    "updated": 1634332795200
                 }
             ]
         }

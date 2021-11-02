@@ -18,13 +18,13 @@
     let responseWaiters = new Map()
 
     let WEB_SOCKETS_CLIENT
-    const WEB_SOCKET = require('ws')
+    const WEB_SOCKET = SA.nodeModules.ws
 
     if (host === undefined) {
         host = 'localhost'
     }
     if (port === undefined) {
-        port = global.env.WEB_SOCKETS_INTERFACE_PORT  
+        port = global.env.PLATFORM_WEB_SOCKETS_INTERFACE_PORT  
     }
      
     let messageCounter = 0
@@ -49,7 +49,7 @@
             WEB_SOCKETS_CLIENT.onerror = err => {
                 console.log('[ERROR] Task Server -> Event Server Client -> setuptWebSockets -> On connection error -> error = ' + err.stack)
                 console.log('[ERROR] This could mean that the port '+ port +' is taken by some other app running at your system. To resolve this issue, please pick another port number and change it at the .ENV file inside the Superalgos folder AND at the .Environment.js  file inside the TaskServer folder. After that run the app again. ')
-                console.log('[ERROR] If you are debugging, it can also mean that the Superalgos Client is not running. ')
+                console.log('[ERROR] If you are debugging, it can also mean that the Superalgos Platform Client is not running. ')
             }
             WEB_SOCKETS_CLIENT.onopen = () => {
                 try {
@@ -103,7 +103,7 @@
     }
 
     function finalize() {
-        /* Before disconnecting we will forze all eventListeners to stop listening. */
+        /* Before disconnecting we will force all eventListeners to stop listening. */
         const eventListenersArray = [...eventListeners.values()]
         for (let i = 0; i < eventListenersArray.length; i++) {
             let handler = eventListenersArray[i]

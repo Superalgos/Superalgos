@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Si todo salió bien, ¡debes haber recibido una confirmación de que se cambió la Rama de Contribuciones! ¡Increíble!",
-                "updated": 1628122632849
+                "updated": 1628122632849,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn alles gut gegangen ist, müssen Sie eine Bestätigung erhalten haben, dass der Beitragszweig geändert wurde! Großartig!",
+                "updated": 1634821709445
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "El siguiente en la línea es cambiar la rama actual, ¡pero primero debemos ejecutar algunas comprobaciones!",
-                    "updated": 1628122656402
+                    "updated": 1628122656402,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Als nächstes steht der Wechsel des aktuellen Zweigs an, aber vorher müssen wir noch einige Prüfungen durchführen!",
+                    "updated": 1634821735341
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Si has hecho fork en el repositorio de Superalgos antes del 6 de abril de 2021, sigue las instrucciones de esta página para crear la rama plugins-docs. De lo contrario, ¡sigue adelante!",
-                    "updated": 1628122733300
+                    "updated": 1628122733300,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das Superalgos-Projektarchiv vor dem 6. April 2021 geforkt haben, folgen Sie den Anweisungen auf dieser Seite, um den plugins-docs-Zweig zu erstellen. Ansonsten machen Sie weiter!",
+                    "updated": 1634821743479
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Cuando cambias de rama, la app ejecuta una serie de comandos de Git que descargan el software de la rama plugins-docs de tu fork. ¡El software actual será reemplazado en tu disco!Deberás cerrar la app después de cambiar. ¡Veamos unas cosas antes de continuar!",
-                    "updated": 1628123112818
+                    "updated": 1628123112818,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Zweig wechseln, wird die Anwendung eine Reihe von Git-Befehlen ausführen, die die Software aus dem plugins-docs-Zweig Ihres Forks herunterladen! Die aktuelle Software wird auf Ihrer Festplatte ersetzt! Aus diesem Grund müssen Sie die Anwendung nach dem Wechsel schließen. Aber lassen Sie uns noch ein paar Dinge besprechen, bevor Sie fortfahren!",
+                    "updated": 1634821752941
                 }
             ]
         }

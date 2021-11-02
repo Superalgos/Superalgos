@@ -16,6 +16,7 @@ function newFoundationsFloatingSpace() {
         drawChainLines: true,
         style: undefined,
         settings: undefined,
+        floatingObjetSaved: undefined,
         toggleDrawChainLines: toggleDrawChainLines,
         toggleDrawReferenceLines: toggleDrawReferenceLines,
         toggleMapMode: toggleMapMode,
@@ -38,7 +39,11 @@ function newFoundationsFloatingSpace() {
         physics: physics,
         getContainer: getContainer,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        saveFloatingObjectToBeMoved: saveFloatingObjectToBeMoved,
+        moveSavedFloatingObjectToMouse: moveSavedFloatingObjectToMouse,
+        moveFloatingObject: moveFloatingObject,
+        rescueFloatingObjectToMouse: rescueFloatingObjectToMouse
     }
 
     thisObject.container = newContainer()
@@ -106,7 +111,10 @@ function newFoundationsFloatingSpace() {
             toggleDrawRelationshipLines: "R",
             toggleDrawParentLines: "C",
             saveWorkspace: "S",
-            adjustAspectRatio: "A"
+            adjustAspectRatio: "A",
+            saveFloatingObjectToBeMoved: "Z",
+            moveSavedFloatingObjectToMouse: "X",
+            rescueFloatingObjectToMouse: "K"
         }
     }
 
@@ -238,7 +246,7 @@ function newFoundationsFloatingSpace() {
                 }
             }
 
-            /* Movign the Floating Space to where the mouse is. */
+            /* Moving the Floating Space to where the mouse is. */
             thisObject.container.frame.position.x = -mousePosition.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
             thisObject.container.frame.position.y = -mousePosition.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
 
@@ -247,13 +255,13 @@ function newFoundationsFloatingSpace() {
     }
 
     function isItFar(payload, dontCheckParent) {
-        /* If for any reason the paylaod is undefined we return false */
+        /* If for any reason the payload is undefined we return false */
         if (payload === undefined) { return false }
         if (thisObject.inMapMode === true) { return false }
 
         let radarFactor = 2 // How big is the margin
 
-        /* If the chain parent is not far, they we dont consither this far. */
+        /* If the chain parent is not far, they we dont consider this far. */
         if (dontCheckParent !== true) {
             if (payload.chainParent !== undefined) {
                 if (isItFar(payload.chainParent.payload, true) === false) { return false }
@@ -266,7 +274,7 @@ function newFoundationsFloatingSpace() {
             payload.node.type === 'Learning System' ||
             payload.node.type === 'Trading Engine' ||
             payload.node.type === 'Learning Engine' ||
-            payload.node.type === 'Network' ||
+            payload.node.type === 'LAN Network' ||
             payload.node.type === 'Crypto Ecosystem' ||
             payload.node.type === 'Charting Space' ||
             payload.node.type === 'Data Mine' ||
@@ -279,7 +287,7 @@ function newFoundationsFloatingSpace() {
         /* Another exception are the ones who have reference parents */
         if (payload.referenceParent !== undefined) { return false }
 
-        /* Here we will check the position of a floatingobject to see if it is outside the screen, with a margin of one screen around. */
+        /* Here we will check the position of a floating object to see if it is outside the screen, with a margin of one screen around. */
         let point = thisObject.container.frame.frameThisPoint(payload.position)
 
         if (point.x > browserCanvas.width + browserCanvas.width * radarFactor) {
@@ -564,6 +572,15 @@ function newFoundationsFloatingSpace() {
             if (configSettings.shortcuts.adjustAspectRatio !== undefined) {
                 thisObject.settings.shortcuts.adjustAspectRatio = configSettings.shortcuts.adjustAspectRatio
             }
+            if (configSettings.shortcuts.saveFloatingObjectToBeMoved !== undefined) {
+                thisObject.settings.shortcuts.saveFloatingObjectToBeMoved = configSettings.shortcuts.saveFloatingObjectToBeMoved
+            }
+            if (configSettings.shortcuts.moveSavedFloatingObjectToMouse !== undefined) {
+                thisObject.settings.shortcuts.moveSavedFloatingObjectToMouse = configSettings.shortcuts.moveSavedFloatingObjectToMouse
+            }
+            if (configSettings.shortcuts.rescueFloatingObjectToMouse !== undefined) {
+                thisObject.settings.shortcuts.rescueFloatingObjectToMouse = configSettings.shortcuts.rescueFloatingObjectToMouse
+            }
         }
     }
 
@@ -606,5 +623,95 @@ function newFoundationsFloatingSpace() {
 
         browserCanvasContext.closePath()
         browserCanvasContext.fill()
+    }
+
+    function saveFloatingObjectToBeMoved() {
+
+        thisObject.floatingObjetSaved = undefined
+
+        if(floatingObjetOnFocus.isOnFocus === true){
+            thisObject.floatingObjetSaved = floatingObjetOnFocus
+        }
+        if(thisObject.floatingObjetSaved === undefined){
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('No node on focus', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+        }else{
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('Type : [' + thisObject.floatingObjetSaved.payload.node.type + '] , Name : [' +  thisObject.floatingObjetSaved.payload.node.name + '] -> Node saved and ready to be moved', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+        }
+
+    }
+
+    function canvasPositionToFrame(Position){
+
+        Position.y = Position.y + CURRENT_TOP_MARGIN
+        let positionConv
+        positionConv = thisObject.container.frame.frameThisPoint(Position)
+        positionConv.x = (2 * Position.x) - positionConv.x
+        positionConv.y = (2 * Position.y) - positionConv.y
+        return positionConv
+    }
+
+
+    function moveSavedFloatingObjectToMouse(mousePosition) {
+
+        let positionConv
+        positionConv = canvasPositionToFrame(mousePosition)
+        moveFloatingObject(positionConv)
+
+    }
+
+    function moveFloatingObject(position){
+
+        if(thisObject.floatingObjetSaved === undefined){
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('No node saved, unable to move.', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+        }else{
+
+            let newPosition = {
+                x: 0,
+                y: 0
+            }
+            let newVector = {
+                x: 0,
+                y: 0
+            }
+            newPosition.x = position.x
+            newPosition.y = position.y
+
+            newVector.x = newPosition.x - thisObject.floatingObjetSaved.payload.position.x
+            newVector.y = newPosition.y - thisObject.floatingObjetSaved.payload.position.y
+
+            thisObject.floatingObjetSaved.payload.position = {}
+            thisObject.floatingObjetSaved.payload.position.x = position.x
+            thisObject.floatingObjetSaved.payload.position.y = position.y
+
+            thisObject.floatingObjetSaved.container.displace(newVector)
+            UI.projects.foundations.spaces.cockpitSpace.setStatus('Type : [' + UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.type + '] , Name : [' + UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.node.name + '] -> Snapped to new position', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+        }
+    }
+
+    function rescueFloatingObjectToMouse(mousePosition){
+
+        let positionConv
+        positionConv = canvasPositionToFrame(mousePosition)
+        rescueFloatingObject(positionConv)
+
+    }
+
+    function rescueFloatingObject(position){
+
+        UI.projects.foundations.spaces.cockpitSpace.setStatus('Attempting to rescue lost nodes to your mouse', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+
+        for (let i = 0; i < UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
+            let map = new Map()
+            map = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes[i])
+            let iterator1 = map.values();
+            for (let k = 0; k < map.size; k++) {
+                let floatingObject1 = iterator1.next().value.payload.floatingObject
+                if(!floatingObject1.isVisibleFunction(floatingObject1.container.frame.position)){
+                    thisObject.floatingObjetSaved = floatingObject1
+                    moveFloatingObject(position)
+                }
+            }
+        }
+        thisObject.floatingObjetSaved = undefined
     }
 }

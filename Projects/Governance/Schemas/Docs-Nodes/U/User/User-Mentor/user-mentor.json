@@ -1,8 +1,8 @@
 {
     "type": "User Mentor",
     "definition": {
-        "text": "Spawn User Mentor nodes to reference your mentors!",
-        "updated": 1624727395307
+        "text": "A User Mentor node must establish a reference with the User Profile of your mentor. If you have more than one mentor, add more nodes! This is how you establish who your mentors are.",
+        "updated": 1630232933516
     },
     "paragraphs": [
         {
@@ -11,12 +11,9 @@
             "updated": 1624727421712
         },
         {
-            "style": "Text",
-            "text": "The Superalgos Community is always willing to help. You will find your mentors in the various Community Groups."
-        },
-        {
-            "style": "Success",
-            "text": "The Mentorship Program is the best way to thank the people that help you get to the power user level. The Superalgos Project advances thanks to Contributors, thus helping new users go through the learning curve up to the point in which they can contribute to the project is highly valuable for the Community as a whole!"
+            "style": "Warning",
+            "text": "Declaring at least one User Mentor is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
+            "updated": 1630232958240
         },
         {
             "style": "Block",

@@ -1,0 +1,48 @@
+{
+    "type": "User Delegate",
+    "definition": {
+        "text": "Use this node to establish a reference with a colleague's User Profile. With this reference, you are passing on Token Power directly into your colleague's profile, effectively delegating your Token Power. Your colleague may use the power in any of the Governance Programs.",
+        "updated": 1630423548110
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630423559633
+        },
+        {
+            "style": "Text",
+            "text": "The main use case for delegating Token Power is when mentors wish to help their mentees make their first few Contribution Claims. "
+        },
+        {
+            "style": "Text",
+            "text": "Contributors need to drive Claim Power to their claims for them to be effective. However, when they are new to Superalgos, they may not have enough tokens to back their claims.",
+            "updated": 1630423586473
+        },
+        {
+            "style": "Text",
+            "text": "Mentors are happy to help their mentees get their first few tokens, and are rewarded for their work and generosity through the Mentorship Program."
+        },
+        {
+            "style": "Note",
+            "text": "This form of Token Power delegation is inspired in the concept of Liquid Democracy, also implemented in the Voting Program."
+        },
+        {
+            "style": "Text",
+            "text": "The same Token Power may be delegated multiple times with the caveat in the below warning box. The delegation may be withdrawn at any point as well, simply by removing the User Delegate node or its reference."
+        },
+        {
+            "style": "Warning",
+            "text": "Only 10% of the Delegate Power you drive into a User Delegate node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes.",
+            "updated": 1630423731772
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

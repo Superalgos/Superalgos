@@ -3,7 +3,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
         calculate: calculate,
         installMissingVotes: installMissingVotes
     }
-    const MAX_GENERATIONS = 10
+    const MAX_GENERATIONS = 3
 
     return thisObject
 
@@ -223,6 +223,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type === 'Asset' ||
                     node.type === 'Feature' ||
                     node.type === 'Pool' ||
+                    node.type === 'Position Class' ||
+                    node.type === 'Asset Class' ||
+                    node.type === 'Feature Class' ||
+                    node.type === 'Pool Class' ||
                     node.type === 'Position Contribution Claim' ||
                     node.type === 'Asset Contribution Claim' ||
                     node.type === 'Feature Contribution Claim'
@@ -242,7 +246,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 votes / 10,
                                 undefined,
                                 generation + 1,
-                                userProfile
+                                node.payload.referenceParent
                             )
                         }
                         return
@@ -273,10 +277,30 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.type !== 'Weight Votes Switch'
                 ) {
                     currentProgramNode.payload.votingProgram.usedPower = currentProgramNode.payload.votingProgram.usedPower + votes
+                    /*
+                    Here we will validate that users can not vote for their own claims. 
+                    */
+                    let votedUserProfile = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyHead(node.payload.referenceParent)
+
+                    if (votedUserProfile === undefined || userProfile === undefined) { return }
+                    if (votedUserProfile.id === userProfile.id) {
+                        node.payload.uiObject.setErrorMessage('Voting your own claims is not allowed.')
+                        return
+                    }
+
+                    /*
+                    Setup the sign of the votes.
+                    */
+                    let sign = 1
+                    let negative = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'negative')
+                    if (negative === true) {
+                        sign = - 1
+                    }
+
                     distributeProgramPower(
                         currentProgramNode,
                         node.payload.referenceParent,
-                        votes,
+                        votes * sign,
                         undefined,
                         generation,
                         userProfile
@@ -306,7 +330,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -321,7 +345,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                         if (percentage !== undefined && isNaN(percentage) !== true) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
@@ -334,7 +358,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
                         }
                     }
                     if (totalPercentage > 100) {
-                        node.payload.uiObject.setErrorMessage('Voting Power Switching Error. Total Percentage of children nodes is grater that 100.')
+                        node.payload.uiObject.setErrorMessage(
+                            'Voting Power Switching Error. Total Percentage of children nodes is grater that 100.',
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
                         return
                     }
                     let defaultPercentage = 0
@@ -352,7 +379,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
@@ -373,7 +400,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                         if (percentage === undefined || isNaN(percentage) === true) {
                                             percentage = defaultPercentage
                                         }
@@ -397,72 +424,75 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
         function drawVotes(node, votes, percentage, userProfile) {
 
-            if (node.payload !== undefined) {
-
-                if (node.type === 'User Profile') {
-                    return
-                }
-                if (node.type === 'Voting Program') {
-                    drawProgram(node, userProfile)
-
-                    if (percentage !== undefined) {
-                        node.payload.uiObject.setPercentage(percentage.toFixed(2))
-                    }
-                    return
-                }
-                if (node.type === 'User Profile Vote') {
-                    drawUserNode(node, votes, percentage)
-                    return
-                }
-                if (
-                    node.type === 'Position' ||
-                    node.type === 'Position Class' ||
-                    node.type === 'Pool' ||
-                    node.type === 'Tokens Switch' ||
-                    node.type === 'Asset' ||
-                    node.type === 'Asset Class' ||
-                    node.type === 'Feature' ||
-                    node.type === 'Feature Class' ||
-                    node.type === 'Position Contribution Claim' ||
-                    node.type === 'Asset Contribution Claim' ||
-                    node.type === 'Feature Contribution Claim'
-                ) {
-                    node.payload.uiObject.valueAngleOffset = 0
-                    node.payload.uiObject.valueAtAngle = false
-                    node.payload.uiObject.percentageAngleOffset = 0
-                    node.payload.uiObject.percentageAtAngle = false
-                } else {
-                    node.payload.uiObject.valueAngleOffset = 180
-                    node.payload.uiObject.valueAtAngle = true
-                    node.payload.uiObject.percentageAngleOffset = 180
-                    node.payload.uiObject.percentageAtAngle = true
-                }
-                let voteType = 'Voting Power'
-
-                if (
-                    node.type.indexOf('Weight') >= 0 ||
-                    node.type.indexOf('Pool') >= 0 ||
-                    node.type.indexOf('Feature') >= 0 ||
-                    node.type.indexOf('Asset') >= 0
-                ) {
-                    voteType = 'Weight Power'
-                }
-
-                if (node.type.indexOf('Claim') >= 0) {
-                    voteType = 'Claim Support Power'
-                }
-
-                const votesText = parseFloat(votes.toFixed(0)).toLocaleString('en') + ' ' + voteType
-
-                node.payload.uiObject.valueAngleOffset = 0
-                node.payload.uiObject.valueAtAngle = true
-
-                node.payload.uiObject.setValue(votesText)
+            if (votes === undefined) { return }
+            if (isNaN(votes) === true) { return }
+            if (node.payload === undefined) { return }
+            if (node.type === 'User Profile') {
+                return
+            }
+            if (node.type === 'Voting Program') {
+                drawProgram(node, userProfile)
 
                 if (percentage !== undefined) {
-                    node.payload.uiObject.setPercentage(percentage.toFixed(2))
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                    )
                 }
+                return
             }
+            if (node.type === 'User Profile Vote') {
+                drawUserNode(node, votes, percentage)
+                return
+            }
+            if (
+                node.type === 'Position' ||
+                node.type === 'Position Class' ||
+                node.type === 'Pool' ||
+                node.type === 'Pool Class' ||
+                node.type === 'Tokens Switch' ||
+                node.type === 'Asset' ||
+                node.type === 'Asset Class' ||
+                node.type === 'Feature' ||
+                node.type === 'Feature Class' ||
+                node.type === 'Position Contribution Claim' ||
+                node.type === 'Asset Contribution Claim' ||
+                node.type === 'Feature Contribution Claim'
+            ) {
+                return
+            }
+
+            node.payload.uiObject.valueAngleOffset = 180
+            node.payload.uiObject.valueAtAngle = true
+            node.payload.uiObject.percentageAngleOffset = 180
+            node.payload.uiObject.percentageAtAngle = true
+
+            let voteType = 'Voting Power'
+
+            if (
+                node.type.indexOf('Weight') >= 0 ||
+                node.type.indexOf('Pool') >= 0 ||
+                node.type.indexOf('Feature') >= 0 ||
+                node.type.indexOf('Asset') >= 0
+            ) {
+                voteType = 'Weight Power'
+            }
+
+            if (node.type.indexOf('Claim') >= 0) {
+                voteType = 'Claim Support Power'
+            }
+
+            const votesText = parseFloat(votes.toFixed(0)).toLocaleString('en') + ' ' + voteType
+
+            node.payload.uiObject.setValue(votesText, UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
+
+            if (percentage !== undefined) {
+                node.payload.uiObject.percentageAngleOffset = 180
+                node.payload.uiObject.percentageAtAngle = true
+                node.payload.uiObject.setPercentage(percentage.toFixed(2),
+                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                )
+            }
+
 
             function drawUserNode(node, votes, percentage) {
                 if (node.payload !== undefined) {
@@ -472,18 +502,20 @@ function newGovernanceFunctionLibraryVotingProgram() {
                     node.payload.uiObject.valueAngleOffset = 180
                     node.payload.uiObject.valueAtAngle = true
 
-                    node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power')
+                    node.payload.uiObject.setValue(outgoingPowerText + ' Voting Power', UI.projects.governance.globals.designer.SET_VALUE_COUNTER)
 
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
 
-                    node.payload.uiObject.setPercentage(percentage)
+                    node.payload.uiObject.setPercentage(percentage,
+                        UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                    )
 
                     if (node.payload.referenceParent !== undefined) {
                         node.payload.uiObject.statusAngleOffset = 0
                         node.payload.uiObject.statusAtAngle = true
 
-                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power')
+                        node.payload.uiObject.setStatus(outgoingPowerText + ' ' + ' Outgoing Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
                     }
                 }
             }
@@ -502,7 +534,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                 node.payload.uiObject.statusAngleOffset = 0
                 node.payload.uiObject.statusAtAngle = false
 
-                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming Voting Power' + ' + ' + reputationPowerText + ' Reputation Power')
+                node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming Voting Power' + ' + ' + reputationPowerText + ' Reputation Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
         }
     }
@@ -510,7 +542,10 @@ function newGovernanceFunctionLibraryVotingProgram() {
     function installMissingVotes(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage('To install votes you need a Reference Parent')
+            node.payload.uiObject.setErrorMessage(
+                'To install votes you need a Reference Parent',
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
             return
         }
         scanNodeBranch(node, node.payload.referenceParent)
@@ -540,12 +575,12 @@ function newGovernanceFunctionLibraryVotingProgram() {
                             let destinationNodeChild = destinationNode[property.name]
 
                             let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
+                            let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                             if (originNodeChild === undefined) {
-                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                             scanNodeBranch(originNodeChild, destinationNodeChild)
                         }
                             break
@@ -557,12 +592,12 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                     let destinationNodeChild = propertyArray[m]
 
                                     let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.foundations.utilities.children.findChildReferencingThisNode(originNode, destinationNodeChild)
+                                    let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                                     if (originNodeChild === undefined) {
-                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                        originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                                     scanNodeBranch(originNodeChild, destinationNodeChild)
                                 }
                             }

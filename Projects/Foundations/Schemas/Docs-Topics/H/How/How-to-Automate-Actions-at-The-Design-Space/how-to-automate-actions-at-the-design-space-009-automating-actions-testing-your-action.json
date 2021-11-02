@@ -21,6 +21,15 @@
             "style": "Success",
             "text": "If you change the code of your function, reload the UI and you can debug it again with the new changes.",
             "updated": 1614939195464
+        },
+        {
+            "style": "Text",
+            "text": "You can find more information about setting up and debugging in this topic:",
+            "updated": 1631371694241
+        },
+        {
+            "style": "List",
+            "text": "Debugging - Download and Install Visual Studio Code"
         }
     ]
 }

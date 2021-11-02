@@ -4,17 +4,24 @@
     "type": "Data Mining - Indicator Bots",
     "definition": {
         "text": "Indicator bots enable the processing of data by consuming datasets others have produced, performing calculations, and outputting a new value-added data product that others may consume.",
-        "updated": 1611408124910
+        "updated": 1611408124910,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Indicator Bots ermöglichen die Verarbeitung von Daten, indem sie von anderen erstellte Datensätze nutzen, Berechnungen durchführen und ein neues Datenprodukt mit Mehrwert ausgeben, das von anderen genutzt werden kann.",
+                "updated": 1635246859259
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Indicator Bot->Definition",
+            "text": "Data-Mining->Node->Indicator Bot->Definition",
             "updated": 1611408242603
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Indicator Bot->Content",
+            "text": "Data-Mining->Node->Indicator Bot->Content",
             "updated": 1611408247595
         },
         {
@@ -23,7 +30,7 @@
         },
         {
             "style": "Hierarchy",
-            "text": "Foundations->Indicator Bot->2",
+            "text": "Data-Mining->Indicator Bot->2",
             "updated": 1611408262027
         }
     ]

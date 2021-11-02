@@ -4,69 +4,167 @@
     "type": "Data Mining - Indicator Frameworks",
     "definition": {
         "text": "Indicator Bots are ready to run custom code, or run code provided by a framework in order to do their job.",
-        "updated": 1621705750736
+        "updated": 1621705750736,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Indikator-Bots sind in der Lage, benutzerdefinierten Code auszuführen oder von einem Framework bereitgestellten Code auszuführen, um ihre Aufgabe zu erfüllen.",
+                "updated": 1634679374909
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Types of Indicator Implementations",
-            "updated": 1622211317016
+            "updated": 1622211317016,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Arten von Indikator-Implementierungen:",
+                    "updated": 1634679396279
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Custom Code: This means the Indicator Bot will use custom made code to handle all data transformations.",
-            "updated": 1621902418790
+            "updated": 1621902418790,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Custom Code: Dies bedeutet, dass der Indikator-Bot benutzerdefinierten Code verwendet, um alle Datentransformationen durchzuführen.",
+                    "updated": 1634679427408
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When running custom code, users have full control of the process and there is no limit on what can be done in terms of data manipulation. The trade off is that the user must be a developer."
+            "text": "When running custom code, users have full control of the process and there is no limit on what can be done in terms of data manipulation. The trade off is that the user must be a developer.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei der Ausführung von benutzerdefiniertem Code haben die Benutzer die volle Kontrolle über den Prozess, und es gibt keine Einschränkungen bei der Daten-Verarbeitung/manipulation. Der Nachteil ist, dass der Benutzer ein developer (Entwickler) sein muss.",
+                    "updated": 1634679493287
+                }
+            ]
         },
         {
             "style": "List",
             "text": "UI-Defined: This means that the Indictor Bot will base its behaviour on the definitions at the UI including available frameworks, as well as the code snippets provided by the user.",
-            "updated": 1622211583849
+            "updated": 1622211583849,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "UI-Defined: Dies bedeutet, dass der Indictor Bot sein Verhalten auf die Definitionen auf der UI (Benutzeroberfläche), einschließlich der verfügbaren Frameworks, sowie auf die vom Benutzer bereitgestellten Codeschnipsel stützt.",
+                    "updated": 1634679552250
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "By running one of the available frameworks, an indicator can do powerful stuff while only leaving the task of writing a very tiny piece of code to do the data transformations. In this case the flexibility is reduced comparing to custom code, but ease of development is greatly increased.",
-            "updated": 1622211470919
+            "updated": 1622211470919,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Durch den Einsatz eines der verfügbaren Frameworks kann ein Indikator leistungsstarke Funktionen ausführen, wobei nur ein winziger Teil des Codes für die Datenumwandlung geschrieben werden muss. In diesem Fall ist die Flexibilität im Vergleich zu benutzerdefiniertem Code eingeschränkt, aber die Entwicklungsfreundlichkeit wird erheblich gesteigert.",
+                    "updated": 1634679804230
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "You don't need to be a developer to write these code snippets, most of the time they are very simple javascript code."
+            "text": "You don't need to be a developer to write these code snippets, most of the time they are very simple javascript code.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie müssen kein Entwickler/Programmierer sein, um diese Codeschnipsel zu schreiben, meistens handelt es sich um sehr einfachen Javascript-Code.",
+                    "updated": 1634680675568
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Custom Code Indicators",
-            "updated": 1621703361583
+            "updated": 1621703361583,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutzerdefinierte Code-Indicators:",
+                    "updated": 1634680705374
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Examples"
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1634680725432
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These two indicators are currently implemented with custom code."
+            "text": "These two indicators are currently implemented with custom code.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese beiden Indikatoren werden derzeit mit benutzerdefiniertem Code implementiert:",
+                    "updated": 1634681185936
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Candles-Volumes: Located at the Candles Data Mine",
-            "updated": 1622195776057
+            "updated": 1622195776057,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Candles-Volumes: Zu finden in der Candles Data Mine",
+                    "updated": 1634681341936
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bollinger-Bands: Located at the Bollinger Data Mine",
-            "updated": 1622195696142
+            "updated": 1622195696142,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bollinger-Bands: Zu finden in der Bollinger Data Mine",
+                    "updated": 1634681442242
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How to Implement Custom Code",
-            "updated": 1622212152208
+            "updated": 1622212152208,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie man custom (benutzerdefinierten) Code implementiert:",
+                    "updated": 1634681585244
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The way to implement a Custom Code Indicator is to set up the config for the Bot's Process Definition using the botModule property. This tells the bot that there will be custom code used for this Indicator. This is an example of what it should look like:",
-            "updated": 1622212134508
+            "updated": 1622212134508,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um einen benutzerdefinierten Code-Indikator zu implementieren, muss die Konfiguration für die Prozessdefinition des Bots mithilfe der Eigenschaft botModule eingerichtet werden. Dadurch wird dem Bot mitgeteilt, dass für diesen Indikator ein benutzerdefinierter Code verwendet wird. Dies ist ein Beispiel dafür, wie es aussehen sollte:",
+                    "updated": 1634681692004
+                }
+            ]
         },
         {
             "style": "Json",
@@ -76,81 +174,186 @@
         {
             "style": "Text",
             "text": "Then you will need to locate the Project Schema File for the project your bot belongs to. Inside of that file you will need to add some definitions in order for the system to be able to load your new module at runtime and later execute it once users run your bot implemented in this way.",
-            "updated": 1622195849390
+            "updated": 1622195849390,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dann müssen Sie die Project Schema File (Datei) für das Projekt finden, zu dem Ihr Bot gehört. In dieser Datei müssen Sie einige Definitionen hinzufügen, damit das System in der Lage ist, Ihr neues Modul zur Laufzeit zu laden und später auszuführen, wenn Benutzer Ihren auf diese Weise implementierten Bot ausführen.",
+                    "updated": 1634681801694
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Most likely your new Bot will be added to the Superalgos project, so you should find the Project Schema File inside the Projects folder.",
-            "updated": 1622196885148
+            "updated": 1622196885148,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Höchstwahrscheinlich wird Ihr neuer Bot zum Superalgos-Projekt hinzugefügt, so dass Sie die Project Schema File (Datei) im Ordner Projects finden sollten.",
+                    "updated": 1634681854110
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The definition you will need to add in the Schema file should look something like this:",
-            "updated": 1622212304362
+            "updated": 1622212304362,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Definition, die Sie in der Schemadatei hinzufügen müssen, sollte etwa so aussehen:",
+                    "updated": 1634681979851
+                }
+            ]
         },
         {
             "style": "Json",
-            "text": "\"botModules\": [\n                {\n                    \"name\": \"Candles Volumes Multi Time Frame Market\",\n                    \"propertyName\": \"candlesVolumesMultiTimeFrameMarket\",\n                    \"functionName\": \"newFoundationsBotModulesCandlesVolumesMultiTimeFrameMarket\",\n                    \"fileName\": \"CandlesVolumesMultiTimeFrameMarket.js\",\n                    \"folderName\": \"Indicator-Bot/Candles-Volumes\"\n                },",
+            "text": "\"botModules\": [\n                {\n                    \"name\": \"Candles Volumes Multi Time Frame Market\",\n                    \"propertyName\": \"candlesVolumesMultiTimeFrameMarket\",\n                    \"functionName\": \"newDataMiningBotModulesCandlesVolumesMultiTimeFrameMarket\",\n                    \"fileName\": \"CandlesVolumesMultiTimeFrameMarket.js\",\n                    \"folderName\": \"Indicator-Bot/Candles-Volumes\"\n                },",
             "updated": 1621703869144
         },
         {
             "style": "Text",
             "text": "Finally, you will need to add a new Javascript module with your code to the codebase using the same file name you defined in the Schema file.",
-            "updated": 1622212386180
+            "updated": 1622212386180,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schließlich müssen Sie ein neues Javascript-Modul mit Ihrem Code zur Codebasis hinzufügen und dabei denselben Dateinamen verwenden, den Sie in der Schema-Datei definiert haben.",
+                    "updated": 1634682668873
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "UI-Defined Indicators",
-            "updated": 1621704044375
+            "updated": 1621704044375,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "UI-definierte Indikatoren:",
+                    "updated": 1634682711171
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In this case the list is long, as almost all other indicators in existence were build using a framework and defined at the UI with the minimun amount of code written by the users who created them."
+            "text": "In this case the list is long, as almost all other indicators in existence were build using a framework and defined at the UI with the minimun amount of code written by the users who created them.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In diesem Fall ist die Liste lang, da fast alle anderen existierenden Indikatoren mit Hilfe eines Frameworks erstellt und auf der UI (Benutzeroberfläche) mit einem Minimum an Code von den Benutzern, die sie erstellt haben, definiert wurden.",
+                    "updated": 1634682778514
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Indicator Frameworks",
-            "updated": 1621702926075
+            "updated": 1621702926075,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indikator Frameworks:",
+                    "updated": 1634682793982
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is the complete list of available Indicator Frameworks",
-            "updated": 1621702917486
+            "updated": 1621702917486,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist die vollständige Liste der verfügbaren Indicator Frameworks:",
+                    "updated": 1634682819570
+                }
+            ]
         },
         {
             "style": "List",
             "text": "From-One-Min-To-Multi-Time-Frame-Daily:  It is used to convert one Dataset from type One-Min-Daily to Multi-Time-Frame-Daily.",
-            "updated": 1621703039301
+            "updated": 1621703039301,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "From-One-Min-To-Multi-Time-Frame-Daily: Es wird verwendet, um ein Dataset (Datensatz) vom Typ One-Min-Daily zu Multi-Time-Frame-Daily zu konvertieren.",
+                    "updated": 1634683018997
+                }
+            ]
         },
         {
             "style": "List",
             "text": "From-One-Min-To-Multi-Time-Frame-Market: It is used to convert one Dataset from type One-Min-Daily to Multi-Time-Frame-Market.",
-            "updated": 1621703053342
+            "updated": 1621703053342,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "From-One-Min-To-Multi-Time-Frame-Market: Es wird verwendet, um ein Dataset (Datensatz) vom Typ One-Min-Daily zu Multi-Time-Frame-Market zu konvertieren.",
+                    "updated": 1634683080955
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Multi-Time-Frame-Daily: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Daily and produces as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
-            "updated": 1622197436293
+            "updated": 1622197436293,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Multi-Time-Frame-Daily: Sie wird verwendet, um Daten zu verarbeiten, die derzeit in einem Dataset (Datensatz) des Typs Multi-Time-Frame-Daily vorhanden sind, und erzeugt als Ausgabe ein Dataset (Datensatz) desselben Typs. Wie die Daten umgewandelt werden, bleibt dem Benutzer überlassen, da er auf der Benutzeroberfläche Code-snippets (Code-Schnippsel) für die Datenumwandlung an der Node Data Building Procedure bereitstellen kann.",
+                    "updated": 1634683354237
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Multi-Time-Frame-Market: It is used to process data currently available at a Dataset of type Multi-Time-Frame-Market and produces as output a Dataset of the same type. How the data is going to be transformed is up to the user, since at the UI users can provide code snippets to handle the data transformation at the Data Building Procedure node.",
-            "updated": 1622197449190
+            "updated": 1622197449190,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Multi-Time-Frame-Market: Es wird verwendet, um Daten zu verarbeiten, die derzeit in einem Dataset (Datensatz) des Typs Multi-Time-Frame-Market vorhanden sind, und erzeugt als Ausgabe ein Dataset (Datensatz) desselben Typs. Wie die Daten umgewandelt werden, bleibt dem Benutzer überlassen, da er auf der UI (Benutzeroberfläche) Code-snippets (Code-Schnipsel) für die Datenumwandlung an der Node Data Building Procedure bereitstellen kann.",
+                    "updated": 1634683338887
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How to Use an Indicator Framework",
-            "updated": 1622212547671
+            "updated": 1622212547671,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie man ein Indicator Framework benutzt:",
+                    "updated": 1634683417986
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In order to use a framework at your Indicator Bot, all you need to do is specify the framework name at the Process Definition under the framework property.",
-            "updated": 1622212711775
+            "updated": 1622212711775,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um ein Framework in Ihrem Indicator Bot zu verwenden, müssen Sie lediglich den Namen des Frameworks in der Process Definition (Prozessdefinition) unter der Eigenschaft Framework angeben.",
+                    "updated": 1634683522971
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In this example, the process will use the From-One-Min-To-Multi-Time-Frame-Daily framework.",
-            "updated": 1622197494708
+            "updated": 1622197494708,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In diesem Beispiel wird der Prozess das \"From-One-Min-To-Multi-Time-Frame-Daily\" Framework verwenden:",
+                    "updated": 1634683598320
+                }
+            ]
         },
         {
             "style": "Json",
@@ -160,7 +363,14 @@
         {
             "style": "Text",
             "text": "Here is an example using the Multi-Time-Frame-Market framework.",
-            "updated": 1622212639925
+            "updated": 1622212639925,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein Beispiel welches das Multi-Time-Frame-Market Framework verwendet:",
+                    "updated": 1634683708431
+                }
+            ]
         },
         {
             "style": "Json",

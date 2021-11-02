@@ -12,7 +12,8 @@
         },
         {
             "style": "Text",
-            "text": "You may direct Weight Votes to an Asset Class node when you intend to support the whole class, including all assets within."
+            "text": "You may direct Weight Votes to an Asset Class node when you intend to drive Weight to the whole class, including all assets within.",
+            "updated": 1630434955110
         },
         {
             "style": "Text",

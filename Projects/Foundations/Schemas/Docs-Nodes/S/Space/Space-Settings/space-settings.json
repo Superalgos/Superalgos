@@ -16,26 +16,50 @@
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609863924784
+            "updated": 1631554214199
         },
         {
             "style": "List",
-            "text": "node refers to every node in the design space."
+            "text": "\"physics\" determines whether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes.",
+            "updated": 1631588883144
         },
         {
             "style": "List",
-            "text": "radiusPercentage is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius.",
-            "updated": 1609863960583
+            "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false)."
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Properties"
         },
         {
             "style": "List",
-            "text": "massPercentage is the refernce mass of nodes that affect the attraction and repulsion of the environment's pysics whe the physics setting is set to true.",
-            "updated": 1609863964761
+            "text": "\"node\" here refers to every node in the design space. This collection of properties adjusts the settings of all nodes in the design space.",
+            "updated": 1631588871268
         },
         {
             "style": "List",
-            "text": "menuItem refers to the items on the right-hand side of nodes' menus.",
-            "updated": 1609863969621
+            "text": "distancePercentage adjusts the baseline distance between nodes.",
+            "updated": 1631588124341
+        },
+        {
+            "style": "List",
+            "text": "radiusPercentage is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius. A higher value will lead to a larger node menu.",
+            "updated": 1631588202567
+        },
+        {
+            "style": "List",
+            "text": "massPercentage is the reference mass of nodes that affects the attraction and repulsion of the environment's physics when the physics setting is set to true.",
+            "updated": 1631588798797
+        },
+        {
+            "style": "List",
+            "text": "animationSteps adjusts the amount of steps the animation takes to open a node menu upon hovering over it. A higher value leads to smoother transtion.",
+            "updated": 1631588728860
+        },
+        {
+            "style": "List",
+            "text": "menuItem refers to the items on the right-hand side of a node's menus and has the following three properties.",
+            "updated": 1631588761551
         },
         {
             "style": "List",
@@ -50,15 +74,7 @@
         {
             "style": "List",
             "text": "radiusPercentage is the reference radious of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread appart while smaller numbers makes items lie closer to each other.",
-            "updated": 1609863985113
-        },
-        {
-            "style": "List",
-            "text": "physics determines wether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes."
-        },
-        {
-            "style": "List",
-            "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false)."
+            "updated": 1631554041849
         },
         {
             "style": "Subtitle",

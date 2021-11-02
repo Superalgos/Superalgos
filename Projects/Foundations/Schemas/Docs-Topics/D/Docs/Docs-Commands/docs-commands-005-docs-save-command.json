@@ -4,13 +4,27 @@
     "type": "Docs Save Command",
     "definition": {
         "text": "Use this command to save the changes you've made while adding, deleting or editing paragraphs at the Docs; or adding or deleting pages.",
-        "updated": 1610976014577
+        "updated": 1610976014577,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Befehl, um die Änderungen zu speichern, die Sie beim Hinzufügen, Löschen oder Bearbeiten von Absätzen in den Docs oder beim Hinzufügen oder Löschen von Seiten vorgenommen haben.",
+                "updated": 1633894161377
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "Pages you create or modify remain solely in memory in the context of the browser session until you run this command. Only once you run this command are changes saved to disk. If you refresh the page or close the browser before running the Docs Save Command, changes are lost. Changes are applied to the Docs Search Engine Index only after you run the Docs Reindex Command.",
-            "updated": 1613765203137
+            "updated": 1613765203137,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wichtig: Die von Ihnen erstellten oder geänderten Seiten bleiben im Kontext der Browsersitzung nur im Speicher, bis Sie diesen Befehl ausführen. Nur wenn Sie diesen Befehl ausführen, werden die Änderungen auf der Festplatte gespeichert. Wenn Sie die Seite aktualisieren oder den Browser schließen, bevor Sie den Befehl Docs Save Command ausführen, gehen die Änderungen verloren. Die Änderungen werden erst dann in den Docs Search Engine Index übernommen, wenn Sie den Docs Reindex Command ausgeführt haben.",
+                    "updated": 1633894311891
+                }
+            ]
         },
         {
             "style": "Title",

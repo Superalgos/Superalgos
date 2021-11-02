@@ -1,0 +1,18 @@
+{
+    "type": "Liquid Democracy",
+    "definition": {
+        "text": "The form of Liquid Democracy in Superalgos utilizes elements of direct and representative democracy. Users have the right to vote directly, like in a direct democracy, but also have the option to delegate their Voting Power for someone else to vote on their behalf, like in a representative democracy. ",
+        "updated": 1630396811020
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630396824875
+        },
+        {
+            "style": "Text",
+            "text": "The form of Liquid Democracy in Superalgos utilizes elements of direct and representative democracy. Users have the right to vote directly, like in a direct democracy, but also have the option to delegate their Voting Power for someone else to vote on their behalf, like in a representative democracy."
+        }
+    ]
+}

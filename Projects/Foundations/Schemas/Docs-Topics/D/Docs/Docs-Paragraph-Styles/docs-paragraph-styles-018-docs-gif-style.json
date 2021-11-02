@@ -3,12 +3,26 @@
     "pageNumber": 18,
     "type": "Docs Gif Style",
     "definition": {
-        "text": "It is possible to embed gifs at a Docs page. "
+        "text": "It is possible to embed gifs at a Docs page. ",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es ist möglich, Gif`s in eine Docs-Seite einzubetten.",
+                "updated": 1633957460039
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The gif to be embedded need to be present at the project's GIFs/Docs folder. The syntax to do it is the following:"
+            "text": "The gif to be embedded need to be present at the project's GIFs/Docs folder. The syntax to do it is the following:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das einzubettende GIF muss sich im GIFs/Docs-Ordner des Projekts befinden. Die Syntax dafür ist die folgende:",
+                    "updated": 1633957492773
+                }
+            ]
         },
         {
             "style": "Json",
@@ -16,7 +30,14 @@
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633957502999
+                }
+            ]
         },
         {
             "style": "Json",
@@ -24,7 +45,14 @@
         },
         {
             "style": "Text",
-            "text": "Looks like this:"
+            "text": "Looks like this:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das sieht so aus:",
+                    "updated": 1633957520032
+                }
+            ]
         },
         {
             "style": "Gif",

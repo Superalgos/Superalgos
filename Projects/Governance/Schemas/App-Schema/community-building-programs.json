@@ -10,43 +10,47 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "referralProgram",
             "label": "Add Referral Program",
-            "relatedUiObject": "Referral Program"
+            "relatedUiObject": "Referral Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "supportProgram",
             "label": "Add Support Program",
-            "relatedUiObject": "Support Program"
+            "relatedUiObject": "Support Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "mentorshipProgram",
             "label": "Add Mentorship Program",
-            "relatedUiObject": "Mentorship Program"
+            "relatedUiObject": "Mentorship Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "influencerProgram",
             "label": "Add Influencer Program",
-            "relatedUiObject": "Influencer Program"
+            "relatedUiObject": "Influencer Program",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

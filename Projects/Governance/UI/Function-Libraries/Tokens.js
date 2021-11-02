@@ -32,7 +32,7 @@ function newGovernanceFunctionLibraryTokens() {
         /* Check if this Pools has already been processed by it's reference child.*/
         if (tokens !== undefined && tokens > 0) { return }
 
-        let confiTokens = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pools.payload, 'tokens')
+        let confiTokens = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pools.payload, 'tokens')
         if (confiTokens !== undefined) {
             tokens = confiTokens
             distributeTokens(pools, tokens)
@@ -173,7 +173,7 @@ function newGovernanceFunctionLibraryTokens() {
             node.payload.uiObject.statusAngleOffset = 0
             node.payload.uiObject.statusAtAngle = true
 
-            node.payload.uiObject.setStatus(status)
+            node.payload.uiObject.setStatus(status, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
         } else {
             status = 'Reward: '  + tokens.toLocaleString('en')
                 + ' ' + 'SA' + ' ≃ ' +  UI.projects.governance.utilities.conversions.estimateSATokensInBTC(tokens | 0) + '  BTC ' 
@@ -181,7 +181,7 @@ function newGovernanceFunctionLibraryTokens() {
             node.payload.uiObject.statusAngleOffset = 0
             node.payload.uiObject.statusAtAngle = false
 
-            node.payload.uiObject.setStatus(status)
+            node.payload.uiObject.setStatus(status, UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
         }
     }
 }

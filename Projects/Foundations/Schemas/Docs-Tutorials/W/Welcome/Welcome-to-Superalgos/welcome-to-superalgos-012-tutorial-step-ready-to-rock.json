@@ -26,6 +26,28 @@
                 "text": "El nodo de Data Tasks controla todas las data mining tasks definidas para este Network Node.",
                 "updated": 1618433799425,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Het Data Tasks knooppunt beheerd alle data mining taken die in dit \"Network Node\" knooppunt zijn gedefinieerd.",
+                "updated": 1633887556106,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Knoten Data Tasks steuert alle für diesen Netzwerkknoten definierten Data-Mining-Aufgaben.",
+                "updated": 1634162078401,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для Network Node.",
+                "updated": 1635611514856,
+                "style": "Definition"},
+                {
+                "language": "TR",
+                "text": "Veri Görevleri düğümü ( Data Tasks ), bu Ağ Düğümü ( Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
+                "updated": 1635579379923
             }
         ]
     },
@@ -51,6 +73,28 @@
                     "text": "Estas a punto de empezar las siguientes actividades, que cubriremos en los proximos minutos",
                     "updated": 1618433837116,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De komende minuten gaan we beginnen met de onderstaande activiteiten:",
+                    "updated": 1633887618880,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sind dabei, die erste der folgenden Aktivitäten zu starten, die wir in den nächsten Minuten behandeln werden:",
+                    "updated": 1634162092086,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь Вы готовы приступить к первому из следующих действий, которые мы рассмотрим через несколько минут:",
+                    "updated": 1635582572477,
+                    "style": "Text"},
+                    {
+                    "language": "TR",
+                    "text": "Önümüzdeki birkaç dakika içinde ele alacağımız aşağıdaki etkinliklerden ilkine başlamak üzeresiniz:",
+                    "updated": 1635579409291
                 }
             ]
         },
@@ -75,6 +119,28 @@
                     "text": "Ejecutar una operación de data mining para obtener datos del mercado BTC/USDT de Binance.",
                     "updated": 1618433865098,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Een data mining operatie starten om data te ontvangen van de BTC/USDT Market van Binance.",
+                    "updated": 1633887723752,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Starten Sie eine Data-Mining-Operation, um Daten für den BTC/USDT Market von Binance zu erhalten.",
+                    "updated": 1634162101738,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Run a data mining, чтобы получить данны BTC/USDT Market от Binance.",
+                    "updated": 1635583091531,
+                    "style": "List"},
+                    {
+                    "language": "TR",
+                    "text": "Binance'den BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
+                    "updated": 1635579469652
                 }
             ],
             "updated": 1616414602356
@@ -100,6 +166,27 @@
                     "text": "Ejecutar una Backtesting session con una estrategia de código abierto existente.",
                     "updated": 1618433902156,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Backtesting Session draaien met een bestaande open-source strategie.",
+                    "updated": 1633887785573,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie eine Backtesting Session mit einer bestehenden Open-Source-Strategie durch.",
+                    "updated": 1634162110500,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Run a Backtesting Session с использованием существующей стратегии с открытым исходным кодом.",
+                    "updated": 1635583981313},
+                    {
+                    "language": "TR",
+                    "text": "Mevcut bir açık kaynak stratejisiyle bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
+                    "updated": 1635579517849
                 }
             ],
             "updated": 1616414607531
@@ -125,6 +212,27 @@
                     "text": "Ejecutar una Live trading session con fondos mínimos, para descubrir aspectos críticos del sistema.",
                     "updated": 1618433958316,
                     "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Een Live Trading Session met minimale middelen, om de kritieke aspecten van het systeem te testen.",
+                    "updated": 1633887854645,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie eine Live Trading Session mit minimalen Mitteln durch, um die kritischen Aspekte des Systems zu testen.",
+                    "updated": 1634162119027,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Run a Live Trading Session с минимальными средствами, чтобы проверить критические аспекты системы.",
+                    "updated": 1635584028882},
+                    {
+                    "language": "TR",
+                    "text": "Sistemin kritik yönlerini test etmek için minimum fonla Canlı Ticaret Oturumu ( Live Trading Session ) çalıştıracağız.",
+                    "updated": 1635579557420
                 }
             ],
             "updated": 1616414612909
@@ -150,6 +258,27 @@
                     "text": "¿Estas de acuerdo con esto? ¿Empezamos?",
                     "updated": 1624282652190,
                     "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ben je hier oké mee? Zullen we dan beginnen?",
+                    "updated": 1633887896463,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sind Sie damit einverstanden? Sollen wir anfangen?",
+                    "updated": 1634162125495,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вас это устраивает? Мы можем начать?",
+                    "updated": 1635584052704},
+                    {
+                    "language": "TR",
+                    "text": "Hazır mısın, başlayalım mı?",
+                    "updated": 1635579651757
                 }
             ]
         }

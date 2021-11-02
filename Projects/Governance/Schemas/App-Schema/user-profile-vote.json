@@ -10,7 +10,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -31,7 +31,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Votes Switch->"
+        "compatibleTypes": "->User Profile Votes Switch->"
     },
     "referencingRules": {
         "compatibleTypes": "->User Profile->"

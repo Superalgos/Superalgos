@@ -1,8 +1,8 @@
 {
     "type": "User Supporter",
     "definition": {
-        "text": "Spawn as many User Supporter nodes as you wish and establish references to the User Profile nodes of your favorite supporters.",
-        "updated": 1624727060271
+        "text": "A User Supporter node must establish a reference with the User Profile of your supporter. If you have more than one supporter, add more nodes! This is how you establish who your supporters are.",
+        "updated": 1630232791200
     },
     "paragraphs": [
         {
@@ -11,13 +11,9 @@
             "updated": 1624727081804
         },
         {
-            "style": "Text",
-            "text": "If you declare more than one supporter, you may use the configuration in the User Supporter node to determine how much Supporter Power you wish to send each. If you don’t use the configuration, the default applies."
-        },
-        {
-            "style": "Json",
-            "text": "{\n    \"percentage\": 50\n}",
-            "updated": 1624727099934
+            "style": "Warning",
+            "text": "Declaring at least one User Supporter is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
+            "updated": 1630232813838
         },
         {
             "style": "Block",

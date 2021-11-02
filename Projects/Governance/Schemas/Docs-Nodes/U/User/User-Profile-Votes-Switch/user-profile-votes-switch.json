@@ -1,13 +1,36 @@
 {
     "type": "User Profile Votes Switch",
     "definition": {
-        "text": "This type of switch is used to spawn User Profile Vote nodes.",
-        "updated": 1624729715052
+        "text": "Use this switch as an organizational device, and to spawn User Profile Vote nodes.",
+        "updated": 1630421929174
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630394627447
+        },
+        {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "You may use this switch for two different purposes:",
+            "updated": 1630394642130
+        },
+        {
+            "style": "List",
+            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes."
+        },
+        {
+            "style": "List",
+            "text": "As a switch: You may control the flow of Voting Power, pretty much like with a Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
+            "updated": 1630394687805
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
         }
     ]
 }

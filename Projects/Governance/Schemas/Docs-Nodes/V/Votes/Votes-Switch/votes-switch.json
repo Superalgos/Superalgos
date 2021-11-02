@@ -11,7 +11,7 @@
             "updated": 1624729535872
         },
         {
-            "style": "Text",
+            "style": "Important",
             "text": "This node can not reference “class” or “folder” types of nodes on other hierarchies. It is merely an organizational device."
         },
         {

@@ -1,0 +1,193 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 12,
+    "type": "The Voting Program",
+    "definition": {
+        "text": "Help us decide how what areas of project development to incentivize, and help us validate Contribution Claims!",
+        "updated": 1630496977699
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Voting Program->Definition",
+            "updated": 1624734916658
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Voting Program->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Votes Switch Node",
+            "updated": 1624734967309
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes Switch->Definition",
+            "updated": 1624735025289
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Votes Switch->Content",
+            "updated": 1624735029611
+        },
+        {
+            "style": "Title",
+            "text": "About Claim Votes",
+            "updated": 1630497203825
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Claim Votes->Definition",
+            "updated": 1630497746423
+        },
+        {
+            "style": "Subtitle",
+            "text": "Claim Votes Switch"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claim Votes Switch->Definition",
+            "updated": 1624735226284
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Claim Votes Switch->Content",
+            "updated": 1624735231547
+        },
+        {
+            "style": "Subtitle",
+            "text": "Three Types of Claim Votes",
+            "updated": 1630497351240
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Claim Votes Content"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Asset Claim Vote"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset Claim Vote->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Feature Claim Vote"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature Claim Vote->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Position Claim Vote"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position Claim Vote->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "About Weight Votes",
+            "updated": 1630497602868
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Weight Votes->Definition",
+            "updated": 1630497799945
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Weight Votes Switch"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Weight Votes Switch->Definition",
+            "updated": 1624735085264
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Weight Votes Switch->Content",
+            "updated": 1624735088260
+        },
+        {
+            "style": "Subtitle",
+            "text": "Three Types of Weight Votes",
+            "updated": 1630498074833
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Weight Votes->Content"
+        },
+        {
+            "style": "Subtitle",
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Asset Weight Vote"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Asset Weight Vote->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Feature Weight Vote"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature Weight Vote->Definition"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Position Weight Vote"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Position Weight Vote->Definition"
+        },
+        {
+            "style": "Title",
+            "text": "About User Profile Votes",
+            "updated": 1630498579196
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Liquid Democracy->Definition",
+            "updated": 1630499078885
+        },
+        {
+            "style": "Subtitle",
+            "text": "User Profile Switch"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile Votes Switch->Definition",
+            "updated": 1624735290341
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile Votes Switch->Content"
+        },
+        {
+            "style": "Title",
+            "text": "User Profile Vote Node",
+            "updated": 1624735333779
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile Vote->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Profile Vote->Content"
+        }
+    ]
+}

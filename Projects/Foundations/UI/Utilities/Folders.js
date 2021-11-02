@@ -39,22 +39,22 @@ function newFoundationsUtilitiesFolders() {
                             let originObject = originNodePropertyArray[m]
                             if (originObjectArrayPropertyName === undefined) {
                                 /*
-                                    In this first Use Case, we are going to connect each orgin object clone
+                                    In this first Use Case, we are going to connect each origin object clone
                                     to its origin object counter part.
                                 */
-                                let clonedObject = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
-                                UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObject)
+                                let clonedObject = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
+                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObject)
                             } else {
                                 /*
                                     In this second Use Case, we are going to connect an inner object that is
                                     inside the origin object at an array. We recognize we have to do this
-                                    because we did receive this array proeprty name.
+                                    because we did receive this array property name.
                                 */
                                 let originObjectArray = originObject[originObjectArrayPropertyName]
                                 for (let n = 0; n < originObjectArray.length; n++) {
                                     let originObjectArrayItem = originObjectArray[n]
-                                    let clonedObject = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObjectArrayItem)
+                                    let clonedObject = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObjectArrayItem)
                                 }
                             }
                         }
@@ -74,7 +74,7 @@ function newFoundationsUtilitiesFolders() {
                                 }
                             }
                             if (found === false) {
-                                destinationFolder = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, destinationFolderType)
+                                destinationFolder = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, destinationFolderType)
                                 destinationFolder.name = originFolder.name
                             }
                             asymetricalFolderStructureCloning(

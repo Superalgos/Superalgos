@@ -1,14 +1,39 @@
 {
     "type": "Tokens Bonus",
     "definition": {
-        "text": "A Token Bonus is a reward in tokens that you obtain for participating in a program that is incentivized. Taking part in these programs is desirable, as they foster Community bonds, develop healthy social relations, or encourage specific collaborative dynamics. It is for those reasons that participation is incentivized. Programs that feature a Token Bonus define a specific Pool to allocate tokens for the bonus. You participate in those rewards in a Direct Proportion to the Token Power that you let flow into the said program.",
-        "updated": 1624726819483
+        "text": "A Tokens Bonus is a reward that you obtain for participating in a program that is incentivized. Taking part in these programs is desirable, as they foster Community bonds, develop healthy social relations, or encourage specific collaborative dynamics. It is for those reasons that participation is incentivized.",
+        "updated": 1630141035393
     },
     "paragraphs": [
         {
             "style": "Block",
             "text": "Content",
             "updated": 1624726836479
+        },
+        {
+            "style": "Text",
+            "text": "Programs that feature a Tokens Bonus have an associated Bonus Pool under the Governance Programs section of the Superalgos Pools hierarchy. These pools are used specifically to allocate tokens for these incentives.",
+            "updated": 1630168414638
+        },
+        {
+            "style": "Callout",
+            "text": "The Tokens Bonus you may get on any given program is in a Direct Proportion to the Token Power that you drive into the said program. That is, the more Token Power you drive into an incentivized program, the more tokens you get from the corresponding pool.",
+            "updated": 1630141193081
+        },
+        {
+            "style": "Subtitle",
+            "text": "Calculation",
+            "updated": 1630141623710
+        },
+        {
+            "style": "Text",
+            "text": "The calculation of the Tokens Bonus is a direct Rule of Three:",
+            "updated": 1630142120510
+        },
+        {
+            "style": "Json",
+            "text": "Total Token Power [*] -> 100% of the pool\n Your Token Power [**] -> X% of the pool -> Tokens Bonus\n\nTokens Bonus = Your Token Power * 100% / Total Token Power\n\n[*] The power driven to the given program by all User Profiles combined.\n[**] The power you drive to the given program.",
+            "updated": 1630171226134
         }
     ]
 }

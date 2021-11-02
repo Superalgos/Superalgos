@@ -21,6 +21,11 @@
                 "text": "Observe los dos nodos debajo del Backtesting Session: Trading System Reference y Trading Engine Reference. ¿Por qué necesitamos estos nodos?",
                 "updated": 1626376931375,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Beachten Sie die beiden Knotenpunkte unter der Backtesting Session: Trading System Reference und Trading Engine Reference. Wozu brauchen wir diese Knoten?",
+                "updated": 1634334187982
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "El Backtesting Session necesita hacer referencia al Trading System para que pueda obtener las reglas para el trading. También debe hacer referencia al Trading Engine para que pueda almacenar información relativa a la sesión de trading. Sin embargo, un nodo puede establecer solo una referencia saliente.",
                     "updated": 1626377104766,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Backtesting Session muss auf das Handelssystem verweisen, damit sie die Regeln für den Handel erhalten kann. Sie muss auch auf die Trading Engine verweisen, damit sie Informationen in Bezug auf die Handelssitzung speichern kann. Ein Knoten darf jedoch nur einen ausgehenden Verweis herstellen!",
+                    "updated": 1634334194200
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Por eso existen estos nodos: ¡son una ayuda para el nodo Backtesting Session para que cada uno de ellos pueda hacer referencia a un nodo!",
                     "updated": 1626532745561,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aus diesem Grund gibt es diese Knoten: Sie sind ein Hilfsmittel für den Knoten Backtesting Session, so dass jeder von ihnen auf einen Knoten verweisen kann!",
+                    "updated": 1634334201093
                 }
             ]
         }

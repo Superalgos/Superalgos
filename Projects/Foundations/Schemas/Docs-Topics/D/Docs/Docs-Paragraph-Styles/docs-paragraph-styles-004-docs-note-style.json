@@ -3,20 +3,48 @@
     "pageNumber": 4,
     "type": "Docs Note Style",
     "definition": {
-        "text": "This style will render in a blue box with the word note as a prefix."
+        "text": "This style will render in a blue box with the word note as a prefix.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Stil wird in einem blauen Kasten mit dem Wort note als Präfix dargestellt.",
+                "updated": 1633952776974
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "While editing a paragraph of this style, simply type the text you would like to appear inside the box. The word note is added automatically."
+            "text": "While editing a paragraph of this style, simply type the text you would like to appear inside the box. The word note is added automatically.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Geben Sie beim Bearbeiten eines Absatzes dieses Stils einfach den Text ein, der in dem Feld erscheinen soll. Die Wortnotiz wird automatisch eingefügt.",
+                    "updated": 1633952809353
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633952816213
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": " This is an example of a paragraph in note style."
+            "text": " This is an example of a paragraph in note style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Beispiel für einen Absatz im note style.",
+                    "updated": 1633952837202
+                }
+            ]
         }
     ]
 }

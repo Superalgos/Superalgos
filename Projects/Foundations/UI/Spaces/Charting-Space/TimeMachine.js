@@ -142,9 +142,9 @@ function newTimeMachine() {
 
     function initialize(callBackFunction) {
         timeFrame = INITIAL_TIME_PERIOD
-        UI.projects.foundations.utilities.loadSaveFrame.loadFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.visualScripting.utilities.loadSaveFrame.loadFrame(thisObject.payload, thisObject.container.frame)
         setInitialPosition()
-        UI.projects.foundations.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
 
         recalculateCoordinateSystem()
         recalculateCurrentDatetime()
@@ -163,8 +163,8 @@ function newTimeMachine() {
     function setInitialPosition() {
 
         if (thisObject.container.frame.position.x === 0 && thisObject.container.frame.position.y === 0) {
-            let timeMachineIndex = UI.projects.foundations.utilities.children.findChildIndexAtParentNode(thisObject.payload.node)
-            let dashboardIndex = UI.projects.foundations.utilities.children.findChildIndexAtParentNode(thisObject.payload.parentNode)
+            let timeMachineIndex = UI.projects.visualScripting.utilities.nodeChildren.findChildIndexAtParentNode(thisObject.payload.node)
+            let dashboardIndex = UI.projects.visualScripting.utilities.nodeChildren.findChildIndexAtParentNode(thisObject.payload.parentNode)
 
             thisObject.container.frame.position.x = thisObject.container.frame.width * timeMachineIndex * 2
             thisObject.container.frame.position.y = thisObject.container.frame.height * dashboardIndex * 2
@@ -430,7 +430,7 @@ function newTimeMachine() {
         thisObject.edgeEditor.physics()
         timeMachineCoordinateSystem.physics()
 
-        UI.projects.foundations.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
         if (thisObject.container.frame.isInViewPort()) {
             childrenPhysics()
             syncWithDesigner()
@@ -707,7 +707,7 @@ function newTimeMachine() {
         position = UI.projects.foundations.utilities.coordinateTransformations.transformThisPoint(position, thisObject.container)
 
         let label = thisObject.payload.node.name
-        let description = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'description')
+        let description = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'description')
 
         if (description !== undefined) {
             label = description

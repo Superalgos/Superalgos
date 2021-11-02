@@ -11,6 +11,12 @@
                 "text": "Docs ini merupakan tempat dari Superalgos Project. Didalamnya terdapat hal yang dapat membantu anda dalam mencari dan menginformasikan terkait nodes, concepts, topics, tutorials, reviews, dan books.",
                 "updated": 1613859125666,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Docs sind ein Bereich innerhalb des Superalgos-Projekts. Es ermöglicht den Nutzern, nach Informationen zu Knoten, Konzepten, Themen, Tutorials, Rezensionen und Büchern zu suchen.\nDie Docs wurden ins deutsche übersetzt durch gitforkgit .",
+                "updated": 1633966515041,
+                "style": "Definition"
             }
         ]
     },
@@ -24,6 +30,12 @@
                     "language": "ID",
                     "text": "Setiap proyek yang terintegrasi dalam Superalgos memiliki halamannya sendiri yang dapat menyusun dokumentasi terkait proyek yang anda inginkan.",
                     "updated": 1613858310857,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedes in Superalgos integrierte Projekt kann seine eigene Sammlung von Seiten haben, die die Projektdokumentation bilden.",
+                    "updated": 1633805059356,
                     "style": "Text"
                 }
             ]

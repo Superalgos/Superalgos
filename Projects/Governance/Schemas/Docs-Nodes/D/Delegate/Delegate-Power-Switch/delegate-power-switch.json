@@ -1,0 +1,34 @@
+{
+    "type": "Delegate Power Switch",
+    "definition": {
+        "text": "Use this switch as an organizational device, and spawn User Delegate nodes.",
+        "updated": 1630421941682
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630421951903
+        },
+        {
+            "style": "Text",
+            "text": "You may use this switch for two different purposes:"
+        },
+        {
+            "style": "List",
+            "text": "As an organizational device: You may create arbitrary arrangements, spawning more switches and User Delegate nodes."
+        },
+        {
+            "style": "List",
+            "text": "As a switch: You may control the flow of Delegate Power, pretty much like with a Token Power Switch, but within the Delegation Program. If you need a reminder, read about how Token Power Flows."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

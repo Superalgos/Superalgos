@@ -1,0 +1,88 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 27,
+    "type": "Tutorial Step - The Referral Program",
+    "definition": {
+        "text": "The Referral Program incentivizes the promotion of the project, either by word-of-mouth or “en masse” through articles, social media posts, videos, and other forms of influencer marketing!",
+        "updated": 1630665298091,
+        "icon": {
+            "name": "Programs\\referral-program",
+            "project": "Governance"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The Referral Program incentiva la promoción del proyecto, ya sea de boca en boca o \"en masa\" a través de artículos, publicaciones en redes sociales, videos y otras formas de marketing de influencia.",
+                "updated": 1630895504666,
+                "style": "Definition"
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the Community Building Programs node and click <i>Add Referral Program</i>.",
+            "updated": 1630665425190,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ve a el nodo Community Building Programs y has clic Add Referral Program.",
+                    "updated": 1630895549783,
+                    "style": "Callout"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "First, let's clarify what rules you must fulfill to earn your Tokens Bonus!",
+            "updated": 1630668604341,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Primero, aclaremos qué reglas debe cumplir para ganar su Tokens Bonus",
+                    "updated": 1630895569223,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You must deploy the program: Done!",
+            "updated": 1630665468816,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "You must deploy the program: ¡Hecho!",
+                    "updated": 1630895585097,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You must declare your referrer: We'll do that next!",
+            "updated": 1630665632799,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "You must declare your referrer: A continuación.",
+                    "updated": 1630895663229,
+                    "style": "List"
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You must drive Token Power to the program: Wooh... token power... sounds neat? You bet!",
+            "updated": 1630666285261,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "You must drive Token Power to the program: Wooh .. Token Power... ¿suena genial? ¡Apuesta!",
+                    "updated": 1630895638750,
+                    "style": "List"
+                }
+            ]
+        }
+    ]
+}

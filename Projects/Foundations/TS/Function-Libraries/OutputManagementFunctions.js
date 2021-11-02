@@ -117,7 +117,7 @@ exports.newFoundationsFunctionLibrariesOutputManagementFunctions = function () {
 
                 if (dataset.config.type === 'Daily Files') {
 
-                    let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
+                    let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
                     let fileName = 'Data.json'
                     let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 
@@ -181,7 +181,7 @@ exports.newFoundationsFunctionLibrariesOutputManagementFunctions = function () {
 
                 if (dataset.config.type === 'Daily Files') {
 
-                    let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
+                    let dateForPath = tradingProcessDate.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(tradingProcessDate.getUTCDate(), 2);
                     let fileName = 'Data.json'
                     let filePath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT + '/Output/' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + '/' + dataset.parentNode.config.codeName + '/' + dataset.config.codeName + '/' + timeFrameLabel + "/" + dateForPath
 

@@ -1,0 +1,13 @@
+{
+    "type": "Bonus Pool",
+    "definition": {
+        "text": "A Bonus Pool allocates tokens to incentivize participation in specific Governance Programs. Each program that features a Tokens Bonus node has its Bonus Pool defined under the Governance Programs section of the Superalgos Pools hierarchy. A bonus is an incentive to participate in the given program and its value is displayed in the Tokens Bonus node.",
+        "updated": 1630399869123
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

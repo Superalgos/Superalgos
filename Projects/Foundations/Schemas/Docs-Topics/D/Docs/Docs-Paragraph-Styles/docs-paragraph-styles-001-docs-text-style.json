@@ -3,20 +3,48 @@
     "pageNumber": 1,
     "type": "Docs Text Style",
     "definition": {
-        "text": "The text style is the one used for content without any particular style applied."
+        "text": "The text style is the one used for content without any particular style applied.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Textstil wird für den Inhalt verwendet, ohne dass ein bestimmter Stil angewendet wird.",
+                "updated": 1633952110785
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When you edit a paragraph set in text style, anything you type will be rendered as part of the paragraph. What you can not do is to embed html within the text, because it will be discarded. By creating new paragraphs while editing, you effectively create separate paragraphs out of edit mode. Later you can change each paragraph's individual style for any of the styles available."
+            "text": "When you edit a paragraph set in text style, anything you type will be rendered as part of the paragraph. What you can not do is to embed html within the text, because it will be discarded. By creating new paragraphs while editing, you effectively create separate paragraphs out of edit mode. Later you can change each paragraph's individual style for any of the styles available.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Absatz im Textstil bearbeiten, wird alles, was Sie eingeben, als Teil des Absatzes wiedergegeben. Was Sie nicht tun können, ist html in den Text einzubetten, da es verworfen wird. Wenn Sie während der Bearbeitung neue Absätze erstellen, erzeugen Sie effektiv separate Absätze außerhalb des Bearbeitungsmodus. Später können Sie den individuellen Stil jedes Absatzes mit einem der verfügbaren Stile ändern.",
+                    "updated": 1633952173049
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633952928467
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is a paragraph in text style."
+            "text": "This is a paragraph in text style.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Absatz im Textstil.",
+                    "updated": 1633952218565
+                }
+            ]
         }
     ]
 }

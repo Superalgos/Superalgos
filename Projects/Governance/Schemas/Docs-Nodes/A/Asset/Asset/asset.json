@@ -1,8 +1,8 @@
 {
     "type": "Asset",
     "definition": {
-        "text": "An Asset is an artifact, mostly in a digital format, that belongs to a Project. It may be a code file, a documentation or tutorial page, an image, a video, a social media account or even a post, marketing collateral, and more. To incentivize the production and maintenance of Assets, the node may receive Weight Votes. It may also receive Contributor Claims from Contributors involved in their production and maintenance.",
-        "updated": 1624709807952
+        "text": "An Asset is an artifact, mostly in a digital format, that belongs to a Project. It may be a code file, a documentation or tutorial page, an image, a video, a social media account or even a post, marketing collateral, and more. To incentivize the production and maintenance of Assets, the node may receive Weight Votes. It may also receive Contribution Claims from Contributors involved in their production and maintenance.",
+        "updated": 1630435180948
     },
     "paragraphs": [
         {
@@ -12,12 +12,13 @@
         },
         {
             "style": "Text",
-            "text": "You may cast Weight Votes on individual Asset nodes to incentivize the improvement, development, and maintenance of the said feature.",
-            "updated": 1624709824891
+            "text": "You may cast Weight Votes on individual Asset nodes to incentivize the improvement, development, and maintenance of the said asset.",
+            "updated": 1630435190635
         },
         {
             "style": "Text",
-            "text": "If you are involved in the development or maintenance of the said asset, you may place an Asset Contribution Claim and rally the Community to support your claim so that you may be compensated for your work."
+            "text": "If you are involved in the development or maintenance of the said asset, you may place an Asset Contribution Claim and rally the Community to support your claim so that you may be rewarded for your work.",
+            "updated": 1630435212758
         },
         {
             "style": "Block",

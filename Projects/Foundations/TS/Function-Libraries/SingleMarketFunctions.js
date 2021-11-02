@@ -91,12 +91,12 @@
                 return
             }
 
-            let botNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
+            let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
             if (botNode === undefined) {
-                botNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
+                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
-                botNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
+                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
             }
             if (botNode === undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. ");
@@ -110,11 +110,11 @@
                 return
             }
 
-            let dataMineNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
+            let dataMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
             if (dataMineNode === undefined) {
-                let tradingMineNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Mine')
+                let tradingMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Mine')
                 if (tradingMineNode === undefined) {
-                    let learningMineNode = TS.projects.foundations.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Mine')
+                    let learningMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Mine')
                     if (learningMineNode === undefined) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine, Trading Mine or Learning Mine.");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
@@ -219,7 +219,7 @@
 
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
@@ -312,8 +312,8 @@
         let yesterday = {}
         let system = { // These are the available system variables to be used in User Code and Formulas
             timeFrame: timeFrame,
-            ONE_DAY_IN_MILISECONDS: TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS,
-            ONE_MIN_IN_MILISECONDS: TS.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
+            ONE_DAY_IN_MILISECONDS: SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS,
+            ONE_MIN_IN_MILISECONDS: SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS
         }
         let variable = {} // This is the structure where the user will define its own variables that will be shared across different code blocks and formulas.
         let results = []
@@ -407,7 +407,7 @@
 
         if (processingDailyFiles) {
             /* Initialization of Last Instance */
-            lastInstantOfTheDay = currentDay.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS - 1;
+            lastInstantOfTheDay = currentDay.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS - 1;
 
             if (interExecutionMemory[productName] === undefined) {
                 /* The first time the intialization variables goes to the Inter Execution Memory. */
@@ -515,7 +515,7 @@
                             at the next day, in whole, even if it starts in the previous day.
                         */
 
-                        let lastInstantOdDay = currentDay.valueOf() + TS.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS - 1;
+                        let lastInstantOdDay = currentDay.valueOf() + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS - 1;
 
                         if (record.end < currentDay.valueOf() - 1) { continue; }
                         if (record.end === lastInstantOdDay) { continue; }
@@ -563,7 +563,7 @@
             let dateForPath = ''
 
             if (processingDailyFiles === true) {
-                dateForPath = "/" + currentDay.getUTCFullYear() + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCMonth() + 1, 2) + '/' + TS.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCDate(), 2);
+                dateForPath = "/" + currentDay.getUTCFullYear() + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCMonth() + 1, 2) + '/' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(currentDay.getUTCDate(), 2);
             }
 
             let filePathRoot = 'Project/' + contextSummary.project + "/" + contextSummary.mineType + "/" + contextSummary.dataMine + "/" + contextSummary.bot + '/' + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName + "/" + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName + "-" + TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName

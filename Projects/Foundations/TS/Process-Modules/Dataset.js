@@ -1,6 +1,6 @@
 exports.newFoundationsProcessModulesDataset = function (processIndex) {
     /*
-    This module represents a Dataset at a certain localtion on the 
+    This module represents a Dataset at a certain location on the 
     network, and it is able to load a file from that dataset or 
     write one into it.
     */
@@ -8,7 +8,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
 
     let thisObject = {
         node: undefined,
-        networkNode: undefined,
+        lanNetworkNode: undefined,
         exchange: undefined,
         market: undefined,
         product: undefined,
@@ -38,7 +38,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Dataset witn no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Dataset with no codeName defined -> Product Dataset = " + JSON.stringify(thisObject.node));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -50,7 +50,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Product Definition witn no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Product Definition with no codeName defined -> Product Definition = " + JSON.stringify(thisObject.node.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -62,7 +62,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.parentNode.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Bot witn no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Bot with no codeName defined. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -74,7 +74,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.parentNode.parentNode.config.codeName === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Data Mine witn no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Data Mine with no codeName defined. Data Mine = " + JSON.stringify(thisObject.node.parentNode.parentNode.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -85,12 +85,12 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             thisObject.product = productDefinition.config.singularVariableName
 
             /* 
-            We will find the networkNode that leads to this Product Definition 
+            We will find the lanNetworkNode that leads to this Product Definition 
             and is related to this exchange and market. 
             */
-            let networkNode = fincNetworkNode(network, productDefinition, thisObject.exchange, thisObject.market)
+            let lanNetworkNode = fincNetworkNode(network, productDefinition, thisObject.exchange, thisObject.market)
 
-            if (networkNode === undefined) {
+            if (lanNetworkNode === undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Network Node not found.")
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Initialization Failed because we could not find where the data of this dataset is located within the network. Check the logs for more info.");
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[WARN] initialize -> Could not find where " + productDefinition.name + " for " + thisObject.exchange + " " + thisObject.market + " is stored within the network.");
@@ -99,9 +99,9 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             /* We found where the data is located on the network. */
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + networkNode.name + "  -> host = " + networkNode.config.host + ' -> port = ' + networkNode.config.webPort + '.')
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving data from " + lanNetworkNode.name + "  -> host = " + lanNetworkNode.config.host + ' -> port = ' + lanNetworkNode.config.webPort + '.')
 
-            fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, networkNode.config.host, networkNode.config.webPort);
+            fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, lanNetworkNode.config.host, lanNetworkNode.config.webPort);
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE, true);
 
         } catch (err) {
@@ -113,7 +113,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
 
     function finalize() {
         fileStorage = undefined
-        thisObject.networkNode = undefined
+        thisObject.lanNetworkNode = undefined
         thisObject.exchange = undefined
         thisObject.market = undefined
         bot = undefined
@@ -190,7 +190,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         A. We are interested in a particular Exchange and Market.
         B. We have the Network we received from the UI whe the user ran the Task.
         C. We have the Product Definition that is the parent node of the Data Set represented by this object.
-        D. This Product Definition is referenced by one or more Data Products nodes at some branch of the Network Hierarchy.
+        D. This Product Definition is referenced by one or more Data Products nodes at some branch of the LAN Network Hierarchy.
         E. We need to find the right Data Product node, the one who is itself a descendent of the Market Data Products
         node that is referencing the market and exchange that we have as a parameter of this function.
 
@@ -206,7 +206,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         
         */
         let found = false
-        let networkNode
+        let lanNetworkNode
         let splittedMarket = market.split('-')
         let baseAsset = splittedMarket[0]
         let quotedAsset = splittedMarket[1]
@@ -214,7 +214,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         scanNodeMesh(network)
 
         if (found === true) {
-            return networkNode
+            return lanNetworkNode
         } else {
             return
         }
@@ -228,19 +228,19 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             if (startingNode.id === productDefinition.id) {
                 /*
                 We reached the point that we found a path to the Product Definition. 
-                Now we know that the last netwrokNode is the node that has the correct
+                Now we know that the last network Node is the node that has the correct
                 path.
                 */
                 found = true
                 return
             }
 
-            if (startingNode.type === 'Network Node') {
+            if (startingNode.type === 'LAN Network Node') {
                 /*
-                We will store the Network Node here so that if we find the rignt path
-                we can know from which Netwrok Node it going through.
+                We will store the Network Node here so that if we find the right path
+                we can know from which Network Node it going through.
                 */
-                networkNode = startingNode
+                lanNetworkNode = startingNode
             }
 
             if (

@@ -1,0 +1,35 @@
+{
+    "type": "Delegation Program",
+    "definition": {
+        "text": "The Delegation Program allows you to delegate Token Power to empower other members of the Community, giving them a louder voice in governance. The Token Power you delegate may be used by the recipient in any Governance Program, with no restrictions.",
+        "updated": 1630408676672
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630408752467
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Reusable Governance Snippets->Featuring Tokens Bonus"
+        },
+        {
+            "style": "Text",
+            "text": "When you delegate Voting Power through the Voting Program, the recipient may only use the delegated power within the Voting Program. Instead, the Delegation Program allows you to delegate Token Power, which may be used by the recipient in any program.",
+            "updated": 1630408794134
+        },
+        {
+            "style": "Warning",
+            "text": "Only 10% of the Token Power you drive into a User Delegate node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        }
+    ]
+}

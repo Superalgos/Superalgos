@@ -3,44 +3,120 @@
     "pageNumber": 1,
     "type": "Data Mining - Introduction",
     "definition": {
-        "text": "Data Mining in Superalgos means extracting data from external sources and processing that data in order to have it ready for consumption by trading strategies.",
-        "updated": 1622200589433
+        "text": "Data Mining in Superalgos means extracting data from external sources and processing that data in order to have it ready for consumption by trading strategies.\n",
+        "updated": 1635521444812,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Data Mining in Superalgos bedeutet die Extraktion von Daten aus externen Quellen und die Verarbeitung dieser Daten, um sie für Handelsstrategien nutzbar zu machen. Ins deutsche übersetzt von gitforkgit.",
+                "updated": 1635521809616
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Superalgos offers an extensive set of Data Mining tools. These tools allow users to fetch data from external sources, process that data into more elaborate datasets, plot the datasets within the Charting Space, feed ML Bot's models, and ultimately consume the data within their trading strategies.",
-            "updated": 1622200769538
+            "updated": 1622200769538,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos bietet ein umfangreiches Set von Data-Mining-Tools. Mit diesen Werkzeugen können Benutzer Daten aus externen Quellen abrufen, diese Daten zu komplexeren Datensätzen verarbeiten, die Datensätze im Charting Space darstellen, die Modelle von ML Bot füttern und die Daten schließlich in ihre Handelsstrategien einfließen lassen.",
+                    "updated": 1634502210131
+                }
+            ]
+        },
+        {
+            "style": "Important",
+            "text": "At the end of this Docs-Chapter there is a Video Series that shows you the entire process of building an indicator, step by step. If you feel that you do not know how to practically perform the steps explained in this chapter, just have a look at the last article: \"Data Mining - How to Build an Indicator - Video Series\"",
+            "updated": 1635521763763,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Am Ende dieses Docs-Kapitels finden Sie eine Video-Serie, die Ihnen den gesamten Prozess der Erstellung eines Indicators Schritt für Schritt zeigt. Wenn Sie das Gefühl haben, dass Sie nicht wissen, wie Sie die in diesem Kapitel erläuterten Schritte praktisch durchführen können, schauen Sie sich einfach den letzten Artikel an: \"Data Mining - How to Build an Indicator - Video Series\"",
+                    "updated": 1635521851687
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
         },
         {
             "style": "Title",
             "text": "The Big Picture",
-            "updated": 1622188702833
+            "updated": 1622188702833,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Große Ganze",
+                    "updated": 1634502312960
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": ""
         },
         {
             "style": "Text",
             "text": "All of the data inside the Superalgos system has an origin somewhere outside the system, usually somewhere on the Internet. There are currently 3 ways to bring data into the system:",
-            "updated": 1622200785987
+            "updated": 1622200785987,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alle Daten innerhalb des Superalgos-Systems haben ihren Ursprung irgendwo außerhalb des Systems, normalerweise irgendwo im Internet. Derzeit gibt es 3 Möglichkeiten, Daten in das System einzubringen:",
+                    "updated": 1634502941525
+                }
+            ]
         },
         {
             "style": "List",
             "text": "By coding an Algorithm: with this method, users who have developer skills can extract data from any source imaginable. The way to do it is by implementing a new process within the already existing Sensor Bot. In other words, the sensor bot allows users to write code that extracts data from different places outside of the system. This method is ideal for when it is not possible to use the second method listed below. An example of such algorithms is the Historic-OHLCVs which uses the CCXT open source library to extract one minute candles from any exchange supported by that library.",
-            "updated": 1622201355726
+            "updated": 1622201355726,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Durch das Programmieren eines Algorithmus: Mit dieser Methode können Benutzer, die über Entwicklerfähigkeiten  (Programmierwissen) verfügen, Daten aus jeder erdenklichen Quelle extrahieren. Dies geschieht durch die Implementierung eines neuen Prozesses innerhalb des bereits bestehenden Sensor Bots. Mit anderen Worten: Der Sensor Bot ermöglicht es den Benutzern, Code zu schreiben, der Daten von verschiedenen Stellen außerhalb des Systems extrahiert. Diese Methode ist ideal, wenn es nicht möglich ist, die zweite unten aufgeführte Methode zu verwenden. Ein Beispiel für einen solchen Algorithmus ist der Historic-OHLCVs, der die Open-Source-Bibliothek CCXT verwendet, um einminütige Kerzen von jeder von dieser Bibliothek unterstützten Börse zu extrahieren.",
+                    "updated": 1634503371051
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Without coding an Algorithm: (available since Beta 10) via the API Data Fetcher Bot. This method involves designing an API Map which is later feed to an API Data Fetcher Bot at runtime.  From there it can fetch data from APIs without needing the user to write a single line of code.",
-            "updated": 1622201515378
+            "updated": 1622201515378,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ohne einen Algorithmus zu programmieren: (verfügbar seit Beta 10) über den API Data Fetcher Bot. Bei dieser Methode wird eine API Map entworfen, die später zur Laufzeit an einen API Data Fetcher Bot übergeben wird. Von dort aus kann er Daten von APIs abrufen, ohne dass der Benutzer eine einzige Zeile Code schreiben muss.",
+                    "updated": 1634503494799
+                }
+            ]
         },
         {
             "style": "List",
             "text": "External processing: it is also possible to gather data and process it outside the system. Once data has been processed in this manner, it can be put in the right folder, with the right format, and the system will pick it up from there. This use case is not the most popular, but it is a valid possibility.",
-            "updated": 1622201656015
+            "updated": 1622201656015,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Externe Verarbeitung: Es ist auch möglich, Daten zu sammeln und sie außerhalb des Systems zu verarbeiten. Sobald die Daten auf diese Weise verarbeitet wurden, können sie in den richtigen Ordner mit dem richtigen Format gelegt werden, und das System übernimmt sie von dort. Dieser Anwendungsfall ist nicht der populärste, aber er ist eine gute Möglichkeit.",
+                    "updated": 1634503579635
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Once data is within the system, it is then processed for different reasons by Indicator Bots. Some of the processed data might be plotted, some might feed machine learning bots, and some might be consumed by a Trading Strategy.",
-            "updated": 1622201764822
+            "updated": 1622201764822,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sobald die Daten im System sind, werden sie aus verschiedenen Gründen von Indikator-Bots verarbeitet. Einige der verarbeiteten Daten werden geplottet, andere können Bots für maschinelles Lernen füttern, und wieder andere können von einer Trading Strategy (Handelsstrategie) genutzt werden.",
+                    "updated": 1634504086365
+                }
+            ]
         }
     ]
 }

@@ -20,6 +20,11 @@
                 "text": "Antes de dejar el Trading System, echemos un vistazo rápido a una de estas órdenes y veamos qué puede ser de interés.",
                 "updated": 1624460743665,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir das Handelssystem verlassen, lassen Sie uns einen kurzen Blick auf einen dieser Aufträge werfen, um zu sehen, was von Interesse sein könnte.",
+                "updated": 1634225948168
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Expande Profit 0.6 y comprueba la fórmula del nodo Order Rate.",
                     "updated": 1624460823729,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie Profit 0.6 und prüfen Sie die Formel des Knotens Order Rate.",
+                    "updated": 1634226017595
                 }
             ]
         },
@@ -58,22 +68,18 @@
                     "text": "Centrémonos en esta parte misteriosa de la fórmula:",
                     "updated": 1624460862154,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Konzentrieren wir uns auf diesen mysteriösen Teil der Formel:",
+                    "updated": 1634226011471
                 }
             ]
         },
         {
-            "style": "Text",
-            "text": "tradingEngine.tradingCurrent.",
-            "updated": 1616429707529
-        },
-        {
-            "style": "Text",
-            "text": "position.exitTargetRate.value"
-        },
-        {
-            "style": "Text",
-            "text": "&nbsp;",
-            "updated": 1610642114068
+            "style": "Json",
+            "text": "tradingEngine.tradingCurrent.position.exitTargetRate.value",
+            "updated": 1630943899973
         },
         {
             "style": "Text",
@@ -90,6 +96,11 @@
                     "text": "La fórmula está obteniendo el valor del Exit Target Rate, definido en otro lugar. No nos enfoquemos en cuál puede ser esta tasa objetivo. En cambio, echemos un vistazo al mecanismo por el cual un Trading System puede tener acceso a la información procesada por el Trading Bot.",
                     "updated": 1624460952441,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Formel holt den Wert der an anderer Stelle definierten Exit Target Rate ab. Wir wollen uns nicht darauf konzentrieren, wie dieser Zielkurs aussehen könnte. Sehen wir uns stattdessen den Mechanismus an, über den ein Trading System  Zugriff auf die vom Trading Bot verarbeiteten Informationen haben kann.",
+                    "updated": 1634225991629
                 }
             ]
         }

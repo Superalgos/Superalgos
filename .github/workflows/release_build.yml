@@ -54,8 +54,6 @@ jobs:
         with:
           path: './package.json'
 
-=======
-
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:

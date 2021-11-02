@@ -1,6 +1,8 @@
-Data-Storage
-Log-Files
-My-Workspaces
+**/Data-Storage
+**/My-Data-Storage
+**/Log-Files
+**/My-Log-Files
+**/My-Workspaces
 debug.log
 
 *.db

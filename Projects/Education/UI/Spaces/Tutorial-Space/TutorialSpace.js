@@ -183,7 +183,6 @@ function newEducationTutorialSpace() {
         checkPressButton()
         checkGif()
         checkImage()
-        //checkVid()
         checkDocumentation()
         checkWorkspaces()
         checkSlider()

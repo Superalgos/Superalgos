@@ -38,7 +38,6 @@ jobs:
           os: [windows-latest, macos-latest]
 
     steps:
-
       - name: Check out Git repository
         uses: actions/checkout@v2
         with:
@@ -55,6 +54,8 @@ jobs:
         with:
           path: './package.json'
 
+=======
+
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
@@ -67,3 +68,4 @@ jobs:
           # release the app after building
           # release: ${{ startsWith(github.ref, 'refs/tags/v') }}
           release: true
+

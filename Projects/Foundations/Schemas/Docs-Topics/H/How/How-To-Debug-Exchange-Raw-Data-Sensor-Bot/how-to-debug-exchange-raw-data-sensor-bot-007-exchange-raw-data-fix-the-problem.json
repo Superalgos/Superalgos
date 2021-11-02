@@ -3,7 +3,7 @@
     "pageNumber": "7",
     "type": "Exchange Raw Data - Fix The Problem",
     "definition": {
-        "text": "At this point you will probably know if it is possible or not to extact historical information from your Favorite Exchange or not.",
+        "text": "At this point you will probably know if it is possible or not to extract historical information from your Favorite Exchange or not.",
         "updated": 1614593270288
     },
     "paragraphs": [
@@ -18,7 +18,7 @@
         },
         {
             "style": "Text",
-            "text": "If you found that your Favorite Exchange works with some special config, please contac the Team so that is can include that config in the next release and move the exchange to the branch of Tested exchanges."
+            "text": "If you found that your Favorite Exchange works with some special config, please contact the Team so that is can include that config in the next release and move the exchange to the branch of Tested exchanges."
         },
         {
             "style": "Title",

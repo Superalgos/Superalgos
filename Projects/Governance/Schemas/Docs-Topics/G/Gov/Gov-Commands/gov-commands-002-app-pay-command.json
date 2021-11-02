@@ -3,7 +3,7 @@
     "pageNumber": "2",
     "type": "App Pay Command",
     "definition": {
-        "text": "Use this command to pay to contributors using the Trasury Blockchain Account to do so. If you are not in charge of the Treasury Account you can still run this command to generate the output file of the Pay process.",
+        "text": "Use this command to pay to contributors using the Treasury Blockchain Account to do so. If you are not in charge of the Treasury Account you can still run this command to generate the output file of the Pay process.",
         "updated": 1610449365984
     },
     "paragraphs": [

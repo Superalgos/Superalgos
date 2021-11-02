@@ -26,7 +26,7 @@
         },
         {
             "style": "Important",
-            "text": "Becareful to write the exact string specified in the API documentation. Extra spaces, or capital letters will break the URL and cause it to return an error.",
+            "text": "Be careful to write the exact string specified in the API documentation. Extra spaces, or capital letters will break the URL and cause it to return an error.",
             "updated": 1622773133088
         },
         {

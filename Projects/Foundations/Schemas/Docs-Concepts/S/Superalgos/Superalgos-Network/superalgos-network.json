@@ -2,7 +2,14 @@
     "type": "Superalgos Network",
     "definition": {
         "text": "The Superalgos Network is an open, peer-to-peer network, currently in the making. The network will enable users to set up their Clients to interact with other Clients. Such connectivity enables the exchange and dissemination of products and services from and to users.",
-        "updated": 1630096650321
+        "updated": 1630096650321,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Сеть Superalgos - это открытая одноранговая сеть, которая в настоящее время находится в процессе создания. Сеть позволит пользователям настраивать своих Клиентов для взаимодействия с другими Клиентами. Такая сеть обеспечивает обмен и распространение продуктов и услуг между пользователями.\n",
+                "updated": 1635453664831
+            }
+        ]
     },
     "paragraphs": [
         {

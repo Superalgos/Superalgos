@@ -281,7 +281,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
 
             let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
             /* 
-            The Mine Product Node might be collapesd and since its creation it never 
+            The Mine Product Node might be collapsed and since its creation it never
             received the physics call, so we will do the call so that it properly
             sets its own name, which we are going to reuse here.
             */

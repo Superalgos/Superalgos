@@ -139,7 +139,7 @@ function newLayer() {
     }
 
     function initialize(callBackFunction) {
-        /* Create this objects continer */
+        /* Create this objects container */
         try {
             thisObject.container = newContainer()
             thisObject.container.initialize(MODULE_NAME + ' ' + thisObject.payload.node.id)
@@ -342,7 +342,7 @@ function newLayer() {
     }
 
     function checkStatusAtShutDown() {
-        /* Mechanism to recover a layer that was left loading the last time the browser was shut dowm. */
+        /* Mechanism to recover a layer that was left loading the last time the browser was shut down. */
         let storedValue = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'status')
         if (storedValue !== undefined) {
             if (storedValue === LAYER_STATUS.LOADING) {

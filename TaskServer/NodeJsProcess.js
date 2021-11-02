@@ -36,15 +36,15 @@ exports.newNodeJsProcess = function () {
             //console.log('[INFO] Task Server -> Node JS Process -> process.on.exit -> About to exit -> config = ' + config)
         })
 
-        /* Here we listen for the message to stop this Task / Process comming from the Task Manager, which is the paret of this node js process. */
+        /* Here we listen for the message to stop this Task / Process coming from the Task Manager, which is the parent of this node js process. */
         process.on('message', message => {
             if (message === 'Stop this Task') {
 
                 TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING = true;
 
                 /*
-                There are some process that might no be able to end grafully, for example the ones schedulle to process information in a future day or month.
-                In order to be sure that the process will be terminated, we schedulle one forced exit in 2 minutes from now.
+                There are some process that might no be able to end gracefully, for example the ones schedule to process information in a future day or month.
+                In order to be sure that the process will be terminated, we schedule one forced exit in 2 minutes from now.
                 */
                 let key = TS.projects.foundations.globals.taskConstants.TASK_NODE.name + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.type  
                 console.log('[INFO] Task Server -> Node JS Process -> process.on -> Stopping Task ' + key + '. Nodejs process will be exited in less than 1 minute.')

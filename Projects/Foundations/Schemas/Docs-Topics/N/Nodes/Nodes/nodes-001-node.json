@@ -4,7 +4,14 @@
     "type": "Node",
     "definition": {
         "text": "Nodes are objects that exist within workspaces and can be visualized at the Design Space. Nodes can be attached to each other forming hierarchical structures.  ",
-        "updated": 1609235686573
+        "updated": 1609235686573,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узлы - это объекты, которые существуют в рабочих пространствах и могут быть визуализированы в the Design Space. Узлы могут быть присоединены друг к другу, образуя иерархические структуры.\n",
+                "updated": 1635514669410
+            }
+        ]
     },
     "paragraphs": [
         {

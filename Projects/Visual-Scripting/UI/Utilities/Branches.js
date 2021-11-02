@@ -61,7 +61,7 @@ function newVisualScriptingUtilitiesBranches() {
 
     function findInBranch(startingNode, nodeType, errorNode, connectedViaPayload, displayError) {
         /*
-        This function finds a node in a brach and reports an error if it could not be found.
+        This function finds a node in a branch and reports an error if it could not be found.
         */
         let nodeFound = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(startingNode, nodeType, undefined, connectedViaPayload, true, false, false)
         if (nodeFound === undefined) {

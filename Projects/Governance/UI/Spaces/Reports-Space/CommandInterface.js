@@ -24,6 +24,7 @@ function newGovernanceReportsCommmandInterface() {
 
     function detectGovCommands() {
         if (checkPRsCommand() === undefined) { return true }
+        if (checkUserUpdateCommand() === undefined) { return true }
         if (checkPayCommand() === undefined) { return true }
 
         function checkPRsCommand() {
@@ -113,6 +114,82 @@ function newGovernanceReportsCommmandInterface() {
                         response.docs.anchor,
                         undefined,
                         response.docs.placeholder
+                    )
+                }
+            }
+        }
+
+        function checkUserUpdateCommand() {
+
+            let command = UI.projects.governance.spaces.reportsSpace.commandInterface.command.toLowerCase()
+
+            if (command === 'gov.help gov.userprofile') {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Contribute User Profile Command')
+                return
+            }
+            if (command.indexOf('gov.userprofile') !== 0 ) { return 'Not User Contribute Commands' }
+
+            /* Set up the commit message */
+            let message = command.trim().substring(command.indexOf(' ') + 1, command.length)
+            if (message.toLowerCase() === 'gov.userprofile') {
+                message = 'Automated Userprofile contribute process.'
+            }
+
+            UI.projects.governance.spaces.reportsSpace.sidePanelTab.close()
+            UI.projects.education.spaces.docsSpace.sidePanelTab.open()
+
+            /* Find the Username and Password */
+            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            if (apisNode === undefined) {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (apisNode.githubAPI === undefined) {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            let config = JSON.parse(apisNode.githubAPI.config)
+            if (config.username === undefined || config.username === "") {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+            if (config.token === undefined || config.token === "") {
+                UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                return
+            }
+
+            message = message.replaceAll('#', '_HASHTAG_')
+            message = message.replaceAll('/', '_SLASH_')
+
+            let params = {
+                method: 'UserProfile',
+                commitMessage: message,
+                username: config.username,
+                token: config.token,
+                currentBranch: UI.projects.education.spaces.docsSpace.currentBranch,
+                contributionsBranch: UI.projects.education.spaces.docsSpace.contributionsBranch
+            }
+
+            let url = 'GOV' // We will access the default Client GOV endpoint.
+
+            httpRequest(JSON.stringify(params), url, onResponse)
+            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Starting Automated User Profile Contribution')
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                data = JSON.parse(data)
+                if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Automated User Profile Contribute Done')
+                } else {
+                    if (data.docs === undefined) {return}
+                    UI.projects.education.spaces.docsSpace.navigateTo(
+                        data.docs.project,
+                        data.docs.category,
+                        data.docs.type,
+                        data.docs.anchor,
+                        undefined,
+                        data.docs.placeholder
                     )
                 }
             }

@@ -144,7 +144,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 }
                 /*
                 If there is a reference parent defined, this means that the delegate power is 
-                transfered to it and not distributed among children.
+                transferred to it and not distributed among children.
                 */
                 if (
                     node.payload.referenceParent !== undefined &&
@@ -322,7 +322,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
 
-                    node.payload.uiObject.setPercentage(percentage,
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
                         UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
                         )
 

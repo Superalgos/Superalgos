@@ -42,6 +42,11 @@
                 "text": "El nodo Testing Trading Tasks organiza sesiones de trading que implican la prueba de los sistemas de trading.",
                 "updated": 1624490698932,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Узел Тестирование торговых задач организует торговые сессии, включающие Тестирование торговых систем.",
+                "updated": 1635517242993
             }
         ]
     }

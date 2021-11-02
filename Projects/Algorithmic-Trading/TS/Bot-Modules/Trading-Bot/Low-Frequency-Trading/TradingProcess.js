@@ -290,7 +290,7 @@
             }
         }
         catch (err) {
-            /* An unhandled exception occured. in this case we return Fail and log the stack. */
+            /* An unhandled exception occurred. in this case we return Fail and log the stack. */
             if (err.stack) {
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -307,7 +307,7 @@
                 return
             }
 
-            /* Some other handled exception occured. We return Fail and move on. */
+            /* Some other handled exception occurred. We return Fail and move on. */
             if (err.result !== TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,

@@ -23,7 +23,7 @@
         },
         {
             "style": "Warning",
-            "text": "If the announcement formula child node is <u>not configured</u>, or; if there is an <u>error evaulating</u> the announcement formula or announcement condition then the default text configuration of the parent announcement node itself is sent instead.",
+            "text": "If the announcement formula child node is <u>not configured</u>, or; if there is an <u>error evaluating</u> the announcement formula or announcement condition then the default text configuration of the parent announcement node itself is sent instead.",
             "updated": 1619262444866
         }
     ],

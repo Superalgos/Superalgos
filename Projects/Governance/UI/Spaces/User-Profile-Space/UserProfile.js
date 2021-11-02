@@ -15,7 +15,7 @@ function newGovernanceUserProfileSpace() {
     }
 
     let waitingForResponses = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 5
+    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
     let reputationByAddress = new Map()
 
     return thisObject
@@ -55,6 +55,13 @@ function newGovernanceUserProfileSpace() {
             }
         }
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+
+        // Initialise the isLoading parameter for each User Profile
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            userProfile.payload.isLoading = true
+        }
         /*
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
         let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
@@ -143,8 +150,10 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
+ 
                     let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
-                    let newReputation = previousReputation | 0 + currentReputation
+                    if (previousReputation === undefined) {previousReputation = 0}
+                    let newReputation = previousReputation + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
                 //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
@@ -374,11 +383,13 @@ function newGovernanceUserProfileSpace() {
             if (userProfile.payload === undefined) { continue }
 
             if (userProfile.payload.bloackchainBalancesLoading === true) {
+                userProfile.payload.isLoading = true
                 return
             }
 
             if (userProfile.payload.blockchainTokens === undefined) {
                 userProfile.payload.bloackchainBalancesLoading = true
+                userProfile.payload.isLoading = true
                 UI.projects.foundations.spaces.cockpitSpace.setStatus('Loading blockchain balances for User Profile # ' + (i + 1) + ' / ' + userProfiles.length, 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
 
                 getBlockchainAccount(userProfile)
@@ -440,15 +451,17 @@ function newGovernanceUserProfileSpace() {
                     waitingForResponses++
                     waitingForResponses++
                     waitingForResponses++
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+                    waitingForResponses++
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 4, userProfile, blockchainAccount, 'ETH', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_ETH_CONTRACT_ADDRESS)
 
                     /* 
                     Now we get the SA Tokens Balance.
                     */
                     waitingForResponses++
-                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 4 * 4, userProfile, blockchainAccount)
+                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 5, userProfile, blockchainAccount)
                 }
             }
         }
@@ -461,6 +474,7 @@ function newGovernanceUserProfileSpace() {
                 return response.json();
             }).then(function (data) {
                 userProfile.payload.bloackchainBalancesLoading = false
+                userProfile.payload.isLoading = false
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
                     userProfile.payload.blockchainTokens = undefined
                 } else {

@@ -37,13 +37,13 @@
         },
         {
             "style": "Text",
-            "text": "Use the following key combiantions for the same purpose:",
+            "text": "Use the following key combinations for the same purpose:",
             "updated": 1610040210636
         },
         {
             "style": "List",
-            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>↑</kbd> to close the charting space and open the design space.",
-            "updated": 1610040275547
+            "text": "Ctrl or <kbd>⌘</kbd> + Shift + ↑ to close the charting space and open the design space.",
+            "updated": 1634912063838
         },
         {
             "style": "List",
@@ -96,8 +96,49 @@
         },
         {
             "style": "List",
-            "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>↓</kbd> to pan downwards.",
-            "updated": 1610040740709
+            "text": "Ctrl or <kbd>⌘</kbd> + ↓ to pan downwards.",
+            "updated": 1634912309430
+        },
+        {
+            "style": "Title",
+            "text": "Moving Nodes"
+        },
+        {
+            "style": "Text",
+            "text": "There are two main ways to move a node:"
+        },
+        {
+            "style": "Success",
+            "text": "No matter what method you use, make sure the node is Pinned. Otherwise it will snap back to its original position.",
+            "updated": 1634914254508
+        },
+        {
+            "style": "List",
+            "text": "Click on a node while holding Ctrl. Then use the arrow keys ← → ↑ ↓ to drag the node to your desired location."
+        },
+        {
+            "style": "List",
+            "text": "The second method copies the node you wish to move and then snaps it to the new position. In order to do this, first find the Save Node to Move menu option on the node you wish to move and click it. Then move to a different node near where you would like the current node and click the Snap Saved Node to Position button.",
+            "updated": 1634914182709
+        },
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Docs/design-space/how-to-snap-node.gif",
+            "updated": 1634915106388
+        },
+        {
+            "style": "Text",
+            "text": "There are also keyboard shortcuts to accomplish node snapping. See Keyboard Shortcut Quick Guide page for more details.",
+            "updated": 1634915239339
+        },
+        {
+            "style": "Title",
+            "text": "Keyboard Shortcuts"
+        },
+        {
+            "style": "Text",
+            "text": "Superalgos also offers a range of keyboard shortcuts to help make working with the platform easier. You can find a list of all current shortcuts at the Keyboard Shortcut Quick Guide page.",
+            "updated": 1634915308602
         },
         {
             "style": "Text",

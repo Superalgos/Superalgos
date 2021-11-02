@@ -89,7 +89,7 @@ function newViewport() {
                     y: 0
                 }
             }
-            UI.projects.foundations.utilities.loadSaveFrame.loadFrame(thisObject.payload, frame)
+            UI.projects.visualScripting.utilities.loadSaveFrame.loadFrame(thisObject.payload, frame)
             if (!isNaN(frame.position.x)) {
                 position.x = frame.position.x
             }
@@ -180,7 +180,7 @@ function newViewport() {
         /* Save the position at the frame lavel */
         let frame = {}
         frame.position = position
-        UI.projects.foundations.utilities.loadSaveFrame.saveFrame(thisObject.payload, frame)
+        UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(thisObject.payload, frame)
     }
 
     function animationPhysics() {

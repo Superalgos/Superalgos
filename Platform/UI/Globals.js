@@ -1,11 +1,12 @@
-/* Global Constatns */
+/* Global Constants */
 
 let canvas
 let PROJECTS_SCHEMA
 let SCHEMAS_BY_PROJECT = new Map()
 /* New Root object*/
 let UI = {
-    projects: {}
+    projects: {},
+    environment: {}
 }
 
 /* User Interface Colors */
@@ -203,9 +204,9 @@ const _1_MINUTE_IN_MILISECONDS = 1 * 60 * 1000;
 
 
 
-let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the UI.projects.foundations.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let NEW_SESSION_INITIAL_DATE = new Date();  // This value will be overwritten at the UI.projects.foundations.spaces.chartingSpace.viewport.initialize if the user had a previous session with this same browser.
 let INITIAL_ZOOM_LEVEL = -28.25       // This is the zoom level at the view port in which the APP starts.
-let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the UI.projects.foundations.spaces.chartingSpace.viewport.initialize if the user had a prevous session with this same browser.
+let INITIAL_TIME_PERIOD = ONE_DAY_IN_MILISECONDS  // This value will be overwritten at the UI.projects.foundations.spaces.chartingSpace.viewport.initialize if the user had a previous session with this same browser.
 let VERY_LARGE_NUMBER = 100000000000000
 
 const TOP_MARGIN = 0
@@ -245,7 +246,7 @@ const PERIOD_05_MIN = "05-min";
 const PERIOD_01_MIN = "01-min";
 
 /*
-We define here the size of the chartingSpace. It has to bee enough big in order to accomodate all the charts we expect to display in this space.
+We define here the size of the chartingSpace. It has to bee enough big in order to accommodate all the charts we expect to display in this space.
 */
 
 const TIME_MACHINE_WIDTH = 8;

@@ -18,9 +18,14 @@
             },
             {
                 "language": "ES",
-                "text": "Un caso típico es cuando desea introducir cambios en una estrategia de envío con el sistema para comenzar con una configuración probada.",
-                "updated": 1626702894193,
+                "text": "Miremos el primer escenario: un caso típico es cuando desea introducir cambios a una estrategia incluída en el sistema para comenzar con una configuración probada.",
+                "updated": 1633283150203,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Schauen wir uns das erste Szenario an: Ein typischer Fall ist, dass Sie Änderungen an einer Strategie vornehmen möchten, die mit dem System ausgeliefert wird, um mit einem bewährten Setup zu beginnen!",
+                "updated": 1634589005531
             }
         ]
     },
@@ -38,9 +43,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Digamos que recién estás comenzando con Superalgos, has hecho algunos tutoriales y estás listo para comenzar a jugar con una estrategia. Deseas comenzar con una estrategia existente e introducir modificaciones menores para comprender mejor cómo funcionan las cosas. La estrategia en cuestión se incluye como plugin en un workspace específico.",
-                    "updated": 1626703032336,
+                    "text": "Digamos que está listo para comenzar a jugar con una estrategia.. Quiere comenzar con una existente o introducir modificaciones para entender como trabajan las cosas. No tiene intensiones de contribuir con los cambios. Solo desea jugar con esto y cambiarlo a su gusto! Entonces, haga lo siguiente:",
+                    "updated": 1633283766269,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie sind bereit, mit einer Strategie zu spielen. Sie möchten mit einer bestehenden Strategie beginnen und Änderungen einführen, um zu verstehen, wie die Dinge funktionieren. Sie haben nicht die Absicht, die Änderungen einzubringen. Sie wollen einfach nur damit spielen und sie nach Ihren Wünschen anpassen! Dann gehen Sie wie folgt vor:",
+                    "updated": 1634589029922
                 }
             ]
         },
@@ -57,9 +67,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "En tales casos, debes eliminar el nodo Plugin File correspondiente a el Trading System y restaurar el archivo original en la carpeta \\Plugins\\Trading-Systems como si fuera un backup: arrastra el archivo y suéltalo en el Design Space!",
-                    "updated": 1626703323868,
+                    "text": "Borre el nodo Plugin File correspondiente al Trading System y restablezca el plugin file original en (\\Plugins\\Trading-Systems folder) como si fuera un a backup: arrastre el archivo y suéltelo en el Design Space! La estrategia ahora vive en el workspace y puede modificarlo y grabarlo.",
+                    "updated": 1633283708150,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie den Knoten der Plugin File, die dem Trading System entspricht, und stellen Sie die ursprüngliche Plugin-Datei (im Ordner \\Plugins\\Trading-Systems) wieder her, als ob es sich um eine Sicherungskopie handeln würde: Ziehen Sie die Datei und legen Sie sie im Design Space ab! Die Strategie befindet sich nun im Workspace und Sie können sie ändern und speichern!",
+                    "updated": 1634589037277
                 }
             ]
         }

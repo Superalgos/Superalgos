@@ -4,7 +4,14 @@
     "type": "Data Mining - Dataset Types",
     "definition": {
         "text": "Superalgos organizes data into datasets. These datasets are standardized across the system using different type definitions.",
-        "updated": 1622204454559
+        "updated": 1622204454559,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Superalgos organisiert Daten in Datasets (Datensätze). Diese Datensätze sind systemübergreifend durch unterschiedliche Typdefinitionen standardisiert.",
+                "updated": 1634586751277
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,40 +22,96 @@
         {
             "style": "Title",
             "text": "Dataset Types",
-            "updated": 1622227827875
+            "updated": 1622227827875,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Datensatz-Typen:",
+                    "updated": 1634586996444
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the complete list of Dataset types currently supported by the system:"
+            "text": "This is the complete list of Dataset types currently supported by the system:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist die vollständige Liste der derzeit vom System unterstützten Dataset Typen:",
+                    "updated": 1634587492613
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Single-File: As the name suggests, this Dataset consists of only one file containing all the data. This Dataset type can be plotted and its data consumed by and within Trading Strategies. The API Data Fetcher Bot can also save Raw Data in this type of dataset, if needed.",
-            "updated": 1622204763019
+            "updated": 1622204763019,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Single-File (Einzeldatei): Wie der Name schon sagt, besteht dieses Dataset aus nur einer Datei, die alle Daten enthält. Dieser Dataset-Typ kann geplottet werden und seine Daten können von und in Handelsstrategien verwendet werden. Der API Data Fetcher Bot kann bei Bedarf auch Rohdaten in diesem Dataset-Typ speichern.",
+                    "updated": 1634588065048
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The Single-File Dataset type is not frequently used. Currently, it is the Dataset type used to store data coming from Webhooks. It is stored in this way because it is assumed that not a lot of data will come through this pipe, only signals produced by external systems. The Webhooks feature is expected to evolve in the future managing the incoming data in another type of Dataset.",
-            "updated": 1622204852370
+            "updated": 1622204852370,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Datentyp \"Single-File Dataset\" wird nicht häufig verwendet. Derzeit wird dieser Datentyp zum Speichern von Daten verwendet, die von Webhooks stammen. Er wird auf diese Weise gespeichert, weil davon ausgegangen wird, dass nicht viele Daten über diese Leitung eingehen, sondern nur Signale, die von externen Systemen erzeugt werden. Es wird erwartet, dass sich die Webhooks-Funktion in Zukunft weiterentwickelt und die eingehenden Daten in einem anderen Dataset-Typ verwaltet werden. In Superalgos ist ein Dataset eine Sammlung von JSON-/Textdateien, die auf eine bestimmte Weise organisiert sind.",
+                    "updated": 1634997365650
+                }
+            ]
         },
         {
             "style": "List",
             "text": "One-Min-Daily: This Dataset type organizes data in one file per day and, as the name suggests, expects the data itself to belong to time frames of one minute. This type of Dataset can not be plotted or its data consumed by Trading Strategies.",
-            "updated": 1622191007219
+            "updated": 1622191007219,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "One-Min-Daily: Dieser Datase type organisiert die Daten in einer Datei pro Tag und erwartet, wie der Name schon sagt, dass die Daten selbst zu Zeitrahmen von einer Minute gehören. Dieser Datentyp kann nicht geplottet werden und seine Daten können nicht von Trading Strategies verwendet werden.",
+                    "updated": 1634998583947
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Multi-Time-Frame-Daily: This Dataset type organizes data in one file per day for each Time Frame ranging from 1 minute to 45 minutes. The data of this type of Dataset can be plotted and can be consumed by Trading Strategies.",
-            "updated": 1622191043785
+            "updated": 1622191043785,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Multi-Time-Frame-Daily: Dieses Dataset type organisiert Daten in einer Datei pro Tag für jeden Zeitrahmen von 1 Minute bis 45 Minuten. Die Daten dieses Datentyps können geplottet und von Trading Strategies verwendet werden.",
+                    "updated": 1634998574997
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Multi-Time-Frame-Market: This Dataset type organizes data in only one file for each Time Frame ranging from 1 hour to 24 hours. That means that the whole market history will be stored in one single file for each time frame. For example candles of 1 hour for a certain market, will be stored in a single file. The data of this type of Dataset can be plotted and can be consumed by Trading Strategies.",
-            "updated": 1622191087786
+            "updated": 1622191087786,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Multi-Time-Frame-Market: Dieser Dataset type organisiert Daten in nur einer Datei für jeden Zeitrahmen von 1 Stunde bis 24 Stunden. Das bedeutet, dass der gesamte Marktverlauf in einer einzigen Datei für jeden Zeitrahmen gespeichert wird. Zum Beispiel werden Kerzen von 1 Stunde für einen bestimmten Markt in einer einzigen Datei gespeichert. Die Daten dieses Datentyps können geplottet und von trading strategies verwendet werden.",
+                    "updated": 1634998739206
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "By far, the most popular Dataset Types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market. "
+            "text": "By far, the most popular Dataset Types are Multi-Time-Frame-Daily and Multi-Time-Frame-Market. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die bei weitem verbreiteste Datensatztypen sind \"Multi-Time-Frame-Daily\" und \"Multi-Time-Frame-Market\".",
+                    "updated": 1634998870033
+                }
+            ]
         }
     ]
 }

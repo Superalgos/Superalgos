@@ -3,23 +3,25 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Client Reference",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "networkClientReference",
             "relatedUiObject": "Network Client Reference",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Create Wallet Account",
             "actionProject": "Ethereum",
             "label": "Add Wallet Account",
             "relatedUiObject": "Wallet Account",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

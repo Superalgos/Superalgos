@@ -1,7 +1,7 @@
 {
     "type": "Elu Layer",
     "definition": {
-        "text": "Exponetial Linear Unit (ELU).",
+        "text": "Exponential Linear Unit (ELU).",
         "updated": 1613216664718
     },
     "paragraphs": [

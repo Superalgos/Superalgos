@@ -22,6 +22,17 @@
                 "text": "Este paso reproducirá un vídeo en pantalla completa.",
                 "updated": 1618434222678,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634162552296,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1635585594036
             }
         ]
     },

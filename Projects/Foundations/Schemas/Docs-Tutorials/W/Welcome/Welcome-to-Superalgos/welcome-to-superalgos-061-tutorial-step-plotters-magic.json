@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Plotters Magic!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "plotter"
         },
         "text": "And this is how plotters are built! Plotters create graphical representations of data... from candles, to everything else!",
@@ -18,7 +18,13 @@
             {
                 "language": "ES",
                 "text": "¡Y así es como se construyen los trazadores! Los trazadores crean representaciones gráficas de datos ... ¡desde velas hasta todo lo demás!",
-                "updated": 1624413955983
+                "updated": 1624413955983,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Und so werden Plotter gebaut! Plotter erstellen grafische Darstellungen von Daten... von Kerzen bis hin zu allem anderen!",
+                "updated": 1634218493534
             }
         ]
     },
@@ -36,7 +42,13 @@
                 {
                     "language": "ES",
                     "text": "Una vez más, guiones visuales en su máxima expresión. Los trazadores utilizan polígonos estilizados hechos de puntos de coordenadas para pintar líneas y formas que representan datos. Cada capa disponible en los gráficos se crea con un conjunto de definiciones del tipo que estas viendo en este momento. El caso particular del bot Resistances y Supports es bastante complejo, ¡pero muestra el poder de la herramienta!",
-                    "updated": 1624414165332
+                    "updated": 1624414165332,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wiederum visuelles Skripting in seiner besten Form! Plotter verwenden stilisierte Polygone aus Koordinatenpunkten, um Linien und Formen zu zeichnen, die Daten darstellen. Jede Ebene, die in den Diagrammen zur Verfügung steht, wird mit einer Reihe von Definitionen erstellt, so wie Sie sie gerade sehen. Der besondere Fall des Bot Resistenzen und Unterstützungen ist ziemlich komplex, zeigt aber die Leistungsfähigkeit des Tools!",
+                    "updated": 1634218497006
                 }
             ]
         },
@@ -54,7 +66,13 @@
                 {
                     "language": "ES",
                     "text": "Encuentra el Resistance Zone 5 Polygon (a la izquierda), amplíalo y trepa por las ramas para echar un vistazo a cómo se construyó esta belleza.",
-                    "updated": 1624414251258
+                    "updated": 1624414251258,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie das Polygon der Widerstandszone 5 (links), erweitern Sie es und krabbeln Sie die Äste hinauf, um zu sehen, wie diese Schönheit entstanden ist!",
+                    "updated": 1634218503528
                 }
             ]
         }

@@ -8,7 +8,7 @@ function newEventHandler() {
         finalize: finalize
     }
 
-    let eventHandlers = []        // Here we store all the functions we will call when an event is raiseed.
+    let eventHandlers = []        // Here we store all the functions we will call when an event is raised.
 
     return thisObject
 

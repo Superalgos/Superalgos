@@ -4,7 +4,15 @@
     "type": "How to Contribute Icons",
     "definition": {
         "text": "Superalgos' visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
-        "updated": 1613590520324
+        "updated": 1613590520324,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die visuelle Schnittstelle von Superalgos enthält Hunderte von Icons, und mit jeder neuen Version werden viele weitere Icons benötigt, da neue Funktionen eingeführt werden. Das Entwerfen von Icons ist eine großartige Möglichkeit, Ihre Spuren zu hinterlassen, da Sie Ihre Arbeit jedem Benutzer direkt vor Augen führen können!",
+                "updated": 1634068601269,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,12 +22,28 @@
         },
         {
             "style": "Title",
-            "text": "Attribution"
+            "text": "Attribution",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zuordnung",
+                    "updated": 1634038894914,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The original set of icons is a web design pack made by Freepik and is available at:",
-            "updated": 1613378893975
+            "updated": 1613378893975,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der ursprüngliche Icon-Satz ist ein Webdesign-Paket von Freepik und ist verfügbar unter:",
+                    "updated": 1634038855754,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Link",
@@ -28,22 +52,54 @@
         },
         {
             "style": "Text",
-            "text": "The rest of the series is inspired in the design style developed for the original set."
+            "text": "The rest of the series is inspired in the design style developed for the original set.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Rest der Serie orientiert sich an dem für die ursprüngliche Serie entwickelten Designstil.",
+                    "updated": 1634038873222,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The authorship of each icon not in the original series may be tracked in the repository's history.",
-            "updated": 1613591688551
+            "updated": 1613591688551,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Urheberschaft eines jeden Symbols, das nicht in der Originalserie enthalten ist, kann in der Historie des Repositorys nachverfolgt werden.",
+                    "updated": 1634038880155,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Coordination",
-            "updated": 1613591702695
+            "updated": 1613591702695,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Koordinierung",
+                    "updated": 1634038908706,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Join the following group to coordinate works:",
-            "updated": 1613591754190
+            "updated": 1613591754190,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Treten Sie der folgenden Gruppe bei, um die Arbeiten zu koordinieren:",
+                    "updated": 1634039014215,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Link",
@@ -53,21 +109,53 @@
         {
             "style": "Text",
             "text": "Please, introduce yourself and get up to speed with the group currently doing the work. The main coordination task is keeping track of who will block what part of the pending work so that we don’t duplicate efforts.",
-            "updated": 1613591821097
+            "updated": 1613591821097,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte stellen Sie sich vor und machen Sie sich mit der Gruppe vertraut, die derzeit an der Arbeit ist. Die wichtigste Koordinierungsaufgabe besteht darin, den Überblick darüber zu behalten, wer welchen Teil der anstehenden Arbeiten blockieren wird, damit wir keine Doppelarbeit leisten.",
+                    "updated": 1634039021445,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Design Brief",
-            "updated": 1613591872004
+            "updated": 1613591872004,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Design Briefing",
+                    "updated": 1634039116341,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Color Palette"
+            "text": "Color Palette",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Farbpalette",
+                    "updated": 1634039166618,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "We use a restricted palette, with a playful selection of colors that work well both over a black background—on the Design Space — and a white background — on the Docs and the Charting Space.",
-            "updated": 1613591919434
+            "updated": 1613591919434,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir verwenden eine begrenzte Palette mit einer spielerischen Auswahl von Farben, die sowohl auf schwarzem Hintergrund - im Design Space - als auch auf weißem Hintergrund - in den Dokumenten und im Charting Space - gut funktionieren.",
+                    "updated": 1634039205517,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Png",
@@ -77,28 +165,76 @@
         {
             "style": "Subtitle",
             "text": "Look & Feel",
-            "updated": 1613592080753
+            "updated": 1613592080753,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erscheinungsbild und Gefühl",
+                    "updated": 1634039241859,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is a large and rather complex system aimed at all sorts of user profiles. The ultimate goal of the project is to massify the use of the system, thus, Superalgos should be accessible to a wide user base: from professional traders to crypto-holders, and everything in between."
+            "text": "Superalgos is a large and rather complex system aimed at all sorts of user profiles. The ultimate goal of the project is to massify the use of the system, thus, Superalgos should be accessible to a wide user base: from professional traders to crypto-holders, and everything in between.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein großes und ziemlich komplexes System, das sich an alle Arten von Nutzerprofilen richtet. Das ultimative Ziel des Projekts ist es, die Nutzung des Systems zu verbreiten. Daher sollte Superalgos für eine breite Nutzerbasis zugänglich sein: von professionellen Händlern bis hin zu Krypto-Besitzern und allem dazwischen.",
+                    "updated": 1634039263684,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The choice of a playful look and feel responds to the underlying strategy to achieve massification: to gamify the user experience, in the sense that building profitable trading strategies may be turned into a strategy game in and of itself."
+            "text": "The choice of a playful look and feel responds to the underlying strategy to achieve massification: to gamify the user experience, in the sense that building profitable trading strategies may be turned into a strategy game in and of itself.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Wahl eines spielerischen Erscheinungsbildes entspricht der zugrundeliegenden Strategie zur Erreichung der Massifizierung: die Benutzererfahrung soll spielerisch sein, in dem Sinne, dass die Entwicklung profitabler Handelsstrategien zu einem Strategiespiel an und für sich werden kann.",
+                    "updated": 1634039267322,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We choose to depart from realistic or corporate styles and lean towards cartoonish, joyful, and spirited ideas instead."
+            "text": "We choose to depart from realistic or corporate styles and lean towards cartoonish, joyful, and spirited ideas instead.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir haben uns dafür entschieden, von realistischen oder unternehmerischen Stilen abzuweichen und uns stattdessen auf cartoonartige, fröhliche und lebendige Ideen zu stützen.",
+                    "updated": 1634039275640,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "What we Like"
+            "text": "What we Like",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was wir mögen",
+                    "updated": 1634039295838,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following are examples of icons we like among the existing batch.",
-            "updated": 1613592138585
+            "updated": 1613592138585,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nachfolgend finden Sie Beispiele für Icons, die uns aus dem vorhandenen Stapel gefallen.",
+                    "updated": 1634039318570,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -157,11 +293,27 @@
         {
             "style": "Title",
             "text": "Abstract Icons",
-            "updated": 1613727494249
+            "updated": 1613727494249,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Abstrakte Icons",
+                    "updated": 1634039411739,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The group above features icons representing ideas that directly or indirectly remind of the underlying concept they represent. However, icons may also be abstract, and have a loose or no obvious connection with the concept being represented:"
+            "text": "The group above features icons representing ideas that directly or indirectly remind of the underlying concept they represent. However, icons may also be abstract, and have a loose or no obvious connection with the concept being represented:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die obige Gruppe enthält Icons, die Ideen darstellen, die direkt oder indirekt an das zugrunde liegende Konzept erinnern, das sie repräsentieren. Icons können jedoch auch abstrakt sein und einen losen oder keinen offensichtlichen Zusammenhang mit dem dargestellten Konzept haben:",
+                    "updated": 1634039416461,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -211,11 +363,27 @@
         {
             "style": "Subtitle",
             "text": "Figurative Icons",
-            "updated": 1613727775420
+            "updated": 1613727775420,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bildliche Icons",
+                    "updated": 1634039499153,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Sometimes, the relationship between the drawing and the actual concept being represented may be figurative, such as when the icon illustrates an alternative interpretation of the word:"
+            "text": "Sometimes, the relationship between the drawing and the actual concept being represented may be figurative, such as when the icon illustrates an alternative interpretation of the word:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Manchmal kann die Beziehung zwischen der Zeichnung und dem dargestellten Konzept figurativ sein, z. B. wenn das Symbol eine alternative Interpretation des Wortes illustriert:",
+                    "updated": 1634039503471,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -265,19 +433,51 @@
         {
             "style": "Title",
             "text": "Design Tips",
-            "updated": 1613728186362
+            "updated": 1613728186362,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Design-Tipps",
+                    "updated": 1634039550249,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Several design tricks make up the character of the collection of icons. The more of these tricks you use in your creations, the better they will integrate with the rest, and resonate with users."
+            "text": "Several design tricks make up the character of the collection of icons. The more of these tricks you use in your creations, the better they will integrate with the rest, and resonate with users.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Mehrere Designtricks machen den Charakter der Iconsammlung aus. Je mehr dieser Tricks Sie in Ihren Kreationen verwenden, desto besser werden sie sich in den Rest integrieren und bei den Nutzern ankommen.",
+                    "updated": 1634039592247,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Split Colors"
+            "text": "Split Colors",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aufgeteilte Farben",
+                    "updated": 1634039600471,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A stylistic resource that we favour and that helps to create depth and richness in the composition is the split in half of the drawing, giving each half a slight shift in color, using adjacent colors in the palette on each half:"
+            "text": "A stylistic resource that we favour and that helps to create depth and richness in the composition is the split in half of the drawing, giving each half a slight shift in color, using adjacent colors in the palette on each half:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein stilistisches Mittel, das wir bevorzugen und das dazu beiträgt, der Komposition Tiefe und Reichtum zu verleihen, ist die Teilung der Zeichnung in zwei Hälften, wobei jede Hälfte eine leichte Farbverschiebung erfährt und benachbarte Farben der Palette auf jeder Hälfte verwendet werden:",
+                    "updated": 1634039657943,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -327,11 +527,27 @@
         {
             "style": "Subtitle",
             "text": "Non-Realistic Proportions",
-            "updated": 1613729175379
+            "updated": 1613729175379,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nicht-realistische Proportionen",
+                    "updated": 1634039802256,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It’s one of the characteristics of the cartoonish look and feel:"
+            "text": "It’s one of the characteristics of the cartoonish look and feel:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist eines der Merkmale des Cartoon-Looks und - Erscheinungsbild:",
+                    "updated": 1634039807183,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -344,11 +560,27 @@
         },
         {
             "style": "Subtitle",
-            "text": "Rounded Corners"
+            "text": "Rounded Corners",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Abgerundete Ecken",
+                    "updated": 1634039869418,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Again, one other typical characteristic:"
+            "text": "Again, one other typical characteristic:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wiederum ein weiteres typisches Merkmal:",
+                    "updated": 1634039873152,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -361,11 +593,27 @@
         },
         {
             "style": "Subtitle",
-            "text": "Highlights"
+            "text": "Highlights",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Besonderheiten",
+                    "updated": 1634039983062,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Occasionally, a simple drawing may be embellished with a playful highlight effect that brings light to the creation. Notice how an otherwise flat drawing comes to life with the simple light-reflection effect on the right hand side."
+            "text": "Occasionally, a simple drawing may be embellished with a playful highlight effect that brings light to the creation. Notice how an otherwise flat drawing comes to life with the simple light-reflection effect on the right hand side.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gelegentlich kann eine einfache Zeichnung mit einem spielerischen Lichteffekt verschönert werden, der Licht in die Kreation bringt. Beachten Sie, wie eine ansonsten flache Zeichnung durch den einfachen Lichtreflexionseffekt auf der rechten Seite zum Leben erweckt wird.",
+                    "updated": 1634039987174,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -382,7 +630,15 @@
         },
         {
             "style": "Text",
-            "text": "When multiple elements lie on top of each other, the drawing may loose clarity, probably due to the restricted color palette. In such cases, a cutout on the background object that creates a slight separation with the foreground object can look cool and help the visual interpretation. Notice the 20 pts wide cutout around the red arrow."
+            "text": "When multiple elements lie on top of each other, the drawing may loose clarity, probably due to the restricted color palette. In such cases, a cutout on the background object that creates a slight separation with the foreground object can look cool and help the visual interpretation. Notice the 20 pts wide cutout around the red arrow.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn mehrere Elemente übereinander liegen, kann die Zeichnung an Klarheit verlieren, wahrscheinlich aufgrund der eingeschränkten Farbpalette. In solchen Fällen kann ein Ausschnitt auf dem Hintergrundobjekt, der einen leichten Abstand zum Vordergrundobjekt schafft, cool aussehen und die visuelle Interpretation unterstützen. Beachten Sie den 20 pts breiten Ausschnitt um den roten Pfeil.",
+                    "updated": 1634040052783,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
@@ -396,56 +652,152 @@
         },
         {
             "style": "Subtitle",
-            "text": "Level of Detail"
+            "text": "Level of Detail",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Detailgenauigkeit",
+                    "updated": 1634040092150,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "It is important to notice that icons must work well when used in small sizes. Too much detail may create alias and artifacts when the icon is reduced in size.",
-            "updated": 1613729535358
+            "updated": 1613729535358,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig zu beachten, dass Icons auch in kleinen Größen gut funktionieren müssen. Zu viele Details können zu Verzerrungen und Artefakten führen, wenn das Symbol verkleinert wird.",
+                    "updated": 1634040128172,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "As a rule of thumb, try to avoid lines or shapes smaller than 20 pt in the original composition."
+            "text": "As a rule of thumb, try to avoid lines or shapes smaller than 20 pt in the original composition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Als Faustregel gilt: Versuchen Sie, Linien oder Formen zu vermeiden, die in der ursprünglichen Komposition kleiner als 20 pt sind.",
+                    "updated": 1634040146706,
+                    "style": "Success"
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Full Size and Centered",
-            "updated": 1613729698417
+            "updated": 1613729698417,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vollformat und zentriert",
+                    "updated": 1634040188101,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Ideally, icons occupy the whole canvas, either in the horizontal or vertical dimension, or both. Save from exceptions, this is a requirement, as any departure from this standard is quite noticeable."
+            "text": "Ideally, icons occupy the whole canvas, either in the horizontal or vertical dimension, or both. Save from exceptions, this is a requirement, as any departure from this standard is quite noticeable.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Idealfall nehmen die Symbole die gesamte Leinwand ein, entweder in der horizontalen oder vertikalen Dimension oder in beiden. Von Ausnahmen abgesehen, ist dies eine Voraussetzung, da jede Abweichung von diesem Standard sehr auffällig ist.",
+                    "updated": 1634040195591,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Technical Requirements"
+            "text": "Technical Requirements",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Technische Anforderungen",
+                    "updated": 1634040232305,
+                    "style": "Title"
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Icons are created and maintained in vectors, in the SVG format, but are used in the system and documentation—the current two main use cases—as raster images in the PNG format, for technical reasons."
+            "text": "Icons are created and maintained in vectors, in the SVG format, but are used in the system and documentation—the current two main use cases—as raster images in the PNG format, for technical reasons.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Icons werden als Vektoren im SVG-Format erstellt und verwaltet, werden aber im System und in der Dokumentation - den beiden derzeitigen Hauptanwendungsfällen - aus technischen Gründen als Rasterbilder im PNG-Format verwendet.",
+                    "updated": 1634040237516,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "You must provide both types of files."
+            "text": "You must provide both types of files.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie müssen beide Datei-Arten bereitstellen.",
+                    "updated": 1634040271424,
+                    "style": "Important"
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Vector Source Files"
+            "text": "Vector Source Files",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vektor-Quelldateien",
+                    "updated": 1634040310912,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Criterion | Details |\n| Format | SVG |\n| Width | 512 pt |\n| Height | 512 pt |\n| Extension | svg (lower-case) |",
-            "updated": 1613729829253
+            "updated": 1613729829253,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Kriterium| Details |\n| Format | SVG |\n| Breite| 512 pt |\n| Höhe | 512 pt |\n| Erweiterung| svg (Kleinbuchstaben) |",
+                    "updated": 1634040349756,
+                    "style": "Table"
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Add vector files in the Icons-SVG-Sources folder under the corresponding project.",
-            "updated": 1613731185141
+            "updated": 1613731185141,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie Vektordateien in den Ordner Icons-SVG-Sources unter dem entsprechenden Projekt hinzu.",
+                    "updated": 1634040381912,
+                    "style": "Success"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In the case of the Superalgos project, SVG source files are organized in subfolders, under the following directory:",
-            "updated": 1614854522604
+            "updated": 1614854522604,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Fall des Superalgos-Projekts sind die SVG-Quelldateien in Unterordnern organisiert, die sich im folgenden Verzeichnis befinden:",
+                    "updated": 1634040421592,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Json",
@@ -455,7 +807,15 @@
         {
             "style": "Table",
             "text": "| Folder | Description |\n| assets | Assets listed at exchanges |\n| color-palette | A reference color plette |\n| docs-menu | Options in the floating Docs menu |\n| exchanges | Crypto exchanges |\n| flags | Round flags used to identify languages |\n| layers | Types of layers represented in a Layer Manager |\n| menu | The options in the menu of nodes |\n| mouse | Mouse and keyboard graphics used on video captures |\n| nodes | Icons of nodes |\n| various | Items that do not fit into the rest of the categories |",
-            "updated": 1613730961904
+            "updated": 1613730961904,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Ordner | Beschreibung  |\n| assets | An Börsen gelistete Assets |\n| color-palette | Eine Referenzfarbpalette |\n| docs-menu | Optionen im floating-Docs-Menü |\n| exchanges | Crypto-Börsen |\n| flags | Runde Flaggen zur Identifizierung von Sprachen |\n| layers | Typen von Layern, die in einem Layer Manager dargestellt werden |\n| menu | Die Optionen im Menü der Knoten |\n| mouse | Maus- und Tastaturgrafiken, die bei Videoaufnahmen verwendet werden |\n| nodes |  Symbole für Knoten |\n| various | Elemente, die nicht in die übrigen Kategorien passen |",
+                    "updated": 1634040572694,
+                    "style": "Table"
+                }
+            ]
         },
         {
             "style": "Text",
@@ -464,47 +824,119 @@
         {
             "style": "Subtitle",
             "text": "Raster Images",
-            "updated": 1613731087478
+            "updated": 1613731087478,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Pixel Grafiken",
+                    "updated": 1634040828765,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Criterion | Details |\n| Format | PNG |\n| Application Size | 512 x 512 px |\n| Color Depth | 24 bits (PNG-24) |\n| Transparency | Yes |\n| Interlaced | No |\n| Extension | png (lower-case) |",
-            "updated": 1613731098874
+            "updated": 1613731098874,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Kriterium | Details |\n| Format | PNG |\n| Größe  | 512 x 512 px |\n| Farbtiefe | 24 bits (PNG-24) |\n| Transparenz | Yes |\n| Zeilensprung | No |\n| Erweiterung | png (Kleinbuchstaben) |",
+                    "updated": 1634040875690,
+                    "style": "Table"
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Add all PNG files in the Icons folder.",
-            "updated": 1613731261077
+            "updated": 1613731261077,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie alle PNG-Dateien in den Ordner \"Icons\" ein.",
+                    "updated": 1634040904191,
+                    "style": "Success"
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Naming Convention",
-            "updated": 1613731313234
+            "updated": 1613731313234,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Namensgebung",
+                    "updated": 1634040968345,
+                    "style": "Subtitle"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Files inherit the name of the node, asset, exchange, or whatever the icon represents, and are named in lower case, each word separated by a hyphen, and with a lower-case extension. ",
-            "updated": 1615462236475
+            "updated": 1615462236475,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dateien erben den Namen des Knotens, des Assets, des Austauschs oder was auch immer das Symbol repräsentiert und werden in Kleinbuchstaben benannt, wobei jedes Wort durch einen Bindestrich getrennt ist und die Erweiterung in Kleinbuchstaben angegeben wird.",
+                    "updated": 1634040972888,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example:",
-            "updated": 1615462266490
+            "updated": 1615462266490,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1634040981984,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In the case of nodes, the PNG file for the Managed Take Profit node is managed-take-profit.png",
-            "updated": 1615462396196
+            "updated": 1615462396196,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei Knoten lautet die PNG-Datei für den Knoten Managed Take Profit managed-take-profit.png",
+                    "updated": 1634041080051,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In the case of assets, the name of the file must is the literal name of the asset. For instance, for Bitcoin, it is bitcoin.png; for Tether it is tether.png; and so on...",
-            "updated": 1615462488610
+            "updated": 1615462488610,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Falle von Vermögenswerten muss der Name der Datei der wörtliche Name des Vermögenswerts sein. Für Bitcoin lautet er beispielsweise bitcoin.png, für Tether tether.png und so weiter...",
+                    "updated": 1634041097451,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In the case of an exchange, again, the literal name of the exchange is used, as it is listed in the CCXT library. for instance, Binance is binance.png.",
-            "updated": 1615462532995
+            "updated": 1615462532995,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Falle eines Austauschs wird wiederum der wörtliche Name des Austauschs verwendet, wie er in der CCXT-Bibliothek aufgeführt ist. Zum Beispiel Binance ist binance.png.",
+                    "updated": 1634041141304,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Text",

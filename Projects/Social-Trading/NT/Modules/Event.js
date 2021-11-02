@@ -17,7 +17,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         targetBotProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
-        /* Event Unitque Properties */
+        /* Event Unique Properties */
         eventType: undefined,
         timestamp: undefined,
         /* Bot Related Properties */
@@ -64,7 +64,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         if (thisObject.emitterUserProfileId === undefined) {
             throw ('Emitter User Profile Id Not Provided.')
         }
-        emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
+        emitterUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
         if (emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
@@ -72,7 +72,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         Validate Target User Profile.
         */
         if (thisObject.targetUserProfileId !== undefined) {
-            targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }

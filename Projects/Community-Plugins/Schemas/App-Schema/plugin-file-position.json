@@ -1,0 +1,22 @@
+{
+    "type": "Plugin File Position",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "propertyNameAtParent": "pluginFilePosition",
+    "childrenNodesProperties": []
+}

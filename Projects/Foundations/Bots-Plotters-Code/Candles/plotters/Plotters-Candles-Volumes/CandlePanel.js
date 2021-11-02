@@ -141,7 +141,7 @@ function newCandlesPlottersCandlesVolumesCandlesCandlePanel() {
         };
 
 
-        /* Extra bounderies due to constrained space */
+        /* Extra boundaries due to constrained space */
 
         const upperLimit = frameTitleHeight + frameBodyHeight * 0.15;
         const downLimit = frameTitleHeight + frameBodyHeight * 0.85;

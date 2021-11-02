@@ -10,25 +10,27 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokenPowerSwitch",
             "actionFunction": "payload.executeAction",
             "label": "Add Token Power Switch",
-            "relatedUiObject": "Token Power Switch"
+            "relatedUiObject": "Token Power Switch",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "tokensMined",
             "actionFunction": "payload.executeAction",
             "label": "Add Tokens Mined",
-            "relatedUiObject": "Tokens Mined"
+            "relatedUiObject": "Tokens Mined",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Install as Plugin",
-            "actionProject": "Foundations",
+            "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
             "label": "Install as Plugin",
@@ -38,7 +40,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

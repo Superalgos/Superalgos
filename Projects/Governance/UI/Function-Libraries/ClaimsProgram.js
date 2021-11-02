@@ -275,9 +275,9 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                 ) {
                     /*
                     We will use the concept of Vote Reward Claims Ratio for the situation in which the 
-                    total votes in claims exeeds the amount of votes of the reward. When this happens 
-                    the Votes Rewards Claims Ratio will be used to redude the amount of tokens awarded 
-                    proportionally to how much was exeeded.
+                    total votes in claims exceeds the amount of votes of the reward. When this happens
+                    the Votes Rewards Claims Ratio will be used to reduce the amount of tokens awarded
+                    proportionally to how much was exceeded.
                     */
                     let votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsProgram.votes
                     if (votesRatio > 1) { votesRatio = 1 }
@@ -325,7 +325,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
 
-                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage !== undefined && isNaN(percentage) !== true) {
                             totalPercentage = totalPercentage + percentage
                         } else {
@@ -341,7 +341,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
 
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -372,7 +372,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Tokens Awarded") { continue }
 
-                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                         if (percentage === undefined || isNaN(percentage) === true) {
                             percentage = defaultPercentage
                         }
@@ -387,7 +387,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Tokens Awarded") { continue }
 
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
@@ -539,12 +539,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                             let destinationNodeChild = destinationNode[property.name]
 
                             let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.foundations.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
+                            let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                             if (originNodeChild === undefined) {
-                                originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                             }
-                            UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
+                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                             scanNodeBranch(originNodeChild, destinationNodeChild)
                         }
                             break
@@ -556,12 +556,12 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                     let destinationNodeChild = propertyArray[m]
 
                                     let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.foundations.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
+                                    let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
 
                                     if (originNodeChild === undefined) {
-                                        originNodeChild = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                        originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
                                     }
-                                    UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                                     scanNodeBranch(originNodeChild, destinationNodeChild)
                                 }
                             }

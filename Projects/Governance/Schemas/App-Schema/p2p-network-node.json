@@ -12,7 +12,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -25,14 +25,13 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}"
+        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webSocketsPort\": \"18042\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
         "compatibleTypes": "->Signing Account->"
     },
-    "childrenNodesProperties": [
-    ],
-    "propertyNameAtParent": "assignedTo"
+    "childrenNodesProperties": [],
+    "propertyNameAtParent": "signingAccountChild"
 }

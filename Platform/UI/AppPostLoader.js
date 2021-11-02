@@ -4,7 +4,7 @@ function newAppPostLoader() {
     const MODULE_NAME = 'Post Loader'
     const ERROR_LOG = true
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         start: start
@@ -14,9 +14,18 @@ function newAppPostLoader() {
 
     function start() {
         try {
-  
+
             // autoSaveWhenClosingTheBrowser()
-            setupProjectsSchema()
+            setupEnvironment()
+
+            function setupEnvironment() {
+                httpRequest(undefined, 'Environment', onResponse)
+
+                function onResponse(err, file) {
+                    UI.environment = JSON.parse(file)
+                    setupProjectsSchema()
+                }
+            }
 
             function setupProjectsSchema() {
                 httpRequest(undefined, 'ProjectsSchema', onResponse)

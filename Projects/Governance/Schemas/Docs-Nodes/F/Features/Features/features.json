@@ -2,7 +2,14 @@
     "type": "Features",
     "definition": {
         "text": "The Features hierarchy defines existing software features, or features in the wish list, yet to be developed. The definition of existing features exist to reward Contributors maintaining the code. Definitions of features that don’t yet exist are intended to incentivize the creation and contribution of the said features.",
-        "updated": 1630427874621
+        "updated": 1630427874621,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия особенностей определяет существующие функции программного обеспечения или функции в списке пожеланий, которые еще предстоит разработать. Определение существующих особенностей служит вознаграждению участников, поддерживающих код. Определения особенностей, которых еще не существует, призваны стимулировать создание и использование указанных данных.",
+                "updated": 1635578549821
+            }
+        ]
     },
     "paragraphs": [
         {

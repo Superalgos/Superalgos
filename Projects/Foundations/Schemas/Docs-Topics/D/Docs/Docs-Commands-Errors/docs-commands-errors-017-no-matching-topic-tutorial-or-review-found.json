@@ -4,22 +4,50 @@
     "type": "No Matching Topic, Tutorial or Review Found",
     "definition": {
         "text": "The Topic or Tutorial you specified did not produce any matching pages within that Topic or Tutorial.",
-        "updated": 1610999403208
+        "updated": 1610999403208,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das von Ihnen angegebene Thema oder Tutorial hat keine passenden Seiten innerhalb dieses Topic oder Tutorial erzeugt.",
+                "updated": 1633900832160
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Error",
             "text": "No pages found. There are no Topics or Tutorials with the name provided.",
-            "updated": 1610398925565
+            "updated": 1610398925565,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "No pages found. Es gibt keine Topics oder Tutorials mit dem angegebenen Namen.",
+                    "updated": 1633900934165
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Tip: Check that the name of the Topic or Tutorial provided is spelled correctly.",
-            "updated": 1610999441145
+            "updated": 1610999441145,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass der Name des angegebenen Topic oder Tutorial richtig geschrieben ist.",
+                    "updated": 1633901040653
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633901047649
+                }
+            ]
         },
         {
             "style": "List",

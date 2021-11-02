@@ -5,16 +5,21 @@
             "action": "Add UI Object",
             "label": "Add Situation",
             "relatedUiObject": "Situation",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -38,7 +43,8 @@
         {
             "name": "announcements",
             "type": "array",
-            "childType": "Announcement"
+            "childType": "Announcement",
+            "project": "Social-Bots"
         }
     ],
     "propertyNameAtParent": "triggerOn"

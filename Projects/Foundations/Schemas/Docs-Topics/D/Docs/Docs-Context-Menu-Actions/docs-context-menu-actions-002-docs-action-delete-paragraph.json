@@ -4,12 +4,26 @@
     "type": "Docs Action Delete Paragraph",
     "definition": {
         "text": "Use this action to delete a paragraph. This action can not be undone.  You can still refresh the page without executing the Docs Save Command to rollback all your changes until the last execution of the save command.",
-        "updated": 1609262026576
+        "updated": 1609262026576,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Mit dieser Aktion können Sie einen Absatz löschen. Diese Aktion kann nicht rückgängig gemacht werden. Sie können die Seite jedoch aktualisieren, ohne den Docs Save Command auszuführen, um alle Änderungen bis zur letzten Ausführung des Save command rückgängig zu machen.",
+                "updated": 1633965789039
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1633965820597
+                }
+            ]
         }
     ]
 }

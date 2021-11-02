@@ -10,27 +10,45 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Install Product",
+            "label": "Install Product",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Product Definition",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+
+        {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "record",
             "label": "Add Record Definition",
             "relatedUiObject": "Record Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
             "label": "Add Dataset Definition",
             "relatedUiObject": "Dataset Definition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add Missing Children",
             "label": "Add Missing Items",
             "relatedUiObject": "Calculations Procedure",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -52,7 +70,7 @@
         "compatibleTypes": "->Plotter Module->"
     },
     "attachingRules": {
-        "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
+        "compatibleTypes": "->Data-Mining|Sensor Bot->Data-Mining|API Data Fetcher Bot->Data-Mining|Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
     },
     "childrenNodesProperties": [
         {

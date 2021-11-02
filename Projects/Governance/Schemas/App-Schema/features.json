@@ -3,21 +3,23 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature Class",
-            "relatedUiObject": "Feature Class"
+            "relatedUiObject": "Feature Class",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Feature",
-            "relatedUiObject": "Feature"
+            "relatedUiObject": "Feature",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Install as Plugin",
-            "actionProject": "Foundations",
+            "actionProject": "Community-Plugins",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Install",
             "label": "Install as Plugin",
@@ -27,7 +29,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -52,11 +54,5 @@
             "childType": "Feature",
             "autoAdd": false
         }
-    ],
-    "inMapMode": {
-        "showNodeType": false,
-        "showHierarchyHeadRing": false,
-        "smallIcon": true,
-        "smallText": true
-    }
+    ]
 }

@@ -15,25 +15,28 @@
             "label": "Install Missing Claims",
             "relatedUiObject": "Position Contribution Claim",
             "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install"
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Claims Folder",
-            "relatedUiObject": "Position Claims Folder"
+            "relatedUiObject": "Position Claims Folder",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
             "label": "Add Position Contribution Claim",
-            "relatedUiObject": "Position Contribution Claim"
+            "relatedUiObject": "Position Contribution Claim",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

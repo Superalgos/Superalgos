@@ -451,9 +451,16 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
     function getFileViaHTTP(filePath, callback, callBackFunction) {
         try {
-
-            /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
-            filePath = filePath.substring(15, filePath.length)
+            /*
+            The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the
+            prefix that includes this: ./Data-Storage/
+            */
+            let pathArray = filePath.split('/')
+            let indexmax = pathArray.indexOf('My-Data-Storage') // TODO: get rid of hardcoded path name
+            for (var i = 0; i <= indexmax; i++) {
+                pathArray.shift()
+            }
+            filePath = pathArray.join('/')
 
             let http = SA.nodeModules.http
             let url = 'http://' + host +

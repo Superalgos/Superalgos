@@ -3,7 +3,7 @@
     "pageNumber": "4",
     "type": "Value Undefined",
     "definition": {
-        "text": "Some nodes might aquire a value at runtime. This type of error will pop up when such a node is expected to have some value but it has none. Undefined means no value at all of any type.",
+        "text": "Some nodes might acquire a value at runtime. This type of error will pop up when such a node is expected to have some value but it has none. Undefined means no value at all of any type.",
         "updated": 1611652326745
     },
     "paragraphs": [

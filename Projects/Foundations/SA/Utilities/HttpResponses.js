@@ -177,7 +177,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
 
         if (fileNameReceived === '') {
             /*
-            When there is no endpoint specidied we will respond with this app's Home Page.
+            When there is no endpoint specified we will respond with this app's Home Page.
             */
             let fs = SA.nodeModules.fs
 
@@ -194,7 +194,7 @@ exports.newFoundationsUtilitiesHttpResponses = function () {
         } else {
             /*
             When there is a parameter but it does not match any of the available endpoints, we 
-            will serve the file with the same name at at a location that depends on it's file extention. 
+            will serve the file with the same name at at a location that depends on it's file extension.
             */
             let completeFileName = fileNameReceived
             let fileExtension = completeFileName.split('.')[1]

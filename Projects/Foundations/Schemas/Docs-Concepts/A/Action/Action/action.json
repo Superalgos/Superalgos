@@ -1,7 +1,7 @@
 {
     "type": "Action",
     "definition": {
-        "text": "An Action is somthing that users of the system can triggeer via the UI, usually by clicking on a Menu Item of a Node. Actions can also be triggered by other actions enabling a resulable set of functionality to be available to users of the Design Space. Once triggered the action executes pre-defined code.",
+        "text": "An Action is something that users of the system can trigger via the UI, usually by clicking on a Menu Item of a Node. Actions can also be triggered by other actions enabling a reusable set of functionality to be available to users of the Design Space. Once triggered the action executes pre-defined code.",
         "updated": 1614784762410
     },
     "paragraphs": [

@@ -23,7 +23,7 @@
         },
         {
             "style": "List",
-            "text": "Receving Data: the Client receives via it's http interface notifications from external sources (like Trading View) and keep the data received in-memory. This happens independently of the Webhooks Sensor Bot, meaning that it does not matter if the Webhook Sensor Bot is running or not.",
+            "text": "Receiving Data: the Client receives via it's http interface notifications from external sources (like Trading View) and keep the data received in-memory. This happens independently of the Webhooks Sensor Bot, meaning that it does not matter if the Webhook Sensor Bot is running or not.",
             "updated": 1615366502234
         },
         {
@@ -124,11 +124,11 @@
         },
         {
             "style": "Note",
-            "text": "At the Signals Provider node you will see a message of failure or success depending if the message was succesfuly delivered to the Client or not."
+            "text": "At the Signals Provider node you will see a message of failure or success depending if the message was successfully delivered to the Client or not."
         },
         {
             "style": "Note",
-            "text": "At the Client 's console, you will see 3 lines of logs, aknolidging that the message was received or if something was wrong, an error message with the cause."
+            "text": "At the Client 's console, you will see 3 lines of logs, acknowledging that the message was received or if something was wrong, an error message with the cause."
         },
         {
             "style": "Text",
@@ -136,7 +136,7 @@
         },
         {
             "style": "Javascript",
-            "text": "[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Ferched by Webhooks Sensor Bot = 1",
+            "text": "[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = 1",
             "updated": 1615370618823
         },
         {
@@ -160,7 +160,7 @@
         },
         {
             "style": "Text",
-            "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market.  The prcess of installing a market adds all the tasks needed to run all the bots defined at all Data Mines present at the workspace.",
+            "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market.  The process of installing a market adds all the tasks needed to run all the bots defined at all Data Mines present at the workspace.",
             "updated": 1629361603647
         },
         {
@@ -183,7 +183,7 @@
         },
         {
             "style": "Javascript",
-            "text": "2021-03-10T09:57:40.111Z              Binance   BTC/USDT              Masters                       Webhooks                  Check-Webhook          Main Loop #        3\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = 0",
+            "text": "2021-03-10T09:57:40.111Z              Binance   BTC/USDT              Masters                       Webhooks                  Check-Webhook          Main Loop #        3\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = 0",
             "updated": 1615370294905
         },
         {
@@ -198,7 +198,7 @@
         },
         {
             "style": "List",
-            "text": "The Client accumulates the signas received.",
+            "text": "The Client accumulates the signals received.",
             "updated": 1615370477786
         },
         {
@@ -211,7 +211,7 @@
         },
         {
             "style": "Javascript",
-            "text": "[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 1\n[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 2\n[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 3\n2021-03-10T10:04:40.472Z              Binance   BTC/USDT              Masters                       Webhooks                  Check-Webhook          Main Loop #       17\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = 3",
+            "text": "[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = 1\n[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 2\n[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = Sell\n[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = 3\n2021-03-10T10:04:40.472Z              Binance   BTC/USDT              Masters                       Webhooks                  Check-Webhook          Main Loop #       17\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = binance-BTC-USDT\n[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = 3",
             "updated": 1615370778562
         },
         {
@@ -268,7 +268,7 @@
         },
         {
             "style": "List",
-            "text": "source: the name of the Signal Provider. This comes as part of the message sent by the provider, because is part of the URL you will specify later at the Signal Provider's system. In our example we used Trading View, but in fact it could be any other provider. You will have this property available at your Trading System, meaning that you will be able to write conditions that distingish the signal by Signal Provider.",
+            "text": "source: the name of the Signal Provider. This comes as part of the message sent by the provider, because is part of the URL you will specify later at the Signal Provider's system. In our example we used Trading View, but in fact it could be any other provider. You will have this property available at your Trading System, meaning that you will be able to write conditions that distinguish the signal by Signal Provider.",
             "updated": 1615371322994
         },
         {
@@ -337,7 +337,7 @@
         },
         {
             "style": "Text",
-            "text": "We will make ourselves sure that from within a strategy we can react to an external Signal. To test this, plese take the following steps. All of the following goes into the current Lighting Strike Backtesting Session / Task.",
+            "text": "We will make ourselves sure that from within a strategy we can react to an external Signal. To test this, please take the following steps. All of the following goes into the current Lighting Strike Backtesting Session / Task.",
             "updated": 1615379790606
         },
         {
@@ -347,7 +347,7 @@
         },
         {
             "style": "Text",
-            "text": "Rigth click over the Backtesting Session node and select switch to Paper Trading so that we can simulate live trading without connecting to the exchange."
+            "text": "Right click over the Backtesting Session node and select switch to Paper Trading so that we can simulate live trading without connecting to the exchange."
         },
         {
             "style": "Subtitle",
@@ -390,7 +390,7 @@
         },
         {
             "style": "Text",
-            "text": "The initialDatetime will be ingoned because we are running a Paper Trading Session. The important thing is that the finalDatetime is in the future.",
+            "text": "The initialDatetime will be ignored because we are running a Paper Trading Session. The important thing is that the finalDatetime is in the future.",
             "updated": 1615380159343
         },
         {
@@ -436,7 +436,7 @@
         },
         {
             "style": "List",
-            "text": "Candles Volumens"
+            "text": "Candles Volumes"
         },
         {
             "style": "List",
@@ -470,7 +470,7 @@
         },
         {
             "style": "Important",
-            "text": "This is not necesary the first time you run this, but if you are repeating this test, you will avoid confusions since the file of signals will be accumulating the test messages you send, and at the strategy we are not checking for the age of the messages, so it is a good idea to delete this data every time you try this procedure.",
+            "text": "This is not necessary the first time you run this, but if you are repeating this test, you will avoid confusions since the file of signals will be accumulating the test messages you send, and at the strategy we are not checking for the age of the messages, so it is a good idea to delete this data every time you try this procedure.",
             "updated": 1615381726583
         },
         {
@@ -528,15 +528,15 @@
         },
         {
             "style": "Title",
-            "text": "Set-up your Firewall / Rounter to accept Incoming Connections"
+            "text": "Set-up your Firewall / Router to accept Incoming Connections"
         },
         {
             "style": "Text",
-            "text": "As you might have imagined, you will need to open a port at your rounter / firewall to accept incomming connections from the signal provider's servers (like Trading View for instance). This is what allows that server to connect to the server where the Client is running, enabling the Client to receive those signals."
+            "text": "As you might have imagined, you will need to open a port at your router / firewall to accept incoming connections from the signal provider's servers (like Trading View for instance). This is what allows that server to connect to the server where the Client is running, enabling the Client to receive those signals."
         },
         {
             "style": "Important",
-            "text": "How you configure your Rounter / Firewall is up to you, and it depends on your network setup. You will need to do your research for details on how to do it, because it depends on which rounter / firewall you are using. We suggest you to include on the rules of your Firewall / Rounter the domain name or IP address of the Signal provider, so that nobody else can connect to the Client's http interface, which has, beyond Webhooks other features you don't want to expose openly to the world without restrictions.",
+            "text": "How you configure your Router / Firewall is up to you, and it depends on your network setup. You will need to do your research for details on how to do it, because it depends on which router / firewall you are using. We suggest you to include on the rules of your Firewall / Router the domain name or IP address of the Signal provider, so that nobody else can connect to the Client's http interface, which has, beyond Webhooks other features you don't want to expose openly to the world without restrictions.",
             "updated": 1615368540044
         },
         {

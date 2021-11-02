@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Assets",
+    "type": "Plugin User Profiles",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Assets",
-            "label": "Add Missing Assets",
+            "action": "Add Missing Plugin User Profiles",
+            "label": "Add Missing User Profiles",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Assets",
+            "relatedUiObject": "User Profile",
             "actionFunction": "payload.executeAction",
             "actionProject": "Governance",
             "relatedUiObjectProject": "Governance"
@@ -25,7 +25,8 @@
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginAssets",
+    "propertyNameAtParent": "pluginUserProfiles",
+    "alternativeIcons": "Use Reference Parent Parent",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

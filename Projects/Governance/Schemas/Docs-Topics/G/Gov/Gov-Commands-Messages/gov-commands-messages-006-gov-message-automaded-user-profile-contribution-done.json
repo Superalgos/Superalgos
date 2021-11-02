@@ -1,0 +1,60 @@
+{
+    "topic": "Gov Commands Messages",
+    "pageNumber": "6",
+    "type": "Gov Message - Automated User Profile Contribute Done",
+    "definition": {
+        "text": "Your user profile was uploaded to your Superalgos Fork and a Pull Request was submitted to the main Superalgos repository.",
+        "updated": 1611002547907,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Kontribusi anda telah terupload ke Superalgos Fork dan Pull Request telah dikirim ke penyimpanan utama Superalgos.",
+                "updated": 1613861035790,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Tus contribuciones se cargaron en tu Superalgos Fork y tu Pull Request fue enviado al repositorio principal de Superalgos.",
+                "updated": 1628207320785,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ihre Beiträge wurden in Ihren Superalgos Fork hochgeladen und ein Pull Request wurde an das Haupt-Repository von Superalgos gesendet.",
+                "updated": 1634163888387,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Katkılarınız Superalgos Çatalınıza yüklendi ve ana Superalgos deposuna bir Çekme Talebi gönderildi.",
+                "updated": 1635576753406
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow the issue at Github.com.",
+            "updated": 1611002626154,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Anda tidak perlu melakukan tindakan apapun. Seseorang akan meninjau Pull Request anda dan menggabungkannya ke perangkat lunak versi terbaru jika semuanya telah selesai. Jika perubahan anda ditolak karena alasan apa pun, anda harus memfollow up ke Github.com.",
+                    "updated": 1613861030185,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist keine weitere Aktion von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Problem auf Github.com verfolgen.",
+                    "updated": 1634163896241,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir işlem yapmanız gerekmez. Birisi, Çekme Talebinizi gözden geçirecek ve her şeyin yolunda olması durumunda onu yazılımın en son sürümüyle birleştirecektir. Değişiklikleriniz herhangi bir nedenle reddedilirse, sorunu Github.com adresinden takip etmeniz gerekecektir.",
+                    "updated": 1635576806375
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 {
     "type": "CCXT",
     "definition": {
-        "text": "CCXT is a popular open source library that aims to standarize crypto exchanges APIs so as to make it easier for trading bots developers to access crypto exchanges. ",
+        "text": "CCXT is a popular open source library that aims to standardize crypto exchanges APIs so as to make it easier for trading bots developers to access crypto exchanges. ",
         "updated": 1621694347383,
         "translations": [
             {

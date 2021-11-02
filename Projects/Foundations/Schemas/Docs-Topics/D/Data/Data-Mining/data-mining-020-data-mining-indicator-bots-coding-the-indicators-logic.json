@@ -4,21 +4,49 @@
     "type": "Data Mining - Indicator Bots - Coding the Indicator's Logic",
     "definition": {
         "text": "Learn how to use data dependencies, the variable object, and how to deal with indicators with irregular periods.",
-        "updated": 1611429211176
+        "updated": 1611429211176,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lernen Sie, wie man data dependencies und das variable object verwendet und wie man mit indicators mit unregelmäßigen Perioden (irregular periods) umgeht.",
+                "updated": 1635354439837
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Main Data Dependency",
-            "updated": 1611430812568
+            "updated": 1611430812568,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Haupt-Data Dependency:",
+                    "updated": 1635354651687
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The data building procedure works under the premise that the algorithm loops around a data collection and that—for each loop—generates a record for the product being built. For example, the SMA indicator loops around the candles product of the Candles Volumes indicator, thus, candles is the main data dependency. In the case of the bollingerChannels product, the main data dependency is the bollingerBands product of the Bollinger Bands indicator."
+            "text": "The data building procedure works under the premise that the algorithm loops around a data collection and that—for each loop—generates a record for the product being built. For example, the SMA indicator loops around the candles product of the Candles Volumes indicator, thus, candles is the main data dependency. In the case of the bollingerChannels product, the main data dependency is the bollingerBands product of the Bollinger Bands indicator.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die data building procedure funktioniert unter der Prämisse, dass der Algorithmus in Schleifen um eine Datensammlung herumläuft und für jede Schleife einen Datensatz für das zu erstellende Produkt erzeugt. Der SMA-Indikator umkreist beispielsweise das Kerzen-Produkt des Kerzen-Volumen-Indikators, so dass die Kerzen die main Datenabhängigkeit darstellen. Im Fall des Produkts bollingerChannels ist die Hauptdatenabhängigkeit das Produkt bollingerBands des Indikators Bollinger Bands.",
+                    "updated": 1635354770094
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The main data dependency is the first dependency declared at the level of the processes. This dependency is made available in the record object, which features three properties:"
+            "text": "The main data dependency is the first dependency declared at the level of the processes. This dependency is made available in the record object, which features three properties:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die main data dependency ist die erste Abhängigkeit, die auf der Ebene der Prozesse deklariert wird. Diese Abhängigkeit wird im record object zur Verfügung gestellt, das über drei Eigenschaften verfügt:",
+                    "updated": 1635354968813
+                }
+            ]
         },
         {
             "style": "List",
@@ -50,59 +78,150 @@
         },
         {
             "style": "Text",
-            "text": "The variable index is the index in the array of the main dependency."
+            "text": "The variable index is the index in the array of the main dependency.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Variable index ist der Index im Array der main dependency.",
+                    "updated": 1635355002222
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, you may use the statement record.propertyName to access the value of any of the properties in the input datasets for the current record, or record.previous.propertyName to access the value of the property in the previous record."
+            "text": "For example, you may use the statement record.propertyName to access the value of any of the properties in the input datasets for the current record, or record.previous.propertyName to access the value of the property in the previous record.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können zum Beispiel die Anweisung record.propertyName verwenden, um auf den Wert einer beliebigen Eigenschaft in den Eingabedatensätzen für den aktuellen Datensatz zuzugreifen, oder record.previous.propertyName, um auf den Wert der Eigenschaft im vorherigen Datensatz zuzugreifen.",
+                    "updated": 1635355095733
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The order in which dependencies are defined determines which one is the main data dependency.",
-            "updated": 1611429327162
+            "updated": 1611429327162,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Reihenfolge, in der die dependencies definiert werden, bestimmt, welche die Hauptdatenabhängigkeit ist.",
+                    "updated": 1635355151609
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Multiple Data Dependencies",
-            "updated": 1611430826204
+            "updated": 1611430826204,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Mehrere Data Dependencies:",
+                    "updated": 1635355230718
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The products object features a property for each data dependency, and each property is named with the pluralVariableName defined in the product’s configuration. Each property features an array with the dependency’s data collection."
+            "text": "The products object features a property for each data dependency, and each property is named with the pluralVariableName defined in the product’s configuration. Each property features an array with the dependency’s data collection.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das products-Objekt enthält eine Eigenschaft für jede Datenabhängigkeit, und jede Eigenschaft ist mit dem in der Produktkonfiguration definierten pluralVariableName benannt. Jede Eigenschaft enthält ein Array mit der Datensammlung der Abhängigkeit.",
+                    "updated": 1635355293053
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Data collections of different products may begin and end at different points in time. For example, it takes 20 candles to build the first bollingerBands object of the Bollinger Bands indicator, or 200 candles to build the first popularSMAs object of the SMA indicator. Therefore, the record in i position in the array of one product may not correspond to the same period of time of the record in the same position of a different product."
+            "text": "Data collections of different products may begin and end at different points in time. For example, it takes 20 candles to build the first bollingerBands object of the Bollinger Bands indicator, or 200 candles to build the first popularSMAs object of the SMA indicator. Therefore, the record in i position in the array of one product may not correspond to the same period of time of the record in the same position of a different product.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Data collections für verschiedene Produkte können zu unterschiedlichen Zeitpunkten beginnen und enden. So dauert es beispielsweise 20 Kerzen, um das erste bollingerBands-Objekt des Bollinger Bands-Indikators zu erstellen, oder 200 Kerzen, um das erste popularSMAs-Objekt des SMA-Indikators zu erstellen. Daher entspricht der Datensatz an der Position \"i\" im Array eines Produkts möglicherweise nicht demselben Zeitraum wie der Datensatz an derselben Position eines anderen Produkts.",
+                    "updated": 1635355398375
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "getElement Function"
+            "text": "getElement Function",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "\"getElement Function\" ",
+                    "updated": 1635355493612
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This function allows users to locate an object at a dataset whose objects does not have a begin and end property but instead, they have a timestamp property. It receives an arbitrary begin / end object and the function will search within the dependency dataset for the first record whose timestamp is whitin the begin and end of the received reference objet. For example, a user can get the News record that belong to a certain Candle object.",
-            "updated": 1621105823745
+            "updated": 1621105823745,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Funktion ermöglicht es dem Benutzer, ein Objekt in einem Datensatz zu finden, dessen Objekte keine Anfangs- und Ende-Eigenschaft haben, sondern eine timestamp (Zeitstempel) Eigenschaft besitzen. Sie empfängt ein beliebiges Anfangs-/Endobjekt, und die Funktion sucht innerhalb des Abhängigkeitsdatensatzes nach dem ersten Datensatz, dessen Zeitstempel mit dem Anfang und Ende des empfangenen Referenzobjekts übereinstimmt. Zum Beispiel kann ein Benutzer die News-Datensätze abrufen, die zu einem bestimmten Candle object gehören.",
+                    "updated": 1635355600885
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The getElement function, which takes two parameters, may be used:",
-            "updated": 1621105837484
+            "updated": 1621105837484,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Funktion getElement, die zwei Parameter benötigt, kann so verwendet werden:",
+                    "updated": 1635355644238
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The name of the data collection (pluralVariableName) you wish to consult."
+            "text": "The name of the data collection (pluralVariableName) you wish to consult.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Name der Datensammlung (pluralVariableName) die Sie abfragen möchten.",
+                    "updated": 1635355679335
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "An object with begin and end properties, for example, the tenth candle."
+            "text": "An object with begin and end properties, for example, the tenth candle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Objekt mit Anfangs- und Endeigenschaften, zum Beispiel die zehnte candle.",
+                    "updated": 1635355699147
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The function returns the record that matches the begin and end datetime of the second parameter."
+            "text": "The function returns the record that matches the begin and end datetime of the second parameter.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Funktion gibt den Datensatz zurück, der mit dem Anfangs- und Enddatum des zweiten Parameters übereinstimmt.",
+                    "updated": 1635355840137
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is an example from the Candle Patterns indicator, which has the candles product of the Candles Volumes indicator as the main data dependency:"
+            "text": "This is an example from the Candle Patterns indicator, which has the candles product of the Candles Volumes indicator as the main data dependency:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Beispiel aus dem Candle Patterns indicator, der das candle product des Candles Volumes indicator als Hauptdatenabhängigkeit hat:",
+                    "updated": 1635355927938
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -117,7 +236,14 @@
         {
             "style": "Text",
             "text": "Indicators might have parameters that influences it's calculations. These parameters are defined at the Product Definition config, and their values are set at the Process Instance config. Parameters are extracted at the Procedure Initialization Code. In order to facilitate this extraction we will create an object here that will be accesed from the Procedure Initialization with all parameters and their defined values.",
-            "updated": 1621105691314
+            "updated": 1621105691314,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indikatoren können Parameter haben, die ihre Berechnungen beeinflussen. Diese Parameter werden in der Process Instance config definiert, und ihre Werte werden in der Process Instance config festgelegt. Die Parameter werden im Initialization Code der Prozedur extrahiert. Um diese Extraktion zu erleichtern, erstellen wir hier ein Objekt, auf das von der Procedure Initialization aus mit allen Parametern und ihren definierten Werten zugegriffen werden kann.",
+                    "updated": 1635356111873
+                }
+            ]
         },
         {
             "style": "Text",
@@ -135,11 +261,25 @@
         },
         {
             "style": "Text",
-            "text": "The output generated must be stored as new properties of the variable object, which is made available to record properties under the record definition node."
+            "text": "The output generated must be stored as new properties of the variable object, which is made available to record properties under the record definition node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erzeugten Ausgaben müssen als neue properties des variable object gespeichert werden, das den record properties unter dem record definition node zur Verfügung gestellt wird.",
+                    "updated": 1635356249718
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the case of the data building procedure loop, the variable object may also be used to store and—later—retrieve information between different loop cycles, or even between different executions of the indicator process. Such a feature is not available in the calculations procedure loop, as the object does not persist beyond each loop in that context."
+            "text": "In the case of the data building procedure loop, the variable object may also be used to store and—later—retrieve information between different loop cycles, or even between different executions of the indicator process. Such a feature is not available in the calculations procedure loop, as the object does not persist beyond each loop in that context.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Falle der data building procedure loop kann das variable object auch dazu verwendet werden, Informationen zwischen verschiedenen Schleifenzyklen oder sogar zwischen verschiedenen Ausführungen des indicator process zu speichern und später abzurufen. In der calculations procedure loop ist eine solche Funktion nicht verfügbar, da das object in diesem Kontext nicht über jede Schleife hinaus bestehen bleibt.",
+                    "updated": 1635356359862
+                }
+            ]
         },
         {
             "style": "Title",
@@ -147,16 +287,37 @@
         },
         {
             "style": "Text",
-            "text": "In time frames below one hour, the system allows to access data up to 48 hours in the past, relative to the current record. If more than 48-hours worth of data is required to produce the desired data building, then data must be stored into the variable object to be retrieved later on, as explained above."
+            "text": "In time frames below one hour, the system allows to access data up to 48 hours in the past, relative to the current record. If more than 48-hours worth of data is required to produce the desired data building, then data must be stored into the variable object to be retrieved later on, as explained above.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In Zeiträumen von weniger als einer Stunde erlaubt das System den Zugriff auf Daten, die bis zu 48 Stunden in der Vergangenheit liegen, bezogen auf den aktuellen Datensatz. Werden mehr als 48 Stunden an Daten benötigt, um das gewünschte data building zu erstellen, müssen die Daten in dem variable object gespeichert werden, um später abgerufen werden zu können (wie oben erklärt).",
+                    "updated": 1635356432924
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Procedures may only access data up to 48 hours in the past counting from the datetime of the record being processed. For example, the calculation of a moving average spanning 100 periods requires temporarily storing data in an array, as the 45 minutes time frame needs 75-hours worth of data.",
-            "updated": 1611431032118
+            "updated": 1611431032118,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verfahren können nur auf Daten zugreifen, die bis zu 48 Stunden in die Vergangenheit zurückreichen, gerechnet ab dem Datum des zu verarbeitenden Datensatzes. Die Berechnung eines gleitenden Durchschnitts (moving average), der sich über 100 Perioden erstreckt, erfordert beispielsweise die Zwischenspeicherung von Daten in einem Array, da für den Zeitrahmen von 45 Minuten Daten im Wert von 75 Stunden benötigt werden.",
+                    "updated": 1635356514722
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is an example of a procedure loop code, in particular, the code that calculates the Popular SMAs product of the Simple Moving Average (SMA) indicator. Notice how the output generated by the calculateSMA function is stored into the variable object, and how an array stored in the variable object is used to overcome the 48-hours data-access limitation of Multi-Priod-Daily time frames."
+            "text": "The following is an example of a procedure loop code, in particular, the code that calculates the Popular SMAs product of the Simple Moving Average (SMA) indicator. Notice how the output generated by the calculateSMA function is stored into the variable object, and how an array stored in the variable object is used to overcome the 48-hours data-access limitation of Multi-Priod-Daily time frames.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden finden Sie ein Beispiel für einen procedure loop code, insbesondere den Code, der das Produkt Popular SMAs des Simple Moving Average (SMA) Indikators berechnet. Beachten Sie, wie die von der Funktion calculateSMA erzeugte Ausgabe im variable object gespeichert wird und wie ein im variable object gespeichertes Array verwendet wird, um die 48-Stunden-data-access limitation (Datenzugriffsbeschränkung) von Multi-Priod-Daily Zeitrahmen zu überwinden.",
+                    "updated": 1635356663510
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -166,23 +327,58 @@
         {
             "style": "Title",
             "text": "Irregular Periods",
-            "updated": 1611431066723
+            "updated": 1611431066723,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Irregular Periods (Irreguläre Perioden):",
+                    "updated": 1635356682237
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Occasionally, a one-to-one mapping of the periods of the data dependency with the periods of the resulting product does not exist. For example, in the case of the bollingerChannels product, using the bollingerBands as the main dependency. In such a case, the algorithm may read the 1-hour bollingerBands as input but the resulting object may span several hours."
+            "text": "Occasionally, a one-to-one mapping of the periods of the data dependency with the periods of the resulting product does not exist. For example, in the case of the bollingerChannels product, using the bollingerBands as the main dependency. In such a case, the algorithm may read the 1-hour bollingerBands as input but the resulting object may span several hours.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hin und wieder gibt es keine Eins-zu-Eins-Zuordnung zwischen den Perioden der Datenabhängigkeit und den Perioden des resultierenden Produkts. Zum Beispiel im Fall des bollingerChannels product, das die bollingerBands als main dependency verwendet. In einem solchen Fall kann der Algorithmus die 1-hour bollingerBands als Eingabe lesen, aber das resultierende object kann sich über mehrere Stunden erstrecken.",
+                    "updated": 1635356783859
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "By default, the system pushes a record into the data collection for every loop. To build products that span several periods of the main dependency, you must make the push from within your own code."
+            "text": "By default, the system pushes a record into the data collection for every loop. To build products that span several periods of the main dependency, you must make the push from within your own code.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Standardmäßig schiebt das System bei jeder Schleife einen Datensatz in die Datensammlung. Um Produkte zu erstellen, die sich über mehrere Perioden der Hauptabhängigkeit erstrecken, müssen Sie den Push in Ihrem eigenen Code durchführen.",
+                    "updated": 1635356902606
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When the system detects a push in the procedure loop code, it cancels the automatic push on each loop."
+            "text": "When the system detects a push in the procedure loop code, it cancels the automatic push on each loop.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn das System einen Push im Code der procedure loop feststellt, bricht es den automatischen Push in jeder Schleife ab.",
+                    "updated": 1635356945154
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following example taken from the data building procedure loop of the Bollinger Channels Object indicator features several instances of arbitrary use of pushes."
+            "text": "The following example taken from the data building procedure loop of the Bollinger Channels Object indicator features several instances of arbitrary use of pushes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das folgende Beispiel aus der Schleife der data building procedure loop des Bollinger Channels Object zeigt mehrere Beispiele für die willkürliche Verwendung von Pushs.",
+                    "updated": 1635357060928
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -192,23 +388,58 @@
         {
             "style": "Title",
             "text": "Managing Undefined Objects",
-            "updated": 1611431116629
+            "updated": 1611431116629,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Undefined Objects verwalten:",
+                    "updated": 1635357087320
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In many instances, objects may be undefined. For example, the first 199 candles in the data collection corresponding to a 200-period moving average may be undefined, as the data building procedure may only build the object once the 200th candle is evaluated."
+            "text": "In many instances, objects may be undefined. For example, the first 199 candles in the data collection corresponding to a 200-period moving average may be undefined, as the data building procedure may only build the object once the 200th candle is evaluated.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In vielen Fällen können die Objekte undefiniert sein. Beispielsweise können die ersten 199 candles in der Datensammlung, die einem gleitenden 200-Perioden-Durchschnitt entsprechen, undefiniert sein, da die Datenerstellungsprozedur das Objekt möglicherweise erst nach der Auswertung der 200sten candle erstellt.",
+                    "updated": 1635357128634
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Storing undifined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer."
+            "text": "Storing undifined property values is highly undesirable, as that would likely produce errors downstream when others attempt to consume the products produced by the indicator. How to handle such circumstances is up to the developer.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Speicherung von undifined property values ist höchst unerwünscht, da dies wahrscheinlich zu Fehlern führen würde, wenn andere versuchen, die von dem indicator erzeugten Produkte zu konsumieren. Wie man mit solchen Umständen umgeht, bleibt dem Entwickler überlassen.",
+                    "updated": 1635357275201
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Bollinger Channels Object example above features deliberate handling of undefined objects."
+            "text": "The Bollinger Channels Object example above features deliberate handling of undefined objects.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das obige Beispiel des Bollinger Channels Object zeichnet sich durch den bewussten Umgang mit undefinierten Objekten aus.",
+                    "updated": 1635357307246
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the case of a 200-period moving average discussed above, the developer may want to produce an arbitrary estimation of the moving average for the first 199 candles, or simply set the value to zero for the first 199 candles. The later was the choice for the popularSMAs product as may be observed in the code of the initialization procedure:"
+            "text": "In the case of a 200-period moving average discussed above, the developer may want to produce an arbitrary estimation of the moving average for the first 199 candles, or simply set the value to zero for the first 199 candles. The later was the choice for the popularSMAs product as may be observed in the code of the initialization procedure:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Falle des oben beschriebenen  200-period moving average kann der Entwickler eine beliebige Schätzung des gleitenden Durchschnitts für die ersten 199 Kerzen vornehmen oder den Wert für die ersten 199 Kerzen einfach auf Null setzen. Letzteres wurde für das Produkt popularSMAs gewählt, wie im Code der initialization procedure zu sehen ist:",
+                    "updated": 1635357513374
+                }
+            ]
         },
         {
             "style": "Javascript",

@@ -10,7 +10,7 @@
         },
         {
             "style": "Text",
-            "text": "Both entry and exit target sizes may be defined either denominated in the base asset or the quoted asset. Nevertheless, the sytem keeps track of target sizes in both assets. If the target is defined denominated in the base asset, then the target for the quoted asset is calculated using the current rate, and viceversa."
+            "text": "Both entry and exit target sizes may be defined either denominated in the base asset or the quoted asset. Nevertheless, the system keeps track of target sizes in both assets. If the target is defined denominated in the base asset, then the target for the quoted asset is calculated using the current rate, and vice versa."
         },
         {
             "style": "Text",

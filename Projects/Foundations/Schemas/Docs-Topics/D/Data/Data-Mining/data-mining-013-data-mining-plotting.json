@@ -4,13 +4,27 @@
     "type": "Data Mining - Plotting",
     "definition": {
         "text": "Each product may have one Plotter Module associated with it. This Plotter Module has all the definitions needed to interpret the Product's datasets and render the information on a chart.",
-        "updated": 1622227086801
+        "updated": 1622227086801,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Jedem Produkt kann ein Plottermodul zugeordnet sein. Dieses Plottermodul enthält alle Definitionen, die zur Interpretation der Datensätze des Produkts und zur Darstellung der Informationen in einer chart (Diagramm) erforderlich sind.",
+                "updated": 1635105939995
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Superalgos has the capability to allow it's users to create plotters without writing any code. The plotter is defined at the Designer Space. This is done by means of defining vertices and polygons. Users can create custom charts for any Dataset.",
-            "updated": 1622227235452
+            "updated": 1622227235452,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos bietet die Möglichkeit, Plotter zu erstellen, ohne dass ein Code geschrieben werden muss. Der Plotter wird im Designer Space definiert. Dies geschieht durch die Definition von Scheitelpunkten und Polygonen. Benutzer können benutzerdefinierte Diagramme für jedes Dataset erstellen.",
+                    "updated": 1635106017833
+                }
+            ]
         }
     ]
 }

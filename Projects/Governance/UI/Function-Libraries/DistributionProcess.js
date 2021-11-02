@@ -36,7 +36,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         )
         /*
         Here we will run the Delegation Program, so that all the tokens
-        that are going to be delegated, are transfered to the Delegate's User Profile.
+        that are going to be delegated, are transferred to the Delegate's User Profile.
         */
         UI.projects.governance.functionLibraries.delegationProgram.calculate(
             pools,
@@ -89,7 +89,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
-        Run the Influencer Program
+        Run the Influenced Program
         */
         UI.projects.governance.functionLibraries.influencerProgram.calculate(
             pools,
@@ -126,6 +126,11 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             pools,
             userProfiles,
             'BUSD'
+        )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'ETH'
         )
         /*
         Run the Claims Program

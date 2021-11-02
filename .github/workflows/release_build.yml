@@ -3,10 +3,8 @@ name: Build/release Binaries
 on: 
   push: 
     branches: [master]
-    tags: 
-      - '*'
     release:
-      types: [published, created, edited]
+      types: [created]
 
   workflow_dispatch:
 

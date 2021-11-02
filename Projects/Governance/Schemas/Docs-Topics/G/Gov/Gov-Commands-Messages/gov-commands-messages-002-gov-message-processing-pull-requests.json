@@ -3,7 +3,7 @@
     "pageNumber": "2",
     "type": "Gov Message - Processing Pull Requests",
     "definition": {
-        "text": "Hold on while this process checks all the open PRs at the Superalgos repository at GitHub.com and merges all the ones that can be merged accorfing to the PRs Processing Rules. You will get a new message when the operation is complete.",
+        "text": "Hold on while this process checks all the open PRs at the Superalgos repository at GitHub.com and merges all the ones that can be merged according to the PRs Processing Rules. You will get a new message when the operation is complete.",
         "updated": 1611002766659,
         "translations": [
         ]

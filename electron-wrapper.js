@@ -72,7 +72,7 @@ app.on('activate', function () {
 function create_menus () {
   const template = [
     {
-      label: app.getName(),
+      label: 'File',
       submenu: [
         {
           role: 'quit'

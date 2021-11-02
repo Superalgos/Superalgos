@@ -246,7 +246,7 @@ function newFoundationsFloatingSpace() {
                 }
             }
 
-            /* Movign the Floating Space to where the mouse is. */
+            /* Moving the Floating Space to where the mouse is. */
             thisObject.container.frame.position.x = -mousePosition.x / browserCanvas.width * SPACE_SIZE + browserCanvas.width / 2
             thisObject.container.frame.position.y = -mousePosition.y / browserCanvas.height * SPACE_SIZE + browserCanvas.height / 2
 
@@ -255,13 +255,13 @@ function newFoundationsFloatingSpace() {
     }
 
     function isItFar(payload, dontCheckParent) {
-        /* If for any reason the paylaod is undefined we return false */
+        /* If for any reason the payload is undefined we return false */
         if (payload === undefined) { return false }
         if (thisObject.inMapMode === true) { return false }
 
         let radarFactor = 2 // How big is the margin
 
-        /* If the chain parent is not far, they we dont consither this far. */
+        /* If the chain parent is not far, they we dont consider this far. */
         if (dontCheckParent !== true) {
             if (payload.chainParent !== undefined) {
                 if (isItFar(payload.chainParent.payload, true) === false) { return false }
@@ -287,7 +287,7 @@ function newFoundationsFloatingSpace() {
         /* Another exception are the ones who have reference parents */
         if (payload.referenceParent !== undefined) { return false }
 
-        /* Here we will check the position of a floatingobject to see if it is outside the screen, with a margin of one screen around. */
+        /* Here we will check the position of a floating object to see if it is outside the screen, with a margin of one screen around. */
         let point = thisObject.container.frame.frameThisPoint(payload.position)
 
         if (point.x > browserCanvas.width + browserCanvas.width * radarFactor) {

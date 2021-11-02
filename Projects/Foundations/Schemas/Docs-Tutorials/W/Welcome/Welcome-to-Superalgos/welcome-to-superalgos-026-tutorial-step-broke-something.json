@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Wenn Sie einmal etwas kaputt machen - wie das Löschen eines Knotens oder das Ändern einer Konfiguration - und nicht wissen, wie Sie mit dem Ergebnis umgehen sollen...",
-                "updated": 1634166459683
+                "updated": 1634166459683,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Если Вы когда-нибудь что-то нарушили, например, удалили узел или изменили конфигурацию и не знаете, как дальше действовать...",
+                "updated": 1635627557596
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "... können Sie ganz einfach mit dem ursprünglichen Getting Started Tutorials Plugin Workspace neu beginnen!",
-                    "updated": 1634166463236
+                    "updated": 1634166463236,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "... Вы можете легко начать все сначала с исходного рабочего пространства Getting Started Tutorials Plugin Workspace!",
+                    "updated": 1635628049167
                 }
             ],
             "updated": 1622196973760
@@ -90,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Klicken Sie am linken Rand auf \"Workspaces\", suchen und klicken Sie auf das \"Getting Started Tutorials Plugin\"! Der ursprüngliche Plugin Workspace wird geladen und das Tutorial beginnt von neuem.",
-                    "updated": 1634166835790
+                    "updated": 1634166835790,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "В таком случае просто потяните вкладку с левой стороны, прокрутите, найдите плагин Getting Started Tutorials  и нажмите на него! Загрузится исходный Plugin Workspace и учебное пособие появится снова, с самого начала!",
+                    "updated": 1635629001422
                 }
             ],
             "updated": 1622634394712
@@ -109,7 +127,13 @@
                 {
                     "language": "DE",
                     "text": "Plugin-Workspaces gehören zum Lieferumfang. Sie können diese zu Ihrem eigenen machen oder neue Arbeitsbereiche erstellen.",
-                    "updated": 1634166969189
+                    "updated": 1634166969189,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Plugin Workspaces поставляются вместе с системой. Давайте посмотрим, как вы можете сделать их своими собственными или создать новые рабочие пространства!",
+                    "updated": 1635629610043
                 }
             ]
         }

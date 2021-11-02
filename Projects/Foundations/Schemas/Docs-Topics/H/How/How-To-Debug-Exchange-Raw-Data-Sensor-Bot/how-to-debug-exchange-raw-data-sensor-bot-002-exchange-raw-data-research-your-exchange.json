@@ -48,7 +48,7 @@
         },
         {
             "style": "Text",
-            "text": "Look for any information there related to your favorite exchange. You will probably need to undestand also the different types of parameters you can send to CCXT in order to adapt its behaviour at the specific command of fetching OHLCVs objects.",
+            "text": "Look for any information there related to your favorite exchange. You will probably need to understand also the different types of parameters you can send to CCXT in order to adapt its behaviour at the specific command of fetching OHLCVs objects.",
             "updated": 1614591710131
         },
         {

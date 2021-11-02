@@ -172,7 +172,6 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'next-version\')">Next-Version</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 
@@ -183,7 +182,6 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'next-version\')">Next-Version</a></li>'
 
         HTML = HTML + '</ul>'
         HTML = HTML + '</ul>'

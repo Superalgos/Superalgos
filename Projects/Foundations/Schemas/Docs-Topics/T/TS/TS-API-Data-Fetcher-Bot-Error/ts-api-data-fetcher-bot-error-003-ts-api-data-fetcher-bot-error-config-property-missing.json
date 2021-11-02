@@ -31,7 +31,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",

@@ -36,7 +36,13 @@
             {
                 "language": "NL",
                 "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor lange reizen op de ontwerpruimte!",
-                "updated": 1634927272967
+                "updated": 1634927272967,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Да! Вы можете использовать клавиатуру тоже! Вам понравится это в путешествиях на большие расстояния в дизайнерсоки пространстве.",
+                "updated": 1635608556366
             }
         ]
     },
@@ -73,7 +79,13 @@
                 {
                     "language": "NL",
                     "text": "Gewone mensen gebruiken de Ctrl toets plus de pijltjestoetsen: ← → ↑ ↓",
-                    "updated": 1634927382600
+                    "updated": 1634927382600,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычные пользователи могут использовать клавишу Ctrl плюс клавиши со стрелками: ← → ↑ ↓",
+                    "updated": 1635608613854
                 }
             ]
         },
@@ -109,7 +121,13 @@
                 {
                     "language": "NL",
                     "text": "Valt het je op dat als je de toetsen ingedrukt houdt, je pas echt gaat vliegen?",
-                    "updated": 1634927471853
+                    "updated": 1634927471853,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что удержание нажатых клавиш заставляет Вас летать!",
+                    "updated": 1635608711456
                 }
             ]
         },
@@ -145,7 +163,13 @@
                 {
                     "language": "NL",
                     "text": "Uiteraard moeten Mac fans de Ctrl toets vervangen voor Cmd",
-                    "updated": 1634927537845
+                    "updated": 1634927537845,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Конечно, Mac-фанаты должны заменить Ctrl на Cmd.",
+                    "updated": 1635608795704
                 }
             ]
         }

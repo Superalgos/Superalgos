@@ -47,6 +47,11 @@
                 "text": "El nodo Production Trading Tasks organiza sesiones de trading incluyendo trading en vivo.",
                 "updated": 1624490715363,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Узел Производственные торговые задачи организует торговые сессии, включающие Торговлю в режиме реального времени.",
+                "updated": 1635517287447
             }
         ]
     }

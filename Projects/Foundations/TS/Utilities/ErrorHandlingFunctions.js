@@ -48,11 +48,11 @@ exports.newFoundationsUtilitiesErrorHandlingFunctions = function () {
         err.docs = docs
         err.node = node
         /*
-        Users will not always be watching the console when an execption happens, for that 
+        Users will not always be watching the console when an exception happens, for that
         reason we will send it also to the Debug Logs.
         */
         let errorDetails = err.errorDetails
-        if (errorDetails === undefined) { errorDetails = "No error details availabe."}
+        if (errorDetails === undefined) { errorDetails = "No error details available."}
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
             "[ERROR] " + errorDetails)
 

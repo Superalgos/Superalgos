@@ -14,7 +14,7 @@
         },
         {
             "style": "Text",
-            "text": "Basically Superalgos consists of two different parts, the UI and the CLI, that live togheter. To communicate with us they use 3 different parameters defined in the Environment.js file (see default values below) and are the following:",
+            "text": "Basically Superalgos consists of two different parts, the UI and the CLI, that live together. To communicate with us they use 3 different parameters defined in the Environment.js file (see default values below) and are the following:",
             "updated": 1620714602413
         },
         {
@@ -44,7 +44,7 @@
         },
         {
             "style": "Text",
-            "text": "In the above screenshot you can see two different installation of SA running togheter at the same time. To avoi any type of conflict it's suggested to change not only the ports being used but olso to replace'localhost'with the IP of your local lan. In Windows you can know which IP is assigned to your machine with a simple CLI command. Just type ipconfig and you will presented with details about your local lan as in the following screenshot. IPv4 Address is your local IP:",
+            "text": "In the above screenshot you can see two different installation of SA running together at the same time. To avoid any type of conflict it's suggested to change not only the ports being used but also to replace 'localhost' with the IP of your local lan. In Windows you can know which IP is assigned to your machine with a simple CLI command. Just type ipconfig and you will presented with details about your local lan as in the following screenshot. IPv4 Address is your local IP:",
             "updated": 1620717800744
         },
         {

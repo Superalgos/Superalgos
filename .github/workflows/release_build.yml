@@ -1,31 +1,59 @@
 name: Build/release Binaries
 
 on: 
-  push: 
+  pull_request: 
     branches: [master]
-    tags: 
-      - '*'
-    release:
-      types: [published, created, edited]
+  #release:
+  #  types: [published, created]
 
   workflow_dispatch:
 
 jobs:
-  release:
-    runs-on: ${{ matrix.os }}
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a file
+        run: curl "https://raw.githubusercontent.com/${{ github.repository }}/master/package.json" -o package.json
 
+      - name: get-version
+        id: version
+        uses: nyaa8/package-version@v1
+        with:
+          path: './package.json'
+
+      - name: Create release
+        id: create_release
+        uses: viperproject/create-nightly-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.PACKAGE_VERSION }}
+          release_name: Superalgos-v${{ env.PACKAGE_VERSION }}
+
+  build-release:
+    runs-on: ${{ matrix.os }}
+    needs: create-release
     strategy:
-      matrix:
-        os: [windows-latest, macos-latest]
+        matrix:
+          os: [windows-latest, macos-latest]
 
     steps:
+
       - name: Check out Git repository
         uses: actions/checkout@v2
+        with:
+          ref: develop
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
           node-version: 14
+
+      - name: get-version
+        id: version
+        uses: nyaa8/package-version@v1
+        with:
+          path: './package.json'
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
@@ -33,8 +61,9 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
-          args: "-c.extraMetadata.main=electron-wrapper.js -c build/electron-builder.json"
+          args: "-c.extraMetadata.version=${{ env.PACKAGE_VERSION }} -c build/electron-builder.json -p always"
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          release: ${{ startsWith(github.ref, 'refs/tags/') }}
+          # release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          release: true

@@ -10,7 +10,14 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617114477974
+            "updated": 1617114477974,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Über dieses Tutorial:",
+                    "updated": 1635726127122
+                }
+            ]
         },
         {
             "style": "List",

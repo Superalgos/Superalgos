@@ -290,7 +290,7 @@ exports.newWeb3Server = function newWeb3Server() {
             console.log('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await PL.projects.foundations.utilities.asyncFunctions.sleep(10000)
+                await PL.projects.foundations.utilities.asyncFunctions.sleep(15000)
                 let payment = paymentsArray[i]
                 await sendTokens(
                     i + 1,
@@ -360,11 +360,13 @@ exports.newWeb3Server = function newWeb3Server() {
                     transaction.sign(privateKeyBuffer)
 
                     console.log('Transaction:', rawTransaction)
-                    const result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
+                    let result
+                    
+                    result = await web3.eth.sendSignedTransaction('0x' + transaction.serialize().toString('hex'))
                         .catch(err => {
                             console.log('[ERROR] sendSignedTransaction -> err =' + JSON.stringify(err))
                         })
-
+                    
                     console.log('Result:', result)
                     return result
                 } catch (err) {

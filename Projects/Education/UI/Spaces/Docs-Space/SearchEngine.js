@@ -16,13 +16,6 @@ function newFoundationsDocsSearchEngine() {
             worker: true,
             encoder: "extra",
             tokenize: "full",
-            // boost: function (words, term, index) {
-            //     let factor = 0;
-            //     for (let i = 0; i < words.length; i++) {
-            //         if (words[i] === term) factor++;
-            //     }
-            //     return factor || 1;
-            // },
             document: {
                 index: [
                     "docsSchemaDocument:type",
@@ -33,10 +26,6 @@ function newFoundationsDocsSearchEngine() {
         })
     }
 
-    function boostFunction() {
-        console.log('boooost')
-        return 1
-    }
 
     function finalize() {
         thisObject.docsIndex = undefined
@@ -110,6 +99,7 @@ function newFoundationsDocsSearchEngine() {
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
                         category: 'Concept',
                         project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i])
                     }
 
@@ -126,6 +116,7 @@ function newFoundationsDocsSearchEngine() {
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
                         category: 'Topic',
                         project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i])
                     }
                     thisObject.documentIndex.add(documentIndex)
@@ -141,6 +132,7 @@ function newFoundationsDocsSearchEngine() {
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i],
                         category: 'Tutorial',
                         project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i])
                     }
                     thisObject.documentIndex.add(documentIndex)
@@ -156,6 +148,7 @@ function newFoundationsDocsSearchEngine() {
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i],
                         category: 'Review',
                         project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i])
                     }
                     thisObject.documentIndex.add(documentIndex)
@@ -171,6 +164,7 @@ function newFoundationsDocsSearchEngine() {
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i],
                         category: 'Book',
                         project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i])
                     }
                     thisObject.documentIndex.add(documentIndex)
@@ -187,6 +181,7 @@ function newFoundationsDocsSearchEngine() {
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
                         category: 'Workspace',
                         project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
                         text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i])
                     }
                     thisObject.documentIndex.add(documentIndex)
@@ -210,35 +205,39 @@ function newFoundationsDocsSearchEngine() {
                 return
             }
 
-            let text = undefined
+            let textField = ''
 
             if (docsSchemaDocument.topic !== undefined) {
-                text = docsSchemaDocument.topic
+                let paragraph = {text: docsSchemaDocument.topic}
+                appendToTextField(paragraph.text)
             }
             if (docsSchemaDocument.tutorial !== undefined) {
-                text = docsSchemaDocument.tutorial
-
+                let paragraph = {text: docsSchemaDocument.tutorial}
+                appendToTextField(paragraph.text)
             }
             if (docsSchemaDocument.review !== undefined) {
-                text = docsSchemaDocument.review
+                let paragraph = {text: docsSchemaDocument.review}
+                appendToTextField(paragraph.text)
             }
             if (docsSchemaDocument.type !== undefined) {
-                text = docsSchemaDocument.type
-
+                let paragraph = {text: docsSchemaDocument.type}
+                appendToTextField(paragraph.text)
             }
             if (docsSchemaDocument.definition !== undefined) {
-                text = docsSchemaDocument.definition.text
-                //TODO: index translations of the definitions as well, export as a Paragraph as in the original impl
+                let paragraph = {
+                    text: docsSchemaDocument.definition,
+                    translations: docsSchemaDocument.definition.translations
+                }
+                appendToTextField(paragraph.text)
+                indexAllTranslations(paragraph)
             }
-
-            // Appending everything to text field, no need to index it separately for this implementation
-
 
             if (docsSchemaDocument.paragraphs !== undefined) {
                 for (let k = 0; k < docsSchemaDocument.paragraphs.length; k++) {
                     let paragraph = docsSchemaDocument.paragraphs[k]
-                    text += ' '
-                    text += paragraph.text
+
+                    appendToTextField(' ')
+                    appendToTextField(paragraph.text)
                     indexAllTranslations(paragraph)
                 }
             }
@@ -250,126 +249,20 @@ function newFoundationsDocsSearchEngine() {
                 }
                 for (let j = 0; j < paragraph.translations.length; j++) {
                     let translation = paragraph.translations[j]
-                    text += ' '
-                    text += translation.text
+                    appendToTextField(' ')
+                    appendToTextField(translation.text)
                 }
             }
 
-            function appendToText(textToAppend) {
-                text += textToAppend
+            function appendToTextField(textToAppend) {
+                textField += textToAppend
             }
 
-            return text
+            return textField
         }
 
 
-        function indexDocument(documentIndex) {
 
-            if (documentIndex.docsSchemaDocument === undefined) {
-                return
-            }
-
-            if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                let paragraph = {
-                    style: 'Topic',
-                    text: documentIndex.docsSchemaDocument.topic
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.tutorial !== undefined) {
-                let paragraph = {
-                    style: 'Tutorial',
-                    text: documentIndex.docsSchemaDocument.tutorial
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.review !== undefined) {
-                let paragraph = {
-                    style: 'Review',
-                    text: documentIndex.docsSchemaDocument.review
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.type !== undefined) {
-                let paragraph = {
-                    style: 'Type',
-                    text: documentIndex.docsSchemaDocument.type
-                }
-                indexParagraph(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.definition !== undefined) {
-                let paragraph = {
-                    style: 'Definition',
-                    text: documentIndex.docsSchemaDocument.definition.text,
-                    translations: documentIndex.docsSchemaDocument.definition.translations
-                }
-                indexParagraph(paragraph)
-                indexAllTranslations(paragraph)
-            }
-            if (documentIndex.docsSchemaDocument.paragraphs !== undefined) {
-                for (let k = 0; k < documentIndex.docsSchemaDocument.paragraphs.length; k++) {
-                    let paragraph = documentIndex.docsSchemaDocument.paragraphs[k]
-                    indexParagraph(paragraph)
-                    indexAllTranslations(paragraph)
-                }
-            }
-
-            function indexAllTranslations(paragraph) {
-                if (paragraph.translations === undefined) {
-                    return
-                }
-                for (i = 0; i < paragraph.translations.length; i++) {
-                    let translation = paragraph.translations[i]
-                    translation.style = paragraph.style
-                    indexParagraph(translation)
-                }
-            }
-
-            function indexParagraph(paragraph) {
-                if (paragraph.text === undefined) {
-                    return
-                }
-                if (paragraph.style === undefined) {
-                    return
-                }
-
-                let text = paragraph.text.toLowerCase()
-                let style = paragraph.style.toLowerCase()
-                let stylePhraseCount = documentIndex.phraseCount[style]
-
-                if (stylePhraseCount === undefined) {
-                    stylePhraseCount = new Map()
-                    documentIndex.phraseCount[style] = stylePhraseCount
-                }
-
-                text = UI.projects.foundations.utilities.strings.replaceSpecialCharactersForSpaces(text)
-
-                let splittedText = text.split(' ')
-
-                for (n = 0; n < splittedText.length; n++) {
-                    let phrase = ''
-                    for (let m = 0; m < 10; m++) {
-                        let word = splittedText[n + m]
-                        if (word !== undefined) {
-                            if (m === 0) {
-                                phrase = phrase + word
-                            } else {
-                                phrase = phrase + ' ' + word
-                            }
-                            let key = UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(phrase)
-
-                            let thisPhraseCount = stylePhraseCount.get(key)
-                            if (thisPhraseCount === undefined) {
-                                thisPhraseCount = 0
-                            }
-                            thisPhraseCount++
-
-                            stylePhraseCount.set(key, thisPhraseCount)
-                        }
-                    }
-                }
-            }
-        }
     }
 
     function setUpWorkspaceSchemas() {

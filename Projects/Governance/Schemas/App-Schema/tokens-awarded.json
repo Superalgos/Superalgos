@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -15,7 +15,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Referral Program->Mentorship Program->Support Program->Claims Program->Staking Program->Github Program->Airdrop Program->Influencer Program->"
+        "compatibleTypes": "->Referral Program->Mentorship Program->Support Program->Claims Program->Staking Program->Github Program->Airdrop Program->Influencer Program->Liquidity Program->"
     },
     "propertyNameAtParent": "tokensAwarded"
 }

@@ -9,81 +9,29 @@
         "config": "{}",
         "project": "Governance",
         "tokenPowerSwitch": [],
-        "githubProgram": {
-            "type": "Github Program",
-            "name": "New Github Program",
-            "config": "{}",
+        "onboardingPrograms": {
+            "type": "Onboarding Programs",
+            "name": "New Onboarding Programs",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
-            "tokensAwarded": {
-                "type": "Tokens Awarded",
-                "name": "New Tokens Awarded",
+            "airdropProgram": {
+                "type": "Airdrop Program",
+                "name": "New Airdrop Program",
+                "config": "{}",
                 "project": "Governance",
-                "id": "3c7c14f1-ff7a-4d50-9178-5887e35d3c96",
-                "savedPayload": {
-                    "position": {
-                        "x": 13875,
-                        "y": 26618.115242270665
-                    },
-                    "targetPosition": {
-                        "x": 13725,
-                        "y": 26358.307621135333
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "id": "4064a67f-7169-476b-a3fc-1265482099d3",
-            "savedPayload": {
-                "position": {
-                    "x": 13725,
-                    "y": 26358.307621135333
-                },
-                "targetPosition": {
-                    "x": 13575,
-                    "y": 26098.5
-                },
-                "floatingObject": {
-                    "isPinned": false,
-                    "isFrozen": false,
-                    "isCollapsed": false,
-                    "angleToParent": 2,
-                    "distanceToParent": 3,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
-                }
-            }
-        },
-        "referralProgram": {
-            "type": "Referral Program",
-            "name": "New Referral Program",
-            "config": "{}",
-            "project": "Governance",
-            "userReferrers": [
-                {
-                    "type": "User Referrer",
-                    "name": "Luis-Fernando-Molina",
-                    "config": "{}",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "299528a7-3d40-4818-a4c3-43c70ced1d77",
+                    "id": "ab05ae19-b3e5-4be1-b687-5a11f5176a42",
                     "savedPayload": {
                         "position": {
-                            "x": 13502.645713530756,
-                            "y": 26648.085369022054
+                            "x": 26770.58823529412,
+                            "y": 19919.615242270665
                         },
                         "targetPosition": {
-                            "x": 13425,
-                            "y": 26358.307621135333
+                            "x": 26620.58823529412,
+                            "y": 19659.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -95,34 +43,18 @@
                         },
                         "uiObject": {
                             "isRunning": false
-                        },
-                        "referenceParent": {
-                            "type": "User Profile",
-                            "name": "Luis-Fernando-Molina",
-                            "id": "148911b3-b2f3-44fb-8cb4-017991789132"
-                        },
-                        "referenceParentCombinedNodePath": [
-                            [
-                                "Luis-Fernando-Molina",
-                                "User Profile"
-                            ]
-                        ]
+                        }
                     }
-                }
-            ],
-            "tokensAwarded": {
-                "type": "Tokens Awarded",
-                "name": "New Tokens Awarded",
-                "project": "Governance",
-                "id": "f39667c5-7c43-4f8f-b97b-86f07c9b49a6",
+                },
+                "id": "127babe6-f033-4ffa-b9e4-8b0353359964",
                 "savedPayload": {
                     "position": {
-                        "x": 13275,
-                        "y": 26618.115242270665
+                        "x": 26620.58823529412,
+                        "y": 19659.807621135333
                     },
                     "targetPosition": {
-                        "x": 13425,
-                        "y": 26358.307621135333
+                        "x": 26470.58823529412,
+                        "y": 19400
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -137,19 +69,47 @@
                     }
                 }
             },
-            "tokensBonus": {
-                "type": "Tokens Bonus",
-                "name": "New Tokens Bonus",
+            "githubProgram": {
+                "type": "Github Program",
+                "name": "New Github Program",
+                "config": "{}",
                 "project": "Governance",
-                "id": "04456e5c-121f-4f34-9853-e55d2739b978",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "dfb1faa9-c622-40fb-bbaa-c640de7dad01",
+                    "savedPayload": {
+                        "position": {
+                            "x": 26170.58823529412,
+                            "y": 19919.615242270665
+                        },
+                        "targetPosition": {
+                            "x": 26320.58823529412,
+                            "y": 19659.807621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "f0099fb1-058c-4cee-a336-9a67a142259d",
                 "savedPayload": {
                     "position": {
-                        "x": 13135.222252113279,
-                        "y": 26435.95333466609
+                        "x": 26320.58823529412,
+                        "y": 19659.807621135333
                     },
                     "targetPosition": {
-                        "x": 13425,
-                        "y": 26358.307621135333
+                        "x": 26470.58823529412,
+                        "y": 19400
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -164,15 +124,188 @@
                     }
                 }
             },
-            "id": "4db2f276-f06f-4fd5-8041-e6172efdf3a5",
+            "id": "709247f1-fc9d-4eba-823d-aa002a7e09a9",
             "savedPayload": {
                 "position": {
-                    "x": 13425,
-                    "y": 26358.307621135333
+                    "x": 26620.58823529412,
+                    "y": 19359.807621135333
                 },
                 "targetPosition": {
-                    "x": 13575,
-                    "y": 26098.5
+                    "x": 26470.58823529412,
+                    "y": 19100
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "e0c6930e-a607-4e5c-9a61-f51d7717028f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 26170.58823529412,
+                                        "y": 20219.615242270665
+                                    },
+                                    "targetPosition": {
+                                        "x": 26170.58823529412,
+                                        "y": 19919.615242270665
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
+                                        "id": "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Education Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Translations Team",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "4ef592e6-7117-4279-9e45-71ba9f13fa58",
+                        "savedPayload": {
+                            "position": {
+                                "x": 26170.58823529412,
+                                "y": 19919.615242270665
+                            },
+                            "targetPosition": {
+                                "x": 26170.58823529412,
+                                "y": 19619.615242270665
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "cb541971-cd16-4482-b94c-21154bec627f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25910.780614158786,
+                            "y": 19769.615242270665
+                        },
+                        "targetPosition": {
+                            "x": 26170.58823529412,
+                            "y": 19619.615242270665
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "068d41e6-34a4-4cd8-8193-b4bc83673f8e",
+                "savedPayload": {
+                    "position": {
+                        "x": 26170.58823529412,
+                        "y": 19619.615242270665
+                    },
+                    "targetPosition": {
+                        "x": 26320.58823529412,
+                        "y": 19359.807621135333
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "116aae09-c09f-4639-a0d6-bed7f7af444a",
+            "savedPayload": {
+                "position": {
+                    "x": 26320.58823529412,
+                    "y": 19359.807621135333
+                },
+                "targetPosition": {
+                    "x": 26470.58823529412,
+                    "y": 19100
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -187,15 +320,15 @@
                 }
             }
         },
-        "id": "eef4e172-d7db-421d-8881-9ae4dc6bd35d",
+        "id": "335a5d35-35ff-48d7-8a51-a36968b07c33",
         "savedPayload": {
             "position": {
-                "x": 13575,
-                "y": 26098.5
+                "x": 26470.58823529412,
+                "y": 19100
             },
             "targetPosition": {
-                "x": 13575,
-                "y": 25798.5
+                "x": 26470.58823529412,
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -217,12 +350,12 @@
         "id": "5158f85a-85e9-491d-bf4d-33119d7d7148",
         "savedPayload": {
             "position": {
-                "x": 13275,
-                "y": 25798.5
+                "x": 26170.58823529412,
+                "y": 18800
             },
             "targetPosition": {
-                "x": 13575,
-                "y": 25798.5
+                "x": 26470.58823529412,
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -240,17 +373,17 @@
     "id": "c1cf0b84-871c-4f38-a0f9-c33b5afda328",
     "savedPayload": {
         "position": {
-            "x": 13575,
-            "y": 25798.5
+            "x": 26470.58823529412,
+            "y": 18800
         },
         "targetPosition": {
-            "x": 13575,
-            "y": 25798.5
+            "x": 26470.58823529412,
+            "y": 18800
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

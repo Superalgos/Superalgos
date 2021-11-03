@@ -20,6 +20,11 @@
                 "text": "¿Ves las circulos verdes con una L en el centro? Esas son los Limit Buy Order que mencioné.",
                 "updated": 1627313818947,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sehen Sie die grünen Kugeln mit einem L in der Mitte? Das sind die erwähnten limitierten Kaufaufträge.",
+                "updated": 1634224261070
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Observa cómo se realiza un pedido cada minuto y se cancela antes de realizar un nuevo pedido. ¿Reconoces el símbolo de cancelación del pedido? ¡Es la bala más pequeña y oscura con una franja horizontal blanca en el medio!",
                     "updated": 1627313785538,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass jede Minute ein Auftrag erteilt wird, der storniert wird, bevor ein neuer Auftrag erteilt wird. Erkennen Sie das Symbol für die Auftragsstornierung? Es ist die kleinere, dunklere Kugel mit einem weißen horizontalen Streifen in der Mitte!",
+                    "updated": 1634224270895
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "¡Observa que el cuchillo cae a las 00:21 AM! El precio cayó muy por debajo del Limit Order, por lo tanto, ¡la orden se cumplió! ¡Eso es lo que indica la viñeta verde más grande y llena!",
                     "updated": 1627313798560,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass das \"Knife\" um 00:21 Uhr gefallen ist! Der Preis fiel deutlich unter den Kurs der Limit-Order, daher wurde die Order ausgeführt! Das zeigt der größere, gefüllte, grüne Punkt an!",
+                    "updated": 1634224312254
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "text": "Entonces ... ¿qué pasa después?",
                     "updated": 1624455679005,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Und... was passiert danach?",
+                    "updated": 1634224328125
                 }
             ]
         }

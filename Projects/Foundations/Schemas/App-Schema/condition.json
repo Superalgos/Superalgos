@@ -5,7 +5,8 @@
             "action": "Edit",
             "actionFunction": "uiObject.conditionEditor.activate",
             "label": "Edit",
-            "relatedUiObject": "Condition"
+            "relatedUiObject": "Condition",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -13,22 +14,27 @@
             "propertyToCheckFor": "javascriptCode",
             "label": "Add Code",
             "relatedUiObject": "Javascript Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Fetch Code to Javascript Code",
             "label": "Fetch from Javascript Code",
             "relatedUiObject": "Javascript Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Push Code to Javascript Code",
             "label": "Push to Javascript Code",
             "relatedUiObject": "Javascript Code",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

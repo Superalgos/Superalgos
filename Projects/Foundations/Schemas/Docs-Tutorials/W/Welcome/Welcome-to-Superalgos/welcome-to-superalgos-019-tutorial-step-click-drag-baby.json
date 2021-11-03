@@ -26,6 +26,29 @@
                 "text": "Quiero enseñarte algo mientras avanza la operación de Data Mining. Te enseñaré a moverte... ¡En solo unos segundos!",
                 "updated": 1624227902845,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet. Ich bringe Ihnen bei, wie man läuft... in zwei Sekunden!",
+                "updated": 1634163512229,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Ik wil je iets laten zien terwijl de datamining operatie bezig is. Ik zal je leren hoe je moet lopen... in twee seconden!",
+                "updated": 1634926689787,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я хочу показать Вам кое-что, пока операция data mining в процессе. Я научу Вас передвигаться... за 2 секунды!",
+                "updated": 1635596573723,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliği işlemi devam ederken size bir şey göstermek istiyorum. Sana yürümeyi öğreteceğim... iki saniyede!",
+                "updated": 1635944955783
             }
         ]
     },
@@ -51,6 +74,29 @@
                     "text": "Simplemente haz clic y arrastrar con el mouse.",
                     "updated": 1624491408788,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken und ziehen Sie einfach mit Ihrer Maus!",
+                    "updated": 1634163520213,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gewoon klikken en slepen met je muis!",
+                    "updated": 1634926782434,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Просто нажмите на мышку и потащите!",
+                    "updated": 1635607627239,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Candles Volumes düğümünü tıklayın ve mouse'unuzla sürükleyin. Tıpkı Sürükle/Bırak gibi.",
+                    "updated": 1635945252224
                 }
             ]
         },
@@ -76,6 +122,29 @@
                     "text": "Fácil, ¿verdad? Muy bien. Sin embargo, el espacio de diseño es un lugar enorme y no me gustaría que te diera una tendinitis arrastrándote de esta manera.",
                     "updated": 1618435473213,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Leicht, nicht wahr? Großartig! Der Entwurfsbereich ist jedoch riesig, und ich möchte nicht, dass Sie sich eine Sehnenscheidenentzündung zuziehen, wenn Sie sich auf diese Weise bewegen.",
+                    "updated": 1634163528834,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gemakkelijk toch? Echter de ontwerpruimte is enorm en ik zou niet willen dat je muisarm krijgt als je zo rondsleept.",
+                    "updated": 1634927028615,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Легко, правда? Отлично! Однако дизайнерское пространство - это огромное место и я бы не хотел, чтобы у Вас возникли определенные тендиниты, передвигаясь таким образом.",
+                    "updated": 1635608367917,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kolay değil mi? Harika! Ancak tasarım alanı çok büyük bir yer.",
+                    "updated": 1635945059358
                 }
             ]
         },
@@ -100,6 +169,29 @@
                     "text": "Te enseñaré un par de trucos más en los siguientes pasos.",
                     "updated": 1618435496165,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde Ihnen in den nächsten Schritten noch ein paar weitere Tricks beibringen.",
+                    "updated": 1634163537155,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik zal je nog een paar trucjes leren in de volgende stappen.",
+                    "updated": 1634927063636,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я научу Вас ещё паре трюкам в следующих нескольких шагах.",
+                    "updated": 1635608431495,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımda size birkaç numara daha öğreteceğim.",
+                    "updated": 1635945085983
                 }
             ]
         }

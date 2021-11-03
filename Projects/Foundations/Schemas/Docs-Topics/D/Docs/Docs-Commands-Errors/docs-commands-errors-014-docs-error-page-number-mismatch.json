@@ -4,7 +4,14 @@
     "type": "Docs Error - Page Number Mismatch",
     "definition": {
         "text": "The Docs Page Number provided does not match with the Docs Page Number found on the page you wish to delete.",
-        "updated": 1610999232870
+        "updated": 1610999232870,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die angegebene Docs Page Number stimmt nicht mit der Docs Page Number auf der Seite überein, die Sie löschen möchten.",
+                "updated": 1633899671709
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,16 +22,37 @@
         {
             "style": "Error",
             "text": "Page Number Mismatch. The Docs Page Number provided does not match the Docs Page Number of the page to be deleted. ",
-            "updated": 1609181722190
+            "updated": 1609181722190,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Seitenzahl stimmt nicht überein. Die angegebene Docs Page Number stimmt nicht mit der Docs Page Number der zu löschenden Seite überein.",
+                    "updated": 1633899713136
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Check the page you wish to delete and get the right page number to use on the command.",
-            "updated": 1610999262620
+            "updated": 1610999262620,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Seite, die Sie löschen möchten, und geben Sie die richtige Seitenzahl für den Befehl ein.",
+                    "updated": 1633899740018
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Applies to"
+            "text": "Applies to",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gilt für",
+                    "updated": 1633899745946
+                }
+            ]
         },
         {
             "style": "List",

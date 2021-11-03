@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is a very good idea to invest some time at the Function-Libraries folder, scaning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on functions defined at one of the files within the Function-Libraries folder.",
+            "text": "It is a very good idea to invest some time at the Function-Libraries folder, scanning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on functions defined at one of the files within the Function-Libraries folder.",
             "updated": 1628257873103
         },
         {
@@ -19,7 +19,7 @@
         },
         {
             "style": "Text",
-            "text": "At runtime, all Function Library objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the Function Library funtion you want to execute via the UI Global Object that is available to you. For exmaple:",
+            "text": "At runtime, all Function Library objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the Function Library function you want to execute via the UI Global Object that is available to you. For example:",
             "updated": 1628257884243
         },
         {
@@ -62,7 +62,7 @@
         },
         {
             "style": "Javascript",
-            "text": "dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
+            "text": "dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
             "updated": 1614943544233
         },
         {
@@ -79,7 +79,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
+            "text": "UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
             "updated": 1614943594904
         },
         {
@@ -93,7 +93,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
+            "text": "UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
             "updated": 1628258141256
         },
         {

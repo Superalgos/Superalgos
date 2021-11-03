@@ -1,7 +1,7 @@
 {
     "type": "API Query Responses",
     "definition": {
-        "text": "API calls produce responses. Under this node you can define how your map will interpret different responces from the API.",
+        "text": "API calls produce responses. Under this node you can define how your map will interpret different responses from the API.",
         "updated": 1622862463288
     },
     "paragraphs": [

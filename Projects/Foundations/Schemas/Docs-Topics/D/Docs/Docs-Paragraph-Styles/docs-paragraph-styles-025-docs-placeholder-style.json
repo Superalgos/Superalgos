@@ -4,26 +4,62 @@
     "type": "Docs Placeholder Style",
     "definition": {
         "text": "A placeholder is used to render information comming from and external source outside the docs, like the UI in general, the Client or the TS. It is the mechanism used for instance to display error messages or values inside a Docs Page.",
-        "updated": 1610962972510
+        "updated": 1610962972510,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein placeholder wird verwendet, um Informationen darzustellen, die von einer externen Quelle außerhalb der Docs kommen, wie z.B. der UI im Allgemeinen, dem Client oder dem TS. Es ist der Mechanismus, der zum Beispiel verwendet wird, um Fehlermeldungen oder Werte innerhalb einer Docs Page anzuzeigen.",
+                "updated": 1633960188910
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "When the docs is opened from a node at the UI displaying an Error, Warning or Info message, the Docs has the ability to display even more detailed information about that event. The way is that is by receiving a Placeholder Object with different properties, like for instance, errorMessage, errorStack, and potentially others.",
-            "updated": 1610963199983
+            "updated": 1610963199983,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Docs von einer node auf der Benutzeroberfläche geöffnet werden, der eine Fehler-, Warn- oder Info-Meldung anzeigt, haben die Docs die Möglichkeit, noch detailliertere Informationen zu diesem Ereignis anzuzeigen. Dies geschieht durch den Empfang eines Platzhalter-Objekts mit verschiedenen Eigenschaften, wie z.B: errorMessage, errorStack, und möglicherweise anderen.",
+                    "updated": 1633960272931
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you create a place holder at the page to be opened with a text value matching any of this object properties, the content of that property will be displayed at the placeholder paragraph.",
-            "updated": 1610963314406
+            "updated": 1610963314406,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie auf der zu öffnenden Seite einen Platzhalter mit einem Textwert erstellen, der einer der Eigenschaften dieses Objekts entspricht, wird der Inhalt dieser Eigenschaft im Platzhalterabsatz angezeigt.",
+                    "updated": 1633960304948
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples:",
+            "updated": 1633961225050,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1633961290701
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Placeholder for the property errorMessage"
+            "text": "Placeholder for the property errorMessage",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Platzhalter für die Eigenschaft errorMessage",
+                    "updated": 1633960470918
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -32,7 +68,14 @@
         {
             "style": "Note",
             "text": "If the page is viewed without the Placeholder object being available, it will just display the property name defined for it.",
-            "updated": 1610963328965
+            "updated": 1610963328965,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wird die Seite angezeigt, ohne dass das Platzhalterobjekt verfügbar ist, wird nur der dafür definierte Eigenschaftsname angezeigt.",
+                    "updated": 1633960491979
+                }
+            ]
         }
     ]
 }

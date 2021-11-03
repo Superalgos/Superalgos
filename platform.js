@@ -18,7 +18,7 @@ if (
 
     console.log('Superalgos')
     console.log('')
-    console.log('VERSION:               Beta 11')
+    console.log('VERSION:               Beta 12')
     console.log('')
     console.log('WEB:                   https://www.superalgos.org')
     console.log('')
@@ -26,13 +26,14 @@ if (
     console.log('')
     console.log('TELEGRAM COMMUNITY:    https://t.me/superalgoscommunity')
     console.log('')
-    console.log('USAGE:                 node platform [help] [noBrowser] [minMemo]')
+    console.log('USAGE:                 node platform [help] [noBrowser] [minMemo] [demoMode]')
     console.log('')
     console.log('OPTIONS:')
     console.log('')
     console.log('                       help:        Optional. Use it to see this helping information.')
     console.log('                       noBrowser:   Optional. Use it to launch Superalgos Platform Client only. The Superalgos Platform UI will not be loaded.')
     console.log('                       minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
+    console.log('                       demoMode:    Optional. Use it to launch Superalgos in Demo Mode. Users will be able to use the UI but not run Tasks.')
     console.log('')
     console.log('If you are having an error while trying to run the Superalgos Platform Client, consider this:')
 
@@ -68,7 +69,6 @@ console.log('OPTIONS ACCEPTED:')
 console.log('')
 let optionsAccepted = 0
 
-
 if (process.argv.includes("minMemo")) {
     optionsAccepted++
     console.log('minMemo ..................................................... Running with Minimun Required Memory.')
@@ -79,9 +79,15 @@ if (process.argv.includes("noBrowser")) {
     console.log('noBrowser ................................................... Running without User Interface.')
 }
 
+if (process.argv.includes("demoMode")) {
+    optionsAccepted++
+    console.log('demoMode .................................................... Running without User Interface.')
+}
+
 if (optionsAccepted === 0) {
     console.log('none ........................................................ Running without any command line options.')
 }
+
 console.log('')
 console.log('')
 

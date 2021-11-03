@@ -1,8 +1,8 @@
 /*
 
-The chart space is where all the charts live. What this space contains is a type of object we call Time Machine. A Time Machine is a cointainer of
-charts objects. The idea is simple, all the chart objects are ploted according to the time of the Time Machine object. When the time of the Time Machine
-changes, then all charts in it are replotted with the corresponging data.
+The chart space is where all the charts live. What this space contains is a type of object we call Time Machine. A Time Machine is a container of
+charts objects. The idea is simple, all the chart objects are plotted according to the time of the Time Machine object. When the time of the Time Machine
+changes, then all charts in it are replotted with the corresponding data.
 
 */
 
@@ -108,7 +108,7 @@ function newFoundationsChartingSpace() {
         }
 
         if (thisObject.payload === undefined) {
-            // if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Design Space in order to enable Charts. PLease create one and refreash your browser. ') }
+            // if (ERROR_LOG === true) { logger.write('[WARN] initialize -> There must exist a Charting Space at the Design Space in order to enable Charts. PLease create one and refresh your browser. ') }
             return
         }
 
@@ -145,7 +145,7 @@ function newFoundationsChartingSpace() {
         /*
         Now we see which is the inner most container that has it.
         In this case we will ask all the time machines even if one of them already returned a matching container.
-        This will help the others know they are not on ofcus
+        This will help the others know they are not on focus
         */
         let containerFound
         for (let i = 0; i < thisObject.timeMachines.length; i++) {

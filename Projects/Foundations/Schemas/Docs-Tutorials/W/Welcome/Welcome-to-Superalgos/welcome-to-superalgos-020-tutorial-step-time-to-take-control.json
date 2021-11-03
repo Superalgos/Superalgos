@@ -26,6 +26,29 @@
                 "text": "Sí, también puede utilizar su teclado. ¡Te encantara para los desplazamientos de larga distancia en el Desing Space!",
                 "updated": 1624285512726,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ja! Sie können auch Ihre Tastatur benutzen! Sie werden es lieben, wenn Sie lange Strecken im Design Space zurücklegen!",
+                "updated": 1634164018809,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor lange reizen op de ontwerpruimte!",
+                "updated": 1634927272967,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Да! Вы можете использовать клавиатуру тоже! Вам понравится это в путешествиях на большие расстояния в дизайнерсоки пространстве.",
+                "updated": 1635608556366,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Evet! Klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde CTRl + ← → ↑ ↓ tuş kombinasyonun kullanarak düğümleri daha hızlı şekillde ve uzun mesafelere taşıyabilirsiniz.",
+                "updated": 1635945735067
             }
         ]
     },
@@ -52,6 +75,29 @@
                     "text": "La gente normal puede usar la tecla Ctrl más las teclas de dirección: ← → ↑ ↓",
                     "updated": 1618435586353,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können auch die Ctrl Taste und die Pfeil Tasten: ← → ↑ ↓ benutzen.",
+                    "updated": 1634164089249,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Gewone mensen gebruiken de Ctrl toets plus de pijltjestoetsen: ← → ↑ ↓",
+                    "updated": 1634927382600,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычные пользователи могут использовать клавишу Ctrl плюс клавиши со стрелками: ← → ↑ ↓",
+                    "updated": 1635608613854,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenli veya aceleci arkadaşlar Ctrl key plus arrow keys: ← → ↑ ↓ kombinasyonunu kulanabilir :)",
+                    "updated": 1635945715510
                 }
             ]
         },
@@ -77,6 +123,29 @@
                     "text": "¡Fíjate como mantener las teclas pulsadas te hará volar!",
                     "updated": 1624285662132,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn du die Tasten gedrückt hältst, fliegst du!",
+                    "updated": 1634164099969,
+                    "style": "Note"
+                },
+                {
+                    "language": "NL",
+                    "text": "Valt het je op dat als je de toetsen ingedrukt houdt, je pas echt gaat vliegen?",
+                    "updated": 1634927471853,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что удержание нажатых клавиш заставляет Вас летать!",
+                    "updated": 1635608711456,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tuşları basılı tutmanın sizi uçurucağına dikkat edin!",
+                    "updated": 1635945760749
                 }
             ]
         },
@@ -102,6 +171,29 @@
                     "text": "Por supuesto, los fanboys de Mac saben que tienen sustituir Ctrl por Cmd",
                     "updated": 1618435654720,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mac-Fanboys und -girls müssen natürlich Ctrl durch Cmd ersetzen ",
+                    "updated": 1634164140475,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Uiteraard moeten Mac fans de Ctrl toets vervangen voor Cmd",
+                    "updated": 1634927537845,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Конечно, Mac-фанаты должны заменить Ctrl на Cmd.",
+                    "updated": 1635608795704,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Elbette Mac kullananlar Ctrl'yi Cmd ile değiştirmeli",
+                    "updated": 1635945810777
                 }
             ]
         }

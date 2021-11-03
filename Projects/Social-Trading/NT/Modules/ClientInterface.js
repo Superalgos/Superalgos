@@ -6,6 +6,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
     * Send an Event that happened at the Network Client to the Network.
     * Make a Query to the Network Node for info needed at the Network Client. 
+    
+    This interface is one layer above the communication protocol interface
+    where actual messages are received through, like for instance the
+    websockets interface.
     */
     let thisObject = {
         messageReceived: messageReceived,
@@ -30,7 +34,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         } catch (err) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface message Not Coorrect JSON Format.'
+                message: 'Client Interface message Not Correct JSON Format.'
             }
             return response
         }
@@ -87,12 +91,12 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         } catch (err) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface eventMessage Not Coorrect JSON Format.'
+                message: 'Client Interface eventMessage Not Correct JSON Format.'
             }
             return response
         }
         /*
-        At the Client Interface, events need to be emmitted by the same userProfile that is
+        At the Client Interface, events need to be emitted by the same userProfile that is
         connected at the Network Node.
         */
         if (eventReceived.emitterUserProfileId !== userProfile.userProfileId) {
@@ -116,7 +120,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         We will not accept events that have already been processed.
         */
 
-        if (NT.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface Event Already Exists.'
@@ -129,8 +133,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         try {
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
-            NT.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
-            NT.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            NT.projects.network.globals.memory.arrays.EVENTS.push(event)
 
             let response = {
                 result: 'Ok',
@@ -186,12 +190,12 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         } catch (err) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface queryMessage Not Coorrect JSON Format.'
+                message: 'Client Interface queryMessage Not Correct JSON Format.'
             }
             return response
         }
         /*
-        At the Client Interface, queries need to be emmitted by the same userProfile that is
+        At the Client Interface, queries need to be emitted by the same userProfile that is
         connected at the Network Node.
         */
         if (queryReceived.emitterUserProfileId !== userProfile.userProfileId) {
@@ -216,7 +220,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 data: query.execute()
             }
 
-            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Respose Sent', JSON.stringify(response))
+            // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
 
             return response
 

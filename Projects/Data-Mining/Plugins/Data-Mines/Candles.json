@@ -1,0 +1,2550 @@
+{
+    "type": "Data Mine",
+    "name": "Candles",
+    "config": "{\"codeName\":\"Candles\"}",
+    "project": "Foundations",
+    "sensorBots": [
+        {
+            "type": "Sensor Bot",
+            "name": "Exchange Raw Data",
+            "config": "{\n    \"codeName\": \"Exchange-Raw-Data\"\n}",
+            "project": "Foundations",
+            "processes": [
+                {
+                    "type": "Process Definition",
+                    "name": "Historic-OHLCVs",
+                    "config": "{\n    \"codeName\": \"Historic-OHLCVs\",\n    \"description\": \"Retrieves and saves historical market data\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 60000,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Exchange Raw Data Historic OHLCVs\"\n}",
+                    "project": "Foundations",
+                    "processOutput": {
+                        "type": "Process Output",
+                        "name": "New Process Output",
+                        "project": "Foundations",
+                        "outputDatasets": [],
+                        "outputDatasetFolders": [],
+                        "id": "dfe2556e-a765-4e38-9d30-7f91090c0069",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15487.743173205079,
+                                "y": 11313.655651259447
+                            },
+                            "targetPosition": {
+                                "x": 15448.585315539065,
+                                "y": 11611.08910967159
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "processDependencies": {
+                        "type": "Process Dependencies",
+                        "name": "New Process Dependencies",
+                        "project": "Foundations",
+                        "statusDependencies": [
+                            {
+                                "type": "Status Dependency",
+                                "name": "Exchange Raw Data Historic-OHLCVs",
+                                "config": "{\n    \"mainUtility\": \"Self Reference\"\n}",
+                                "project": "Foundations",
+                                "id": "ea39c98b-18e2-44ce-9f7f-86a8a76a688a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15813.8421729443,
+                                        "y": 11135.077105496846
+                                    },
+                                    "targetPosition": {
+                                        "x": 15631.213744241682,
+                                        "y": 11373.083107584218
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Historic-OHLCVs",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                            ],
+                                            [
+                                                "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "dataDependencies": [],
+                        "dataMineDataDependencies": [],
+                        "id": "5c7fae5a-6da6-4864-a167-f2f21d578c72",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15631.213744241682,
+                                "y": 11373.083107584218
+                            },
+                            "targetPosition": {
+                                "x": 15448.585315539065,
+                                "y": 11611.08910967159
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "statusReport": {
+                        "type": "Status Report",
+                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                        "project": "Foundations",
+                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15725.74917529245,
+                                "y": 11496.284079962064
+                            },
+                            "targetPosition": {
+                                "x": 15448.585315539065,
+                                "y": 11611.08910967159
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "executionStartedEvent": {
+                        "type": "Execution Started Event",
+                        "name": "",
+                        "project": "Foundations",
+                        "id": "957e7e3a-b167-40be-93b5-9ba4ceff56e5",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15746.018773951208,
+                                "y": 11650.246967337604
+                            },
+                            "targetPosition": {
+                                "x": 15448.585315539065,
+                                "y": 11611.08910967159
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "executionFinishedEvent": {
+                        "type": "Execution Finished Event",
+                        "name": "New Execution Finished Event",
+                        "project": "Foundations",
+                        "id": "fe40a546-43ee-49df-908a-7e72f598f0cd",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15686.591317626437,
+                                "y": 11793.717538374207
+                            },
+                            "targetPosition": {
+                                "x": 15448.585315539065,
+                                "y": 11611.08910967159
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "5eb11d6a-022e-4f60-97c4-d6cf90b249dc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15448.585315539065,
+                            "y": 11611.08910967159
+                        },
+                        "targetPosition": {
+                            "x": 15171.42145578568,
+                            "y": 11725.894139381115
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 3,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "products": [
+                {
+                    "type": "Product Definition",
+                    "name": "Candles",
+                    "config": "{\n\"codeName\": \"Candles\"\n}",
+                    "project": "Foundations",
+                    "datasets": [
+                        {
+                            "type": "Dataset Definition",
+                            "name": "One-Min",
+                            "config": "{\n\"codeName\": \"One-Min\"\n}",
+                            "project": "Foundations",
+                            "id": "1c3696e4-c28e-4744-9100-706d6dce0c3c",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15621.42145578568,
+                                    "y": 11725.894139381115
+                                },
+                                "targetPosition": {
+                                    "x": 15471.42145578568,
+                                    "y": 11725.894139381115
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 2,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "2443883b-6959-42a3-ae3b-ef3102ffcdcc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15471.42145578568,
+                            "y": 11725.894139381115
+                        },
+                        "targetPosition": {
+                            "x": 15171.42145578568,
+                            "y": 11725.894139381115
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 3,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Product Definition",
+                    "name": "Volumes",
+                    "config": "{\n\"codeName\": \"Volumes\"\n}",
+                    "project": "Foundations",
+                    "datasets": [
+                        {
+                            "type": "Dataset Definition",
+                            "name": "One-Min",
+                            "config": "{\n\"codeName\": \"One-Min\"\n}",
+                            "project": "Foundations",
+                            "id": "73dcce78-c223-49e1-a93c-7e1ab7283f86",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15587.16724541576,
+                                    "y": 11898.101683945406
+                                },
+                                "targetPosition": {
+                                    "x": 15448.585315539065,
+                                    "y": 11840.699169090643
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 2,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "3a43c6f3-bac0-404e-865f-822eb48c8660",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15448.585315539065,
+                            "y": 11840.699169090643
+                        },
+                        "targetPosition": {
+                            "x": 15171.42145578568,
+                            "y": 11725.894139381115
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 3,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "af924204-66a2-47d4-9910-66ab78acb06f",
+            "savedPayload": {
+                "position": {
+                    "x": 14937.069268429528,
+                    "y": 10937.341121162674
+                },
+                "targetPosition": {
+                    "x": 14637.069268429528,
+                    "y": 10937.341121162674
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "apiDataFetcherBots": [],
+    "indicatorBots": [
+        {
+            "type": "Indicator Bot",
+            "name": "Candles Volumes",
+            "config": "{\n    \"codeName\": \"Candles-Volumes\"\n}",
+            "project": "Foundations",
+            "processes": [
+                {
+                    "type": "Process Definition",
+                    "name": "Multi-Time-Frame-Market",
+                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"description\": \"Produces different files with Multi-Time-Frame candles and volumes for entire markets.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Candles Volumes Multi Time Frame Market\"\n  }",
+                    "project": "Foundations",
+                    "processOutput": {
+                        "type": "Process Output",
+                        "name": "New Process Output",
+                        "project": "Foundations",
+                        "outputDatasets": [
+                            {
+                                "type": "Output Dataset",
+                                "name": "Multi-Time-Frame-Market Candles",
+                                "project": "Foundations",
+                                "id": "5d82f670-e692-40ca-8d24-9273d0f5e08f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17138.05356677976,
+                                        "y": 13044.891176675388
+                                    },
+                                    "targetPosition": {
+                                        "x": 16694.1099622561,
+                                        "y": 13080.289164039452
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Market",
+                                        "id": "2b03494a-67d6-47f1-89b6-53fc4c9116a8"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Candles Volumes",
+                                                "Indicator Bot",
+                                                "Foundations",
+                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                            ],
+                                            [
+                                                "Candles",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "fe6065ec-4d2d-47a0-bae0-8647f0e195d7"
+                                            ],
+                                            [
+                                                "Multi-Time-Frame-Market",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "2b03494a-67d6-47f1-89b6-53fc4c9116a8"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Output Dataset",
+                                "name": "Multi-Time-Frame-Market Volumes",
+                                "project": "Foundations",
+                                "id": "b198c9ea-3141-4407-9953-2b2ebb672450",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17131.923629962956,
+                                        "y": 13161.680533822037
+                                    },
+                                    "targetPosition": {
+                                        "x": 16694.1099622561,
+                                        "y": 13080.289164039452
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Market",
+                                        "id": "9bf0483c-4825-4a46-9cf4-1b5262579fc1"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Candles Volumes",
+                                                "Indicator Bot",
+                                                "Foundations",
+                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                            ],
+                                            [
+                                                "Volumes",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "1a366aef-efef-470e-88e0-2a6fbe4dd91f"
+                                            ],
+                                            [
+                                                "Multi-Time-Frame-Market",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "9bf0483c-4825-4a46-9cf4-1b5262579fc1"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "outputDatasetFolders": [],
+                        "id": "d529ec20-8461-40d6-9dc3-14f9ab8b64be",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16694.1099622561,
+                                "y": 13080.289164039452
+                            },
+                            "targetPosition": {
+                                "x": 15805.038124299077,
+                                "y": 13034.534418484422
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "processDependencies": {
+                        "type": "Process Dependencies",
+                        "name": "New Process Dependencies",
+                        "project": "Foundations",
+                        "statusDependencies": [
+                            {
+                                "type": "Status Dependency",
+                                "name": "Exchange Raw Data Historic-OHLCVs",
+                                "config": "{\n    \"mainUtility\": \"Market Starting Point\"\n}",
+                                "project": "Foundations",
+                                "id": "ff665e30-1d31-429b-88dc-f5e623b9a5f8",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17566.907800308647,
+                                        "y": 13126.572461306478
+                                    },
+                                    "targetPosition": {
+                                        "x": 16679.869980207295,
+                                        "y": 13196.906195981654
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Historic-OHLCVs",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                            ],
+                                            [
+                                                "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "Exchange Raw Data Historic-OHLCVs",
+                                "config": "{\n    \"mainUtility\": \"Market Ending Point\"\n}",
+                                "project": "Foundations",
+                                "id": "6d911e31-cef3-4c4f-82e3-d7b9b1ba9541",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17568.502825307085,
+                                        "y": 13243.23144145533
+                                    },
+                                    "targetPosition": {
+                                        "x": 16679.869980207295,
+                                        "y": 13196.906195981654
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Historic-OHLCVs",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                            ],
+                                            [
+                                                "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "Candles Volumes Multi-Time-Frame-Market",
+                                "config": "{\n    \"mainUtility\": \"Self Reference\"\n}",
+                                "project": "Foundations",
+                                "id": "957ffa57-d4df-4866-b99f-86cf8add689d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17554.808559831625,
+                                        "y": 13358.984343690681
+                                    },
+                                    "targetPosition": {
+                                        "x": 16679.869980207295,
+                                        "y": 13196.906195981654
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Candles Volumes Multi-Time-Frame-Market Status Report",
+                                        "id": "a0a61ba9-91cb-4ec7-92fe-134ff079de2d"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Candles Volumes",
+                                                "Indicator Bot",
+                                                "Foundations",
+                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                            ],
+                                            [
+                                                "Multi-Time-Frame-Market",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "9f683143-a33f-42c1-9fa8-c601f01ee4e1"
+                                            ],
+                                            [
+                                                "Candles Volumes Multi-Time-Frame-Market Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "a0a61ba9-91cb-4ec7-92fe-134ff079de2d"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "dataDependencies": [
+                            {
+                                "type": "Data Dependency",
+                                "name": "Candles One-Min",
+                                "project": "Foundations",
+                                "id": "982efbd9-6a54-4322-9a0f-52a6483d67d9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17526.096007422864,
+                                        "y": 13471.948297344054
+                                    },
+                                    "targetPosition": {
+                                        "x": 16679.869980207295,
+                                        "y": 13196.906195981654
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "One-Min",
+                                        "id": "1c3696e4-c28e-4744-9100-706d6dce0c3c"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Candles",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "2443883b-6959-42a3-ae3b-ef3102ffcdcc"
+                                            ],
+                                            [
+                                                "One-Min",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "1c3696e4-c28e-4744-9100-706d6dce0c3c"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Data Dependency",
+                                "name": "Volumes One-Min",
+                                "project": "Foundations",
+                                "id": "fe28906a-90b1-4a5e-88b1-110d994cb397",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 17482.721320774035,
+                                        "y": 13580.464139305848
+                                    },
+                                    "targetPosition": {
+                                        "x": 16679.869980207295,
+                                        "y": 13196.906195981654
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "One-Min",
+                                        "id": "73dcce78-c223-49e1-a93c-7e1ab7283f86"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Volumes",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "3a43c6f3-bac0-404e-865f-822eb48c8660"
+                                            ],
+                                            [
+                                                "One-Min",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "73dcce78-c223-49e1-a93c-7e1ab7283f86"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "dataMineDataDependencies": [],
+                        "id": "09645f1b-96c2-4dbb-a99f-803c8ebe7a00",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16679.869980207295,
+                                "y": 13196.906195981654
+                            },
+                            "targetPosition": {
+                                "x": 15805.038124299077,
+                                "y": 13034.534418484422
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "statusReport": {
+                        "type": "Status Report",
+                        "name": "Candles Volumes Multi-Time-Frame-Market Status Report",
+                        "project": "Foundations",
+                        "id": "a0a61ba9-91cb-4ec7-92fe-134ff079de2d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16651.21107282545,
+                                "y": 13309.638747233315
+                            },
+                            "targetPosition": {
+                                "x": 15805.038124299077,
+                                "y": 13034.534418484422
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "executionStartedEvent": {
+                        "type": "Execution Started Event",
+                        "name": "",
+                        "project": "Foundations",
+                        "id": "c086e5db-7777-45d9-bb4d-381f9566341f",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16608.037253835908,
+                                "y": 13417.821243649585
+                            },
+                            "targetPosition": {
+                                "x": 15805.038124299077,
+                                "y": 13034.534418484422
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Execution Finished Event",
+                                "name": "New Execution Finished Event",
+                                "id": "fe40a546-43ee-49df-908a-7e72f598f0cd"
+                            },
+                            "referenceParentCombinedNodePath": {
+                                "path": [
+                                    [
+                                        "Candles",
+                                        "Data Mine",
+                                        "Foundations",
+                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                    ],
+                                    [
+                                        "Exchange Raw Data",
+                                        "Sensor Bot",
+                                        "Foundations",
+                                        "af924204-66a2-47d4-9910-66ab78acb06f"
+                                    ],
+                                    [
+                                        "Historic-OHLCVs",
+                                        "Process Definition",
+                                        "Foundations",
+                                        "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                    ],
+                                    [
+                                        "New Execution Finished Event",
+                                        "Execution Finished Event",
+                                        "Foundations",
+                                        "fe40a546-43ee-49df-908a-7e72f598f0cd"
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    "executionFinishedEvent": {
+                        "type": "Execution Finished Event",
+                        "name": "New Execution Finished Event",
+                        "project": "Foundations",
+                        "id": "1824fa00-dd30-4cdc-acc0-01c2f29056c5",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16550.9005462481,
+                                "y": 13519.716047354239
+                            },
+                            "targetPosition": {
+                                "x": 15805.038124299077,
+                                "y": 13034.534418484422
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "9f683143-a33f-42c1-9fa8-c601f01ee4e1",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15392.32350660417,
+                            "y": 11846.153853607178
+                        },
+                        "targetPosition": {
+                            "x": 15101.234788721373,
+                            "y": 11918.730422287077
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Process Definition",
+                    "name": "Multi-Time-Frame-Daily",
+                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"description\": \"Produces different files with Multi-Time-Frame candles and volumes on a daily format.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Candles Volumes Multi Time Frame Daily\"\n  }",
+                    "project": "Foundations",
+                    "processOutput": {
+                        "type": "Process Output",
+                        "name": "New Process Output",
+                        "project": "Foundations",
+                        "outputDatasets": [
+                            {
+                                "type": "Output Dataset",
+                                "name": "Multi-Time-Frame-Daily Candles",
+                                "project": "Foundations",
+                                "id": "f60fba20-b9d6-4362-b667-020096340e38",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16661.550934794876,
+                                        "y": 14123.654165352247
+                                    },
+                                    "targetPosition": {
+                                        "x": 16281.524683276719,
+                                        "y": 13891.344610425462
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Daily",
+                                        "id": "678a567c-f08d-49b9-813b-4e54fd6afadb"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Candles Volumes",
+                                                "Indicator Bot",
+                                                "Foundations",
+                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                            ],
+                                            [
+                                                "Candles",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "fe6065ec-4d2d-47a0-bae0-8647f0e195d7"
+                                            ],
+                                            [
+                                                "Multi-Time-Frame-Daily",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "678a567c-f08d-49b9-813b-4e54fd6afadb"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Output Dataset",
+                                "name": "Multi-Time-Frame-Daily Volumes",
+                                "project": "Foundations",
+                                "id": "a507b588-ce8f-4d5c-9053-d130015560b5",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16587.820030863026,
+                                        "y": 14214.684306552666
+                                    },
+                                    "targetPosition": {
+                                        "x": 16281.524683276719,
+                                        "y": 13891.344610425462
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Daily",
+                                        "id": "2e683057-f911-4105-bc77-16f2706d1915"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Candles Volumes",
+                                                "Indicator Bot",
+                                                "Foundations",
+                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                            ],
+                                            [
+                                                "Volumes",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "1a366aef-efef-470e-88e0-2a6fbe4dd91f"
+                                            ],
+                                            [
+                                                "Multi-Time-Frame-Daily",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "2e683057-f911-4105-bc77-16f2706d1915"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "outputDatasetFolders": [],
+                        "id": "4d806ace-6f82-449d-b908-afcd7d029a68",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16281.524683276719,
+                                "y": 13891.344610425462
+                            },
+                            "targetPosition": {
+                                "x": 15589.230451130927,
+                                "y": 13331.565494195886
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "processDependencies": {
+                        "type": "Process Dependencies",
+                        "name": "New Process Dependencies",
+                        "project": "Foundations",
+                        "statusDependencies": [
+                            {
+                                "type": "Status Dependency",
+                                "name": "Exchange Raw Data Historic-OHLCVs",
+                                "config": "{\n    \"mainUtility\": \"Market Starting Point\"\n}",
+                                "project": "Foundations",
+                                "id": "14730a16-e01e-4bc5-9886-0eed386152f2",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16960.503383931107,
+                                        "y": 14441.722533399221
+                                    },
+                                    "targetPosition": {
+                                        "x": 16201.472745482748,
+                                        "y": 13977.290474436999
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Historic-OHLCVs",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                            ],
+                                            [
+                                                "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "",
+                                "config": "{\n    \"mainUtility\": \"Self Reference\"\n}",
+                                "project": "Foundations",
+                                "id": "1baff60d-84c4-4e27-b03d-663158ca6bba",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16893.10240197985,
+                                        "y": 14537.195586232294
+                                    },
+                                    "targetPosition": {
+                                        "x": 16201.472745482748,
+                                        "y": 13977.290474436999
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "New Status Report",
+                                        "id": "2a021da8-9feb-475e-90ab-1586968c17c7"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Candles Volumes",
+                                                "Indicator Bot",
+                                                "Foundations",
+                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                            ],
+                                            [
+                                                "Multi-Time-Frame-Daily",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "980ceb1d-7be6-454f-90d9-01ba1fd4a65d"
+                                            ],
+                                            [
+                                                "New Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "2a021da8-9feb-475e-90ab-1586968c17c7"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "Exchange Raw Data Historic-OHLCVs",
+                                "config": "{\n    \"mainUtility\": \"Market Ending Point\"\n}",
+                                "project": "Foundations",
+                                "id": "4e77c03b-367c-450c-82ca-c7211c2fab8e",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16813.982407509808,
+                                        "y": 14622.788729140775
+                                    },
+                                    "targetPosition": {
+                                        "x": 16201.472745482748,
+                                        "y": 13977.290474436999
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Historic-OHLCVs",
+                                                "Process Definition",
+                                                "Foundations",
+                                                "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                            ],
+                                            [
+                                                "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                                "Status Report",
+                                                "Foundations",
+                                                "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "dataDependencies": [
+                            {
+                                "type": "Data Dependency",
+                                "name": "Candles One-Min",
+                                "project": "Foundations",
+                                "id": "2d324ca2-acc5-4390-ae37-0d350fe8e8fa",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16724.352511841826,
+                                        "y": 14697.298411147924
+                                    },
+                                    "targetPosition": {
+                                        "x": 16201.472745482748,
+                                        "y": 13977.290474436999
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "One-Min",
+                                        "id": "1c3696e4-c28e-4744-9100-706d6dce0c3c"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Candles",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "2443883b-6959-42a3-ae3b-ef3102ffcdcc"
+                                            ],
+                                            [
+                                                "One-Min",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "1c3696e4-c28e-4744-9100-706d6dce0c3c"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Data Dependency",
+                                "name": "Volumes One-Min",
+                                "project": "Foundations",
+                                "id": "4051019a-9548-4541-a7e7-11097fe3f103",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 16625.47286483264,
+                                        "y": 14759.59348114239
+                                    },
+                                    "targetPosition": {
+                                        "x": 16201.472745482748,
+                                        "y": 13977.290474436999
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "One-Min",
+                                        "id": "73dcce78-c223-49e1-a93c-7e1ab7283f86"
+                                    },
+                                    "referenceParentCombinedNodePath": {
+                                        "path": [
+                                            [
+                                                "Candles",
+                                                "Data Mine",
+                                                "Foundations",
+                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                            ],
+                                            [
+                                                "Exchange Raw Data",
+                                                "Sensor Bot",
+                                                "Foundations",
+                                                "af924204-66a2-47d4-9910-66ab78acb06f"
+                                            ],
+                                            [
+                                                "Volumes",
+                                                "Product Definition",
+                                                "Foundations",
+                                                "3a43c6f3-bac0-404e-865f-822eb48c8660"
+                                            ],
+                                            [
+                                                "One-Min",
+                                                "Dataset Definition",
+                                                "Foundations",
+                                                "73dcce78-c223-49e1-a93c-7e1ab7283f86"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        ],
+                        "dataMineDataDependencies": [],
+                        "id": "1e4c5a40-0c64-423f-968d-31b178056cf3",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16201.472745482748,
+                                "y": 13977.290474436999
+                            },
+                            "targetPosition": {
+                                "x": 15589.230451130927,
+                                "y": 13331.565494195886
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "statusReport": {
+                        "type": "Status Report",
+                        "name": "New Status Report",
+                        "project": "Foundations",
+                        "id": "2a021da8-9feb-475e-90ab-1586968c17c7",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16112.037041508935,
+                                "y": 14051.638254234022
+                            },
+                            "targetPosition": {
+                                "x": 15589.230451130927,
+                                "y": 13331.565494195886
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "executionStartedEvent": {
+                        "type": "Execution Started Event",
+                        "name": "",
+                        "project": "Foundations",
+                        "id": "fa826f1b-2a52-4542-89b2-7190e137ef56",
+                        "savedPayload": {
+                            "position": {
+                                "x": 16013.540055455487,
+                                "y": 14113.775288828478
+                            },
+                            "targetPosition": {
+                                "x": 15589.230451130927,
+                                "y": 13331.565494195886
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Execution Finished Event",
+                                "name": "New Execution Finished Event",
+                                "id": "fe40a546-43ee-49df-908a-7e72f598f0cd"
+                            },
+                            "referenceParentCombinedNodePath": {
+                                "path": [
+                                    [
+                                        "Candles",
+                                        "Data Mine",
+                                        "Foundations",
+                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                    ],
+                                    [
+                                        "Exchange Raw Data",
+                                        "Sensor Bot",
+                                        "Foundations",
+                                        "af924204-66a2-47d4-9910-66ab78acb06f"
+                                    ],
+                                    [
+                                        "Historic-OHLCVs",
+                                        "Process Definition",
+                                        "Foundations",
+                                        "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                    ],
+                                    [
+                                        "New Execution Finished Event",
+                                        "Execution Finished Event",
+                                        "Foundations",
+                                        "fe40a546-43ee-49df-908a-7e72f598f0cd"
+                                    ]
+                                ]
+                            }
+                        }
+                    },
+                    "executionFinishedEvent": {
+                        "type": "Execution Finished Event",
+                        "name": "New Execution Finished Event",
+                        "project": "Foundations",
+                        "id": "f29d08f9-e7c8-490c-8fca-14851a0d3dc3",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15907.445262373418,
+                                "y": 14162.628226603141
+                            },
+                            "targetPosition": {
+                                "x": 15589.230451130927,
+                                "y": 13331.565494195886
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "980ceb1d-7be6-454f-90d9-01ba1fd4a65d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15379.38994509141,
+                            "y": 12031.11240031185
+                        },
+                        "targetPosition": {
+                            "x": 15101.234788721373,
+                            "y": 11918.730422287077
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "products": [
+                {
+                    "type": "Product Definition",
+                    "name": "Candles",
+                    "config": "{\n      \"codeName\": \"Candles\",\n      \"singularVariableName\": \"candle\",\n      \"pluralVariableName\": \"candles\"\n}",
+                    "project": "Foundations",
+                    "datasets": [
+                        {
+                            "type": "Dataset Definition",
+                            "name": "Multi-Time-Frame-Market",
+                            "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"type\": \"Market Files\",\n    \"validTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\" ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame\",\n    \"fileName\": \"Data.json\",\n    \"timeFrames\": {\n      \"filePath\": \"\",\n      \"fileName\": \"\"\n    }\n  }",
+                            "project": "Foundations",
+                            "id": "2b03494a-67d6-47f1-89b6-53fc4c9116a8",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15378.810059318694,
+                                    "y": 12456.907226404484
+                                },
+                                "targetPosition": {
+                                    "x": 15196.181630616076,
+                                    "y": 12218.901224317113
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 4,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Dataset Definition",
+                            "name": "Multi-Time-Frame-Daily",
+                            "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"type\": \"Daily Files\",\n    \"validTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame/@Year/@Month/@Day\",\n    \"fileName\": \"Data.json\",\n    \"dataRange\": {\n      \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n      \"fileName\": \"Data.Range.json\"\n    },\n    \"timeFrames\": {\n      \"filePath\": \"\",\n      \"fileName\": \"\"\n    }\n  }",
+                            "project": "Foundations",
+                            "id": "678a567c-f08d-49b9-813b-4e54fd6afadb",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15339.32925869396,
+                                    "y": 12482.546358115702
+                                },
+                                "targetPosition": {
+                                    "x": 15196.181630616076,
+                                    "y": 12218.901224317113
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 4,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "record": {
+                        "type": "Record Definition",
+                        "name": "New Record Definition",
+                        "project": "Foundations",
+                        "properties": [
+                            {
+                                "type": "Record Property",
+                                "name": "Min",
+                                "config": "{\n  \"codeName\": \"min\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "95264fe8-6089-4a70-bf6d-158bc43c04f3",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15461.042410677583,
+                                        "y": 12649.098326319941
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Max",
+                                "config": "{\n  \"codeName\": \"max\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "b716bfaa-d785-45e3-b8ca-370284ac901c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15537.861969820166,
+                                        "y": 12734.415090087357
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Open",
+                                "config": "{\n  \"codeName\": \"open\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "7d809ac3-9b7d-4687-83bb-40b851e522d0",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15531.85353880882,
+                                        "y": 12849.062783493664
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Close",
+                                "config": "{\n  \"codeName\": \"close\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "b0ea41f8-03da-454e-8d0f-bb0f2fc5d328",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15446.536775041404,
+                                        "y": 12925.882342636247
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Begin",
+                                "config": "{\n  \"codeName\": \"begin\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "21b8be1f-0437-4fc8-9bc0-31779a9ea47e",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15331.889081635098,
+                                        "y": 12919.873911624902
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "End",
+                                "config": "{\n  \"codeName\": \"end\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "91ba9479-fdb4-42b7-ad02-1b2ac24b13d6",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15255.069522492515,
+                                        "y": 12834.557147857486
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Direction",
+                                "config": "{\n  \"codeName\": \"direction\",\n  \"isString\": true,\n  \"isCalculated\": true,\n \"possibleValues\": [\"Up\", \"Down\", \"Side\"]\n}",
+                                "project": "Foundations",
+                                "recordFormula": {
+                                    "type": "Record Formula",
+                                    "code": "variable.direction",
+                                    "project": "Foundations",
+                                    "id": "becdde12-efb6-464b-bfb0-ac98e3c2b8e3",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15125.69016085138,
+                                            "y": 12655.332789929937
+                                        },
+                                        "targetPosition": {
+                                            "x": 15261.07795350386,
+                                            "y": 12719.909454451179
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "aafd0a4b-da5d-40c1-94b8-e79f0b1eca9b",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15261.07795350386,
+                                        "y": 12719.909454451179
+                                    },
+                                    "targetPosition": {
+                                        "x": 15396.46574615634,
+                                        "y": 12784.486118972422
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "65ea4bea-6b8f-4df9-8716-d8af0ce2044c",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15396.46574615634,
+                                "y": 12784.486118972422
+                            },
+                            "targetPosition": {
+                                "x": 15196.181630616076,
+                                "y": 12218.901224317113
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 5,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "calculations": {
+                        "type": "Calculations Procedure",
+                        "name": "New Calculations Procedure",
+                        "project": "Foundations",
+                        "loop": {
+                            "type": "Procedure Loop",
+                            "name": "New Procedure Loop",
+                            "project": "Foundations",
+                            "procedureJavascriptCode": {
+                                "type": "Procedure Javascript Code",
+                                "name": "New Procedure Javascript Code",
+                                "code": "let candle = product.candle\n\nif (candle.close > candle.open) {\n    variable.direction = \"Up\"\n}\n\nif (candle.close < candle.open) {\n    variable.direction = \"Down\"\n}\n\nif (candle.close === candle.open) {\n    variable.direction = \"Side\"\n}",
+                                "project": "Foundations",
+                                "id": "798bc1e0-90d2-435f-980d-b457b30046dd",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 15305.522945911362,
+                                        "y": 12808.854168855483
+                                    },
+                                    "targetPosition": {
+                                        "x": 15278.18761708754,
+                                        "y": 12661.365932720892
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 4,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "abbcb291-c048-49e7-b0d0-fdf20891faea",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15278.18761708754,
+                                    "y": 12661.365932720892
+                                },
+                                "targetPosition": {
+                                    "x": 15250.852288263719,
+                                    "y": 12513.8776965863
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 4,
+                                    "distanceToParent": 2,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "f7846b50-ae42-46b4-aeb6-9f6217477a1b",
+                        "savedPayload": {
+                            "position": {
+                                "x": 15250.852288263719,
+                                "y": 12513.8776965863
+                            },
+                            "targetPosition": {
+                                "x": 15196.181630616076,
+                                "y": 12218.901224317113
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 4,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "fe6065ec-4d2d-47a0-bae0-8647f0e195d7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15260.210567991333,
+                            "y": 12173.144851134006
+                        },
+                        "targetPosition": {
+                            "x": 15101.234788721373,
+                            "y": 11918.730422287077
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "Plotter Module",
+                            "name": "Candles",
+                            "id": "0aed75a3-fee8-4ddc-97ff-b6768e6f12a3"
+                        },
+                        "referenceParentCombinedNodePath": {
+                            "path": [
+                                [
+                                    "Candles",
+                                    "Data Mine",
+                                    "Foundations",
+                                    "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                ],
+                                [
+                                    "Plotters Candles Volumes",
+                                    "Plotter",
+                                    "Foundations",
+                                    "e4347543-21b5-4274-b690-e6b3b5899862"
+                                ],
+                                [
+                                    "Candles",
+                                    "Plotter Module",
+                                    "Foundations",
+                                    "0aed75a3-fee8-4ddc-97ff-b6768e6f12a3"
+                                ]
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "Product Definition",
+                    "name": "Volumes",
+                    "config": "{\n      \"codeName\": \"Volumes\",\n      \"singularVariableName\": \"volume\",\n      \"pluralVariableName\": \"volumes\"\n}",
+                    "project": "Foundations",
+                    "datasets": [
+                        {
+                            "type": "Dataset Definition",
+                            "name": "Multi-Time-Frame-Daily",
+                            "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"type\": \"Daily Files\",\n    \"validTimeFrames\": [ \"45-min\", \"40-min\", \"30-min\", \"20-min\", \"15-min\", \"10-min\", \"05-min\", \"04-min\", \"03-min\", \"02-min\", \"01-min\" ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame/@Year/@Month/@Day\",\n    \"fileName\": \"Data.json\",\n    \"dataRange\": {\n      \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n      \"fileName\": \"Data.Range.json\"\n    },\n    \"timeFrames\": {\n      \"filePath\": \"\",\n      \"fileName\": \"\"\n    }\n  }",
+                            "project": "Foundations",
+                            "id": "2e683057-f911-4105-bc77-16f2706d1915",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15066.457788095653,
+                                    "y": 12533.25833951366
+                                },
+                                "targetPosition": {
+                                    "x": 15011.78713044801,
+                                    "y": 12238.281867244474
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Dataset Definition",
+                            "name": "Multi-Time-Frame-Market",
+                            "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"type\": \"Market Files\",\n    \"validTimeFrames\": [ \"24-hs\", \"12-hs\", \"08-hs\", \"06-hs\", \"04-hs\", \"03-hs\", \"02-hs\", \"01-hs\" ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame\",\n    \"fileName\": \"Data.json\",\n    \"timeFrames\": {\n      \"filePath\": \"\",\n      \"fileName\": \"\"\n    }\n  }",
+                            "project": "Foundations",
+                            "id": "9bf0483c-4825-4a46-9cf4-1b5262579fc1",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 14949.413623202683,
+                                    "y": 12531.726147464615
+                                },
+                                "targetPosition": {
+                                    "x": 15011.78713044801,
+                                    "y": 12238.281867244474
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "record": {
+                        "type": "Record Definition",
+                        "name": "New Record Definition",
+                        "project": "Foundations",
+                        "properties": [
+                            {
+                                "type": "Record Property",
+                                "name": "Buy",
+                                "config": "{\n  \"codeName\": \"buy\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "bc8405e2-4a80-416c-bccf-1334e53d371b",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14864.77154400451,
+                                        "y": 12641.090378403573
+                                    },
+                                    "targetPosition": {
+                                        "x": 14756.904323831837,
+                                        "y": 12609.13865212438
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Sell",
+                                "config": "{\n  \"codeName\": \"sell\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "f08f11a8-d092-4b7e-a7e6-c67adac04a33",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14759.849230516473,
+                                        "y": 12721.600101184129
+                                    },
+                                    "targetPosition": {
+                                        "x": 14756.904323831837,
+                                        "y": 12609.13865212438
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "Begin",
+                                "config": "{\n  \"codeName\": \"begin\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "8e2624b0-48ee-4d00-821e-0c6a72b3838f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14650.857156083966,
+                                        "y": 12646.691923788181
+                                    },
+                                    "targetPosition": {
+                                        "x": 14756.904323831837,
+                                        "y": 12609.13865212438
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "End",
+                                "config": "{\n  \"codeName\": \"end\",\n  \"isString\": false\n}",
+                                "project": "Foundations",
+                                "id": "62964ed9-14c4-442d-b272-602d0c714654",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 14688.418663068354,
+                                        "y": 12519.886401341617
+                                    },
+                                    "targetPosition": {
+                                        "x": 14756.904323831837,
+                                        "y": 12609.13865212438
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 1,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "7edf78c7-c63d-4e7e-a643-99aaf52ac967",
+                        "savedPayload": {
+                            "position": {
+                                "x": 14756.904323831837,
+                                "y": 12609.13865212438
+                            },
+                            "targetPosition": {
+                                "x": 15011.78713044801,
+                                "y": 12238.281867244474
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "1a366aef-efef-470e-88e0-2a6fbe4dd91f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15080.307846598134,
+                            "y": 12217.999637365025
+                        },
+                        "targetPosition": {
+                            "x": 15101.234788721373,
+                            "y": 11918.730422287077
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "Plotter Module",
+                            "name": "Volumes",
+                            "id": "a6177fb7-51d1-4b7c-bcbb-04861a5bf0c1"
+                        },
+                        "referenceParentCombinedNodePath": {
+                            "path": [
+                                [
+                                    "Candles",
+                                    "Data Mine",
+                                    "Foundations",
+                                    "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                ],
+                                [
+                                    "Plotters Candles Volumes",
+                                    "Plotter",
+                                    "Foundations",
+                                    "e4347543-21b5-4274-b690-e6b3b5899862"
+                                ],
+                                [
+                                    "Volumes",
+                                    "Plotter Module",
+                                    "Foundations",
+                                    "a6177fb7-51d1-4b7c-bcbb-04861a5bf0c1"
+                                ]
+                            ]
+                        }
+                    }
+                }
+            ],
+            "id": "285a4618-0423-4ac9-9df9-7a78be6fd915",
+            "savedPayload": {
+                "position": {
+                    "x": 14487.069268429528,
+                    "y": 11197.148742298006
+                },
+                "targetPosition": {
+                    "x": 14637.069268429528,
+                    "y": 10937.341121162674
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false,
+                    "shortcutKey": "l"
+                }
+            }
+        }
+    ],
+    "plotters": [
+        {
+            "type": "Plotter",
+            "name": "Plotters Candles Volumes",
+            "config": "{\n\"codeName\": \"PlottersCandlesVolumes\"\n}",
+            "project": "Foundations",
+            "modules": [
+                {
+                    "type": "Plotter Module",
+                    "name": "Candles",
+                    "config": "{\n\"codeName\": \"Candles\",\n\"isLegacy\": true,\n\"icon\": \"layer-candles\"\n}",
+                    "project": "Foundations",
+                    "panels": [
+                        {
+                            "type": "Plotter Panel",
+                            "name": "Candle",
+                            "config": "{ \n\"codeName\": \"CandlePanel\" ,\n\"isLegacy\": true\n}",
+                            "project": "Foundations",
+                            "panelData": [],
+                            "id": "9336f4e6-d56b-4ed4-819d-0bb762ba1fdd",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 13998.629017742584,
+                                    "y": 11725.477002983574
+                                },
+                                "targetPosition": {
+                                    "x": 14294.071343646247,
+                                    "y": 11673.382549683494
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "0aed75a3-fee8-4ddc-97ff-b6768e6f12a3",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14294.071343646247,
+                            "y": 11673.382549683494
+                        },
+                        "targetPosition": {
+                            "x": 14589.513669549906,
+                            "y": 11621.288096383414
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Plotter Module",
+                    "name": "Volumes",
+                    "config": "{\n\"codeName\": \"Volumes\",\n\"isLegacy\": true,\n\"icon\": \"layer-volume\"\n}",
+                    "project": "Foundations",
+                    "panels": [
+                        {
+                            "type": "Plotter Panel",
+                            "name": "Volume",
+                            "config": "{ \n\"codeName\": \"VolumePanel\" ,\n\"isLegacy\": true\n}",
+                            "project": "Foundations",
+                            "panelData": [],
+                            "id": "42dbd098-4550-44a0-987f-54a28dd5f40b",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 14203.841103737985,
+                                    "y": 11161.661430512027
+                                },
+                                "targetPosition": {
+                                    "x": 14396.677386643947,
+                                    "y": 11391.47476344772
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "a6177fb7-51d1-4b7c-bcbb-04861a5bf0c1",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14396.677386643947,
+                            "y": 11391.47476344772
+                        },
+                        "targetPosition": {
+                            "x": 14589.513669549906,
+                            "y": 11621.288096383414
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "e4347543-21b5-4274-b690-e6b3b5899862",
+            "savedPayload": {
+                "position": {
+                    "x": 14487.069268429528,
+                    "y": 10677.53350002734
+                },
+                "targetPosition": {
+                    "x": 14637.069268429528,
+                    "y": 10937.341121162674
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false,
+                    "shortcutKey": ""
+                }
+            }
+        }
+    ],
+    "id": "70c7eea3-a786-4dda-b526-0514e2cb14cc",
+    "savedPayload": {
+        "position": {
+            "x": 14637.069268429528,
+            "y": 10937.341121162674
+        },
+        "targetPosition": {
+            "x": 14637.069268429528,
+            "y": 10937.341121162674
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": true,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

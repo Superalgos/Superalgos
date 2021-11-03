@@ -20,16 +20,20 @@ exports.newHttpInterface = function newHttpInterface() {
         webhook = undefined
     }
 
-    function initialize() {
+    function initialize(initialWorkspace) {
         /*
         We will create an HTTP Server and leave it running forever.
         */
-        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.CLIENT_HTTP_INTERFACE_PORT)
+        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.PLATFORM_HTTP_INTERFACE_PORT)
         /* Starting the browser now is optional */
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
         } else {
-            SA.nodeModules.open('http://localhost:' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+            let queryString = ''
+            if (initialWorkspace.name !== undefined) {
+                queryString = '/?initialWorkspaceName=' + initialWorkspace.name + '&initialWorkspaceProject=' + initialWorkspace.project + '&initialWorkspaceType=' + initialWorkspace.type
+            }
+            SA.nodeModules.open('http://localhost:' + global.env.PLATFORM_HTTP_INTERFACE_PORT + queryString)
         }
     }
 
@@ -40,7 +44,11 @@ exports.newHttpInterface = function newHttpInterface() {
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
-
+                case 'Environment':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
+                    }
+                    break
                 case 'WEB3':
                     {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
@@ -244,7 +252,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                                 console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                                 webhookMessages = []
@@ -292,7 +300,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
                                 break
@@ -594,7 +602,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 function createNewDir(path) {
                                     try {
-                                        fs.mkdirSync(path)
+                                        fs.mkdirSync(path, {recursive: true})
                                     } catch (err) {
                                         if (err.message.indexOf('file already exists') < 0) {
                                             throw (err)
@@ -631,7 +639,13 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'App':
                     {
+                        // If running the electron app do not try to get git tool. I don't allow it.
+                        if (process.env.SA_MODE === 'gitDisable') {
+                            console.log('[WARN] No contributions on binary distributions. Do manual installation')
+                            break
+                        }
                         switch (requestPath[2]) { // switch by command
+
                             case 'Contribute': {
                                 try {
                                     let commitMessage = unescape(requestPath[3])
@@ -641,7 +655,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     const contributionsBranch = unescape(requestPath[7])
                                     let error
 
-                                    /* Unsavping # */
+                                    /* Unsaving # */
                                     for (let i = 0; i < 10; i++) {
                                         commitMessage = commitMessage.replace('_SLASH_', '/')
                                         commitMessage = commitMessage.replace('_HASHTAG_', '#')
@@ -709,7 +723,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
                                             console.log('')
-                                            console.log('Torubleshooting Tips:')
+                                            console.log('Troubleshooting Tips:')
                                             console.log('')
                                             console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
                                             console.log('2. Make sure you are running the latest version of Git available for your OS.')
@@ -725,7 +739,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         const octokit = new Octokit({
                                             auth: token,
-                                            userAgent: 'Superalgos Beta 11'
+                                            userAgent: 'Superalgos Beta 12'
                                         })
 
                                         const repo = 'Superalgos'
@@ -864,6 +878,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             await doGit()
 
                                             if (error === undefined) {
+                                                // Run node setup to prepare instance for branch change
+                                                await runNodeSetup()
+                                                // Return to UI that Branch is successfully changed
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -889,11 +906,47 @@ exports.newHttpInterface = function newHttpInterface() {
                                         const git = simpleGit(options)
                                         try {
                                             await git.checkout(currentBranch)
+
+                                            // Check to see it main repo has been set as upstream
+                                            let remotes = await git.getRemotes();
+                                            let isUpstreamSet
+                                            for (let remote in remotes) {
+                                                if (remotes[remote].name === 'upstream') {
+                                                    isUpstreamSet = true
+                                                } else {
+                                                    isUpstreamSet = false
+                                                }
+                                            }
+                                            // If upstream has not been set. Set it now
+                                            if (isUpstreamSet === false) {
+                                                await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
+                                            }
+                                            // Pull branch from main repo
+                                            await git.pull('upstream', currentBranch);
+                                            // Reset branch to match main repo
+                                            let upstreamLocation = `upstream/${currentBranch}`
+                                            await git.reset('hard', [upstreamLocation])
+
                                         } catch (err) {
                                             console.log('[ERROR] Error changing current branch to ' + currentBranch)
                                             console.log(err.stack)
                                             error = err
                                         }
+                                    }
+
+                                    async function runNodeSetup() {
+                                        console.log("Running Node setup to adjust for new Branch")
+                                        const process = SA.nodeModules.process
+                                        const childProcess = SA.nodeModules.childProcess
+
+                                        let dir = process.cwd()
+                                        let command = "node setup noShortcuts";
+                                        let stdout = childProcess.execSync(command,
+                                            {
+                                                cwd: dir
+                                            }).toString();
+
+                                        console.log("Node Setup has completed with the following result:", stdout)
                                     }
 
                                 } catch (err) {
@@ -969,6 +1022,148 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                                 }
+                                break
+                            }
+
+                            case 'FixAppSchema': {
+                                /*
+                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fix the
+                                actions where this node was referenced, so that it points to the new project where the node has moved to. 
+                                */
+                                let customResponse = {
+                                    result: global.CUSTOM_OK_RESPONSE.result,
+                                    message: ''
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
+
+                                console.log('Fixing App Schemas...')
+
+                                let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
+                                let PROJECTS_MAP = new Map()
+                                let directoryCount = 0
+                                let allAppSchemas = []
+                                let allAppSchemasFilePaths = []
+                                let allAppSchemasFileProjects = []
+
+                                for (let i = 0; i < projects.length; i++) {
+                                    let project = projects[i]
+
+
+
+                                    const fs = SA.nodeModules.fs
+                                    let folder = 'App-Schema'
+                                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
+                                    SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+
+                                    function onFilesReady(files) {
+                                        try {
+                                            let SCHEMA_MAP = new Map()
+
+                                            console.log('files.length... ' + files.length)
+
+                                            for (let k = 0; k < files.length; k++) {
+                                                let name = files[k]
+                                                let nameSplitted = name.split(folder)
+                                                let fileName = nameSplitted[1]
+                                                for (let i = 0; i < 10; i++) {
+                                                    fileName = fileName.replace('\\', '/')
+                                                }
+                                                let fileToRead = filePath + folder + fileName
+
+                                                console.log('Reading file... ' + fileToRead)
+
+                                                let fileContent = fs.readFileSync(fileToRead)
+                                                let schemaDocument
+                                                try {
+                                                    schemaDocument = JSON.parse(fileContent)
+                                                    SCHEMA_MAP.set(schemaDocument.type, schemaDocument)
+                                                    allAppSchemas.push(schemaDocument)
+                                                    allAppSchemasFilePaths.push(fileToRead)
+                                                    allAppSchemasFileProjects.push(project)
+                                                } catch (err) {
+                                                    console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                                    return
+                                                }
+                                            }
+                                            PROJECTS_MAP.set(project, SCHEMA_MAP)
+                                            directoryCount++
+
+                                            console.log('directoryCount = ' + directoryCount, 'projects.length = ' + projects.length)
+                                            //console.log(Array.from(PROJECTS_MAP.get(project).keys()))
+                                            if (directoryCount === projects.length) {
+                                                fixSchemas()
+                                            }
+                                        } catch (err) {
+                                            console.log(err.stack)
+                                        }
+                                    }
+                                }
+
+                                function fixSchemas() {
+                                    try {
+                                        console.log('fixSchemas...' + allAppSchemas.length)
+                                        let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
+                                        const fs = SA.nodeModules.fs
+                                        let needFixing = 0
+                                        for (let i = 0; i < allAppSchemas.length; i++) {
+                                            let schemaDocument = allAppSchemas[i]
+                                            let wasUpdated = false
+                                            for (let j = 0; j < schemaDocument.menuItems.length; j++) {
+                                                let menuItem = schemaDocument.menuItems[j]
+                                                if (menuItem.relatedUiObject !== undefined && menuItem.relatedUiObjectProject === undefined) {
+                                                    needFixing++
+
+                                                    let hits = 0
+                                                    let foundProject
+                                                    let multiProject = ''
+                                                    for (let k = 0; k < projects.length; k++) {
+                                                        let project = projects[k]
+
+                                                        let testDocument = PROJECTS_MAP.get(project).get(menuItem.relatedUiObject)
+                                                        if (testDocument !== undefined) {
+                                                            hits++
+                                                            foundProject = project
+                                                            multiProject = multiProject + ' -> ' + project
+
+                                                            let fileProject = allAppSchemasFileProjects[i]
+                                                            //console.log(fileProject, project)
+                                                            if (fileProject === project) {
+                                                                /* If the project of the file is the same as the project found, then we consider this a match*/
+                                                                hits = 1
+                                                                continue
+                                                            }
+                                                        }
+                                                    }
+
+                                                    if (hits === 0) {
+                                                        console.log('Problem With No Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject)
+                                                        console.log('This Node Type was NOT FOUND at any project. ' + menuItem.relatedUiObject)
+                                                        continue
+                                                    }
+                                                    if (hits === 1) {
+                                                        console.log('Problem With One Solution #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found Project:' + foundProject)
+
+                                                        menuItem.relatedUiObjectProject = foundProject
+                                                        wasUpdated = true
+                                                        continue
+                                                    }
+                                                    console.log('Problem With MULTIPLE Solutions #' + needFixing, '         Type: ' + schemaDocument.type, '          Action: ' + menuItem.action, '              Related UI Object: ' + menuItem.relatedUiObject, '              Found at these Projects:' + multiProject)
+                                                }
+                                            }
+
+                                            if (wasUpdated === true) {
+                                                let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                                let filePath = allAppSchemasFilePaths[i]
+                                                //console.log('Saving File at ' + filePath)
+                                                //console.log(fileContent)
+                                                //fs.writeFileSync(filePath, fileContent)
+                                            }
+                                        }
+                                    } catch (err) {
+                                        console.log(err.stack)
+                                    }
+                                }
+
                                 break
                             }
                         }
@@ -1078,6 +1273,200 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         return
                                     }
+
+                                    case 'UserProfile': {
+                                        try {
+
+                                            let mess = unescape(params.commitMessage)
+                                            const username =  unescape(params.username)
+                                            const token =   unescape(params.token)
+                                            const currentBranch =  unescape(params.currentBranch)
+                                            const contributionsBranch =  unescape(params.contributionsBranch)
+
+                                            let error
+
+                                            await updateUser()
+
+                                            async function updateUser() {
+
+                                                await doGithubUser()
+                                                if (error !== undefined) {
+
+                                                    let docs = {
+                                                        project: 'Governance',
+                                                        category: 'Topic',
+                                                        type: 'Gov Error - Contribution Not Sent',
+                                                        anchor: undefined,
+                                                        placeholder: {}
+                                                    }
+                                                    console.log('respond with docs ')
+
+                                                    respondWithDocsObject(docs, error)
+                                                    return
+                                                }
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                            }
+
+                                            async function doGithubUser() {
+
+                                                const { Octokit } = SA.nodeModules.octokit
+
+                                                const octokit = new Octokit({
+                                                    auth: token,
+                                                    userAgent: 'Superalgos Beta 12'
+                                                })
+
+                                                const repo = 'Superalgos'
+                                                const owner = 'Superalgos'
+                                                const head = username + ':' + contributionsBranch
+                                                const base = currentBranch
+                                                const title = 'Contribution: ' + mess
+                                                const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json' ;
+
+                                                const sha = await getSHA(path);
+
+                                                if (sha === undefined){
+                                                    console.log('***** Abort GOV.USERPROFILE *****')
+                                                    return
+                                                }
+
+                                                let file = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
+                                                    'Governance',
+                                                    'User-Profiles',
+                                                    username  + '.json'
+                                                )
+
+                                                let buff = new Buffer.from(file, 'utf-8');
+                                                let encodedFile = buff.toString('base64');
+
+                                                try {
+                                                    await octokit.repos.createOrUpdateFileContents({
+                                                        owner: username,
+                                                        repo: "Superalgos",
+                                                        path,
+                                                        message: title,
+                                                        content: encodedFile,
+                                                        sha,
+                                                        branch: base
+                                                    });
+                                                } catch (err) {
+                                                    if (err.stack.indexOf('Error User Commit') >= 0) {
+                                                        return
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        error = err
+                                                    }
+                                                }
+
+                                                try {
+                                                    await octokit.pulls.create({
+                                                        owner,
+                                                        repo,
+                                                        title,
+                                                        head,
+                                                        base,
+                                                    });
+                                                } catch (err) {
+                                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                        return
+                                                    } else {
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                        error = err
+                                                    }
+
+                                                }
+
+
+                                            }
+
+                                            async function getSHA(path) {
+                                                let sha = ''
+                                                const { graphql } = SA.nodeModules.graphql
+
+                                                try{
+
+                                                    const { repository } = await graphql(
+                                                      '{  ' +
+                                                        '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                        '    object(expression: "develop:' + path +'") {' +
+                                                        '      ... on Blob {' +
+                                                        '        oid' +
+                                                        '      }' +
+                                                        '    }' +
+                                                        '    name' +
+                                                        '  }' +
+                                                        '}',
+                                                            {
+                                                                headers: {
+                                                                    authorization: 'token ' + token
+                                                                },
+                                                            }
+                                                        )
+
+                                                    if (repository.name === undefined){
+                                                        console.log('***** Token permission needed : User:READ *****')
+                                                        sha = undefined
+                                                        error = '***** Token permission needed : User:READ *****'
+                                                        return sha
+                                                    }
+
+                                                    if(repository.object === null ){
+                                                        console.log("[User Not Found] -> Creating new user")
+                                                        return sha
+                                                    }
+                                                    sha = repository.object.oid
+                                                    return sha
+
+                                                } catch (err) {
+
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                    return sha
+
+                                                }
+                                            }
+
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> commitMessage = ' + mess)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> username = ' + username)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token starts with = ' + token.substring(0, 10) + '...')
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> contributionsBranch = ' + contributionsBranch)
+
+                                            let error = {
+                                                result: 'Fail Because',
+                                                message: err.message,
+                                                stack: err.stack
+                                            }
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                        }
+                                        break
+                                    }
+
                                     case 'payContributors': {
                                         console.log('----------------------------------------------------------------------------------------------')
                                         console.log('DISTRIBUTION PROCESS STARTED')
@@ -1120,17 +1509,17 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'LegacyPlotter.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/LegacyPlotter.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/LegacyPlotter.js', httpResponse)
                     }
                     break
                 case 'PlotterPanel.js':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/PlotterPanel.js', httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/PlotterPanel.js', httpResponse)
                     }
                     break
                 case 'Images': // This means the Images folder.
                     {
-                        let path = global.env.PATH_TO_CLIENT + '/WebServer/Images/' + requestPath[2]
+                        let path = global.env.PATH_TO_PLATFORM + '/WebServer/Images/' + requestPath[2]
 
                         if (requestPath[3] !== undefined) {
                             path = path + '/' + requestPath[3]
@@ -1212,12 +1601,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'WebServer': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
@@ -1232,12 +1621,12 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ChartLayers':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Files':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_CLIENT + '/UI/Data-Files/' + requestPath[2], httpResponse)
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/Data-Files/' + requestPath[2], httpResponse)
                     }
                     break
                 case 'Fonts':
@@ -1388,10 +1777,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let project = unescape(requestPath[2])
                                 let folder = unescape(requestPath[3])
 
-                                let response = await SA.projects.foundations.utilities.plugins.getPluginFileNames(
+                                let response = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                                     project,
                                     folder
-                                )
+                                ).catch(err => {
+                                    console.log('[ERROR] httpInterface -> PluginFileNames -> err.stack = ' + err.stack)
+                                })
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
@@ -1420,25 +1811,28 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let folder = unescape(requestPath[3])
                                 let fileName = unescape(requestPath[4])
 
-                                /*Beta 12 Refactoring Code: Remove this before realeasing beta 12.*/
+                                /*Beta 12 Refactoring Code: Remove this before releasing beta 12.*/
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }
 
-                                let response = await SA.projects.foundations.utilities.plugins.getPluginFileContent(
+                                await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                     project,
                                     folder,
                                     fileName
-                                ).catch(err => {
-                                    let error = {
-                                        result: 'Fail Because',
-                                        message: err
+                                )
+                                    .then(response => {
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
                                     }
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
-                                    return
-                                })
-
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
+                                    )
+                                    .catch(err => {
+                                        let error = {
+                                            result: 'Fail Because',
+                                            message: err
+                                        }
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                        return
+                                    })
 
                             } catch (err) {
                                 console.log('[ERROR] httpInterface -> LoadPlugin -> Method call produced an error.')
@@ -1609,7 +2003,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 /* Create Dir if it does not exist */
                                 if (!fs.existsSync(dir)) {
-                                    fs.mkdirSync(dir);
+                                    fs.mkdirSync(dir, {recursive: true});
                                 }
 
                                 fs.writeFile(filePath, fileContent, onFileWritten)
@@ -1747,7 +2141,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 default:
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_CLIENT)
+                        SA.projects.foundations.utilities.httpResponses.respondWithWebFile(httpResponse, endpointOrFile, global.env.PATH_TO_PLATFORM)
                     }
             }
         } catch (err) {

@@ -2,7 +2,14 @@
     "type": "Community Mods",
     "definition": {
         "text": "If you have a knack for lovingly explaining things, find pleasure in helping people, and wish to give back to the project, becoming a Community Mod may be great for you and the project!",
-        "updated": 1630005046805
+        "updated": 1630005046805,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Si tiene la habilidad de explicar las cosas amorosamente, disfruta de ayudar a la gente, y desea devolver al proyecto convitiéndose en un Community Mod ( moderador de la comunidad) puede ser muy bueno para usted y para el proyecto!",
+                "updated": 1633524089504
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Callout",
             "text": "To become a Community Mod, you must go deep into the rabbit hole, study the Docs and tutorials, and start using the system. It takes a deep understanding of how things work before you’re able to explain it to someone else. That said, it doesn’t take much to help newcomers with the easier questions. You may get involved and participate in the Community Group and Support Group, and, at some point, we’ll draft you to join the team!",
-            "updated": 1630495449816
+            "updated": 1630495449816,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para convertirse en un  Community Mod, debe ir más profundo al meollo de la cuestión, estudie los Docs y los tutoriales, y comience a usar el sistema. Conlleva un entendimiento más profundo de como funcionan las cosas antes de que esté en condiciones de explicarle a alguién más. Dicho esto, no se necesita demaciado para ayudar a las preguntas más faciles de los recién llegados. Puede comprometerse y participar en el Community Group y el Support Group, y, en algún momento, lo invitaremos a formar parte del equipo!",
+                    "updated": 1633524555342
+                }
+            ]
         }
     ]
 }

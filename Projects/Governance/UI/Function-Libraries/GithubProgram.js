@@ -107,7 +107,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
             ) {
                 node.payload.githubProgram.isActive = false
                 userProfile.payload.uiObject.setErrorMessage(
-                    "Waiting for blockchain balance. It takes 6 seconds to load the balance of each profile, bacause you are using a free API provided by BSC Scan.",
+                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, because you are using a free API provided by BSC Scan.",
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                     )
                 return
@@ -117,7 +117,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
             /*
             Next thing to do is to validate if the github user profile has a star at the Superalgos repository. 
             */
-            let profileSignature = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
+            let profileSignature = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(userProfile.payload, 'signature')
             if (
                 profileSignature === undefined
             ) {
@@ -150,7 +150,7 @@ function newGovernanceFunctionLibraryGithubProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into Github Power. 
-            As per system rules Github Powar = 1200 SA Tokens.
+            As per system rules Github Power = 1200 SA Tokens.
             */
             let programPower = 3000
             programNode.payload.githubProgram.ownPower = programPower

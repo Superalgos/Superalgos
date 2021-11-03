@@ -28,6 +28,7 @@ function newCircularMenuItem() {
         secondaryWorkDoneLabel: undefined,
         secondaryWorkFailedLabel: undefined,
         secondaryIcon: undefined,
+        booleanProperty: undefined,
         nextAction: undefined,
         visible: false,
         iconPathOn: undefined,
@@ -39,6 +40,7 @@ function newCircularMenuItem() {
         container: undefined,
         payload: undefined,
         relatedUiObject: undefined,
+        relatedUiObjectProject: undefined,
         dontShowAtFullscreen: undefined,
         isEnabled: true,
         shorcutNumber: undefined,
@@ -111,7 +113,7 @@ function newCircularMenuItem() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject +'", label: "' + thisObject.label + '"')
+            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject + '", label: "' + thisObject.label + '"')
         }
 
         selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -120,7 +122,18 @@ function newCircularMenuItem() {
 
         containerPhysics()
 
-        thisObject.nextAction = thisObject.action
+        if (thisObject.booleanProperty !== undefined) {
+            let config = JSON.parse(thisObject.payload.node.config)
+
+            if (config[thisObject.booleanProperty] === true) {
+                thisObject.nextAction = thisObject.secondaryAction
+                setStatus(thisObject.secondaryLabel, defaultBackgroudColor, undefined, STATUS_PRIMARY_WORK_DONE)
+            } else {
+                thisObject.nextAction = thisObject.action
+            }
+        } else {
+            thisObject.nextAction = thisObject.action
+        }
     }
 
     function getContainer(point) {
@@ -264,15 +277,30 @@ function newCircularMenuItem() {
                 temporaryStatus === STATUS_SECONDARY_WORK_FAILED
             ) && thisObject.secondaryAction !== undefined
         ) {
-            thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
-            thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            if (thisObject.iconProject !== undefined) {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.secondaryIcon)
+            } else {
+                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.secondaryIcon)
+            }
         } else {
+
+            /*
+            TODO : This code needs to be cleaned and reorganized. It is not clear how a menu item icon is going to be selected.
+            */
+
             if (thisObject.relatedUiObject !== undefined && thisObject.iconProject !== undefined) {
                 thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
                 thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.iconProject, thisObject.relatedUiObject)
             } else if (thisObject.relatedUiObject !== undefined && thisObject.iconProject === undefined) {
-                thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
-                thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                if (thisObject.relatedUiObjectProject !== undefined) {
+                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.relatedUiObjectProject, thisObject.relatedUiObject)
+                } else {
+                    thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                    thisObject.iconOff = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.relatedUiObject)
+                }
             } else {
                 if (thisObject.iconPathOn !== undefined && thisObject.iconPathOff !== undefined && thisObject.iconProject !== undefined) {
                     thisObject.iconOn = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(thisObject.iconProject, thisObject.iconPathOn)
@@ -306,7 +334,7 @@ function newCircularMenuItem() {
         if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
             let text = thisObject.action
 
-            if(thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach'){
+            if (thisObject.payload.uiObject.payload.referenceParent !== undefined && thisObject.action === 'Reference Detach') {
                 text = text + ' -> [Existing Reference] Type : [' + thisObject.payload.uiObject.payload.referenceParent.type + '] , Name : [' + thisObject.payload.uiObject.payload.referenceParent.name + ']'
             }
 
@@ -324,6 +352,7 @@ function newCircularMenuItem() {
     }
 
     function internalClick() {
+        if (thisObject.payload === undefined) { return }
         if (thisObject.shorcutNumber !== undefined) {
             let label = thisObject.payload.node.name + ' ' + labelToPrint
             UI.projects.foundations.spaces.cockpitSpace.setStatus(label, 4, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
@@ -367,8 +396,22 @@ function newCircularMenuItem() {
                     setStatus(thisObject.workingLabel, UI_COLOR.GREY, undefined, STATUS_PRIMARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
-                thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.action, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onPrimaryCallBack })
+                /* Execute the action and wait for callbacks to update our status. */
+                let relatedNodeProject = thisObject.actionProject
+                if (thisObject.relatedUiObjectProject !== undefined) {
+                    relatedNodeProject = thisObject.relatedUiObjectProject
+                }
+
+                thisObject.actionFunction(
+                    {
+                        node: thisObject.payload.node,
+                        name: thisObject.action,
+                        project: thisObject.actionProject,
+                        relatedNodeType: thisObject.relatedUiObject,
+                        relatedNodeProject: relatedNodeProject,
+                        callBackFunction: onPrimaryCallBack
+                    }
+                )
                 return
             }
             if (temporaryStatus === STATUS_PRIMARY_WORK_DONE && thisObject.secondaryAction !== undefined) {
@@ -377,7 +420,7 @@ function newCircularMenuItem() {
                     setStatus(thisObject.secondaryWorkingLabel, UI_COLOR.GREY, undefined, STATUS_SECONDARY_ACTION_WORKING) // Status will not expire, will only change with a callback. Mouse Clicks will be ignored.
                 }
 
-                /* Execute the action and wait for callbacks to update our statuus. */
+                /* Execute the action and wait for callbacks to update our status. */
                 thisObject.actionFunction({ node: thisObject.payload.node, name: thisObject.secondaryAction, project: thisObject.actionProject, relatedNodeType: thisObject.relatedUiObject, callBackFunction: onSecondaryCallBack })
                 return
             }
@@ -434,7 +477,7 @@ function newCircularMenuItem() {
         labelToPrint = text
         backgroundColorToUse = backgroundColor
         temporaryStatus = newStatus
-        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic reseting.
+        temporaryStatusCounter = newStatus // This will often put this into negatives numbers, which will disable the counting back and automatic resetting.
         if (waitingCycles !== undefined) { // This will override the often negative value with a positive one that will tend to zero onto the default state.
             temporaryStatusCounter = waitingCycles
         }
@@ -491,31 +534,34 @@ function newCircularMenuItem() {
         if (thisObject.icon === undefined) {
             thisObject.icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'missing-image')
         }
-        if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
-            browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
 
-            /* Menu Label */
-            if (thisObject.type === 'Icon & Text') {
-                label = labelToPrint
-                if (thisObject.shorcutNumber !== undefined) {
-                    label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+        if (thisObject.icon !== undefined) {
+            if (thisObject.icon.canDrawIcon === true && thisObject.currentRadius > 1 && thisObject.isDeployed === true) {
+                browserCanvasContext.drawImage(thisObject.icon, menuPosition.x - iconSize, menuPosition.y - iconSize, iconSize * 2, iconSize * 2)
+            }
+        }
+
+        /* Menu Label */
+        if (thisObject.type === 'Icon & Text') {
+            label = labelToPrint
+            if (thisObject.shorcutNumber !== undefined) {
+                label = '' + thisObject.shorcutNumber + '- ' + labelToPrint
+            }
+
+            let labelPoint
+            let fontSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontSize
+
+            browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+            if (thisObject.currentRadius >= thisObject.targetRadius) {
+                labelPoint = {
+                    x: menuPosition.x + thisObject.currentRadius + 25,
+                    y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
                 }
-
-                let labelPoint
-                let fontSize = UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontSize
 
                 browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-
-                if (thisObject.currentRadius >= thisObject.targetRadius) {
-                    labelPoint = {
-                        x: menuPosition.x + thisObject.currentRadius + 25,
-                        y: menuPosition.y + fontSize * FONT_ASPECT_RATIO
-                    }
-
-                    browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
-                    browserCanvasContext.fillStyle = 'rgba(' + UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
-                    browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
-                }
+                browserCanvasContext.fillStyle = 'rgba(' + UI.projects.foundations.spaces.floatingSpace.style.node.menuItem.fontColor + ', 1)'
+                browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
             }
         }
     }

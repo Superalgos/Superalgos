@@ -32,6 +32,27 @@
                 "text": "Je suis un tutoriel interactif, le premier de une serie cree pour vous facilter la connaissance de Superalgo et de vous guider dans ses choix basiques!",
                 "updated": 1623946542352,
                 "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Ik ben een interactieve tutorial, de eerste in een reeks die ontworpen is om je kennismaking te vergemakkelijken en je alle basisprincipes te leren!",
+                "updated": 1633850222210,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, die Ihnen den Einstieg erleichtern und Ihnen alle Grundlagen vermitteln soll!",
+                "updated": 1634070025309,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я - интерактивное учебное пособие, первое в серии, предназначенное для облегчения Вашей адаптации и обучения всем основам.",
+                "updated": 1635448912724},
+                {
+                "language": "TR",
+                "text": "Ben interaktif bir öğreticiyim, Superalgos'u öğrenmenize yardımcı olmak,işinizi  kolaylaştırmak ve size tüm temel bilgileri öğretmek için tasarlanmış bir serinin ilk öğreticisiyim.",
+                "updated": 1635575887053
             }
         ],
         "updated": 1633159917192
@@ -64,6 +85,27 @@
                     "text": "Je vais vous aider à démarrer, en vous montrant les outils qui vous aideront à vous déplacer facilement, et vous aider à découvrir toutes les choses que Superalgos vous faciliter.",
                     "updated": 1623945805888,
                     "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Ik help je op weg, laat je de hulpmiddelen zien om je op weg te helpen en help je alle coole dingen te ontdekken die Superalgos voor je kan doen.",
+                    "updated": 1633850415380,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde Ihnen die Werkzeuge zeigen, mit denen Sie sich bequem zurechtfinden, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
+                    "updated": 1634159537847,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я помогу Вам начать, покажу панель инструментов, с помощью которых Вы сможете комфортно передвигаться и раскрыть все интересные вещи, которые Superalgos может сделать для Вас.",
+                    "updated": 1635449021102},
+                    {
+                    "language": "TR",
+                    "text": "Başlamanıza yardımcı olacağım, rahatça hareket etmenize yardımcı olacak araçları göstereceğim ve Superalgos'un sizin için yapabileceği tüm harika şeyleri keşfetmenize yardımcı olacağım.",
+                    "updated": 1635575910092
                 }
             ],
             "updated": 1633159949363
@@ -95,6 +137,27 @@
                     "text": "Les tutoriels sont l'ultime outil d'initiation à Superalgos ! Commencer à utiliser Superalgos d'une autre manière serait une erreur, car aucune autre ressource ne vous permettra d'être opérationnel plus rapidement. Nous vous recommandons de suivre tous les tutoriels avant d'essayer de mettre en œuvre vos propres idées !",
                     "updated": 1623946050005,
                     "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Tutorials zijn de ultieme Superalgos kennismakingstool! Op een andere manier Superalgos ontdekken is een vergissing, omdat geen enkel ander hulpmiddel je sneller op weg helpt. Je hoort alle tutorials te doen voordat je jouw eigen ideeën probeert te implementeren!",
+                    "updated": 1633850814638,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials sind der beste Start in Superalgos!  Keine andere Ressource wird Sie schneller einarbeiten. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
+                    "updated": 1634159523866,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Это учебное пособие является окончательным инструментом для адаптации в системе Superalgos. Начинать ознакомление с этой системой каким-либо другим образом, является ошибкой, так как никакой другой ресурс не поможет Вам ускорить процесс. Вам следовало бы ознакомиться с полным учебным пособием, прежде чем пытаться реализовать свои собственные идеи!",
+                    "updated": 1635449358224},
+                    {
+                    "language": "TR",
+                    "text": "Öğreticiler, Superalgos'a alıştırma aracıdır! Superalgos'a başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi daha fazla hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
+                    "updated": 1635576039599
                 }
             ],
             "updated": 1633159975051
@@ -132,6 +195,23 @@
                     "text": "Lütfen devam etmek için her zaman NEXT'e tıklayın!",
                     "updated": 1633121186582,
                     "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "klik op Next om verder te gaan!",
+                    "updated": 1633850689870,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": " Bitte klicken Sie immer auf Weiter, um fortzufahren!",
+                    "updated": 1634070092386,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, всегда нажимайте Next, чтобы продолжить.",
+                    "updated": 1635449400949
                 }
             ]
         }

@@ -4,7 +4,14 @@
     "type": "Data Mining - Fetching Data From APIs",
     "definition": {
         "text": "Superalgos allows its users to fetch data from any API on the Internet without needing to write code. Instead, users design an API Map, which is a set of definitions for how a Bot can access a certain API and how to interpret the API Server responses. With this API Map, an API Data Fetcher Bot can be configured to extract data from any API Server and store Raw Data inside the system. This raw data can later be processed and consumed by other Bots.",
-        "updated": 1622228621778
+        "updated": 1635182850649,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Superalgos ermöglicht es seinen Nutzern, Daten von jeder API im Internet abzurufen, ohne dass sie Code schreiben müssen. Stattdessen entwerfen die Benutzer eine API Map, die eine Reihe von Definitionen dafür enthält, wie ein Bot auf eine bestimmte API zugreifen kann und wie die Antworten des API Servers zu interpretieren sind. Mit dieser API Map kann ein API Data Fetcher Bot so konfiguriert werden, dass er Daten von einem beliebigen API Server extrahiert und Rohdaten im System speichert. Diese Rohdaten können später von anderen Bots verarbeitet und konsumiert werden.",
+                "updated": 1635182898612
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,51 +22,122 @@
         {
             "style": "Title",
             "text": "How to Fetch Data from an API?",
-            "updated": 1622228699547
+            "updated": 1622228699547,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie holt man sich Daten von einer API?",
+                    "updated": 1635182922828
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The main workflow to pull this off is quite straight forward. It does not require coding at all. Follow this guide and you will be using data from any source on the Internet for your trading strategies in no time.",
-            "updated": 1622228741015
+            "updated": 1622228741015,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Hauptarbeitsablauf, um dies zu erreichen, ist ziemlich einfach. Es ist überhaupt keine Programmierung erforderlich. Folgen Sie diesem Leitfaden, und Sie werden im Handumdrehen Daten aus jeder beliebigen Quelle im Internet für Ihre Handelsstrategien nutzen können.",
+                    "updated": 1635183311281
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1. Choose an API: The current version is limited to public APIs only. Secured APIs coming soon.",
-            "updated": 1622229777229
+            "updated": 1622229777229,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "1. Wähle eine API: Die aktuelle Version ist nur auf öffentliche APIs beschränkt. Gesicherte APIs folgen in Kürze.",
+                    "updated": 1635183357574
+                }
+            ]
         },
         {
             "style": "List",
             "text": "2. Design an API Map: Read the APIs online documentation and identify the Endpoints that return the data you would like to fetch. Carefully map the Endpoints defining the parameters the API Server expects at each call, and also how the API Server response is formatted.",
-            "updated": 1622229840237
+            "updated": 1622229840237,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "2. Designe eine API Map: Lesen Sie die Online-Dokumentation der APIs und ermitteln Sie die Endpunkte, die die Daten zurückgeben, die Sie abrufen möchten. Ordnen-(map) Sie die Endpunkte sorgfältig zu und legen Sie die Parameter fest, die der API Server bei jedem Aufruf erwartet, und wie die Antwort des API Server formatiert wird.",
+                    "updated": 1635183765303
+                }
+            ]
         },
         {
             "style": "List",
             "text": "3. Setup an API Data Fetcher Bot: Create a Data Mine for this API and add an API Data Fetcher Bot. From that Bot's Record Properties you will need to reference the fields returned by the API Server defined at the API Map. This is how you define which fields from each response you are going to save to disk. You might also need to define query or path parameters here.",
-            "updated": 1622229993447
+            "updated": 1622229993447,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "3. Einrichten eines API Data Fetcher Bot: Erstellen Sie eine Data Mine für diese API und fügen Sie einen API Data Fetcher Bot hinzu. In den Datensatzeigenschaften dieses Bots müssen Sie auf die vom API Server zurückgegebenen Felder/Daten verweisen, die in der API Map definiert sind. Auf diese Weise legen Sie fest, welche Felder aus jeder Antwort auf der Festplatte gespeichert werden sollen. Möglicherweise müssen Sie hier auch Abfrage- oder Pfadparameter definieren.",
+                    "updated": 1635183922700
+                }
+            ]
         },
         {
             "style": "List",
             "text": "4. Setup an Indicator Bot for Dataset Type Conversion: The Raw Data saved to disk needs to be organized for consumption. You will need to setup an Indicator Bot that will do a Dataset Type Conversion from Raw Data to a standard Dataset Type. This process will do data aggregation in order to generate the elements with a fixed time range for every Time Frame possible. ",
-            "updated": 1621973482403
+            "updated": 1621973482403,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "4. Einrichten eines Indicator Bot für die Dataset Type Konvertierung: Die auf der Festplatte gespeicherten Raw Data (Rohdaten) müssen für den Verbrauch organisiert werden. Sie müssen einen Indicator Bot einrichten, der eine Dataset Type -Konvertierung von Raw Data (Rohdaten) in einen Standard Dataset vornimmt. Dieser Prozess führt eine Datenaggregation durch, um die Elemente mit einem festen Zeitbereich für jeden möglichen Time Frame (Zeitrahmen) zu erzeugen.",
+                    "updated": 1635184195592
+                }
+            ]
         },
         {
             "style": "List",
             "text": "5. Setup Indicator Bots: Once the data is converted, you can extract specific Datasets from it. These datasets can be used to define a set of indicators you can build from that data. These Indicators can be as simple as reorganizations of the data (with some adjustments to the names of fields and splitting the data into different indicators), or it can include some data processing / transformations if you wish (this would require some coding).",
-            "updated": 1622230478744
+            "updated": 1622230478744,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "5. Einrichten eines Indicator Bots: Sobald die Daten konvertiert sind, können Sie aus ihnen bestimmte Datensätze extrahieren. Diese Datensätze können verwendet werden, um eine Reihe von Indikatoren zu definieren, die Sie aus diesen Daten erstellen können. Bei diesen Indikatoren kann es sich um einfache Umstrukturierungen der Daten handeln (mit einigen Anpassungen der Feldnamen und der Aufteilung der Daten in verschiedene Indikatoren), oder sie können auf Wunsch einige Datenverarbeitungen/-transformationen umfassen (dies würde ein wenig Programmierung erfordern).",
+                    "updated": 1635184307328
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "6. Setup Plotters: After you have set up your indicators.  You can design plotters for them if you wish.",
-            "updated": 1622230566915
+            "text": "6. Setup Plotters: After you have set up your indicators you can design plotters for them if you wish.",
+            "updated": 1635184368888,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "6. Plotter einrichten: Nachdem Sie Ihre Indikatoren eingerichtet haben, können Sie, wenn Sie möchten, Plotter für sie entwerfen.",
+                    "updated": 1635184425815
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "7. Consume Data from Trading Strategies: These indicators can be consumed from your trading strategies."
+            "text": "7. Use Data for Trading Strategies: These indicators can be consumed from your trading strategies.",
+            "updated": 1635184569437,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "7. Daten für Trading Strategies nutzen: Diese Indikatoren können von Ihren Handelsstrategien genutzt werden.",
+                    "updated": 1635184615790
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "There is a Workspace called API Data Fetcher Bot Demo with a simple working example of the previous steps you can use as a reference.",
-            "updated": 1622230619069
+            "updated": 1622230619069,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt ein Workspace namens API Data Fetcher Bot Demo mit einem einfachen Arbeitsbeispiel der vorherigen Schritte, den Sie als Referenz verwenden können.",
+                    "updated": 1635184665178
+                }
+            ]
         },
         {
             "style": "Block",
@@ -68,47 +146,119 @@
         },
         {
             "style": "Title",
-            "text": "How Does Data Aggregation Work?"
+            "text": "How Does Data Aggregation Work?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie funktioniert die Datenaggregation?",
+                    "updated": 1635184724739
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When Raw Data is fetched from the Internet, it needs to be converted into a Dataset Type either of Multi-Time-Frame-Daily or Multi-Time-Frame-Market types. Usually Raw Data is a timestamped dataset with a timesStamp field, or it has begin and end properties if they are fragmented in time slots of one minute.",
-            "updated": 1622230917402
+            "updated": 1622230917402,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Raw Data (Rohdaten) aus dem Internet abgerufen werden, müssen sie in einen Dataset Type umgewandelt werden, der entweder zum Typ Multi-Time-Frame-Daily oder Multi-Time-Frame-Market gehört. In der Regel handelt es sich bei Raw Data um einen Datensatz mit Zeitstempel und einem timesStamp Feld, oder sie haben Anfangs- und Endeigenschaften, wenn sie in Zeitschlitze von einer Minute unterteilt sind.",
+                    "updated": 1635185031815
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "From there the conversion process needs to generate elements with time slots of 2 min, 3 min, 4 min, 5 min, 10, min, ... up to 24hs. To achieve this, each field needs to be aggregated in a certain way."
+            "text": "From there the conversion process needs to generate elements with time slots of 2 min, 3 min, 4 min, 5 min, 10, min, ... up to 24hs. To achieve this, each field needs to be aggregated in a certain way.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Von dort aus muss der Konvertierungsprozess Elemente mit Zeitschlitzen von 2 min, 3 min, 4 min, 5 min, 10, min,... bis zu 24 Stunden erzeugen. Um dies zu erreichen, muss jedes Feld auf eine bestimmte Weise aggregiert werden.",
+                    "updated": 1635185072820
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "At the Bot where this conversion happens, the Record Property nodes needs to have an aggregationMethod config property that defines how this is going to be handled. Here is a list of the supported aggregation methods that can be used during this conversion procedure:",
-            "updated": 1622235156415
+            "updated": 1622235156415,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Bot, in dem diese Konvertierung stattfindet, müssen die nodes der Datensatzeigenschaft über eine aggregationMethod config property (Konfigurationseigenschaft) verfügen, die definiert, wie dies gehandhabt werden soll. Hier ist eine Liste der unterstützten aggregation methods (Aggregationsmethoden), die während dieses Konvertierungsvorgangs verwendet werden können:",
+                    "updated": 1635185366691
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "First: This means that the fisrt value found within the time range being processed, will define the value of the Record Property."
+            "text": "First: This means that the fisrt value found within the time range being processed, will define the value of the Record Property.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "First: Das bedeutet, dass der erste Wert, der innerhalb des zu verarbeitenden Zeitraums gefunden wird, den Wert der Record Property (Datensatzeigenschaft) bestimmt.",
+                    "updated": 1635186034021
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Last: This means that from all values found at the current time range, the last will be selected for the final value of the Record Property node being evaluated."
+            "text": "Last: This means that from all values found at the current time range, the last will be selected for the final value of the Record Property node being evaluated.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Last: Das bedeutet, dass von allen Werten, die im aktuellen Zeitbereich gefunden wurden, der letzte für den endgültigen Wert der ausgewerteten node der Record Property ausgewählt wird.",
+                    "updated": 1635185724585
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Min: This means that the mathematical minimum value from all values found in the time range will be used as the value for the Record Proeprty.",
-            "updated": 1622231381194
+            "text": "Min: This means that the mathematical minimum value from all values found in the time range will be used as the value for the Record Property.",
+            "updated": 1635185801651,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Min: Das bedeutet, dass der mathematische Mindestwert aus allen im Zeitbereich gefundenen Werten als Wert für die Record Property verwendet wird.",
+                    "updated": 1635186027188
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Max: This means that the mathematical maximum value from all values found in the time range will be used as the value for the Record Proeprty.",
-            "updated": 1622231375974
+            "text": "Max: This means that the mathematical maximum value from all values found in the time range will be used as the value for the Record Property.",
+            "updated": 1635185814991,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Max: Das bedeutet, dass der mathematische Maximalwert aus allen im Zeitbereich gefundenen Werten als Wert für die Record Property verwendet wird.",
+                    "updated": 1635186252288
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Sum: This means that the sum of all values found in the time range will be used as the value for the Record Proeprty."
+            "text": "Sum: This means that the sum of all values found in the time range will be used as the value for the Record Property.",
+            "updated": 1635185809846,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sum: Das bedeutet, dass die Summe aller im Zeitbereich gefundenen Werte als Wert für die Record Property verwendet wird.",
+                    "updated": 1635186286151
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Avg: This means that the average of all values found in the time range will be used as the value for the Record Proeprty."
+            "text": "Avg: This means that the average of all values found in the time range will be used as the value for the Record Property.",
+            "updated": 1635185822196,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Avg: Das bedeutet, dass der Durchschnitt aller im Zeitbereich gefundenen Werte als Wert für die Record Property verwendet wird.",
+                    "updated": 1635186324151
+                }
+            ]
         },
         {
             "style": "Block",
@@ -117,156 +267,381 @@
         },
         {
             "style": "Title",
-            "text": "Step by Step Guide to Fetch Data from an API"
+            "text": "Step by Step Guide to Fetch Data from an API",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt für Schritt Anleitung zum Abrufen von Daten aus einer API",
+                    "updated": 1635186345495
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is a detailed guide on how to setup a data mining operation fetching data from an Internet API.",
-            "updated": 1621975839421
+            "updated": 1621975839421,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine ausführliche Anleitung zur Einrichtung eines Data Mining-Vorgangs, der Daten von einer Internet-API abruft.",
+                    "updated": 1635186372690
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #1: Open the API Data Fetcher Bot Demo Plugin Workspace and study it for a while. Run the tasks in there, watch while data is processed, check the charts and finally run the Trading Task that uses the data processed.",
-            "updated": 1621976539133
+            "updated": 1621976539133,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #1: Öffnen Sie den API Data Fetcher Bot Demo Plugin Workspace und arbeiten sie eine Weile mit ihm. Führen Sie die Tasks darin aus, beobachten Sie, wie die Daten verarbeitet werden, prüfen Sie die Charts und führen Sie schließlich die Trading Task aus, die die verarbeiteten Daten verwendet.",
+                    "updated": 1635186793995
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #2: Open a second UI (this will prevent the previous one from saving the changes, but you don't need to do that). You will use the first UI to check from time to time how nodes are configured there, and the second UI to build your own data mining operation from scratch. The rest of the steps you will do within the second UI.",
-            "updated": 1622231623225
+            "updated": 1622231623225,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #2: Öffnen Sie eine zweite UI (Benutzeroberfläche) (dadurch wird verhindert, dass die vorherige die Änderungen speichert, aber das ist nicht nötig). Sie werden die erste Ui verwenden, um von Zeit zu Zeit zu überprüfen, wie die nodes dort konfiguriert sind, und die zweite UI, um Ihre eigene Data Mining Operation von Grund auf zu erstellen. Die restlichen Schritte werden Sie innerhalb der zweiten UI durchführen.",
+                    "updated": 1635186922408
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #3: Select an API from the Internet with data that might be useful at your Trading Strategy.",
-            "updated": 1622231649073
+            "updated": 1622231649073,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #3: Wählen Sie eine API aus dem Internet mit Daten, die für Ihre Trading Strategy (Handelsstrategie) nützlich sein könnten.",
+                    "updated": 1635186996482
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #4: Read the API's documentation, indentify the endpoints, what parameters they require and what data they will provide you. Another helpful way to see how the api responds is by typing the api endpoint into your browser and looking at the raw output.",
-            "updated": 1622469791527
+            "updated": 1622469791527,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #4: Lesen Sie die API-Dokumentation, identifizieren Sie die Endpunkte, welche Parameter sie benötigen und welche Daten sie Ihnen zur Verfügung stellen werden. Eine weitere hilfreiche Methode, um zu sehen, wie die API antwortet, ist die Eingabe des API-Endpunkts in Ihren Browser und die Betrachtung der Rohausgabe.",
+                    "updated": 1635187040956
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #5: At Superalgos, get a clean workspace, without plugins pre-installed.",
-            "updated": 1621976682833
+            "updated": 1621976682833,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #5: Erstellen sie bei Superalgos einen freien Workspace, ohne vorinstallierte Plugins.",
+                    "updated": 1635187084897
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #6: Create an API Map node, and start mapping the documented API by adding children to it. Especially pay attention to unnamed arrays and objects that may wrap the data.",
-            "updated": 1622470221717
+            "updated": 1622470221717,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #6: Erstellen Sie einen API Map node und beginnen Sie damit, die dokumentierte API abzubilden, indem Sie ihr \"children\" hinzufügen. Achten Sie insbesondere auf unbenannte Arrays und Objekte, die die Daten umhüllen können.",
+                    "updated": 1635187292260
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #7: For each node you add, read the node's doc page. This will save you time trying to guess how all this works.",
-            "updated": 1621976694068
+            "updated": 1621976694068,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #7: Lesen Sie für jede node, die Sie hinzufügen, die Dokumentseite der node. So sparen Sie Zeit, wenn Sie versuchen zu erraten, wie das alles funktioniert.",
+                    "updated": 1635187355089
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #8: Define one API Endpoint first, once you have the first one working, go for the rest of the endpoints available.",
-            "updated": 1622231734738
+            "updated": 1622231734738,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #8: Definieren Sie zunächst einen API Endpoint, und sobald der erste funktioniert, gehen Sie zu den übrigen verfügbaren Endpunkten über.",
+                    "updated": 1635187398066
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #9: Define the query, or path parameters, and the responses. Read each node's help for details on how to do it right.",
-            "updated": 1622231862303
+            "updated": 1622231862303,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #9: Definieren Sie die Abfrage- oder Pfadparameter und die Antworten. Lesen Sie in der Hilfe der jeweiligen node für Details, wie Sie es richtig machen.",
+                    "updated": 1635187429959
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #10: Create a Trading System with an empty Strategy. This will allow the Install New Market procedure to create trading tasks referencing this Trading System.",
-            "updated": 1621976716866
+            "updated": 1621976716866,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #10: Erstellen Sie ein Trading System mit einer leeren Strategy. Dadurch kann das Verfahren \"New Market\" installiert werden und trading tasks erstellt werden, die sich auf dieses Trading System beziehen.",
+                    "updated": 1635187557139
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #11: Create a new Data Mine with the name of the company that hosts the API.",
-            "updated": 1622231912331
+            "updated": 1622231912331,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #11: Erstellen Sie eine neue Data Mine mit dem Namen des Unternehmens, das die API hostet.",
+                    "updated": 1635187589477
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #12: Within the Data Mine add an API Data Fetcher Bot. Configure the Bot's nodes following the example at the UI #1.",
-            "updated": 1622231954570
+            "updated": 1622231954570,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #12: Fügen Sie innerhalb der Data Mine einen API Data Fetcher Bot hinzu. Konfigurieren Sie die node des Bots entsprechend dem Beispiel auf der UI #1.",
+                    "updated": 1635187627867
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #13: Install a new market. This procedure is going to setup many things for you. It will detect the API Map, and the Data Mine you created and will create appropiate Tasks to run your API Fetcher Bot.",
-            "updated": 1622232103844
+            "updated": 1622232103844,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #13: Installieren Sie einen \"new market\". Dieser Vorgang wird viele Dinge für Sie einrichten. Er erkennt die API Map und die Data Mine, die Sie erstellt haben, und erstellt die entsprechenden tasks, um Ihren API Fetcher Bot auszuführen.",
+                    "updated": 1635187739595
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #14: Pay attention to the nodePath property at the API Response Schema node of the API Map. Check the node's docs page for details."
+            "text": "Step #14: Pay attention to the nodePath property at the API Response Schema node of the API Map. Check the node's docs page for details.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #14: Achten Sie auf die Eigenschaft nodePath in der  API Response Schema node der API Map. Prüfen Sie die docs der node für Details.",
+                    "updated": 1635187793966
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #15: At your API Data Fetcher Bot's Product Definition Record Properties, define the fields that you would like to save from the API Server response. You don't need to save everything, only what makes sense to you.",
-            "updated": 1622232590430
+            "updated": 1622232590430,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #15: Definieren sie in der API Data Fetcher Bot's Product Definition Record Properties, die Felder die sie von der Api Server Antwort speichern möchten. Sie müssen nicht alles speichern, sondern nur das, was für Sie sinnvoll ist.",
+                    "updated": 1635188106919
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #16: Establish a reference from each Record Property child API Response Field Reference node to a node at the API Map of type API Response Field. Do it carefully for every Record Property."
+            "text": "Step #16: Establish a reference from each Record Property child API Response Field Reference node to a node at the API Map of type API Response Field. Do it carefully for every Record Property.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #16: Stellen Sie einen Verweis von jeder untergeordneten API Response Field Reference node (Datensatzeigenschaft) auf einen Knoten in der API Map vom Typ API Response Field her. Tun Sie dies sorgfältig für jede Record Property.",
+                    "updated": 1635188259246
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #17: The timestamp record property is the only required property. It helps keep the records you save organized. Addtionally, the timestamp may live in the header of the API responce. Read the docs of the API Response Field Reference node to set up the nodePath property if necessary.",
-            "updated": 1622475120505
+            "updated": 1622475120505,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #17: Die timestamp record property ist die einzige erforderliche Eigenschaft. Sie hilft, die von Ihnen gespeicherten Datensätze zu organisieren. Darüber hinaus kann der Zeitstempel in der Kopfzeile der API-Antwort stehen. Lesen Sie die Dokumentation der API Response Field Reference node, um die Eigenschaft nodePath einzurichten, falls erforderlich.",
+                    "updated": 1635188586279
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "It is a good idea to make sure you get the api fetcher bot running and debugged before moving on to the next step.",
-            "updated": 1622475171484
+            "updated": 1622475171484,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist eine gute Idee, sicherzustellen, dass der Api-Fetcher-Bot läuft und gedebuggt wird (Das Entfernen aller Bugs/Fehler aus dem Code), bevor Sie zum nächsten Schritt übergehen.",
+                    "updated": 1635188659088
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #18: At your Data Mine, set up an Indicator Bot and configure its Process Definition nodes to the framework that will convert from One-Min-Daily to Multi-Time-Frame-Daily and Multi-Perio-Market types of Datasets. See how it was done at the UI #1.",
-            "updated": 1622232795794
+            "text": "Step #18: At your Data Mine, set up an Indicator Bot and configure its Process Definition nodes to the framework that will convert from One-Min-Daily to Multi-Time-Frame-Daily and Multi-Period-Market types of Datasets. See how it was done at the UI #1.",
+            "updated": 1635193955563,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Step #18: Richten Sie in Ihrer Data Mine einen Indicator Bot ein und konfigurieren Sie seine Process Definition nodes für das Framework, das Datensätze von One-Min-Daily in Multi-Time-Frame-Daily und Multi-Period-Market konvertiert. Sehen Sie sich an, wie das in der UI #1 gemacht wurde.",
+                    "updated": 1635244805304
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #19: At this Dataset Type Converter Indicator Bot, defined the Record Property nodes based on the information you would lile to convert from Raw Data. Add a begin and end Record Property even if it does not exist at the Raw Data. "
+            "text": "Step #19: Within the Indicator Bot you just added, define the Record Property nodes based on the information you would like to convert from Raw Data. Make sure you add a begin and end Record Property even if it does not exist at the Raw Data in order for the indicator bot to run correctly.",
+            "updated": 1635194170557,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Step #19: Definieren Sie in dem soeben hinzugefügten Indicator Bot die nodes der Record Property auf der Grundlage der Informationen, die Sie aus Raw Data konvertieren möchten. Vergewissern Sie sich, dass Sie eine Anfangs- und eine Ende-Record Property (Datensatzeigenschaft) hinzufügen, auch wenn diese in den Rohdaten nicht vorhanden sind, damit der Indikator-Bot korrekt ausgeführt werden kann.",
+                    "updated": 1635245425484
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #20: Configure the aggregationMethod property for each Record Property. Check the docs of that node for details.",
-            "updated": 1622235178187
+            "updated": 1622235178187,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #20: Konfigurieren Sie die Eigenschaft aggregationMethod für jede Record Property. Prüfen Sie die docs dieser node für Details.",
+                    "updated": 1635190124011
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #21: If you wish, you can create multiple Indicator Bots to cut the dataset in different groups of Record Properties.",
-            "updated": 1622233072603
+            "updated": 1622233072603,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #21: Wenn Sie möchten, können Sie mehrere Indicator Bot`s erstellen, um den Datensatz in verschiedene Gruppen von Record Property aufzuteilen.",
+                    "updated": 1635190629588
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #22: Setup a Plotter at your new Data Mine, and reference it from the Product Definition of the latest Indicator Bot created."
+            "text": "Step #22: Setup a Plotter at your new Data Mine, and reference it from the Product Definition of the latest Indicator Bot created.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #22: Richten Sie einen Plotter in Ihrer neuen Data Mine ein, und referenzieren Sie ihn in der Product Definition des zuletzt erstellten Indicator Bot.",
+                    "updated": 1635190802408
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #23: Now you are ready to run the Task where the Data Fetcher Bot Process Instance is defined. "
+            "text": "Step #23: Now you are ready to run the Task where the Data Fetcher Bot Process Instance is defined. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #23: Jetzt können Sie die Task ausführen, in dem die Data Fetcher Bot Process Instance definiert ist.",
+                    "updated": 1635190919943
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Step #24: If something did not work, check the workspace map to see if there is a node with an error. Locate the node, click on the error and see the error's page at the doc. Try to understand what is wrong, fix it and try again."
+            "text": "Step #24: If something did not work, check the workspace map to see if there is a node with an error. Locate the node, click on the error and see the error's page at the doc. Try to understand what is wrong, fix it and try again.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #24: Wenn etwas nicht funktioniert hat, überprüfen Sie die Workspace Map, um zu sehen, ob es eine node mit einem error/Fehler gibt. Suchen Sie die node, klicken Sie auf den Fehler und sehen Sie die Fehlerseite in der Documentation. Versuchen Sie zu verstehen, was falsch ist, beheben Sie den Fehler und versuchen Sie es erneut.",
+                    "updated": 1635191377038
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #25: Iterate through step #24 until everything is working. Re read node's documentation until you get the details of what it explains there. Reread this guide or this whole Topic from the start, until the concepts explained sinks in.",
-            "updated": 1622233708371
+            "updated": 1622233708371,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #25: Iterieren Sie durch den Schritt #24, bis alles funktioniert. Lesen Sie die docs von Node erneut, bis Sie die Details der dortigen Erklärungen verstanden haben. Lesen Sie diesen Leitfaden oder das ganze Thema noch einmal von Anfang an, bis Sie die erklärten Konzepte verstanden haben.",
+                    "updated": 1635191475882
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #26: If after digesting the docs, and following all this advice you still cannot get it to work, go to the Telegram Support group and ask for help.",
-            "updated": 1622233735826
+            "updated": 1622233735826,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #26: Wenn Sie nach dem durchforsten der docs und der Befolgung all dieser Ratschläge immer noch nicht in der Lage sind, das Programm zum Laufen zu bringen, gehen Sie zur Telegram Support group und bitten Sie um Hilfe.",
+                    "updated": 1635191614474
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #27: Once all is running well, set up your Trading Strategy in a way that allows you to test if you have access to the processed data (the one provided by the latest Indicator Bots created).",
-            "updated": 1622233777598
+            "updated": 1622233777598,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #27: Wenn alles gut läuft, richten Sie Ihre Trading Strategy so ein, dass Sie testen können, ob Sie Zugang zu den verarbeiteten Daten haben (die von de, zuletzt erstellten Indicator Bots bereitgestellt werden).",
+                    "updated": 1635191934607
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #29: Once the data is correctly consumed by your Trading Strategy, iterate through this guide by adding another API Endpoint to the API Map. You will need to add an addtional API Fetcher Bot.",
-            "updated": 1622233824073
+            "updated": 1622233824073,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #29: Sobald die Daten korrekt von Ihrer Trading Strategy genutzt werden, führen Sie diese Anleitung immerweider durch, indem Sie einen weiteren API Endpoint zur API Map hinzufügen. Sie müssen einen zusätzlichen API Fetcher Bot hinzufügen.",
+                    "updated": 1635192207098
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Step #30: Once you have successfully mapped the whole API and you have all the needed API Data Fetchers, Indicator Bots and Plotters tested, you are ready to share your API Map and Data Mine with the community as a plugin, and receive SA Tokens in exchange for your contribution.",
-            "updated": 1622233875203
+            "updated": 1622233875203,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schritt #30: Sobald Sie die gesamte API erfolgreich gemappt haben und alle benötigten API Data Fetchers, Indicator Bots und Plotter getestet haben, können Sie Ihre API Map und Data Mine als Plugin mit der Community teilen und SA Tokens im Austausch für Ihren Beitrag/contribution erhalten.",
+                    "updated": 1635192382540
+                }
+            ]
         },
         {
             "style": "Text",

@@ -2,7 +2,14 @@
     "type": "Reusable Snippets",
     "definition": {
         "text": "This page lists snippets of text required in multiple pages. Keeping snippets in a central location makes maintenance easier and avoids duplicating content. Each snippet is arranged under a block featuring the same name as the title displayed before the snippet. To use these snippets, include the corresponding block on the destination page.",
-        "updated": 1610121599173
+        "updated": 1610121599173,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Diese Seite listet Textausschnitte auf, die auf mehreren Seiten benötigt werden. Die Aufbewahrung von Snippets an einem zentralen Ort erleichtert die Pflege und vermeidet die Duplizierung von Inhalten. Jedes Snippet ist unter einem Block angeordnet, der denselben Namen trägt wie der Titel, der vor dem Snippet angezeigt wird. Um diese Snippets zu verwenden, fügen Sie den entsprechenden Block auf der Zielseite ein.",
+                "updated": 1634293291023
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -17,7 +24,14 @@
         {
             "style": "Note",
             "text": "This page discusses the top-level information about the section of the hierarchy represented in the below table. Click on any of the nodes to get the details, including particulars on their configuration, when applicable.",
-            "updated": 1610124674614
+            "updated": 1610124674614,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Seite behandelt die Top-Level-Informationen über den Abschnitt der Hierarchie, der in der folgenden Tabelle dargestellt ist. Klicken Sie auf einen der Knoten, um die Details zu erfahren, einschließlich der Angaben zur Konfiguration, falls zutreffend.",
+                    "updated": 1634293316369
+                }
+            ]
         },
         {
             "style": "Block",
@@ -37,7 +51,14 @@
         {
             "style": "Note",
             "text": "Click on any of the nodes to get the details, including particulars on their configuration, when applicable.",
-            "updated": 1611254904577
+            "updated": 1611254904577,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf einen der Knoten, um die Details zu erfahren, gegebenenfalls auch Einzelheiten zu ihrer Konfiguration.",
+                    "updated": 1634293331744
+                }
+            ]
         },
         {
             "style": "Block",
@@ -55,7 +76,14 @@
         {
             "style": "Important",
             "text": "Running a live session requires the setup of a key reference at the Task. It also requires a live data feed, meaning that the corresponding Sensor Bot Instance, along with all indicators used by the referenced Trading System, must be up and running. Finally, a live session also requires at least 48 hours of historic market data. Bear in mind that the Trading System may require even more historic market data to properly analyze the market depending on the indicators used.",
-            "updated": 1610106222219
+            "updated": 1610106222219,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Durchführung einer Live-Sitzung erfordert die Einrichtung einer Schlüsselreferenz im Task. Außerdem ist ein Live-Datenfeed erforderlich, d. h. die entsprechende Sensor Bot Instance muss zusammen mit allen Indikatoren, die vom referenzierten Trading System verwendet werden, betriebsbereit sein. Schließlich sind für eine Live-Sitzung auch mindestens 48 Stunden historischer Marktdaten erforderlich. Beachten Sie, dass das Trading System je nach den verwendeten Indikatoren möglicherweise noch mehr historische Marktdaten benötigt, um den Markt richtig zu analysieren.",
+                    "updated": 1634293415385
+                }
+            ]
         },
         {
             "style": "Block",
@@ -78,7 +106,14 @@
         {
             "style": "Warning",
             "text": "Deleting this node causes market install and uninstall scripts to stop working, even if the node is recreated after being deleted.",
-            "updated": 1610122503324
+            "updated": 1610122503324,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Löschen dieses Knotens führt dazu, dass die Skripte zur Marktinstallation und -deinstallation nicht mehr funktionieren, selbst wenn der Knoten nach dem Löschen neu erstellt wird.",
+                    "updated": 1634293427532
+                }
+            ]
         },
         {
             "style": "Block",
@@ -98,7 +133,14 @@
         {
             "style": "Warning",
             "text": "Trading, trading with bots, and trading with Community-shared trading systems entail risks. Make sure you read the whole page, including the warnings at the bottom of the page. You should fully understand how this trading system works so that you may make your own informed decisions as of how to use it. Use this trading system at your own risk.",
-            "updated": 1611675586788
+            "updated": 1611675586788,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Handel, der Handel mit Bots und der Handel mit von der Community freigegebenen Handelssystemen sind mit Risiken verbunden. Lesen Sie unbedingt die gesamte Seite, einschließlich der Warnhinweise am Ende der Seite. Sie sollten die Funktionsweise dieses Handelssystems vollständig verstehen, damit Sie Ihre eigenen fundierten Entscheidungen über seine Verwendung treffen können. Die Nutzung dieses Handelssystems erfolgt auf eigenes Risiko.",
+                    "updated": 1634293480146
+                }
+            ]
         },
         {
             "style": "Block",
@@ -118,7 +160,14 @@
         {
             "style": "Warning",
             "text": "Superalgos is a piece of computer software. Like with any software, errors may occur at any point, including errors that may cause you to lose money. You are responsible for taking all precautions you may deem appropriate before trading live. Even if you take all possible precautionary measures, things may still go wrong and errors may occur. By using this software to trade live despite the warnings, you acknowledge that you are aware of the inherent risks in trading and in using software for that purpose. The Superalgos project offers the software AS IS, with no explicit or implied warranties of any kind. The project, the software, the superalgos.org website, this documentation, and the Community do not offer financial advice. Although the strategies shipping with the system may be fully functional, Superalgos does not make any express or implied recommendation as to how you should use them. We share strategies for educational purposes only. Trade under your responsibility and at your own risk. The use of the software is subject to the terms of the <a href=\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\" target=\"_blank\">LICENSE</a>.",
-            "updated": 1611675794734
+            "updated": 1611675794734,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein Stück Computer-Software. Wie bei jeder Software können jederzeit Fehler auftreten, auch solche, durch die Sie Geld verlieren können. Sie sind dafür verantwortlich, alle Vorsichtsmaßnahmen zu treffen, die Sie für angemessen halten, bevor Sie live handeln. Selbst wenn Sie alle möglichen Vorsichtsmaßnahmen ergreifen, kann immer noch etwas schief gehen und es können Fehler auftreten. Indem Sie diese Software trotz der Warnungen für den Live-Handel verwenden, erkennen Sie an, dass Sie sich der inhärenten Risiken des Handels und der Verwendung von Software für diesen Zweck bewusst sind. Das Superalgos-Projekt bietet die Software so an, wie sie ist, ohne ausdrückliche oder stillschweigende Garantien jeglicher Art. Das Projekt, die Software, die Website superalgos.org, diese Dokumentation und die Community bieten keine Finanzberatung. Obwohl die Strategien, die mit dem System geliefert werden, voll funktionsfähig sind, gibt Superalgos keine ausdrückliche oder stillschweigende Empfehlung ab, wie Sie sie verwenden sollten. Wir stellen die Strategien nur zu Bildungszwecken zur Verfügung. Handeln Sie auf eigene Verantwortung und auf eigenes Risiko. Die Nutzung der Software unterliegt den Bedingungen der <a href='https://github.com/Superalgos/Superalgos/blob/master/LICENSE'>LICENSE</a>.",
+                    "updated": 1634293625788
+                }
+            ]
         },
         {
             "style": "Block",
@@ -138,7 +187,14 @@
         {
             "style": "Important",
             "text": "THIS IS NOT FINANCIAL ADVICE. ALTHOUGH STRATEGIES SHIPPING WITH SUPERALGOS MAY BE FULLY FUNCTIONAL, SUPERALGOS DOES NOT MAKE ANY EXPRESS OR IMPLIED RECOMMENDATION AS OF HOW YOU SHOULD USE THEM. WE SHARE STRATEGIES FOR EDUCATIONAL PURPOSES ONLY. TRADE AT YOUR OWN RISK.<br/><br/><b>Performance in backtesting is not an indication of live trading performance.</b> Live performance may vary in relation to performance in backtesting, for better or for worse, most likely for worse. This happens because the design of trading strategies is done after the fact, with the hindsight of what happened in a certain range of the market. Patterns upon which strategies may be based on may keep occurring or not. Trading strategies attempt to interpret patterns and predict what may follow, but they are far from being perfect or accurate. The best-case scenario is a strategy being right more times than it is wrong.<br/><br/><b>Live performance is not an indication of future performance. </b>Similarly, even when a strategy has delivered a certain performance trading live, there is no guarantee of what performance the strategy may achieve in the future. Live performance results are certainly more valuable than backtesting or simulated performance but still can’t predict the future.<br/><br/><b>Trading strategies lose effectiveness with time. </b>How much time? No-one knows. Markets evolve, change, go through different cycles, both long and short-term, some of which may not have been tested. That is true for all markets, let alone crypto, which is a very young market, still in its very early stages. Crypto markets change dramatically fast, as the market cap increases, more pro-traders enter the space, more smart money pours larger capitals, more bots take over operations of ever-increasing volumes, more complexity is added to the ecosystem with the availability of derivative markets, and so on.",
-            "updated": 1611676109591
+            "updated": 1611676109591,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "DIES IST KEINE FINANZIELLE BERATUNG. AUCH WENN DIE MIT SUPERALGOS VERSANDTEN STRATEGIEN VOLL FUNKTIONSFÄHIG SIND, GIBT SUPERALGOS KEINE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE EMPFEHLUNG AB, WIE SIE SIE VERWENDEN SOLLTEN. WIR TEILEN DIE STRATEGIEN NUR ZU LEHRZWECKEN. HANDELN SIE AUF IHR EIGENES RISIKO.<br><br><b>Die Performance im Backtesting ist kein Hinweis auf die Performance im Live-Handel.</b> Die Live-Performance kann im Verhältnis zur Backtesting-Performance variieren, zum Guten oder zum Schlechten, höchstwahrscheinlich zum Schlechten. Dies liegt daran, dass die Entwicklung von Handelsstrategien im Nachhinein erfolgt, d. h. im Nachhinein, wenn man weiß, was in einem bestimmten Marktbereich passiert ist. Die Muster, auf die sich die Strategien stützen, können immer wieder auftreten oder auch nicht. Handelsstrategien versuchen, Muster zu interpretieren und vorherzusagen, was folgen könnte, aber sie sind weit davon entfernt, perfekt oder genau zu sein. Im günstigsten Fall liegt eine Strategie öfter richtig als falsch.<br><br><b>Die aktuelle Leistung ist kein Hinweis auf die künftige Leistung.</b> Auch wenn eine Strategie im Live-Handel eine bestimmte Leistung erbracht hat, gibt es keine Garantie dafür, welche Leistung die Strategie in Zukunft erzielen wird. Live-Performance-Ergebnisse sind sicherlich wertvoller als Backtesting oder simulierte Performance, können aber dennoch nicht die Zukunft vorhersagen.<br><br><b>Handelsstrategien verlieren mit der Zeit an Effektivität.</b> Wie viel Zeit? Das weiß niemand. Die Märkte entwickeln sich, verändern sich, durchlaufen verschiedene Zyklen, sowohl lang- als auch kurzfristige, von denen einige vielleicht noch nicht getestet wurden. Das gilt für alle Märkte, ganz zu schweigen von den Kryptomärkten, die ein sehr junger Markt sind, der sich noch in einem sehr frühen Stadium befindet. Kryptomärkte verändern sich dramatisch schnell, wenn die Marktgröße steigt, mehr Profi-Händler in den Markt eintreten, mehr intelligentes Geld größere Summen investiert, mehr Bots den Betrieb von immer größeren Volumina übernehmen, das Ökosystem durch die Verfügbarkeit von Derivatemärkten komplexer wird und so weiter.",
+                    "updated": 1634293787716
+                }
+            ]
         },
         {
             "style": "Block",
@@ -161,7 +217,14 @@
         {
             "style": "Note",
             "text": "All contributions to the Docs and Plugins must be submitted to the Plugins-Docs branch. All contributions to the code base must be submitted to the Develop branch. Make sure you update to the latest version in new branch and that everything you are submitting works properly in that version.",
-            "updated": 1620501903096
+            "updated": 1620501903096,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alle Beiträge zu den Docs und Plugins müssen im Plugins-Docs Branch eingereicht werden. Alle Beiträge zur Codebasis müssen im Develop Branch eingereicht werden. Stellen Sie sicher, dass Sie auf die neueste Version im neuen Zweig aktualisieren und dass alles, was Sie einreichen, in dieser Version korrekt funktioniert.",
+                    "updated": 1634294150617
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -171,26 +234,61 @@
         {
             "style": "Text",
             "text": "To switch to the plugins-docs or the develop branch:",
-            "updated": 1620501928162
+            "updated": 1620501928162,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um in den Branch plugins-docs oder den Branch develop zu wechseln:",
+                    "updated": 1634294172533
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Go to the footer of this page."
+            "text": "Go to the footer of this page.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zur Fußzeile dieser Seite.",
+                    "updated": 1634294184016
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Select Plugins-Docs or Develop under the Contributions Branch title.",
-            "updated": 1620501942290
+            "updated": 1620501942290,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie Plugins-Docs oder Develop unter dem Titel Contributions Branch.",
+                    "updated": 1634294206303
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Then select Plugins-Docs or Develop under the Choose the Current Branch title.",
-            "updated": 1620501951286
+            "updated": 1620501951286,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie dann Plugins-Docs oder Develop unter dem Titel Choose the Current Branch.",
+                    "updated": 1634294219034
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Follow the instructions to close and restart the app.",
-            "updated": 1613810110150
+            "updated": 1613810110150,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Folgen Sie den Anweisungen zum Schließen und Neustarten der Anwendung.",
+                    "updated": 1634294225801
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -198,7 +296,15 @@
         },
         {
             "style": "List",
-            "text": "Run the App Update Command"
+            "text": "Run the App Update Command by typing it into the Searchfield at the top of the Docs",
+            "updated": 1634293024048,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den App Update Command aus, indem Sie ihn in das Suchfeld oben in den Docs eingeben",
+                    "updated": 1634294256578
+                }
+            ]
         },
         {
             "style": "Json",
@@ -206,7 +312,14 @@
         },
         {
             "style": "List",
-            "text": "Close the app and restart."
+            "text": "Close the app and restart.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schließen Sie die Anwendung und starten Sie sie neu.",
+                    "updated": 1634294268406
+                }
+            ]
         },
         {
             "style": "Title",
@@ -215,7 +328,14 @@
         {
             "style": "Text",
             "text": "Before you go any further, do the Beyond the Basics tutorial in the Getting Started plugin workspace so that you learn the basics on how to deal with contributions from within the app. The tutorial will help you get your setup right so that contributions are seamless.",
-            "updated": 1613828879531
+            "updated": 1613828879531,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie weitermachen, sollten Sie das Tutorial \"Beyond the Basics\" im Workspace des Plugins \"Getting Started\" durcharbeiten, damit Sie die Grundlagen für den Umgang mit Beiträgen innerhalb der App erlernen. Das Tutorial hilft Ihnen bei der richtigen Einrichtung, damit die Beiträge reibungslos funktionieren.",
+                    "updated": 1634294294775
+                }
+            ]
         },
         {
             "style": "Text",

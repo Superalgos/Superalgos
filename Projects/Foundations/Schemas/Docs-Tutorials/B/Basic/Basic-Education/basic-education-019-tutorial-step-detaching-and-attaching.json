@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "¡Ahora sigue mi ejemplo! Realmente no vamos a probar la estrategia con diferentes parámetros ... ¡solo estamos simulando un caso de uso!",
-                "updated": 1626354471956
+                "updated": 1626354471956,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt folgen Sie meinem Beispiel! Wir werden die Strategie nicht wirklich mit verschiedenen Parametern testen... wir simulieren nur einen Anwendungsfall!",
+                "updated": 1634333486436
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Supongamos que modificamos el Trading Parameters y ahora queremos volver a utilizar los originales. Ya tenemos la copia de seguridad en el espacio de diseño, separada de la jerarquía, y necesitamos reemplazar el existente nodo Trading Parameters con el respaldo.",
-                    "updated": 1626354986867
+                    "updated": 1626354986867,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, wir haben die Trading Parameter geändert und wollen nun wieder die ursprünglichen Parameter verwenden. Die Sicherungskopie befindet sich bereits im Design Space - losgelöst von der Hierarchie - und wir müssen den bestehenden Knoten Trading Parameters durch die Sicherungskopie ersetzen.",
+                    "updated": 1634333510680
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Ve al nodo Trading Parameters que está actualmente en uso —  el adjunto al nodo Backtesting Session — y haz doble clic en el botón Detach Node. ¡El nodo se separa de la jerarquía! ¡Ahora puedes moverlo hacia un lado!",
-                    "updated": 1626356259481
+                    "updated": 1626356259481,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu dem derzeit verwendeten Knoten Trading Parameters, der mit dem Knoten Backtesting Session verbunden ist, und doppelklicken Sie auf die Schaltfläche Detach Node. Der Knoten wird von der Hierarchie getrennt! Sie können ihn nun zur Seite schieben!",
+                    "updated": 1634333522271
                 }
             ]
         }

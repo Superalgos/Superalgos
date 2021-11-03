@@ -1,0 +1,69 @@
+{
+    "type": "Sensor Bot",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Process Definition",
+            "relatedUiObject": "Process Definition",
+            "relatedUiObjectProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Product Definition",
+            "relatedUiObject": "Product Definition",
+            "relatedUiObjectProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\"\n}"
+    },
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Data Mine->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "processes",
+            "type": "array",
+            "childType": "Process Definition",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "products",
+            "type": "array",
+            "childType": "Product Definition",
+            "autoAdd": true,
+            "project": "Foundations"
+        }
+    ],
+    "propertyNameAtParent": "sensorBots"
+}

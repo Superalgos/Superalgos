@@ -26,6 +26,29 @@
                 "text": "Antes de volver al asunto, déjame explicarte algunas cosas sobre como, nosotros (los tutoriales) funcionamos.",
                 "updated": 1627303035002,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir wieder zur Sache kommen, möchte ich Ihnen ein paar Dinge darüber erzählen, wie wir-Tutorials funktionieren.",
+                "updated": 1634165352894,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Voordat we weer aan het werk gaan, wil ik je een paar dingen vertellen over hoe wij—tutorials—werken.",
+                "updated": 1635181366053,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем мы вернемся к делу, позвольте предоставить еще некоторую информацию о том, как работает это учебное пособие.",
+                "updated": 1635610768332,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "İşe dönmeden önce, size eğitimlerin nasıl çalıştığı hakkında birkaç şey anlatayım.",
+                "updated": 1635952527951
             }
         ]
     },
@@ -52,6 +75,29 @@
                     "text": "En resumen, ¡tu eres el Jefe!",
                     "updated": 1627303058091,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kurz gesagt: Sie sind der Boss!",
+                    "updated": 1634165360945,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "In het kort: Jij bent de baas!",
+                    "updated": 1635181400130,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вкратце, Вы - главный!",
+                    "updated": 1635610786071,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısacası patron sensin!",
+                    "updated": 1635952544111
                 }
             ]
         },
@@ -71,6 +117,29 @@
                     "text": "Puedes detener un tutorial y saltarte pasos -o temas enteros- en cualquier momento. Una vez que estés listo para retomar la lección, búscanos en la sección inferior del Design space.. Selecciona Resume en el menú para continuar donde lo dejaste, o en el primer paso que te saltaste. Selecciona Play para empezar desde el principio.",
                     "updated": 1618436484170,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können ein Tutorial jederzeit unterbrechen und Schritte - oder ganze Themen - überspringen. Wenn Sie bereit sind, die Lektion fortzusetzen, finden Sie uns im unteren Bereich der Designfläche. Wählen Sie im Menü Resume , um dort anzufangen, wo Sie aufgehört haben, oder beim ersten Schritt, den Sie übersprungen haben. Wählen Sie Play , um von vorne zu beginnen!",
+                    "updated": 1634165366034,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Je kunt een tutorial onderbreken en stappen, of hele onderwerpen, op elk gewenst moment overslaan. Als je er klaar voor bent om de les weer op te pakken, vind je ons in het onderste deel van de ontwerpruimte. Klik op Resume in het menu om verder te gaan waar je was gebleven, of bij de eerste stap die je hebt overgeslagen. Klik op Play om vanaf het begin te beginnen!",
+                    "updated": 1635181613391,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете остановиться в изучении учебного пособия и пропустить шаги или полные темы в любой момент. Как только Вы будете готовы снова приступить к изучению материала, найдите меня, Tutorial, в нижней части пространства дизайна. Выберите Resume в меню, чтобы начать с того места, где Вы остановились, или с первого шага, который Вы пропустили. Выберите Play, чтобы начать с самого начала!",
+                    "updated": 1635611174272,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü seçin. Baştan başlamak için Oynat'ı seçin!",
+                    "updated": 1635952588337
                 }
             ]
         },
@@ -95,6 +164,29 @@
                     "text": "Haz clic en el botón Stop, y una vez que haya desaparecido, abre mi menú y selecciona Resume.",
                     "updated": 1625871849020,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Probieren wir das aus! Klicken Sie unten auf die Schaltfläche Stopp, und wenn ich weg bin, öffnen Sie mein Menü und wählen Sie Resume.",
+                    "updated": 1634165372118,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we dat eens proberen! Klik op onderstaande Stop knop, zodra ik weg ben, open mijn menu en klik op Resume.",
+                    "updated": 1635181685751,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем! Нажмите кнопку Stop ниже, и как только я исчезну, откройте меню и выберите Resume.",
+                    "updated": 1635611369099,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi deneyelim! Aşağıdaki Durdur düğmesini tıklayın ve ben gittiğimde menümü açın ve Devam Et'i seçin.",
+                    "updated": 1635952612454
                 }
             ]
         }

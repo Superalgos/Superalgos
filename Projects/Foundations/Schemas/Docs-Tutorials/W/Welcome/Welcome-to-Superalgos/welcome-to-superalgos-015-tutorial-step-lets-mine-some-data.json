@@ -27,6 +27,29 @@
                 "text": "Abre el menú del nodo Data Tasks y busca el botón Run All Project Data Tasks en la esquina superior derecha... ",
                 "updated": 1627302836248,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Rufen Sie das Menü des Knotens Data Tasks auf und suchen Sie die Schaltfläche \"Run all project data tasks\" in der Ecke oben rechts...",
+                "updated": 1634162677145,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Open het \"Data Tasks\" knooppunt menu en zoek de \"Run all project data tasks\" knop in de rechter bovenhoek...",
+                "updated": 1634455832255,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Получите доступ в мню узла Data Tasks и найдите кнопку \"Run all project data tasks\" в правом верхнем углу...",
+                "updated": 1635591220354,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri Görevleri ( Data Tasks) düğüm menüsüne erişin ve sağ üst köşedeki \"\"Tüm proje veri görevlerini çalıştır\"  ( Run All Project Data Tasks ) düğmesini bulun...\n",
+                "updated": 1635850868808
             }
         ]
     },
@@ -53,6 +76,29 @@
                     "text": "Haz clic en el botón \"Run all project data tasks\". Confirma la solicitud haciendo clic en el botón por segunda vez.",
                     "updated": 1624491186735,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche \"Run all project data tasks\"! Bestätigen Sie die Anfrage, indem Sie die Schaltfläche ein zweites Mal anklicken (\"Confirm to run\").",
+                    "updated": 1634203946171,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op de knop \"Run all project data tasks\"! Bevestig het starten door een tweede keer op de knop te klikken.",
+                    "updated": 1634455913719,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку \"Run all project data tasks\"! Подтвердите запрос, нажав кнопку во второй раз.",
+                    "updated": 1635591295731,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Tüm proje veri görevlerini çalıştır\" (Run All Project Data Tasks) düğmesine tıklayın! Düğmeye ikinci kez tıklayarak isteği onaylayın.",
+                    "updated": 1635850977185
                 }
             ]
         },
@@ -77,6 +123,29 @@
                     "text": "En unos 30 segundos, deberias ver un aviso de estado debajo del nodo Data Tasks que indica que 1 de cada 1 nodo Exchange Data Tasks se está ejecutando.",
                     "updated": 1624452903459,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "In etwa 30 Sekunden sollten Sie eine Statusmeldung unterhalb des Knotens \"Data Tasks\" sehen, die anzeigt, dass 1 von 1 Knoten \"Exchange Data Tasks\" ausgeführt wird.",
+                    "updated": 1634162722564,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Na ongeveer 30 seconden hoor je een statusbericht te zien onder de Data Tasks knooppunt, dat aangeeft dat 1 van de 1 \"Exchange Data Tasks\" knooppunten draait.",
+                    "updated": 1634456056619,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Примерно через 30 секунд Вы должны увидеть уведомление о состоянии под узлом Data Tasks nоказывающее, что 1 из 1 узла Exchange Data Tasks - запущен.",
+                    "updated": 1635591483326,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yaklaşık 30 saniye içinde, Veri Görevleri (Data Tasks) düğümünün altında, 1 Borsa Veri Görevi (Exchange Data Tasks)  düğümünün çalıştığını belirten bir durum bildirimi görmelisiniz.",
+                    "updated": 1635851348844
                 }
             ],
             "updated": 1622190035816
@@ -102,6 +171,29 @@
                     "text": "Tu aplicación de consola deberia mostrar algo similar a lo que aparece en el video a continuación..",
                     "updated": 1624283587596,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": " Ihre Konsolenanwendung sollte etwas Ähnliches wie das Video im nächsten Schritt zeigen.",
+                    "updated": 1634162733856,
+                    "style": "Note"
+                },
+                {
+                    "language": "NL",
+                    "text": "De console van de app zou er ongeveer zo uit moeten zien als de video in de volgende stap.",
+                    "updated": 1634456127607,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваше консольное приложение должно показать что-то похожее на то, как показано на видео в следующем шаге.",
+                    "updated": 1635591567030,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Konsol uygulamanız, bir sonraki adımdaki videoya benzer bir şey göstermelidir.",
+                    "updated": 1635851222308
                 }
             ]
         }

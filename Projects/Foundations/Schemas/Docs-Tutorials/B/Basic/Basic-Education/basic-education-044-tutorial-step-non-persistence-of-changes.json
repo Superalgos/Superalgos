@@ -21,6 +21,11 @@
                 "text": "Recuerda que dije que el archivo plugin se carga cada vez que se carga el espacio de trabajo? Esta característica tiene una consecuencia inmediata ...",
                 "updated": 1626655086632,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Erinnern Sie sich, dass ich sagte, dass die Plugin-Datei jedes Mal geladen wird, wenn der Workspace geladen wird? Diese Funktion hat eine unmittelbare Konsequenz...",
+                "updated": 1634588859041
             }
         ]
     },
@@ -38,9 +43,14 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Hierarchies incluidos en el workspace, ya que los plugins no se guardan en el nivel del workspace. Como tal, los cambios realizados en esas jerarquías no persisten. Si deseas modificar un plugin y seguir trabajando con la versión modificada en el futuro, debes clonar o hacer una copia de seguridad del plugin y trabajar en la copia resultante.",
-                    "updated": 1626702533816,
+                    "text": "Las Hierarchies (Jerarquías) colocadas en el workspace como plugins (copias) no se guardan en el  workspace por defecto. Como resultado, los cambios realizados en esas jerarquías no persiten, a menos que las salve en forma manual o habilite el guardado automático. ",
+                    "updated": 1633282516205,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchies , die als Plugins im Workspace platziert werden, werden standardmäßig nicht mit dem Workspace gespeichert. Infolgedessen bleiben Änderungen in diesen Hierarchien nicht erhalten, es sei denn, Sie speichern sie manuell oder aktivieren die automatische Speicherung.",
+                    "updated": 1634588866809
                 }
             ]
         },
@@ -57,20 +67,51 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Pasaré por algunos casos de uso específicos en los próximos pasos!",
-                    "updated": 1626702765005,
+                    "text": "Hay dos casos principales para modificar los plugins:",
+                    "updated": 1633282630926,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt zwei Hauptanwendungsfälle für die Änderung von Plugins:",
+                    "updated": 1634588872603
                 }
             ]
         },
         {
             "style": "List",
             "text": "You wish to modify a plugin to make it your own and keep working with the modified version in the future.",
-            "updated": 1629897838348
+            "updated": 1629897838348,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Desea modificar un plugin para hacer uno propio y continuar trabajando con la versión modificada en el futuro.",
+                    "updated": 1633282732027,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie möchten ein Plugin ändern, um es sich zu eigen zu machen und in Zukunft mit der geänderten Version weiter zu arbeiten.",
+                    "updated": 1634588878910
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You wish to update and improve a plugin to contribute the improvements to the project."
+            "text": "You wish to update and improve a plugin to contribute the improvements to the project.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Desea actualizar y mejorar un plugin para contribuir en el mejoramiento del proyecto.",
+                    "updated": 1633282817838,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie möchten ein Plugin aktualisieren und verbessern, um die Verbesserungen zum Projekt beizutragen.",
+                    "updated": 1634588884937
+                }
+            ]
         }
     ]
 }

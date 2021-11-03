@@ -20,6 +20,11 @@
                 "text": "Dejando atrás las escalas, echemos un vistazo a cómo el sistema hace que los datos estén disponibles en los gráficos.",
                 "updated": 1624409028040,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Lassen wir die Skalen hinter uns und schauen wir uns an, wie das System Daten in den Diagrammen verfügbar macht.",
+                "updated": 1634217725509
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "text": "Cada Timeline Chart tiene un Layer Manager asociado, que se representa como un menú desplegable que enumera varias capas.",
                     "updated": 1624409085765,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedem Timeline Chart ist ein Layer Manager zugeordnet, der in Form eines Drop-Down-Menüs mit mehreren Layern dargestellt wird.",
+                    "updated": 1634217734286
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "text": "Para abrir un Layers Manager, desplaza la rueda del mouse en su encabezado. ¡También usa la rueda del mouse para desplazarte por su contenido!",
                     "updated": 1627309278146,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Ebenenmanager zu öffnen, fahren Sie mit dem Mausrad über seine Kopfzeile. Verwenden Sie das Mausrad auch, um durch den Inhalt zu blättern!",
+                    "updated": 1634217743759
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "text": "Ve el video en el siguiente paso para mayor claridad ...",
                     "updated": 1624409230888,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Verdeutlichung sehen Sie sich das Video im nächsten Schritt an...",
+                    "updated": 1634217753499
                 }
             ]
         }

@@ -1,0 +1,77 @@
+{
+    "type": "Plugin File",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "pluginFilePosition",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Plugin File Position",
+            "relatedUiObject": "Plugin File Position",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Community-Plugins"
+        },
+        {
+            "action": "Enable Saving With Workspace",
+            "actionFunction": "payload.executeAction",
+            "label": "Enable Saving With Workspace",
+            "workDoneLabel": "Enabled",
+            "secondaryAction": "Disable Saving With Workspace",
+            "secondaryLabel": "Disable Saving With Workspace",
+            "secondaryWorkDoneLabel": "Disabled",
+            "secondaryIcon": "disable-saving-with-workspace",
+            "booleanProperty": "saveWithWorkspace",
+            "iconPathOn": "enable-saving-with-workspace",
+            "iconPathOff": "enable-saving-with-workspace",
+            "iconProject": "Community-Plugins",
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
+        },
+        {
+            "action": "Save Plugin",
+            "actionFunction": "payload.executeAction",
+            "label": "Save Plugin",
+            "relatedUiObject": "Plugin File",
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"project\": \"\",\"fileName\": \"\",\"folderName\": \"\",\"nodeType\": \"\"}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "propertyNameAtParent": "pluginFiles",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Tutorials->Plugin Trading Engines->Plugin Trading Systems->Plugin Trading Mines->Plugin Learning Engines->Plugin Learning Systems->Plugin Learning Mines->Plugin Data Mines->Plugin User Profiles->Plugin Pools->Plugin Assets->Plugin Features->Plugin Positions->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFilePosition",
+            "type": "node",
+            "childType": "Plugin File Position",
+            "autoAdd": false
+        }
+    ]
+}

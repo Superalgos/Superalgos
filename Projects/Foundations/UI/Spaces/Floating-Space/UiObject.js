@@ -19,8 +19,10 @@ function newUiObject() {
         conditionEditor: undefined,
         formulaEditor: undefined,
         uiObjectTitle: undefined,
+        icon: undefined,
         uiObjectMessage: undefined,
         circularProgressBar: undefined,
+        isLoading: undefined,
         isRunning: undefined,
         isPlaying: undefined,
         shortcutKey: undefined,
@@ -270,6 +272,10 @@ function newUiObject() {
         /* Load UI Object Image */
 
         iconPhysics()
+
+        if (thisObject.icon === undefined) {
+            console.log('[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
+        }
 
         selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
         selfNotFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
@@ -585,7 +591,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Foundations' })
+                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -692,7 +698,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Foundations' })
+                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -1317,6 +1323,7 @@ function newUiObject() {
             }
         }
 
+        thisObject.icon = icon
         executingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
     }
 
@@ -1387,14 +1394,14 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Foundations', relatedNode: chainAttachToNode })
+            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
             /* We want to avoid the situation in which we are attaching a node to its parent and at the same time referencing another node. */
             isReferenceAttaching = false
         }
         if (isReferenceAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Foundations', relatedNode: referenceAttachToNode })
+            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }
@@ -1433,9 +1440,6 @@ function newUiObject() {
     function drawForeground() {
         if (thisObject.isOnFocus === false) {
             drawBodyAndPicture()
-            if (isDragging === false) {
-                thisObject.menu.drawForeground()
-            }
         }
 
         if (thisObject.circularProgressBar !== undefined) {
@@ -2423,6 +2427,14 @@ function newUiObject() {
         /* Image */
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
+
+                // If this UiObject is being loaded then display at half opacity
+                if(thisObject.payload.isLoading === true) {
+                    browserCanvasContext.globalAlpha = 0.5
+                } else {
+                    browserCanvasContext.globalAlpha = 1
+                }
+
                 let additionalImageSize = 0
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
@@ -2456,6 +2468,8 @@ function newUiObject() {
                     position.y - totalImageSize / 2,
                     totalImageSize,
                     totalImageSize)
+
+                browserCanvasContext.globalAlpha = 1
             }
         }
 

@@ -1,8 +1,8 @@
 function newGovernanceUtilitiesDecendentProgram() {
     /*
     This Utility Module is intended to be used by all programs that have the 
-    concept of Decendents, and when the program requires to compute recursively
-    all decendents.
+    concept of Descendants, and when the program requires to compute recursively
+    all descendants.
     */
     let thisObject = {
         run: run
@@ -23,13 +23,13 @@ function newGovernanceUtilitiesDecendentProgram() {
     ) {
         /*
         Here we will store the total amount of tokens that is going to be distributed among all participants
-        of the Program. This will come from a Pool that is configured wiht a codeName config property
+        of the Program. This will come from a Pool that is configured with a codeName config property
         with the value programCodeName
         */
         let programPoolTokenReward
         /*
         In order to be able to calculate the share of the Program Pool for each User Profile,
-        we need to accumulate all the Icomming programPowerName that each User Profile at their Program
+        we need to accumulate all the Incoming programPowerName that each User Profile at their Program
         node has, because with that Incoming Power is that each Program node gets a share of 
         the pool.
          */
@@ -169,7 +169,7 @@ function newGovernanceUtilitiesDecendentProgram() {
             ) {
                 node.payload[programPropertyName].isActive = false
                 userProfile.payload.uiObject.setErrorMessage(
-                    "Waiting for blockchain balance. It takes 6 seconds to load the balance of each profile, bacause you are using a free API provided by BSC Scan.",
+                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, because you are using a free API provided by BSC Scan.",
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                     )
                 return
@@ -213,7 +213,7 @@ function newGovernanceUtilitiesDecendentProgram() {
             */
             let programPower = programNode.payload.tokenPower
             /*
-            We will also reseet the count of descendents from here.
+            We will also reset the count of descendents from here.
             */
             let count = 0
             /*
@@ -252,16 +252,16 @@ function newGovernanceUtilitiesDecendentProgram() {
                         */
                         node.payload[programPropertyName].outgoingPower = node.payload[programPropertyName].outgoingPower + programPower
                         /*
-                        We need to adjust the balance that holds the accumulationt of all incomingPower of all Program
-                        nodes. To do this we will substratct the current incomingPower, bacause it is going to be recalculated
-                        inmediatelly after this, and then we will add it again after the recalcualtion.
+                        We need to adjust the balance that holds the accumulation of all incomingPower of all Program
+                        nodes. To do this we will subtract the current incomingPower, because it is going to be recalculated
+                        immediately after this, and then we will add it again after the recalculation.
                         */
                         accumulatedIncomingProgramPower = accumulatedIncomingProgramPower - node.payload[programPropertyName].incomingPower
                         /*
                         At any point in time, the incomingPower will be equal to the total of the outgoingPower minus
                         the ownPower. This is like this because the outgoingPower is the accumulation of all the 
                         power flow that is leaving this node, which includes the ownPower. That means that if we 
-                        substract the ownPower, we will have the accumulation of all the incomingPower, which 
+                        subtract the ownPower, we will have the accumulation of all the incomingPower, which
                         means all the power coming from other User Profiles referencing this one.
                         */
                         node.payload[programPropertyName].incomingPower = node.payload[programPropertyName].outgoingPower - node.payload[programPropertyName].ownPower
@@ -282,7 +282,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                             let totalNodesWithoutPercentage = 0
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage !== undefined && isNaN(percentage) !== true) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
@@ -305,7 +305,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                             */
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
                                 if (percentage === undefined || isNaN(percentage) === true) {
                                     percentage = defaultPercentage
                                 }
@@ -329,7 +329,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                         if (node.payload.referenceParent !== undefined) {
                             /*
                             We want to accumulate the usedPower, but to keep the right balance, everytime we add to it the outgoingPower
-                            we need to substract the previous one, since this migth be executed at every user profile and also recurisvely.
+                            we need to subtract the previous one, since this might be executed at every user profile and also recursively.
                             */
                             currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower - previousOutgoing
                             currentProgramNode.payload[programPropertyName].usedPower = currentProgramNode.payload[programPropertyName].usedPower + node.payload[programPropertyName].outgoingPower

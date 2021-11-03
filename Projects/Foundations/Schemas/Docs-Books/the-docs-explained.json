@@ -2,7 +2,14 @@
     "type": "The Docs Explained",
     "definition": {
         "text": "This book will walk you through everything you need to know about the Docs.",
-        "updated": 1609762580891
+        "updated": 1609762580891,
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Dieses Buch führt Sie durch alles hindurch, was Sie über die Docs wissen müssen.",
+                "updated": 1633804689576
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Play Tutorial",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "label": "Play",
             "iconPathOn": "play",
             "iconPathOff": "play",
@@ -11,7 +11,7 @@
         },
         {
             "action": "Resume Tutorial",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "label": "Resume",
             "iconPathOn": "resume",
             "iconPathOff": "resume",
@@ -26,21 +26,23 @@
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Tutorial Step",
             "relatedUiObject": "Tutorial Step",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Add UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "label": "Add Tutorial Topic",
             "relatedUiObject": "Tutorial Topic",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
         },
         {
             "action": "Reset Tutorial Progress",
-            "actionProject": "Foundations",
+            "actionProject": "Education",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Reset",
             "label": "Reset Tutorial Progress",
@@ -50,7 +52,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

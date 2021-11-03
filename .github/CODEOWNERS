@@ -3,27 +3,28 @@
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence, these will be requested for
 # review when someone opens a pull request.
-*       @Superalgos/core-devs
+
+*   @Superalgos/foundations-project
 
 # Project Teams
-/Projects/Algorithmic-Trading   @Superalgos/algorithmic-trading-project
-/Projects/Community-Plugins     @Superalgos/community-plugins-project
-/Projects/Data-Mining           @Superalgos/data-mining-project
-/Projects/Ethereum              @Superalgos/ethereum-project
-/Projects/Foundations           @Superalgos/foundations-project
-/Projects/Governance            @Superalgos/governance-project
-/Projects/Machine-Learning      @Superalgos/machine-learning-project
-/Projects/Network               @Superalgos/network-project
-/Projects/Social-Bots           @Superalgos/social-bots-project
-/Projects/Social-Trading        @Superalgos/social-trading-project
-/Projects/TensorFlow            @Superalgos/tensorflow-project
-/Projects/Visual-Scripting      @Superalgos/visual-scripting-project
+/Projects/Algorithmic-Trading/   @Superalgos/algorithmic-trading-project
+/Projects/Community-Plugins/     @Superalgos/community-plugins-project
+/Projects/Data-Mining/           @Superalgos/data-mining-project
+/Projects/Ethereum/              @Superalgos/ethereum-project
+/Projects/Foundations/           @Superalgos/foundations-project
+/Projects/Governance/            @Superalgos/governance-project
+/Projects/Machine-Learning/      @Superalgos/machine-learning-project
+/Projects/Network/               @Superalgos/network-project
+/Projects/Social-Bots/           @Superalgos/social-bots-project
+/Projects/Social-Trading/        @Superalgos/social-trading-project
+/Projects/TensorFlow/            @Superalgos/tensorflow-project
+/Projects/Visual-Scripting/      @Superalgos/visual-scripting-project
 
-/Projects/Education             @Superalgos/education-project
-Docs*/                          @Superalgos/education-project
+/Projects/Education/             @Superalgos/education-project
+Docs*/                           @Superalgos/education-project
 
-/.github                        @Superalgos/sysadmins-team
-/Docker                         @Superalgos/sysadmins-team
-.git*                           @Superalgos/sysadmins-team
-.docker*                        @Superalgos/sysadmins-team
-package*.json                   @Superalgos/sysadmins-team
+/.github/                        @Superalgos/sysadmins-team
+/Docker/                         @Superalgos/sysadmins-team
+.git*                            @Superalgos/sysadmins-team
+.docker*                         @Superalgos/sysadmins-team
+package*.json                    @Superalgos/sysadmins-team

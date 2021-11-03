@@ -17,8 +17,8 @@ function newFileCloud () {
   let fileStorage
   return thisObject
 
-  function initialize (pBot, pHost, pPort) {
-    fileStorage = newFileStorage(pHost, pPort)
+  function initialize (pBot, pHost, pPort, scheme='http') {
+    fileStorage = newFileStorage(pHost, pPort, scheme)
   }
 
   function getFile (pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, ptimeFrameLabel, pDatetime, pSequence, pDataRange, pTimeFrames, callBackFunction) {
@@ -77,7 +77,7 @@ function newFileCloud () {
           }
 
           if (fileName === undefined) {
-            logger.write('[ERROR] getFile -> getFileRecursively -> Inconsistant data. Check the following: ')
+            logger.write('[ERROR] getFile -> getFileRecursively -> Inconsistent data. Check the following: ')
             logger.write('[ERROR] getFile -> getFileRecursively -> pMine = ' + JSON.stringify(pMine))
             logger.write('[ERROR] getFile -> getFileRecursively -> pBot = ' + JSON.stringify(pBot))
             logger.write('[ERROR] getFile -> getFileRecursively -> pDataset = ' + JSON.stringify(pDataset))
@@ -85,7 +85,7 @@ function newFileCloud () {
             logger.write('[ERROR] getFile -> getFileRecursively -> pMarket = ' + JSON.stringify(pMarket))
             logger.write('[ERROR] getFile -> getFileRecursively -> ptimeFrameLabel = ' + JSON.stringify(ptimeFrameLabel))
 
-            throw ('Inconsistant data received.')
+            throw ('Inconsistent data received.')
           }
 
           if (pMarket !== undefined) {
@@ -152,7 +152,7 @@ function newFileCloud () {
 
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> filePath = ' + filePath) }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> fileName = ' + fileName) }
-                if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Unexpected Error Ocurred.') }
+                if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> Unexpected Error Occurred.') }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> err = ' + err.stack) }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> text = ' + text) }
                 if (ERROR_LOG === true) { logger.write('[ERROR] getFile -> getFileRecursively -> onFileReceived -> response = ' + response) }

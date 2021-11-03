@@ -218,13 +218,14 @@ function newEventsServerClient(lanNetworkNode) {
         try {
             let host
             let port
-            /* At this point the node does not have the payload property yet, that is why we have to do this manually */
+            let extwsurl
             try {
                 let config = JSON.parse(lanNetworkNode.config)
                 host = config.host
                 port = config.webSocketsPort
+                extwsurl = config.webSocketsExternalURL
 
-                /* Check if we really have to stablish the connection. */
+                /* Check if we really have to establish the connection. */
                 if (config.autoConnect === false) { return }
             } catch (err) {
                 lanNetworkNode.payload.uiObject.setErrorMessage(
@@ -268,8 +269,12 @@ function newEventsServerClient(lanNetworkNode) {
                 return
             }
 
-            const WEB_SOCKETS_URL = 'ws://' + host + ':' + port + ''
+            let wsurl = 'ws://' + host + ':' + port + ''
+            if (extwsurl !== undefined) {
+            	wsurl = extwsurl
+	    } 
 
+            const WEB_SOCKETS_URL = wsurl
             WEB_SOCKETS_CONNECTION = new WebSocket(WEB_SOCKETS_URL)
             WEB_SOCKETS_CONNECTION.onerror = error => {
                 console.log('WebSocket error:' + JSON.stringify(error))
@@ -280,7 +285,7 @@ function newEventsServerClient(lanNetworkNode) {
                 }
             }
             WEB_SOCKETS_CONNECTION.onmessage = e => {
-                // console.log('Websoked Message Received: ' + e.data)
+                // console.log('WEB_SOCKET Message Received: ' + e.data)
 
                 let message = JSON.parse(e.data)
 

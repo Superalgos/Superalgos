@@ -29,7 +29,7 @@
         },
         {
             "style": "Note",
-            "text": "All launch related scripts are held in the Lauch-Scripts folder in the main Superalgos directory.",
+            "text": "All launch related scripts are held in the Launch-Scripts folder in the main Superalgos directory.",
             "updated": 1620504577923
         },
         {
@@ -84,7 +84,7 @@
         },
         {
             "style": "Text",
-            "text": "There is one unifed script to automatically create and place shortcuts to the appropriate launch script. This script is automatically run during the \"node setup\" command. It can also be run individual as follows.",
+            "text": "There is one unified script to automatically create and place shortcuts to the appropriate launch script. This script is automatically run during the \"node setup\" command. It can also be run individual as follows.",
             "updated": 1621802202684
         },
         {
@@ -217,7 +217,7 @@
         },
         {
             "style": "Text",
-            "text": "There is one unifed script to automatically uninstall shortcuts. To ese it open a command prompt or terminal.  Then navigate to your Superalgos directory and type the following command:",
+            "text": "There is one unified script to automatically uninstall shortcuts. To ese it open a command prompt or terminal.  Then navigate to your Superalgos directory and type the following command:",
             "updated": 1621804036052
         },
         {

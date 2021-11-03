@@ -3,16 +3,37 @@
     "pageNumber": 13,
     "type": "Docs JSON Code Style",
     "definition": {
-        "text": "Use this style to format JSON code, such as the one in configs."
+        "text": "Use this style to format JSON code, such as the one in configs.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Stil, um JSON-Code zu formatieren, wie z. B. den Code in den configs.",
+                "updated": 1633955480601
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Line breaks in this style are not generating new paragraphs."
+            "text": "Line breaks in this style are not generating new paragraphs.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zeilenumbrüche in diesem Stil erzeugen keine neuen Absätze.",
+                    "updated": 1633955498897
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633955508936
+                }
+            ]
         },
         {
             "style": "Json",

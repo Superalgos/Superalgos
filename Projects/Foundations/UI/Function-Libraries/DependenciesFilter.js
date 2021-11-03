@@ -4,7 +4,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
     on, that is later used to filter out all the other indicators
     the Trading Bot depends on.
 
-    The function will scen a node branch, most likely a Trading System,
+    The function will scan a node branch, most likely a Trading System,
     looking into the code property of each node. It will analyze it's
     content and try to make a list of all indicators mentioned at the code 
     text and at which time frames they are mentioned.
@@ -50,7 +50,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument !== undefined) {
                 if (schemaDocument.childrenNodesProperties !== undefined) {
-                    let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                    let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
 

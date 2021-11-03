@@ -4,7 +4,14 @@
     "type": "Votes And Claims Programs Intro",
     "definition": {
         "text": "Help us govern the Superalgos Project!",
-        "updated": 1630495810385
+        "updated": 1630495810385,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ayúdenos a gobernar el proyecto de Superalgos!",
+                "updated": 1633543892451
+            }
+        ]
     },
     "paragraphs": [
         {

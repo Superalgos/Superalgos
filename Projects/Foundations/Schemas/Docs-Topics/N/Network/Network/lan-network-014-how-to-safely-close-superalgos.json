@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The backend application runs independently from the frontend browser-based application. You may close the browser at any point without affecting your data-mining operation or the bots you may be running in your testing or prodution environments. Once you restart the browser and navigate to the correct URL, the frontend app reconnects with the backend and you regain control over the whole operation.",
+            "text": "The backend application runs independently from the frontend browser-based application. You may close the browser at any point without affecting your data-mining operation or the bots you may be running in your testing or production environments. Once you restart the browser and navigate to the correct URL, the frontend app reconnects with the backend and you regain control over the whole operation.",
             "updated": 1611650588719
         },
         {

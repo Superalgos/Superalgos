@@ -6,7 +6,7 @@ function newFrame() {
     let thisObject = {
         type: 'Rectangle',
         containerName: '',                  // This is for debugging purposes only.
-        parentFrame: undefined,             // Here we store the parent cointainer zoom object.
+        parentFrame: undefined,             // Here we store the parent container zoom object.
         radius: 0,
         offset: undefined,
         position: undefined,
@@ -53,7 +53,7 @@ function newFrame() {
     }
 
     function isInViewPort() {
-        /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the UI.projects.foundations.spaces.chartingSpace.viewport */
+        /* This function is useful to know if the object who has this frame is currently appearing at least in part at the UI.projects.foundations.spaces.chartingSpace.viewport */
 
         point1 = {
             x: 0,
@@ -78,7 +78,7 @@ function newFrame() {
     }
 
     function isCenterInViewPort() {
-        /* This function is usefull to know if the object who has this frame is currently appearing at least in part at the UI.projects.foundations.spaces.chartingSpace.viewport */
+        /* This function is useful to know if the object who has this frame is currently appearing at least in part at the UI.projects.foundations.spaces.chartingSpace.viewport */
 
         point1 = {
             x: thisObject.width * 40 / 100,
@@ -187,8 +187,8 @@ function newFrame() {
     }
 
     function isThisPointHere(point, outsideViewPort, dontTransform, padding) {
-        // The second parameter is usefull when you want to check a point that you already know is outside the viewport.
-        // The padding is a distance to the borders of the container. Can be either negative (outside, to increase the cointainer size) or positive (inside to decrease the cointainer size)
+        // The second parameter is useful when you want to check a point that you already know is outside the viewport.
+        // The padding is a distance to the borders of the container. Can be either negative (outside, to increase the container size) or positive (inside to decrease the cointainer size)
 
         if (padding === undefined) { padding = 0 }
 
@@ -199,7 +199,7 @@ function newFrame() {
         }
 
         /* The point received is on the screen coordinates system, which already has zoom and displacement applied. We need to remove the zoom and displacement
-        in order to have the point on the containers coordinate system and be able to compare it with its dimmensions. */
+        in order to have the point on the containers coordinate system and be able to compare it with its dimensions. */
         if (dontTransform === false || dontTransform === undefined) {
             if (outsideViewPort === true) {
                 checkPoint = thisObject.container.frame.unframeThisPoint(checkPoint)
@@ -208,7 +208,7 @@ function newFrame() {
             }
         }
 
-        /* Now we check if the resulting point is whin the current Frame. */
+        /* Now we check if the resulting point is within the current Frame. */
         if (isNaN(checkPoint.x) || isNaN(checkPoint.y)) { return false }
         if (thisObject.type === 'Circle') {
             let distance = Math.sqrt(Math.pow(thisObject.position.x - checkPoint.x, 2) + Math.pow(thisObject.position.y - checkPoint.y, 2))
@@ -244,7 +244,7 @@ function newFrame() {
             thisPoint = thisObject.parentFrame.frameThisPoint(thisPoint)
         }
 
-        /* Now we check if the resulting point is whin the current Frame. */
+        /* Now we check if the resulting point is within the current Frame. */
 
         if (thisObject.type === 'Circle') {
             let distance = Math.sqrt(Math.pow(thisPoint.x - checkPoint.x, 2) + Math.pow(thisPoint.y - checkPoint.y, 2))

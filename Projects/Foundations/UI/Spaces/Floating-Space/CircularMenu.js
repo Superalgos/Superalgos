@@ -70,6 +70,7 @@ function newCircularMenu() {
             menuItem.secondaryWorkDoneLabel = menuItemInitialValue.secondaryWorkDoneLabel
             menuItem.secondaryWorkFailedLabel = menuItemInitialValue.secondaryWorkFailedLabel
             menuItem.secondaryIcon = menuItemInitialValue.secondaryIcon
+            menuItem.booleanProperty = menuItemInitialValue.booleanProperty
             menuItem.visible = menuItemInitialValue.visible
             menuItem.iconPathOn = menuItemInitialValue.iconPathOn
             menuItem.iconPathOff = menuItemInitialValue.iconPathOff
@@ -80,6 +81,7 @@ function newCircularMenu() {
             menuItem.angle = menuItemInitialValue.angle
             menuItem.currentStatus = menuItemInitialValue.currentStatus
             menuItem.relatedUiObject = menuItemInitialValue.relatedUiObject
+            menuItem.relatedUiObjectProject = menuItemInitialValue.relatedUiObjectProject
             menuItem.dontShowAtFullscreen = menuItemInitialValue.dontShowAtFullscreen
             menuItem.askConfirmation = menuItemInitialValue.askConfirmation
             menuItem.confirmationLabel = menuItemInitialValue.confirmationLabel

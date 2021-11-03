@@ -4,7 +4,14 @@
     "type": "Docs Help Command",
     "definition": {
         "text": "The Docs provide a command line interface that you may use to contribute to the Docs. The Docs Help Command provides a list of all available commands.",
-        "updated": 1610974835590
+        "updated": 1610974835590,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Docs bieten eine Kommandozeilenschnittstelle, die Sie verwenden können, um zu den Docs beizutragen. Der Befehl Docs Help bietet eine Liste aller verfügbaren Befehle.",
+                "updated": 1633892565775
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,7 +27,14 @@
         {
             "style": "Title",
             "text": "Available Commands",
-            "updated": 1609150389229
+            "updated": 1609150389229,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verfügbare Commands",
+                    "updated": 1633892592932
+                }
+            ]
         },
         {
             "style": "List",
@@ -45,17 +59,38 @@
         {
             "style": "Title",
             "text": "Help on Commands",
-            "updated": 1609150376981
+            "updated": 1609150376981,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hilfe zu Commands",
+                    "updated": 1633892650643
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Another way to use this command is to provide the name of a command for which you would like to see help info.",
-            "updated": 1610974898665
+            "updated": 1610974898665,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine andere Möglichkeit, diesen Befehl zu verwenden, besteht darin, den Namen eines Befehls anzugeben, zu dem Sie Hilfe-Informationen sehen möchten.",
+                    "updated": 1633892686697
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Examples",
-            "updated": 1609150399428
+            "updated": 1609150399428,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633892700479
+                }
+            ]
         },
         {
             "style": "Json",
@@ -75,7 +110,14 @@
         {
             "style": "Note",
             "text": "Entries in the command prompt not identified as a command are treated as a search query.",
-            "updated": 1610974943826
+            "updated": 1610974943826,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eingaben in der Eingabeaufforderung, die nicht als Befehl erkannt sind, werden wie eine Suchanfrage behandelt.",
+                    "updated": 1633892759681
+                }
+            ]
         }
     ]
 }

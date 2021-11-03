@@ -4,29 +4,71 @@
     "type": "Data Mining - Indicator Bots - Data Mining Workflow",
     "definition": {
         "text": "When running on a data mining operation, indicators follow a cycle designed to fulfill their purpose: to process data others have produced and make the result available for others to consume.",
-        "updated": 1611427674749
+        "updated": 1611427674749,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Bei einer Data-Mining-Operation folgen die Indikatoren einem Zyklus, der ihren Zweck erfüllt: Sie verarbeiten Daten, die andere produziert haben, und stellen das Ergebnis anderen zur Verfügung.",
+                "updated": 1635276099757
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Indicators take datasets produced by sensors or by other indicators as input. These inputs are determined by the data dependencies defined. The calculations procedure and the data building procedure produce the intended transformations. The data building procedure stores the results in datasets that others may use as input, and the calculations procedure may make certain pieces of information available without ever writing it in the files.",
-            "updated": 1611427699110
+            "updated": 1611427699110,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indicators nehmen Datensätze, die von Sensoren oder anderen Indicators erzeugt werden, als Input. Diese Eingaben werden durch die definierten Datenabhängigkeiten bestimmt. Die Berechnungsprozedur und die Datenerstellungsprozedur erzeugen die beabsichtigten Transformationen. Die Datenerstellungsprozedur speichert die Ergebnisse in Datensätzen, die andere als Eingabe verwenden können, und die Berechnungsprozedur kann bestimmte Informationen zur Verfügung stellen, ohne sie jemals in die Dateien zu schreiben.",
+                    "updated": 1635276217755
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the breakdown of the cycle."
+            "text": "The following is the breakdown of the cycle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Zyklus ist wie folgt aufgeschlüsselt.",
+                    "updated": 1635276240360
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "1. Loading of data dependencies"
+            "text": "1. Loading of data dependencies",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "1. Laden von data dependencies",
+                    "updated": 1635276285780
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Datasets produced by indicators are sets of text files with data stored in the form of arrays. Each value in a record is separated by colons, and each record is delimited by square brackets. Records are too separated by colons. The format in which data is stored in files aims to make files as lightweight as possible."
+            "text": "Datasets produced by indicators are sets of text files with data stored in the form of arrays. Each value in a record is separated by colons, and each record is delimited by square brackets. Records are too separated by colons. The format in which data is stored in files aims to make files as lightweight as possible.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die von den Indikatoren erzeugten Datensätze bestehen aus Textdateien, in denen die Daten in Form von Arrays gespeichert sind. Jeder Wert in einem Record wird durch Doppelpunkte getrennt, und jeder Record wird durch eckige Klammern abgegrenzt. Auch die Datensätze sind durch Doppelpunkte getrennt. Das Format, in dem die Daten in den Dateien gespeichert werden, zielt darauf ab, die Dateien so leicht (lightweight) wie möglich zu machen.",
+                    "updated": 1635276444848
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, the following fragment features three records in the 24-hours Multi-Time-Frame-Market Bollinger Bands Data.json file:"
+            "text": "For example, the following fragment features three records in the 24-hours Multi-Time-Frame-Market Bollinger Bands Data.json file:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das folgende Fragment enthält beispielsweise drei Datensätze in der Datei 24-hours Multi-Time-Frame-Market Bollinger Bands Data.json:",
+                    "updated": 1635276468980
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,44 +76,114 @@
         },
         {
             "style": "Text",
-            "text": "That is what the system encounters at the time of reading a typical file in a dataset, which is the first step in the runtime cycle."
+            "text": "That is what the system encounters at the time of reading a typical file in a dataset, which is the first step in the runtime cycle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist es, was das System beim Lesen einer typischen Datei in einem Datensatz, dem ersten Schritt im Laufzeitzyklus, vorfindet.",
+                    "updated": 1635276614868
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "2. Inflation of files into JSON objects with named properties"
+            "text": "2. Inflation of files into JSON objects with named properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "2. Aufblasen (Inflation) von Dateien in JSON-Objekte mit benannten Eigenschaften:",
+                    "updated": 1635276677178
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once a file is loaded in memory, it is inflated into a JSON object structure, with named properties. This is the second step in the cycle and aims to make accessing each record—from within the code—much easier."
+            "text": "Once a file is loaded in memory, it is inflated into a JSON object structure, with named properties. This is the second step in the cycle and aims to make accessing each record—from within the code—much easier.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sobald eine Datei in den Speicher geladen ist, wird sie in eine JSON-Objektstruktur mit benannten Eigenschaften aufgeblasen. Dies ist der zweite Schritt im Zyklus und soll den Zugriff auf jeden Datensatz - innerhalb des Codes - wesentlich erleichtern.",
+                    "updated": 1635276774378
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "3. Calculation of properties not stored in the dataset"
+            "text": "3. Calculation of properties not stored in the dataset",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "3. Berechnung von Eigenschaften, die nicht im Dataset gespeichert sind:",
+                    "updated": 1635276920204
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Because performance is inversely related to the weight of files, developers may choose not to store all indicator properties in files. They may choose to leave properties that are easy to calculate out of the dataset and make them available as calculated properties instead. Calculated properties are calculated by the calculations procedure and fed to the record definition formulas to be made available as an integral part of the object other indicators may access."
+            "text": "Because performance is inversely related to the weight of files, developers may choose not to store all indicator properties in files. They may choose to leave properties that are easy to calculate out of the dataset and make them available as calculated properties instead. Calculated properties are calculated by the calculations procedure and fed to the record definition formulas to be made available as an integral part of the object other indicators may access.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Da die Leistung im umgekehrten Verhältnis zum Gewicht der Dateien steht, können sich Entwickler dafür entscheiden, nicht alle Indikatoreigenschaften in Dateien zu speichern. Sie können sich dafür entscheiden, Eigenschaften, die leicht zu berechnen sind, aus dem Datensatz herauszulassen und sie stattdessen als berechnete Eigenschaften verfügbar zu machen. Berechnete Eigenschaften werden von der Berechnungsprozedur berechnet und in die Formeln der Datensatzdefinition eingespeist, damit sie als integraler Bestandteil des Objekts, auf das andere Indikatoren zugreifen können, zur Verfügung stehen.",
+                    "updated": 1635277103260
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, picture an indicator that offers buy, sell, and total volumes. Because the total volume is so easy to calculate, the developer of such an indicator may choose to store the buy and sell volumes only and make the total volume available as a calculated property."
+            "text": "For example, picture an indicator that offers buy, sell, and total volumes. Because the total volume is so easy to calculate, the developer of such an indicator may choose to store the buy and sell volumes only and make the total volume available as a calculated property.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sich zum Beispiel einen Indikator vor, der Kauf-, Verkaufs- und Gesamtvolumen anbietet. Da das Gesamtvolumen so einfach zu berechnen ist, kann der Entwickler eines solchen Indikators beschließen, nur das Kauf- und Verkaufsvolumen zu speichern und das Gesamtvolumen als berechnete Eigenschaft zur Verfügung zu stellen.",
+                    "updated": 1635277150436
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Make your indicators more efficient by limiting the amount of information you store in files.",
-            "updated": 1611428939223
+            "updated": 1611428939223,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erhöhen Sie die Effizienz Ihrer Indikatoren, indem Sie die Menge der in Dateien gespeicherten Informationen begrenzen.",
+                    "updated": 1635277178826
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The third step in the runtime cycle is, therefore, to run the calculations procedure of each data dependency and add the calculated properties to the JSON object structure in memory, so that all properties are available for the next steps in the cycle."
+            "text": "The third step in the runtime cycle is, therefore, to run the calculations procedure of each data dependency and add the calculated properties to the JSON object structure in memory, so that all properties are available for the next steps in the cycle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der dritte Schritt im Laufzeitzyklus besteht daher darin, die Berechnungsprozedur jeder Datenabhängigkeit auszuführen und die berechneten Eigenschaften der JSON-Objektstruktur im Speicher hinzuzufügen, so dass alle Eigenschaften für die nächsten Schritte im Zyklus verfügbar sind.",
+                    "updated": 1635277221102
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "4. Products structure"
+            "text": "4. Products structure",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "4. Struktur der Produkte:",
+                    "updated": 1635277246404
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Steps 1, 2, and 3 are run for each one of the data dependencies, and the results are put inside an object named products. In this way, all data dependencies may be easily accessed with the following kind of syntax:"
+            "text": "Steps 1, 2, and 3 are run for each one of the data dependencies, and the results are put inside an object named products. In this way, all data dependencies may be easily accessed with the following kind of syntax:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Schritte 1, 2 und 3 werden für jede der Datenabhängigkeiten ausgeführt, und die Ergebnisse werden in einem Objekt namens \"products\" abgelegt. Auf diese Weise kann auf alle Datenabhängigkeiten mit der folgenden Art von Syntax leicht zugegriffen werden:",
+                    "updated": 1635277911811
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -80,7 +192,14 @@
         {
             "style": "Text",
             "text": "For example: ",
-            "updated": 1611428967240
+            "updated": 1611428967240,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1635278270836
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -88,43 +207,113 @@
         },
         {
             "style": "Text",
-            "text": "Each product remains an array of JSON objects with named variables."
+            "text": "Each product remains an array of JSON objects with named variables.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jedes Produkt bleibt ein Array von JSON-Objekten mit benannten Variablen.",
+                    "updated": 1635278286054
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "5. Data building"
+            "text": "5. Data building",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "5. Data building (Datenerstellung):",
+                    "updated": 1635278314757
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The fifth step in the runtime cycle is running the indicator’s data building procedure. This is where the developer codes the logic to go over the input datasets and perform the calculations required to produce the indicator’s output."
+            "text": "The fifth step in the runtime cycle is running the indicator’s data building procedure. This is where the developer codes the logic to go over the input datasets and perform the calculations required to produce the indicator’s output.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der fünfte Schritt im Laufzeitzyklus ist die Ausführung der Datenerstellungsprozedur des Indikators. Hier programmiert der Entwickler die Logik, um die Eingabedatensätze zu überprüfen und die Berechnungen durchzuführen, die für die Ausgabe des Indikators erforderlich sind.",
+                    "updated": 1635278729512
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Indicators may have multiple products, thus, the data building procedure corresponding to each product is run sequentially, in the order products have been defined around the indicator bot node."
+            "text": "Indicators may have multiple products, thus, the data building procedure corresponding to each product is run sequentially, in the order products have been defined around the indicator bot node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Da Indikatoren mehrere Produkte haben können, wird das Datenerstellungsverfahren für jedes Produkt nacheinander in der Reihenfolge durchgeführt, in der die Produkte um den Indikator-bot node herum definiert worden sind.",
+                    "updated": 1635278793170
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As transformations for a given product are finished, the results are appended to the products object and made available immediately for the rest of the products in the queue to use as input, in addition to the original data dependencies. Data dependencies are the same for all products, as data dependencies are defined at the level of processes."
+            "text": "As transformations for a given product are finished, the results are appended to the products object and made available immediately for the rest of the products in the queue to use as input, in addition to the original data dependencies. Data dependencies are the same for all products, as data dependencies are defined at the level of processes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Transformationen für ein bestimmtes Produkt abgeschlossen sind, werden die Ergebnisse an das Produktobjekt angehängt und stehen den übrigen Produkten in der Warteschlange sofort als Eingabe zur Verfügung, und zwar zusätzlich zu den ursprünglichen Datenabhängigkeiten. Die Datenabhängigkeiten sind für alle Produkte gleich, da die Datenabhängigkeiten auf Prozessebene definiert werden.",
+                    "updated": 1635278977927
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "6. Writing the output"
+            "text": "6. Writing the output",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "6. Writing the output (Schreiben der Ausgabe):",
+                    "updated": 1635278995057
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The final step is turning the object-formatted records back into a minimized array format, and saving the corresponding files in the dataset."
+            "text": "The final step is turning the object-formatted records back into a minimized array format, and saving the corresponding files in the dataset.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der letzte Schritt besteht darin, die objektformatierten Datensätze wieder in ein minimiertes Array-Format umzuwandeln und die entsprechenden Dateien im Dataset zu speichern.",
+                    "updated": 1635279046312
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Appendix: Building 2 Interdependent Indicators"
+            "text": "Appendix: Building 2 Interdependent Indicators",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Appendix: Building 2 Interdependent Indicators (bauen zweier Interdependente Indikatoren):",
+                    "updated": 1635279096121
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let's say you built indicator1 with product A that depends on Indicator Candles Volumens, product Candles, and you are building indicator2, product B that depends on indicator1 product A."
+            "text": "Let's say you built indicator1 with product A that depends on Indicator Candles Volumens, product Candles, and you are building indicator2, product B that depends on indicator1 product A.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie haben Indikator 1 mit Produkt A erstellt, der vom Indikator Candles Volumens, Produkt Candles, abhängt, und Sie erstellen Indikator 2, Produkt B, der vom Indikator 1, Produkt A, abhängt.",
+                    "updated": 1635279123786
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When you wrote the code for Indicator 1 Product A, you were using the syntax:"
+            "text": "When you wrote the code for Indicator 1 Product A, you were using the syntax:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Als Sie den Code für Indikator 1 Produkt A geschrieben haben, haben Sie die Syntax verwendet:",
+                    "updated": 1635279152916
+                }
+            ]
         },
         {
             "style": "Text",
@@ -132,31 +321,82 @@
         },
         {
             "style": "Text",
-            "text": "Why? Because Indicator 1 depends on Candles Volumens, produc Candles, and each candle has a property called open, and since product Candles is the only data dependency, it is then also the main dependency and then it will be served to you inside the record object for your convenience."
+            "text": "Why? Because Indicator 1 depends on Candles Volumens, product Candles, and each candle has a property called open, and since product Candles is the only data dependency, it is then also the main dependency and then it will be served to you inside the record object for your convenience.",
+            "updated": 1635279353336,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Warum? Weil Indikator 1 von Kerzenvolumina und Produktkerzen abhängt, und jede Kerze eine Eigenschaft namens \"open\" hat, und da Produktkerzen die einzige Datenabhängigkeit sind, ist dies auch die Hauptabhängigkeit und wird Ihnen innerhalb des Datensatzobjekts zu Ihrer Bequemlichkeit zur Verfügung gestellt.",
+                    "updated": 1635279448402
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "You could also have done:",
+            "updated": 1635279487611,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das hätten Sie auch so tun können:",
+                    "updated": 1635279558626
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You could also have done"
+            "text": "variable property1 = products.candles[index] but that is more difficult because you don't really know which index you are at at any given moment in time. It is best and easier to use the record object. The array is for very advanced users.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "variable property1 = products.candles[index] aber das ist schwieriger, weil man nicht wirklich weiß, in welchem Index man sich zu einem bestimmten Zeitpunkt befindet. Am besten und einfachsten ist es, das Datensatzobjekt (record object) zu verwenden. Das Array ist für sehr fortgeschrittene Benutzer.",
+                    "updated": 1635279751456
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "variable property1 = products.candles[index] but that is more difficult because you don't really know which index you are at at any given moment in time. It is best and easier to use the record object. The array is for very advanced users."
+            "text": "Then you want to write the code for indicator 2, product B, you already declared Indicator 1, Product A as the only data dependency. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie dann den Code für Indikator 2, Produkt B, schreiben wollen, haben Sie bereits Indikator 1, Produkt A, als einzige Datenabhängigkeit deklariert.",
+                    "updated": 1635281252028
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Then you want to write the code for indicator 2, product B, you already declared Indicator 1, Product A as the only data dependency. "
+            "text": "Since Indicator1 product A is the only data dependency of indicator 2, then it is also the main dependency, which means that for building indicator 2, the Data Building Process will iterate over every element of Indicator 1 in this case (not candles because that is not a dependency at all).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Da das Produkt A von Indikator 1 die einzige Datenabhängigkeit von Indikator 2 ist, ist es auch die Hauptabhängigkeit, was bedeutet, dass der Datenerstellungsprozess bei der Erstellung von Indikator 2 in diesem Fall über jedes Element von Indikator 1 iteriert (nicht über Kerzen, da dies überhaupt keine Abhängigkeit ist).",
+                    "updated": 1635281329720
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Since Indicator1 product A is the only data dependency of indicator 2, then it is also the main dependency, which means that for building indicator 2, the Data Building Process will iterate over every element of Indicator 1 in this case (not candles because that is not a dependency at all)."
+            "text": "In the same way that you did before, you will write code like this:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auf die gleiche Art und Weise wie zuvor werden Sie den Code wie folgt schreiben:",
+                    "updated": 1635281342982
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the same way that you did before, you will write code like this:"
-        },
-        {
-            "style": "Text",
-            "text": "variable propertyX = record.current.property1 (that means the property 1 of Product A of Indicator 1) "
+            "text": "variable propertyX = record.current.property1 (that means the property 1 of Product A of Indicator 1) ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "variable propertyX = record.current.property1 (d. h. die Eigenschaft 1 des Produkts A des Indikators 1)",
+                    "updated": 1635281359194
+                }
+            ]
         },
         {
             "style": "Text",

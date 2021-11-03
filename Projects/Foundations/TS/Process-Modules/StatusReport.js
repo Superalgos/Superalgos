@@ -315,7 +315,7 @@
             if (ownerId !== botId) {
                 let filePathRoot =
                     'Project/' +
-                    statusDependencyNode.project + "/" +
+                    statusDependencyNode.referenceParent.parentNode.parentNode.parentNode.project + "/" +
                     statusDependencyNode.mineType + "/" +
                     statusDependencyNode.dataMine + "/" +
                     statusDependencyNode.bot + '/' +

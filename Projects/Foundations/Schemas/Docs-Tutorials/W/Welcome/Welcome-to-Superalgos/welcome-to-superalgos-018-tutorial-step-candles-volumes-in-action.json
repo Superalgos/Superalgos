@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Candles Volumes in Action",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "indicator-bot-instance"
         },
         "text": "That's right! Indicators will start working as soon as the sensor bot finishes her job!",
@@ -26,6 +26,29 @@
                 "text": "Así es; los indicadores comenzarán a funcionar tan pronto como el sensor bot termine su trabajo.",
                 "updated": 1624284142388,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das ist richtig! Die Indikatoren beginnen zu arbeiten, sobald der Sensor-Bot seine Arbeit beendet hat!",
+                "updated": 1634163288773,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Dat klopt! Indicators gaan werken zodra de sensor bot klaar is met haar werk!",
+                "updated": 1634456917084,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Верно! Индикаторы начнуть работать, как только сенсорный бот закончит свою работу! ",
+                "updated": 1635593922335,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Sensör botu işini bitirir bitirmez göstergeler çalışmaya başlayacak!",
+                "updated": 1635944180619
             }
         ]
     },
@@ -51,6 +74,29 @@
                     "text": "Estás viendo los procesos de Volúmenes de Velas. Convierte las velas de un minuto que el sensor bot descarga del Exchange en velas para las diferentes temporalidades.",
                     "updated": 1618435042108,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Prozesse von Candles Volumes verwandelt die einminütigen Kerzen, die der Sensor-Bot von der Börse herunterlädt, in Kerzen für alle Zeitrahmen.",
+                    "updated": 1634163365805,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Je bekijkt het proces van de Candles Volumes. Ze veranderd de één-minuut candles die de sensor bot download van de exchange in candles voor alle tijdkaders.",
+                    "updated": 1634457056780,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы наблюдаете процесс увеличения объема свечей. Он превращает одноминутные свечи, которые сенсорный бот загружает с биржи, в свечи для всех временных рамок.",
+                    "updated": 1635594020777,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Hacimlerini (Candles Volumes) sürçlerini izliyorsunuz. Sensör botunun borsadan indirdiği bir dakikalık mumları tüm zaman dilimleri için mumlara dönüştürüyor.",
+                    "updated": 1635944864225
                 }
             ]
         },
@@ -76,6 +122,29 @@
                     "text": "¿Qué pasa cuando el bot acaba?",
                     "updated": 1624291212314,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was passiert, nachdem es fertig ist?",
+                    "updated": 1634163400186,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Wat gebeurt er als ze klaar is?",
+                    "updated": 1634457082071,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что произойдет после того, как он закончит?",
+                    "updated": 1635594060919,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitirdikten sonra ne olacak?",
+                    "updated": 1635944274935
                 }
             ]
         },
@@ -100,6 +169,29 @@
                     "text": "Otros bots necesitan que Candles Volumes acabe, para poder iniciarse. Imagina que un bot necesita calcular una SMA de 20 periodos en todas las temporalidades. Necesitas el Data Product de Candles Volumes como entrada para el cálculo de la SMA. Llamamos a esto una Dependencia de Datos.",
                     "updated": 1624491371609,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Andere Bots brauchen Candles Volumes, um ihre Arbeit zu beenden, damit sie mit ihrer eigenen Arbeit beginnen können. Stellen Sie sich vor, ein Bot muss einen 20-Perioden Simple Moving Average für alle Zeitrahmen berechnen. Er benötigt das von Candles Volumes erzeugte Data Product als Eingabe für die SMA-Berechnung. Wir nennen einen solchen Bedarf eine Data Dependency.",
+                    "updated": 1634163313850,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "De Candles Volumes bot moet klaar zijn, zodat andere bots hun werk kunnen gaan doen. Stel je voor dat een bot een 20-periodes Simple Moving Average moet berekenen voor alle tijdskaders. Zij heeft dan het Data Product van Candles Volumes nodig als input voor de SMA berekening. Een dergelijke behoefte noemen we een Data Dependency.",
+                    "updated": 1634457249372,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Другим ботам необходимы большие объемы свечей для полного окончания их работы для того, чтобы они могли приступить к своей. Представьте, что боту нужно рассчитать Simple Moving Average за 20 периодов для все временных рамок. Ему необходим Data Product, полученный по объемам свечей в качестве входных данных для рассчета SMA. Мы назывем такую потребность Data Dependency.",
+                    "updated": 1635594443248,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer botların işlerini bitirmeleri için Candles Volumes'e ihtiyaçları var, böylece kendi işlerini yapmaya başlayabilirler. Bir botun tüm zaman dilimleri için 20 dönemlik Basit Hareketli Ortalama ( Simple Moving Average ) hesaplaması gerektiğini hayal edin. SMA hesaplaması için girdi olarak Candles Volumes tarafından üretilen Veri Ürünü'ne ( Data Product ) ihtiyacı var. Böyle bir ihtiyaca Veri Bağımlılığı ( Data Dependency) diyoruz.",
+                    "updated": 1635944420387
                 }
             ]
         }

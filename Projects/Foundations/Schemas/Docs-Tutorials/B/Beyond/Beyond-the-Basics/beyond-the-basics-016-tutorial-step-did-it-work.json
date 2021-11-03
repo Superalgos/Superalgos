@@ -21,6 +21,11 @@
                 "text": "Si no has estropeado el comando, deberías obtener una nueva página con el título que estableciste, una invitación para escribir un resumen y más instrucciones a continuación.\n",
                 "updated": 1628187369107,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie den Befehl richtig ausgeführt haben, sollten Sie eine neue Seite mit dem von Ihnen festgelegten Titel, einer Aufforderung zum Schreiben einer Zusammenfassung und weiteren Anweisungen unten erhalten!",
+                "updated": 1635148788232
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Si recibes un mensaje de error, léelo y soluciona el problema. Es probable que se trate de la sintaxis del comando. ¡Siempre puedes retroceder un paso para recuperar el comando original!",
                     "updated": 1628187419945,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Fehlermeldung erhalten haben, lesen Sie sie und beheben Sie das Problem! Es handelt sich wahrscheinlich um einen Fehler in der Syntax des Befehls. Sie können jederzeit einen Schritt zurückgehen, um den ursprünglichen Befehl wiederherzustellen!",
+                    "updated": 1635148795437
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "En el siguiente paso, analizaremos cómo funciona el comando.",
                     "updated": 1628187437392,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Schritt werden wir analysieren, wie der Befehl funktioniert!",
+                    "updated": 1635148801960
                 }
             ]
         }

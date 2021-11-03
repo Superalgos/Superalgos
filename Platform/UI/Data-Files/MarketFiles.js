@@ -80,7 +80,8 @@ function newMarketFiles() {
     pHost,
     pPort,
     pEventsServerClient,
-    callBackFunction) {
+    callBackFunction,
+    scheme='http') {
     try {
       let timeFrames
 
@@ -94,7 +95,7 @@ function newMarketFiles() {
       eventsServerClient = pEventsServerClient
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(pBot, pHost, pPort)
+      fileCloud.initialize(pBot, pHost, pPort, scheme)
 
       /* Some Validations */
       if (dataset.config.validTimeFrames === undefined) {

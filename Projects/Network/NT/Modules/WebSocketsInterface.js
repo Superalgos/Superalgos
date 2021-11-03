@@ -1,5 +1,16 @@
 exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSocketsInterface() {
+    /*
+    This module represents the websockets interface of the Network Node.
 
+    A Network Nodes is epected to receive conections request from 2 different types
+    of entities:
+
+    1. Other Network Nodes.
+    2. Clients / Apps. 
+
+    This module deals with those 2 connection types and is the one receiving from
+    and sending messages to those entities.
+    */
     let thisObject = {
         networkClients: undefined,
         networkPeers: undefined,
@@ -45,7 +56,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
-
             /*
             This function is executed every time a new Websockets connection
             is stablished.  
@@ -242,11 +252,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     */
                     let signedMessage = {
                         callerProfileHandle: messageHeader.callerProfileHandle,
-                        calledProfileHandle: SA.secrets.map.get('P2P Network Node').githubUsername,
+                        calledProfileHandle: SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
                         callerTimestamp: messageHeader.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
-                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get('P2P Network Node').privateKey)
+                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
 
                     let response = {
                         result: 'Ok',
@@ -294,7 +304,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
                     if (witnessUserProfile === undefined) {
                         let response = {
@@ -335,7 +345,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will check that the signature includes this Network Node handle, to avoid
                     man in the middle attackts.
                     */
-                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get('P2P Network Node').githubUsername) {
+                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                         let response = {
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
@@ -405,6 +415,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
             function removeCaller(caller) {
+                if (caller === undefined) { return }
 
                 thisObject.callersMap.delete(caller.socket.id)
 

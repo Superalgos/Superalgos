@@ -149,12 +149,12 @@ function newAnimation() {
                 }
             }
 
-            /* We request the next frame to be drawn, and stablishing a loop */
+            /* We request the next frame to be drawn, and establish a loop */
 
             /* Use this code for full animation speed. */
             animationLoopHandle = window.requestAnimationFrame(animationLoop)
 
-            /* Use this code for max 10 frames per second animation speed, if the app is consumming too much of your CPU.  */
+            /* Use this code for max 10 frames per second animation speed, if the app is consuming too much of your CPU.  */
             /*
             setTimeout(nextLoop, 100)
             function nextLoop () {

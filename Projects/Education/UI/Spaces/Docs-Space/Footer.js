@@ -129,6 +129,12 @@ function newFoundationsDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'NL\')"><img src="Images/Languages/NL.png" title="Dutch" class="docs-footer-language'
+        if (languageCode === 'NL') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'
@@ -166,7 +172,6 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'master\')">Master</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeCurrentBranch(\'next-version\')">Next-Version</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '</div>'
 
@@ -177,7 +182,6 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'master\')">Master</code></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'develop\')">Develop</a></li>'
         HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'plugins-docs\')">Plugins-Docs</a></li>'
-        HTML = HTML + '<li><a href="#" onClick="UI.projects.education.spaces.docsSpace.changeContributionsBranch(\'next-version\')">Next-Version</a></li>'
 
         HTML = HTML + '</ul>'
         HTML = HTML + '</ul>'
@@ -201,7 +205,7 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<div class="docs-footer-row">'
         HTML = HTML + '<div class="docs-footer-cell">'
         HTML = HTML + '<h4>Join the Conversation</h4>'
-        HTML = HTML + '<p>We have a new <a href="https://discord.gg/CGeKC6WQQb" target="_blank">Discord Server</a> with multiple channels, or you may join the original individual Telegram groups listed to the right.</p>'
+        HTML = HTML + '<p>We have a new <a href="https://discord.gg/CGeKC6WQQb" target="_blank">Discord Server</a> with multiple channels and a new <a href="https://forum.superalgos.org/" target="_blank">Community Forum</a> or you may join the original individual Telegram groups listed to the right.</p>'
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

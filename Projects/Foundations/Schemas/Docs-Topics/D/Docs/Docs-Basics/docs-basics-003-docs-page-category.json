@@ -15,7 +15,14 @@
             {
                 "language": "ES",
                 "text": "Los documentos cuentan con seis categorías de páginas: Node, Concept, Topic, Tutorial, Review, y Book. Cada categoría está representada por una pestaña en los resultados de la búsqueda de Documentos.",
-                "updated": 1628205085106
+                "updated": 1628205085106,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Docs enthalten sechs Kategorien von Seiten: Node,Concept,Topic,Tutorial,Review und Book. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
+                "updated": 1633806275183,
+                "style": "Definition"
             }
         ]
     },
@@ -34,6 +41,12 @@
                     "text": "Kategori Halaman Node ",
                     "updated": 1613859587112,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Node Seiten-Kategorie",
+                    "updated": 1633857256015,
+                    "style": "Title"
                 }
             ]
         },
@@ -45,6 +58,12 @@
                     "language": "ID",
                     "text": "Setiap Node ditentukan dalam konteks Project yang menampilkan Docs Node Page yang menjelaskan apa itu Node dan bagaimana penggunaannya. Halaman ini akan terbuka saat mengklik tombol bantuan di menu node.",
                     "updated": 1613859807031,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Node, die im Kontext eines Project (Projekts) definiert ist, verfügt über eine Docs Node Page, die erklärt, was die Node ist und wie sie verwendet wird. Diese Seite wird geöffnet, wenn Sie auf die Schaltfläche \"help\" im Menü des Knotens klicken.",
+                    "updated": 1633806392260,
                     "style": "Text"
                 }
             ]
@@ -58,6 +77,12 @@
                     "text": "Kategori Halaman Concept",
                     "updated": 1613859855103,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Concept Seiten-Kategorie",
+                    "updated": 1633857303758,
+                    "style": "Title"
                 }
             ]
         },
@@ -69,6 +94,12 @@
                     "language": "ID",
                     "text": "Konseps adalah pemikiran atau gagasan yang tidak direpresentasikan sebagai node dalam hierarcy. Halaman dalam kategori konsep mencakup pemikiran atau gagasan yang dapat dijelaskan dalam satu halaman. Intinya, konsep adalah gagasan yang dapat dibahas secara lengkap dalam satu halaman.",
                     "updated": 1613860012881,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Concepts (Konzepte) sind Begriffe oder Ideen, die nicht als Knotenpunkte in einer Hierarchie dargestellt werden. Die Seiten in der Kategorie \"Concept\" behandeln Begriffe oder Ideen, die auf einer einzigen Seite erklärt werden können. Das heißt, Konzepte sind Begriffe, die auf einer einzigen Seite ausreichend behandelt werden können.",
+                    "updated": 1633856673559,
                     "style": "Text"
                 }
             ]
@@ -82,6 +113,12 @@
                     "text": "Kategori Halaman Topic",
                     "updated": 1613860037593,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Topic Seiten-Kategorie",
+                    "updated": 1633860678628,
+                    "style": "Title"
                 }
             ]
         },
@@ -93,6 +130,12 @@
                     "language": "ID",
                     "text": "Topik adalah konsep yang lebih dalam dan memiliki banyak segi yang membutuhkan lebih dari satu halaman untuk dijelaskan. Topik adalah sekumpulan konsep yang berkaitan erat, disusun secara berurutan. Namun, bukan halaman itu saja. Melainkan, ini adalah kumpulan dari halaman-halaman.",
                     "updated": 1613860164710,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Topics (Themen) sind vielschichtige, tiefgreifende Konzepte, die mehr als eine Seite benötigen, um korrekt behandelt zu werden. Topics sind Gruppen von eng miteinander verbundenen Konzepten, die in einer Reihenfolge angeordnet sind. Ein Topic ist jedoch keine Seite an sich. Es handelt sich vielmehr um eine Sammlung von Seiten.",
+                    "updated": 1633856641151,
                     "style": "Text"
                 }
             ]
@@ -106,6 +149,12 @@
                     "text": "Kategori Halaman Tutorial",
                     "updated": 1613860197070,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorial Seiten-Kategorie",
+                    "updated": 1633860764085,
+                    "style": "Title"
                 }
             ]
         },
@@ -117,6 +166,12 @@
                     "language": "ID",
                     "text": "Adapun dalam Tutorial adalah hirarki yang dapat mengatur berbagai jenis node termasuk node Tutorial Topic dan Tutorial Step. Setiap node dalam hierarki mengarah ke Tutorial Step di Docs tempat sumber informasi. Dalam konteks Docs, halaman dalam tutorial diatur secara runtut seperti topik.",
                     "updated": 1613860411843,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Tutorial-Hierarchie kann verschiedene Arten von nodes beinhalten, einschließlich Tutorial Topic und Tutorial Step nodes. Jede node in der Hierarchie zeigt auf eine „ Tutorial Step “ Seite in den Docs, von der er Informationen bezieht. Im Kontext der Docs sind die Seiten eines Tutorials in einer Reihenfolge angeordnet, wie bei Themen.",
+                    "updated": 1633856957281,
                     "style": "Text"
                 }
             ]
@@ -130,6 +185,12 @@
                     "text": "Kategori Halaman Reviews",
                     "updated": 1613860442084,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Reviews Seiten-Kategorie",
+                    "updated": 1633860775633,
+                    "style": "Title"
                 }
             ]
         },
@@ -141,6 +202,12 @@
                     "language": "ID",
                     "text": "Reviews adalah konten buatan pengguna yang menjelaskan pengalaman mereka dengan komponen tertentu dari Superalgos atau proyek lain.",
                     "updated": 1613860497517,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Reviews sind von Benutzern erstellte Inhalte, die ihre Erfahrungen mit bestimmten Komponenten von Superalgos oder anderen Projekten beschreiben.",
+                    "updated": 1633857053512,
                     "style": "Text"
                 }
             ]
@@ -154,6 +221,12 @@
                     "text": "Kategori Halaman Books",
                     "updated": 1613860532720,
                     "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Books Seiten-Kategorie",
+                    "updated": 1633860789952,
+                    "style": "Title"
                 }
             ]
         },
@@ -166,8 +239,28 @@
                     "text": "Books merupakan halaman itu sendiri. Halaman tersebut menampilkan daftar topik yang masing-masing merupakan satu bab dalam buku tersebut.",
                     "updated": 1613860614179,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein \"Book\" ist eine eigenständige Seite. Die Seite enthält eine Liste von Themen, die jeweils ein Kapitel des Buches darstellen.                                                                                                                                                                           ",
+                    "updated": 1634053406718,
+                    "style": "Text"
                 }
             ]
+        },
+        {
+            "style": "Title",
+            "text": "Workspace Page Category",
+            "updated": 1634054845364
+        },
+        {
+            "style": "Text",
+            "text": "The \"Workspace\" tab does not actually display a docs page but content from the workspaces. It is a possibility to search trough workspaces with a keyword. It shows all nodes which are related to the keyword. Make a query in the search bar with a keyword you like (e.g. \"market\") and have a look at the Workspace Category.",
+            "updated": 1634055788510
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

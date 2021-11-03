@@ -888,7 +888,8 @@
     #governance-tab13:checked ~ .governance-search-result-content #content13,
     #governance-tab14:checked ~ .governance-search-result-content #content14,
     #governance-tab15:checked ~ .governance-search-result-content #content15,
-    #governance-tab16:checked ~ .governance-search-result-content #content16 {
+    #governance-tab16:checked ~ .governance-search-result-content #content16,
+    #governance-tab17:checked ~ .governance-search-result-content #content17 {
     display: block;
     }
     

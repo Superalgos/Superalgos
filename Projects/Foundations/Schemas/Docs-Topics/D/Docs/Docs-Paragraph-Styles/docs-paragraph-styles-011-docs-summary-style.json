@@ -3,20 +3,49 @@
     "pageNumber": 11,
     "type": "Docs Summary Style",
     "definition": {
-        "text": "Summary paragraphs are usually used at the begining of a page, like in this one."
+        "text": "Summary paragraphs are usually used at the begining of a page, like in this one.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Summary-Absätze werden in der Regel am Anfang einer Seite verwendet, wie in diesem Beispiel.",
+                "updated": 1633954894895
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Anything you write while editing a summary paragraph will be rendered at the page."
+            "text": "Anything you write while editing a summary paragraph will be rendered at the page.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alles, was Sie während der Bearbeitung eines Zusammenfassungsabsatzes schreiben, wird auf der Seite wiedergegeben.",
+                    "updated": 1633954935286
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example."
+            "text": "Example:",
+            "updated": 1633954997729,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633955049834
+                }
+            ]
         },
         {
             "style": "Summary",
-            "text": "This is a summary paragraph."
+            "text": "This is a summary paragraph.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist ein Summary-Absatz.",
+                    "updated": 1633954964142
+                }
+            ]
         },
         {
             "style": "Text",

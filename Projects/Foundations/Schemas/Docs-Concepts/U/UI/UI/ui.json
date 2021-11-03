@@ -7,7 +7,13 @@
             {
                 "language": "ES",
                 "text": "UI es una abreviatura de \"Interfaz de usuario\" (user Interface), que se refiere a la pantalla de operación y al método de operación del software. En Superalgos, el UI es una aplicación web que se ejecuta en un navegador de Internet.",
-                "updated": 1624282520607
+                "updated": 1624282520607,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "UI - это аббревиатура пользовательского интерфейса, которая относится к экрану управления и способу работы программного обеспечения. В Superalgos пользовательский интерфейс представляет собой веб-приложение, которое запускается в Интернет-браузере.",
+                "updated": 1635580805809
             }
         ]
     },

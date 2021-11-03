@@ -4,13 +4,27 @@
     "type": "Docs Paragraph Styles",
     "definition": {
         "text": "Each paragraph in a Docs Page is assigned a style. The default and most commonly used style is the Docs Text Style.",
-        "updated": 1611001762378
+        "updated": 1611001762378,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Jedem Absatz einer Docs Page wird eine Formatvorlage zugewiesen. Die Standardvorlage und die am häufigsten verwendete Vorlage ist die Textvorlage: Docs Text Style.",
+                "updated": 1633861516844
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Styles are covered in the Docs Paragraph Styles topic.",
-            "updated": 1613760190825
+            "updated": 1613760190825,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Formate werden im Thema Docs Paragraph Styles behandelt.",
+                    "updated": 1633861555061
+                }
+            ]
         }
     ]
 }

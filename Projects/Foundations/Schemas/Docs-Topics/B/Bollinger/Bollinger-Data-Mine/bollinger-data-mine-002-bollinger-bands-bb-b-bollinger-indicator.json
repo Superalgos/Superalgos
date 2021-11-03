@@ -3,7 +3,7 @@
     "pageNumber": "2",
     "type": "Bollinger Bands (BB - %B) - Bollinger Indicator",
     "definition": {
-        "text": "The indicator produces the Bollinger Bands (BB) and Percentage Bandwith (%B), both in standard settings.",
+        "text": "The indicator produces the Bollinger Bands (BB) and Percentage Bandwidth (%B), both in standard settings.",
         "updated": 1610387450406
     },
     "paragraphs": [

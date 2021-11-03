@@ -16,21 +16,67 @@
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
-            "action": "Add Signing Account",
+            "action": "Add Social Trading Desktop App",
             "actionProject": "Governance",
-            "label": "Add Signing Account",
+            "label": "Add Social Trading Desktop App",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
             "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add Social Trading Server App",
+            "actionProject": "Governance",
+            "label": "Add Social Trading Server App",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add Social Trading Mobile App",
+            "actionProject": "Governance",
+            "label": "Add Social Trading Mobile App",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add Algo Traders Platform",
+            "actionProject": "Governance",
+            "label": "Add Algo Traders Platform",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add P2P Network Node",
+            "actionProject": "Governance",
+            "label": "Add P2P Network Node",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",

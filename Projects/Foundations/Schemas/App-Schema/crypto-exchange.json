@@ -1,148 +1,211 @@
 {
-  "type": "Crypto Exchange",
-  "menuItems": [
-    {
-      "action": "Configure Thise",
-      "actionFunction": "uiObject.configEditor.activate",
-      "label": "Configure",
-      "iconPathOn": "configuration",
-      "iconPathOff": "configuration"
+    "type": "Crypto Exchange",
+    "menuItems": [
+        {
+            "action": "Configure Thise",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "exchangeAssets",
+            "label": "Add Exchange Assets",
+            "relatedUiObject": "Exchange Assets",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "exchangeMarkets",
+            "label": "Add Exchange Markets",
+            "relatedUiObject": "Exchange Markets",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "exchangeAccounts",
+            "label": "Add Exchange Accounts",
+            "relatedUiObject": "Exchange Accounts",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 2,
+    "editors": {
+        "config": true
     },
-    {
-      "action": "Add UI Object",
-      "disableIfPropertyIsDefined": true,
-      "propertyToCheckFor": "exchangeAssets",
-      "label": "Add Exchange Assets",
-      "relatedUiObject": "Exchange Assets",
-      "actionFunction": "payload.executeAction"
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type the name of the exchange\",\n \n\"sandBox\": \"false\"\n}"
     },
-    {
-      "action": "Add UI Object",
-      "disableIfPropertyIsDefined": true,
-      "propertyToCheckFor": "exchangeMarkets",
-      "label": "Add Exchange Markets",
-      "relatedUiObject": "Exchange Markets",
-      "actionFunction": "payload.executeAction"
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Exchanges->"
     },
-    {
-      "action": "Add UI Object",
-      "disableIfPropertyIsDefined": true,
-      "propertyToCheckFor": "exchangeAccounts",
-      "label": "Add Exchange Accounts",
-      "relatedUiObject": "Exchange Accounts",
-      "actionFunction": "payload.executeAction"
-    },
-    {
-      "action": "Delete UI Object",
-      "askConfirmation": true,
-      "confirmationLabel": "Confirm to Delete",
-      "label": "Delete",
-      "iconPathOn": "delete-entity",
-      "iconPathOff": "delete-entity",
-      "actionFunction": "payload.executeAction"
-    }
-  ],
-  "isTitleAllwaysVisible": true,
-  "addLeftIcons": true,
-  "level": 2,
-  "editors": {
-    "config": true
-  },
-  "initialValues": {
-    "config": "{ \n\"codeName\": \"Type the name of the exchange\",\n \n\"sandBox\": \"false\"\n}"
-  },
-  "attachingRules": {
-    "compatibleTypes": "->Crypto Exchanges->"
-  },
-  "propertyNameAtParent": "exchanges",
-  "childrenNodesProperties": [
-    {
-      "name": "exchangeAssets",
-      "type": "node",
-      "childType": "Exchange Assets",
-      "autoAdd": true
-    },
-    {
-      "name": "exchangeMarkets",
-      "type": "node",
-      "childType": "Exchange Markets",
-      "autoAdd": true
-    },
-    {
-      "name": "exchangeAccounts",
-      "type": "node",
-      "childType": "Exchange Accounts",
-      "autoAdd": true
-    }
-  ],
-  "alternativeIcons": [
-    {
-      "codeName": "binance",
-      "iconName": "binance"
-    },
-    {
-      "codeName": "binanceus",
-      "iconName": "binanceus"
-    },
-    {
-      "codeName": "bitfinex",
-      "iconName": "bitfinex"
-    },
-    {
-      "codeName": "bitmex",
-      "iconName": "bitmex"
-    },
-    {
-      "codeName": "bittrex",
-      "iconName": "bittrex"
-    },
-    {
-      "codeName": "coinbasepro",
-      "iconName": "coinbasepro"
-    },
-    {
-      "codeName": "ftx",
-      "iconName": "ftx"
-    },
-    {
-      "codeName": "hitbtc",
-      "iconName": "hitbtc"
-    },
-    {
-      "codeName": "kraken",
-      "iconName": "kraken"
-    },
-    {
-      "codeName": "kucoin",
-      "iconName": "kucoin"
-    },
-    {
-      "codeName": "liquid",
-      "iconName": "liquid"
-    },
-    {
-      "codeName": "luno",
-      "iconName": "luno"
-    },
-    {
-      "codeName": "lykke",
-      "iconName": "lykke"
-    },
-    {
-      "codeName": "okex",
-      "iconName": "okex"
-    },
-    {
-      "codeName": "okex5",
-      "iconName": "okex"
-    },
-    {
-      "codeName": "poloniex",
-      "iconName": "poloniex"
-    },
-    {
-      "codeName": "upbit",
-      "iconName": "upbit"
-    }
-  ]
+    "propertyNameAtParent": "exchanges",
+    "childrenNodesProperties": [
+        {
+            "name": "exchangeAssets",
+            "type": "node",
+            "childType": "Exchange Assets",
+            "autoAdd": true
+        },
+        {
+            "name": "exchangeMarkets",
+            "type": "node",
+            "childType": "Exchange Markets",
+            "autoAdd": true
+        },
+        {
+            "name": "exchangeAccounts",
+            "type": "node",
+            "childType": "Exchange Accounts",
+            "autoAdd": true
+        }
+    ],
+    "alternativeIcons": [
+        {
+            "codeName": "binance",
+            "iconName": "binance"
+        },
+        {
+            "codeName": "binanceus",
+            "iconName": "binanceus"
+        },
+        {
+            "codeName": "binanceusdm",
+            "iconName": "binance"
+        },
+        {
+            "codeName": "binancecoinm",
+            "iconName": "binance"
+        },
+        {
+            "codeName": "bitfinex",
+            "iconName": "bitfinex"
+        },
+        {
+            "codeName": "bitflyer",
+            "iconName": "bitflyer"
+        },
+        {
+            "codeName": "bithumb",
+            "iconName": "bithumb"
+        },
+        {
+            "codeName": "bitmart",
+            "iconName": "bitmart"
+        },
+        {
+            "codeName": "bittrex",
+            "iconName": "bittrex"
+        },
+        {
+            "codeName": "bitstamp",
+            "iconName": "bitstamp"
+        },
+        {
+            "codeName": "bybit",
+            "iconName": "bybit"
+        },
+        {
+            "codeName": "coinbasepro",
+            "iconName": "coinbasepro"
+        },
+        {
+            "codeName": "coinbaseprime",
+            "iconName": "coinbaseprime"
+        },
+        {
+            "codeName": "coinone",
+            "iconName": "coinone"
+        },
+        {
+            "codeName": "ftx",
+            "iconName": "ftx"
+        },
+        {
+            "codeName": "gateio",
+            "iconName": "gateio"
+        },
+        {
+            "codeName": "hitbtc",
+            "iconName": "hitbtc"
+        },
+        {
+            "codeName": "huobi",
+            "iconName": "huobi"
+        },
+        {
+            "codeName": "huobijp",
+            "iconName": "huobi"
+        },
+        {
+            "codeName": "huobipro",
+            "iconName": "huobi"
+        },
+        {
+            "codeName": "idex",
+            "iconName": "idex"
+        },
+        {
+            "codeName": "kraken",
+            "iconName": "kraken"
+        },
+        {
+            "codeName": "kucoin",
+            "iconName": "kucoin"
+        },
+        {
+            "codeName": "liquid",
+            "iconName": "liquid"
+        },
+        {
+            "codeName": "luno",
+            "iconName": "luno"
+        },
+        {
+            "codeName": "lykke",
+            "iconName": "lykke"
+        },
+        {
+            "codeName": "okex",
+            "iconName": "okex"
+        },
+        {
+            "codeName": "okex5",
+            "iconName": "okex"
+        },
+        {
+            "codeName": "poloniex",
+            "iconName": "poloniex"
+        },
+        {
+            "codeName": "upbit",
+            "iconName": "upbit"
+        },
+        {
+            "codeName": "zp",
+            "iconName": "zp"
+        }
+    ]
 }

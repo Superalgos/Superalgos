@@ -36,7 +36,25 @@
             {
                 "language": "TR",
                 "text": "Öğreticiler sistem içinde tanımlanmıştır, böylece dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
-                "updated": 1633121322983
+                "updated": 1633121322983,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Tutorials zijn gedefinieerd binnen in het systeem, je mag er meer maken als je wilt! Maar die \"goddelijke macht\" bespreken we later. Laten we ons eerst richten op de basis!",
+                "updated": 1633760912101,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Tutorien werden innerhalb des Systems definiert, Sie können also mehrere von uns erstellen, wenn Sie möchten! Aber wir werden diese Fähigkeit später besprechen. Konzentrieren wir uns erst einmal auf die Grundlagen!",
+                "updated": 1634070459015,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Учебное пособие устанавливается через систему, поэтому Вы можете создать больше нас, если Вы этого пожелаете. Но мы обсудим эти детали позднее. Давайте сначала сосредоточимся на базовых шагах!",
+                "updated": 1635450888939
             }
         ]
     },
@@ -72,7 +90,25 @@
                 {
                     "language": "TR",
                     "text": "Superalgos doğası gereği görsel bir araçtır. Sistem, simgelerle temsil edilen, birbirine bağlı düğümlerin hiyerarşik yapılarındaki bilgileri temsil eder. Sağınızda gördüğünüz şey, bu hiyerarşilerden biridir - özellikle bir Öğretici hiyerarşisi. Bu durumda, \"öğretici\" düğüm türüdür ve \"Superalgos'a Hoş Geldiniz!\" düğümün adıdır.",
-                    "updated": 1633121451310
+                    "updated": 1633121451310,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Superalgos is een visueel hulpmiddel. Het systeem geeft informatie weer in hiërarchische structuren van onderling verbonden knooppunten, afgebeeld met pictogrammen. Wat je rechts ziet, is een van deze hiërarchieën - in het bijzonder een Tutorial hiërarchie. In dit geval is \"tutorial\" het type knooppunt en \"Welcome to Superalgos!\" is de naam van het knooppunt.",
+                    "updated": 1633761030337,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist von Natur aus ein visuelles Werkzeug. Das System stellt Informationen in hierarchischen Strukturen aus miteinander verbundenen Knoten dar, die durch Icons repräsentiert werden. Was Sie auf der rechten Seite sehen, ist eine dieser Hierarchien - insbesondere eine Tutorial-Hierarchie. In diesem Fall ist \"Tutorial\" der Typ des Knotens und \"Willkommen bei Superalgos\" ist der Name des Knotens.",
+                    "updated": 1634070485959,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "По сути Superalgos является визуальным инструментом. Система представляет информацию в иерархических структурах взаимосвязанных узлов, представленных иконками. То, что Вы видите справа, является одной из этих иерархий, в частности, иерархией учебного пособия - \"Tutorial\". В этом случае Tutorial - это тип узла, а глава \"Welcome to Superalgos!\" - это наименование узла.",
+                    "updated": 1635507910736
                 }
             ],
             "updated": 1616410534255
@@ -111,6 +147,27 @@
                     "text": "Passez le pointeur de votre souris sur le nœud \"Tutorial\", et voyez ce qui se passe ! Ouh... C'est cool, non ? Ça fait beaucoup de boutons !",
                     "updated": 1623951096410,
                     "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Beweeg je muis over het Tutorial knooppunt en kijk wat er gebeurt! Wow! Cool toch? Dat zijn een heleboel knoppen!",
+                    "updated": 1633761113014,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie Ihren Mauszeiger über den Knoten Tutorial und sehen Sie, was passiert! Wahnsinn! Cool, oder? Das sind eine Menge Knöpfe!",
+                    "updated": 1634070500067,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор мыши на узел Tutorial и посмотрите, что произойдет! Ух ты! Круто, правда? Так много кнопок!",
+                    "updated": 1635451952870},
+                    {
+                    "language": "TR",
+                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme!",
+                    "updated": 1635577498974
                 }
             ]
         }

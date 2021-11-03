@@ -4,13 +4,27 @@
     "type": "Docs Topic Name",
     "definition": {
         "text": "Refers to the name of the topic. Pages with the same Docs Topic Name belong to the same topic.",
-        "updated": 1613755594915
+        "updated": 1613755594915,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Bezieht sich auf den Namen des Themas. Seiten mit demselben Docs-Thema-Namen gehören zu demselben Thema.",
+                "updated": 1633860169342
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "There is no page describing a topic. Instead, the Docs Topic Name is used to group a set of related pages under a certain topic.",
-            "updated": 1613755651132
+            "updated": 1613755651132,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt keine Seite, die exakt ein Thema beschreibt. Stattdessen wird der Name des Docs-Themas verwendet, um eine Reihe von verwandten Seiten unter einem bestimmten Thema zu gruppieren.",
+                    "updated": 1633860255701
+                }
+            ]
         }
     ]
 }

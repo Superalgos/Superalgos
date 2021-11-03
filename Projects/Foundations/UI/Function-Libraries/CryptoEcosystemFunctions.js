@@ -17,7 +17,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 let cryptoExchanges = parent.cryptoExchanges[i]
                 for (let j = 0; j < cryptoExchanges.exchanges.length; j++) {
                     let exchange = cryptoExchanges.exchanges[j]
-                    let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(exchange.payload, 'codeName')
+                    let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(exchange.payload, 'codeName')
                     currentExchanges.set(codeName, exchange)
                 }
             }
@@ -44,7 +44,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 let exchange = exchanges[i]
                 let existingExchange = currentExchanges.get(exchange.id)
                 if (existingExchange === undefined) {
-                    let newExchange = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
+                    let newExchange = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Crypto Exchange')
                     newExchange.name = exchange.name
                     newExchange.config = '{ \n\"codeName\": \"' + exchange.id + '\"\n}'
                     newExchange.payload.floatingObject.collapseToggle()
@@ -68,11 +68,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         let currentAssets = new Map()
         for (let j = 0; j < node.assets.length; j++) {
             let asset = node.assets[j]
-            let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
+            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
             currentAssets.set(codeName, asset)
         }
 
-        let exchangeId = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload.parentNode.payload, 'codeName')
+        let exchangeId = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload.parentNode.payload, 'codeName')
 
         try {
             let params = {
@@ -86,7 +86,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     node.payload.uiObject.setErrorMessage('Failed to Fetch Assets from the Exchange')
                     return
                 }
-                let queryParams = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'addMissingAssetsFilter')
+                let queryParams = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'addMissingAssetsFilter')
 
                 let markets = JSON.parse(data)
 
@@ -118,7 +118,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     }
 
                     function addAsset(name) {
-                        let newAsseet = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
+                        let newAsseet = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Asset')
                         newAsseet.name = name
                         newAsseet.config = '{ \n\"codeName\": \"' + name + '\"\n}'
                     }
@@ -142,7 +142,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         let exchangeAssets = node.payload.parentNode.exchangeAssets
         for (let j = 0; j < exchangeAssets.assets.length; j++) {
             let asset = exchangeAssets.assets[j]
-            let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
+            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
             currentAssets.set(codeName, asset)
         }
 
@@ -150,11 +150,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         let exchangeMarkets = node
         for (let j = 0; j < exchangeMarkets.markets.length; j++) {
             let asset = exchangeMarkets.markets[j]
-            let codeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
+            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(asset.payload, 'codeName')
             currentMarkets.set(codeName, asset)
         }
 
-        let exchangeId = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload.parentNode.payload, 'codeName')
+        let exchangeId = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload.parentNode.payload, 'codeName')
 
         try {
             let params = {
@@ -187,7 +187,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     }
 
                     function addMarket(name, baseAsset, quotedAsset) {
-                        let newMarket = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Market')
+                        let newMarket = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Market')
                         newMarket.name = name
                         newMarket.config = '{ \n\"codeName\": \"' + name + '\"\n}'
                         newMarket.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
@@ -199,8 +199,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         newMarket.quotedAsset.payload.floatingObject.distanceToParent = DISTANCE_TO_PARENT.PARENT_100X
                         newMarket.baseAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
                         newMarket.quotedAsset.payload.floatingObject.arrangementStyle = ARRANGEMENT_STYLE.CONCAVE
-                        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(newMarket.baseAsset, baseAsset)
-                        UI.projects.foundations.functionLibraries.attachDetach.referenceAttachNode(newMarket.quotedAsset, quotedAsset)
+                        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(newMarket.baseAsset, baseAsset)
+                        UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(newMarket.quotedAsset, quotedAsset)
 
                         currentMarkets.set(name, newMarket)
                     }
@@ -218,7 +218,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
     ) {
 
         let market = node
-        let cryptoExchange = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
+        let cryptoExchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {
             node.payload.uiObject.setErrorMessage('Market must be a descendant of a Crypto Exchange')
             return
@@ -270,12 +270,12 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Tasks
                         */
-                        let dataTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
+                        let dataTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
                         if (dataTasks === undefined) {
-                            dataTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
+                            dataTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
                         }
                         /*
-                        We will make ourserves sure that the Project Data Tasks nodes are there.
+                        We will make ourselves sure that the Project Data Tasks nodes are there.
                         */
                         dataTasks.payload.uiObject.menu.internalClick('Add Missing Project Data Tasks')
                         dataTasks.payload.uiObject.menu.internalClick('Add Missing Project Data Tasks')
@@ -290,9 +290,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
 
                         function installTheRestOfTheBranch(projectDataTasks) {
-                            let exchangeDataTasks = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectDataTasks, 'Exchange Data Tasks', cryptoExchange)
+                            let exchangeDataTasks = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectDataTasks, 'Exchange Data Tasks', cryptoExchange)
                             exchangeDataTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                            let marketDataTask = UI.projects.foundations.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes)
+                            let marketDataTask = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeDataTasks, 'Market Data Tasks', market, rootNodes)
 
                             UI.projects.foundations.utilities.menu.menuClick(marketDataTask, 'Add Missing Data Mine Tasks', true)
                             UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketDataTask.dataMineTasks, 'Add All Tasks', true)
@@ -303,12 +303,12 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Learning Tasks
                         */
-                        let learningTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
+                        let learningTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
                         if (learningTasks === undefined) {
-                            learningTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
+                            learningTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
                         }
                         /*
-                        We will make ourserves sure that the Project Learning Tasks nodes are there.
+                        We will make ourselves sure that the Project Learning Tasks nodes are there.
                         */
                         learningTasks.payload.uiObject.menu.internalClick('Add Missing Project Learning Tasks')
                         learningTasks.payload.uiObject.menu.internalClick('Add Missing Project Learning Tasks')
@@ -323,16 +323,16 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
 
                         function installTheRestOfTheBranch(projectLearningTasks) {
-                            let exchangeLearningTasks = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectLearningTasks, 'Exchange Learning Tasks', cryptoExchange)
+                            let exchangeLearningTasks = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectLearningTasks, 'Exchange Learning Tasks', cryptoExchange)
                             exchangeLearningTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                            let marketLearningTask = UI.projects.foundations.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes)
+                            let marketLearningTask = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeLearningTasks, 'Market Learning Tasks', market, rootNodes)
 
                             UI.projects.foundations.utilities.menu.menuClick(marketLearningTask, 'Add Missing Learning Mine Tasks', true)
                             UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketLearningTask.learningMineTasks, 'Add All Tasks', true)
 
                             /* This will be needed at the charting space, for creating Dashboards */
-                            let backLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketLearningTask, 'Back Learning Session')
-                            let liveLearningSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketLearningTask, 'Live Learning Session')
+                            let backLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketLearningTask, 'Back Learning Session')
+                            let liveLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketLearningTask, 'Live Learning Session')
 
                             let allSessionsArray = backLearningSessionsArray
                                 .concat(liveLearningSessionsArray)
@@ -355,14 +355,14 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installEnvironment(environmentType) {
                             /*
-                            Now we install the environmnet at the current Network Node
+                            Now we install the environment at the current Network Node
                             */
-                            let tradingTasks = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
+                            let tradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
-                                tradingTasks = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
+                                tradingTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
                             }
                             /*
-                             We will make ourserves sure that the Project Trading Tasks nodes are there.
+                             We will make ourselves sure that the Project Trading Tasks nodes are there.
                              */
                             tradingTasks.payload.uiObject.menu.internalClick('Add Missing Project Trading Tasks')
                             tradingTasks.payload.uiObject.menu.internalClick('Add Missing Project Trading Tasks')
@@ -377,18 +377,18 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             }
 
                             function installTheRestOfTheBranch(projectTradingTasks) {
-                                let exchangeTradingTasks = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectTradingTasks, 'Exchange Trading Tasks', cryptoExchange)
+                                let exchangeTradingTasks = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectTradingTasks, 'Exchange Trading Tasks', cryptoExchange)
                                 exchangeTradingTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                                let marketTradingTask = UI.projects.foundations.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes)
+                                let marketTradingTask = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeTradingTasks, 'Market Trading Tasks', market, rootNodes)
 
                                 UI.projects.foundations.utilities.menu.menuClick(marketTradingTask, 'Add Missing Trading Mine Tasks', true)
                                 UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketTradingTask.tradingMineTasks, 'Add All Tasks', true)
 
                                 /* This will be needed at the charting space, for creating Dashboards */
-                                let backtestingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
-                                let liveTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
-                                let paperTradingSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Paper Trading Session')
-                                let forwardSessionsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(marketTradingTask, 'Forward Testing Session')
+                                let backtestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Backtesting Session')
+                                let liveTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Live Trading Session')
+                                let paperTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Paper Trading Session')
+                                let forwardSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketTradingTask, 'Forward Testing Session')
                                 let allSessionsArray = backtestingSessionsArray
                                     .concat(liveTradingSessionsArray)
                                     .concat(paperTradingSessionsArray)
@@ -404,17 +404,17 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
-                        let dataMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
+                        let dataMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
                         if (dataMinesData === undefined) {
-                            dataMinesData = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
+                            dataMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
                         }
                         dataMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
-                        We will make ourserves sure that the Project Data Products nodes are there.
+                        We will make ourselves sure that the Project Data Products nodes are there.
                         */
                         dataMinesData.payload.uiObject.menu.internalClick('Add Missing Project Data Products')
                         dataMinesData.payload.uiObject.menu.internalClick('Add Missing Project Data Products')
@@ -429,9 +429,9 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
 
                         function installTheRestOfTheBranch(projectDataProducts) {
-                            let exchangeDataProducts = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectDataProducts, 'Exchange Data Products', cryptoExchange)
+                            let exchangeDataProducts = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectDataProducts, 'Exchange Data Products', cryptoExchange)
                             exchangeDataProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                            let marketDataProducts = UI.projects.foundations.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes)
+                            let marketDataProducts = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeDataProducts, 'Market Data Products', market, rootNodes)
                             marketDataProducts.payload.floatingObject.collapseToggle()
 
                             UI.projects.foundations.utilities.menu.menuClick(marketDataProducts, 'Add All Data Mine Products', true)
@@ -443,17 +443,17 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
-                        let learningMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
+                        let learningMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
                         if (learningMinesData === undefined) {
-                            learningMinesData = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
+                            learningMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
                         }
                         learningMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
-                        We will make ourserves sure that the Project Learning Products nodes are there.
+                        We will make ourselves sure that the Project Learning Products nodes are there.
                         */
                         learningMinesData.payload.uiObject.menu.internalClick('Add Missing Project Learning Products')
                         learningMinesData.payload.uiObject.menu.internalClick('Add Missing Project Learning Products')
@@ -469,16 +469,16 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installTheRestOfTheBranch(projectLearningProducts) {
 
-                            let exchangeLearningProducts = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectLearningProducts, 'Exchange Learning Products', cryptoExchange)
+                            let exchangeLearningProducts = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectLearningProducts, 'Exchange Learning Products', cryptoExchange)
                             exchangeLearningProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                            let marketLearningProducts = UI.projects.foundations.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeLearningProducts, 'Market Learning Products', market, rootNodes)
+                            let marketLearningProducts = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeLearningProducts, 'Market Learning Products', market, rootNodes)
                             marketLearningProducts.payload.floatingObject.collapseToggle()
                             /*
                             Create the new session references.
                             */
                             for (let i = 0; i < learningSessionsCreatedArray.length; i++) {
                                 let session = learningSessionsCreatedArray[i]
-                                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(marketLearningProducts, session, true) === true) {
+                                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(marketLearningProducts, session, true) === true) {
                                     UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')
                                 }
                             }
@@ -498,17 +498,17 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Here we complete the missing stuff at Data Mines Data
                         */
-                        let dataStorage = UI.projects.foundations.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
-                            dataStorage = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
                         }
-                        let tradingMinesData = UI.projects.foundations.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
+                        let tradingMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
                         if (tradingMinesData === undefined) {
-                            tradingMinesData = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
+                            tradingMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
                         }
                         tradingMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
-                        We will make ourserves sure that the Project Trading Products nodes are there.
+                        We will make ourselves sure that the Project Trading Products nodes are there.
                         */
                         tradingMinesData.payload.uiObject.menu.internalClick('Add Missing Project Trading Products')
                         tradingMinesData.payload.uiObject.menu.internalClick('Add Missing Project Trading Products')
@@ -524,16 +524,16 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                         function installTheRestOfTheBranch(projectTradingProducts) {
 
-                            let exchangeTradingProducts = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectTradingProducts, 'Exchange Trading Products', cryptoExchange)
+                            let exchangeTradingProducts = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectTradingProducts, 'Exchange Trading Products', cryptoExchange)
                             exchangeTradingProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                            let marketTradingProducts = UI.projects.foundations.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes)
+                            let marketTradingProducts = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangeTradingProducts, 'Market Trading Products', market, rootNodes)
                             marketTradingProducts.payload.floatingObject.collapseToggle()
                             /*
                             Create the new session references.
                             */
                             for (let i = 0; i < tradingSessionsCreatedArray.length; i++) {
                                 let session = tradingSessionsCreatedArray[i]
-                                if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenById(marketTradingProducts, session, true) === true) {
+                                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(marketTradingProducts, session, true) === true) {
                                     UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketTradingProducts, session, 'Trading Session Reference')
                                 }
                             }
@@ -553,7 +553,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function installInChartingSpace(chartingSpace) {
                 /*
-                We will make ourserves sure that the Project Data Tasks nodes are there.
+                We will make ourselves sure that the Project Data Tasks nodes are there.
                 */
                 chartingSpace.payload.uiObject.menu.internalClick('Add Missing Project Dashboards')
                 chartingSpace.payload.uiObject.menu.internalClick('Add Missing Project Dashboards')
@@ -574,12 +574,12 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         If the Dashboard we need is not already there we create a new one. 
                         */
                         let arrayItem = dashboardsArray[i]
-                        let dashboard = UI.projects.foundations.utilities.nodeChildren.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
+                        let dashboard = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
                         dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.lanNetworkNode.name
                         /*
                         We delete all the existing Time Machines related to the market we are currently installing. 
                         For that, we make a new array with the existing Time Machines so that the deleting
-                        of each node does not affect the proccessing of the whole set.
+                        of each node does not affect the processing of the whole set.
                         */
                         let timeMachines = []
                         for (let i = 0; i < dashboard.timeMachines.length; i++) {
@@ -591,19 +591,19 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let session = timeMachine.payload.referenceParent
                             if (session === undefined || session.cleaned === true) {
                                 /* 
-                                This is what usually happens, that the intall process make these 
+                                This is what usually happens, that the install process make these
                                 time machines to lose their reference parent since the install
                                 process deletes them.
                                 */
-                                UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                                 continue
                             }
-                            let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                            let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                             if (marketTradingTasks === undefined) { continue }
                             if (marketTradingTasks.payload === undefined) { continue }
                             if (marketTradingTasks.payload.referenceParent === undefined) { continue }
                             if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                                UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                             }
                         }
                         /*
@@ -638,23 +638,23 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function uninstallInChartingSpace(chartingSpace) {
 
-                /* Delete all time machines which are referencing sessions inside the market being unistalled. */
-                let timeMachines = UI.projects.foundations.utilities.branches.nodeBranchToArray(chartingSpace, 'Time Machine')
+                /* Delete all time machines which are referencing sessions inside the market being uninstalled. */
+                let timeMachines = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(chartingSpace, 'Time Machine')
                 for (let i = 0; i < timeMachines.length; i++) {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
                     if (session === undefined) { continue }
-                    let marketTradingTasks = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
                     if (marketTradingTasks === undefined) { continue }
                     if (marketTradingTasks.payload === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent === undefined) { continue }
                     if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                        UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                     }
                 }
 
                 /* Delete all Dashboards that does not have time machines inside. */
-                let dashboardArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(chartingSpace, 'Dashboard')
+                let dashboardArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(chartingSpace, 'Dashboard')
                 for (let i = 0; i < dashboardArray.length; i++) {
                     let dashboard = dashboardArray[i]
                     if (dashboard.timeMachines.length === 0) {
@@ -664,18 +664,18 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         */
                         let projectReference = dashboard.payload.parentNode
                         schemaDocument = getSchemaDocument(dashboard)
-                        UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(dashboard, rootNodes)
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(dashboard, rootNodes)
                         if (projectReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                             if (projectReference[schemaDocument.propertyNameAtParent] !== undefined) {
                                 if (projectReference[schemaDocument.propertyNameAtParent].length === 0) {
-                                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
+                                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
                                 }
                             }
                         }
                     }
                 }
 
-                /* Scan Networks for the market being unistalled to delete it. */
+                /* Scan Networks for the market being uninstalled to delete it. */
                 for (let i = 0; i < rootNodes.length; i++) {
                     let rootNode = rootNodes[i]
                     if (rootNode.type === 'LAN Network') {
@@ -686,12 +686,12 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
             function uninstallInNetwork(network) {
 
-                let marketDataTasksArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
-                let marketTradingTasksArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
-                let marketLearningTasksArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Learning Tasks')
-                let marketDataProductsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
-                let marketTradingProductsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
-                let marketLearningProductsArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(network, 'Market Learning Products')
+                let marketDataTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
+                let marketTradingTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
+                let marketLearningTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Learning Tasks')
+                let marketDataProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
+                let marketTradingProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
+                let marketLearningProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Learning Products')
 
                 uninstalMarketArray(marketDataTasksArray)
                 uninstalMarketArray(marketTradingTasksArray)
@@ -712,7 +712,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             let exchangeReference = marketReference.payload.parentNode
                             let schemaDocument = getSchemaDocument(marketReference)
-                            UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(marketReference, rootNodes)
+                            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(marketReference, rootNodes)
                             if (exchangeReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                                 if (exchangeReference[schemaDocument.propertyNameAtParent].length === 0) {
                                     /* 
@@ -721,10 +721,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                     */
                                     let projectReference = exchangeReference.payload.parentNode
                                     schemaDocument = getSchemaDocument(exchangeReference)
-                                    UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(exchangeReference, rootNodes)
+                                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(exchangeReference, rootNodes)
                                     if (projectReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                                         if (projectReference[schemaDocument.propertyNameAtParent].length === 0) {
-                                            UI.projects.foundations.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
+                                            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)
                                         }
                                     }
                                 }

@@ -37,7 +37,25 @@
             {
                 "language": "TR",
                 "text": "Ön ucu çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Başka tarayıcılarda test yapmıyoruz!",
-                "updated": 1633119819656
+                "updated": 1633119819656,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Als je het frontend draait, gebruik dan Chrome, of Safari op de Mac! We testen niet met andere browsers!",
+                "updated": 1633849729343,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie das Frontend ausführen, verwenden Sie Chrome oder Safari auf dem Mac! Wir testen es nicht mit anderen Browsern!",
+                "updated": 1634070256991,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Когда запускаете внешний интерфейс, используйте Chrome или Safari - на Mac! Мы не тестируем ни на каких-дибо других браузерах!\n",
+                "updated": 1635449722541
             }
         ]
     },
@@ -73,7 +91,25 @@
                 {
                     "language": "TR",
                     "text": "Tarayıcıların farklı davrandığı bilinen bir gerçektir ve diğer tarayıcılarda çalışmayan özellikleri biliyoruz. Chrome veya Safari kullanıyorsanız, İleri'yi tıklayın ve devam edin. Değilse, aşağıdakileri yapın:",
-                    "updated": 1633119849958
+                    "updated": 1633119849958,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een feit dat browsers zich verschillend gedragen, en er zijn functies bekend die niet werken op andere browsers. Als u Chrome of Safari gebruikt, klik dan op Volgende en ga verder. Zo niet, doe dan het volgende:",
+                    "updated": 1633854517473,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Webbrowser verhalten sich unterschiedlich. Wir wissen von Funktionen, die in anderen Browsern nicht funktionieren. Wenn Sie mit Chrome oder Safari arbeiten, klicken Sie auf Weiter und fahren Sie fort. Wenn nicht, gehen Sie wie folgt vor:",
+                    "updated": 1634160046151,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошо известный факт, что браузеры работают по-разному, и мы знаем о функциях, которые не работают в других браузерах! Если Вы используете Chrome или Safari, нажмите Next и продолжайте. В обратном случае, выполните следующие действия:",
+                    "updated": 1635450080862
                 }
             ]
         },
@@ -109,7 +145,25 @@
                 {
                     "language": "TR",
                     "text": "Mevcut URL'yi kopyalayın;",
-                    "updated": 1633119896420
+                    "updated": 1633119896420,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "kopieer de huidige URL;",
+                    "updated": 1633849856387,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "kopieren Sie die aktuelle URL;",
+                    "updated": 1634070306435,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "скопируйте текущий URL-адрес;",
+                    "updated": 1635450108634
                 }
             ]
         },
@@ -145,7 +199,25 @@
                 {
                     "language": "TR",
                     "text": "Bu tarayıcıyı olduğu gibi kapatın; öğreticiyi kapatmayın...",
-                    "updated": 1633119959684
+                    "updated": 1633119959684,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "sluit de browser; niet de tutorial afsluiten...",
+                    "updated": 1633849937374,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließen Sie diesen Browser so wie er ist; dies schließt nicht das Lernprogramm...",
+                    "updated": 1634070358662,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "закройте этот браузер как есть, но не закрывайте учебное пособие;",
+                    "updated": 1635450191799
                 }
             ]
         },
@@ -181,7 +253,25 @@
                 {
                     "language": "TR",
                     "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
-                    "updated": 1633119977867
+                    "updated": 1633119977867,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "open Chrome/Safari en plak de URL; de tutorial hoort te openen op deze stap bij terugkomst!",
+                    "updated": 1633850034853,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie Chrome/Safari und fügen Sie die URL ein; das Tutorial wird bei diesem Schritt geöffnet sein.",
+                    "updated": 1634160173540,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Откройте Chrome/Safari и вставьте URL-адрес; учебное пособие должно быть открыто на этом шаге, когда Вы вернетесь!",
+                    "updated": 1635450715330
                 }
             ]
         },
@@ -216,7 +306,25 @@
                 {
                     "language": "TR",
                     "text": "Çevrimiçi destek sunuyoruz, ancak başka bir tarayıcıyla size yardımcı olamayız!",
-                    "updated": 1633120004286
+                    "updated": 1633120004286,
+                    "style": "Warning"
+                },
+                {
+                    "language": "NL",
+                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere browser!",
+                    "updated": 1633885540625,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir bieten Online-Support, aber wir können Ihnen mit keinem anderen Browser helfen!",
+                    "updated": 1634070371187,
+                    "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы предлагаем online поддержку, но мы не можем помочь Вам в работе с каким-либо другим браузером!",
+                    "updated": 1635450697046
                 }
             ]
         }

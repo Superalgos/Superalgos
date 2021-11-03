@@ -42,7 +42,13 @@
             {
                 "language": "RU",
                 "text": "Есть еще один инструмент, который может оказаться полезным для управлением временным простарнством! Встроенная функция масштабирования браузера!",
-                "updated": 1635609923705
+                "updated": 1635609923705,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Uzay-zamanı manipüle etmek için yararlı bulabileceğiniz bir araç daha var! Yerel tarayıcı yakınlaştırma işlevi!",
+                "updated": 1635951488270
             }
         ]
     },
@@ -85,7 +91,13 @@
                 {
                     "language": "RU",
                     "text": " Может, у Вас возникнет желание визуализировать большие участки Design Space , чем позволяет Ваш экран.",
-                    "updated": 1635610025598
+                    "updated": 1635610025598,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen Tasarım Alanının ( Design Space )ekranınızın izin verdiğinden daha büyük bölümlerini görselleştirmek isteyebilirsiniz.",
+                    "updated": 1635951580747
                 }
             ]
         },
@@ -127,7 +139,13 @@
                 {
                     "language": "RU",
                     "text": "Нажмите Ctrl и прокрутите колесико мыши в Windows или нажмите ⌘ и \"+\" или \"-\" на Mac.",
-                    "updated": 1635610153211
+                    "updated": 1635610153211,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Windows'ta Ctrl'ye basın ve fare tekerleği le büyürün küçültün. Yada Mac'te ⌘ ve - veya +'yı kullanın.",
+                    "updated": 1635951641013
                 }
             ]
         },
@@ -173,7 +191,13 @@
                 {
                     "language": "RU",
                     "text": "Chrome указывает уровень масштабирования в правом верхнем углу. Когда Вы увеличиваете или уменьшаете масштаб, пространство дизайна центрируется на экране. Используйте карту пространства дизайна, чтобы вернуться туда, где Вы были.",
-                    "updated": 1635610570380
+                    "updated": 1635610570380,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Chrome, sağ üst köşedeki yakınlaştırma düzeyini gösterir. Yakınlaştırırken veya uzaklaştırırken, tasarım alanı ekranda ortalanır. Bulunduğunuz yere geri dönmek için tasarım alanı haritasını kullanın.",
+                    "updated": 1635951707385
                 }
             ]
         }

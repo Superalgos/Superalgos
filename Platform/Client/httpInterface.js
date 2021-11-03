@@ -1,4 +1,3 @@
-const {graphql} = require("@octokit/graphql");
 exports.newHttpInterface = function newHttpInterface() {
 
     /*
@@ -642,7 +641,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         // If running the electron app do not try to get git tool. I don't allow it.
                         if (process.env.SA_MODE === 'gitDisable') {
-                            console.log('[WARNING] No contributions on binary distributions. Do manual installation')
+                            console.log('[WARN] No contributions on binary distributions. Do manual installation')
                             break
                         }
                         switch (requestPath[2]) { // switch by command

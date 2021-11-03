@@ -17,10 +17,38 @@ function newFoundationsDocsSearchResultsPage() {
 
     function render() {
 
-        let resultsArary = []
+        let index = UI.projects.education.spaces.docsSpace.searchEngine.documentIndex
+        let resultsArray = []
         let initialTime = new Date()
-        buildResultsArray()
-        buildHTML()
+        // buildResultsArray()
+
+
+        let searchByType = index.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+            pluck: 'docsSchemaDocument:type',
+            enrich: true,
+            limit: 10000
+        })
+        let searchByText = index.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+            pluck: 'text',
+            enrich: true,
+            limit: 10000
+        })
+
+        // Search in all fields and remove duplicates
+        Promise.all([searchByType, searchByText]).then(
+            function (values) {
+                let flags = {}
+                values.forEach(arrResult => {
+                   arrResult.forEach(result => {
+                       if (!flags[result.id]) {
+                           flags[result.id] = true;
+                           resultsArray.push({documentIndex: result.doc});
+                       }
+                   })
+                })
+                buildHTML()
+            }
+        )
 
         function buildResultsArray() {
             for (let i = 0; i < UI.projects.education.spaces.docsSpace.searchEngine.docsIndex.length; i++) {
@@ -179,7 +207,9 @@ function newFoundationsDocsSearchResultsPage() {
                     }
                 }
 
-                if (documentPoints === 0) { continue } // No matches anywhere
+                if (documentPoints === 0) {
+                    continue
+                } // No matches anywhere
 
                 let result = {
                     documentIndex: documentIndex,
@@ -187,21 +217,21 @@ function newFoundationsDocsSearchResultsPage() {
                 }
                 let added = false
 
-                if (resultsArary.length === 0) {
-                    resultsArary.push(result)
+                if (resultsArray.length === 0) {
+                    resultsArray.push(result)
                     added = true
                 } else {
-                    for (let j = 0; j < resultsArary.length; j++) {
-                        let thisResult = resultsArary[j]
+                    for (let j = 0; j < resultsArray.length; j++) {
+                        let thisResult = resultsArray[j]
                         if (result.documentPoints > thisResult.documentPoints) {
-                            resultsArary.splice(j, 0, result)
+                            resultsArray.splice(j, 0, result)
                             added = true
                             break
                         }
                     }
                 }
                 if (added === false) {
-                    resultsArary.push(result)
+                    resultsArray.push(result)
                 }
             }
         }
@@ -231,8 +261,8 @@ function newFoundationsDocsSearchResultsPage() {
                 HTML = HTML + '<p> ' + tab.toUpperCase() + '_TOTAL_RESULTS results (' + tab.toUpperCase() + '_TOTAL_SECONDS seconds)</p>'
 
                 let resultCounter = 0
-                for (let j = 0; j < resultsArary.length; j++) {
-                    let result = resultsArary[j]
+                for (let j = 0; j < resultsArray.length; j++) {
+                    let result = resultsArray[j]
 
                     if (tab !== 'All') {
                         if (tab.indexOf(result.documentIndex.category) < 0) {

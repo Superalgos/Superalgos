@@ -1,6 +1,7 @@
 function newFoundationsDocsSearchEngine() {
     let thisObject = {
         docsIndex: undefined,
+        documentIndex: undefined,
         setUpSearchEngine: setUpSearchEngine,
         initialize: initialize,
         finalize: finalize
@@ -10,6 +11,31 @@ function newFoundationsDocsSearchEngine() {
 
     function initialize() {
         thisObject.docsIndex = []
+        thisObject.documentIndex = new FlexSearch.Document({
+            preset: "performance",
+            worker: true,
+            encoder: "extra",
+            tokenize: "full",
+            // boost: function (words, term, index) {
+            //     let factor = 0;
+            //     for (let i = 0; i < words.length; i++) {
+            //         if (words[i] === term) factor++;
+            //     }
+            //     return factor || 1;
+            // },
+            document: {
+                index: [
+                    "docsSchemaDocument:type",
+                    "text",
+                ],
+                store: true
+            },
+        })
+    }
+
+    function boostFunction() {
+        console.log('boooost')
+        return 1
     }
 
     function finalize() {
@@ -17,8 +43,7 @@ function newFoundationsDocsSearchEngine() {
     }
 
     function setUpSearchEngine(callbackFunction) {
-
-        /* 
+        /*
         This is a way to avoid indexing the docs, if the user does not want to.
         */
         let docsSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
@@ -63,97 +88,109 @@ function newFoundationsDocsSearchEngine() {
                 /* Search in Nodes */
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Node' + project + i,                     // since we don't have a real ID we concatenate some values to achieve an unique ID
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i],
                         category: 'Node',
-                        project: project
+                        project: project,
+                        // We are creating a single field containing the definition and paragraphs concatenated, leveraging the search logic to the algorithm
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsNodeSchema[i]),
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+
+                    thisObject.documentIndex.add(documentIndex)
+
                 }
                 asyncCallFinished()
             }
+
             function searchInConcepts() {
-                /* Search in Concepts */
+                //!* Search in Concepts *!/
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Concept' + project + i,
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i],
                         category: 'Concept',
-                        project: project
+                        project: project,
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsConceptSchema[i])
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+
+                    thisObject.documentIndex.add(documentIndex)
                 }
                 asyncCallFinished()
             }
+
             function searchInNTopics() {
-                /* Search in Topics */
+                //!* Search in Topics *!/
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Topic' + project + i,
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i],
                         category: 'Topic',
-                        project: project
+                        project: project,
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsTopicSchema[i])
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+                    thisObject.documentIndex.add(documentIndex)
                 }
                 asyncCallFinished()
             }
+
             function searchInTutorials() {
-                /* Search in Tutorials */
+                //!* Search in Tutorials *!/
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Tutorial' + project + i,
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i],
                         category: 'Tutorial',
-                        project: project
+                        project: project,
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsTutorialSchema[i])
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+                    thisObject.documentIndex.add(documentIndex)
                 }
                 asyncCallFinished()
             }
+
             function searchInReviews() {
-                /* Search in Reviews */
+                //!* Search in Reviews *!/
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Review' + project + i,
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i],
                         category: 'Review',
-                        project: project
+                        project: project,
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsReviewSchema[i])
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+                    thisObject.documentIndex.add(documentIndex)
                 }
                 asyncCallFinished()
             }
+
             function searchInBooks() {
-                /* Search in Books */
+                //!* Search in Books *!/
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Book' + project + i,
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i],
                         category: 'Book',
-                        project: project
+                        project: project,
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.docsBookSchema[i])
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+                    thisObject.documentIndex.add(documentIndex)
+
                 }
                 asyncCallFinished()
             }
+
             function searchInWorkspaces() {
-                /* Search in Workspace */
+                //!* Search in Workspace *!/
                 for (let i = 0; i < SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.length; i++) {
                     documentIndex = {
-                        phraseCount: {},                // here we have an object with properties matching it paragraph style, and each property is a map of phrases and their total count.
+                        id: 'Workspace' + project + i,
                         docsSchemaDocument: SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i],
                         category: 'Workspace',
-                        project: project
+                        project: project,
+                        text: extractTextContentFromSchemaDocs(SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema[i])
                     }
-                    indexDocument(documentIndex)
-                    thisObject.docsIndex.push(documentIndex)
+                    thisObject.documentIndex.add(documentIndex)
+
                 }
                 asyncCallFinished()
             }
@@ -161,10 +198,70 @@ function newFoundationsDocsSearchEngine() {
             function asyncCallFinished() {
                 totalAsyncCallsFinished++
                 if (totalAsyncCallsMade === totalAsyncCallsFinished) {
+
                     callbackFunction()
                 }
             }
         }
+
+
+        function extractTextContentFromSchemaDocs(docsSchemaDocument) {
+            if (docsSchemaDocument === undefined) {
+                return
+            }
+
+            let text = undefined
+
+            if (docsSchemaDocument.topic !== undefined) {
+                text = docsSchemaDocument.topic
+            }
+            if (docsSchemaDocument.tutorial !== undefined) {
+                text = docsSchemaDocument.tutorial
+
+            }
+            if (docsSchemaDocument.review !== undefined) {
+                text = docsSchemaDocument.review
+            }
+            if (docsSchemaDocument.type !== undefined) {
+                text = docsSchemaDocument.type
+
+            }
+            if (docsSchemaDocument.definition !== undefined) {
+                text = docsSchemaDocument.definition.text
+                //TODO: index translations of the definitions as well, export as a Paragraph as in the original impl
+            }
+
+            // Appending everything to text field, no need to index it separately for this implementation
+
+
+            if (docsSchemaDocument.paragraphs !== undefined) {
+                for (let k = 0; k < docsSchemaDocument.paragraphs.length; k++) {
+                    let paragraph = docsSchemaDocument.paragraphs[k]
+                    text += ' '
+                    text += paragraph.text
+                    indexAllTranslations(paragraph)
+                }
+            }
+
+
+            function indexAllTranslations(paragraph) {
+                if (paragraph.translations === undefined) {
+                    return
+                }
+                for (let j = 0; j < paragraph.translations.length; j++) {
+                    let translation = paragraph.translations[j]
+                    text += ' '
+                    text += translation.text
+                }
+            }
+
+            function appendToText(textToAppend) {
+                text += textToAppend
+            }
+
+            return text
+        }
+
 
         function indexDocument(documentIndex) {
 
@@ -218,7 +315,9 @@ function newFoundationsDocsSearchEngine() {
             }
 
             function indexAllTranslations(paragraph) {
-                if (paragraph.translations === undefined) { return }
+                if (paragraph.translations === undefined) {
+                    return
+                }
                 for (i = 0; i < paragraph.translations.length; i++) {
                     let translation = paragraph.translations[i]
                     translation.style = paragraph.style
@@ -260,7 +359,9 @@ function newFoundationsDocsSearchEngine() {
                             let key = UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(phrase)
 
                             let thisPhraseCount = stylePhraseCount.get(key)
-                            if (thisPhraseCount === undefined) { thisPhraseCount = 0 }
+                            if (thisPhraseCount === undefined) {
+                                thisPhraseCount = 0
+                            }
                             thisPhraseCount++
 
                             stylePhraseCount.set(key, thisPhraseCount)
@@ -302,7 +403,7 @@ function newFoundationsDocsSearchEngine() {
                         nodeId: node.id,
                         nodeNameTypePath: nodeNameTypePath,
                         type: node.type,
-                        definition: { text: node.name },
+                        definition: {text: node.name},
                         paragraphs: []
                     }
                     if (node.config !== undefined) {

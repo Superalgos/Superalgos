@@ -7,7 +7,12 @@ let UI = {
     running: {}
 }
 
-let SA = { projects: {} }
+let SA = {
+    projects: {} ,
+    nodeModules: {
+        flexSearch: require("flexsearch")
+    }
+}
 /*
 We will use this to load functions originally intended for Nodejs
 */

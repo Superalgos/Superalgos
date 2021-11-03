@@ -195,7 +195,7 @@ function newFileCursor() {
       /*
 
       We are implementing here an algorithm designed to save bandwidth, memory and processing power at the browser.
-      We say there is a saving mode where the cursor is running at a minimum size. When the end user aproaches the time period the cursor
+      We say there is a saving mode where the cursor is running at a minimum size. When the end user approaches the time period the cursor
       is set, then it should exit the saving mode and go to its actual size.
 
       To do this we are going to measure the distance from the Time Frame received to the one the cursors was initialized with.
@@ -427,7 +427,7 @@ function newFileCursor() {
           let targetDate = new Date(cursorDate)
           targetDate.setUTCDate(targetDate.getUTCDate() + j)
 
-          /* Small algorith to allow load first the current date, then alternate between the most forwad and the most backwards ones. */
+          /* Small algorithm to allow load first the current date, then alternate between the most forward and the most backwards ones. */
           if (j === 0) { j++ } else {
             if (j < 0) {
               j = -j

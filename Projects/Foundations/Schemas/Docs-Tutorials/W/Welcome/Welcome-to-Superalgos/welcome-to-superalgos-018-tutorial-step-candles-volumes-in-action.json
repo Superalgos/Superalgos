@@ -36,7 +36,13 @@
             {
                 "language": "NL",
                 "text": "Dat klopt! Indicators gaan werken zodra de sensor bot klaar is met haar werk!",
-                "updated": 1634456917084
+                "updated": 1634456917084,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Верно! Индикаторы начнуть работать, как только сенсорный бот закончит свою работу! ",
+                "updated": 1635593922335
             }
         ]
     },
@@ -72,7 +78,13 @@
                 {
                     "language": "NL",
                     "text": "Je bekijkt het proces van de Candles Volumes. Ze veranderd de één-minuut candles die de sensor bot download van de exchange in candles voor alle tijdkaders.",
-                    "updated": 1634457056780
+                    "updated": 1634457056780,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы наблюдаете процесс увеличения объема свечей. Он превращает одноминутные свечи, которые сенсорный бот загружает с биржи, в свечи для всех временных рамок.",
+                    "updated": 1635594020777
                 }
             ]
         },
@@ -108,7 +120,13 @@
                 {
                     "language": "NL",
                     "text": "Wat gebeurt er als ze klaar is?",
-                    "updated": 1634457082071
+                    "updated": 1634457082071,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что произойдет после того, как он закончит?",
+                    "updated": 1635594060919
                 }
             ]
         },
@@ -143,7 +161,13 @@
                 {
                     "language": "NL",
                     "text": "De Candles Volumes bot moet klaar zijn, zodat andere bots hun werk kunnen gaan doen. Stel je voor dat een bot een 20-periodes Simple Moving Average moet berekenen voor alle tijdskaders. Zij heeft dan het Data Product van Candles Volumes nodig als input voor de SMA berekening. Een dergelijke behoefte noemen we een Data Dependency.",
-                    "updated": 1634457249372
+                    "updated": 1634457249372,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Другим ботам необходимы большие объемы свечей для полного окончания их работы для того, чтобы они могли приступить к своей. Представьте, что боту нужно рассчитать Simple Moving Average за 20 периодов для все временных рамок. Ему необходим Data Product, полученный по объемам свечей в качестве входных данных для рассчета SMA. Мы назывем такую потребность Data Dependency.",
+                    "updated": 1635594443248
                 }
             ]
         }

@@ -19,7 +19,7 @@
         },
         {
             "style": "Warning",
-            "text": "Be carefull not to damage anything in the App Schema file while editing it. You will get into trouble if you do. It can not only cause the UI to not load, but also damage the workspace you are working at.",
+            "text": "Be careful not to damage anything in the App Schema file while editing it. You will get into trouble if you do. It can not only cause the UI to not load, but also damage the workspace you are working at.",
             "updated": 1628255452468
         },
         {
@@ -34,7 +34,7 @@
         },
         {
             "style": "Text",
-            "text": "Locate inside the file, the definition of the Node Type you want to add the new Action to. Once localted add a menu item object to the menuItems array, like in the following example:"
+            "text": "Locate inside the file, the definition of the Node Type you want to add the new Action to. Once located add a menu item object to the menuItems array, like in the following example:"
         },
         {
             "style": "Json",
@@ -85,7 +85,7 @@
         },
         {
             "style": "List",
-            "text": "disableIfPropertyIsDefined: true when you want the Menu Item to be disabled if a certain property of the Node object is defined at runtime. This is used in conbination with the property propertyToCheckFor in the special situation that the Menu Item is used to create a child for this Node that is not part of a array of children and there can only be one child of that type.",
+            "text": "disableIfPropertyIsDefined: true when you want the Menu Item to be disabled if a certain property of the Node object is defined at runtime. This is used in combination with the property propertyToCheckFor in the special situation that the Menu Item is used to create a child for this Node that is not part of a array of children and there can only be one child of that type.",
             "updated": 1614789912636
         },
         {

@@ -304,7 +304,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -582,8 +582,8 @@
                                     "id": "a7651e92-ab96-49fc-af9c-f936682dd7a4",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 17254.72632349072,
-                                            "y": 44995.70258368287
+                                            "x": 17239.012212896778,
+                                            "y": 44951.327304290884
                                         },
                                         "targetPosition": {
                                             "x": 16964.948575603998,
@@ -612,8 +612,8 @@
                                     "id": "e7c21a28-fea6-48cc-a97c-cc43470bb2fc",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 17224.75619673933,
-                                            "y": 45223.348297213626
+                                            "x": 17258.39285582414,
+                                            "y": 45135.72180445895
                                         },
                                         "targetPosition": {
                                             "x": 16964.948575603998,
@@ -642,8 +642,38 @@
                                     "id": "962d9bc1-4e54-463c-86ae-43aec1db0f0f",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 17042.594289134755,
-                                            "y": 45363.12604510035
+                                            "x": 17165.687757511656,
+                                            "y": 45296.29174485685
+                                        },
+                                        "targetPosition": {
+                                            "x": 16964.948575603998,
+                                            "y": 45073.348297213626
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Pool",
+                                    "name": "Liquidity Rewards ETH",
+                                    "config": "{\n    \"codeName\": \"Liquidity-Rewards-ETH\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "e89ba06e-2f6c-42d0-8b3e-6cfa596f0058",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16996.307114584295,
+                                            "y": 45371.70486582411
                                         },
                                         "targetPosition": {
                                             "x": 16964.948575603998,
@@ -676,7 +706,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -701,7 +731,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -1064,7 +1094,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

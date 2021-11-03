@@ -45,7 +45,7 @@ function newFileStorage(host, port, scheme='http') {
         url = folder + filePath
       }
 
-      /* Scaping # since it breaks the URL */
+      /* Escaping # since it breaks the URL */
       url = url.replaceAll('#', '_HASHTAG_')
 
       httpRequest(undefined, url, (response, fileContent) => {
@@ -64,7 +64,7 @@ function newFileStorage(host, port, scheme='http') {
         let err = { code: 'The specified key does not exist.' }
         callBackFunction(err)
       } else {
-        console.log('Error geting the file from the serever:', err)
+        console.log('Error getting the file from the server:', err)
         callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
       }
     }

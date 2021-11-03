@@ -12,12 +12,12 @@ exports.newDesktopRoot = function newDesktopRoot() {
 
     async function run() {
         /* 
-        The DK object is accesible everywhere at the Superalgos Desktop App. 
+        The DK object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for this App.
         */
         global.DK = {}
         /* 
-        The SA object is accesible everywhere at the Superalgos Desktop App. 
+        The SA object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for Superalgos in general.
         */
         global.SA = {}

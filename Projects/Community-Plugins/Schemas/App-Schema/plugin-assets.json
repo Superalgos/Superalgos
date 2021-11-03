@@ -1,13 +1,13 @@
 {
-    "type": "Plugin Pools",
+    "type": "Plugin Assets",
     "menuItems": [
         {
-            "action": "Add Missing Plugin Pools",
-            "label": "Add Missing Pools",
+            "action": "Add Missing Plugin Assets",
+            "label": "Add Missing Assets",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Pools",
+            "relatedUiObject": "Assets",
             "actionFunction": "payload.executeAction",
             "actionProject": "Governance",
             "relatedUiObjectProject": "Governance"
@@ -25,7 +25,8 @@
     ],
     "addLeftIcons": true,
     "level": 1,
-    "propertyNameAtParent": "pluginPools",
+    "propertyNameAtParent": "pluginAssets",
+    "alternativeIcons": "Use Reference Parent Parent",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

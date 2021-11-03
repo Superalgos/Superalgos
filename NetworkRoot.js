@@ -12,12 +12,12 @@ exports.newNetworkRoot = function newNetworkRoot() {
 
     async function run() {
         /* 
-        The NT object is accesible everywhere at the Superalgos Network. 
+        The NT object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for this Network.
         */
         global.NT = {}
         /* 
-        The SA object is accesible everywhere at the Superalgos Network. 
+        The SA object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for Superalgos in general.
         */
         global.SA = {}

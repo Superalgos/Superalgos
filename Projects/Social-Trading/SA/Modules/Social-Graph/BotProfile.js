@@ -10,7 +10,7 @@ exports.newSocialTradingModulesSocialGraphBotProfile = function newSocialTrading
         userProfileId: undefined,
         botProfileId: undefined,
         botProfileHandle: undefined,
-        /* Bot Unitque Properties */
+        /* Bot Unique Properties */
         botAsset: undefined,
         botExchange: undefined,
         botEnabled: undefined,

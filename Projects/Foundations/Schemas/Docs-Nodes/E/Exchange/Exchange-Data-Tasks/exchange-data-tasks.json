@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "\nEl nodo exchange data tasks organiza las tareas de minería de datos por mercado. Es decir, cada mercado instalado en el sistema tiene un nodo de exchange data tasks que agrupa datos del mercado correspondientes a dicho mercado.\n",
-                "updated": 1624283490092
+                "updated": 1624283490092,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Узел Задачи обмена данными организует задачи интеллектуального анализа данных по обмену. Т.е. каждая биржа, установленная в системе, умеет узел Задач обмена данными, объединяющий все задачи рыночных данных, соответствующие указанной бирже.",
+                "updated": 1635591907050
             }
         ]
     },

@@ -54,8 +54,8 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
             to the profile making the query. How it can be related?
 
             1. The Emitter or Target profile must be the same as the Context Profile.
-            2. The Emitter or Traget profile must be at the Following map of the Context Profile.
-            3. The Emmiter or Target post must be belong to any profile at the Following of the Context Profile.
+            2. The Emitter or Target profile must be at the Following map of the Context Profile.
+            3. The Emitter or Target post must be belong to any profile at the Following of the Context Profile.
 
             Any of the above happening, means that indeed it is related.
             */
@@ -106,7 +106,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
             }
             /*
-            Test #2 : The Emitter or Traget profile must be at the Following map of the Context Profile.
+            Test #2 : The Emitter or Target profile must be at the Following map of the Context Profile.
             */
             if (thisObject.profile.botProfileId === undefined) {
                 /*
@@ -140,7 +140,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
             }
             /*
-            Test #3 : The Emmiter or Target post must be belong to any profile at the Following of the Context Profile.
+            Test #3 : The Emitter or Target post must be belong to any profile at the Following of the Context Profile.
             */
             if (thisObject.profile.botProfileId === undefined) {
                 /*

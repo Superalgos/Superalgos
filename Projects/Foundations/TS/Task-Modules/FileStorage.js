@@ -94,7 +94,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> getTextFile -> fileLocation: ' + fileLocation)
 
-                /* Here we actually reaad the file. */
+                /* Here we actually read the file. */
                 if (host === undefined || host === 'localhost' || host === ip.address() || host === '127.0.0.1') {
                     /* We read the file from the local file system. */
                     const fs = SA.nodeModules.fs
@@ -251,7 +251,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
             try {
                 logger.write(MODULE_NAME, '[INFO] FileStorage -> createTextFile -> fileLocation: ' + fileLocation)
 
-                /* If necesary a folder or folders are created before writing the file to disk. */
+                /* If necessary a folder or folders are created before writing the file to disk. */
                 SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(fileLocation)
 
                 /*
@@ -282,7 +282,7 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
                         }
                         if (keepPrevious === true) {
                             /*
-                            In some cases, we are going to keep a copy of the previous version of the file being written. This will be usefull to recover from crashes
+                            In some cases, we are going to keep a copy of the previous version of the file being written. This will be useful to recover from crashes
                             when the file written gets corrupted for any reason.
                             */
                             fs.unlink(fileLocation + '.Previous.json', onUnlinked)
@@ -451,9 +451,16 @@ exports.newFileStorage = function newFileStorage(processIndex, host, port) {
 
     function getFileViaHTTP(filePath, callback, callBackFunction) {
         try {
-
-            /* The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the prefix that includes this: ./Data-Storage/  */
-            filePath = filePath.substring(15, filePath.length)
+            /*
+            The filePath received is the one that is needed to fetch data from with fs. To do it via http we need to remove the
+            prefix that includes this: ./Data-Storage/
+            */
+            let pathArray = filePath.split('/')
+            let indexmax = pathArray.indexOf('My-Data-Storage') // TODO: get rid of hardcoded path name
+            for (var i = 0; i <= indexmax; i++) {
+                pathArray.shift()
+            }
+            filePath = pathArray.join('/')
 
             let http = SA.nodeModules.http
             let url = 'http://' + host +

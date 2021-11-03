@@ -1,3 +1,4 @@
+const {graphql} = require("@octokit/graphql");
 exports.newHttpInterface = function newHttpInterface() {
 
     /*
@@ -252,7 +253,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                                 console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Exchange-Market = ' + exchange + '-' + market)
-                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messeges Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                console.log('[INFO] httpInterface -> Webhook -> Fetch-Messages -> Messages Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
 
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(webhookMessages), httpResponse)
                                 webhookMessages = []
@@ -300,7 +301,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> Exchange-Market = ' + exchange + '-' + market)
                                     console.log('[INFO] httpInterface -> Webhook -> New-Message -> messageReceived = ' + messageReceived)
-                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messeges waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
+                                    console.log('[INFO] httpInterface -> Webhook -> New-Message -> Messages waiting to be Fetched by Webhooks Sensor Bot = ' + webhookMessages.length)
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                 }
                                 break
@@ -641,7 +642,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     {
                         // If running the electron app do not try to get git tool. I don't allow it.
                         if (process.env.SA_MODE === 'gitDisable') {
-                            console.log('[WARNING] No contributions on binary distributions. Do manual installation')
+                            console.log('[WARN] No contributions on binary distributions. Do manual installation')
                             break
                         }
                         switch (requestPath[2]) { // switch by command
@@ -723,7 +724,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
                                             console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
                                             console.log('')
-                                            console.log('Torubleshooting Tips:')
+                                            console.log('Troubleshooting Tips:')
                                             console.log('')
                                             console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
                                             console.log('2. Make sure you are running the latest version of Git available for your OS.')
@@ -880,7 +881,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             if (error === undefined) {
                                                 // Run node setup to prepare instance for branch change
                                                 await runNodeSetup()
-                                                // Return to UI that Branch is suggessfully changed 
+                                                // Return to UI that Branch is successfully changed
                                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                                             } else {
                                                 let docs = {
@@ -1027,7 +1028,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             case 'FixAppSchema': {
                                 /*
-                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fixt the
+                                We will use this process when we have moved APP SCHEMA files from one project to another, and we need to fix the
                                 actions where this node was referenced, so that it points to the new project where the node has moved to. 
                                 */
                                 let customResponse = {
@@ -1128,7 +1129,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                             let fileProject = allAppSchemasFileProjects[i]
                                                             //console.log(fileProject, project)
                                                             if (fileProject === project) {
-                                                                /* If the projec of the file is the same as the project found, then we consider this a match*/
+                                                                /* If the project of the file is the same as the project found, then we consider this a match*/
                                                                 hits = 1
                                                                 continue
                                                             }
@@ -1324,7 +1325,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 const title = 'Contribution: ' + mess
                                                 const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json' ;
 
-                                                const sha = await getSHA(path, octokit);
+                                                const sha = await getSHA(path);
+
+                                                if (sha === undefined){
+                                                    console.log('***** Abort GOV.USERPROFILE *****')
+                                                    return
+                                                }
+
                                                 let file = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
                                                     'Governance',
                                                     'User-Profiles',
@@ -1384,35 +1391,60 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     }
 
                                                 }
+
+
                                             }
 
-                                            async function getSHA(path, octokit) {
+                                            async function getSHA(path) {
                                                 let sha = ''
+                                                const { graphql } = SA.nodeModules.graphql
+
                                                 try{
-                                                    const result = await octokit.repos.getContent({
-                                                        owner: username,
-                                                        repo: "Superalgos",
-                                                        path,
-                                                        ref: currentBranch
-                                                    });
-                                                    sha = result.data.sha
+
+                                                    const { repository } = await graphql(
+                                                      '{  ' +
+                                                        '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                        '    object(expression: "develop:' + path +'") {' +
+                                                        '      ... on Blob {' +
+                                                        '        oid' +
+                                                        '      }' +
+                                                        '    }' +
+                                                        '    name' +
+                                                        '  }' +
+                                                        '}',
+                                                            {
+                                                                headers: {
+                                                                    authorization: 'token ' + token
+                                                                },
+                                                            }
+                                                        )
+
+                                                    if (repository.name === undefined){
+                                                        console.log('***** Token permission needed : User:READ *****')
+                                                        sha = undefined
+                                                        error = '***** Token permission needed : User:READ *****'
+                                                        return sha
+                                                    }
+
+                                                    if(repository.object === null ){
+                                                        console.log("[User Not Found] -> Creating new user")
+                                                        return sha
+                                                    }
+                                                    sha = repository.object.oid
                                                     return sha
 
                                                 } catch (err) {
-                                                    if (err.message === 'Not Found') {
-                                                        console.log("[User Not Found] -> Creating new user")
-                                                        return sha
-                                                    } else {
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
-                                                        console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                                        return sha
-                                                    }
+
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> Method call produced an error.')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> err.stack = ' + err.stack)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> commitMessage = ' + mess)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> username = ' + username)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> currentBranch = ' + currentBranch)
+                                                    console.log('[ERROR] httpInterface -> Gov -> contributeUserProfile -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                    return sha
+
                                                 }
                                             }
 
@@ -1780,7 +1812,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let folder = unescape(requestPath[3])
                                 let fileName = unescape(requestPath[4])
 
-                                /*Beta 12 Refactoring Code: Remove this before realeasing beta 12.*/
+                                /*Beta 12 Refactoring Code: Remove this before releasing beta 12.*/
                                 if (fileName === 'Superalgos-CL.json') {
                                     fileName = 'Superalgos-PL.json'
                                 }

@@ -69,7 +69,7 @@
         },
         {
             "style": "Text",
-            "text": "Same example as above but with RMA (Exponatial Moving Average) as the smoothing function."
+            "text": "Same example as above but with RMA (Exponential Moving Average) as the smoothing function."
         }
     ]
 }

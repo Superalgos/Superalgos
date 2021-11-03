@@ -14,7 +14,7 @@ function newFoundationsDocsSearchEngine() {
         thisObject.documentIndex = new FlexSearch.Document({
             preset: "performance",
             worker: true,
-            encoder: "extra",
+            encoder: "advanced",
             tokenize: "full",
             document: {
                 index: [
@@ -225,7 +225,7 @@ function newFoundationsDocsSearchEngine() {
             }
             if (docsSchemaDocument.definition !== undefined) {
                 let paragraph = {
-                    text: docsSchemaDocument.definition,
+                    text: docsSchemaDocument.definition.text,
                     translations: docsSchemaDocument.definition.translations
                 }
                 appendToTextField(paragraph.text)
@@ -260,7 +260,6 @@ function newFoundationsDocsSearchEngine() {
 
             return textField
         }
-
 
 
     }

@@ -1,4 +1,4 @@
-
+/* Root object*/
 /* Root objects*/
 let UI = {
     projects: {},
@@ -7,14 +7,10 @@ let UI = {
     running: {}
 }
 
-let SA = {
-    projects: {} ,
-    nodeModules: {
-        flexSearch: require("flexsearch")
-    }
-}
+let SA = { projects: {} }
 /*
 We will use this to load functions originally intended for Nodejs
 */
 let exports = {}
+
 

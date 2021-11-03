@@ -17,17 +17,17 @@ function newFoundationsDocsSearchResultsPage() {
 
     function render() {
 
-        let index = UI.projects.education.spaces.docsSpace.searchEngine.documentIndex
+        let docIndex = UI.projects.education.spaces.docsSpace.searchEngine.documentIndex
         let resultsArray = []
         let initialTime = new Date()
 
 
-        let searchByType = index.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+        let searchByType = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
             pluck: 'docsSchemaDocument:type',
             enrich: true,
             limit: 10000
         })
-        let searchByText = index.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+        let searchByText = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
             pluck: 'text',
             enrich: true,
             limit: 10000

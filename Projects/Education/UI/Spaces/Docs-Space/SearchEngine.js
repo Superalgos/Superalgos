@@ -268,7 +268,8 @@ function newFoundationsDocsSearchEngine() {
         /*
         We will scan the whole workspace and create an array with all of its nodes.
         */
-        let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let workspaceNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let rootNodes = workspaceNode.rootNodes
         let allNodesFound = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -277,6 +278,7 @@ function newFoundationsDocsSearchEngine() {
                 allNodesFound = allNodesFound.concat(nodeArray)
             }
         }
+
         /*
         We will create a document for each node, so that can later be indexed into the search engine.
         */
@@ -289,45 +291,58 @@ function newFoundationsDocsSearchEngine() {
                 let node = allNodesFound[i]
 
                 if (node.project === project) {
-                    let nodeNameTypePath = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(node)
-
-                    let docsSchemaDocument = {
-                        nodeId: node.id,
-                        nodeNameTypePath: nodeNameTypePath,
-                        type: node.type,
-                        definition: {text: node.name},
-                        paragraphs: []
-                    }
-                    if (node.config !== undefined) {
-                        let paragraph
-                        paragraph = {
-                            style: "Title",
-                            text: "Config"
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                        paragraph = {
-                            style: "Json",
-                            text: node.config
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                    }
-                    if (node.code !== undefined) {
-                        let paragraph
-                        paragraph = {
-                            style: "Title",
-                            text: "Code"
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                        paragraph = {
-                            style: "Javascript",
-                            text: node.code
-                        }
-                        docsSchemaDocument.paragraphs.push(paragraph)
-                    }
+                    let docsSchemaDocument = createDocsSchemaDocument(node)
                     SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(docsSchemaDocument)
                     SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(node.id, docsSchemaDocument)
                 }
+
             }
+            //Ugly hack to insert also the workspace node itself into the list to be indexed later on
+            if (project === 'Foundations') {
+                let docsSchemaDocument =  createDocsSchemaDocument(workspaceNode)
+                SCHEMAS_BY_PROJECT.get(project).array.workspaceSchema.push(docsSchemaDocument)
+                SCHEMAS_BY_PROJECT.get(project).map.workspaceSchema.set(workspaceNode.id, docsSchemaDocument)
+            }
+        }
+
+        function createDocsSchemaDocument(node) {
+            let nodeNameTypePath = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(node)
+
+            let docsSchemaDocument = {
+                nodeId: node.id,
+                nodeNameTypePath: nodeNameTypePath,
+                type: node.type,
+                definition: {text: node.name},
+                paragraphs: []
+            }
+            if (node.config !== undefined) {
+                let paragraph
+                paragraph = {
+                    style: "Title",
+                    text: "Config"
+                }
+                docsSchemaDocument.paragraphs.push(paragraph)
+                paragraph = {
+                    style: "Json",
+                    text: node.config
+                }
+                docsSchemaDocument.paragraphs.push(paragraph)
+            }
+            if (node.code !== undefined) {
+                let paragraph
+                paragraph = {
+                    style: "Title",
+                    text: "Code"
+                }
+                docsSchemaDocument.paragraphs.push(paragraph)
+                paragraph = {
+                    style: "Javascript",
+                    text: node.code
+                }
+                docsSchemaDocument.paragraphs.push(paragraph)
+            }
+
+            return docsSchemaDocument
         }
     }
 }

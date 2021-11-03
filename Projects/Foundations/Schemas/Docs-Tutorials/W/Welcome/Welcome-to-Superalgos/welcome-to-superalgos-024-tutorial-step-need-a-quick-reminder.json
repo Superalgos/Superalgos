@@ -42,7 +42,13 @@
             {
                 "language": "RU",
                 "text": "В этот момент я, вероятно, перезагружаю Ваш мозг. Но не волнуйтесь... Вы можете вернуться к любому предыдущему шагу.",
-                "updated": 1635611688610
+                "updated": 1635611688610,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bu noktada, muhtemelen hipokampüsünüzden taşıyorum! Ama merak etmeyin... önceki herhangi bir adıma geri dönebilirsiniz!",
+                "updated": 1635952703561
             }
         ]
     },
@@ -84,7 +90,13 @@
                 {
                     "language": "RU",
                     "text": "Если Вам когда-нибудь понадобится напоминание по любой из этих тем...",
-                    "updated": 1635611733808
+                    "updated": 1635611733808,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konulardan herhangi biri hakkında bir hatırlatmaya ihtiyacınız olursa...",
+                    "updated": 1635952719290
                 }
             ]
         },
@@ -125,7 +137,13 @@
                 {
                     "language": "RU",
                     "text": "Найдите Tutorial Topic и повторите ее! Вы можете найти меня в левом нижнем углу пространства дизайна, развернуть, просмотреть иерархию тем и шагов и нажать Play на любом шаге или теме. Темы расположены по часовой стрелке, начиная с правой стороны главного узла Tutorial.",
-                    "updated": 1635612033411
+                    "updated": 1635612033411,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Eğitim Konusu ( Tutorial Topic ) bulun ve tekrar oynatın! Tasarım alanının sol alt köşesinde beni bulabilir, genişletebilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
+                    "updated": 1635953243684
                 }
             ]
         },
@@ -167,7 +185,13 @@
                 {
                     "language": "RU",
                     "text": "\"Нужно быстрое напоминание?\" Найдите этот шаг в разделе \"Tutorials & Help\" - ниже. Затем нажмите Stop и перезапустите, нажав Play на указанном Tutorial Step!",
-                    "updated": 1635612228869
+                    "updated": 1635612228869,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Hızlı Bir Hatırlatıcıya mı ihtiyacınız var?\" Bu adımı aşağıdaki \"Öğreticiler ve Yardım\" başlığı altında bulun. Ardından Durdur'a tıklayın ve söz konusu Eğitim Adımında ( Tutorial Step ) Oynat'a tıklayarak yeniden başlatın!",
+                    "updated": 1635953298548
                 }
             ]
         }

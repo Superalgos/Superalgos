@@ -1,4 +1,3 @@
-const {graphql} = require("@octokit/graphql");
 exports.newHttpInterface = function newHttpInterface() {
 
     /*

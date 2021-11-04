@@ -53,6 +53,7 @@ SA.nodeModules = {
     lookpath: require('lookpath'),
     process: require('process'),
     childProcess: require('child_process')
+
 }
 /*
 Check if we are starting from a particular workspace.

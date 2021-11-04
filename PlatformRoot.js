@@ -52,8 +52,7 @@ SA.nodeModules = {
     simpleGit: require('simple-git'),
     lookpath: require('lookpath'),
     process: require('process'),
-    childProcess: require('child_process'),
-    flexSearch: require("flexsearch")
+    childProcess: require('child_process')
 
 }
 /*

@@ -17,13 +17,16 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     }
 
     async function initialize() {
+        p2pNodesToConnect = []
         /*
         We will setup here the maps and arryas we will need to operate within the P2P Network.
         */
-        let thisP2PNodeId = SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).signingAccountNodeId
+        let thisP2PNodeId = SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).signingAccountChildId
         for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
             let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
-
+            if (thisP2PNodeId !== p2pNetworkNode.node.id) {
+                p2pNodesToConnect.push(p2pNetworkNode)
+            }
         }
     }
 

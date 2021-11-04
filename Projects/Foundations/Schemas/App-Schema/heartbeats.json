@@ -28,7 +28,7 @@
     },
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Parameters->Learning Parameters->"
+        "compatibleTypes": "->Trading Parameters->Portfolio Parameters->Learning Parameters->"
     },
     "propertyNameAtParent": "heartbeats"
 }

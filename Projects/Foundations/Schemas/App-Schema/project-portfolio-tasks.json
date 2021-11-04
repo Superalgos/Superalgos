@@ -1,9 +1,9 @@
 {
-    "type": "Task Manager",
+    "type": "Project Portfolio Tasks",
     "menuItems": [
         {
-            "action": "Run All Tasks",
-            "label": "Run All Tasks",
+            "action": "Run All Exchange Portfolio Tasks",
+            "label": "Run All Exchange Portfolio Tasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
             "workDoneLabel": "Run Request Sent",
@@ -12,8 +12,8 @@
             "actionFunction": "payload.executeAction"
         },
         {
-            "action": "Stop All Tasks",
-            "label": "Stop All Tasks",
+            "action": "Stop All Exchange Portfolio Tasks",
+            "label": "Stop All Exchange Portfolio Tasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
             "workDoneLabel": "Stop Request Sent",
@@ -23,10 +23,20 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Task",
-            "relatedUiObject": "Task",
+            "label": "Add Exchange Portfolio Tasks",
+            "relatedUiObject": "Exchange Portfolio Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Exchange Portfolio Tasks",
+            "label": "Add Missing Exchanges",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Exchange Portfolio Tasks",
+            "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -40,19 +50,26 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "alternativeIcons": "Use Reference Parent Parent",
     "addLeftIcons": true,
     "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->"
+    "referencingRules": {
+        "compatibleTypes": "->Project Definition->"
     },
+    "attachingRules": {
+        "compatibleTypes": "->Testing Portfolio Tasks->Production Portfolio Tasks->"
+    },
+    "propertyNameAtParent": "projectPortfolioTasks",
     "childrenNodesProperties": [
         {
-            "name": "tasks",
+            "name": "exchangePortfolioTasks",
             "type": "array",
-            "childType": "Task",
-            "autoAdd": false,
+            "childType": "Exchange Portfolio Tasks",
             "monitorChildrenRunning": true
         }
     ],
-    "propertyNameAtParent": "taskManagers"
+    "icon": "bitcoin"
 }

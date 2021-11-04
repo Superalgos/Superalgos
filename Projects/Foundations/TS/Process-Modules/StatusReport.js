@@ -113,7 +113,7 @@
                 if (checkThisDataBranch(lanNetworkNode.dataTasks) === true) { return }
                 if (checkThisTradingBranch(lanNetworkNode.testingTradingTasks) === true) { return }
                 if (checkThisTradingBranch(lanNetworkNode.productionTradingTasks) === true) { return }
-                if (checkThisPortfolioBranch(lanNetworkNode.portfolioTasks) === true) { return }
+                if (checkThisPortfolioBranch(lanNetworkNode.productionPortfolioTasks) === true) { return }
                 if (checkThisLearningBranch(lanNetworkNode.learningTasks) === true) { return }
 
                 function checkThisDataBranch(branch) {
@@ -231,8 +231,8 @@
                                 let marketTasks = exchangeTasks.marketPortfolioTasks[p]
                                 if (marketTasks.referenceParent === undefined) { continue }
                                 if (marketTasks.referenceParent.id !== TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.id) { continue }
-                                for (let q = 0; q < marketTasks.PortfolioMineTasks.length; q++) {
-                                    let mineTasks = marketTasks.PortfolioMineTasks[q]
+                                for (let q = 0; q < marketTasks.portfolioMineTasks.length; q++) {
+                                    let mineTasks = marketTasks.portfolioMineTasks[q]
                                     for (let k = 0; k < mineTasks.taskManagers.length; k++) {
                                         let taskManager = mineTasks.taskManagers[k]
                                         for (let m = 0; m < taskManager.tasks.length; m++) {

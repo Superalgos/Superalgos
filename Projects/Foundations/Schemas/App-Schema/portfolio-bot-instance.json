@@ -1,10 +1,10 @@
 {
-    "type": "Dynamic Indicators",
+    "type": "Portfolio Bot Instance",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Indicator Function",
-            "relatedUiObject": "Indicator Function",
+            "label": "Add Process Instance",
+            "relatedUiObject": "Portfolio Process Instance",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -23,15 +23,15 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading System->Portfolio System->"
+        "compatibleTypes": "->Task->"
     },
-    "propertyNameAtParent": "dynamicIndicators",
     "childrenNodesProperties": [
         {
-            "name": "indicatorFunctions",
+            "name": "processes",
             "type": "array",
-            "childType": "Indicator Function",
-            "autoAdd": true
+            "childType": "Portfolio Process Instance",
+            "autoAdd": false
         }
-    ]
+    ],
+    "propertyNameAtParent": "bot"
 }

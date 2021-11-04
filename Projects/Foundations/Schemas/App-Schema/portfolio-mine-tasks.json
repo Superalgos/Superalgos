@@ -1,9 +1,9 @@
 {
-    "type": "Task Manager",
+    "type": "Portfolio Mine Tasks",
     "menuItems": [
         {
-            "action": "Run All Tasks",
-            "label": "Run All Tasks",
+            "action": "Run All Task Managers",
+            "label": "Run All Task Managers",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
             "workDoneLabel": "Run Request Sent",
@@ -12,8 +12,8 @@
             "actionFunction": "payload.executeAction"
         },
         {
-            "action": "Stop All Tasks",
-            "label": "Stop All Tasks",
+            "action": "Stop All Task Managers",
+            "label": "Stop All Task Managers",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
             "workDoneLabel": "Stop Request Sent",
@@ -23,10 +23,20 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Task",
-            "relatedUiObject": "Task",
+            "label": "Add Task Manager",
+            "relatedUiObject": "Task Manager",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add All Tasks",
+            "label": "Add All Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Task",
+            "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -42,17 +52,24 @@
     ],
     "addLeftIcons": true,
     "level": 2,
-    "attachingRules": {
-        "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->"
+    "referencingRules": {
+        "compatibleTypes": "->Portfolio Mine->"
     },
+    "attachingRules": {
+        "compatibleTypes": "->Market Portfolio Tasks->"
+    },
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "propertyNameAtParent": "portfolioMineTasks",
     "childrenNodesProperties": [
         {
-            "name": "tasks",
+            "name": "taskManagers",
             "type": "array",
-            "childType": "Task",
-            "autoAdd": false,
+            "childType": "Task Manager",
             "monitorChildrenRunning": true
         }
-    ],
-    "propertyNameAtParent": "taskManagers"
+    ]
 }

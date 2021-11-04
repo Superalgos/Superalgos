@@ -1,7 +1,7 @@
 {
     "type": "Output Labels",
     "definition": {
-        "text": "Ouput labels are the things we're predicting—the y variable in simple linear regression. The label could be the future price of wheat, the kind of animal shown in a picture, the meaning of an audio clip, or just about anything.",
+        "text": "Output labels are the things we're predicting—the y variable in simple linear regression. The label could be the future price of wheat, the kind of animal shown in a picture, the meaning of an audio clip, or just about anything.",
         "updated": 1615896247619
     },
     "paragraphs": [

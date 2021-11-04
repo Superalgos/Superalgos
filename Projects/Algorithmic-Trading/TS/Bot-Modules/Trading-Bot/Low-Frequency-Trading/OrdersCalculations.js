@@ -1,6 +1,6 @@
 exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processIndex) {
     /*
-    When we are live trading, we need to syncronize with the exchange.
+    When we are live trading, we need to synchronize with the exchange.
     */
 
     let thisObject = {
@@ -48,7 +48,7 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
 
         If it happens that the size accepted  (Actual Size) is different than the 
         size requested (Size), we need to make several adjustments so that the 
-        accounting syncronizes with reality.
+        accounting synchronizes with reality.
         */
 
         /* This calculation needs to happen only once, the first time the order is checked. */
@@ -65,8 +65,8 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
         function recalculateActualSize() {
             /*
             We will recalculate the Quoted Asset Actual Size. This will also give to it an initial value. 
-            In the next formula, we are unsing the rate of the order because we dont know yet the Actual Rate.
-            This rate might be replaced afteerwards for the Actual Rate when this is calculated again once 
+            In the next formula, we are using the rate of the order because we dont know yet the Actual Rate.
+            This rate might be replaced afterwards for the Actual Rate when this is calculated again once
             the Actual Rate is known. 
              */
             tradingEngineOrder.orderQuotedAsset.actualSize.value = tradingEngineOrder.orderBaseAsset.actualSize.value * tradingEngineOrder.rate.value
@@ -133,7 +133,7 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
         tradingEngineOrder.orderStatistics.actualRate.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(tradingEngineOrder.orderStatistics.actualRate.value, 10)
 
         /*
-        If the Actual Rate happens to be exctly the same than the order rate, then there is
+        If the Actual Rate happens to be exactly the same than the order rate, then there is
         nothing else to do here. Otherwise there are adjustments to be made.
         */
         if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
@@ -146,12 +146,12 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
         function recalculateActualSize() {
             /*
             Now we know the Actual Rate at which the order was filled. Since the actual rate
-            is not the same as the Rate we defined for the order, we need to syncronize 
+            is not the same as the Rate we defined for the order, we need to synchronize
             the Actual Order Size for Quoted Asset since it was calculated with the Order Size that we 
             now know it is not the one really used at the exchange. We will recalculate the
             Actual Size in Quoted Asset and not in Base Asset, since the Actual Size in Base Asset 
             is the one we accepted by the exchange, so that is fixed, regardless of how we initially
-            got the Order Size in Base Asset, either from direct imput from the user or calculated
+            got the Order Size in Base Asset, either from direct input from the user or calculated
             from the Order Size in Quoted Asset input it by the user. So here we go. 
             */
             previousQuotedAssetActualSize = tradingEngineOrder.orderQuotedAsset.actualSize.value
@@ -270,7 +270,7 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
     async function feesPaidCalculation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, order, applyFeePercentage) {
         /*
         Within the order information received from the exchange we can not see the fees paid so we need to
-        calculate them ourselves. Knwowing the Fees Paid is critical to later update the balances correctly,
+        calculate them ourselves. Knowing the Fees Paid is critical to later update the balances correctly,
         since at every trade we will receive less than just the Actual Size. In fact we will receive the Actual
         Size minus the Fees Paid.
 
@@ -324,7 +324,7 @@ exports.newAlgorithmicTradingBotModulesOrdersCalculations = function (processInd
         /* 
         This calculation is for informational purposes, so that users do not have to calculate
         it by themselves. The Amount Received out of the trade depends if we are Buying or Selling
-        the Base Asset. If we are Buying, then the Amount Receiced will be in Base Asset. If we 
+        the Base Asset. If we are Buying, then the Amount Received will be in Base Asset. If we
         are selling then it will be in Quoted Asset. 
         */
 

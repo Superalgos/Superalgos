@@ -36,7 +36,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
     async function actualSizeSimulation(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, applyFeePercentage) {
         /* 
         The Actual Size is the size the exchange accepts for the order, 
-        regarless of the size sent in the request to the exchange.
+        regardless of the size sent in the request to the exchange.
 
         While backtesting and paper trading, we do not really need to 
         simulate an Actual Size. We will just copy to that field the
@@ -81,7 +81,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
             switch (tradingEngineOrder.type) {
                 case 'Market Order': {
 
-                    /* Actual Rate is simulated based on the Session Paremeters */
+                    /* Actual Rate is simulated based on the Session Parameters */
                     let slippageAmount = tradingEngineOrder.rate.value * sessionParameters.slippage.config.marketOrderRate / 100
                     if (slippageAmount !== 0) {
                         switch (tradingSystemOrder.type) {
@@ -197,7 +197,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
             Until here we have got the Actual Rate based on the formula definition or based on session parameters slippage.
             The last check is about watching what happened in the market. Let's remember that the exchange will
             fill the order with the best possible matches at it's order book. That means that if the rate
-            we set for the order was too low (for a sale order) or too hight (for a buy order), the actual rate 
+            we set for the order was too low (for a sale order) or too height (for a buy order), the actual rate
             should be better than expected. 
 
             We don't know what it is at the order book, but whe know that the last candle includes trades that bounced between
@@ -303,7 +303,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
             if (tradingEngineOrder.orderStatistics.actualRate.value === tradingEngineOrder.rate.value) { return }
             /*
             Since the Actual Rate might have changed, we need to recalculate the Size Placed, where we accumulate all the Size Placed of
-            all orders of a Stage. For Base Asset there is nothing to do, since the Actual Rate does not have an inpact on it. 
+            all orders of a Stage. For Base Asset there is nothing to do, since the Actual Rate does not have an impact on it.
 
             For Quoted Asset, we need to first unaccount what this same orded added before to Size Placed (with the precious Actual Size) and
             account with the new Actual Size. 
@@ -462,7 +462,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
         }
 
         /*
-        Another way to simulate the Fees Paid is by using the Session Paremeters configuration for Fees.
+        Another way to simulate the Fees Paid is by using the Session Parameters configuration for Fees.
         */
         switch (tradingEngineOrder.type) {
             case 'Market Order': {
@@ -510,7 +510,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
         /* 
         This simulation is for informational purposes, so that users do not have to calculate
         it by themselves. The Amount Received out of the trade depends if we are Buying or Selling
-        the Base Asset. If we are Buying, then the Amount Receiced will be in Base Asset. If we 
+        the Base Asset. If we are Buying, then the Amount Received will be in Base Asset. If we
         are selling then it will be in Quoted Asset. 
         */
 

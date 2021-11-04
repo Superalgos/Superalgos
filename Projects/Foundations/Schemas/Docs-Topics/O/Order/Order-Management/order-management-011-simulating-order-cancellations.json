@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Simulating the cancelation of an order is almost trivial. Of course, the process applies to backtesting and paper trading sessions only.",
+            "text": "Simulating the cancellation of an order is almost trivial. Of course, the process applies to backtesting and paper trading sessions only.",
             "updated": 1610223521328
         },
         {

@@ -1,7 +1,7 @@
 {
     "type": "Set Node Arrangement to Concave",
     "definition": {
-        "text": "The node adopts a slot on a circumsference around its parent node. In the icon’s graphic, the orange dot represents the parent node, and the blue dots represent the node adopting the specific arrangement style.",
+        "text": "The node adopts a slot on a circumference around its parent node. In the icon’s graphic, the orange dot represents the parent node, and the blue dots represent the node adopting the specific arrangement style.",
         "updated": 1610032139983
     },
     "paragraphs": [

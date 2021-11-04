@@ -42,7 +42,13 @@
             {
                 "language": "RU",
                 "text": "На самом деле Вы не собираетесь телепортироваться и не будете искривлять временное пространство, но это почти похоже на это! Пришло время научиться использовать карту пространство дизайна.",
-                "updated": 1635608952753
+                "updated": 1635608952753,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tamam, aslında ışınlanmayacaksınız ya da uzay-zamanı bükmeyeceksiniz, ama neredeyse öyleymiş gibi geliyor! Tasarım alanı haritasını kullanmayı öğrenmenin zamanı geldi.",
+                "updated": 1635946013543
             }
         ]
     },
@@ -84,7 +90,13 @@
                 {
                     "language": "RU",
                     "text": "Я упоминал ранее, что Design Space - огромно, и я не шутил! Переход из одного угла в противоположный занял бы сотни щелчков и передвижений. Хотя использование клавиатуры позволяет развивать головокружительные скорости, но это не так круто, как телепортация! Вот как это работает:",
-                    "updated": 1635609086655
+                    "updated": 1635609086655,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce Tasarım Alanının çok büyük olduğunu söylemiştim ve ciddiydim! Bir köşeden diğerine gitmek yüzlerce tıklama ve sürükleme gerektirir. Klavyeyi kullanarak bunu yapabilisiniz ancak ışınlanma kadar havalı değil! Bu nasıl çalışır:",
+                    "updated": 1635948006704
                 }
             ],
             "updated": 1616414991030
@@ -127,7 +139,13 @@
                 {
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши, чтобы открыть карту, а затем щелкните левой кнопкой мыши в любой точке, чтобы перейти в это определенное место!",
-                    "updated": 1635609696214
+                    "updated": 1635609696214,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Haritayı küçütmek için mouseun sağ tuşuna tıklayın ve istediğiniz noktaya gitmek için mouse'un sol tuşunu tıklayın!. Örneğin, Tasarım alanında herhangi bir yerde sağ tıkayın, daha sonra \" Lan Netwok \" düğümünün üzerine sol tıklayın. İşte Tasarım alanında ( Design Space ) gezinmek bu kadar kolay.",
+                    "updated": 1635947930242
                 }
             ]
         },
@@ -168,7 +186,8 @@
                 {
                     "language": "RU",
                     "text": "Видите меня в левом нижнем углу пространства дизайна? Тепер Вы знаете, где меня найти!",
-                    "updated": 1635609809487
+                    "updated": 1635609809487,
+                    "style": "Text"
                 }
             ]
         }

@@ -1407,6 +1407,18 @@
                     "propertyName": "userProfiles",
                     "functionName": "newNetworkModulesUserProfiles",
                     "fileName": "UserProfiles.js"
+                },
+                {
+                    "name": "P2P Network",
+                    "propertyName": "p2pNetwork",
+                    "functionName": "newSocialTradingModulesP2PNetwork",
+                    "fileName": "P2PNetwork.js"
+                },
+                {
+                    "name": "P2P Network Node",
+                    "propertyName": "p2pNetworkNode",
+                    "functionName": "newSocialTradingModulesP2PNetworkNode",
+                    "fileName": "P2PNetworkNode.js"
                 }
             ],
             "utilities": [

@@ -13,7 +13,13 @@
             {
                 "language": "ES",
                 "text": "Edita la configuración de cada uno de los nuevos activos que ingresan al ticker (según lo enumerado por el exchange) en la propiedad codeName.",
-                "updated": 1629163635069
+                "updated": 1629163635069,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bearbeiten Sie die Konfiguration aller neuen Vermögenswerte, die in dem Ticker aufgenommen werden sollen (wie von der Börse aufgelistet), in der Eigenschaft codeName.",
+                "updated": 1635742495525
             }
         ]
     },
@@ -21,7 +27,14 @@
         {
             "style": "Text",
             "text": "For example: ",
-            "updated": 1617210897132
+            "updated": 1617210897132,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel:",
+                    "updated": 1635742555141
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,7 +47,13 @@
                 {
                     "language": "ES",
                     "text": "Si el icono de los assets configurados existe en la biblioteca de imágenes, el icono predeterminado se reemplaza automáticamente.",
-                    "updated": 1629163669241
+                    "updated": 1629163669241,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn das Symbol für die konfigurierten Vermögenswerte in der Bildbibliothek vorhanden ist, wird das Standardsymbol automatisch ersetzt.",
+                    "updated": 1635742650600
                 }
             ]
         }

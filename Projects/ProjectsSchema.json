@@ -1395,7 +1395,7 @@
                     "propertyName": "webSocketsNetworkClient",
                     "functionName": "newNetworkModulesWebSocketsNetworkClient",
                     "fileName": "WebSocketsNetworkClient.js"
-                }
+                },
                 {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",

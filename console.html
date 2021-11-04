@@ -10,7 +10,7 @@
         .log-warn { color: orange }
         .log-error { color: red }
         .log-info { color: skyblue }
-        .log-log { color: silver }
+        .log-log { color: silver}
 
         .log-warn, .log-error { font-weight: bold; }
     </style>
@@ -24,75 +24,22 @@
     <script>
         window.onload = () => {
             window.api.receive('fromMain', (data) => {
-                //const consoleLine = document.createElement('span')
-                //const consoleLineText = document.createTextNode(data)
-                //consoleLine.appendChild(consoleLineText)
                 if(data.includes('[ERROR]')) {
-                    //const consoleLine = document.createElement('span')
                     document.getElementById('log').insertAdjacentHTML('beforeend', "<span class=\"log-error\">" + data + "</span><br>");
                 }
-                if(data.includes('[WARN]')) {
-                    //consoleLineText.style.cssText = "color: orange; font-weight: bold;"
+                else if(data.includes('[WARN]')) {
                     document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-warn\">" + data + "</span><br>");
                 }
-            document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-info\">" + data + "</span><br>");
-            //document.getElementById('log').insertAdjacentHTML('beforeend', consoleLineText);
+                else if(data.includes('[INFO]')) {
+                    document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-info\">" + data + "</span><br>");
+                }
+                else {
+                    document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-log\">" + data + "</span><br>");
+                }
+                window.scrollTo(0, document.querySelector("#log-container").scrollHeight)
         })
         window.api.send("toMain", "ImAlive!")
         }
     </script>
-
-    <!-- <script>
-        rewireLoggingToElement(
-        () => document.getElementById("log"),
-        () => document.getElementById("log-container"), true);
-
-    function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
-        fixLoggingFunc('log');
-        fixLoggingFunc('debug');
-        fixLoggingFunc('warn');
-        fixLoggingFunc('error');
-        fixLoggingFunc('info');
-
-        function fixLoggingFunc(name) {
-            console['old' + name] = console[name];
-            console[name] = function(...arguments) {
-                //const output = produceOutput(name, arguments);
-                output = window.api.receive('fromMain', (message, arguments) => {
-                    produceOutput(message, arguments)
-                })
-                const eleLog = eleLocator();
-
-                if (autoScroll) {
-                    const eleContainerLog = eleOverflowLocator();
-                    const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
-                    eleLog.innerHTML += output + "<br>";
-                    if (isScrolledToBottom) {
-                        eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
-                    }
-                } else {
-                    eleLog.innerHTML += output + "<br>";
-                }
-
-                console['old' + name].apply(undefined, arguments);
-            };
-        }
-
-        function produceOutput(name, args) {
-            return args.reduce((output, arg) => {
-                return output +
-                    "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
-                        (typeof arg === "object" && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
-                    "</span>&nbsp;";
-            }, '');
-        }
-    }
-
-
-    /* setInterval(() => {
-    const method = (['log', 'debug', 'warn', 'error', 'info'][Math.floor(Math.random() * 5)]);
-    console[method](method, 'logging something...');
-    }, 200); */
-    </script> -->
 </body>
 </html>

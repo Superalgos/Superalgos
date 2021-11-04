@@ -42,7 +42,13 @@
             {
                 "language": "RU",
                 "text": "Да! Вы можете использовать клавиатуру тоже! Вам понравится это в путешествиях на большие расстояния в дизайнерсоки пространстве.",
-                "updated": 1635608556366
+                "updated": 1635608556366,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Evet! Klavyenizi de kullanabilirsiniz! Tasarım alanında uzun mesafeli seyahatler için buna bayılacaksınız!. Mouse tuşuna basılı bir şekilde CTRl + ← → ↑ ↓ tuş kombinasyonun kullanarak düğümleri daha hızlı şekillde ve uzun mesafelere taşıyabilirsiniz.",
+                "updated": 1635945735067
             }
         ]
     },
@@ -85,7 +91,13 @@
                 {
                     "language": "RU",
                     "text": "Обычные пользователи могут использовать клавишу Ctrl плюс клавиши со стрелками: ← → ↑ ↓",
-                    "updated": 1635608613854
+                    "updated": 1635608613854,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Düzenli veya aceleci arkadaşlar Ctrl key plus arrow keys: ← → ↑ ↓ kombinasyonunu kulanabilir :)",
+                    "updated": 1635945715510
                 }
             ]
         },
@@ -127,7 +139,13 @@
                 {
                     "language": "RU",
                     "text": "Обратите внимание, что удержание нажатых клавиш заставляет Вас летать!",
-                    "updated": 1635608711456
+                    "updated": 1635608711456,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tuşları basılı tutmanın sizi uçurucağına dikkat edin!",
+                    "updated": 1635945760749
                 }
             ]
         },
@@ -169,7 +187,13 @@
                 {
                     "language": "RU",
                     "text": "Конечно, Mac-фанаты должны заменить Ctrl на Cmd.",
-                    "updated": 1635608795704
+                    "updated": 1635608795704,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Elbette Mac kullananlar Ctrl'yi Cmd ile değiştirmeli",
+                    "updated": 1635945810777
                 }
             ]
         }

@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Each Node Type, might have a menu which allow users to interact with the Node. There is no fixed set of menu items. Instead each menu items is defined at each Node's definition. Each menu item haave a set of properties that allow the system to execute some action when the menu item is clicked by users.",
+            "text": "Each Node Type, might have a menu which allow users to interact with the Node. There is no fixed set of menu items. Instead each menu items is defined at each Node's definition. Each menu item has a set of properties that allow the system to execute some action when the menu item is clicked by users.",
             "updated": 1609240463871
         }
     ]

@@ -79,7 +79,7 @@ function newWorkspace() {
                 const browserURL = new URLSearchParams(window.location.search);
                 const queryString = Object.fromEntries(browserURL.entries());
                 /* 
-                By default, we will laod the last used workspace. 
+                By default, we will load the last used workspace.
                 */
                 let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
@@ -361,7 +361,7 @@ function newWorkspace() {
                             if (result === false) {
                                 console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
                                 console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
-                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reaload the previously saved workspace again.')
+                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
                                 workingAtTask = 0
                                 return
                             }
@@ -689,7 +689,7 @@ function newWorkspace() {
                 return
             }
 
-            /* It does not exist, so we recreeate it respecting the inner state of each object. */
+            /* It does not exist, so we recreate it respecting the inner state of each object. */
             let positionOffset = {
                 x: spawnPosition.x,
                 y: spawnPosition.y
@@ -719,7 +719,7 @@ function newWorkspace() {
         action.relatedNodeId : It is the id of a node related to the action.
         action.relatedNodeType : It is the type of the node related to the action.
         action.callBackFunction : A callback function to call when the action is complete.
-        action.extraParameter : A parameter to send unusual info to the fnction processing the action.
+        action.extraParameter : A parameter to send unusual info to the function processing the action.
 
         We add rootNodes property here.
         */

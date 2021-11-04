@@ -1,7 +1,7 @@
 {
     "type": "Remove Distance to Parent Node",
     "definition": {
-        "text": "The distance setting is dissabled and the node may assume any distance to its parent.",
+        "text": "The distance setting is disabled and the node may assume any distance to its parent.",
         "updated": 1610030359012
     },
     "paragraphs": [

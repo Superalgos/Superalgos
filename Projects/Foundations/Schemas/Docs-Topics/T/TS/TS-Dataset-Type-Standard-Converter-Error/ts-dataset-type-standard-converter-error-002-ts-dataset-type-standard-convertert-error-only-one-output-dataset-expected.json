@@ -1,7 +1,7 @@
 {
     "topic": "TS Dataset Type Standard Converter Error",
     "pageNumber": "2",
-    "type": "TS Dataset Type Standard Convertert Error - Only One Output Dataset Expected",
+    "type": "TS Dataset Type Standard Converter Error - Only One Output Dataset Expected",
     "definition": {
         "text": "For this type of Dataset conversion, the process needs to have only one Output Datasety defined. Zero or more than one where found. To fix this issue, define only one Output Dataset and try again.",
         "updated": 1621859784437

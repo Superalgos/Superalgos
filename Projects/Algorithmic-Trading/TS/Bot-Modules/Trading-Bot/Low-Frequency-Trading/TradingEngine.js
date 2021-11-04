@@ -1,6 +1,6 @@
 exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
     /*
-    We call the Trading Engine to the data structure that is needed in order to exevute the
+    We call the Trading Engine to the data structure that is needed in order to execute the
     trading protocol with the specific rules defined at the Trading System.
     */
 
@@ -31,7 +31,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
 
         if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true) {
             /* 
-            Here we will go through all the nodes in the Trading Engine hiriarchy and
+            Here we will go through all the nodes in the Trading Engine hierarchy and
             apply the initial value to the value property when needed 
              */
             initializeNode(tradingEngine)
@@ -116,7 +116,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -155,7 +155,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -198,7 +198,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 

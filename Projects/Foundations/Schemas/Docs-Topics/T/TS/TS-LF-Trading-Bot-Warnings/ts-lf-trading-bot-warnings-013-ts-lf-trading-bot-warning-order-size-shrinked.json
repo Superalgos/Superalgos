@@ -1,9 +1,9 @@
 {
     "topic": "TS LF Trading Bot Warnings",
     "pageNumber": "13",
-    "type": "TS LF Trading Bot Warning - Order Size Shrinked",
+    "type": "TS LF Trading Bot Warning - Order Size Shrunk",
     "definition": {
-        "text": "The Order Size was shrinked to enforce the cap set in the Target Size of the stage. Otherwise, the original definition of the order Size would have set the Size Placed higher than the Target Size.",
+        "text": "The Order Size was shrunk to enforce the cap set in the Target Size of the stage. Otherwise, the original definition of the order Size would have set the Size Placed higher than the Target Size.",
         "updated": 1611916645008
     },
     "paragraphs": [
@@ -14,7 +14,7 @@
         },
         {
             "style": "Warning",
-            "text": "Order Size Shrinked"
+            "text": "Order Size Shrunk"
         },
         {
             "style": "Title",

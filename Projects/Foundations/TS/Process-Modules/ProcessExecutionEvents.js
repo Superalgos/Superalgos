@@ -85,10 +85,10 @@
                 This means that if the same task, with the same process, pointing to the same
                 process definition in the same data mine, with the same exchange and market 
                 configured, is at two different network nodes at the same time, the current task
-                is going to depend on the first one found, not necesarily the one running at the 
+                is going to depend on the first one found, not necessarily the one running at the
                 same network node. If you need to control witch task specifically to depend on
                 and need to exactly the same task to exist, you should split the network in two
-                different networks, each one with unique tasks so as to avoid confussion. 
+                different networks, each one with unique tasks so as to avoid confusion.
                 */
                 for (let i = 0; i < network.lanNetworkNodes.length; i++) {
                     let lanNetworkNode = network.lanNetworkNodes[i]

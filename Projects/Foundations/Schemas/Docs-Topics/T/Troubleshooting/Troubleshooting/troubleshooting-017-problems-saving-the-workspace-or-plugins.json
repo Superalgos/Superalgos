@@ -3,7 +3,7 @@
     "pageNumber": "17",
     "type": "Problems Saving The Workspace or Plugins",
     "definition": {
-        "text": "Are you having problems saving your Workspace? Did your changes in the workspace disappear? Was the workspace reset? Or you believe the changes were lost? Are you confused on how the system handles the persistance of changes? Is your Workspace not saving your changes?",
+        "text": "Are you having problems saving your Workspace? Did your changes in the workspace disappear? Was the workspace reset? Or you believe the changes were lost? Are you confused on how the system handles the persistence of changes? Is your Workspace not saving your changes?",
         "updated": 1620849519292
     },
     "paragraphs": [
@@ -19,7 +19,7 @@
         },
         {
             "style": "Title",
-            "text": "Worksapces"
+            "text": "Workspaces"
         },
         {
             "style": "Text",
@@ -59,11 +59,11 @@
         },
         {
             "style": "Text",
-            "text": "Everytime you run Superalgos the system will try to load the latest loaded workspace. It remembers the last workspace because it stores at the browser's local storage the name of the lastest succesfully loaded workspace."
+            "text": "Everytime you run Superalgos the system will try to load the latest loaded workspace. It remembers the last workspace because it stores at the browser's local storage the name of the latest successfully loaded workspace."
         },
         {
             "style": "Note",
-            "text": "This means that if you want Superalgos to forget the latesst loaded workspace you can do that by deleting the local storage variable at the browser.",
+            "text": "This means that if you want Superalgos to forget the latest loaded workspace you can do that by deleting the local storage variable at the browser.",
             "updated": 1620846746582
         },
         {
@@ -73,12 +73,12 @@
         },
         {
             "style": "Text",
-            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the'default'workspace, which is the Getting Started Plugin Workspace.",
+            "text": "If the system does not find any name at the browser's local storage, or if it finds a name but can not find the file of that workspace, it will then try to load the 'default' workspace, which is the Getting Started Plugin Workspace.",
             "updated": 1620846971983
         },
         {
             "style": "Note",
-            "text": "This means that if you delete the latest workspace file from the My Workspaces folder, you will force the system to laod the defual workspace. "
+            "text": "This means that if you delete the latest workspace file from the My Workspaces folder, you will force the system to load the default workspace. "
         },
         {
             "style": "Subtitle",
@@ -100,11 +100,11 @@
         },
         {
             "style": "Text",
-            "text": "Every time you open the left side bar, the system will search the Plugin Workspaces folder and place all the files found there at the left side panel. It will also sacan all the My Workspaces folder and add those files to the bottom of the left side panel."
+            "text": "Every time you open the left side bar, the system will search the Plugin Workspaces folder and place all the files found there at the left side panel. It will also scan all the My Workspaces folder and add those files to the bottom of the left side panel."
         },
         {
             "style": "Note",
-            "text": "To access a saved or renames workspace open the left side panel and scroll to the botton, after the list of Plugin Worksapces finishes, you will see the ones saved / renamed by you."
+            "text": "To access a saved or renames workspace open the left side panel and scroll to the bottom, after the list of Plugin Workspaces finishes, you will see the ones saved / renamed by you."
         },
         {
             "style": "Subtitle",
@@ -127,7 +127,7 @@
         },
         {
             "style": "Text",
-            "text": "If you are using a Plugin Workspace, the way to revover is by loading that Plugin Workspace again. The system will naturally then save a copy at My Worksapces folder overwritting any changes you made. From there all tasks should run well."
+            "text": "If you are using a Plugin Workspace, the way to recover is by loading that Plugin Workspace again. The system will naturally then save a copy at My Workspaces folder overwriting any changes you made. From there all tasks should run well."
         },
         {
             "style": "Subtitle",
@@ -158,7 +158,7 @@
         },
         {
             "style": "Success",
-            "text": "That menas that for instance, if you add version 1, 2, 3 to the end of the workspace node's name, you will be creating several backups of your works.",
+            "text": "That means that for instance, if you add version 1, 2, 3 to the end of the workspace node's name, you will be creating several backups of your works.",
             "updated": 1620848010694
         },
         {
@@ -168,7 +168,7 @@
         },
         {
             "style": "Subtitle",
-            "text": "How do I add plugins to my worksapce?",
+            "text": "How do I add plugins to my workspace?",
             "updated": 1620848171711
         },
         {
@@ -192,7 +192,7 @@
         },
         {
             "style": "Success",
-            "text": "Plugins within the workspace are recognized because the ring sorrounding the head of the hiererchy is closed. Not Plugins have that ring with openings.",
+            "text": "Plugins within the workspace are recognized because the ring surrounding the head of the hierarchy is closed. Not Plugins have that ring with openings.",
             "updated": 1620848300738
         },
         {
@@ -220,7 +220,7 @@
         },
         {
             "style": "Important",
-            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, bacuase it was not loaded as part of the mechanism defined by the Pluigins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remember you tell the system which plugins to load at the Plugins Hiererchy."
+            "text": "If you backup a plugin structure and the throw it again into the workspace it will not be considered a plugin, because it was not loaded as part of the mechanism defined by the Plugins hierarchy, which means that it will be considered a non-plugin and become part of your workspace. The same happens when you drag and drop any file backed up, being a plugin or not. It will become part of your workspace and saved together with the workspace. Only plugin files loaded by the system when the workspace is loaded are considered plugins. Remember you tell the system which plugins to load at the Plugins Hierarchy."
         },
         {
             "style": "Text",

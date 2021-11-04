@@ -10,7 +10,7 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
         /* Unique Keys */
         userProfileId: undefined,
         userProfileHandle: undefined,
-        /* User Unitque Properties */
+        /* User Unique Properties */
         blockchainAccount: undefined,
         /* SA Reputation + SA Token Balance */
         ranking: undefined,

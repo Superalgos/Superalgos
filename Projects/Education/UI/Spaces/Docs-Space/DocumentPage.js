@@ -68,7 +68,7 @@ function newFoundationsDocsDocumentPage() {
                 let template = {
                     updated: true,
                     type: UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type,
-                    definition: { text: "Write the definition for this " + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category + "." },
+                    definition: {text: "Write the definition for this " + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category + "."},
                     paragraphs: [
                         {
                             style: "Text",
@@ -119,7 +119,9 @@ function newFoundationsDocsDocumentPage() {
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId !== undefined) {
                 node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
             }
-            if (node === undefined) { return }
+            if (node === undefined) {
+                return
+            }
 
             node.payload.floatingObject.unCollapseParent()
             setTimeout(positionAtNode, 0000, node)
@@ -147,7 +149,7 @@ function newFoundationsDocsDocumentPage() {
 
             /* Title */
             let titleLabel = thisObject.docsSchemaDocument.type
-            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > '  + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
+            HTML = HTML + '<div id="docs-main-title-div" class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2" id="' + UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type.toLowerCase().replace(' ', '-') + '" > ' + titleLabel + '</h2></div><div id="projectImageDiv" class="docs-image-container"/></div></div>'
 
             if (thisObject.docsSchemaDocument.deleted === true) {
                 let key = 'auto-generated-flag-paragraph'
@@ -563,7 +565,8 @@ function newFoundationsDocsDocumentPage() {
                             includedSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.docsBookSchema.get(type)
                             break
                         }
-                        default: return 'Category (' + category + ') is not valid. Use Node, Concept, Topic, Review or Book instead.'
+                        default:
+                            return 'Category (' + category + ') is not valid. Use Node, Concept, Topic, Review or Book instead.'
                     }
                     if (includedSchemaDocument === undefined) {
                         return category + ' document ' + type + ' not found at project ' + project
@@ -640,7 +643,6 @@ function newFoundationsDocsDocumentPage() {
                     let category = splittedChapterText[2]
                     let chapterName = splittedChapterText[3]
                     let introText = splittedChapterText[4]
-
 
 
                     if (project === undefined || category === undefined || chapterNumber === undefined || chapterName === undefined) {
@@ -843,15 +845,20 @@ function newFoundationsDocsDocumentPage() {
                 function addProjectImage() {
                     let imageName = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
                     let imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
-                    imageElement.width = "50"
-                    imageElement.height = "50"
+                    if (imageElement !== undefined) {
+                        imageElement.width = "50"
+                        imageElement.height = "50"
 
-                    let projectImageDiv = document.getElementById('projectImageDiv')
-                    projectImageDiv.appendChild(imageElement)
+
+                        let projectImageDiv = document.getElementById('projectImageDiv')
+                        projectImageDiv.appendChild(imageElement)
+                    }
                 }
 
                 function addMenuItemsImages() {
-                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined) {
+                        return
+                    }
                     for (let i = 0; i < appSchemaDocument.menuItems.length; i++) {
                         let menuItem = appSchemaDocument.menuItems[i]
                         let collectionImage = getIcon(appSchemaDocument.menuItems[i].relatedUiObjectProject, appSchemaDocument.menuItems[i].actionProject)
@@ -867,7 +874,7 @@ function newFoundationsDocsDocumentPage() {
                         parentElement.replaceChild(imageElement, dummyImage)
 
                         function getIcon(relatedUiObjectProject, actionProject) {
-                            let project 
+                            let project
                             if (menuItem.relatedUiObject !== undefined) {
                                 if (relatedUiObjectProject !== undefined) {
                                     project = relatedUiObjectProject
@@ -892,7 +899,9 @@ function newFoundationsDocsDocumentPage() {
                 }
 
                 function addChildrenNodesPropertiesImages() {
-                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined) {
+                        return
+                    }
                     for (let i = 0; i < appSchemaDocument.childrenNodesProperties.length; i++) {
                         let childrenNodesProperty = appSchemaDocument.childrenNodesProperties[i]
                         let collectionImage = getIcon()
@@ -918,7 +927,9 @@ function newFoundationsDocsDocumentPage() {
                 }
 
                 function addAttachingAndReferencingRulesImages() {
-                    if (appSchemaDocument === undefined) { return }
+                    if (appSchemaDocument === undefined) {
+                        return
+                    }
 
                     if (appSchemaDocument.attachingRules !== undefined) {
                         if (appSchemaDocument.attachingRules.compatibleTypes !== undefined) {
@@ -944,10 +955,14 @@ function newFoundationsDocsDocumentPage() {
                     function imageForTheseNodes(nodeList, additionToKey) {
                         for (let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
-                            if (listItem === "") { continue }
+                            if (listItem === "") {
+                                continue
+                            }
 
                             let collectionImage = getIcon()
-                            if (collectionImage === undefined) { continue }
+                            if (collectionImage === undefined) {
+                                continue
+                            }
                             let imageElement = collectionImage.cloneNode()
 
                             imageElement.className = "docs-collapsible-image"
@@ -971,9 +986,13 @@ function newFoundationsDocsDocumentPage() {
                 }
 
                 function addConfigurationImages() {
-                    if (appSchemaDocument === undefined) { return }
+                    if (appSchemaDocument === undefined) {
+                        return
+                    }
                     let configImageElementArray = document.getElementsByClassName('docs-configuration-property-image')
-                    if (configImageElementArray === undefined) { return }
+                    if (configImageElementArray === undefined) {
+                        return
+                    }
 
                     /* 
                     We need to create our own array otherwise while replacing the childElement
@@ -1014,7 +1033,9 @@ function newFoundationsDocsDocumentPage() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined || appSchemaDocument.menuItems.length === 0) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.menuItems === undefined || appSchemaDocument.menuItems.length === 0) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Title",
@@ -1054,7 +1075,8 @@ function newFoundationsDocsDocumentPage() {
                     }
                     paragraph = {
                         style: "Success",
-                        text: "When a menu item is grayed out, it means that " + appSchemaDocument.type + " already has the required child type that the menu item may add, and only that child is allowed for that case. "                    }
+                        text: "When a menu item is grayed out, it means that " + appSchemaDocument.type + " already has the required child type that the menu item may add, and only that child is allowed for that case. "
+                    }
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
                 }
@@ -1066,7 +1088,9 @@ function newFoundationsDocsDocumentPage() {
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
 
-                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined || appSchemaDocument.childrenNodesProperties.length === 0) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.childrenNodesProperties === undefined || appSchemaDocument.childrenNodesProperties.length === 0) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Title",
@@ -1114,7 +1138,9 @@ function newFoundationsDocsDocumentPage() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || (appSchemaDocument.attachingRules === undefined && appSchemaDocument.referencingRules === undefined)) { return }
+                    if (appSchemaDocument === undefined || (appSchemaDocument.attachingRules === undefined && appSchemaDocument.referencingRules === undefined)) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Title",
@@ -1157,7 +1183,9 @@ function newFoundationsDocsDocumentPage() {
                     function listAllTheseNodes(nodeList, additionToKey) {
                         for (let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
-                            if (listItem === "") { continue }
+                            if (listItem === "") {
+                                continue
+                            }
                             HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
@@ -1169,7 +1197,9 @@ function newFoundationsDocsDocumentPage() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || (appSchemaDocument.referencingRules === undefined && appSchemaDocument.referencingRules === undefined)) { return }
+                    if (appSchemaDocument === undefined || (appSchemaDocument.referencingRules === undefined && appSchemaDocument.referencingRules === undefined)) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Title",
@@ -1212,7 +1242,9 @@ function newFoundationsDocsDocumentPage() {
                     function listAllTheseNodes(nodeList, additionToKey) {
                         for (let i = 0; i < nodeList.length; i++) {
                             let listItem = nodeList[i]
-                            if (listItem === "") { continue }
+                            if (listItem === "") {
+                                continue
+                            }
                             HTML = HTML + '<button id="docs-' + additionToKey + '-' + i + '" type="button" class="docs-non-collapsible-element"><img>' + UI.projects.education.utilities.docs.addToolTips(listItem, UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.type) + '</button>'
                         }
                     }
@@ -1224,7 +1256,9 @@ function newFoundationsDocsDocumentPage() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.config !== true) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.config !== true) {
+                        return
+                    }
                     paragraph = {
                         style: "Subtitle",
                         text: "Initial Values"
@@ -1232,7 +1266,9 @@ function newFoundationsDocsDocumentPage() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.config === undefined) { return }
+                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.config === undefined) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Text",
@@ -1296,6 +1332,7 @@ function newFoundationsDocsDocumentPage() {
                     }
                     /* Third Step: we will display the list of properties and the sample values */
                     propertyMap.forEach(displayProperty)
+
                     function displayProperty(valueArray, mapKey, map) {
 
                         let name = UI.projects.foundations.utilities.strings.fromCamelCaseToUpperWithSpaces(mapKey)
@@ -1324,7 +1361,9 @@ function newFoundationsDocsDocumentPage() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.code !== true) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.code !== true) {
+                        return
+                    }
                     paragraph = {
                         style: "Title",
                         text: "" + appSchemaDocument.type + " Code"
@@ -1338,7 +1377,9 @@ function newFoundationsDocsDocumentPage() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) { return }
+                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Subtitle",
@@ -1398,8 +1439,11 @@ function newFoundationsDocsDocumentPage() {
                     /* Third Step: we will display the list of properties and the sample values */
                     let exampleCounter = 1
                     codeMap.forEach(displayProperty)
+
                     function displayProperty(code, mapKey, map) {
-                        if (exampleCounter > 10) { return }
+                        if (exampleCounter > 10) {
+                            return
+                        }
                         HTML = HTML + '<button id="docs-code-example-' + exampleCounter + '" type="button" class="docs-collapsible-element">' + 'Example #' + exampleCounter + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-code-content">'
                         exampleCounter++
@@ -1420,7 +1464,9 @@ function newFoundationsDocsDocumentPage() {
                     */
                     let paragraph
                     let key = 'auto-generated-paragraph-' + autoGeneratedParagraphIndex
-                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.formula !== true) { return }
+                    if (appSchemaDocument === undefined || appSchemaDocument.editors === undefined || appSchemaDocument.editors.formula !== true) {
+                        return
+                    }
                     paragraph = {
                         style: "Title",
                         text: "" + appSchemaDocument.type + " Formula"
@@ -1434,7 +1480,9 @@ function newFoundationsDocsDocumentPage() {
                     renderParagraph(paragraph, key)
                     autoGeneratedParagraphIndex++
 
-                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) { return }
+                    if (appSchemaDocument.initialValues === undefined || appSchemaDocument.initialValues.code === undefined) {
+                        return
+                    }
 
                     paragraph = {
                         style: "Subtitle",
@@ -1494,8 +1542,11 @@ function newFoundationsDocsDocumentPage() {
                     /* Third Step: we will display the list of properties and the sample values */
                     let exampleCounter = 1
                     codeMap.forEach(displayProperty)
+
                     function displayProperty(code, mapKey, map) {
-                        if (exampleCounter > 10) { return }
+                        if (exampleCounter > 10) {
+                            return
+                        }
                         HTML = HTML + '<button id="docs-code-example-' + exampleCounter + '" type="button" class="docs-collapsible-element">' + 'Example #' + exampleCounter + '</button>'
                         HTML = HTML + '<div class="docs-collapsible-code-content">'
                         exampleCounter++
@@ -1800,9 +1851,15 @@ function newFoundationsDocsDocumentPage() {
                 let levels = splittedParams[2]
 
                 appSchemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(type)
-                if (appSchemaDocument === undefined) { return }
-                if (isNaN(levels) === true) { return }
-                if (levels > MAX_COLUMNS) { return }
+                if (appSchemaDocument === undefined) {
+                    return
+                }
+                if (isNaN(levels) === true) {
+                    return
+                }
+                if (levels > MAX_COLUMNS) {
+                    return
+                }
 
                 let contentMatrix = []
 
@@ -1824,7 +1881,9 @@ function newFoundationsDocsDocumentPage() {
 
                 function scanHierarchy(schemaDocument, project, currentColumn, lastChild) {
 
-                    if (schemaDocument === undefined) { return }
+                    if (schemaDocument === undefined) {
+                        return
+                    }
 
                     currentRow++
 
@@ -1848,7 +1907,9 @@ function newFoundationsDocsDocumentPage() {
                         matrixRow[currentColumn - 1] = FORK
                     }
 
-                    if (schemaDocument.childrenNodesProperties === undefined) { return }
+                    if (schemaDocument.childrenNodesProperties === undefined) {
+                        return
+                    }
 
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
@@ -2029,7 +2090,8 @@ function newFoundationsDocsDocumentPage() {
         let collapsibleElementsArray = document.getElementsByClassName("docs-collapsible-element")
 
         for (let i = 0; i < collapsibleElementsArray.length; i++) {
-            collapsibleElementsArray[i].removeEventListener("click", function () { })
+            collapsibleElementsArray[i].removeEventListener("click", function () {
+            })
         }
     }
 

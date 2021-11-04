@@ -49,7 +49,7 @@
 
     /* these are module specific variables: */
 
-    let percentageBandwidthArray = [];                   // Here we keep the percentageBandwidthArray to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let percentageBandwidthArray = [];                   // Here we keep the percentageBandwidthArray to be plotted every time the Draw() function is called by the AAWebPlatform.
 
     let zoomChangedEventSubscriptionId
     let offsetChangedEventSubscriptionId
@@ -63,7 +63,7 @@
     function finalize() {
         try {
 
-            /* Stop listening to the necesary events. */
+            /* Stop listening to the necessary events. */
 
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
@@ -72,7 +72,7 @@
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
             dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId);
 
-            /* Destroyd References */
+            /* Destroyed References */
 
             marketFiles = undefined;
             dailyFiles = undefined;
@@ -113,7 +113,7 @@
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
 
-            /* Listen to the necesary events. */
+            /* Listen to the necessary events. */
 
             zoomChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
             offsetChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
@@ -354,7 +354,7 @@
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
 
-            /* Lests check if all the visible screen is going to be covered by percentageBandwidthArray. */
+            /* Lets check if all the visible screen is going to be covered by percentageBandwidthArray. */
 
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
@@ -508,7 +508,7 @@
 
             if (percentageBandwidthArray.length > 0) {
 
-                /* This next section is to get ready in order to be able to plot dinamically constrained to the viewport */
+                /* This next section is to get ready in order to be able to plot dynamically constrained to the viewport */
 
                 let visibleHeight = UI.projects.foundations.spaces.chartingSpace.viewport.visibleArea.bottomRight.y - UI.projects.foundations.spaces.chartingSpace.viewport.visibleArea.topLeft.y;
 

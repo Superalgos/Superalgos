@@ -50,7 +50,7 @@
         },
         {
             "style": "List",
-            "text": "isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value true* means that the record is not stored. In the case isCaculated is not defined in the configuration, it is assumed to be false.",
+            "text": "isCalculated determines if the field is stored in the dataset or if, instead, is calculated at a later stage. A value true* means that the record is not stored. In the case isCalculated is not defined in the configuration, it is assumed to be false.",
             "updated": 1621972714008
         },
         {

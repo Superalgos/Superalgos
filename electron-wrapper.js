@@ -1,4 +1,4 @@
-const {app, Menu, BrowserWindow} = require('electron')
+const {app, Menu, BrowserWindow, ipcMain, dialog } = require('electron')
 
 const path = require('path')
 const fs = require('fs')
@@ -10,13 +10,10 @@ process.env.SA_MODE = 'gitDisable'
 process.env.PACKAGED_PATH = app.getAppPath()
 process.env.DATA_PATH = app.getPath('documents')
 
-const WINDOW_WIDTH = null
-const WINDOW_HEIGHT = null
+const WINDOW_WIDTH = 1280
+const WINDOW_HEIGHT = 768
 
-var w
-
-var app_ready = false
-var server_ready = false
+let mainWindow, consoleWindow, platform
 
 const port = 34248 // Default HTTP port
 
@@ -24,41 +21,137 @@ run()
 
 function run() {
   const { fork } = require('child_process')
-  const platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
-  platform.on('message', message => {
-    if(message == "Running") {
-      open()
-    }
+  platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+
+  platform.on('message', _ => {
+    openMain()
+    openConsoleWindow()
   })
 }
 
-function open () {
+ipcMain.on("toMain", (event, args) => {
+  if (args === "ImAlive!" && consoleWindow) {
+    platform.stdout.setEncoding('utf8')
+    platform.stdout.on('data', (data) => {
+      if(consoleWindow != null) {
+        consoleWindow.webContents.send("fromMain", data);
+      }
+    })
+  }
+})
+
+
+function openMain () {
   let bw_options = {
-    width: WINDOW_WIDTH ? WINDOW_WIDTH : 1280,
-    height: WINDOW_HEIGHT ? WINDOW_HEIGHT : 768,
-    resizable: true
+    width: WINDOW_WIDTH,
+    height: WINDOW_HEIGHT,
+    resizable: true,
+    webPreferences: {
+      nodeIntegration: false, // is default value after Electron v5
+      contextIsolation: true, // protect against prototype pollution
+      enableRemoteModule: false, // turn off remote
+    }
   }
 
-  w = new BrowserWindow(
+  mainWindow = new BrowserWindow(
     bw_options
   )
 
-  w.setResizable(true)
-  
-  w.loadURL("http://localhost:" + port)
+  createMainMenus()
 
-  // w.webContents.openDevTools()
+  mainWindow.loadURL("http://localhost:" + port)
 
-  w.on('closed', function () {
-    w = null
+  mainWindow.on('close', function (e) {
+    if (consoleWindow.isVisible()) {
+      e.preventDefault()
+      mainWindow.hide()
+    } else {
+    let choice = dialog.showMessageBoxSync(
+      mainWindow,
+      {
+        type: 'question',
+        buttons: ['Yes', 'No'],
+        title: 'Confirm',
+        message: 'Do you really want to close Superalgos?'
+      }
+    )
+      // 0 for Yes
+      if (choice === 0) {
+        mainWindow = null
+        app.exit()
+      }
+      // 1 for No
+      if (choice === 1) {
+        e.preventDefault()
+      } 
+    }    
+  })
+
+  mainWindow.on('activate', function () {
+    mainWindow.show()
+  })
+}
+
+function openConsoleWindow() {
+  if(consoleWindow) {
+    consoleWindow.focus()
+    return
+  }
+
+  consoleWindow = new BrowserWindow({
+    resizable: true,
+    title: 'Platform Logs',
+    minimizable: false,
+    fullscreenable: true,
+    show: false,
+    width: WINDOW_WIDTH,
+    webPreferences: {
+      nodeIntegration: false, // is default value after Electron v5
+      contextIsolation: true, // protect against prototype pollution
+      enableRemoteModule: false, // turn off remote
+      preload: path.join(__dirname, "preload.js") // use a preload script
+    }
+  })
+
+  consoleWindow.setBackgroundColor('#000000')
+  consoleWindow.loadFile('./console.html')
+
+
+  consoleWindow.on('close', function (e) {
+    if (mainWindow.isVisible()) {
+      e.preventDefault()
+      createMainMenus()
+      consoleWindow.hide()
+    } else {
+    let choice = dialog.showMessageBoxSync(
+      mainWindow,
+      {
+        type: 'question',
+        buttons: ['Yes', 'No'],
+        title: 'Confirm',
+        message: 'Do you really want to close Superalgos?'
+      }
+    )
+      // 0 for Yes
+      if (choice === 0) {
+        consoleWindow = null
+        app.exit()
+      }
+      // 1 for No
+      if (choice === 1) {
+        e.preventDefault()
+      } 
+    }    
+  })
+
+  consoleWindow.on('show', function () {
+    createConsoleMenus()
   })
 }
 
 app.on('ready', function () {
-  app_ready = true
   autoUpdater.checkForUpdatesAndNotify();
-  create_menus()
-  if (server_ready) open()
+  createMainMenus()
 })
 
 app.on('window-all-closed', function () {
@@ -69,8 +162,16 @@ app.on('activate', function () {
   if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-function create_menus () {
-  const template = [
+function createMainMenus() {
+  function logsActive() {
+    if(consoleWindow) {
+      return true
+    } else {
+      return false
+    }
+  } 
+
+  const mainTemplate = [
     {
       label: 'File',
       submenu: [
@@ -88,7 +189,6 @@ function create_menus () {
         {role: 'cut'},
         {role: 'copy'},
         {role: 'paste'},
-        {role: 'pasteandmatchstyle'},
         {role: 'delete'},
         {role: 'selectall'}
       ]
@@ -115,9 +215,80 @@ function create_menus () {
         {type: 'separator'},
         {role: 'togglefullscreen'}
       ]
+    },
+    {
+      label: 'Logs',
+      enabled: logsActive(),
+      click () {
+        if(consoleWindow) {
+          consoleWindow.show()
+        } else {
+          openConsoleWindow()
+        }
+      }
     }
   ]
 
-  const menu = Menu.buildFromTemplate(template)
-  Menu.setApplicationMenu(menu)
+  const mainMenu = Menu.buildFromTemplate(mainTemplate)
+  Menu.setApplicationMenu(mainMenu)
+}
+
+function createConsoleMenus () {
+
+  function uiActive() {
+    if(mainWindow.isVisible()) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const consoleTemplate = [
+    {
+      label: 'File',
+      submenu: [
+        {
+          role: 'quit'
+        }
+      ]
+    },
+    {
+      label: 'Edit',
+      submenu: [
+        {role: 'undo'},
+        {role: 'redo'},
+        {type: 'separator'},
+        {role: 'cut'},
+        {role: 'copy'},
+        {role: 'paste'},
+        {role: 'delete'},
+        {role: 'selectall'}
+      ]
+    },
+    {
+      label: 'View',
+      submenu: [
+        {role: 'reload'},
+        {role: 'forcereload'},
+        {role: 'toggledevtools'},
+        {type: 'separator'},
+        {role: 'resetzoom'},
+        {role: 'zoomin'},
+        {role: 'zoomout'},
+        {type: 'separator'},
+        {role: 'togglefullscreen'}
+      ]
+    },
+    {
+      label: 'Show UI',
+      id: 'ui',
+      enabled: uiActive(),
+      click () {
+        mainWindow.show()
+      }
+    }
+  ]
+
+  const consoleMenu = Menu.buildFromTemplate(consoleTemplate)
+  Menu.setApplicationMenu(consoleMenu)
 }

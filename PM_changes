@@ -46,10 +46,12 @@ Projects/Foundations/UI/Function-Libraries/
 	ActionSwitch.js:
 		cp case statements run-all, stop-all, add-missing, references, products, etc.
 		Line 506 && 512 may not need to have been cloned but I did for now - regarding live and paper trading.
-	
+	ChartingSpaceFunctions.js: Needs Completion to include Portfolio at Charting Space.
+				   'Market Trading|Portfolio Tasks' -> 'nodeType' as param.  <= If error arises note that it was not configured this way by Luis when adding the Learning Mine.   This is a File that could be heavily re-factored && optimized.
+	ProductFunctions.js:
 
 Skipping:
-	Projects/Foundatoins/UI/Function-Libraries/ChartingSpaceFunctions.js
+	Projects/Foundations/UI/Function-Libraries/ChartingSpaceFunctions.js: Needs Completion
 	Projects/Foundations/UI/Function-Libraries/CryptoEcosystemFunctions.js
 
 Projects/Foundations/UI/Function-Libraries/
@@ -72,7 +74,14 @@ Projects/Foundations/UI/Spaces/
 	/Panel-Space/Layer.js: Line 173 Only 'Live Portfolio Session'
 
 Projects/Visual-Scripting/UI/Function-Libraries/
+<<<<<<< Updated upstream
 	ActionsSwitch.js:  *** NOTE: Not sure how to handle line 14 at the current moment. ***
+	UiObjectsFromNodes.js: only if(uiObjectType === 'Live Portfolio Session')
+=======
+	ActionsSwitch.js:
+	NodePath.js*** NOTE: Not sure how to handle line 14 at the current moment. ***
+	UIObjectsFromNodes.js: Line 977 'Live Portfolio Session' only.
+>>>>>>> Stashed changes
 
 Skipping:
 	Projects/Foundations/UI/Spaces/Floating-Space/ConditionEditor.js

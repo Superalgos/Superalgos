@@ -111,23 +111,25 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             let fordwardTestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
             let paperTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
             let liveTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
+            let livePortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Portfolio Session')
             let backLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
             let liveLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
 
-            scanSessionArray(backtestingSessionsArray)
-            scanSessionArray(fordwardTestingSessionsArray)
-            scanSessionArray(paperTradingSessionsArray)
-            scanSessionArray(liveTradingSessionsArray)
-            scanSessionArray(backLearningSessionsArray)
-            scanSessionArray(liveLearningSessionsArray)
+            scanSessionArray(backtestingSessionsArray, 'Market Trading Tasks')
+            scanSessionArray(fordwardTestingSessionsArray, 'Market Trading Tasks')
+            scanSessionArray(paperTradingSessionsArray, 'Market Trading Tasks')
+            scanSessionArray(liveTradingSessionsArray, 'Market Trading Tasks')
+            scanSessionArray(livePortfolioSessionsArray, 'Market Portfolio Tasks')
+            scanSessionArray(backLearningSessionsArray, 'Market Trading Tasks')
+            scanSessionArray(liveLearningSessionsArray, 'Market Trading Tasks')
 
-            function scanSessionArray(sessionsArray) {
+            function scanSessionArray(sessionsArray, nodeType) {
                 for (let i = 0; i < sessionsArray.length; i++) {
                     let session = sessionsArray[i]
                     let environment = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
                     if (environment === undefined) { continue }
                     if (environment.id !== node.payload.referenceParent.id) { continue }
-                    let market = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                    let market = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, nodeType, undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
                         createTimeMachine(node, session, market.payload.referenceParent, lanNetworkNode, rootNodes)
@@ -148,9 +150,10 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         timeMachine.timeFrameScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         timeMachine.timeScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
         timeMachine.rateScale.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+
         /*
-        We will create 3 Time Line Charts for the Trading Mine Products
-        */
+         *  We will create 3 Time Line Charts for the Trading Mine Products:
+         */
         mineProducts = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Trading Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
@@ -160,13 +163,13 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             */
             if (mineProduct.payload.parentNode === undefined) { continue }
             if (mineProduct.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
+
             /*
             At the current version of Superalgos, beta 6, there is only one Trading Mine,
             with only one bot, and it has so many data products that we want to put them
             in 3 different timeline charts. So we will create 3 charts, connect them, 
             and delete from each one 1/3 of the layers. We do all that next:
             */
-
             for (let k = 0; k < 3; k++) {
                 let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
@@ -207,9 +210,68 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 }
             }
         }
+
         /*
-        We will create 3 Time Line Charts for the Learning Mine Products
-        */
+         *  We will create 3 Time Line Charts for the Portfolio Mine Products:
+         */
+        mineProducts = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Portfolio Mine Products')
+        for (let j = 0; j < mineProducts.length; j++) {
+            let mineProduct = mineProducts[j]
+            /*
+            The mine products found so far, belongs to any session. To filter all the sessions
+            that are not the one we are interested in, we do the following:
+            */
+            if (mineProduct.payload.parentNode === undefined) { continue }
+            if (mineProduct.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
+            
+            /*
+            For the legacy reasons stated above @Trading Mine Products we will create 3 charts, connect them, 
+            and delete from each one 1/3 of the layers. We do all that next:
+            */
+            for (let k = 0; k < 3; k++) {
+                let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
+
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timelineChart.layerManager, mineProduct)
+                timelineChart.payload.floatingObject.collapseToggle()
+                timelineChart.layerManager.payload.floatingObject.collapseToggle()
+                timelineChart.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                timelineChart.layerManager.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+
+                let menu = timelineChart.layerManager.payload.uiObject.menu
+                menu.internalClick('Add All Mine Layers')
+                menu.internalClick('Add All Mine Layers')
+
+                switch (k) {
+                    case 0: {
+                        timelineChart.name = 'Portfolio Engine'
+                        deleteNodeByName('Portfolio System')
+                        deleteNodeByName('Simulation Objects')
+                        break
+                    }
+                    case 1: {
+                        timelineChart.name = 'Portfolio System'
+                        deleteNodeByName('Portfolio Engine')
+                        deleteNodeByName('Simulation Objects')
+                        break
+                    }
+                    case 2: {
+                        timelineChart.name = 'Simulation Objects'
+                        deleteNodeByName('Portfolio Engine')
+                        deleteNodeByName('Portfolio System')
+                        break
+                    }
+                }
+                function deleteNodeByName(nodeName) {
+                    let nodeToDelete = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(timelineChart.layerManager, undefined, nodeName, true, true, false, false)
+                    if (nodeToDelete === undefined) { return }
+                    UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(nodeToDelete, rootNodes)
+                }
+            }
+        }
+
+        /*
+         *  We will create 3 Time Line Charts for the Learning Mine Products:
+         */
         mineProducts = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Learning Mine Products')
         for (let j = 0; j < mineProducts.length; j++) {
             let mineProduct = mineProducts[j]
@@ -219,13 +281,13 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             */
             if (mineProduct.payload.parentNode === undefined) { continue }
             if (mineProduct.payload.parentNode.payload.referenceParent.id !== session.id) { continue }
+            
             /*
             At the current version of Superalgos, beta 6, there is only one Learning Mine,
             with only one bot, and it has so many data products that we want to put them
             in 3 different timeline charts. So we will create 3 charts, connect them, 
             and delete from each one 1/3 of the layers. We do all that next:
             */
-
             for (let k = 0; k < 3; k++) {
                 let timelineChart = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(timeMachine, 'Timeline Chart')
 
@@ -319,6 +381,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             function scanNetworkNode(lanNetworkNode) {
                 let testingTradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Testing Trading Tasks', node, true)
                 let productionTradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Production Trading Tasks', node, true)
+                let productionPortfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Production Portfolio Tasks', node, true)
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, testingTradingTasks, true) === true) {
                     let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
@@ -330,6 +393,12 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
                     dashboard.name = productionTradingTasks.type + ' ' + lanNetworkNode.name
+                }
+
+                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, productionPortfolioTasks, true) === true) {
+                    let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionPortfolioTasks)
+                    dashboard.name = productionPortfolioTasks.type + ' ' + lanNetworkNode.name
                 }
             }
         }

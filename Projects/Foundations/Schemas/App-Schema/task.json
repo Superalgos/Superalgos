@@ -71,6 +71,16 @@
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "bot",
+            "label": "Add Portfolio Bot Instance",
+            "relatedUiObject": "Portfolio Bot Instance",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
             "label": "Add Learning Bot Instance",
             "relatedUiObject": "Learning Bot Instance",
             "actionFunction": "payload.executeAction",
@@ -109,6 +119,11 @@
             "name": "bot",
             "type": "node",
             "childType": "Trading Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Portfolio Bot Instance"
         },
         {
             "name": "bot",

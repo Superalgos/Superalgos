@@ -2,6 +2,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let thisObject = {
         syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
         syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
+        syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd: syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd,
         syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
@@ -16,6 +17,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let mapOfNodes
     let tasksFoundAtWorkspace
     let tradingSessionsFoundAtWorkspace
+    let portfolioSessionsFoundAtWorkspace
     let learningSessionsFoundAtWorkspace
     let tutorialsToPlay
 
@@ -29,6 +31,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         mapOfNodes = new Map()
         tasksFoundAtWorkspace = []
         tradingSessionsFoundAtWorkspace = []
+        portfolioSessionsFoundAtWorkspace = []
         learningSessionsFoundAtWorkspace = []
         tutorialsToPlay = []
 
@@ -83,6 +86,18 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                         if (project.pluginTradingEngines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginTradingEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTradingEngines.pluginFiles, 'Trading-Engines')
+                        }
+                        if (project.pluginPortfolioMines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPortfolioMines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPortfolioMines.pluginFiles, 'Portfolio-Mines')
+                        }
+                        if (project.pluginPortfolioSystems !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPortfolioSystems.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPortfolioSystems.pluginFiles, 'Portfolio-Systems')
+                        }
+                        if (project.pluginPortfolioEngines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPortfolioEngines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPortfolioEngines.pluginFiles, 'Portfolio-Engines')
                         }
                         if (project.pluginLearningMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginLearningMines.pluginFiles.length
@@ -278,6 +293,14 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         tradingSessionsFoundAtWorkspace = undefined
     }
 
+    function syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd() {
+        for (let i = 0; i < portfolioSessionsFoundAtWorkspace.length; i++) {
+            let node = portfolioSessionsFoundAtWorkspace[i]
+            UI.projects.algorithmicPortfolio.functionLibraries.portfolioSessionFunctions.syncronizeSessionWithBackEnd(node)
+        }
+        portfolioSessionsFoundAtWorkspace = undefined
+    }
+
     function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
@@ -466,6 +489,15 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         }
 
         if (
+            node.type === 'Portfolio Engine' ||
+            node.type === 'Portfolio Mine' ||
+            node.type === 'Portfolio System' ||
+            node.type === 'Portfolio Bot'
+        ) {
+            node.project = "Portfolio-Management"
+        }
+
+        if (
             node.type === 'Learning Engine' ||
             node.type === 'Learning Mine' ||
             node.type === 'Learning System' ||
@@ -477,9 +509,12 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         if (
             node.type === 'Plugins' ||
             node.type === 'Plugin Tutorials' ||
-            node.type === 'Plugin Trading Systems' ||
-            node.type === 'Plugin Trading Mines' ||
-            node.type === 'Plugin Trading Engines' ||
+            node.type === 'Plugin Trading Systems'  ||
+            node.type === 'Plugin Trading Mines'    ||
+            node.type === 'Plugin Trading Engines'  ||
+            node.type === 'Plugin Portfolio Systems' ||
+            node.type === 'Plugin Portfolio Mines'  ||
+            node.type === 'Plugin Portfolio Engines' ||
             node.type === 'Plugin Project' ||
             node.type === 'Plugin Learning Systems' ||
             node.type === 'Plugin Learning Mines' ||
@@ -937,6 +972,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
             if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
                 if (tradingSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
                     tradingSessionsFoundAtWorkspace.push(node)
+                }
+            }
+            if (uiObjectType === 'Live Portfolio Session') {
+                if (portfolioSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+                    portfolioSessionsFoundAtWorkspace.push(node)
                 }
             }
             if (uiObjectType === 'Learning Session') {

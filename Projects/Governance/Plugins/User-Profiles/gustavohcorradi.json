@@ -819,8 +819,8 @@
             "id": "b7c934fd-8031-4615-bf9c-94280e452511",
             "savedPayload": {
                 "position": {
-                    "x": 31142.160562311805,
-                    "y": 28850
+                    "x": 31012.25675174414,
+                    "y": 28775
                 },
                 "targetPosition": {
                     "x": 30882.352941176472,
@@ -831,7 +831,7 @@
                     "isFrozen": false,
                     "isCollapsed": true,
                     "angleToParent": 1,
-                    "distanceToParent": 3,
+                    "distanceToParent": 2,
                     "arrangementStyle": 0
                 },
                 "uiObject": {
@@ -863,7 +863,152 @@
                                 "name": "New Weight Votes Switch",
                                 "config": "{}",
                                 "project": "Governance",
-                                "weightVotesSwitch": [],
+                                "weightVotesSwitch": [
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Weight Votes  - Mentorship",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [],
+                                        "poolWeightVotes": [
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Mentorship Rewards Pool",
+                                                "config": "{\n\"percentage\": 90\n}",
+                                                "project": "Governance",
+                                                "id": "2a573cd8-f8d6-4b36-9f09-986902a25427",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 31144.852941176472,
+                                                        "y": 28870.096189432334
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 31482.352941176472,
+                                                        "y": 28870.096189432334
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 4,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Mentorship Rewards",
+                                                        "id": "53ddcc36-f693-4193-8284-999a88f1c944"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Community Building Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Mentorship Program",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Mentorship Rewards",
+                                                            "Pool"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Pool Weight Vote",
+                                                "name": "Mentorship Bonus Pool",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "44ffa08c-ebcc-4ca2-833a-d7e4a4a96841",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 31651.102941176472,
+                                                        "y": 28577.812615655086
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 31482.352941176472,
+                                                        "y": 28870.096189432334
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 4,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool",
+                                                        "name": "Mentorship Bonus",
+                                                        "id": "ff1e4a84-3363-4348-ad15-31a34898fa82"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Community Building Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Mentorship Program",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Mentorship Bonus",
+                                                            "Pool"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "af870025-4eac-4adf-b929-67b76bfac227",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31482.352941176472,
+                                                "y": 28870.096189432334
+                                            },
+                                            "targetPosition": {
+                                                "x": 31594.852941176472,
+                                                "y": 29064.951905283833
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
                                 "poolWeightVotes": [],
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
@@ -876,12 +1021,12 @@
                                         "id": "5b8b92d0-1df5-45f1-9ae7-75c87a8302db",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31482.352941176472,
-                                                "y": 29000
+                                                "x": 31819.852941176472,
+                                                "y": 29064.951905283833
                                             },
                                             "targetPosition": {
-                                                "x": 31407.352941176472,
-                                                "y": 29129.903810567666
+                                                "x": 31594.852941176472,
+                                                "y": 29064.951905283833
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -943,11 +1088,11 @@
                                 "id": "37a9c875-a9bc-4ab1-a00e-f248f818f311",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31407.352941176472,
-                                        "y": 29129.903810567666
+                                        "x": 31594.852941176472,
+                                        "y": 29064.951905283833
                                     },
                                     "targetPosition": {
-                                        "x": 31332.352941176472,
+                                        "x": 31482.352941176472,
                                         "y": 29259.807621135333
                                     },
                                     "floatingObject": {
@@ -975,11 +1120,11 @@
                                 "id": "e8e3f63a-b9fb-47d7-8fc9-c0634a0f2425",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31407.352941176472,
-                                        "y": 29389.711431703
+                                        "x": 31594.852941176472,
+                                        "y": 29454.663336986832
                                     },
                                     "targetPosition": {
-                                        "x": 31332.352941176472,
+                                        "x": 31482.352941176472,
                                         "y": 29259.807621135333
                                     },
                                     "floatingObject": {
@@ -999,7 +1144,7 @@
                         "id": "352b5f30-d971-478b-9085-4c9ff9ddb388",
                         "savedPayload": {
                             "position": {
-                                "x": 31332.352941176472,
+                                "x": 31482.352941176472,
                                 "y": 29259.807621135333
                             },
                             "targetPosition": {
@@ -1011,7 +1156,7 @@
                                 "isFrozen": false,
                                 "isCollapsed": false,
                                 "angleToParent": 1,
-                                "distanceToParent": 3,
+                                "distanceToParent": 4,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -1322,7 +1467,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\"percentage\": 35}",
+            "config": "{\n    \"percentage\": 35\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -1420,8 +1565,8 @@
                         "id": "a851317c-1283-40e1-9434-a78c5c88caaa",
                         "savedPayload": {
                             "position": {
-                                "x": 30102.930077770474,
-                                "y": 28250
+                                "x": 30232.83388833814,
+                                "y": 28325
                             },
                             "targetPosition": {
                                 "x": 30362.737698905807,
@@ -1432,7 +1577,7 @@
                                 "isFrozen": false,
                                 "isCollapsed": false,
                                 "angleToParent": 1,
-                                "distanceToParent": 3,
+                                "distanceToParent": 2,
                                 "arrangementStyle": 0
                             },
                             "uiObject": {
@@ -1517,7 +1662,7 @@
         "id": "899f92f8-5e00-42a0-8316-10c95dd2a6b1",
         "savedPayload": {
             "position": {
-                "x": 30582.352941176472,
+                "x": 30732.352941176472,
                 "y": 28400
             },
             "targetPosition": {
@@ -1529,7 +1674,7 @@
                 "isFrozen": false,
                 "isCollapsed": false,
                 "angleToParent": 1,
-                "distanceToParent": 3,
+                "distanceToParent": 2,
                 "arrangementStyle": 0
             },
             "uiObject": {

@@ -21,7 +21,7 @@
         },
         {
             "style": "Text",
-            "text": "A formula may act in slightly different ways depending on the isCaculated attribute in the record property configuration:"
+            "text": "A formula may act in slightly different ways depending on the isCalculated attribute in the record property configuration:"
         },
         {
             "style": "List",

@@ -47,7 +47,7 @@ function newUiObjectConstructor() {
         When this object is created based on a backup, share or clone, 
         we will have a savedPayload that we will use to set the initial properties.
         If it is a new object being created out of the user interface, 
-        we jusst continue with the construction process.
+        we just continue with the construction process.
         */
         if (userAddingNew === false && payload.node.type !== 'Workspace') {
             let position = {

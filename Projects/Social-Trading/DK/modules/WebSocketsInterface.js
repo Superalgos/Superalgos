@@ -1,7 +1,7 @@
 exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSocketsInterface() {
     /*
     This module handles the websockets communication between the 
-    Desktop App's Client and the Destop App's Web App.
+    Desktop App's Client and the Desktop App's Web App.
     */
     let thisObject = {
         sendToWebApp: sendToWebApp,
@@ -35,7 +35,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
             function onConnectionOpened(socket)
             /*
             This function is executed every time a new Websockets connection
-            is stablished.  
+            is established.
             */ {
                 if (webApp !== undefined) {
                     console.log('[ERROR] Only one websockets client allowed.')

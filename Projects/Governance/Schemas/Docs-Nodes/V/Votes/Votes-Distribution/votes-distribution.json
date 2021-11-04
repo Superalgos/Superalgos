@@ -1,7 +1,7 @@
 {
     "type": "Voting Program",
     "definition": {
-        "text": "This node defined the section where votes are going to flow like vote-streams, going through Votes Swithces and several different types of Vote nodes. Via references they are later sent to recipient nodes living at other hierarchies.",
+        "text": "This node defined the section where votes are going to flow like vote-streams, going through Votes Switches and several different types of Vote nodes. Via references they are later sent to recipient nodes living at other hierarchies.",
         "updated": 1622989230849
     },
     "paragraphs": [

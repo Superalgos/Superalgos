@@ -15,7 +15,7 @@ function getSchemaDocument(node, project) {
     even those can fail. For that reason, we will temporally see if we can find the schema document at any of the 
     available projects.
 
-    TODO: We need to explictly declare the project of a relatedUIObject in order to avoid potential name collision 
+    TODO: We need to explicitly declare the project of a relatedUIObject in order to avoid potential name collision
     between nodes belonging to more than one project.
     */
 

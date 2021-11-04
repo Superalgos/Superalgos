@@ -68,6 +68,11 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.pluginsFunctions.addMissingPluginUserProfiles(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Specified User Profile':
+            {
+                UI.projects.governance.functionLibraries.pluginsFunctions.addSpecifiedUserProfile(action.node, action.rootNodes)
+            }
+                break
             case 'Add Missing Plugin Pools':
                 {
                     UI.projects.governance.functionLibraries.pluginsFunctions.addMissingPluginPools(action.node, action.rootNodes)

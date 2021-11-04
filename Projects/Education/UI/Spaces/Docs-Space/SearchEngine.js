@@ -15,7 +15,7 @@ function newFoundationsDocsSearchEngine() {
             preset: "performance",
             worker: true,
             encoder: "advanced",
-            tokenize: "full",
+            tokenize: "forward",
             document: {
                 index: [
                     "docsSchemaDocument:type",
@@ -228,6 +228,7 @@ function newFoundationsDocsSearchEngine() {
                     text: docsSchemaDocument.definition.text,
                     translations: docsSchemaDocument.definition.translations
                 }
+                appendToTextField(' ')
                 appendToTextField(paragraph.text)
                 indexAllTranslations(paragraph)
             }

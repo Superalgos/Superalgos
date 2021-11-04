@@ -1376,12 +1376,6 @@
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
-                },
-                {
-                    "name": "Web Sockets Network Client",
-                    "propertyName": "webSocketsNetworkClient",
-                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
-                    "fileName": "WebSocketsNetworkClient.js"
                 }
             ],
             "utilities": []
@@ -1397,11 +1391,11 @@
             ],
             "modules": [
                 {
-                    "name": "Web Sockets App Client",
-                    "propertyName": "webSocketsAppClient",
-                    "functionName": "newNetworkModulesWebSocketsAppClient",
-                    "fileName": "WebSocketsAppClient.js"
-                },
+                    "name": "Web Sockets Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
+                    "fileName": "WebSocketsNetworkClient.js"
+                }
                 {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",

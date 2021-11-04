@@ -5,6 +5,7 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     */
     let thisObject = {
         joinTheNetworkAsNetworkPeer: joinTheNetworkAsNetworkPeer,
+        p2pNodesToConnect: undefined,
         /* Framework Functions */
         initialize: initialize,
         finalize: finalize
@@ -13,28 +14,31 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     return thisObject
 
     function finalize() {
-
+        thisObject.p2pNodesToConnect = undefined
     }
 
     async function initialize(callerRole) {
 
-        let p2pNodesToConnect = []
-        /*
-        We will setup here the maps and arryas we will need to operate within the P2P Network.
-        */
-        let thisP2PNodeId = SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).signingAccountChildId
-        for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
-            let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
-            if (thisP2PNodeId !== p2pNetworkNode.node.id) {
-                p2pNodesToConnect.push(p2pNetworkNode)
-            }
-        }
-
         switch (callerRole) {
             case 'Network Client': {
+                thisObject.p2pNodesToConnect = []
+
+                for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
+                    let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+                    thisObject.p2pNodesToConnect.push(p2pNetworkNode)
+                }
                 break
             }
             case 'Network Peer': {
+                thisObject.p2pNodesToConnect = []
+
+                let thisP2PNodeId = SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).signingAccountChildId
+                for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
+                    let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+                    if (thisP2PNodeId !== p2pNetworkNode.node.id) {
+                        thisObject.p2pNodesToConnect.push(p2pNetworkNode)
+                    }
+                }
                 break
             }
         }

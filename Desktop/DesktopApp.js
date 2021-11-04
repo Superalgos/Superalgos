@@ -24,20 +24,13 @@ exports.newDesktopApp = function newDesktopApp() {
         thisObject.p2pMetwork = SA.projects.network.modules.p2pMetwork.newNetworkModulesP2PNetwork()
         await thisObject.p2pMetwork.initialize('Network Client')
         /*
-        Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
-        In the meantime, we will assume that we have chosen the following Network Node to connect to.
+        Here we will pick a Network Node from all users profiles available that do have a Network Node running.        
         */
-        selectedNetworkNode = {
-            userProfileHandle: "Luis-Fernando-Molina",
-            blockchainAccount: "0xeBDCB7a73c4796ca9F025d005630eCe773dd9e54",
-            ranking: 0,
-            host: "localhost",
-            port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT
-        }
+        let selectedNetworkNode = thisObject.p2pMetwork.p2pNodesToConnect[0]
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
-        thisObject.webSocketsClient = SA.projects.network.modules.webSocketsAppClient.newNetworkModulesWebSocketsAppClient()
+        thisObject.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
         await thisObject.webSocketsClient.initialize('Network Client', selectedNetworkNode)
         console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
         /* 

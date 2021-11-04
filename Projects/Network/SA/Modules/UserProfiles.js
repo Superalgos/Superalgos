@@ -69,9 +69,26 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     /*
                     If the Signing Account is for a P2P node, we will add the node to the array of available nodes at the p2p network.
                     */
-                    if (signingAccount.signingAccountChild.type === "P2P Network Node") {
+                    if (
+                        signingAccount.signingAccountChild.type === "P2P Network Node" &&
+                        signingAccount.signingAccountChild.config === undefined
+                    ) {
+                        let condig
+                        try {
+                            condig = JSON.parse(signingAccount.signingAccountChild.config)
+                        } catch (err) {
+                            console.log('P2P Network Node Config not in JSON format. userProfileHandle = ' + userHandle + ' NodeId = ' + signingAccount.signingAccountChild.id)
+                            continue
+                        }
+                        if (config.host === undefined) {
+                            continue
+                        }
+                        if (config.webSocketsPort === undefined) {
+                            continue
+                        }
+
                         p2pNetworkNode = SA.projects.network.modules.p2pMetworkNode.newNetworkModulesP2PNetworkNode()
-                        p2pMetworkNode.initialize(signingAccount.signingAccountChild, userPofile) 
+                        p2pMetworkNode.initialize(signingAccount.signingAccountChild, userPofile)
                         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                     }
                 }

@@ -21,7 +21,7 @@ exports.newDesktopApp = function newDesktopApp() {
         /*
         We can join now the P2P Network as a client app.
         */
-        thisObject.p2pMetwork = SA.projects.network.modules.p2pMetwork.newNetworkModulesP2PNetwork()
+        thisObject.p2pMetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
         await thisObject.p2pMetwork.initialize('Network Client')
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running.        

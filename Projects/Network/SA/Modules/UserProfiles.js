@@ -64,8 +64,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     let config = JSON.parse(signingAccount.config)
                     let signatureObject = config.signature
                     let web3 = new SA.nodeModules.web3()
-                    let blockchainAccount = web3.eth.accounts.recover(signatureObject)
-                    SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
+                    let blockchainAccount = web3.eth.accounts.recover(signatureObject)                  
                     /*
                     If the Signing Account is for a P2P node, we will add the node to the array of available nodes at the p2p network.
                     */
@@ -88,7 +87,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                         }
 
                         p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                        p2pNetworkNode.initialize(signingAccount.signingAccountChild, userProfile)
+                        p2pNetworkNode.initialize(signingAccount.signingAccountChild, userProfile, blockchainAccount)
                         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                     }
                 }

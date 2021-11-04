@@ -106,7 +106,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the blockchain account taken from the signature matches
                             the one we have on record for the user profile of the Network Node we are calling.
                             */
-                            if (called.blockchainAccount !== p2pNetworkNode.userProfile.blockchainAccount) {
+                            if (called.blockchainAccount !== p2pNetworkNode.blockchainAccount) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return

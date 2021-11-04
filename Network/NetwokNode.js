@@ -29,6 +29,6 @@ exports.newNetworkNode = function newNetworkNode() {
         We can join now the P2P Network as a new peer there.
         */
        thisObject.p2pMetwork = SA.projects.network.modules.p2pMetwork.newNetworkModulesP2PNetwork()
-       await thisObject.p2pMetwork.initialize()
+       await thisObject.p2pMetwork.initialize('Network Peer')
     }
 }

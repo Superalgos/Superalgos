@@ -10,7 +10,6 @@ exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSock
 
     let web3
     let called = {}
-    let selectedNetworkNode // This is a Network Node we pick to try to connect to.
     let onMessageFunctionsMap = new Map()
 
     return thisObject
@@ -26,27 +25,14 @@ exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSock
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize() {
-        /*
-        Here we will pick a Network Node from all users profiles available that do have a Network Node running. // TODO
-        In the meantime, we will assume that we have chosen the following Network Node to connect to.
-        */
+    async function initialize(callerRole, p2pNetworkNode) {
+ 
         web3 = new SA.nodeModules.web3()
-
-        selectedNetworkNode = {
-            userProfileHandle: "Luis-Fernando-Molina",
-            blockchainAccount: "0xeBDCB7a73c4796ca9F025d005630eCe773dd9e54",
-            ranking: 0,
-            host: "localhost",
-            port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT
-        }
-
-        socketClient = new SA.nodeModules.ws('ws://' + selectedNetworkNode.host + ':' + selectedNetworkNode.port)
-
-        await setUpWebsocketClient()
+        socketClient = new SA.nodeModules.ws('ws://' + p2pNetworkNode.host + ':' + p2pNetworkNode.port)
+        await setUpWebsocketClient(callerRole, p2pNetworkNode)
     }
 
-    async function setUpWebsocketClient() {
+    async function setUpWebsocketClient(callerRole) {
 
         return new Promise(connectToNewtwork)
 
@@ -85,7 +71,7 @@ exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSock
 
                             let message = {
                                 messageType: 'Handshake',
-                                callerRole: 'Network Client',
+                                callerRole: callerRole,
                                 callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
                                 step: 'One'
@@ -116,7 +102,7 @@ exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSock
                             We will check that the blockchain account taken from the signature matches
                             the one we have on record for the user profile of the Network Node we are calling.
                             */
-                            if (called.blockchainAccount !== selectedNetworkNode.blockchainAccount) {
+                            if (called.blockchainAccount !== p2pNetworkNode.blockchainAccount) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
@@ -138,7 +124,7 @@ exports.newNetworkModulesWebSocketsAppClient = function newNetworkModulesWebSock
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
                             */
-                            if (signedMessage.calledProfileHandle !== selectedNetworkNode.userProfileHandle) {
+                            if (signedMessage.calledProfileHandle !== p2pNetworkNode.userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return

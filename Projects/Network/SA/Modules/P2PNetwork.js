@@ -4,7 +4,7 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     of this current node to other peers.
     */
     let thisObject = {
-        joinTheNetworkAsPeer: joinTheNetworkAsPeer,
+        joinTheNetworkAsNetworkPeer: joinTheNetworkAsNetworkPeer,
         /* Framework Functions */
         initialize: initialize,
         finalize: finalize
@@ -16,8 +16,9 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
 
     }
 
-    async function initialize() {
-        p2pNodesToConnect = []
+    async function initialize(callerRole) {
+
+        let p2pNodesToConnect = []
         /*
         We will setup here the maps and arryas we will need to operate within the P2P Network.
         */
@@ -28,9 +29,18 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                 p2pNodesToConnect.push(p2pNetworkNode)
             }
         }
+
+        switch (callerRole) {
+            case 'Network Client': {
+                break
+            }
+            case 'Network Peer': {
+                break
+            }
+        }
     }
 
-    function joinTheNetworkAsPeer() {
+    function joinTheNetworkAsNetworkPeer() {
         /*
         To join the network we will need to thorugh the list of Network Nodes and pick one to connect to. 
         */

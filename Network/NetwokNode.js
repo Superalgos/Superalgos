@@ -1,11 +1,14 @@
 exports.newNetworkNode = function newNetworkNode() {
 
     let thisObject = {
+        webSocketsInterface: undefined,
         socialGraphService: undefined,
         storage: undefined,
         p2pMetwork: undefined,
         run: run
     }
+
+    NT.networkNode = thisObject
 
     return thisObject
 
@@ -13,8 +16,8 @@ exports.newNetworkNode = function newNetworkNode() {
         /*
         Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
         */
-        NT.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
-        NT.webSocketsInterface.initialize()
+        thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+        thisObject.webSocketsInterface.initialize()
         /*
         The Social Graph Service is the first and for now, the only service this Network Node provides.
         */
@@ -28,7 +31,7 @@ exports.newNetworkNode = function newNetworkNode() {
         /*
         We can join now the P2P Network as a new peer there.
         */
-       thisObject.p2pMetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-       await thisObject.p2pMetwork.initialize('Network Peer')
+        thisObject.p2pMetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
+        await thisObject.p2pMetwork.initialize('Network Peer')
     }
 }

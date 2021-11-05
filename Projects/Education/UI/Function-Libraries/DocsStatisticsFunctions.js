@@ -23,6 +23,7 @@ function newEducationFunctionLibraryDocsStatisticsFunctions() {
         for (let i = 0; i < UI.projects.education.spaces.docsSpace.searchEngine.docsIndex.length; i++) {
             documentPage = UI.projects.education.spaces.docsSpace.searchEngine.docsIndex[i]
             pagesCount += 1
+            let lastValue
             if (projectStats[documentPage.project] !== undefined) {
                 lastValue = projectStats[documentPage.project]
             }

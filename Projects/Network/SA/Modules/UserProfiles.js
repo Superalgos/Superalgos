@@ -87,7 +87,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                             continue
                         }                        
 
-                        p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
+                        let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
                         p2pNetworkNode.initialize(signingAccount.signingAccountChild, userProfile, blockchainAccount)
                         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                     }

@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Inzwischen sollten alle Prozesse zu 100 % laufen. Wenn dies der Fall ist, bezeichnen wir die Data-Mining-Operation als \"up to date\".",
-                "updated": 1634170269450
+                "updated": 1634170269450,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Şu anda , tüm işlemler %100 olmalıdır. Bu olduğunda, veri madenciliği operasyonuna \"güncel\" diyoruz.",
+                "updated": 1636015455848
             }
         ],
         "updated": 1616415623576
@@ -61,7 +67,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn alle Prozesse auf dem neuesten Stand sind, laufen die Bots weiter und verarbeiten Informationen in Echtzeit, während sie an der Börse produziert werden. Das heißt, die Data-Mining-Operation stoppt nur, wenn Sie sie stoppen!",
-                    "updated": 1634170281567
+                    "updated": 1634170281567,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm süreçler güncel olduğunda, botlar çalışmaya devam eder ve bilgiyi borsada üretildiği gibi gerçek zamanlı olarak işler. Yani, siz durdurmadığınız sürece veri madenciliği işlemi durmaz!",
+                    "updated": 1636015476681
                 }
             ]
         },
@@ -90,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Schauen Sie sich um und prüfen Sie, ob alle Prozesse zu 100% laufen.",
-                    "updated": 1634170288448
+                    "updated": 1634170288448,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını görün",
+                    "updated": 1636015521214
                 }
             ]
         },
@@ -119,7 +137,13 @@
                 {
                     "language": "DE",
                     "text": "Um eine Live Trading Session durchzuführen, benötigen Sie eine ständige Zufuhr von Informationen von der Börse, die in Echtzeit verarbeitet werden, damit der Trading Bot die Regeln Ihres Trading System anwenden kann, um Live-Handelsentscheidungen zu treffen.",
-                    "updated": 1634170296952
+                    "updated": 1634170296952,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Alım Satım Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak işlenen borsadan sürekli bir bilgi akışına ihtiyacınız vardır.",
+                    "updated": 1636016072081
                 }
             ],
             "updated": 1616415667438

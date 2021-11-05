@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Das Herzstück einer Data-Mining-Operation sind Tasks, die Bots ausführen. Ein Task steuert einen Bot, und ein Task Manager kann mehrere Tasks steuern.",
-                "updated": 1634168469674
+                "updated": 1634168469674,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bir veri madenciliği operasyonunun özü, bot çalıştıran görevlerdir. Bir Görev, bir botu kontrol eder ve bir Görev Yöneticisi ( Tasks Manager ) birden fazla görevi kontrol edebilir.",
+                "updated": 1636015403690
             }
         ]
     },
@@ -61,7 +67,13 @@
                 {
                     "language": "DE",
                     "text": "Inzwischen haben Sie sechs verschiedene Geräte kennengelernt, die Sie zur Steuerung der einzelnen Bots in Ihrem Data Mining-Vorgang verwenden können. Auf der höchsten Ebene steuert der Knoten Data Tasks alle Data-Mining-Bots im Netzwerkknoten.",
-                    "updated": 1634168489908
+                    "updated": 1634168489908,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdiye kadar, veri madenciliği operasyonunuzdaki her bir botu kontrol etmek için kullanabileceğiniz altı farklı cihaz hakkında bilgi edindiniz. En üst düzeyde, Veri Görevleri (Data Tasks) düğümü, Ağ Düğümü'ndeki (Network Node) tüm veri madenciliği botlarını kontrol eder.",
+                    "updated": 1636015350802
                 }
             ]
         },
@@ -90,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Wir werden in einer Minute über Netzwerkknoten sprechen...",
-                    "updated": 1634168496945
+                    "updated": 1634168496945,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ düğümleri hakkında birazdan konuşacağız...",
+                    "updated": 1636015240381
                 }
             ]
         },
@@ -120,7 +138,13 @@
                 {
                     "language": "DE",
                     "text": "Auf der untersten Ebene steuert ein einzelner Task einen einzelnen Bot. Die Knoten dazwischen sind Organisationsknoten, die für Ordnung sorgen und eine detaillierte Kontrolle über die verschiedenen Bereiche ermöglichen.",
-                    "updated": 1634168505425
+                    "updated": 1634168505425,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "En alt düzeyde, tek bir Görev (Task), tek bir botu kontrol eder. Aradaki düğümler, işlemi düzenli tutmaya yardımcı olan ve farklı bölümler üzerinde ayrıntılı kontrole izin veren organizasyon düğümleridir.",
+                    "updated": 1636015306156
                 }
             ]
         }

@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Genau wie der Design Space bietet auch der Charting Space einen riesigen Bereich, in dem Sie Diagramme einrichten können... so viele, wie Ihre Hardware verkraften kann!",
-                "updated": 1634205591674
+                "updated": 1634205591674,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tasarım alanı gibi, çizelge alanı da çizelgeler oluşturabileceğiniz devasa bir alana sahiptir... donanımınızın üstesinden gelebileceği kadar!",
+                "updated": 1636034379426
             }
         ]
     },
@@ -61,7 +67,13 @@
                 {
                     "language": "DE",
                     "text": "Um die Dinge für Neulinge einfach zu halten, gibt es in diesem Workspace des Getting Started Tutorials nur zwei Charts. Fortgeschrittene Benutzer überwachen Charts von mehreren Börsen und Märkten.",
-                    "updated": 1634205603337
+                    "updated": 1634205603337,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni başlayanlar için işleri basit tutmak gerektiğinden  bu ( Getting Started Tutorial ) alanında yalnızca iki çizelge vardır. İleri düzey kullanıcılar, birden çok borsadan ve birden çok pazardan gelen tabloları izleyebilirler.",
+                    "updated": 1636034464247
                 }
             ]
         },
@@ -90,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Um sich im Viewport zu bewegen, klicken Sie auf einen leeren Bereich und ziehen Sie mit der Maus. Die Tastaturkombination ist Shift plus die Pfeiltasten ↑ ← → ↓",
-                    "updated": 1634205660486
+                    "updated": 1634205660486,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Görünüm Alanında (Viewport) gezinmek için farenizi kullanarak boş alana tıklayın ve sürükleyin. Klavye ile şu tuş kombinasyonunu kullanarakta gezinebilirsin. Shift artı ok tuşları ↑ ← → ↓",
+                    "updated": 1636034607617
                 }
             ],
             "updated": 1622198195729

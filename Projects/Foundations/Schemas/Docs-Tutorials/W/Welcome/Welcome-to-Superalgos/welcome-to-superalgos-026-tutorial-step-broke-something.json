@@ -36,7 +36,13 @@
             {
                 "language": "RU",
                 "text": "Если Вы когда-нибудь что-то нарушили, например, удалили узел или изменили конфигурацию и не знаете, как дальше действовать...",
-                "updated": 1635627557596
+                "updated": 1635627557596,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bir düğümü silmek veya bir konfigürasyonu değiştirmek gibi bir şeyi bozarsanız ve sonuçla nasıl başa çıkacağınızı bilmiyorsanız...",
+                "updated": 1636013094366
             }
         ]
     },
@@ -72,7 +78,13 @@
                 {
                     "language": "RU",
                     "text": "... Вы можете легко начать все сначала с исходного рабочего пространства Getting Started Tutorials Plugin Workspace!",
-                    "updated": 1635628049167
+                    "updated": 1635628049167,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "... orijinal Getting Started Tutorials Plugin Workspace! ile kolayca baştan başlayabilirsiniz!...",
+                    "updated": 1636013152834
                 }
             ],
             "updated": 1622196973760
@@ -108,7 +120,13 @@
                 {
                     "language": "RU",
                     "text": "В таком случае просто потяните вкладку с левой стороны, прокрутите, найдите плагин Getting Started Tutorials  и нажмите на него! Загрузится исходный Plugin Workspace и учебное пособие появится снова, с самого начала!",
-                    "updated": 1635629001422
+                    "updated": 1635629001422,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Böyle bir durumda, sol taraftaki sekmeyi çekin, kaydırın, Getting Started Tutorials Plugin'i bulun ve tıklayın! Orijinal Eklenti Çalışma Alanı ( Plugin Workspace ) yüklenecek ve öğretici, baştan yeni bir şekilde yeniden görünecek!",
+                    "updated": 1636013239148
                 }
             ],
             "updated": 1622634394712
@@ -133,7 +151,13 @@
                 {
                     "language": "RU",
                     "text": "Plugin Workspaces поставляются вместе с системой. Давайте посмотрим, как вы можете сделать их своими собственными или создать новые рабочие пространства!",
-                    "updated": 1635629610043
+                    "updated": 1635629610043,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Şimdi bunları nasıl kendinize ait hale getirebileceğinizi veya yeni çalışma alanları oluşturabileceğinizi görelim!",
+                    "updated": 1636013279897
                 }
             ]
         }

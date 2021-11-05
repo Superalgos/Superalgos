@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Ich bringe Sie in kürzester Zeit dazu, sich im Charting Space zu bewegen und zu blättern... Kümmern wir uns zuerst um den Schieberegler!",
-                "updated": 1634205702474
+                "updated": 1634205702474,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Hiç vakit kaybetmeden dolaşarak ve çizelge alanına göz atarak sizi hızlandıracağım... Önce kaydırıcıyı ele alalım!",
+                "updated": 1636034139286
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Klicken Sie ihn an und ziehen Sie ihn nach unten, um den Design Space zu schließen und den Charting Space zu öffnen. Um den umgekehrten Effekt zu erzielen, machen Sie das Gegenteil. Drücken Sie Ctrl + Shift + ↓. um dies mit der Tastatur zu tun. Versuchen Sie auch ↑ ← →",
-                    "updated": 1634205728640
+                    "updated": 1634205728640,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanını kapatmak ve grafik alanını açmak için turkuaz bölgeyi tıklayarak aşağıya çekin. Kapatmak için tersini yapabilirsiniz. Bunu klavyeyle yapmak için Ctrl + Shift + ↓ tuşlarına basın. ↑ ← →.. Diğer yön tuşlarını da deneyin!",
+                    "updated": 1636034296397
                 }
             ]
         },
@@ -89,7 +101,13 @@
                 {
                     "language": "DE",
                     "text": "Es ist eine gute Idee, einen der beiden Bereiche vollständig zu schließen, um Ressourcen zu sparen, es sei denn, Sie brauchen beide Bereiche nur teilweise geöffnet zu haben.",
-                    "updated": 1634205372068
+                    "updated": 1634205372068,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki alanın da kısmen açık olmasına ihtiyacınız yoksa, makinenizdeki bilgi işlem kaynaklarından tasarruf etmek için her ikisini de tamamen kapatmak her zaman iyi bir fikirdir.",
+                    "updated": 1636034332675
                 }
             ]
         }

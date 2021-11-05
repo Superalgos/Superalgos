@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Ich weiß! Wenn Sie auf eine beliebige Stelle zoomen, ist es unwahrscheinlich, dass Sie die Karte im rechten Winkel zu Ihrem Bildschirm positionieren, oder? Keine Sorge... versuchen Sie diesen Trick!",
-                "updated": 1634207830054
+                "updated": 1634207830054,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Biliyorum! Rastgele bir noktaya zum yapmak, grafiği ekranınızla kare şeklinde konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
+                "updated": 1636036151336
             }
         ],
         "updated": 1616417516192
@@ -56,7 +62,13 @@
                 {
                     "language": "DE",
                     "text": "Stellen Sie das Seitenverhältnis ein: Zeigen Sie mit der Maus auf den Chart der Backtesting Session (den oberen) und drücken Sie Ctrl + Shift + Alt + Key-A",
-                    "updated": 1634207859976
+                    "updated": 1634207859976,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "En-boy oranını ayarlayın: Farenizi Backtesting Session grafiğine (üstteki) getirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın",
+                    "updated": 1636036205725
                 }
             ]
         },
@@ -79,7 +91,13 @@
                 {
                     "language": "DE",
                     "text": "Verkleinern: Benutzen Sie das Mausrad, um zur äußersten Verkleinerungsposition zu gelangen; nur von dieser Position aus funktioniert der nächste Befehl!",
-                    "updated": 1634207868032
+                    "updated": 1634207868032,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzaklaştır: en uzak uzaklaştırma konumuna gitmek için fare tekerleğini kullanın; sadece bu konumdan sonraki komut çalışacaktır!",
+                    "updated": 1636036274866
                 }
             ]
         },
@@ -108,7 +126,13 @@
                 {
                     "language": "DE",
                     "text": "Doppelklicken Sie einmal: Dies zentriert das Diagramm und bringt Sie zu einer bestimmten Zoomstufe; es wird ein Rand gelassen, damit der Name und die Registerkarte des Diagramms in die obere linke Ecke passen.",
-                    "updated": 1634207894965
+                    "updated": 1634207894965,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kez çift tıklayın: bu, grafiği ortalar ve sizi belirli bir yakınlaştırma düzeyine götürür; sol üst köşede grafiğin adına ve sekmesine uyacak şekilde bir kenar boşluğu bırakılır.",
+                    "updated": 1636037063264
                 }
             ],
             "updated": 1616418234728
@@ -138,7 +162,13 @@
                 {
                     "language": "DE",
                     "text": "Ein weiterer Doppelklick: bringt Sie weiter in das Diagramm, bis zu einer Zoomstufe, in der das Diagramm perfekt auf den Bildschirm passt und die Layer Manager erscheinen.",
-                    "updated": 1634207914480
+                    "updated": 1634207914480,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tekrar çift tıklayın: bu sizi grafikte daha ileri götürür, grafiğin ekrana tam olarak oturduğu ve Katman Yöneticilerinin ortaya çıktığı yakınlaştırma düzeyine gidersiniz.",
+                    "updated": 1636037090275
                 }
             ],
             "updated": 1622198926988

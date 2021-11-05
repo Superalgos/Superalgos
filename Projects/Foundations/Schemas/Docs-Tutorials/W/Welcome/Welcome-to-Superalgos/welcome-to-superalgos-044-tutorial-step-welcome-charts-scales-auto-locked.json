@@ -20,7 +20,13 @@
             {
                 "language": "DE",
                 "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
-                "updated": 1634216805054
+                "updated": 1634216805054,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636044920201
             }
         ]
     },

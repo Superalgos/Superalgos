@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Sie befinden sich also endlich in einem Diagramm. Das erste, was Sie tun möchten, ist, sich zu bewegen und zu lernen, was diese Diagramme für Sie tun können.",
-                "updated": 1634216714226
+                "updated": 1634216714226,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Итак, наконец-то, Вы находитесь внутри диаграммы. Первое, что Вам необходимо сделать - это осмотреться и узнать, что эти диаграммы могут сделать для Вас.",
+                "updated": 1636044340152
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Fangen wir damit an! Wie im Designbereich - wenn Sie sich in einer Time Machine befinden - bewegen Sie sich mit Hilfe Ihrer Maus und Ihrer Tastatur. So geht's:",
-                    "updated": 1634216711619
+                    "updated": 1634216711619,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "В заключении процесса! Как и в пространстве дизайна, когда Вы находитесь внутри машины времени, Вы также можете перемещаться с помощью мыши и клавиатуры. Как это происходит:",
+                    "updated": 1636044534728
                 }
             ]
         },
@@ -89,7 +101,13 @@
                 {
                     "language": "DE",
                     "text": "Mit der Maus klicken Sie mit der linken Maustaste und ziehen. Mit der Tastatur benutzt du die Pfeiltasten: ← → ↑ ↓",
-                    "updated": 1634216728013
+                    "updated": 1634216728013,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью мыши: щелкните левой кнопкой мыши и перетащите. С помощью клавиатуры: используйте клавишы со стрелками ← → ↑ ↓",
+                    "updated": 1636044657366
                 }
             ]
         },
@@ -118,7 +136,13 @@
                 {
                     "language": "DE",
                     "text": "Was? Es funktioniert nicht? Bleiben Sie mit einem eingefrorenen Diagramm hängen? Wie im Video im nächsten Schritt? Keine Sorge! Ich weiß, was hier los ist...",
-                    "updated": 1634216736257
+                    "updated": 1634216736257,
+                    "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что? Это не работает? У Вас еще заморожен график как на видео в следующем шаге? Не беспокойтесь! Я знаю, что происходит...",
+                    "updated": 1636044810653
                 }
             ]
         }

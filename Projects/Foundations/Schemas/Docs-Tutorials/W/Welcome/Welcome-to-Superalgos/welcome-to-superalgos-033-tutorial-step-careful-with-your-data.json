@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Es kann Minuten dauern, bis alle Aufgaben zum getoppt sind. Sie sollten das System niemals schließen, bevor alle Aufgaben beendet sind.",
-                "updated": 1634173343328
+                "updated": 1634173343328,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Для остановки всех задач может потребоваться до 1 минуты. Вы никогда не должны закрывать систему до остановки всех задач.",
+                "updated": 1635949169179
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Überprüfen Sie die Kommandozeile Ihres Systems, um zu sehen, ob die Aufgaben gestoppt wurden!",
-                    "updated": 1634173091261
+                    "updated": 1634173091261,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте консольное приложение, чтобы увидеть, как прекращается процесс!",
+                    "updated": 1635949207414
                 }
             ],
             "updated": 1616416021973
@@ -84,7 +96,13 @@
                 {
                     "language": "DE",
                     "text": "Der richtige Weg, Superalgos zu schließen, ist:",
-                    "updated": 1634173103809
+                    "updated": 1634173103809,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Правильный способ, чтобы закрыть Superalgos:",
+                    "updated": 1635949241926
                 }
             ]
         },
@@ -108,7 +126,13 @@
                 {
                     "language": "DE",
                     "text": "Alle Aufgaben beenden, ein paar Minuten warten.",
-                    "updated": 1634173410210
+                    "updated": 1634173410210,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Остановите все задачи и подождите пару минут.",
+                    "updated": 1635949279017
                 }
             ]
         },
@@ -132,7 +156,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn alle Aufgaben beendet sind, können Sie die Konsolenanwendung schließen oder den Prozess mit Ctrl + Key-C beenden.",
-                    "updated": 1634173253123
+                    "updated": 1634173253123,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда все задачи остановятся, Вы можете закрыть консольное приложение или остановить процесс с помощью клавиш Ctrl + C .",
+                    "updated": 1635950790788
                 }
             ]
         },
@@ -155,7 +185,13 @@
                 {
                     "language": "DE",
                     "text": "Sie können den Browser jederzeit schließen und die Aufgaben im Hintergrund weiterlaufen lassen.",
-                    "updated": 1634173156784
+                    "updated": 1634173156784,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете закрыть браузер в любой момент и остановить обработку задач в фоновом режиме.",
+                    "updated": 1635949454297
                 }
             ]
         },
@@ -179,7 +215,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie den Client schließen, bevor die Tasks beendet sind, können Ihre Daten beschädigt werden!",
-                    "updated": 1634173172953
+                    "updated": 1634173172953,
+                    "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрытие Client до остановки задач может привести к поверждению ваших данных!",
+                    "updated": 1635949518016
                 }
             ]
         }

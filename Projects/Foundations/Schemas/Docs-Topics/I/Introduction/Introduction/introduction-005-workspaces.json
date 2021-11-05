@@ -9,7 +9,13 @@
             {
                 "language": "ES",
                 "text": "Workspaces son un concepto poderoso. Permiten trabajar en múltiples entornos de forma ordenada.",
-                "updated": 1629579704727
+                "updated": 1629579704727,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Рабочие пространства - это мощная концепция. Они позволяют упорядоченно работать с несколькими настройками.",
+                "updated": 1635948541491
             }
         ]
     },

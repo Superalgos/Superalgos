@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Ich habe bereits erwähnt, dass es in diesem Workspace zwei Diagramme gibt. In Superalgos nennen wir jedes dieser Diagramme eine Time Machine.",
-                "updated": 1634205940397
+                "updated": 1634205940397,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я упоминал ранее, что в этом рабочем пространстве имеется две диаграммы. В Superalgos мы называем каждую из них  - Time Machine.",
+                "updated": 1635952714402
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Eine Time Machine kann einen oder mehere Timeline Charts enthalten. Wir nennen sie Time Machines, weil alle Timeline Charts innerhalb einer Time Machine zeitlich synchronisiert sind. Diese Eigenschaft der Time Machines ermöglicht es, verschiedene Datenebenen auf derselben Time Scale zu überlagern.",
-                    "updated": 1634206096721
+                    "updated": 1634206096721,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Машина времени может содержать одну или несколько Timeline Chart. Мы называем их машиной времени, потому что здесь все графики временной шкалы синхронизированы во времени. Эта особенность машин времени позволяет накладывать различные слои данных, используя один и тот же Time Scale.",
+                    "updated": 1635953116457
                 }
             ]
         },
@@ -89,7 +101,13 @@
                 {
                     "language": "DE",
                     "text": "Fahren Sie mit dem Mauszeiger über die Time Machines!",
-                    "updated": 1634206006623
+                    "updated": 1634206006623,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на машины времени!",
+                    "updated": 1635953388808
                 }
             ]
         },
@@ -119,7 +137,13 @@
                 {
                     "language": "DE",
                     "text": "Beachten Sie die Beschriftung auf der linken Seite, aus der hervorgeht, mit welchen Börsen und Märkten die Daten verbunden sind. Eine einzige Time Machine kann Daten von mehreren Märkten und mehreren Börsen enthalten!",
-                    "updated": 1634206050433
+                    "updated": 1634206050433,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на появившуюся слева метку, которая указывает на то, с какими биржами и рынками связаны данные. Одна машина времени может содержать данные с множества рынков и бирж!",
+                    "updated": 1635953517021
                 }
             ]
         }

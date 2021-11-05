@@ -32,6 +32,11 @@
                 "text": "Da wir keine Live Trading Session durchführen, macht es grade keinen Sinn, das Data Mining zu diesem Zeitpunkt laufen zu lassen.",
                 "updated": 1634170784986,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Мы пока не собирались проводить Live Trading Session, поэтому на данный момент нет мысла продолжать наш интеллектуальный анализ данных.",
+                "updated": 1635848067290
             }
         ]
     },
@@ -64,6 +69,11 @@
                     "text": "Es gibt zwei Anwendungsfälle für die Data Tasks:",
                     "updated": 1634170835236,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Для выполнения Data Tasks существует два основных варианта использования:",
+                    "updated": 1635848266801
                 }
             ]
         },
@@ -95,6 +105,11 @@
                     "text": "Zur Verarbeitung historischer Daten: Sie möchten für einen bestimmten Zeitraum einen bestimmten Market verarbeiten, um eine Backtesting Session durchzuführen oder Indikatoren testen.",
                     "updated": 1634208005120,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "To process historic data: Вам может понадобится обработка диапазон дат и времени для любого данного Market, чтобы запустить Backtesting Session или обработать новые индикаторы.",
+                    "updated": 1635848372006
                 }
             ]
         },
@@ -126,6 +141,11 @@
                     "text": "Eine Live-Sitzung durchführen: Die verschiedenen Arten von Live-Sitzungen, wie Paper Trading Session, Forward Testing Session und Live Trading Session, benötigen alle einen Live-Markt-Feed.",
                     "updated": 1634208020007,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "To run a live session: сессии в реальном времени бывают разных типов: Paper Trading Session, Forward Testing Session и Live Trading Session - это все, что необходимо для потока рынка в реальном времени. ",
+                    "updated": 1635848628305
                 }
             ]
         },
@@ -156,6 +176,11 @@
                     "text": "Wenn alle Prozesse auf dem neuesten Stand sind, wählen Sie \"Stop All Tasks\" im Knoten Market Data Tasks. Beachten Sie, dass die Tasks auch von einem anderen Knoten aus gestoppt werden können als von dem aus, mit dem sie gestartet wurden!",
                     "updated": 1634172843262,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда все процессы будут обновлены, выберите \"Stop All Tasks\" в узле Market Data Tasks. Обратите внимание, что мы можем остановить задачи с другого узла, чем тот, который мы использовали для их запуска!",
+                    "updated": 1635848790357
                 }
             ],
             "updated": 1622197433719

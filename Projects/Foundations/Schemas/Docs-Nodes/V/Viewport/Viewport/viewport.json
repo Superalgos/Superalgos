@@ -6,7 +6,13 @@
             {
                 "language": "ES",
                 "text": "El viewport es una ventana a través de la cual puede mirar hacia el charting space.",
-                "updated": 1624407113080
+                "updated": 1624407113080,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Окно просмотра - это окно, через которое Вы можете заглянуть в пространство построения графиков.\n\n",
+                "updated": 1635952209893
             }
         ]
     },

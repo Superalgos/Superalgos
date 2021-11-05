@@ -78,7 +78,6 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         } catch (err) {
             logError("announce -> Twitter JSON message error -> err = " + err)
         }
-        console.log(thisObject.twitterClient)
 
         thisObject.twitterClient.post('statuses/update', message, function(error) {
             if(error) {

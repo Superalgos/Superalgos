@@ -12,7 +12,13 @@
             {
                 "language": "ES",
                 "text": "Si los activos con los que desea trabajar no se enumeran en Activos de Exchange, primero debe agregarlos y configurarlos.",
-                "updated": 1629162948016
+                "updated": 1629162948016,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn die Vermögenswerte, mit denen Sie arbeiten möchten, nicht unter Exchange Assets aufgeführt sind, müssen Sie sie zunächst hinzufügen und konfigurieren.\n",
+                "updated": 1635738895005
             }
         ]
     },
@@ -25,7 +31,13 @@
                 {
                     "language": "ES",
                     "text": "En esta sección del tutorial, aprenderás a definir con qué assets deseas trabajar.",
-                    "updated": 1629162994984
+                    "updated": 1629162994984,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem Abschnitt des Tutorials lernen Sie, wie Sie festlegen, mit welchen Vermögenswerte Sie arbeiten möchten.",
+                    "updated": 1635739057875
                 }
             ]
         },
@@ -36,7 +48,13 @@
                 {
                     "language": "ES",
                     "text": "Cada exchange puede enumerar cientos de assets, sin embargo, es probable que solo te interesen unos pocos. Algunas operaciones automatizadas pueden alimentarse de tus definiciones, por lo que mantenerlas libres de basura es siempre una buena idea.",
-                    "updated": 1629163406741
+                    "updated": 1629163406741,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Börse kann Hunderte von Vermögenswerten auflisten, aber Sie werden wahrscheinlich nur an einigen wenigen interessiert sein. Einige automatisierte Vorgänge können sich auf Ihre Definitionen stützen, daher ist es immer eine gute Idee, sie frei von Gerümpel zu halten.",
+                    "updated": 1635739405026
                 }
             ]
         }

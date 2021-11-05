@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <title>Console Logs</title>
+
+    <style>
+    /*   #log-container { overflow: auto; } */
+
+        .log-warn { color: orange }
+        .log-error { color: red }
+        .log-info { color: skyblue }
+        .log-log { color: silver}
+
+        .log-warn, .log-error { font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <div id="log-container">
+        <pre id="log"></pre>
+    </div>
+
+    <script>
+        window.onload = () => {
+            window.api.receive('fromMain', (data) => {
+                if(data.includes('[ERROR]')) {
+                    document.getElementById('log').insertAdjacentHTML('beforeend', "<span class=\"log-error\">" + data + "</span><br>");
+                }
+                else if(data.includes('[WARN]')) {
+                    document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-warn\">" + data + "</span><br>");
+                }
+                else if(data.includes('[INFO]')) {
+                    document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-info\">" + data + "</span><br>");
+                }
+                else {
+                    document.getElementById('log').insertAdjacentHTML('beforeend',"<span class=\"log-log\">" + data + "</span><br>");
+                }
+                window.scrollTo(0, document.querySelector("#log-container").scrollHeight)
+        })
+        window.api.send("toMain", "ImAlive!")
+        }
+    </script>
+</body>
+</html>

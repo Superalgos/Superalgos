@@ -22,7 +22,7 @@ function newGovernanceUserProfileSpace() {
 
     function initialize() {
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the Initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
@@ -365,7 +365,7 @@ function newGovernanceUserProfileSpace() {
 
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the Initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }

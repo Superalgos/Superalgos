@@ -1,6 +1,6 @@
 exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingUtilitiesQueriesValidations() {
     /*
-    This module have a few funcions that are often needed at Queries Modules.
+    This module have a few functions that are often needed at Queries Modules.
     */
     let thisObject = {
         profilesValidations: profilesValidations,

@@ -23,7 +23,7 @@
         },
         {
             "style": "Text",
-            "text": "The chart for this indicator shows the RSI oscillating in a scale ranging from 0 at the bottom to 100 at the top. The bottom section of the chart shows a blue background covering the range from 0 to 20, also marked by a dotted line. When the RSI value falls below the 20 mark, the RSI line turns red, for easier viasualization. Also in the bottom section, there is a second dotted line signaling the 30 mark."
+            "text": "The chart for this indicator shows the RSI oscillating in a scale ranging from 0 at the bottom to 100 at the top. The bottom section of the chart shows a blue background covering the range from 0 to 20, also marked by a dotted line. When the RSI value falls below the 20 mark, the RSI line turns red, for easier visualization. Also in the bottom section, there is a second dotted line signaling the 30 mark."
         },
         {
             "style": "Text",

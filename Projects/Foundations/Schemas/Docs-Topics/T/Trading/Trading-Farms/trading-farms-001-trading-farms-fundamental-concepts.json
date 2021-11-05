@@ -37,7 +37,7 @@
         },
         {
             "style": "Text",
-            "text": "The whole purpose of the Network definition is to let the system know where each task must run and where the data is localted. ",
+            "text": "The whole purpose of the Network definition is to let the system know where each task must run and where the data is located. ",
             "updated": 1614353600414
         },
         {
@@ -51,7 +51,7 @@
         },
         {
             "style": "Text",
-            "text": "There are many different way you might want to organize the Tasks across several Clients. It is really up to you. The system doesn't care or have any preferred way for you to do so. It justs need to know where each Task runs, and where the Data is located. That's it.",
+            "text": "There are many different way you might want to organize the Tasks across several Clients. It is really up to you. The system doesn't care or have any preferred way for you to do so. It just need to know where each Task runs, and where the Data is located. That's it.",
             "updated": 1617263562866
         },
         {

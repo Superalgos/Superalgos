@@ -46,7 +46,7 @@
 
     /* these are module specific variables: */
 
-    let volumes = [];                   // Here we keep the volumes to be ploted every time the Draw() function is called by the AAWebPlatform.
+    let volumes = [];                   // Here we keep the volumes to be plotted every time the Draw() function is called by the AAWebPlatform.
 
     let onMouseOverEventSuscriptionId
     let zoomChangedEventSubscriptionId
@@ -63,7 +63,7 @@
     function finalize() {
         try {
 
-            /* Stop listening to the necesary events. */
+            /* Stop listening to the necessary events. */
             thisObject.container.eventHandler.stopListening(onMouseOverEventSuscriptionId)
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(zoomChangedEventSubscriptionId);
             UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.stopListening(offsetChangedEventSubscriptionId);
@@ -72,7 +72,7 @@
             marketFiles.eventHandler.stopListening(marketFilesUpdatedEventSubscriptionId);
             dailyFiles.eventHandler.stopListening(dailyFilesUpdatedEventSubscriptionId);
 
-            /* Destroyd References */
+            /* Destroyed References */
 
             marketFiles = undefined;
             dailyFiles = undefined;
@@ -116,7 +116,7 @@
             marketFile = marketFiles.getFile(pTimeFrame);
             fileCursor = dailyFiles.getFileCursor(pTimeFrame);
 
-            /* Listen to the necesary events. */
+            /* Listen to the necessary events. */
 
             zoomChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Zoom Changed", onViewportZoomChanged);
             offsetChangedEventSubscriptionId = UI.projects.foundations.spaces.chartingSpace.viewport.eventHandler.listenToEvent("Position Changed", onViewportPositionChanged);
@@ -352,7 +352,7 @@
                 currentDate = new Date(currentDate.valueOf() + ONE_DAY_IN_MILISECONDS);
             }
 
-            /* Lests check if all the visible screen is going to be covered by volumes. */
+            /* Lets check if all the visible screen is going to be covered by volumes. */
 
             let lowerEnd = leftDate.valueOf();
             let upperEnd = rightDate.valueOf();
@@ -650,7 +650,7 @@
                             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREEN + ', 0.40)';
 
                             if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar accroding to time
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current bar according to time
                             }
                         }
 
@@ -674,7 +674,7 @@
                             browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.RUSTED_RED + ', 0.40)';
 
                             if (userPositionDate >= volume.begin && userPositionDate <= volume.end) {
-                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume accroding to time
+                                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 0.40)'; // Current volume according to time
                             }
 
                             browserCanvasContext.fill();

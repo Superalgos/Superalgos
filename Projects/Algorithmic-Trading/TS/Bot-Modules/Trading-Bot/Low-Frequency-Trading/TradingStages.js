@@ -422,7 +422,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 /*
                 The system allows the user not to define a Manage Stage, because the Manage Stage is optional.
-                Here we are going to see if that is the case and if it is, we will inmidiatelly consider 
+                Here we are going to see if that is the case and if it is, we will immediately consider
                 the Manage Stage as closed.
                 */
                 if (manageStage === undefined) {
@@ -820,7 +820,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening') {
                 /*
                 The system allows the user not to define a close stage, because the close stage is optional.
-                Here we are goint to see if that is the case and if it is, we will inmidiatelly consider 
+                Here we are going to see if that is the case and if it is, we will immediately consider
                 the close stage as closed.
                 */
                 if (tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage === undefined) {
@@ -1024,7 +1024,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         The Target Size is defined by the end user either in Base Asset or Quoted Asset.
         Whatever the user chooses defines also the way we check if the Target was met.
         Why? Because the counterparty target is estimated with the Target Rate and it 
-        is not syncronized with the reality we later learn when the exchange tell us the
+        is not synchronized with the reality we later learn when the exchange tell us the
         actual rate each of the orders where executed at. 
  
         For the same reason that the user does not know exactly which is the rate the orders
@@ -1041,7 +1041,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         }
         /*
         We will also implement a mechanism to allow users declare an absolute value to add
-        to the Size Filled before checking it againt the Stage Target Size.
+        to the Size Filled before checking it against the Stage Target Size.
         */
         let ABSOLUTE_DUST_IN_BASE_ASSET = 0
         if (tradingSystemStage.config.absoluteDustInBaseAsset !== undefined) {
@@ -1151,13 +1151,13 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         }
 
         /*
-        The way the begining and end of the Stages object works is as follows:
-        This object begins with the last cycle, that is the current cycle diplaced
+        The way the beginning and end of the Stages object works is as follows:
+        This object begins with the last cycle, that is the current cycle displayed
         backwards to the current candle. And it ends at the end of the last cycle.
-        During mantainance, we add the time frame of the candle, since we assume it 
+        During maintenance, we add the time frame of the candle, since we assume it
         will survive the 2 cycles without the end being updated. If it closes,
-        then we update the end to the end of the last cycle, overrinding the 
-        mantainance if needed. If we assume that in the same cycle there will be
+        then we update the end to the end of the last cycle, overriding the
+        maintenance if needed. If we assume that in the same cycle there will be
         no closing and opening of the same type of object, then there can be no 
         overlap.
         */

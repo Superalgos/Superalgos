@@ -3,7 +3,7 @@
     "pageNumber": "9",
     "type": "Node Referencing Rules",
     "definition": {
-        "text": "Each Node Type can have a set of rules that defines with which Node Type it can stablish a reference.",
+        "text": "Each Node Type can have a set of rules that defines with which Node Type it can Establish a reference.",
         "updated": 1609244259240,
         "translations": [
             {

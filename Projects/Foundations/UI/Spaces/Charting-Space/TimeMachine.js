@@ -3,9 +3,9 @@
 Markets are a function of time. When watching them, end users must be positioned at one particular point in time. The system currently allows users
 to position themselves at any time they like.
 
-In the future, it will be usefull to explore markets and compare them at different times simultaneously. Anticipating that future this module exists.
-All the timelineCharts that depand on a datetime are children of this object Time Machine. In the future we will allow users to have more than one Time Machine,
-each one with it own timelineCharts, and each one positioned at an especific point in titme.
+In the future, it will be useful to explore markets and compare them at different times simultaneously. Anticipating that future this module exists.
+All the timelineCharts that depend on a datetime are children of this object Time Machine. In the future we will allow users to have more than one Time Machine,
+each one with it own timelineCharts, and each one positioned at a specific point in time.
 
 */
 
@@ -174,7 +174,7 @@ function newTimeMachine() {
     function onKeyPressed(event) {
 
         /*
-        We are going to pass this event downstream to see if it belogns to any of the 
+        We are going to pass this event downstream to see if it belongs to any of the
         chart's scales or time machine's scales. If it does not belong to any
         we will apply it to the edge editor.
         */
@@ -576,7 +576,7 @@ function newTimeMachine() {
             timelineChart.container.frame.position.y = 0
             timelineChart.initialize(timeMachineCoordinateSystem, timeFrame)
 
-            /* we will store the event suscription id as a property of the timelineChart, to avoid keeping it an a separate array */
+            /* we will store the event subscription id as a property of the timelineChart, to avoid keeping it an a separate array */
             timelineChart.onChildrenMouseOverEventSuscriptionId = timelineChart.container.eventHandler.listenToEvent('onChildrenMouseOver', onChildrenMouseOver)
 
             thisObject.timelineCharts.push(timelineChart)

@@ -121,7 +121,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into Staking Power. 
-            As per system rules Staking Powar = tokensPower
+            As per system rules Staking Power = tokensPower
             */
             let programPower = programNode.payload.tokenPower
             programNode.payload.stakingProgram.ownPower = programPower

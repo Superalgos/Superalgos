@@ -42,7 +42,13 @@
             {
                 "language": "RU",
                 "text": "Прежде чем мы вернемся к делу, позвольте предоставить еще некоторую информацию о том, как работает это учебное пособие.",
-                "updated": 1635610768332
+                "updated": 1635610768332,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "İşe dönmeden önce, size eğitimlerin nasıl çalıştığı hakkında birkaç şey anlatayım.",
+                "updated": 1635952527951
             }
         ]
     },
@@ -85,7 +91,13 @@
                 {
                     "language": "RU",
                     "text": "Вкратце, Вы - главный!",
-                    "updated": 1635610786071
+                    "updated": 1635610786071,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısacası patron sensin!",
+                    "updated": 1635952544111
                 }
             ]
         },
@@ -121,7 +133,13 @@
                 {
                     "language": "RU",
                     "text": "Вы можете остановиться в изучении учебного пособия и пропустить шаги или полные темы в любой момент. Как только Вы будете готовы снова приступить к изучению материала, найдите меня, Tutorial, в нижней части пространства дизайна. Выберите Resume в меню, чтобы начать с того места, где Вы остановились, или с первого шага, который Вы пропустили. Выберите Play, чтобы начать с самого начала!",
-                    "updated": 1635611174272
+                    "updated": 1635611174272,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü seçin. Baştan başlamak için Oynat'ı seçin!",
+                    "updated": 1635952588337
                 }
             ]
         },
@@ -162,7 +180,13 @@
                 {
                     "language": "RU",
                     "text": "Давайте попробуем! Нажмите кнопку Stop ниже, и как только я исчезну, откройте меню и выберите Resume.",
-                    "updated": 1635611369099
+                    "updated": 1635611369099,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi deneyelim! Aşağıdaki Durdur düğmesini tıklayın ve ben gittiğimde menümü açın ve Devam Et'i seçin.",
+                    "updated": 1635952612454
                 }
             ]
         }

@@ -1,13 +1,13 @@
 exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModulesSocialGraphPost() {
     /*
-    Posts represent a collection of multimedia content sotored somewhere else
+    Posts represent a collection of multimedia content sorted somewhere else
     and identified by that content hash. Posts might belong to:
         * a User Profile.
         * a Bot Profile.
     
     Posts might be linked to other posts when they are a reply or quote.
     
-    Posts migth have:
+    Posts might have:
         * replies, when a user or bot replies to a post.
         * reactions,  when a user or bot reacts to a post.
     */
@@ -20,7 +20,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         /* Unique Keys */
         emitterPostHash: undefined,
         targetPostHash: undefined,
-        /* Post Unitque Properties */
+        /* Post Unique Properties */
         postType: undefined,
         timestamp: undefined,
         /* Maps */

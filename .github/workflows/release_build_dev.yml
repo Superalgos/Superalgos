@@ -63,8 +63,6 @@ jobs:
           path: './package.json'
 
       - name: Build/release Electron app
-        #env:
-        #  DATE: ${{ steps.date.outputs.date }}
         uses: samuelmeuli/action-electron-builder@v1
         with:
           # GitHub token, automatically provided to the action

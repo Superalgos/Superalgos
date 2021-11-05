@@ -41,7 +41,7 @@
                     try {
                         if (global.env.DEMO_MODE === true) {
                             /*
-                            In DEMO MODE we will accept Task / Sessioins Running or Stopping if you are requesting this from localhost only.
+                            In DEMO MODE we will accept Task / Sessions Running or Stopping if you are requesting this from localhost only.
                             */
                             if (socket._socket.remoteAddress !== "::1") {
                                 if (

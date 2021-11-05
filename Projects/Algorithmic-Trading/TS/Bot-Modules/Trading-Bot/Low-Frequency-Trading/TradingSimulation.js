@@ -1,6 +1,6 @@
 exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processIndex) {
     /*
-    This Module represents the trading simulacion. Escentially a loop through a set of candles and 
+    This Module represents the trading simulation. Essentially a loop through a set of candles and
     the execution at each loop cycle of the Trading System Protocol.
     */
     const MODULE_NAME = 'Trading Simulation -> ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name
@@ -134,7 +134,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
 
-                /* We emit a heart beat so that the UI can now where we are at the overal process.*/
+                /* We emit a heart beat so that the UI can now where we are at the overall process.*/
                 heartBeat()
 
                 /* Opening the Episode, if needed. */
@@ -157,7 +157,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 /* 
                 Do the stuff needed previous to the run like 
-                Episode Counters and Statistics update. Mantaince is done
+                Episode Counters and Statistics update. Maintenance is done
                 once per simulation candle.
                 */
                 tradingSystemModuleObject.mantain()
@@ -176,7 +176,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 /* 
                 We check if we need to stop before appending the records so that the stop 
-                reason is also propery recorded. Note also that we check this after the first
+                reason is also properly recorded. Note also that we check this after the first
                 cycle, where orders have not been submitted to the exchange yet, but we
                 had the chance to check for the status of placed orders or even cancel 
                 the ones that needed cancellation.
@@ -312,7 +312,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         let currentDate = new Date(heartBeatDate)
                         let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                         /*
-                        Theere are a few tasks that we need to do only when the date changes,
+                        There are a few tasks that we need to do only when the date changes,
                         otherwise it would be suboptimal.
                         */
                         if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
@@ -328,7 +328,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage)
                             }
 
-                            /* Date only hearbeat */
+                            /* Date only heartbeat */
                             if (sessionParameters.heartbeats.config.date === true && sessionParameters.heartbeats.config.candleIndex === false) {
                                 hartbeatText = hartbeatText + currentDateString
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
@@ -337,7 +337,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         }
 
                         /* 
-                        When the Candle Index nees to be shown, then we can not send the hearbet
+                        When the Candle Index needs to be shown, then we can not send the heartbeat
                         only when the dates changes, we have to send it for every candle.
                         It might also contain the date information.
                         */
@@ -354,7 +354,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
             function positionDataStructuresAtCurrentCandle() {
                 /*
-                In conditions and Formulas, we want users to have an easy sintax to refer to indicators. In order to achieve that, we need the user to have
+                In conditions and Formulas, we want users to have an easy syntax to refer to indicators. In order to achieve that, we need the user to have
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
                 For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
                 */
@@ -483,7 +483,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 Note: for Daily Files, this means that the last candle of each day will never be processed.
 
                 The first +1 is because array indexes are based on 0. 
-                The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
+                The second +1 is because we need to compare the next candle (remember that the loops always avoid the
                 last candle of the dataset available.)
                 */
                 if (tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candles.length) {
@@ -550,7 +550,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             }
 
             function checkMinimunAndMaximunBalance() {
-                /* Checks for Minimun and Maximun Balance. We do the check while not inside any strategy only. */
+                /* Checks for Minimum and Maximum Balance. We do the check while not inside any strategy only. */
                 if (
                     tradingEngine.tradingCurrent.strategy.index.value === tradingEngine.tradingCurrent.strategy.index.config.initialValue
                 ) {

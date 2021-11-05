@@ -183,7 +183,6 @@ function newEducationTutorialSpace() {
         checkPressButton()
         checkGif()
         checkImage()
-        //checkVid()
         checkDocumentation()
         checkWorkspaces()
         checkSlider()
@@ -320,7 +319,7 @@ function newEducationTutorialSpace() {
                     htmlImage.height = "100"
             } else if (icon === undefined) {
             // Legacy Code to handle icons being fetched by literal path
-            // Note: This if statment should be removed once all tutoials have been refactored
+            // Note: This if statement should be removed once all tutorials have been refactored
                 let webParam = 'Icons/' + newImageProject + '/' + newImageName + '.png'
                 htmlImage.src = webParam
                 htmlImage.width = "100"
@@ -379,7 +378,7 @@ function newEducationTutorialSpace() {
                     config.controlDocs.page.type !== ''
                 ) {
                     /*
-                    This produces the Docs to laod the specified page.
+                    This produces the Docs to load the specified page.
                     */
                     UI.projects.education.spaces.docsSpace.openSpaceAreaAndNavigateTo(config.controlDocs.page.project, config.controlDocs.page.category, config.controlDocs.page.type, config.controlDocs.page.anchor)
                 }
@@ -392,7 +391,7 @@ function newEducationTutorialSpace() {
             workspacesCounter++
             if (config.workspaces === undefined) {
                 /*
-                The worspaces panel will remain as it is, and the user will be free to open or close it at will.
+                The workspaces panel will remain as it is, and the user will be free to open or close it at will.
                 */
                 return
             }
@@ -854,7 +853,7 @@ function newEducationTutorialSpace() {
             }
             let previousNode
             /* 
-            Reseet the Status of Current and Previous Node
+            Reset the Status of Current and Previous Node
             so that RESUME goes to the right node.
             */
             UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
@@ -1085,7 +1084,7 @@ function newEducationTutorialSpace() {
 
     function findTutorialNode(node) {
         /* 
-        We will consider the tutorialRootNode the head of the hirierchy
+        We will consider the tutorialRootNode the head of the hierarchy
         */
         tutorialRootNode = node
 
@@ -1310,7 +1309,7 @@ function newEducationTutorialSpace() {
         function syncConfigIconWithDocumentIcon() {
             /* 
             We update here the image of the document with whatever we find at the config, since
-            we need to mechanism to keep this syncronized.
+            we need to mechanism to keep this synchronized.
             */
             if (nodeConfig.icon === undefined) {
                 nodeConfig.icon = {

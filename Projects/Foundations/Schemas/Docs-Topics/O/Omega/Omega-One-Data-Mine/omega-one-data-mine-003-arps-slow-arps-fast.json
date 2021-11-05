@@ -27,7 +27,7 @@
         },
         {
             "style": "Text",
-            "text": "Two separate indicators that can be used either separatly or in combination with others."
+            "text": "Two separate indicators that can be used either separately or in combination with others."
         },
         {
             "style": "Text",
@@ -67,7 +67,7 @@
         },
         {
             "style": "List",
-            "text": "All values are multiplied by 100 to convert it to precentage form (%)."
+            "text": "All values are multiplied by 100 to convert it to percentage form (%)."
         },
         {
             "style": "Subtitle",

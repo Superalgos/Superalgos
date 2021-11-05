@@ -45,7 +45,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -57,7 +57,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -69,7 +69,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the LF Trading Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -81,7 +81,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the LF Trading Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the LF Trading Bot:"
         },
         {
             "style": "Placeholder",
@@ -117,7 +117,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the context information preserved when the error occured:"
+            "text": "The following is the context information preserved when the error occurred:"
         },
         {
             "style": "Placeholder",

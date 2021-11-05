@@ -6,12 +6,12 @@ load all node dependencies and get them ready to the actual App.
 */
 
 /* 
-The PL object is accesible everywhere at the Superalgos Platform Client. 
+The PL object is accessible everywhere at the Superalgos Platform Client.
 It provides access to all modules built for this Client.
 */
 global.PL = {}
 /* 
-The SA object is accesible everywhere at the Superalgos Desktop App. 
+The SA object is accessible everywhere at the Superalgos Desktop App.
 It provides access to all modules built for Superalgos in general.
 */
 global.SA = {}
@@ -53,6 +53,7 @@ SA.nodeModules = {
     lookpath: require('lookpath'),
     process: require('process'),
     childProcess: require('child_process')
+
 }
 /*
 Check if we are starting from a particular workspace.

@@ -32,7 +32,7 @@ exports.newDesktopApp = function newDesktopApp() {
         */
         thisObject.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
         await thisObject.webSocketsClient.initialize('Network Client', selectedNetworkNode)
-        console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
+
         /* 
         These are the Network Interfaces by which the Web App interacts with this Desktop Client.
         */

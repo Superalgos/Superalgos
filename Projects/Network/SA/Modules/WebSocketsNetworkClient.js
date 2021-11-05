@@ -1,6 +1,8 @@
 exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWebSocketsNetworkClient() {
 
     let thisObject = {
+        host: undefined,
+        port: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
@@ -29,11 +31,13 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         web3 = new SA.nodeModules.web3()
 
-        let host = JSON.parse(p2pNetworkNode.node.config).host
-        let port = JSON.parse(p2pNetworkNode.node.config).webSocketsPort
+        thisObject.host = JSON.parse(p2pNetworkNode.node.config).host
+        thisObject.port = JSON.parse(p2pNetworkNode.node.config).webSocketsPort
 
-        socketClient = new SA.nodeModules.ws('ws://' + host + ':' + port)
+        socketClient = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebsocketClient(callerRole, p2pNetworkNode)
+
+        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Connected to ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
     }
 
     async function setUpWebsocketClient(callerRole, p2pNetworkNode) {
@@ -197,8 +201,15 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 }
 
                 function onError(err) {
+                    if (err.message.indexOf('ECONNREFUSED') >= 0) {
+                        console.log('[WARN] Web Sockets Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        reject()
+                        return
+                    }
                     console.log('[ERROR] Web Sockets Client -> onError -> err.message = ' + err.message)
                     console.log('[ERROR] Web Sockets Client -> onError -> err.stack = ' + err.stack)
+                    reject()
+                    return
                 }
 
             } catch (err) {

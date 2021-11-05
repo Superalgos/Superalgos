@@ -2,7 +2,7 @@ exports.newDesktopApp = function newDesktopApp() {
 
     let thisObject = {
         socialGraph: undefined,
-        p2pMetwork: undefined,
+        p2pNetwork: undefined,
         webSocketsClient: undefined,
         webSocketsInterface: undefined,
         run: run
@@ -21,18 +21,18 @@ exports.newDesktopApp = function newDesktopApp() {
         /*
         We can join now the P2P Network as a client app.
         */
-        thisObject.p2pMetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-        await thisObject.p2pMetwork.initialize('Network Client')
+        thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
+        await thisObject.p2pNetwork.initialize('Network Client')
         /*
         Here we will pick a Network Node from all users profiles available that do have a Network Node running.        
         */
-        let selectedNetworkNode = thisObject.p2pMetwork.p2pNodesToConnect[0]
+        let selectedNetworkNode = thisObject.p2pNetwork.p2pNodesToConnect[0]
         /*
         This is the Web Sockets client that interacts with the Superalgos Network.
         */
         thisObject.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
         await thisObject.webSocketsClient.initialize('Network Client', selectedNetworkNode)
-        console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
+
         /* 
         These are the Network Interfaces by which the Web App interacts with this Desktop Client.
         */

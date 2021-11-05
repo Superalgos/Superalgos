@@ -47,7 +47,7 @@ function newUiObjectConstructor() {
         When this object is created based on a backup, share or clone, 
         we will have a savedPayload that we will use to set the initial properties.
         If it is a new object being created out of the user interface, 
-        we jusst continue with the construction process.
+        we just continue with the construction process.
         */
         if (userAddingNew === false && payload.node.type !== 'Workspace') {
             let position = {
@@ -472,6 +472,12 @@ function newUiObjectConstructor() {
                     uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
                     uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
+                }
+                if (schemaDocument.editors.list === true) {
+                    uiObject.listSelector = newListSelector()
+                    uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                    uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                    uiObject.listSelector.initialize()
                 }
                 if (schemaDocument.editors.condition === true) {
                     uiObject.conditionEditor = newConditionEditor()

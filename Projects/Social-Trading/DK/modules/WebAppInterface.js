@@ -1,7 +1,7 @@
 exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModulesWebAppInterface() {
     /*
-    This module handles the incomming messages from the Web App.
-    At it's current version, it will jusr forward those messages
+    This module handles the incoming messages from the Web App.
+    At it's current version, it will just forward those messages
     to the Network Node it is connected to.
 
     Later, it will try to use the personal social graph as a cache,
@@ -58,11 +58,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
-                        data: await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                        data: await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                     }
                 } else {
 
-                    let events = await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                    let events = await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {
@@ -77,7 +77,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                 }
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Respose Sent', JSON.stringify(response))
+                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Response Sent', JSON.stringify(response))
 
                 return response
             }
@@ -132,7 +132,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Event Processed.',
-                    data: await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                    data: await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response
             }
@@ -148,7 +148,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
     async function savePostAtStorage(postText, commitMessage, timestamp) {
         /*
-        Each user, has a git repository that acts as his publicly accesible
+        Each user, has a git repository that acts as his publicly accessible
         storage for posts.
 
         They way we store post there is first saving the data at the local disk

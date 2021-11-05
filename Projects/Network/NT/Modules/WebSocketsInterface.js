@@ -2,7 +2,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     /*
     This module represents the websockets interface of the Network Node.
 
-    A Network Nodes is epected to receive conections request from 2 different types
+    A Network Nodes is expected to receive connection request from 2 different types
     of entities:
 
     1. Other Network Nodes.
@@ -58,7 +58,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             function onConnectionOpened(socket)
             /*
             This function is executed every time a new Websockets connection
-            is stablished.  
+            is established.
             */ {
                 let caller = {
                     socket: socket,
@@ -159,7 +159,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
             function handshakeProducedure(caller, calledTimestamp, messageHeader) {
                 /*
-                The handshage producedure have 2 steps, we need to know 
+                The handshake procedure have 2 steps, we need to know
                 now which one we are at. 
                 */
                 if (messageHeader.step === undefined) {
@@ -268,7 +268,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 function handshakeStepTwo() {
                     /*
-                    We will check that the caller role has beed defined at Step One. 
+                    We will check that the caller role has been defined at Step One.
                     */
                     if (caller.role === undefined) {
                         let response = {
@@ -304,7 +304,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
                     if (witnessUserProfile === undefined) {
                         let response = {
@@ -343,7 +343,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     }
                     /*
                     We will check that the signature includes this Network Node handle, to avoid
-                    man in the middle attackts.
+                    man in the middle attacks.
                     */
                     if (signedMessage.calledProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                         let response = {
@@ -365,7 +365,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         return
                     }
                     /*
-                    All validations have been completed, the Handshake Prcedure finished well.
+                    All validations have been completed, the Handshake Procedure finished well.
                     */
                     /*
                     We will remember the user profile behind this caller.

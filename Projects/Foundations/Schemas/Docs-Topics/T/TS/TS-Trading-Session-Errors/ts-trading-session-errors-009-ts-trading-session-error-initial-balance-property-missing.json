@@ -3,7 +3,7 @@
     "pageNumber": "9",
     "type": "TS Trading Session Error - Initial Balance Property Missing",
     "definition": {
-        "text": "A property called initialBalance is expeceted at the Session Base Asset and Session Quoted Asset Node config.",
+        "text": "A property called initialBalance is expected at the Session Base Asset and Session Quoted Asset Node config.",
         "updated": 1611335687259
     },
     "paragraphs": [

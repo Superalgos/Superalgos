@@ -3,7 +3,7 @@
     "pageNumber": 1,
     "type": "Keyboard Shortcut Quick Guide",
     "definition": {
-        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficent and user friendly.",
+        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly.",
         "updated": 1634909540261
     },
     "paragraphs": [
@@ -14,7 +14,7 @@
         },
         {
             "style": "Text",
-            "text": "Here is the current list of all implemented shortcuts and options for customazation:"
+            "text": "Here is the current list of all implemented shortcuts and options for customization:"
         },
         {
             "style": "Subtitle",
@@ -109,7 +109,7 @@
         },
         {
             "style": "List",
-            "text": "Display animation preformance: Ctrl + Shift + Alt + F11",
+            "text": "Display animation performance: Ctrl + Shift + Alt + F11",
             "updated": 1634910183292
         },
         {
@@ -136,7 +136,7 @@
         },
         {
             "style": "Text",
-            "text": "You can find additional descriptions of how to use your mouse and keybord to navigate the Charting Space and Design Space at the Basic Navigation page.",
+            "text": "You can find additional descriptions of how to use your mouse and keyboard to navigate the Charting Space and Design Space at the Basic Navigation page.",
             "updated": 1634912820206
         },
         {
@@ -145,12 +145,12 @@
         },
         {
             "style": "Important",
-            "text": "If any of these keyboard shortucts do not function as expected, please disable any installed browser extentions while using Superalgos as they can override expected functionality.",
+            "text": "If any of these keyboard shortcuts do not function as expected, please disable any installed browser extentions while using Superalgos as they can override expected functionality.",
             "updated": 1634999290105
         },
         {
             "style": "Success",
-            "text": "In addtion to this, many shortcuts will work without using the Alt key. For example Ctrl + Shift + Key-S. ",
+            "text": "In addition to this, many shortcuts will work without using the Alt key. For example Ctrl + Shift + Key-S. ",
             "updated": 1634999389000
         },
         {

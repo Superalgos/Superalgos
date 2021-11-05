@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Bevor wir in die Tabellen eintauchen, noch eine Sache. Sie müssen wissen, wie Sie das Haus in Ordnung bringen können!",
-                "updated": 1634206589741
+                "updated": 1634206589741,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tablolara girmeden önce bir şey daha var. Bu alanı nasıl düzene sokacağını bilmelisin!",
+                "updated": 1636035747714
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Es wird die Zeit kommen, in der Sie vielleicht mit Dutzenden von Diagrammen arbeiten werden. Sie wissen bereits, wie Sie deren Format ändern können. Jetzt müssen Sie lernen, wie Sie die Diagramme verschieben können, damit Sie die gewünschten Arrangements erstellen können. Das ist ganz einfach:",
-                    "updated": 1634206671224
+                    "updated": 1634206671224,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Onlarca çizelge ile çalışmanız gereken zamanar gelecek. Biçimlerini nasıl değiştireceğinizi öğrenmiştik. Şimdi, ihtiyaç duyduğunuz düzenlemeleri oluşturabilmeniz için onları nasıl hareket ettireceğinizi öğrenmeniz gerekiyor. Oldukça kolay:",
+                    "updated": 1636035803888
                 }
             ],
             "updated": 1616416902513
@@ -91,7 +103,13 @@
                 {
                     "language": "DE",
                     "text": "Drücken Sie die Shift, klicken Sie mit der linken Maustaste, und ziehen Sie!",
-                    "updated": 1634206723517
+                    "updated": 1634206723517,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Shift 'e basın, sol tıklayın ve sürükleyin!",
+                    "updated": 1636035874767
                 }
             ]
         },
@@ -120,7 +138,13 @@
                 {
                     "language": "DE",
                     "text": "Ich glaube, wir haben jetzt alles über die Verwaltung des Charting Space gesagt. Jetzt ist es Zeit, in die Diagramme einzutauchen!",
-                    "updated": 1634206736658
+                    "updated": 1634206736658,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanını nasıl yöneteceğimizle ilgili her şeyi ele aldığımıza inanıyorum. Grafiklere dalmanın zamanı geldi!",
+                    "updated": 1636035867318
                 }
             ]
         }

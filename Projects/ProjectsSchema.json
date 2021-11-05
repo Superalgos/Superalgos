@@ -1093,7 +1093,7 @@
                 {
                     "name": "Docs Statistics Functions",
                     "propertyName": "docsStatisticsFunctions",
-                    "functionName": "newEducationFunctionLibraryDocsStats"
+                    "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions"
                 }
             ],
             "utilities": [
@@ -1376,12 +1376,6 @@
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
-                },
-                {
-                    "name": "Web Sockets Network Client",
-                    "propertyName": "webSocketsNetworkClient",
-                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
-                    "fileName": "WebSocketsNetworkClient.js"
                 }
             ],
             "utilities": []
@@ -1397,16 +1391,28 @@
             ],
             "modules": [
                 {
-                    "name": "Web Sockets App Client",
-                    "propertyName": "webSocketsAppClient",
-                    "functionName": "newNetworkModulesWebSocketsAppClient",
-                    "fileName": "WebSocketsAppClient.js"
+                    "name": "Web Sockets Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
+                    "fileName": "WebSocketsNetworkClient.js"
                 },
                 {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",
                     "functionName": "newNetworkModulesUserProfiles",
                     "fileName": "UserProfiles.js"
+                },
+                {
+                    "name": "P2P Network",
+                    "propertyName": "p2pNetwork",
+                    "functionName": "newNetworkModulesP2PNetwork",
+                    "fileName": "P2PNetwork.js"
+                },
+                {
+                    "name": "P2P Network Node",
+                    "propertyName": "p2pNetworkNode",
+                    "functionName": "newNetworkModulesP2PNetworkNode",
+                    "fileName": "P2PNetworkNode.js"
                 }
             ],
             "utilities": [

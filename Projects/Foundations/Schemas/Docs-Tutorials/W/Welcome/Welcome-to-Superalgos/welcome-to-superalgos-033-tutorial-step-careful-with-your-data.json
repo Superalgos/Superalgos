@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Es kann Minuten dauern, bis alle Aufgaben zum getoppt sind. Sie sollten das System niemals schließen, bevor alle Aufgaben beendet sind.",
-                "updated": 1634173343328
+                "updated": 1634173343328,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tüm görevlerin durması bir dakika kadar sürebilir. Tüm görevler durmadan sistemi asla kapatmamalısınız.",
+                "updated": 1636033722512
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Überprüfen Sie die Kommandozeile Ihres Systems, um zu sehen, ob die Aufgaben gestoppt wurden!",
-                    "updated": 1634173091261
+                    "updated": 1634173091261,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevlerin durduğunu görmek için konsol uygulamasını kontrol edin! Görevler çalışırken düğümlerin altında 1/1, 1/2 gibi kaç görev olduğu ve kaçının çalıştığına dair bir gösterge görürsünüz.",
+                    "updated": 1636033793821
                 }
             ],
             "updated": 1616416021973
@@ -84,7 +96,13 @@
                 {
                     "language": "DE",
                     "text": "Der richtige Weg, Superalgos zu schließen, ist:",
-                    "updated": 1634173103809
+                    "updated": 1634173103809,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u kapatmanın doğru yolu şudur:",
+                    "updated": 1636033807278
                 }
             ]
         },
@@ -108,7 +126,13 @@
                 {
                     "language": "DE",
                     "text": "Alle Aufgaben beenden, ein paar Minuten warten.",
-                    "updated": 1634173410210
+                    "updated": 1634173410210,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm görevleri durdurun ve birkaç dakika bekleyin.",
+                    "updated": 1636033819254
                 }
             ]
         },
@@ -132,7 +156,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn alle Aufgaben beendet sind, können Sie die Konsolenanwendung schließen oder den Prozess mit Ctrl + Key-C beenden.",
-                    "updated": 1634173253123
+                    "updated": 1634173253123,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm görevler durduğunda konsol uygulamasını kapatabilir veya  Ctrl + Key-C  ile işlemi durdurabilirsiniz",
+                    "updated": 1636033864602
                 }
             ]
         },
@@ -155,7 +185,13 @@
                 {
                     "language": "DE",
                     "text": "Sie können den Browser jederzeit schließen und die Aufgaben im Hintergrund weiterlaufen lassen.",
-                    "updated": 1634173156784
+                    "updated": 1634173156784,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarayıcıyı istediğiniz zaman kapatabilir ve görevlerin arka planda işlenmesini bırakabilirsiniz.",
+                    "updated": 1636033884326
                 }
             ]
         },
@@ -179,7 +215,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie den Client schließen, bevor die Tasks beendet sind, können Ihre Daten beschädigt werden!",
-                    "updated": 1634173172953
+                    "updated": 1634173172953,
+                    "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevler durmadan İstemciyi ( Client ) kapatmak, verilerinizin bozulmasına neden olabilir!",
+                    "updated": 1636033906258
                 }
             ]
         }

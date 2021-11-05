@@ -53,7 +53,7 @@ function newRecordValues() {
             */
             for (let index = 0; index < productRoot.length; index++) {
                 /*
-                The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
+                The Product Root Node is the root of the node hierarchy from where we are going to extract the record values.
                 */
                 let productRootNode = productRoot[index]
                 scanProperties(productDefinition, productRootNode, index)
@@ -64,7 +64,7 @@ function newRecordValues() {
             the record to be saved at the output file.
             */
             /*
-            The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
+            The Product Root Node is the root of the node hierarchy from where we are going to extract the record values.
             */
             let productRootNode = productRoot
             scanProperties(productDefinition, productRootNode)

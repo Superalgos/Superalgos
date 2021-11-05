@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Der Grund, warum Sie sich nicht bewegen können, ist, dass die Skalen im automatischen Modus gesperrt sind, damit Sie die Daten nach Ihrer ersten Data-Mining-Operation leicht finden können.",
                 "updated": 1634216885238
+            },
+            {
+                "language": "TR",
+                "text": "Hareket edememenizin nedeni, ilk veri madenciliği işleminizden sonra verileri kolayca bulabilmeniz için skalanın otomatik modda kilitli olmasıdır.",
+                "updated": 1636093218029
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Wenn Sie die Time Scale im automatischen Modus einstellen, wird der gesamte Zeitbereich der verfügbaren Daten in das Diagramm gezwungen.",
                     "updated": 1634216894224
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Ölçeğini ( Time Scale ) otomatik modda ayarlamak, mevcut verilerin tümünün tarih-saat aralığında gösterilmesine zorlar.",
+                    "updated": 1636093070726
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Um zwischen den verschiedenen automatischen Modi und dem manuellen Modus hin- und herzuschalten, drücken Sie die Umschalttaste und bewegen Sie das Mausrad über dem Time Scale-Feld in einem Schritt. Alternativ können Sie auch den Mauszeiger auf das Skalenfeld setzen und die Pfeiltasten ↑ ↓ drücken.",
                     "updated": 1634216938054
+                },
+                {
+                    "language": "TR",
+                    "text": "Otomatik mod ve manuel mod arasında geçiş yapmak için Shift 'e basın ve farenizin tekerleği ile zaman ölçeği kutusunun üzerinde birkez döndürün. Alternatif olarak, fare işaretçisini ölçek kutusunun üzerine getirebilir ve yukarı ve aşağı ok tuşlarına ↑ ↓ basabilirsiniz.",
+                    "updated": 1636093154603
                 }
             ],
             "updated": 1622199287763
@@ -97,6 +112,11 @@
                     "language": "DE",
                     "text": "Sie sollten sich nun frei auf der X-Achse, das heißt der Zeitachse des Diagramms, bewegen können.",
                     "updated": 1634216981937
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık X ekseninde , yani grafiğin zaman ekseninde serbestçe hareket edebilmeniz gerekir.",
+                    "updated": 1636093193714
                 }
             ]
         }

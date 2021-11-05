@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Session Base Asset and Session Quoted Asset Trading Parameters enable the setting of a minimumBalance. The parameter is optional. When you use it, the LF Trading Bot checks—for every candle during the Trading Session—that the balance has not reached the configured minimum. If it does, this error is triggered and the Trading Session stops immediatelly.",
+            "text": "The Session Base Asset and Session Quoted Asset Trading Parameters enable the setting of a minimumBalance. The parameter is optional. When you use it, the LF Trading Bot checks—for every candle during the Trading Session—that the balance has not reached the configured minimum. If it does, this error is triggered and the Trading Session stops immediately.",
             "updated": 1611934902255
         },
         {

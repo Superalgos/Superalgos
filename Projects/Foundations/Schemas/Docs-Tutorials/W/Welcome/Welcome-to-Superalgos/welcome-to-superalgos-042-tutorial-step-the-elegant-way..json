@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Ich weiß! Wenn Sie auf eine beliebige Stelle zoomen, ist es unwahrscheinlich, dass Sie die Karte im rechten Winkel zu Ihrem Bildschirm positionieren, oder? Keine Sorge... versuchen Sie diesen Trick!",
-                "updated": 1634207830054,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... попробуйте это трюк!",
-                "updated": 1635956366877
+                "updated": 1634207830054
             }
         ],
         "updated": 1616417516192
@@ -62,13 +56,7 @@
                 {
                     "language": "DE",
                     "text": "Stellen Sie das Seitenverhältnis ein: Zeigen Sie mit der Maus auf den Chart der Backtesting Session (den oberen) und drücken Sie Ctrl + Shift + Alt + Key-A",
-                    "updated": 1634207859976,
-                    "style": "List"
-                },
-                {
-                    "language": "RU",
-                    "text": "Отрегулируйте соотношение сторон: наведите Point курсором мыши на график Backtesting Session (тот, что сверху) и нажмите Ctrl + Shift + Alt + A.",
-                    "updated": 1635956770216
+                    "updated": 1634207859976
                 }
             ]
         },
@@ -91,13 +79,7 @@
                 {
                     "language": "DE",
                     "text": "Verkleinern: Benutzen Sie das Mausrad, um zur äußersten Verkleinerungsposition zu gelangen; nur von dieser Position aus funktioniert der nächste Befehl!",
-                    "updated": 1634207868032,
-                    "style": "List"
-                },
-                {
-                    "language": "RU",
-                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба; только из этого положения будет работать следующая команда!",
-                    "updated": 1635958418820
+                    "updated": 1634207868032
                 }
             ]
         },
@@ -126,13 +108,7 @@
                 {
                     "language": "DE",
                     "text": "Doppelklicken Sie einmal: Dies zentriert das Diagramm und bringt Sie zu einer bestimmten Zoomstufe; es wird ein Rand gelassen, damit der Name und die Registerkarte des Diagramms in die obere linke Ecke passen.",
-                    "updated": 1634207894965,
-                    "style": "List"
-                },
-                {
-                    "language": "RU",
-                    "text": "Дважды щелкните один раз: это центрирует диаграмму и приведет Вас к определенному уровню масштабирования; в левом верхнем углу остается поле, соответствующее названию вкладке диаграммы.",
-                    "updated": 1635958568646
+                    "updated": 1634207894965
                 }
             ],
             "updated": 1616418234728
@@ -162,13 +138,7 @@
                 {
                     "language": "DE",
                     "text": "Ein weiterer Doppelklick: bringt Sie weiter in das Diagramm, bis zu einer Zoomstufe, in der das Diagramm perfekt auf den Bildschirm passt und die Layer Manager erscheinen.",
-                    "updated": 1634207914480,
-                    "style": "List"
-                },
-                {
-                    "language": "RU",
-                    "text": "Дважды щелкните еще раз: это поведет Вас дальше по диаграмме к уровню масштабирования, при котором диаграмма идеально соответствует экрану и появятся  Layer Managers.",
-                    "updated": 1635958693721
+                    "updated": 1634207914480
                 }
             ],
             "updated": 1622198926988

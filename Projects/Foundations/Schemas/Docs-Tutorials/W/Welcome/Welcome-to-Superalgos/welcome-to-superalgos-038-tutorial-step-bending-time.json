@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Ok... vielleicht ist es nicht wirklich wie Raumkrümmung, aber habt Nachsicht mit mir... Du wirst begeistert sein, wie du Zeitmaschinen in jedes beliebige Format bringen kannst.",
-                "updated": 1634206247154,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Хорошо... Может быть, на самом деле это и не похоже на сгибание... но потерпите.. Вам понравится, как Вы сможете сформировать машины времени в любом желаемом формате.",
-                "updated": 1635955928460
+                "updated": 1634206247154
             }
         ]
     },
@@ -66,13 +60,7 @@
                 {
                     "language": "DE",
                     "text": "Bewegen Sie Ihren Mauszeiger über einen der Ränder des türkisfarbenen Rahmens, der die Time Machine definiert, und sehen Sie, was passiert. Sehen Sie, wie der Rand gelb hervorgehoben wird?",
-                    "updated": 1634206251264,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "Наведите указатель мыши на любой из краев бирюзовой рамки, определяющий машину времени, и посмотрите, что произойдет. Вы видите, как край рамки выделился желтым цветом?",
-                    "updated": 1635953906664
+                    "updated": 1634206251264
                 }
             ]
         },
@@ -101,13 +89,7 @@
                 {
                     "language": "DE",
                     "text": "Sehr gut! Klicken Sie nun mit der linken Maustaste auf den Rahmen und ziehen Sie!",
-                    "updated": 1634206263662,
-                    "style": "Callout"
-                },
-                {
-                    "language": "RU",
-                    "text": "Отлично! Теперь щелкните левой кнопкой мыши рамку и потяните!",
-                    "updated": 1635954062456
+                    "updated": 1634206263662
                 }
             ]
         },
@@ -136,13 +118,7 @@
                 {
                     "language": "DE",
                     "text": "Auf diese Weise können Sie die Time Machines nach Ihren Wünschen gestalten.",
-                    "updated": 1634206284213,
-                    "style": "Note"
-                },
-                {
-                    "language": "RU",
-                    "text": "Вот как Вы можете формировать машины времени по своему нраву.",
-                    "updated": 1635954106250
+                    "updated": 1634206284213
                 }
             ]
         }

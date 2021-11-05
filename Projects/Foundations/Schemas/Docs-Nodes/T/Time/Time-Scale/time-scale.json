@@ -6,13 +6,7 @@
             {
                 "language": "ES",
                 "text": "The time scale controla la escala del eje horizontal, es decir, la línea de tiempo de el time machine correspondiente y de todos los gráficos de la línea de tiempo que contiene.",
-                "updated": 1624407014586,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Шкала времени управляет масштабом горизонтальной оси, т.е. временной шкалой соответствующей машины времени и всех графиков временной шкалы в ней.",
-                "updated": 1635953349591
+                "updated": 1624407014586
             }
         ]
     },

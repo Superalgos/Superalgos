@@ -6,13 +6,7 @@
             {
                 "language": "ES",
                 "text": "Un task es el dispositivo que se utiliza para controlar las instancias de bots, es decir, para iniciar y detener bots, incluidos sensores, indicadores y trading bots.",
-                "updated": 1624454879222,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Задача - это устройство, используемое для управления обоими экземплярами, т.е. для запуска и остановки ботов, включая датчики, индикаторы и торгового бота.",
-                "updated": 1635845867630
+                "updated": 1624454879222
             }
         ]
     },

@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Das Herzstück einer Data-Mining-Operation sind Tasks, die Bots ausführen. Ein Task steuert einen Bot, und ein Task Manager kann mehrere Tasks steuern.",
-                "updated": 1634168469674,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Ядром операции интеллектуального анализа данных являются задачи, над которыми работают боты. Одна Task упавляет одним ботом, а Task Manager может управлять несколькими задачами.\n\n\n",
-                "updated": 1635845551315
+                "updated": 1634168469674
             }
         ]
     },
@@ -67,13 +61,7 @@
                 {
                     "language": "DE",
                     "text": "Inzwischen haben Sie sechs verschiedene Geräte kennengelernt, die Sie zur Steuerung der einzelnen Bots in Ihrem Data Mining-Vorgang verwenden können. Auf der höchsten Ebene steuert der Knoten Data Tasks alle Data-Mining-Bots im Netzwerkknoten.",
-                    "updated": 1634168489908,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "К настоящему времени Вы узнали о шести различных устройствах, которые Вы можете использовать для управления каждым ботом в своей операции интеллектуального анализа данных. На самом высоком уровне узел Data Tasks управляет всеми ботами интеллектуального анализа данных в Network Node.",
-                    "updated": 1635845824663
+                    "updated": 1634168489908
                 }
             ]
         },
@@ -102,13 +90,7 @@
                 {
                     "language": "DE",
                     "text": "Wir werden in einer Minute über Netzwerkknoten sprechen...",
-                    "updated": 1634168496945,
-                    "style": "Callout"
-                },
-                {
-                    "language": "RU",
-                    "text": "Мы поговорим о сетевых узлах через минуту...",
-                    "updated": 1635845956734
+                    "updated": 1634168496945
                 }
             ]
         },
@@ -138,13 +120,7 @@
                 {
                     "language": "DE",
                     "text": "Auf der untersten Ebene steuert ein einzelner Task einen einzelnen Bot. Die Knoten dazwischen sind Organisationsknoten, die für Ordnung sorgen und eine detaillierte Kontrolle über die verschiedenen Bereiche ermöglichen.",
-                    "updated": 1634168505425,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "На самом низком уровне отдельная Task управляет одним ботом. Промежуточные узлы - это организационные узлы, которые помогают поддерживать порядок в работе и позволяют осуществлять детальный контроль над различными разделами.",
-                    "updated": 1635846467212
+                    "updated": 1634168505425
                 }
             ]
         }

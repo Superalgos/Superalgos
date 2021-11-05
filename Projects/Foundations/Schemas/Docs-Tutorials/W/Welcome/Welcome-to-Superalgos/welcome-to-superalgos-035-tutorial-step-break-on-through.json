@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Ich bringe Sie in kürzester Zeit dazu, sich im Charting Space zu bewegen und zu blättern... Kümmern wir uns zuerst um den Schieberegler!",
-                "updated": 1634205702474,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Я быстро введу Вас в курс дела с перемещением и просмотром простарнства для построения графиков... Давайте сначала разберемся с ползунком!",
-                "updated": 1635950525926
+                "updated": 1634205702474
             }
         ]
     },
@@ -66,13 +60,7 @@
                 {
                     "language": "DE",
                     "text": "Klicken Sie ihn an und ziehen Sie ihn nach unten, um den Design Space zu schließen und den Charting Space zu öffnen. Um den umgekehrten Effekt zu erzielen, machen Sie das Gegenteil. Drücken Sie Ctrl + Shift + ↓. um dies mit der Tastatur zu tun. Versuchen Sie auch ↑ ← →",
-                    "updated": 1634205728640,
-                    "style": "Callout"
-                },
-                {
-                    "language": "RU",
-                    "text": "Щелкните по нему и перетащите вниз, чтобы закрыть область проектирования и открыть область построения графиков. Вернитесь в исходное положение. Чтобы сделать это с помощью клавиатуры, нажмите Ctrl + Shift + ↓. Попробуйте также ↑ ← → !",
-                    "updated": 1635950755868
+                    "updated": 1634205728640
                 }
             ]
         },
@@ -101,13 +89,7 @@
                 {
                     "language": "DE",
                     "text": "Es ist eine gute Idee, einen der beiden Bereiche vollständig zu schließen, um Ressourcen zu sparen, es sei denn, Sie brauchen beide Bereiche nur teilweise geöffnet zu haben.",
-                    "updated": 1634205372068,
-                    "style": "Success"
-                },
-                {
-                    "language": "RU",
-                    "text": "До тех пор пока у Вас не появится необходимость частичного открытия обоих пространств, рекомендуется полностью закрыть каждое из них, чтобы сохранить компьютерные ресурсы на Вашем устройстве.",
-                    "updated": 1635951214809
+                    "updated": 1634205372068
                 }
             ]
         }

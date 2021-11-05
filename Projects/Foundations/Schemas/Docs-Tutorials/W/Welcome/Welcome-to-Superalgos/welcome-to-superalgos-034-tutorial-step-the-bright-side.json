@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Bislang waren Sie auf die dunkle Seite von Superalgos beschränkt. Machen Sie sich bereit, die helle Seite kennenzulernen: den Charting Space.",
-                "updated": 1634174936126,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "До сих пор Вы были ограничены темной стороной Superalgos. Приготовьтесь к тому, что Вас ждет яркая сторона - Charting Space.",
-                "updated": 1635949846573
+                "updated": 1634174936126
             }
         ]
     },
@@ -67,13 +61,7 @@
                 {
                     "language": "DE",
                     "text": "Der Charting-Bereich befindet sich über dem Design-Bereich, getrennt durch einen türkisfarbenen Schieberegler. Wie Sie es von Superalgos gewohnt sind, ist der Charting Space konfigurierbar und hochflexibel. Alles, was dort geschieht, wird in der Charting Space Hierarchie definiert.",
-                    "updated": 1634174969494,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "Пространство для построения графиков расположено поверх пространства дизайна, разделенного бирюзовым ползунком. Как Вы и ожидаете от Superalgos, это пространство является настраиваемым и очень гибким. Все что там происходит, определено в иерархии Charting Space.",
-                    "updated": 1635950872342
+                    "updated": 1634174969494
                 }
             ]
         },
@@ -102,13 +90,7 @@
                 {
                     "language": "DE",
                     "text": "Der Charting Space ist dafür bekannt, dass er die Leute umhaut. Bitte fahren Sie mit diesem Tutorial nicht fort, wenn Sie unter dem Einfluss von psychoaktiven Substanzen stehen.",
-                    "updated": 1634174978126,
-                    "style": "Warning"
-                },
-                {
-                    "language": "RU",
-                    "text": "Пространство построения графиков известно тем, что будоражит умы людей. Пожалуйста, воздержитесь от продолжения изучения этого материала, если в настоящий момент Вы находитесь под воздействием психоактивных веществ.",
-                    "updated": 1635950393713
+                    "updated": 1634174978126
                 }
             ],
             "updated": 1616416552336

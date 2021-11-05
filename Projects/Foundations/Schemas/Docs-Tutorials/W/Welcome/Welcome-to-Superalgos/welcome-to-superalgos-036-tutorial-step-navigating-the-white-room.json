@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Genau wie der Design Space bietet auch der Charting Space einen riesigen Bereich, in dem Sie Diagramme einrichten können... so viele, wie Ihre Hardware verkraften kann!",
-                "updated": 1634205591674,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Как и пространство дизайна, пространство постороения графиков имеет огромную область, где Вы можете создавать диаграммы... столько, сколько сможет выдержать Ваше устройство!",
-                "updated": 1635951454512
+                "updated": 1634205591674
             }
         ]
     },
@@ -67,13 +61,7 @@
                 {
                     "language": "DE",
                     "text": "Um die Dinge für Neulinge einfach zu halten, gibt es in diesem Workspace des Getting Started Tutorials nur zwei Charts. Fortgeschrittene Benutzer überwachen Charts von mehreren Börsen und Märkten.",
-                    "updated": 1634205603337,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "Чтобы новичкам было проще, в Getting Started Tutorials workspace имеется только две диаграммы. Опытные пользователи могут отслеживать графики с множествами бирж и рынков.",
-                    "updated": 1635952143282
+                    "updated": 1634205603337
                 }
             ]
         },
@@ -102,13 +90,7 @@
                 {
                     "language": "DE",
                     "text": "Um sich im Viewport zu bewegen, klicken Sie auf einen leeren Bereich und ziehen Sie mit der Maus. Die Tastaturkombination ist Shift plus die Pfeiltasten ↑ ← → ↓",
-                    "updated": 1634205660486,
-                    "style": "Callout"
-                },
-                {
-                    "language": "RU",
-                    "text": "Чтобы перемещаться по Viewport, удерживайте левую кнопку мыши и перетащите пустую область. При использовании клавиатуры, воспользуйтесь комбинацией клавиш Shift + ↑ ← → ↓",
-                    "updated": 1635952028877
+                    "updated": 1634205660486
                 }
             ],
             "updated": 1622198195729

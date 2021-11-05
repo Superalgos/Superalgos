@@ -30,13 +30,7 @@
             {
                 "language": "DE",
                 "text": "Bevor wir in die Tabellen eintauchen, noch eine Sache. Sie müssen wissen, wie Sie das Haus in Ordnung bringen können!",
-                "updated": 1634206589741,
-                "style": "Definition"
-            },
-            {
-                "language": "RU",
-                "text": "Еще одна вещь, прежде чем мы погрузимся в графики: Вам необходимо знать, как привести рабочее простарнство в порядок.",
-                "updated": 1635954932905
+                "updated": 1634206589741
             }
         ]
     },
@@ -66,13 +60,7 @@
                 {
                     "language": "DE",
                     "text": "Es wird die Zeit kommen, in der Sie vielleicht mit Dutzenden von Diagrammen arbeiten werden. Sie wissen bereits, wie Sie deren Format ändern können. Jetzt müssen Sie lernen, wie Sie die Diagramme verschieben können, damit Sie die gewünschten Arrangements erstellen können. Das ist ganz einfach:",
-                    "updated": 1634206671224,
-                    "style": "Text"
-                },
-                {
-                    "language": "RU",
-                    "text": "Придет время, когда Вы, возможно, будете работать с десятками графиков. Вы уже знаете, как изменить их формат. Теперь Вам необходимо научиться перемещать их так, чтобы Вы могли создавать любые необходимые Вам расположения. Это довольно просто:",
-                    "updated": 1635955068033
+                    "updated": 1634206671224
                 }
             ],
             "updated": 1616416902513
@@ -103,13 +91,7 @@
                 {
                     "language": "DE",
                     "text": "Drücken Sie die Shift, klicken Sie mit der linken Maustaste, und ziehen Sie!",
-                    "updated": 1634206723517,
-                    "style": "Callout"
-                },
-                {
-                    "language": "RU",
-                    "text": "Удерживайте Shift, щелкните левой кнопкой мыши и перетащите!",
-                    "updated": 1635955363944
+                    "updated": 1634206723517
                 }
             ]
         },
@@ -138,13 +120,7 @@
                 {
                     "language": "DE",
                     "text": "Ich glaube, wir haben jetzt alles über die Verwaltung des Charting Space gesagt. Jetzt ist es Zeit, in die Diagramme einzutauchen!",
-                    "updated": 1634206736658,
-                    "style": "Success"
-                },
-                {
-                    "language": "RU",
-                    "text": "Я полагаю, что мы рассмотрели все о том, как управлять пространством для построения графиков. Пришло время погрузиться в диаграммы!",
-                    "updated": 1635955483010
+                    "updated": 1634206736658
                 }
             ]
         }

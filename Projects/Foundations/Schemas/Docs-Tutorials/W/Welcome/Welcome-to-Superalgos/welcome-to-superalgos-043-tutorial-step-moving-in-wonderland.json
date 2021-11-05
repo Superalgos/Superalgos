@@ -31,6 +31,11 @@
                 "language": "DE",
                 "text": "Sie befinden sich also endlich in einem Diagramm. Das erste, was Sie tun möchten, ist, sich zu bewegen und zu lernen, was diese Diagramme für Sie tun können.",
                 "updated": 1634216714226
+            },
+            {
+                "language": "TR",
+                "text": "Sonunda bir grafiğin içindesiniz. Yapmak isteyeceğiniz ilk şey, etrafta dolaşmak ve bu çizelgelerin sizin için neler yapabileceğini öğrenmek.",
+                "updated": 1636092060224
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "DE",
                     "text": "Fangen wir damit an! Wie im Designbereich - wenn Sie sich in einer Time Machine befinden - bewegen Sie sich mit Hilfe Ihrer Maus und Ihrer Tastatur. So geht's:",
                     "updated": 1634216711619
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla devam edelim! Tasarım alanında olduğu gibi, bir zaman makinesinin içindeykende farenizi ve klavyenizi kullanarak hareket edersiniz. Nasıl?",
+                    "updated": 1636092104788
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "DE",
                     "text": "Mit der Maus klicken Sie mit der linken Maustaste und ziehen. Mit der Tastatur benutzt du die Pfeiltasten: ← → ↑ ↓",
                     "updated": 1634216728013
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare ile sol tıklayın ve sürükleyin. Klavye ile ok tuşlarını kullanın: ← → ↑ ↓",
+                    "updated": 1636092129919
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "DE",
                     "text": "Was? Es funktioniert nicht? Bleiben Sie mit einem eingefrorenen Diagramm hängen? Wie im Video im nächsten Schritt? Keine Sorge! Ich weiß, was hier los ist...",
                     "updated": 1634216736257
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne? Çalışmıyor mu? Donmuş bir çizelgeye mi takıldınız? Bir sonraki adımdaki videodaki gibi mi? Merak etme! Neler olduğunu biliyorum...",
+                    "updated": 1636092166517
                 }
             ]
         }

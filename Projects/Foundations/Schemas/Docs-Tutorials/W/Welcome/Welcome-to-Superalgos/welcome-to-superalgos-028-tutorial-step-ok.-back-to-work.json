@@ -36,7 +36,13 @@
             {
                 "language": "RU",
                 "text": "Теперь, когда Вам удобно передвигаться, я хочу, чтобы Вы отправились в небольшую экскурсию по Network Node раздела Data Tasks.",
-                "updated": 1635630043831
+                "updated": 1635630043831,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Artık rahatça dolaşabildiğinize göre, Ağ Düğümü'nün ( Network Node ) Veri Görevleri ( Data Tasks ) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1636014280941
             }
         ],
         "updated": 1622194034630
@@ -73,7 +79,13 @@
                 {
                     "language": "RU",
                     "text": "Обратите внимание на следующее:",
-                    "updated": 1635630070775
+                    "updated": 1635630070775,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakilere dikkat edin:",
+                    "updated": 1636014296432
                 }
             ]
         },
@@ -108,7 +120,13 @@
                 {
                     "language": "RU",
                     "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет Вам организованно работать со множеством бирж и рынков.",
-                    "updated": 1635630220075
+                    "updated": 1635630220075,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm, her şeyden önce proje, borsa ve pazara göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla pazarla düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1636014356317
                 }
             ]
         },
@@ -143,7 +161,13 @@
                 {
                     "language": "RU",
                     "text": "Узлы Exchange Data Tasks и Мarket Data Tasks могут управлять всеми задачами на бирже и рынке соответственно.",
-                    "updated": 1635630313880
+                    "updated": 1635630313880,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Piyasa Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve pazardaki tüm görevleri kontrol edebilir.",
+                    "updated": 1636014775744
                 }
             ]
         },
@@ -178,7 +202,13 @@
                 {
                     "language": "RU",
                     "text": "Выйдите и проверьте эти узлы и их меню!",
-                    "updated": 1635630414259
+                    "updated": 1635630414259,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi bu düğümleri ve menülerini kontrol edin!",
+                    "updated": 1636014827396
                 }
             ]
         }

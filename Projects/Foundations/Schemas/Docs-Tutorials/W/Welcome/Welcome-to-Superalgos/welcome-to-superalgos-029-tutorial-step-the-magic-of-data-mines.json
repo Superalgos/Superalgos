@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Innerhalb jedes Marktes ist die Operation nach Data Mine organisiert. Superalgos wird mit mehreren quelloffenen Data Mines ausgeliefert, die jeweils mehrere Indikatoren enthalten.",
-                "updated": 1634168232166
+                "updated": 1634168232166,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Her pazarda, operasyon Data Mine tarafından organize edilir. Superalgos, her biri birden fazla göstergeye sahip birkaç açık kaynaklı veri madeni ile birlikte gelir.",
+                "updated": 1636014963314
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Betrachten Sie Data Mines als Plugins, die Entwickler erstellen können, um die Datenanalysekapazität des Systems zu erweitern. Ein Indicator Bot  kann Daten verarbeiten, die von anderen Indikatoren erzeugt werden, und so einen Mehrwert und eine tiefere und reichhaltigere Analyse liefern.",
-                    "updated": 1634168218271
+                    "updated": 1634168218271,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri madenlerini, geliştiricilerin sistemin veri analiz kapasitesini genişletmek için oluşturabilecekleri eklentiler olarak düşünün. Bir Gösterge Botu ( Indicator Bot ), diğer göstergelerin ürettiği verileri işleyebilir, dolayısıyla değer katabilir ve daha derin ve daha zengin analizler üretebilir.",
+                    "updated": 1636015012141
                 }
             ]
         },
@@ -89,7 +101,13 @@
                 {
                     "language": "DE",
                     "text": "Wenn Sie ein Grundverständnis von JavaScript haben, können Sie auch Indikatoren erstellen! Wenn Sie eine Data Mine beitragen, verdienen Sie Superalgos SA Tokens!",
-                    "updated": 1634168241958
+                    "updated": 1634168241958,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel bir JavaScript bilginiz varsa, göstergeler de oluşturabilirsiniz! Bir Veri Madenine ( Data Mine ) katkıda bulunursanız, Superalgos SA Jetonları kazanırsınız!",
+                    "updated": 1636015059999
                 }
             ],
             "updated": 1622196189467

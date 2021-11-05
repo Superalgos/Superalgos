@@ -473,6 +473,12 @@ function newUiObjectConstructor() {
                     uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
                 }
+                if (schemaDocument.editors.list === true) {
+                    uiObject.listSelector = newListSelector()
+                    uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                    uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                    uiObject.listSelector.initialize()
+                }
                 if (schemaDocument.editors.condition === true) {
                     uiObject.conditionEditor = newConditionEditor()
                     uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction

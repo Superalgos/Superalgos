@@ -1,7 +1,7 @@
 {
     "appId": "org.superalgos.platform",
     "productName": "Superalgos",
-    "asar": false,
+    "asar": true,
     "generateUpdatesFilesForAllChannels": true,
     "files": [
       "**/*",
@@ -54,12 +54,16 @@
       "target": [
         {
           "target": "dmg",
-          "arch": "x64"
-        },
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
         {
-            "target": "dmg",
-            "arch": "arm64"
-          }
+          "target": "AppImage",
+          "arch": ["x64", "armv7l"]
+        }
       ]
     },
     "extraMetadata": {

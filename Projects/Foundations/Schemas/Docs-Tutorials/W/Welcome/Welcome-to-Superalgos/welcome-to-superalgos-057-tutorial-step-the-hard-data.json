@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Ein Plotter Panel enthält nicht-grafische Darstellungen von Daten, meist in Form von numerischen Werten oder Text.",
                 "updated": 1634218122317
+            },
+            {
+                "language": "TR",
+                "text": "Bir Plotter Paneli, çoğunlukla sayısal değerler veya metin biçiminde verileri içerir.",
+                "updated": 1636096630769
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Jede Ebene kann ein oder mehrere zugehörige Panels enthalten oder auch nicht. Es liegt im Ermessen des Entwicklers des entsprechenden Indicator Bot, ob er diese definiert oder nicht.",
                     "updated": 1634218128665
+                },
+                {
+                    "language": "TR",
+                    "text": "Her katman, bir veya daha fazla ilişkili panel içerebilir veya içermeyebilir. Bunları tanımlamak veya tanımlamamak ilgili Gösterge Botunun ( Indicator Bot ) geliştiricisine bağlıdır.",
+                    "updated": 1636096681002
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Um auf die Panels zuzugreifen, klicken Sie mit der linken Maustaste auf das Symbol des Plotter-Panels der gewünschten Ebene.",
                     "updated": 1634218135107
+                },
+                {
+                    "language": "TR",
+                    "text": "Panellere erişmek için, seçilen katmanın çizici paneli simgesine sol tıklayın.",
+                    "updated": 1636096699582
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Sie können Ebenen-Manager und Plotter-Panels verschieben, indem Sie mit der linken Maustaste auf ihre Überschriften klicken und sie in eine beliebige Ecke des Bildschirms ziehen.",
                     "updated": 1634218142345
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman yöneticilerini ve çizici panellerini, başlıklarına sol tıklayarak ve ekranın herhangi bir köşesine sürükleyerek taşıyabilirsiniz.",
+                    "updated": 1636096719299
                 }
             ]
         }

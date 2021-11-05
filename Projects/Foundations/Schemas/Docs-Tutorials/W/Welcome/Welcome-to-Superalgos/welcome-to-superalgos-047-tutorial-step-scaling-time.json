@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Haben Sie den Trick mit der Zeitskala aus dem vorherigen Video verstanden? Wenn nicht, gehen Sie zum vorherigen Schritt und schauen Sie aufmerksam zu!",
                 "updated": 1634217059331
+            },
+            {
+                "language": "TR",
+                "text": "Önceki videodan zamanı ölçeklendirmesini nasılçalıştığını anlayabildiniz mı? Eğer teredütünüz varsa önceki adıma gidin ve dikkatlice izleyin!",
+                "updated": 1636094066007
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Wenn Sie das Mausrad über dem Zeitskalenfeld drehen, wird die Zeit verkleinert oder vergrößert! Alternativ können Sie mit der Maus auf das Skalenfeld zeigen und die seitlichen Pfeiltasten ← →  drücken.",
                     "updated": 1634217078292
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin tekerleğini zaman ölçeği kutusunun üzerinde kaydırmak, zamanı küçültür ve genişletir! Alternatif olarak, fareyi ölçek kutusuna yönlendirebilir ve yan ok tuşlarına basabilirsiniz ← →",
+                    "updated": 1636094091641
                 }
             ],
             "updated": 1616495837967
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "Es gibt noch ein weiteres interessantes Detail aus dem vorherigen Video: Wenn die Zeitskala den automatischen Modus verlässt, verschwinden die beiden kleinen grünen Dreiecke, die das Ende der automatischen Skala anzeigen! Die Skala kann auf einer, keiner oder beiden Seiten automatisch eingestellt werden!",
                     "updated": 1634217088926
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki videoda dikkat çeken ilginç bir ayrıntı daha var: zaman ölçeği otomatik moddan çıktığında, otomatik ölçeğin her iki tafafını gösteren iki küçük yeşil üçgen kaybolur! ",
+                    "updated": 1636094195564
                 }
             ],
             "updated": 1616504911488

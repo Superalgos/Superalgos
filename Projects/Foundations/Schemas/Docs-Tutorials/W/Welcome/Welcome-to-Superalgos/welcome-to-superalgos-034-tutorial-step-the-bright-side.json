@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Bislang waren Sie auf die dunkle Seite von Superalgos beschränkt. Machen Sie sich bereit, die helle Seite kennenzulernen: den Charting Space.",
-                "updated": 1634174936126
+                "updated": 1634174936126,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Şimdiye kadar Superalgos'un karanlık tarafıyla sınırlı kaldınız. Parlak tarafa maruz kalmaya hazır olun: Grafik Alanı ( Charting Space )",
+                "updated": 1636034022706
             }
         ]
     },
@@ -61,7 +67,13 @@
                 {
                     "language": "DE",
                     "text": "Der Charting-Bereich befindet sich über dem Design-Bereich, getrennt durch einen türkisfarbenen Schieberegler. Wie Sie es von Superalgos gewohnt sind, ist der Charting Space konfigurierbar und hochflexibel. Alles, was dort geschieht, wird in der Charting Space Hierarchie definiert.",
-                    "updated": 1634174969494
+                    "updated": 1634174969494,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı, turkuaz bir kaydırıcı ile ayrılmış tasarım alanının üstünde bulunur. Superalgos'tan beklendiği gibi, grafik alanı yapılandırılabilir ve oldukça esnektir. Orada olan her şey Grafik Alanı ( Charting Space ) hiyerarşisinde tanımlanır.",
+                    "updated": 1636034080988
                 }
             ]
         },
@@ -90,7 +102,13 @@
                 {
                     "language": "DE",
                     "text": "Der Charting Space ist dafür bekannt, dass er die Leute umhaut. Bitte fahren Sie mit diesem Tutorial nicht fort, wenn Sie unter dem Einfluss von psychoaktiven Substanzen stehen.",
-                    "updated": 1634174978126
+                    "updated": 1634174978126,
+                    "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı, insanların aklını başından almasıyla bilinir. Lütfen şu anda psikoaktif maddelerin etkisi altındaysanız bu eğitime devam etmekten kaçının :)",
+                    "updated": 1636034105076
                 }
             ],
             "updated": 1616416552336

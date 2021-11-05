@@ -65,7 +65,7 @@
 
             let path = global.env.BASE_PATH + '/TaskServerRoot.js'
 
-            /* Workarround to avoid having the same debug port at the forked process which makes it crash. */
+            /* Workaround to avoid having the same debug port at the forked process which makes it crash. */
             for (let i = 0; i < process.execArgv.length; i++) {
                 let argument = process.execArgv[i]
                 if (argument.indexOf('--inspect') > -1) {
@@ -94,7 +94,7 @@
                 console.log(`[ERROR] Client -> Task Manager Server -> runTask -> Task Server exited with error ${err}`)
                 tasksMap.delete(task.id)
             })
-            /* If the Tast Server stops, we remove it from our task map */
+            /* If the Task Server stops, we remove it from our task map */
             task.childProcess.on('close', (code, signal) => {
                 //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Name = ' + task.name)
                 //console.log('[INFO] Client -> Task Manager Server -> runTask -> Task Terminated. -> Task Id = ' + task.id)
@@ -190,7 +190,7 @@
 
 
         function finalize() {
-            /* Before disconnecting we will forze all eventListeners to stop listening. */
+            /* Before disconnecting we will force all eventListeners to stop listening. */
             const eventListenersArray = [...eventListeners.values()]
             for (let i = 0; i < eventListenersArray.length; i++) {
                 let handler = eventListenersArray[i]

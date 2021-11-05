@@ -1,7 +1,7 @@
 {
     "topic": "TS Dataset Type Standard Converter Error",
     "pageNumber": "4",
-    "type": "TS Dataset Type Standard Convertert Error - Get Context Variables Failed",
+    "type": "TS Dataset Type Standard Converter Error - Get Context Variables Failed",
     "definition": {
         "text": "It was not possible to get the context variables needed for running this process. See below for details.",
         "updated": 1621859784437

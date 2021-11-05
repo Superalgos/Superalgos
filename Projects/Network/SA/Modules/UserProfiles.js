@@ -1,6 +1,6 @@
 exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles() {
     /*
-    This module is usefull for all Apps that needs to operate with all User Profiles loaded in 
+    This module is useful for all Apps that needs to operate with all User Profiles loaded in
     memory maps. 
     
     User Profiles are plugins of the Governance System. Besides the info they carry, we also 
@@ -56,7 +56,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
             SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
             /*
             Each User Profile might have Signing Accounts, meaning
-            accounts that can be siging on behalf of the User Profile.
+            accounts that can be signed on behalf of the User Profile.
             */
             if (userProfilePlugin.signingAccounts !== undefined) {
                 for (let j = 0; j < userProfilePlugin.signingAccounts.signingAccounts.length; j++) {

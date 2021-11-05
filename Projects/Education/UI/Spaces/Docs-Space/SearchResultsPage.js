@@ -17,194 +17,37 @@ function newFoundationsDocsSearchResultsPage() {
 
     function render() {
 
-        let resultsArary = []
+        let docIndex = UI.projects.education.spaces.docsSpace.searchEngine.documentIndex
+        let resultsArray = []
         let initialTime = new Date()
-        buildResultsArray()
-        buildHTML()
 
-        function buildResultsArray() {
-            for (let i = 0; i < UI.projects.education.spaces.docsSpace.searchEngine.docsIndex.length; i++) {
-                let documentIndex = UI.projects.education.spaces.docsSpace.searchEngine.docsIndex[i]
-                let documentPoints = 0
 
-                for (const style in documentIndex.phraseCount) {
-                    let key = UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase())
-                    let thisPhraseCount = documentIndex.phraseCount[style].get(key)
-                    if (thisPhraseCount === undefined) {
-                        thisPhraseCount = 0
-                    }
+        let searchByType = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+            pluck: 'docsSchemaDocument:type',
+            enrich: true,
+            limit: 10000
+        })
+        let searchByText = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+            pluck: 'text',
+            enrich: true,
+            limit: 10000
+        })
 
-                    if (documentIndex.docsSchemaDocument.type !== undefined) {
-                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.type.toLowerCase())) {
-                            documentPoints = documentPoints + thisPhraseCount * 100
-                        }
-                    }
-                    if (documentIndex.docsSchemaDocument.topic !== undefined) {
-                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.topic.toLowerCase())) {
-                            documentPoints = documentPoints + thisPhraseCount * 200
-                        }
-                    }
-                    if (documentIndex.docsSchemaDocument.tutorial !== undefined) {
-                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.tutorial.toLowerCase())) {
-                            documentPoints = documentPoints + thisPhraseCount * 200
-                        }
-                    }
-                    if (documentIndex.docsSchemaDocument.review !== undefined) {
-                        if (key === UI.projects.foundations.utilities.strings.cleanTextOfCommonWordEndings(documentIndex.docsSchemaDocument.review.toLowerCase())) {
-                            documentPoints = documentPoints + thisPhraseCount * 200
-                        }
-                    }
-
-                    switch (style) {
-                        case 'topic': {
-                            documentPoints = documentPoints + thisPhraseCount * 100
-                            break
-                        }
-                        case 'tutorial': {
-                            documentPoints = documentPoints + thisPhraseCount * 100
-                            break
-                        }
-                        case 'review': {
-                            documentPoints = documentPoints + thisPhraseCount * 100
-                            break
-                        }
-                        case 'type': {
-                            documentPoints = documentPoints + thisPhraseCount * 50
-                            break
-                        }
-                        case 'definition': {
-                            documentPoints = documentPoints + thisPhraseCount * 9
-                            break
-                        }
-                        case 'title': {
-                            documentPoints = documentPoints + thisPhraseCount * 10
-                            break
-                        }
-                        case 'subtitle': {
-                            documentPoints = documentPoints + thisPhraseCount * 8
-                            break
-                        }
-                        case 'text': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'list': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'note': {
-                            documentPoints = documentPoints + thisPhraseCount * 4
-                            break
-                        }
-                        case 'warning': {
-                            documentPoints = documentPoints + thisPhraseCount * 6
-                            break
-                        }
-                        case 'error': {
-                            documentPoints = documentPoints + thisPhraseCount * 6
-                            break
-                        }
-                        case 'important': {
-                            documentPoints = documentPoints + thisPhraseCount * 7
-                            break
-                        }
-                        case 'success': {
-                            documentPoints = documentPoints + thisPhraseCount * 5
-                            break
-                        }
-                        case 'callout': {
-                            documentPoints = documentPoints + thisPhraseCount * 5
-                            break
-                        }
-                        case 'summary': {
-                            documentPoints = documentPoints + thisPhraseCount * 6
-                            break
-                        }
-                        case 'section': {
-                            documentPoints = documentPoints + thisPhraseCount * 8
-                            break
-                        }
-                        case 'table': {
-                            documentPoints = documentPoints + thisPhraseCount * 3
-                            break
-                        }
-                        case 'hierarchy': {
-                            documentPoints = documentPoints + thisPhraseCount * 3
-                            break
-                        }
-                        case 'json': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'javascript': {
-                            documentPoints = documentPoints + thisPhraseCount * 2
-                            break
-                        }
-                        case 'gif': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'png': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'anchor': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'block': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'include': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'placeholder': {
-                            documentPoints = documentPoints + thisPhraseCount * 0
-                            break
-                        }
-                        case 'link': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'youtube': {
-                            documentPoints = documentPoints + thisPhraseCount * 1
-                            break
-                        }
-                        case 'chapter': {
-                            documentPoints = documentPoints + thisPhraseCount * 8
-                            break
-                        }
-                    }
-                }
-
-                if (documentPoints === 0) { continue } // No matches anywhere
-
-                let result = {
-                    documentIndex: documentIndex,
-                    documentPoints: documentPoints
-                }
-                let added = false
-
-                if (resultsArary.length === 0) {
-                    resultsArary.push(result)
-                    added = true
-                } else {
-                    for (let j = 0; j < resultsArary.length; j++) {
-                        let thisResult = resultsArary[j]
-                        if (result.documentPoints > thisResult.documentPoints) {
-                            resultsArary.splice(j, 0, result)
-                            added = true
-                            break
-                        }
-                    }
-                }
-                if (added === false) {
-                    resultsArary.push(result)
-                }
+        // Search in all fields and remove duplicates
+        Promise.all([searchByType, searchByText]).then(
+            function (values) {
+                let flags = {}
+                values.forEach(arrResult => {
+                   arrResult.forEach(result => {
+                       if (!flags[result.id]) {
+                           flags[result.id] = true;
+                           resultsArray.push({documentIndex: result.doc});
+                       }
+                   })
+                })
+                buildHTML()
             }
-        }
+        )
 
         function buildHTML() {
             const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']
@@ -231,8 +74,8 @@ function newFoundationsDocsSearchResultsPage() {
                 HTML = HTML + '<p> ' + tab.toUpperCase() + '_TOTAL_RESULTS results (' + tab.toUpperCase() + '_TOTAL_SECONDS seconds)</p>'
 
                 let resultCounter = 0
-                for (let j = 0; j < resultsArary.length; j++) {
-                    let result = resultsArary[j]
+                for (let j = 0; j < resultsArray.length; j++) {
+                    let result = resultsArray[j]
 
                     if (tab !== 'All') {
                         if (tab.indexOf(result.documentIndex.category) < 0) {

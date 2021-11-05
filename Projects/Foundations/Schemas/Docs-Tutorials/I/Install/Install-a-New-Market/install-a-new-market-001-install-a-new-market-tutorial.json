@@ -9,7 +9,13 @@
             {
                 "language": "ES",
                 "text": "Este tutorial cubre el proceso de instalación de un nuevo mercado. El proceso automatiza la creación de datos y tareas de trading, así como gráficos para dicho mercado.",
-                "updated": 1628046069494
+                "updated": 1628046069494,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial behandelt den Prozess der Installation eines neuen Marktes. Der Prozess automatisiert die Erstellung von Daten und Handelsaufgaben sowie von Charts für den besagten Market.",
+                "updated": 1635737551202
             }
         ]
     },

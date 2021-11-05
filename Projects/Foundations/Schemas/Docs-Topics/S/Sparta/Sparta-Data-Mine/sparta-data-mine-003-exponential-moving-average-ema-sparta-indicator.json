@@ -3,7 +3,7 @@
     "pageNumber": 3,
     "type": "Exponential Moving Average (EMA) - Sparta Indicator",
     "definition": {
-        "text": "The indicator produces the Exponential Moving Avarge in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
+        "text": "The indicator produces the Exponential Moving Average in multiple settings, including the popular 20, 50, 100, and 200, as well as less frequent base 7 and base 11 SMAs.",
         "updated": 1611661783066
     },
     "paragraphs": [

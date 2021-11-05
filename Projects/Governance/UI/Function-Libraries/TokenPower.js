@@ -90,7 +90,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         if (userProfile.payload === undefined) { return }
         if (userProfile.payload.blockchainTokens === undefined) { return }
         /*
-        The tokenPower is comming from blockchainTokens.
+        The tokenPower is coming from blockchainTokens.
         */
         let tokenPower = userProfile.payload.blockchainTokens
         /*
@@ -116,7 +116,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         if (userProfile.payload.blockchainTokens === undefined) { return }
         if (userProfile.payload.delegationProgram === undefined) { return }
         /*
-        The Deletated Power is already accumilated at userProfile.payload.tokenPower
+        The Delegated Power is already accumulated at userProfile.payload.tokenPower
         */
         let tokenPower = userProfile.payload.delegationProgram.programPower
         /*

@@ -1,7 +1,7 @@
 {
     "topic": "TS Dataset Type Standard Converter Error",
     "pageNumber": "3",
-    "type": "TS Dataset Type Standard Convertert Error - Status Report Is Corrupt",
+    "type": "TS Dataset Type Standard Converter Error - Status Report Is Corrupt",
     "definition": {
         "text": "The status report of one of the processes defined as Status Dependencies is corrupt and cannot be read. See below for details.",
         "updated": 1621859784437

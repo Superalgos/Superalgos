@@ -12,7 +12,13 @@
             {
                 "language": "ES",
                 "text": "Este tutorial te guía a través del proceso de configuración de un nuevo mercado en el que ejecutar operaciones de minería de datos y comercio.",
-                "updated": 1628985038532
+                "updated": 1628985038532,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial führt Sie durch den Prozess der Einrichtung eines neuen Market, auf dem Sie Data-Mining- und Handelsoperationen durchführen können.",
+                "updated": 1635737811408
             }
         ]
     },
@@ -24,7 +30,13 @@
                 {
                     "language": "ES",
                     "text": "Configurar un nuevo Market implica:",
-                    "updated": 1628985109327
+                    "updated": 1628985109327,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Einrichtung eines neuen Market umfasst Folgendes:",
+                    "updated": 1635737994943
                 }
             ]
         },
@@ -35,7 +47,13 @@
                 {
                     "language": "ES",
                     "text": "1. Añadiendo los assets para el exchange de elección.",
-                    "updated": 1628985249427
+                    "updated": 1628985249427,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Hinzufügen der Vermögenswerte für die gewünschte Börse.",
+                    "updated": 1635738091361
                 }
             ]
         },
@@ -46,7 +64,13 @@
                 {
                     "language": "ES",
                     "text": "2. Creación de un mercado con dichos assets.",
-                    "updated": 1628990068651
+                    "updated": 1628990068651,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "2. Einrichten eines Marktes mit den genannten Vermögenswerten.",
+                    "updated": 1635738118471
                 }
             ]
         },
@@ -57,7 +81,13 @@
                 {
                     "language": "ES",
                     "text": "3. Instalando el mercado",
-                    "updated": 1628990055678
+                    "updated": 1628990055678,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "3. Installieren des Marktes",
+                    "updated": 1635738137290
                 }
             ]
         },
@@ -69,7 +99,13 @@
                 {
                     "language": "ES",
                     "text": "Cuando hagas clic en el botón Next a continuación, irás al nodo Exchange Assets bajo Binance, en la jerarquía Crypto Ecosystem. Puedes aprender a instalar un mercado en este exchange para que puedas hacer lo mismo en tu exchange de elección más adelante.",
-                    "updated": 1628991773444
+                    "updated": 1628991773444,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie auf die Schaltfläche Weiter unten klicken, gelangen Sie zum Knoten Exchange Assets unter Binance in der Crypto Ecosystem Hierarchie. Sie können lernen, wie man einen Markt in dieser Börse installiert, so dass Sie später dasselbe in Ihrer Börse der Wahl tun können.",
+                    "updated": 1635738358469
                 }
             ]
         }

@@ -1,0 +1,33 @@
+{
+    "type": "Claim Power",
+    "definition": {
+        "text": "Claim Power is the Token Power that goes into the Claims Program, and determines the number of tokens you are claiming with any of the existing types of claims: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
+        "updated": 1624781372494,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Claim Power (poder de la solicitud) es el Token Power que va al Claims Program, y determina el número de tokens que ha solicitado con cualquiera de los tipos existentes de solicitudes : Position Contribution Claim (Contribución de posición),  Feature Contribution Claim Contribución de función), y Asset Contribution Claim( contribución de activo).",
+                "updated": 1636039210184
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1624781499321
+        },
+        {
+            "style": "Callout",
+            "text": "Claim Power is the Token Power that goes into the Claims Program, and determines the number of tokens you are claiming with any of the existing types of claims: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
+            "updated": 1630254492262,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Claim Power es el Token Power los Claims Program, y determina el número de tokens que ha solicitado con cualquiera de los tipos existentes de solicitudes: Position Contribution Claim, Feature Contribution Claim, y Asset Contribution Claim.",
+                    "updated": 1636039401303
+                }
+            ]
+        }
+    ]
+}

@@ -58,11 +58,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
-                        data: await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                        data: await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                     }
                 } else {
 
-                    let events = await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                    let events = await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {
@@ -132,7 +132,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Event Processed.',
-                    data: await DK.running.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                    data: await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response
             }

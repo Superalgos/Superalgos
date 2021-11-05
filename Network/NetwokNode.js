@@ -4,7 +4,7 @@ exports.newNetworkNode = function newNetworkNode() {
         webSocketsInterface: undefined,
         socialGraphService: undefined,
         storage: undefined,
-        p2pMetwork: undefined,
+        p2pNetwork: undefined,
         run: run
     }
 
@@ -13,11 +13,6 @@ exports.newNetworkNode = function newNetworkNode() {
     return thisObject
 
     async function run() {
-        /*
-        Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
-        */
-        thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
-        thisObject.webSocketsInterface.initialize()
         /*
         The Social Graph Service is the first and for now, the only service this Network Node provides.
         */
@@ -31,7 +26,14 @@ exports.newNetworkNode = function newNetworkNode() {
         /*
         We can join now the P2P Network as a new peer there.
         */
-        thisObject.p2pMetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-        await thisObject.p2pMetwork.initialize('Network Peer')
+        thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
+        await thisObject.p2pNetwork.initialize('Network Peer')
+        /*
+        Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
+        */
+       thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
+       thisObject.webSocketsInterface.initialize()
+       console.log('Network Node Web Sockets Interface ....................................... Listening at port ' + JSON.parse(NT.networkNode.p2pNetwork.thisNetworkNode.node.config).webSocketsPort)
+
     }
 }

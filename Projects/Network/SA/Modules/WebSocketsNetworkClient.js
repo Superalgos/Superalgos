@@ -36,7 +36,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         await setUpWebsocketClient(callerRole, p2pNetworkNode)
     }
 
-    async function setUpWebsocketClient(callerRole) {
+    async function setUpWebsocketClient(callerRole, p2pNetworkNode) {
 
         return new Promise(connectToNewtwork)
 
@@ -167,7 +167,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             */
                             socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).privateKey)
 
                             let message = {
                                 messageType: 'Handshake',

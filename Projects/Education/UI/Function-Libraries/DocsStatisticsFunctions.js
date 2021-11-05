@@ -1,4 +1,4 @@
-function newEducationFunctionLibraryDocsStats() {
+function newEducationFunctionLibraryDocsStatisticsFunctions() {
     let thisObject = {
         printDocsStats: printDocsStats
     }

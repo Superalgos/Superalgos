@@ -41,7 +41,7 @@ exports.newDesktopApp = function newDesktopApp() {
         console.log('Desktop Client Web Sockets Interface ....................................... Listening at port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
 
 
-        thisObject.webSocketsClient = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+        thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
         thisObject.httpInterface.initialize()
         console.log('Desktop Client Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
 

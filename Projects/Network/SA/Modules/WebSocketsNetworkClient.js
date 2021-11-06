@@ -41,7 +41,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         socketClient = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack)
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Connected to ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('Websockets Client Connected to Network Node via Web Sockets ................ Connected to ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.isConnected = true
     }
 
@@ -208,7 +208,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Disconnected from ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)                
+                        console.log('Websockets Client Connected to Network Node via Web Sockets ............... Disconnected from ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)                
                     }
                     if (onConnectionClosedCallBack !== undefined) {
                         onConnectionClosedCallBack(thisObject.id)
@@ -279,7 +279,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
+        let onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
         onMessageFunctionsMap.delete(response.messageId)
         onMenssageFunction(response)
     }

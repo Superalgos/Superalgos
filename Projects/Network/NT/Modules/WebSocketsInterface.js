@@ -135,9 +135,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         break
                                     }
                                 }
-                                if (response.result === 'Ok' && messageHeader.payload.requestType === 'Event') {
-                                    broadcastToPeers(messageHeader, caller)
-                                    broadcastToClients(messageHeader, caller)
+                                if (response.result === 'Ok' && JSON.parse(messageHeader.payload).requestType === 'Event') {
+                                    broadcastToPeers(message, caller)
+                                    broadcastToClients(message, caller)
                                 }
                                 break
                             }
@@ -491,7 +491,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
-            function broadcastToPeers(messageHeader, caller) {
+            function broadcastToPeers(message, caller) {
                 let callerIdToAVoid
                 if (caller.role === 'Network Peer') {
                     callerIdToAVoid = caller.socket.id
@@ -499,11 +499,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 for (let i = 0; i < thisObject.networkPeers.length; i++) {
                     let networkPeer = thisObject.networkPeers[i]
                     if (networkPeer.socket.id === callerIdToAVoid) { continue }
-                    networkPeer.socket.send(messageHeader)
+                    networkPeer.socket.send(message)
                 }
             }
 
-            function broadcastToClients(messageHeader, caller) {
+            function broadcastToClients(message, caller) {
                 let callerIdToAVoid
                 if (caller.role === 'Network Client') {
                     callerIdToAVoid = caller.socket.id
@@ -511,7 +511,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 for (let i = 0; i < thisObject.networkClients.length; i++) {
                     let networkClient = thisObject.networkClients[i]
                     if (networkClient.socket.id === callerIdToAVoid) { continue }
-                    networkClient.socket.send(messageHeader)
+                    networkClient.socket.send(message)
                 }
             }
 

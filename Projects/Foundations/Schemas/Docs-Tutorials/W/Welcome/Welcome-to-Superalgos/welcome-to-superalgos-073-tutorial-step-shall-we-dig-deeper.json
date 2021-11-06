@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Logik, die hinter der Platzierung von Kaufaufträgen steht, wird durch die Widerstände und Unterstützungen des Indikator-Bots aus der Masters Data Mine beeinflusst, die Sie zuvor durchgeführt haben.",
                 "updated": 1634224529417
+            },
+            {
+                "language": "TR",
+                "text": "Satın alma emirlerinin verilmesinin ardındaki mantık, şöyle çalışır. Daha önce çalıştırdığınız Masters Data Mine'daki Dirençler ve Destekler botundan etkilenir.",
+                "updated": 1636204198637
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Ich habe mir die Freiheit genommen, den Supports-Layer einzuschalten, um Ihnen diese Schönheit zu zeigen... Ich hoffe, es macht Ihnen nichts aus!",
                     "updated": 1634224537478
+                },
+                {
+                    "language": "TR",
+                    "text": "Size bu güzelliği göstermek için Destekler katmanını açtım... Umarım sakıncası yoktur!",
+                    "updated": 1636204235468
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "Der Indikator identifiziert Niveaus (Preisbereiche), auf denen der Preis abgelehnt wird, und führt einen Zähler, der anzeigt, wie viele Ablehnungen auftreten, bis das Niveau durchbrochen wird.",
                     "updated": 1634224594321
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, fiyatın reddedildiği seviyeleri (fiyat aralıkları) tanımlar ve seviye ihlal edilene kadar kaç ret gerçekleştiğinin bir sayacını tutar.",
+                    "updated": 1636204267357
                 }
             ]
         },
@@ -96,6 +111,11 @@
                     "language": "DE",
                     "text": "Die Art und Weise, wie die Niveaus auf dem Bildschirm dargestellt werden, variiert mit der Anzahl der Ablehnungen, die das Niveau erlebt hat, und gibt uns einen visuellen Anhaltspunkt dafür, wie stark jedes Unterstützungsniveau sein kann. Sobald ein Niveau durchbrochen wird, verschwindet es.",
                     "updated": 1634224586403
+                },
+                {
+                    "language": "TR",
+                    "text": "Seviyelerin ekranda gösterilme şekli, seviyenin tanık olduğu reddedilmelerin sayısına göre değişir ve bize her bir destek seviyesinin ne kadar güçlü olabileceğine dair görsel bir ipucu verir. Bir seviye ihlal edildiğinde, kaybolur.",
+                    "updated": 1636204288960
                 }
             ]
         }

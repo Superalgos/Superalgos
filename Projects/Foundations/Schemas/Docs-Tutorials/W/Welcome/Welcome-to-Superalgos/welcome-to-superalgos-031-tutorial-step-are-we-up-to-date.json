@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Şu anda , tüm işlemler %100 olmalıdır. Bu olduğunda, veri madenciliği operasyonuna \"güncel\" diyoruz.",
                 "updated": 1636015455848
+            },
+            {
+                "language": "RU",
+                "text": "К этому моменту все процессы должны работать на 100%. Когда это происходит, мы называем операцию интеллектиуального анализа данных \"актуальной\".",
+                "updated": 1636193865762
             }
         ],
         "updated": 1616415623576
@@ -74,6 +79,11 @@
                     "language": "TR",
                     "text": "Tüm süreçler güncel olduğunda, botlar çalışmaya devam eder ve bilgiyi borsada üretildiği gibi gerçek zamanlı olarak işler. Yani, siz durdurmadığınız sürece veri madenciliği işlemi durmaz!",
                     "updated": 1636015476681
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда все процессы обновлены, боты продолжают работать, обрабатывая информацию в режиме реального времени по мере ее получения на бирже. То есть операция интеллектуального анализа данных не остановится, пока Вы ее не остановите!",
+                    "updated": 1636194015988
                 }
             ]
         },
@@ -109,6 +119,11 @@
                     "language": "TR",
                     "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını görün",
                     "updated": 1636015521214
+                },
+                {
+                    "language": "RU",
+                    "text": "Оглянитесь вокруг и посмотрите, все ли процессы работают на 100%.",
+                    "updated": 1636194193682
                 }
             ]
         },
@@ -144,6 +159,11 @@
                     "language": "TR",
                     "text": "Canlı Alım Satım Oturumu ( Live Trading Session ) yürütmek için, Alım Satım Botunun ( Trading Bot ) canlı alım satım kararları vermek üzere Alım Satım Sisteminizin ( Trading System ) kurallarını uygulayabilmesi için, gerçek zamanlı olarak işlenen borsadan sürekli bir bilgi akışına ihtiyacınız vardır.",
                     "updated": 1636016072081
+                },
+                {
+                    "language": "RU",
+                    "text": "...To run a Live Trading Session, you need a constant feed of information from the exchange processed in realtime so that the Trading Bot may apply the rules of your Trading System to make live trading decisions.",
+                    "updated": 1636194159296
                 }
             ],
             "updated": 1616415667438

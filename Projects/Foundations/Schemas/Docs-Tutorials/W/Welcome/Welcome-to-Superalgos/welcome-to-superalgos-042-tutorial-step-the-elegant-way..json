@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Biliyorum! Rastgele bir noktaya zum yapmak, grafiği ekranınızla kare şeklinde konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
                 "updated": 1636036151336
+            },
+            {
+                "language": "RU",
+                "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк!",
+                "updated": 1636204552263
             }
         ],
         "updated": 1616417516192
@@ -69,6 +74,11 @@
                     "language": "TR",
                     "text": "En-boy oranını ayarlayın: Farenizi Backtesting Session grafiğine (üstteki) getirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın",
                     "updated": 1636036205725
+                },
+                {
+                    "language": "RU",
+                    "text": "Отрегулируйте соотношение сторон: наведите курсор мыши на график сеансов тестирования (тот, что сверху) и нажмите Ctrl + Shift + Alt + A.",
+                    "updated": 1636204626786
                 }
             ]
         },
@@ -98,6 +108,11 @@
                     "language": "TR",
                     "text": "Uzaklaştır: en uzak uzaklaştırma konumuna gitmek için fare tekerleğini kullanın; sadece bu konumdan sonraki komut çalışacaktır!",
                     "updated": 1636036274866
+                },
+                {
+                    "language": "RU",
+                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
+                    "updated": 1636204795612
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "TR",
                     "text": "Bir kez çift tıklayın: bu, grafiği ortalar ve sizi belirli bir yakınlaştırma düzeyine götürür; sol üst köşede grafiğin adına ve sekmesine uyacak şekilde bir kenar boşluğu bırakılır.",
                     "updated": 1636037063264
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды щелкните один раз: это центрирует диаграмму и приведет Вас к определенному уровню масштабирования; в левом верхнем углу остается поле, соответствующее названию вкладке диаграммы.",
+                    "updated": 1636204908775
                 }
             ],
             "updated": 1616418234728
@@ -169,6 +189,11 @@
                     "language": "TR",
                     "text": "Tekrar çift tıklayın: bu sizi grafikte daha ileri götürür, grafiğin ekrana tam olarak oturduğu ve Katman Yöneticilerinin ortaya çıktığı yakınlaştırma düzeyine gidersiniz.",
                     "updated": 1636037090275
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды щелкните еще раз: это поведет Вас дальше по диаграмме, к уровню масштабирвания, при котором диаграмма идеально соответствует экрану и появятся Layer Managers.",
+                    "updated": 1636204981598
                 }
             ],
             "updated": 1622198926988

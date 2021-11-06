@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Tamam,belki zamanı bükmek gibi değil, ama inan bana bu harika birşey... Zaman makinelerini istediğin formatta şekillendirebiliyor olmana bayılacaksın.",
                 "updated": 1636035360393
+            },
+            {
+                "language": "RU",
+                "text": "Хорошо... Может быть, на самом деле это и не похоже на сгибание, но потерпите.. Вам понравится, как Вы сможете сформировать машины времени в любом желаемом формате.",
+                "updated": 1636201767989
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "TR",
                     "text": "Fare imlecinizi zaman makinesini tanımlayan turkuaz çerçevenin herhangi bir kenarının üzerine getirin ve ne olduğunu görün. Kenarın sarı ile nasıl vurgulandığını gördünüz mü?",
                     "updated": 1636035384197
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на любой из краев бирюзовой рамки, определяющий машину времени, и посмотрите, что произойдет. Вы видите, как край рамки выделился желтым цветом?",
+                    "updated": 1636201897527
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "TR",
                     "text": "Güzel! Şimdi çerçeveye tıklayın ve çekin!",
                     "updated": 1636035404981
+                },
+                {
+                    "language": "RU",
+                    "text": "Отлично! Теперь щелкните по рамке левой кнопкой мыши и потяните!",
+                    "updated": 1636202014634
                 }
             ]
         },
@@ -143,6 +158,11 @@
                     "language": "TR",
                     "text": "Böylece zaman makinelerini kendi zevkinize veya ihtiyacınıza göre şekillendirebilirsiniz.",
                     "updated": 1636035425014
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот как Вы можете формировать машины времени по своему нраву.",
+                    "updated": 1636202062369
                 }
             ]
         }

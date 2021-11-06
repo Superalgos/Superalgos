@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Size Fiyat Ölçeğinin nasıl çalıştığını söylememe gerek var mı yoksa kendi başınıza çözebilir misiniz? Tamam... Sana bir ipucu vereceğim...",
                 "updated": 1636094814213
+            },
+            {
+                "language": "RU",
+                "text": "Необходимо ли мне рассказать Вам, как работает Rate Scale, или Вы можете разобраться в этом самостоятельно? Хорошо... Я дам Вам подсказку...",
+                "updated": 1636206915335
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarını tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin!",
                     "updated": 1636094888142
+                },
+                {
+                    "language": "RU",
+                    "text": "Шкала ставок работает так же, как и шкала времени, но при использовании клавиатуры, Вам необходимо поменять местами клавиши со стрелками. Используйте стрелки ← → для переключения между автоматическими режимами и стрелки ↑ ↓ - для изменения масштаба! Проверьте следующее видео для большей ясности!",
+                    "updated": 1636207110611
                 }
             ],
             "updated": 1616505192799
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Yarı otomatik ölçek modlarıyla da oynayın! Fare tekerleğinin birkaç hareketinin ardından tek bir küçük üçgen görünür kaldığında yarı otomatik moddasınızdır.",
                     "updated": 1636094932757
+                },
+                {
+                    "language": "RU",
+                    "text": "Поиграйте с полуавтоматическими масштабными моделями! Вы знаете, когда один крошечный треугольник остается видимым после нескольких щелчков колесика мыши.",
+                    "updated": 1636207203334
                 }
             ]
         }

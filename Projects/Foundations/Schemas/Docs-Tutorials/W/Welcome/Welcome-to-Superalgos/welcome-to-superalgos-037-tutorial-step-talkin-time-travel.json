@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Daha önce bahsetmiştim, bu çalışma alanında iki çizelge var. Superalgos'ta bu çizelgelerin her birine bir Zaman Makinesi ( Time Machine ) diyoruz.",
                 "updated": 1636035055393
+            },
+            {
+                "language": "RU",
+                "text": "Я упоминал ранее, что в этом рабочем пространстве имеется две диаграммы. В Superalgos мы называем каждую из них - Time Machine.",
+                "updated": 1636199639429
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "TR",
                     "text": "Bir zaman makinesi, bir veya daha fazla Zaman Çizelgesi Grafiği tutabilir. Onlara zaman makineleri diyoruz çünkü bir zaman makinesindeki tüm zaman çizelgeleri zamanla senkronize edilir. Zaman makinelerinin bu özelliği, aynı Zaman Ölçeğini paylaşan farklı veri katmanlarının üst üste binmesine izin verir.",
                     "updated": 1636035067580
+                },
+                {
+                    "language": "RU",
+                    "text": "Машина времени может содержать одну или несколько Timeline Chart. Мы называем их машиной времени, потому что все графики временной шкалы в машине времени синхронизированы во времени. Эта особенность машин времени позволяет накладывать различные слои данных, используя один и тот же Time Scale.",
+                    "updated": 1636199955416
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "TR",
                     "text": "Fare imlecinizi zaman makinelerinin üzerine getirin!",
                     "updated": 1636035197351
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на машины времени!",
+                    "updated": 1636201484840
                 }
             ]
         },
@@ -144,6 +159,11 @@
                     "language": "TR",
                     "text": "Sol tarafta beliren ve verilerin hangi borsalar ve pazarlarla ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla pazardan ve birden fazla borsadan veri tutabilir!",
                     "updated": 1636035233840
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на появившуюся слева метку, которая указывает на то, с какими биржами и рынками связаны данные. Одна машина времени может содержать данные с множества рынков и бирж.",
+                    "updated": 1636201607160
                 }
             ]
         }

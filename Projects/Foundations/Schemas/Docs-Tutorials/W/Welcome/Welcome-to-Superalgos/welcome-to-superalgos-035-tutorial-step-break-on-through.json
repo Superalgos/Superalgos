@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Hiç vakit kaybetmeden dolaşarak ve çizelge alanına göz atarak sizi hızlandıracağım... Önce kaydırıcıyı ele alalım!",
                 "updated": 1636034139286
+            },
+            {
+                "language": "RU",
+                "text": "Я быстро введу Вас в курс дела с перемещением и просмотром пространства для построения графиков. Давайте сначала роазберемся с ползунком..\n\n",
+                "updated": 1636198293137
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "TR",
                     "text": "Tasarım alanını kapatmak ve grafik alanını açmak için turkuaz bölgeyi tıklayarak aşağıya çekin. Kapatmak için tersini yapabilirsiniz. Bunu klavyeyle yapmak için Ctrl + Shift + ↓ tuşlarına basın. ↑ ← →.. Diğer yön tuşlarını da deneyin!",
                     "updated": 1636034296397
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните по нему левой кнопкой мыши и перетащите вниз, чтобы закрыть область проектирования и открыть область построения графиков. Вернитесь в исходное положение. Чтобы сделать это с помощью клавиатуры, нажмите Ctrl + Shift + ↓. Попробуйте также ↑ ← → !",
+                    "updated": 1636198484982
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "TR",
                     "text": "Her iki alanın da kısmen açık olmasına ihtiyacınız yoksa, makinenizdeki bilgi işlem kaynaklarından tasarruf etmek için her ikisini de tamamen kapatmak her zaman iyi bir fikirdir.",
                     "updated": 1636034332675
+                },
+                {
+                    "language": "RU",
+                    "text": "До тех пор пока у Вас не появится необходимость частичного открытия обоих пространств, рекомендуется полностью закрыть каждое из них, чтобы сохранить компьютерные ресурсы на вашем устройстве.",
+                    "updated": 1636198580623
                 }
             ]
         }

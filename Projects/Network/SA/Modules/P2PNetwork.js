@@ -6,6 +6,7 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     let thisObject = {
         joinTheNetworkAsNetworkPeer: joinTheNetworkAsNetworkPeer,
         p2pNodesToConnect: undefined,
+        thisNetworkNode: undefined,
         /* Framework Functions */
         initialize: initialize,
         finalize: finalize
@@ -37,6 +38,8 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
                     if (thisP2PNodeId !== p2pNetworkNode.node.id) {
                         thisObject.p2pNodesToConnect.push(p2pNetworkNode)
+                    } else {
+                        thisObject.thisNetworkNode = p2pNetworkNode
                     }
                 }
                 break

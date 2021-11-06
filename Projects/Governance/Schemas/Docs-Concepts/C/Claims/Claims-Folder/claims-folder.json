@@ -2,7 +2,14 @@
     "type": "Claims Folder",
     "definition": {
         "text": "The different types of Claims Folder nodes serve as organizational devices. They also allow mapping entire sections of project definition hierarchies to place multiple claims at once.",
-        "updated": 1630258380621
+        "updated": 1630258380621,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los diferentes tipos de nodos de Claims Folder (carpeta de solicitudes) sirven como dispositivos organizacionales. Ellos también permiten mapear secciones enteras de las jerarquías de definición del proyecto para colocar varias solicitudes al mismo tiempo.",
+                "updated": 1636109869528
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Text",
-            "text": "Project Definition Hierarchies have four types of Class nodes that serve as organizational devices:"
+            "text": "Project Definition Hierarchies have four types of Class nodes that serve as organizational devices:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Project Definition Hierarchies ( jerarquías de definición de proyecto) tiene 4 tipos de clases de nodos que sirven como dispositivos organizacionales:",
+                    "updated": 1636109968314
+                }
+            ]
         },
         {
             "style": "List",
@@ -34,7 +48,14 @@
         {
             "style": "Text",
             "text": "Similarly, the Claims Program features a matching set of organizational devices:",
-            "updated": 1630259570492
+            "updated": 1630259570492,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "De forma similar, el Claims Program (programa de solicitudes) un conjunto coincidente de dispositivos organizacionales:",
+                    "updated": 1636110069861
+                }
+            ]
         },
         {
             "style": "List",
@@ -52,21 +73,49 @@
         {
             "style": "Important",
             "text": "Notice that you can't place claims on an entire Pool. You may place claims on granular definitions only. That is why there are no pool claims folders or pool claims for that matter.",
-            "updated": 1630258341920
+            "updated": 1630258341920,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Note que no puede colocar solicitudes en un Pool entero. Puede colocar solicitudes solamente en definiciones granulares. Este es el porqué no hay un pool claims folders o pool claims en ese sentido.",
+                    "updated": 1636110260349
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may use these folder nodes to organize your claims in arbitrary arrangements, but you can also make a more sophisticated use of them!",
-            "updated": 1630259141082
+            "updated": 1630259141082,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede usar estos nodos de carpetas para organizar sus solicitudes en arreglos arbitrarios, pero también puede hacer un uso más sofisticado de ellos!",
+                    "updated": 1636110356848
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Use a Claims Folder node to establish a reference with the corresponding type of Class node. Then use the Install Missing Claims option on the menu of the Claims Folder to map the entire Class! The process creates a Claims Folder for each Class, and a claim for each Asset, Feature, or Position defined within each Class. ",
-            "updated": 1630357212192
+            "updated": 1630357212192,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Use un nodo Claims Folder para establecer una referencia con el correspondiente tipo de clase de nodo. Entonces use la opción de Install Missing Claims (Instalar solicitudes faltantes) del menú de  Claims Folderpara mapear la clase entera! El porceso crea un Claims Folder para cada clase, y una solicitud para cada Asset, Feature, o Position definido en cada clase.",
+                    "updated": 1636110581415
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Claims process again. The process will remap the structure with the appropriate claims and folders."
+            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Claims process again. The process will remap the structure with the appropriate claims and folders.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si algo cambia del lado de las definiciones, puede siempre regresar y hacer correr el proceso Install Missing Claims nevamente. El proceso remapeará la estructura con las solicitudes y carpetas adecuadas.",
+                    "updated": 1636110709352
+                }
+            ]
         }
     ]
 }

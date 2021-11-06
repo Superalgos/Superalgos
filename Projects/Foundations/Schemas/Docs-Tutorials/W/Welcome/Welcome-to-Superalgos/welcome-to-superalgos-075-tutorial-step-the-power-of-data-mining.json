@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Warum springen die Pegel hoch und runter? Es gibt etwas, das ich Ihnen noch nicht gesagt habe, denn ich fürchte, es könnte Sie umhauen!",
                 "updated": 1634225275729
+            },
+            {
+                "language": "TR",
+                "text": "Seviyeler neden yukarı ve aşağı zıplıyor? Sana henüz söylemediğim bir şey var, bu aklını başından alacak.",
+                "updated": 1636205310660
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Der Bot verfolgt alle Unterstützungsniveaus seit Beginn des Datensatzes, zeigt Ihnen aber nur die fünf Niveaus, die dem aktuellen Kurs am nächsten liegen.",
                     "updated": 1634225279501
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot, veri kümesinin başlangıcından bu yana tüm destek seviyelerini canlı olarak takip eder, ancak size yalnızca mevcut fiyata en yakın beş seviyeyi gösterir.",
+                    "updated": 1636205332521
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "Die Verfolgung von Informationen über die gesamte Spanne des Datensatzes - die Jahre zählen kann - ist der außerordentliche Wert des Data Mining, und die Art von Dingen, die Sie nicht in der Lage wären, mit einer Funktion zu berechnen, on the fly. Der Plotter, der mit dem Indicator Bot verbunden ist, zeigt dynamisch die fünf Unterstützungsebenen an, die dem Preis am nächsten liegen, weil dies die relevanten Ebenen für den Kontext sind, und so ist der Plotter aufgebaut!",
                     "updated": 1634225288547
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümesinin tüm aralığı için - ki bu yılları içerebilir - bilgi kaydını tutmak, veri madenciliğinin olağanüstü değeridir ve bir fonksiyonla anında hesaplayamayacağınız türden şeylerdir. Gösterge Botu ile ilişkili Plotter, fiyata en yakın beş destek seviyesini dinamik olarak gösterir, çünkü bunlar durum için ilgili seviyelerdir ve çizici bu şekilde inşa edilmiştir!",
+                    "updated": 1636205604729
                 }
             ]
         }

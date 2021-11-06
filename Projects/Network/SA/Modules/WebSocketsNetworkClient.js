@@ -1,6 +1,8 @@
 exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWebSocketsNetworkClient() {
 
     let thisObject = {
+        id: undefined,
+        isConnected: undefined,
         host: undefined,
         port: undefined,
         sendMessage: sendMessage,
@@ -27,20 +29,23 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkNode) {
+    async function initialize(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
 
         web3 = new SA.nodeModules.web3()
+
+        thisObject.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
 
         thisObject.host = JSON.parse(p2pNetworkNode.node.config).host
         thisObject.port = JSON.parse(p2pNetworkNode.node.config).webSocketsPort
 
         socketClient = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
-        await setUpWebsocketClient(callerRole, p2pNetworkNode)
+        await setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack)
 
         console.log('Websockets Client Connected to Network Node via Web Sockets .............. Connected to ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        thisObject.isConnected = true
     }
 
-    async function setUpWebsocketClient(callerRole, p2pNetworkNode) {
+    async function setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
 
         return new Promise(connectToNewtwork)
 
@@ -48,10 +53,11 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
             try {
 
-                socketClient.onopen = () => { onConnection() }
+                socketClient.onopen = () => { onConnectionOpened() }
+                socketClient.onclose = () => { onConnectionClosed() }
                 socketClient.onerror = err => { onError(err) }
 
-                function onConnection() {
+                function onConnectionOpened() {
 
                     handshakeProcedure()
 
@@ -198,6 +204,16 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             resolve()
                         }
                     }
+                }
+
+                function onConnectionClosed() {
+                    if (thisObject.isConnected === true) {
+                        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Disconnected from ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)                
+                    }
+                    if (onConnectionClosedCallBack !== undefined) {
+                        onConnectionClosedCallBack(thisObject.id)
+                    }
+                    thisObject.isConnected = false
                 }
 
                 function onError(err) {

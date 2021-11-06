@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Bir Zaman Makinesine ( Time Machine ) dalıp ne olduğunu görmenin zamanı geldi! Tamamen sürükleyici bir deneyime hazır mısınız?",
                 "updated": 1636036023943
+            },
+            {
+                "language": "RU",
+                "text": "Пришло время погрузиться в Time Machine и посмотреть, что произойдет! Готовы ли Вы к полоноценному погружению?",
+                "updated": 1636203869752
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "TR",
                     "text": "Grafik alanı, piyasa verilerinin Google Haritaları gibidir. Bildiğiniz gibi, haritalarda gezinmek için sol tıklayıp sürüklersiniz... ama detayları görmek için nasıl yakınlaştırıyorsunuz?",
                     "updated": 1636036084427
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство для построения графиков похоже на Google Maps рыночных графиков. Как Вы уже знаете, щелкните левой кнопокй мыши и перетащите, чтобы перемещаться по ландшафту... Но как Вы увеличиваете масштаб, чтобы увидеть детали?",
+                    "updated": 1636204134363
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "TR",
                     "text": "Farenin tekerleği ile! Dene!",
                     "updated": 1636036095610
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью колесика мыши! Пробуйте!",
+                    "updated": 1636204160214
                 }
             ]
         },
@@ -144,6 +159,11 @@
                     "language": "TR",
                     "text": "Aynen öyle! Tıpkı Google Haritalar'daki gibi! Fareyi ilgilenilen alana doğrultun, ardından yakınlaştırmak için farenin tekerleğini ileri, uzaklaştırmak için geri çevirin!",
                     "updated": 1636036116439
+                },
+                {
+                    "language": "RU",
+                    "text": "Точно! Прямо как на Google Maps! Наведите курсор мыши на интересующую Вас область, затем прокрутите колесико мыши вперед, чтобы увеличить масштаб, и назад, чтобы уменьшить.",
+                    "updated": 1636204268639
                 }
             ]
         }

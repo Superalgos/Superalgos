@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Önceki videodan zamanı ölçeklendirmesini nasılçalıştığını anlayabildiniz mı? Eğer teredütünüz varsa önceki adıma gidin ve dikkatlice izleyin!",
                 "updated": 1636094066007
+            },
+            {
+                "language": "RU",
+                "text": "Вы уловили это трюк для масштабирования времени из предыдущего видео? Если нет, перейдите к предыдущему шагу и внимательно посмотрите.",
+                "updated": 1636206379436
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Farenin tekerleğini zaman ölçeği kutusunun üzerinde kaydırmak, zamanı küçültür ve genişletir! Alternatif olarak, fareyi ölçek kutusuna yönlendirebilir ve yan ok tuşlarına basabilirsiniz ← →",
                     "updated": 1636094091641
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутка колесика мыши в верхней части окна шкалы времени уменьшает и увеличивает время!  Кроме того, Вы можете навести курсор мыши на шкалу и нажать боковые клавиши со стрелками ← →.",
+                    "updated": 1636206456010
                 }
             ],
             "updated": 1616495837967
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Önceki videoda dikkat çeken ilginç bir ayrıntı daha var: zaman ölçeği otomatik moddan çıktığında, otomatik ölçeğin her iki tafafını gösteren iki küçük yeşil üçgen kaybolur! ",
                     "updated": 1636094195564
+                },
+                {
+                    "language": "RU",
+                    "text": "В предыдущем видео есть одна интересная деталь: когда шкала времени выходит из автоматического режима, два крошечных зеленых треугольника, указывающих на каждый конец автоматической шкалы, - исчезают! Масштаб может быть установлен на автоматический как с одной, так или с обеих сторон.",
+                    "updated": 1636206743590
                 }
             ],
             "updated": 1616504911488

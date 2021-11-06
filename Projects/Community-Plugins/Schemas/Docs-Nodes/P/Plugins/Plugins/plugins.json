@@ -1,0 +1,33 @@
+{
+    "type": "Plugins",
+    "definition": {
+        "text": "The plugins hierarchy defines which plugins are to be included in the current workspace. In the context of this hierarchy, plugins are JSON files featuring the description of a hierarchy such as a data mine, trading mine, trading engine, or trading system.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The plugins hierarchy define cual plugins se incluirán en el actual workspace. En el contexto de esta jerarquía, plugins son archivos JSON con la descripción de una jerarquía como un data mine, trading mine, trading engine, o trading system.",
+                "updated": 1628037249031
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия плагинов определяет, какие плагины должны быть включены в текущую рабочую область. В контексте этой иерархии плагины представляют собой файлы JSON, содержащие описание иерархии, такой как шахта данных, торговая шахта, торговый механизм или торговая система.",
+                "updated": 1636194488881
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In the context of a community-driven project, a plugin is a device that serves to distribute community-generated intelligence. The project distributes several plugins contributed by the community."
+        },
+        {
+            "style": "Important",
+            "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
+            "updated": 1609866745275
+        }
+    ]
+}

@@ -12,16 +12,15 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     and sending messages to those entities.
     */
     let thisObject = {
+        socketServer: undefined,
+        clientInterface: undefined,
+        peerInterface: undefined,
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
         initialize: initialize,
         finalize: finalize
     }
-
-    let socketServer
-    let clientInterface
-    let peerInterface
 
     let web3 = new SA.nodeModules.web3()
 
@@ -32,9 +31,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         thisObject.networkPeers = undefined
         callersMap = undefined
 
-        socketServer = undefined
-        clientInterface = undefined
-        peerInterface = undefined
+        thisObject.socketServer = undefined
+        thisObject.clientInterface = undefined
+        thisObject.peerInterface = undefined
 
         web3 = undefined
     }
@@ -42,9 +41,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     function initialize() {
         let port = JSON.parse(NT.networkNode.p2pNetwork.thisNetworkNode.node.config).webSocketsPort
 
-        socketServer = new SA.nodeModules.ws.Server({ port: port })
-        clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
-        peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
+        thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
+        thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
+        thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
         thisObject.networkClients = []
         thisObject.networkPeers = []
@@ -55,7 +54,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
     function setUpWebSocketServer() {
         try {
-            socketServer.on('connection', onConnectionOpened)
+            thisObject.socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
             /*
@@ -123,13 +122,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 let response
                                 switch (caller.role) {
                                     case 'Network Client': {
-                                        response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        response = await thisObject.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
                                         response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
-                                        response = await peerInterface.messageReceived(messageHeader.payload)
+                                        response = await thisObject.peerInterface.messageReceived(messageHeader.payload)
                                         response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break

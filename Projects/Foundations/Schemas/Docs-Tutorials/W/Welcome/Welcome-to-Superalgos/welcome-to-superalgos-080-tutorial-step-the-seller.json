@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Wir befinden uns jetzt in der Close Stage. Ich dachte, es wäre interessant, Ihnen mehr über Ausführungsalgorithmen zu erzählen, mit einem weiteren Beispiel.",
                 "updated": 1634225742357
+            },
+            {
+                "language": "TR",
+                "text": "Artık Kapanış Aşamasındayız ( Close Stage ). Size yürütme algoritmaları hakkında başka bir örnekle daha fazla bilgi vermenin ilginç olacağını düşündüm.",
+                "updated": 1636208526405
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Ein Execution Algorithm kann mehrere Aufträge aller Art verarbeiten. In diesem Fall werden mehrere limitierte Verkaufsaufträge definiert.",
                     "updated": 1634225749803
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Yürütme Algoritması ( Execution Algorithm ), her türden birden fazla siparişi işleyebilir. Bu durumda çoklu limit satış emirleri tanımlanır.",
+                    "updated": 1636208571976
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Wählen Sie Configure im Menü des Algorithmus und denken Sie über die Auswirkungen dieser Definition nach!",
                     "updated": 1634225757960
+                },
+                {
+                    "language": "TR",
+                    "text": "Algoritmanın menüsünde Yapılandır'ı (Configure) seçin ve bu tanımın sonuçlarını düşünün!",
+                    "updated": 1636208699352
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Sowohl in der Eröffnungsphase, in der Sie festlegen, wie eine Position eingegangen werden soll, als auch in der Schließungsphase, in der Sie festlegen, wie der Handel beendet werden soll, können mehrere Ausführungsalgorithmen eingesetzt werden, von denen jeder einen bestimmten Kapitalbetrag verwaltet.",
                     "updated": 1634225767316
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem nasıl pozisyon alınacağını tanımladığınız açık aşama hem de nasıl çıkılacağını tanımladığınız kapalı aşama, her biri belirli bir miktarda sermayeyi işleyen birden fazla yürütme algoritması içerebilir.",
+                    "updated": 1636208733018
                 }
             ]
         }

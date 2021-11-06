@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Henüz bir Canlı İşlem Oturumu ( Live Trading Session ) düzenlemeyeceğiz, bu nedenle veri madenciliğimizi bu noktada çalışır durumda tutmanın bir anlamı yok.",
                 "updated": 1636016140799
+            },
+            {
+                "language": "RU",
+                "text": "Мы пока не собираемся проводить Live Trading Session, поэтому на данный момент нет смысла продолжать наш интеллектуальный анализ данных.",
+                "updated": 1636195299595
             }
         ]
     },
@@ -74,6 +79,11 @@
                     "language": "TR",
                     "text": "Veri Görevlerini çalıştırmanın iki ana kullanım durumu vardır:",
                     "updated": 1636016174401
+                },
+                {
+                    "language": "RU",
+                    "text": "Для выполнения Data Tasks существует два основных варианта использования:",
+                    "updated": 1636195344198
                 }
             ]
         },
@@ -110,6 +120,11 @@
                     "language": "TR",
                     "text": "Geçmiş verileri işlemek için: Bir Geriye Dönük Test Oturumu (Backtesting Sesion ) yürütmek veya yeni göstergeleri işlemek için belirli bir Piyasanın ( Market ) bir tarih saat aralığını işlemek isteyebilirsiniz.",
                     "updated": 1636016235514
+                },
+                {
+                    "language": "RU",
+                    "text": "Для обработки исторических данных: Вам может понадобится обработать диапазон дат и времени для любого данного Market, чтобы запустить Backtesting Session или обработать новые индикаторы.",
+                    "updated": 1636195747856
                 }
             ]
         },
@@ -146,6 +161,11 @@
                     "language": "TR",
                     "text": "Canlı bir oturum yürütmek için: Kağıt Alım Satım Oturumu (Paper Trading Session ), İleriye Yönelik Test Oturumu (Forward Testing Session ) ve Canlı Alım Satım Oturumu ( Live Trading Session ) gibi farklı türlerdeki oturumların tümü canlı bir piyasa akışına ihtiyaç duyar.",
                     "updated": 1636016605221
+                },
+                {
+                    "language": "RU",
+                    "text": "Для запуска сессии в реальном времени: сессии бывают разных типов: Paper Trading Session, Forward Testing Session и Live Trading Session - это все, что необходимо для потока рынка в реальном времени.",
+                    "updated": 1636195795182
                 }
             ]
         },
@@ -181,6 +201,11 @@
                     "language": "TR",
                     "text": "Tüm işlemler güncel olduğunda (%100), Piyasa Veri Görevleri ( Market Data Tasks ) düğümünde \"Stop All Tasks\" seçeneğini seçin. Ek bilgi olarak, görevleri başlattığımız düğümden farklı bir düğümden durdurabileceğimizi de unutmayın.",
                     "updated": 1636016732706
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда все процессы будут обновлены, выберите \"Stop All Tasks\" в узле Market Data Tasks. Обратите внимание, что мы можем остановить задачи с другого узла, чем тот, который мы использовали для их запуска!",
+                    "updated": 1636196044706
                 }
             ],
             "updated": 1622197433719

@@ -39,7 +39,7 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
             peer.p2pNetworkNode = NT.networkNode.p2pNetwork.p2pNodesToConnect[i]
             if (isAlreadyAConnectedPeer(peer) === true) { continue }
             peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
-            await peer.webSocketsClient.initialize('Network Peer', peer.p2pNetworkNode)
+            await peer.webSocketsClient.initialize('Network Peer', peer.p2pNetworkNode, onConnectionClosed)
                 .then(addPeer)
                 .catch(onError)
 
@@ -52,6 +52,16 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
                     console.log('[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
                 } else {
                     console.log('[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name)
+                }
+            }
+
+            function onConnectionClosed(webSocketsClientId) {
+                for (let i = 0; i < thisObject.peers.length; i++) {
+                    let connectedPeer = thisObject.peers[i]
+                    if (connectedPeer.webSocketsClient.id === webSocketsClientId) {
+                        thisObject.peers.splice(i, 1)
+                        return
+                    }
                 }
             }
         }

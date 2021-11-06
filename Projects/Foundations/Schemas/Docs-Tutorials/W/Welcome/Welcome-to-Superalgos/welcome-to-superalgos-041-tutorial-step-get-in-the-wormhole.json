@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": " Es ist an der Zeit, in eine Time Machine einzutauchen und zu sehen, was passiert! Sind Sie bereit für ein umfassendes, immersives Erlebnis?",
-                "updated": 1634207146163
+                "updated": 1634207146163,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bir Zaman Makinesine ( Time Machine ) dalıp ne olduğunu görmenin zamanı geldi! Tamamen sürükleyici bir deneyime hazır mısınız?",
+                "updated": 1636036023943
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Der Charting Space ist so etwas wie das Google Maps der Marktcharts. Wie Sie bereits wissen, können Sie mit der linken Maustaste klicken und ziehen, um sich in der im Charting Space zu bewegen... aber wie zoomen Sie hinein, um die Details zu sehen?",
-                    "updated": 1634207179395
+                    "updated": 1634207179395,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı, piyasa verilerinin Google Haritaları gibidir. Bildiğiniz gibi, haritalarda gezinmek için sol tıklayıp sürüklersiniz... ama detayları görmek için nasıl yakınlaştırıyorsunuz?",
+                    "updated": 1636036084427
                 }
             ]
         },
@@ -89,7 +101,13 @@
                 {
                     "language": "DE",
                     "text": "Mit dem Rad der Maus! Probieren Sie es aus!",
-                    "updated": 1634207215883
+                    "updated": 1634207215883,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin tekerleği ile! Dene!",
+                    "updated": 1636036095610
                 }
             ]
         },
@@ -119,7 +137,13 @@
                 {
                     "language": "DE",
                     "text": "Ganz genau! Genau wie in Google Maps! Zeigen Sie mit der Maus auf den Bereich, der Sie interessiert, und drehen Sie dann das Mausrad nach vorne, um hineinzuzoomen, und nach hinten, um herauszuzoomen!  ",
-                    "updated": 1634207338450
+                    "updated": 1634207338450,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynen öyle! Tıpkı Google Haritalar'daki gibi! Fareyi ilgilenilen alana doğrultun, ardından yakınlaştırmak için farenin tekerleğini ileri, uzaklaştırmak için geri çevirin!",
+                    "updated": 1636036116439
                 }
             ]
         }

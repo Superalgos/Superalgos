@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die neueste Version von Superalgos bietet eine experimentelle Integration von TensorFlow zur Nutzung von ML innerhalb der App!",
                 "updated": 1634220174054
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden (ML)yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir!",
+                "updated": 1636109475710
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Die Integration bildet die Definition einer NodeJS TensorFlow Library mit einem Supervised Learning Algorithmus und seinem Artificial Neural Network in der gleichen Art von Knotenstruktur ab, wie sie für Superalgos typisch ist.",
                     "updated": 1634220190097
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegrasyon, Superalgos'a özgü düğümlerin yapısında bir Öğrenme algoritması ( Supervised Learning ) ve Yapay Sinir Ağı ( Artificial Neural Network ) içeren bir NodeJS TensorFlow Kitaplığı tanımını eşler.",
+                    "updated": 1636109802947
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Die Integration nutzt den Rest der Superalgos-Infrastruktur, so dass Sie Ihre Datensätze verwenden können, um ML-Algos zu trainieren und die resultierenden Modelle innerhalb von Handelssystemen zu verwenden!",
                     "updated": 1634220194628
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegrasyon, Superalgos altyapısından yararlanır, böylece veri kümelerinizi Makine öğrenimi (ML) algoritmalarını eğitmek için kullanabilir ve elde edilen modelleri ticaret sistemlerinizde kullanabilirsiniz!",
+                    "updated": 1636109892078
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Werfen Sie später einen Blick auf den ML CrossCategoricalEntropy Demo Plugin Workspace!",
                     "updated": 1634220207869
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha sonra, ML CrossCategoricalEntropy Demo Plugin Workspace'e bir göz atın!",
+                    "updated": 1636109933292
                 }
             ]
         }

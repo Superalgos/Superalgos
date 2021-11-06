@@ -30,7 +30,13 @@
             {
                 "language": "DE",
                 "text": "Zusammenfassung: Wie wäre es, die Time Machine genau an das Seitenverhältnis Ihres Bildschirms anzupassen?",
-                "updated": 1634206350448
+                "updated": 1634206350448,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Zaman makinesini ekranınızın tam en boy oranına göre şekillendirmeye ne dersiniz?",
+                "updated": 1636035470271
             }
         ]
     },
@@ -60,7 +66,13 @@
                 {
                     "language": "DE",
                     "text": "Die Anpassung des Seitenverhältnisses Ihrer Zeitmaschinen an das Seitenverhältnis Ihres Bildschirms ist entscheidend dafür, dass die Diagramme beim Heranzoomen genau auf Ihren Bildschirm passen!",
-                    "updated": 1634206368643
+                    "updated": 1634206368643,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman makinelerinizin en boy oranını ekranınızın en boy oranıyla eşleştirmek, yakınlaştırırken grafiklerin ekranınıza sığabilmesi için çok önemlidir!",
+                    "updated": 1636035504803
                 }
             ],
             "updated": 1622198491208
@@ -91,7 +103,13 @@
                 {
                     "language": "DE",
                     "text": "Richten Sie Ihre Maus auf eine der Time Machines und drücken Sie Ctrl + Shift + Alt + Key-A. Machen Sie dasselbe mit der anderen Maschine!",
-                    "updated": 1634206401027
+                    "updated": 1634206401027,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın. Aynısını diğeriyle yapın!",
+                    "updated": 1636035527567
                 }
             ]
         },
@@ -121,7 +139,13 @@
                 {
                     "language": "DE",
                     "text": "Lassen Sie die beiden Time Machines von nun an auf das Seitenverhältnis Ihres Bildschirms abgestimmt!",
-                    "updated": 1634206411265
+                    "updated": 1634206411265,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu andan itibaren ekranınızın en boy oranıyla eşleşen iki zaman makinesini görmen lazım.",
+                    "updated": 1636035706936
                 }
             ]
         }

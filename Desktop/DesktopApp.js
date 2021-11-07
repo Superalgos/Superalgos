@@ -4,6 +4,7 @@ exports.newDesktopApp = function newDesktopApp() {
         userProfiles: undefined,
         p2pNetworkClient: undefined,
         p2pNetwork: undefined,
+        p2pNetworkPeers: undefined,
         webSocketsClient: undefined,
         webSocketsInterface: undefined,
         socialGraph: undefined,
@@ -36,14 +37,15 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
             await thisObject.p2pNetwork.initialize('Network Client')
             /*
-            Here we will pick a Network Node from all users profiles available that do have a Network Node running.        
+            Set up the connections to network nodes.
             */
-            let selectedNetworkNode = thisObject.p2pNetwork.p2pNodesToConnect[0]
-            /*
-            This is the Web Sockets client that interacts with the Superalgos Network.
-            */
-            thisObject.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
-            await thisObject.webSocketsClient.initialize('Network Client', thisObject.p2pNetworkClient, selectedNetworkNode)
+            thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
+            await thisObject.p2pNetworkPeers.initialize(
+                'Network Client',
+                thisObject.p2pNetworkClient,
+                thisObject.p2pNetwork,
+                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
+            )
         }
 
         async function setupServices() {

@@ -111,7 +111,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
         if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
-                result: 'Error',
+                result: 'Ok',
                 message: 'Peer Interface Event Already Exists.'
             }
             return response

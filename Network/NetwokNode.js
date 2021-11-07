@@ -37,10 +37,15 @@ exports.newNetworkNode = function newNetworkNode() {
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
             await thisObject.p2pNetwork.initialize('Network Peer')
             /*
-            We can join now the P2P Network as a new peer there.
+            Set up the connections to network nodes.
             */
             thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
-            await thisObject.p2pNetworkPeers.initialize()
+            await thisObject.p2pNetworkPeers.initialize(
+                'Network Peer',
+                thisObject.p2pNetworkNode,
+                thisObject.p2pNetwork,
+                global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS
+            )
         }
 
         async function setupServices() {

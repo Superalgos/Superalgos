@@ -4,6 +4,7 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
     */
     let thisObject = {
         peers: undefined,
+        sendMessage: sendMessage,
 
         /* Framework Functions */
         initialize: initialize,
@@ -20,64 +21,78 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
         clearInterval(intervalIdConnectToPeers)
     }
 
-    async function initialize() {
+    async function initialize(
+        callerRole,
+        p2pNetworkIdentity,
+        p2pNetwork,
+        maxOutgoingPeers
+    ) {
 
         thisObject.peers = []
 
         connectToPeers()
         intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
 
-    }
+        async function connectToPeers() {
 
-    async function connectToPeers() {
+            if (thisObject.peers.length >= maxOutgoingPeers) { return }
 
-        if (thisObject.peers.count >= global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS) { return }
+            for (let i = 0; i < p2pNetwork.p2pNodesToConnect.length; i++) {
+                if (thisObject.peers.length >= maxOutgoingPeers) { break }
 
-        for (let i = 0; i < NT.networkNode.p2pNetwork.p2pNodesToConnect.length; i++) {
-            if (thisObject.peers.count >= global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS) { break }
-            
-            let peer = {
-                p2pNetworkNode: undefined,
-                webSocketsClient: undefined
-            }
+                let peer = {
+                    p2pNetworkNode: undefined,
+                    webSocketsClient: undefined
+                }
 
-            peer.p2pNetworkNode = NT.networkNode.p2pNetwork.p2pNodesToConnect[i]
-            if (isOutgoingConnectedPeer(peer) === true) { continue }
-            peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
-            await peer.webSocketsClient.initialize('Network Peer', NT.networkNode.p2pNetworkNode,  peer.p2pNetworkNode, onConnectionClosed)
-                .then(addPeer)
-                .catch(onError)
+                peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
+                if (isConnectedPeer(peer) === true) { continue }
+                peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
+                await peer.webSocketsClient.initialize(callerRole, p2pNetworkIdentity, peer.p2pNetworkNode, onConnectionClosed)
+                    .then(addPeer)
+                    .catch(onError)
 
-            function addPeer() {
-                thisObject.peers.push(peer)
-            }
+                function addPeer() {
+                    thisObject.peers.push(peer)
+                }
 
-            function onError(err) {
-                if (err !== undefined) {
-                    console.log('[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
-                } else {
-                    console.log('[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name)
+                function onError(err) {
+                    if (err !== undefined) {
+                        console.log('[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
+                    } else {
+                        console.log('[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name)
+                    }
+                }
+
+                function onConnectionClosed(webSocketsClientId) {
+                    for (let i = 0; i < thisObject.peers.length; i++) {
+                        let connectedPeer = thisObject.peers[i]
+                        if (connectedPeer.webSocketsClient.id === webSocketsClientId) {
+                            thisObject.peers.splice(i, 1)
+                            return
+                        }
+                    }
                 }
             }
 
-            function onConnectionClosed(webSocketsClientId) {
+            function isConnectedPeer(peer) {
                 for (let i = 0; i < thisObject.peers.length; i++) {
                     let connectedPeer = thisObject.peers[i]
-                    if (connectedPeer.webSocketsClient.id === webSocketsClientId) {
-                        thisObject.peers.splice(i, 1)
-                        return
+                    if (connectedPeer.p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
+                        return true
                     }
                 }
             }
         }
+    }
 
-        function isOutgoingConnectedPeer(peer) {
-            for (let i = 0; i < thisObject.peers.length; i++) {
-                let connectedPeer = thisObject.peers[i]
-                if (connectedPeer.p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
-                    return true
-                }
-            }
-        }
+    async function sendMessage(message) {
+        /*
+        This function will send the message from a random picked network node
+        selected from the array of already connected peers.
+        */
+        let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
+        let peer = thisObject.peers[peerIndex]
+        return await peer.webSocketsClient.sendMessage(message)
     }
 }

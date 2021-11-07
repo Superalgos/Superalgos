@@ -39,7 +39,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     }
 
     function initialize() {
-        let port = JSON.parse(NT.networkNode.p2pNetwork.thisNetworkNode.node.config).webSocketsPort
+        let port = JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort
 
         thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
         thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
@@ -64,7 +64,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 let caller = {
                     socket: socket,
                     userProfile: undefined,
-                    role: undefined
+                    role: undefined,
+                    node: undefined
                 }
 
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
@@ -250,6 +251,32 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         }
                     }
                     /*
+                    The caller needs to provide it's Node.
+                    */
+                    if (messageHeader.callerNode === undefined) {
+                        let response = {
+                            result: 'Error',
+                            message: 'node Not Provided.'
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    /*
+                    The caller's Node needs to be parseable.
+                    */
+                    try {
+                        caller.node = JSON.parse(messageHeader.callerNode)
+                    } catch (err) {
+                        let response = {
+                            result: 'Error',
+                            message: 'node Not Coorrect JSON Format.'
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    /*
                     The caller needs to provide it's User Profile Handle.
                     */
                     if (messageHeader.callerProfileHandle === undefined) {
@@ -261,7 +288,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         caller.socket.close()
                         return
                     }
-
                     caller.userProfileHandle = messageHeader.callerProfileHandle
                     /*
                     The caller needs to provide a callerTimestamp.
@@ -491,13 +517,18 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
             function broadcastToPeers(message, caller) {
+                /*
+                The Boradcast to network peers is not done via 
+                the network peers incomming connections, but
+                on the outgoing connections only.
+                */
                 let callerIdToAVoid
                 if (caller.role === 'Network Peer') {
-                    callerIdToAVoid = caller.socket.id
+                    callerIdToAVoid = caller.node.id
                 }
-                for (let i = 0; i < thisObject.networkPeers.length; i++) {
-                    let networkPeer = thisObject.networkPeers[i]
-                    if (networkPeer.socket.id === callerIdToAVoid) { continue }
+                for (let i = 0; i < NT.networkNode.p2pNetworkPeers.outgoingConnectedPeers.length; i++) {
+                    let networkPeer = NT.networkNode.p2pNetworkPeers.outgoingConnectedPeers[i]
+                    if (networkPeer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
                     networkPeer.socket.send(message)
                 }
             }

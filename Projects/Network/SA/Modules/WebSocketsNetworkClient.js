@@ -8,6 +8,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         port: undefined,
         callerRole: undefined,
         p2pNetworkNode: undefined,
+        p2pNetworkIdentity: undefined,
         onConnectionClosedCallBack: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
@@ -29,6 +30,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.port = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
+        thisObject.p2pNetworkIdentity = undefined
         thisObject.onConnectionClosedCallBack = undefined
 
         web3 = undefined
@@ -36,9 +38,10 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
+    async function initialize(callerRole, p2pNetworkIdentity, p2pNetworkNode, onConnectionClosedCallBack) {
 
         thisObject.callerRole = callerRole
+        thisObject.p2pNetworkIdentity = p2pNetworkIdentity
         thisObject.p2pNetworkNode = p2pNetworkNode
         thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
@@ -99,6 +102,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 callerRole: thisObject.callerRole,
                                 callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
+                                callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node), 
                                 step: 'One'
                             }
                             thisObject.socketClient.send(JSON.stringify(message))

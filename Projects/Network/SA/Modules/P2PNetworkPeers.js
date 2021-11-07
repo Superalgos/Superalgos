@@ -39,7 +39,7 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
             peer.p2pNetworkNode = NT.networkNode.p2pNetwork.p2pNodesToConnect[i]
             if (isOutgoingConnectedPeer(peer) === true) { continue }
             peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
-            await peer.webSocketsClient.initialize('Network Peer', peer.p2pNetworkNode, onConnectionClosed)
+            await peer.webSocketsClient.initialize('Network Peer', NT.networkNode.p2pNetworkNode,  peer.p2pNetworkNode, onConnectionClosed)
                 .then(addPeer)
                 .catch(onError)
 

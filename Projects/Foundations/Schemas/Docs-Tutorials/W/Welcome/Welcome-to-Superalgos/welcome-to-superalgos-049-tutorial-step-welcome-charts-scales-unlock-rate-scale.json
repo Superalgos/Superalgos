@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu adımda bir video izleyeceksiniz.",
                 "updated": 1636094992004
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636207242104
             }
         ]
     },

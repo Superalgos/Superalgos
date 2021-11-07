@@ -47,8 +47,8 @@ function newListSelector() {
 
     const SIZE = 36
     const FONT_SIZE = 24
-    const VISIBLE_LABELS = 7
-    let selected = Math.ceil(VISIBLE_LABELS / 2) - 1
+    let VISIBLE_LABELS = 7
+    let selected = 0
 
     let wheelDeltaDirection
     let wheelDeltaCounter = 0
@@ -102,6 +102,15 @@ function newListSelector() {
 
         optionsList = listValues
 
+        if (optionsList.length < 1) {
+            thisObject.payload.uiObject.setErrorMessage("No Valid List Entries Found")
+            deactivate()
+        }
+
+        if (optionsList.length < VISIBLE_LABELS) {
+            VISIBLE_LABELS = optionsList.length
+        }
+
         EDITOR_ON_FOCUS = true
     }
 
@@ -150,8 +159,8 @@ function newListSelector() {
         }
 
         selected = selected - event.delta
-        if (selected < Math.ceil(VISIBLE_LABELS / 2)) { selected = Math.ceil(VISIBLE_LABELS / 2) - 1 }
-        if (selected > optionsList.length - Math.ceil(VISIBLE_LABELS / 2)) { selected = optionsList.length - Math.ceil(VISIBLE_LABELS / 2) }
+        if (selected < 0) { selected = 0 }
+        if (selected > optionsList.length - VISIBLE_LABELS) { selected = optionsList.length - VISIBLE_LABELS }
 
         if (selected !== lastSelected) {
             lastSelected = selected
@@ -180,7 +189,7 @@ function newListSelector() {
 
                 if (pPoint.y >= upperBoundary && pPoint.y <= lowerBoundary) {
 
-                    let clickedValue = (i - Math.floor(VISIBLE_LABELS / 2) + selected)
+                    let clickedValue = (i + selected)
 
                     let event = {
                         point: pPoint,
@@ -261,6 +270,7 @@ function newListSelector() {
             }
         }
     }
+
     function drawForeground() {
 
         if (thisObject.visible === true) {
@@ -271,10 +281,19 @@ function newListSelector() {
 
             for (let i = 0; i < VISIBLE_LABELS; i++) {
 
-                let index = i - Math.floor(VISIBLE_LABELS / 2) + selected
+                let index = i + selected
                 let label = ''
                 if (index >= 0 && index < optionsList.length) {
-                    label = optionsList[index]
+                    if (typeof(optionsList[index]) !== "string") {
+                        label = optionsList[index].name
+
+                        if (optionsList[index].payload.uiObject.icon !== undefined) {
+                            icon = optionsList[index].payload.uiObject.icon
+                        }
+
+                    } else {
+                        label = optionsList[index]
+                    }
                 }
                 fontColor = UI_COLOR.BLACK
                 fontSize = FONT_SIZE
@@ -311,9 +330,14 @@ function newListSelector() {
                 browserCanvasContext.fill();
 
                 let middleValue = Math.floor(VISIBLE_LABELS / 2)
+                let evenOffset = 0
 
-                UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, - offset + SIZE, (i - middleValue) * rowHeight, SIZE, thisObject.container)
-                UI.projects.foundations.utilities.drawPrint.drawLabel(label, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+                if (VISIBLE_LABELS % 2 === 0) {
+                    evenOffset = rowHeight / 2
+                }
+
+                UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, - offset + SIZE, (i - middleValue) * rowHeight + evenOffset, SIZE, thisObject.container)
+                UI.projects.foundations.utilities.drawPrint.drawLabel(label, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
             }
         }
     }

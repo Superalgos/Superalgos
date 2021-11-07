@@ -1,6 +1,10 @@
 exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWebSocketsNetworkClient() {
 
     let thisObject = {
+        id: undefined,
+        isConnected: undefined,
+        host: undefined,
+        port: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
@@ -25,18 +29,23 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkNode) {
+    async function initialize(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
 
         web3 = new SA.nodeModules.web3()
 
-        let host = JSON.parse(p2pNetworkNode.node.config).host
-        let port = JSON.parse(p2pNetworkNode.node.config).webSocketsPort
+        thisObject.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
 
-        socketClient = new SA.nodeModules.ws('ws://' + host + ':' + port)
-        await setUpWebsocketClient(callerRole, p2pNetworkNode)
+        thisObject.host = JSON.parse(p2pNetworkNode.node.config).host
+        thisObject.port = JSON.parse(p2pNetworkNode.node.config).webSocketsPort
+
+        socketClient = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
+        await setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack)
+
+        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Connected to ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        thisObject.isConnected = true
     }
 
-    async function setUpWebsocketClient(callerRole, p2pNetworkNode) {
+    async function setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
 
         return new Promise(connectToNewtwork)
 
@@ -44,10 +53,11 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
             try {
 
-                socketClient.onopen = () => { onConnection() }
+                socketClient.onopen = () => { onConnectionOpened() }
+                socketClient.onclose = () => { onConnectionClosed() }
                 socketClient.onerror = err => { onError(err) }
 
-                function onConnection() {
+                function onConnectionOpened() {
 
                     handshakeProcedure()
 
@@ -196,9 +206,26 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     }
                 }
 
+                function onConnectionClosed() {
+                    if (thisObject.isConnected === true) {
+                        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Disconnected from ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)                
+                    }
+                    if (onConnectionClosedCallBack !== undefined) {
+                        onConnectionClosedCallBack(thisObject.id)
+                    }
+                    thisObject.isConnected = false
+                }
+
                 function onError(err) {
+                    if (err.message.indexOf('ECONNREFUSED') >= 0) {
+                        console.log('[WARN] Web Sockets Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        reject()
+                        return
+                    }
                     console.log('[ERROR] Web Sockets Client -> onError -> err.message = ' + err.message)
                     console.log('[ERROR] Web Sockets Client -> onError -> err.stack = ' + err.stack)
+                    reject()
+                    return
                 }
 
             } catch (err) {

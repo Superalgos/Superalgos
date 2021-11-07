@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Hareket edememenizin nedeni, ilk veri madenciliği işleminizden sonra verileri kolayca bulabilmeniz için skalanın otomatik modda kilitli olmasıdır.",
                 "updated": 1636093218029
+            },
+            {
+                "language": "RU",
+                "text": "Причина, по которой Вы не можете перемещаться заключатеся в том, что весы заблокированы в автоматическом режиме, чтобы Вы могли легко найти данные после первой операции интеллектуального анализа данных.",
+                "updated": 1636205935534
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Zaman Ölçeğini ( Time Scale ) otomatik modda ayarlamak, mevcut verilerin tümünün tarih-saat aralığında gösterilmesine zorlar.",
                     "updated": 1636093070726
+                },
+                {
+                    "language": "RU",
+                    "text": "Установка Time Scale в автоматическом режиме приводит к тому, что на диаграмме отображается весь диапазон доступных данных по дате и времени.",
+                    "updated": 1636205990780
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Otomatik mod ve manuel mod arasında geçiş yapmak için Shift 'e basın ve farenizin tekerleği ile zaman ölçeği kutusunun üzerinde birkez döndürün. Alternatif olarak, fare işaretçisini ölçek kutusunun üzerine getirebilir ve yukarı ve aşağı ok tuşlarına ↑ ↓ basabilirsiniz.",
                     "updated": 1636093154603
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы переключаться между различным автоматическим и ручным режимами, нажмите Shift и сделайте плавный одношаговый поворот колесиком мыши в верхней части окна шкалы времени. Кроме того, Вы также можете поместить указатель мыши на окно масштаба и нажать клавиши со стрелками ↑ ↓.",
+                    "updated": 1636206214736
                 }
             ],
             "updated": 1622199287763
@@ -117,6 +132,11 @@
                     "language": "TR",
                     "text": "Artık X ekseninde , yani grafiğin zaman ekseninde serbestçe hareket edebilmeniz gerekir.",
                     "updated": 1636093193714
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь Вы должны иметь возможность сободно перемещаться по оси Х, т.е. по временной оси графика.",
+                    "updated": 1636206261878
                 }
             ]
         }

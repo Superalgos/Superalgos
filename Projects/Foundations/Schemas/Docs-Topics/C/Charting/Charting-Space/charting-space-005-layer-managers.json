@@ -4,7 +4,14 @@
     "type": "Layer Managers",
     "definition": {
         "text": "Layer Managers organize layers and link up to the data products to be displayed on the charts.",
-        "updated": 1610138345819
+        "updated": 1610138345819,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Менеджеры слоев организуют слои и связывают их с продуктами данных, которые будут отображаться на диаграммах.",
+                "updated": 1636205082022
+            }
+        ]
     },
     "paragraphs": [
         {

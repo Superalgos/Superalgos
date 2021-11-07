@@ -40,7 +40,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     }
 
     function initialize() {
-        socketServer = new SA.nodeModules.ws.Server({ port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT })
+        let port = JSON.parse(NT.networkNode.p2pNetwork.thisNetworkNode.node.config).webSocketsPort
+
+        socketServer = new SA.nodeModules.ws.Server({ port: port })
         clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
         peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
@@ -84,6 +86,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 message: 'messageHeader Not Coorrect JSON Format.'
                             }
                             caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
                             return
                         }
                         /*
@@ -95,6 +98,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 message: 'messageType Not Provided.'
                             }
                             caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
                             return
                         }
 
@@ -112,6 +116,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     }
                                     response.messageId = messageHeader.messageId
                                     caller.socket.send(JSON.stringify(response))
+                                    caller.socket.close()
                                     return
                                 }
 
@@ -142,6 +147,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     message: 'messageType Not Supported.'
                                 }
                                 caller.socket.send(JSON.stringify(response))
+                                caller.socket.close()
                                 break
                             }
                         }
@@ -168,6 +174,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         message: 'step Not Provided.'
                     }
                     caller.socket.send(JSON.stringify(response))
+                    caller.socket.close()
                     return
                 }
                 if (messageHeader.step !== 'One' && messageHeader.step !== 'Two') {
@@ -176,6 +183,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         message: 'step Not Supported.'
                     }
                     caller.socket.send(JSON.stringify(response))
+                    caller.socket.close()
                     return
                 }
                 switch (messageHeader.step) {
@@ -198,6 +206,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerRole Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
@@ -207,10 +216,40 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerRole Not Supported.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
                     caller.role = messageHeader.callerRole
+                    /*
+                    We will check that we have not exeeded the max amount of callers.
+                    */
+                    switch (caller.role) {
+                        case 'Network Client': {
+                            if (thisObject.networkClients.length >= global.env.P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS) {
+                                let response = {
+                                    result: 'Error',
+                                    message: 'P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS reached.'
+                                }
+                                caller.socket.send(JSON.stringify(response))
+                                caller.socket.close()
+                                return
+                            }
+                            break
+                        }
+                        case 'Network Peer': {
+                            if (thisObject.networkPeers.length >= global.env.P2P_NETWORK_NODE_MAX_INCOMING_PEERS) {
+                                let response = {
+                                    result: 'Error',
+                                    message: 'P2P_NETWORK_NODE_MAX_INCOMING_PEERS reached.'
+                                }
+                                caller.socket.send(JSON.stringify(response))
+                                caller.socket.close()
+                                return
+                            }
+                            break
+                        }
+                    }
                     /*
                     The caller needs to provide it's User Profile Handle.
                     */
@@ -220,6 +259,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerProfileHandle Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
@@ -233,6 +273,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerTimestamp Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -244,6 +285,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerTimestamp Too Old.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -276,6 +318,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'Handshake Step One Not Completed.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -287,6 +330,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'signature Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
@@ -299,6 +343,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'Bad Signature.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -312,6 +357,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'userProfile Not Found.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     let signedMessage = JSON.parse(signature.message)
@@ -327,6 +373,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'signature.message Hashed Does Not Match signature.messageHash.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -339,6 +386,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerProfileHandle Does Not Match witnessUserProfile.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -351,6 +399,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -362,6 +411,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'calledTimestamp Does Not Match calledTimestamp On Record.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*

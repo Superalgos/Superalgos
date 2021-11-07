@@ -29,7 +29,7 @@ function newGovernanceFunctionLibraryPluginsFunctions() {
     }
 
     function addSpecifiedUserProfile(node, rootNodes) {
-        let action = { node: node}
+        let action = { node: node }
 
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {

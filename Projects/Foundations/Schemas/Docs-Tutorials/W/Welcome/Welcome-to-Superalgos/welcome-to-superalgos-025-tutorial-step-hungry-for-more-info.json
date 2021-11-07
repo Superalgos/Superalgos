@@ -38,6 +38,11 @@
                 "text": "Я не буду вдаваться в подробности по мере продвижения, но если Вам нужна дополнительная информауия об узле, кнопка Help в меню приведет Вас прямо к его документации.",
                 "updated": 1635613175051,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Devam ederken her ayrıntıya girmeyeceğim, ancak bir düğüm hakkında daha fazla bilgiye ihtiyacınız varsa, menüdeki yardım düğmesi (Düğümü geniletiğinizde görebilirsiniz) sizi doğrudan belgelerine götürür.",
+                "updated": 1636012819082
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "text": "Документация узла модет включать один или несколько из следующих разделов:",
                     "updated": 1635613205233,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümün dokümantasyonu aşağıdaki bölümlerden bir veya daha fazlasını içerebilir:",
+                    "updated": 1636012836829
                 }
             ]
         },
@@ -111,6 +121,11 @@
                     "text": "Difinition: описывает, что представляет собой узел и его функции.",
                     "updated": 1635613299355,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanım (Definition): düğümün ne olduğunu veya ne yaptığını açıklar.",
+                    "updated": 1636012877511
                 }
             ]
         },
@@ -147,6 +162,11 @@
                     "text": "Content: описывает, как работает узел.",
                     "updated": 1635613497534,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "İçerik (Content): düğümün nasıl çalıştığını açıklar.",
+                    "updated": 1636012909187
                 }
             ]
         },
@@ -184,6 +204,11 @@
                     "text": "Configuration: некоторые узлы могут иметь один узел.",
                     "updated": 1635613523569,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma (Configuration): bazı düğümlerde bir tane olabilir.",
+                    "updated": 1636012944710
                 }
             ]
         },
@@ -221,6 +246,11 @@
                     "text": "Technical: основная информация обычно носит технический характер и ориентирована на разработчиков.",
                     "updated": 1635613576536,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Teknik (Technical): Bilginin geri kalanı genellikle geliştiricilere yönelik teknik niteliktedir.",
+                    "updated": 1636012987852
                 }
             ]
         },
@@ -255,7 +285,13 @@
                 {
                     "language": "RU",
                     "text": "Нажмите кнопку на узле Data Tasks!",
-                    "updated": 1635627454333
+                    "updated": 1635627454333,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Görevleri ( Data Tasks ) düğümündeki yardım düğmesine tıklayın!",
+                    "updated": 1636013020909
                 }
             ]
         }

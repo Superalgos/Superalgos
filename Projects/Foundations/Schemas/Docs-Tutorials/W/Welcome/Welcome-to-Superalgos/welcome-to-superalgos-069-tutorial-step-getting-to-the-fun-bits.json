@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Ich habe mir die Freiheit genommen, Sie zu einem bestimmten Zeitpunkt zu bringen, der interessant für das ist, was jetzt kommt.",
                 "updated": 1634222639833
+            },
+            {
+                "language": "TR",
+                "text": "Sizi zaman içinde belirli bir ana getirme cüretinde bulundum, bundan sonra gelecekte ilginç.",
+                "updated": 1636180974748
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Sie werden nun die Schönheit von Simulationen kennen lernen. Bin ich eine Simulation? Sind Sie eine? Ist die ganze Sache real?",
                     "updated": 1634222646214
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyonların güzelliğine maruz kalmak üzeresiniz. Ben bir simülasyon muyum? Bütün bunlar gerçek mi?",
+                    "updated": 1636181003797
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Schauen Sie sich um und entscheiden Sie selbst!",
                     "updated": 1634222649291
+                },
+                {
+                    "language": "TR",
+                    "text": "Etrafınıza bakın ve kendiniz karar verin!",
+                    "updated": 1636181015871
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Beachten Sie zunächst, dass Sie sich jetzt im 1-Minuten-Zeitrahmen befinden, es handelt sich also um 1-Minuten-Kerzen. Die Zeitspanne auf Ihrem Bildschirm ist etwas mehr als eine Stunde, zu Beginn des 1. September 2020.",
                     "updated": 1634222657547
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şeyden önce, 1 dakikalık zaman diliminde olduğunuza dikkat edin, bu nedenle bunlar 1 dakikalık mumlardır.",
+                    "updated": 1636181143231
                 }
             ]
         }

@@ -2,7 +2,14 @@
     "type": "Feature Claim Vote",
     "definition": {
         "text": "Use this node to establish a reference with a Feature Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Claim Support Power you drive into the Claim Votes node!",
-        "updated": 1630356075429
+        "updated": 1630356075429,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo para establecer una referrencia con una Feature Contribution Claim ( solicitud de contribución de función) colocada por un colega en la sección del Claims Program sde su User Profile. Este voto significa que apoya a la slicitud de su colega con el Claim Support Power que dirija a su nodo de Claim Votes!",
+                "updated": 1636111740902
+            }
+        ]
     },
     "paragraphs": [
         {

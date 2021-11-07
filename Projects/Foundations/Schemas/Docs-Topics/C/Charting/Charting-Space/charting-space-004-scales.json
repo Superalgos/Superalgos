@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Time Machines cuentan con un Time Scale, un Rate Scale, y un Time Frame Scale. Los gráficos de línea de tiempo pueden implementar los dos últimos.",
                 "updated": 1627309210785
+            },
+            {
+                "language": "TR",
+                "text": "Zaman Makinelerinde Zaman Ölçeği, Hız Ölçeği ve Zaman Çerçevesi Ölçeği bulunur. Zaman çizelgesi çizelgeleri son ikisini uygulayabilir.",
+                "updated": 1636095803708
             }
         ]
     },

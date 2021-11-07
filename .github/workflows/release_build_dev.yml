@@ -54,7 +54,7 @@ jobs:
         with:
           node-version: 14
 
-     - name: Get version
+      - name: Get version
         id: vars
         run:  echo "::set-output name=tag::$(node -p "require('./package.json').version")"
 

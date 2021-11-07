@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Simplifying Complexity",
     "definition": {
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "text": "We haven't discussed trading systems as a framework, but a feature relevant to this explanation is that they may handle multiple strategies.",
         "translations": [

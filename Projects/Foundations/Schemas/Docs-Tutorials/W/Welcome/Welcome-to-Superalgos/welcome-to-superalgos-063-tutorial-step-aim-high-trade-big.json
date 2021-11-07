@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Aim High, Trade Big!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "network-node"
+            "name": "network",
+            "project": "Network"
         },
         "text": "Picture an army of bots working with multiple exchanges, markets, and strategies, running on a network <i>à la</i> trading farm.",
         "translations": [

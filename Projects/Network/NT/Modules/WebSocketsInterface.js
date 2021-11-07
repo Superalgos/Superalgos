@@ -12,16 +12,15 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     and sending messages to those entities.
     */
     let thisObject = {
+        socketServer: undefined,
+        clientInterface: undefined,
+        peerInterface: undefined,
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
         initialize: initialize,
         finalize: finalize
     }
-
-    let socketServer
-    let clientInterface
-    let peerInterface
 
     let web3 = new SA.nodeModules.web3()
 
@@ -32,19 +31,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         thisObject.networkPeers = undefined
         callersMap = undefined
 
-        socketServer = undefined
-        clientInterface = undefined
-        peerInterface = undefined
+        thisObject.socketServer = undefined
+        thisObject.clientInterface = undefined
+        thisObject.peerInterface = undefined
 
         web3 = undefined
     }
 
     function initialize() {
-        let port = JSON.parse(NT.networkNode.p2pNetwork.thisNetworkNode.node.config).webSocketsPort
+        let port = JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort
 
-        socketServer = new SA.nodeModules.ws.Server({ port: port })
-        clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
-        peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
+        thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
+        thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
+        thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
         thisObject.networkClients = []
         thisObject.networkPeers = []
@@ -55,7 +54,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
     function setUpWebSocketServer() {
         try {
-            socketServer.on('connection', onConnectionOpened)
+            thisObject.socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
             /*
@@ -65,7 +64,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 let caller = {
                     socket: socket,
                     userProfile: undefined,
-                    role: undefined
+                    role: undefined,
+                    node: undefined
                 }
 
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
@@ -123,19 +123,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 let response
                                 switch (caller.role) {
                                     case 'Network Client': {
-                                        response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        response = await thisObject.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
                                         response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
-                                        response = await peerInterface.messageReceived(messageHeader.payload)
+                                        response = await thisObject.peerInterface.messageReceived(messageHeader.payload)
                                         response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                 }
-                                if (response.result === 'Ok' && messageHeader.payload.requestType === 'Event') {
+                                if (response.result === 'Ok' && JSON.parse(messageHeader.payload).requestType === 'Event') {
                                     broadcastToPeers(messageHeader, caller)
                                     broadcastToClients(messageHeader, caller)
                                 }
@@ -251,6 +251,32 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         }
                     }
                     /*
+                    The caller needs to provide it's Node.
+                    */
+                    if (messageHeader.callerNode === undefined) {
+                        let response = {
+                            result: 'Error',
+                            message: 'node Not Provided.'
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    /*
+                    The caller's Node needs to be parseable.
+                    */
+                    try {
+                        caller.node = JSON.parse(messageHeader.callerNode)
+                    } catch (err) {
+                        let response = {
+                            result: 'Error',
+                            message: 'node Not Coorrect JSON Format.'
+                        }
+                        caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
+                        return
+                    }
+                    /*
                     The caller needs to provide it's User Profile Handle.
                     */
                     if (messageHeader.callerProfileHandle === undefined) {
@@ -262,7 +288,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         caller.socket.close()
                         return
                     }
-
                     caller.userProfileHandle = messageHeader.callerProfileHandle
                     /*
                     The caller needs to provide a callerTimestamp.
@@ -492,14 +517,24 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
             function broadcastToPeers(messageHeader, caller) {
+                /*
+                The Boradcast to network peers is not done via 
+                the network peers incomming connections, but
+                on the outgoing connections only.
+                */
                 let callerIdToAVoid
                 if (caller.role === 'Network Peer') {
-                    callerIdToAVoid = caller.socket.id
+                    callerIdToAVoid = caller.node.id
                 }
-                for (let i = 0; i < thisObject.networkPeers.length; i++) {
-                    let networkPeer = thisObject.networkPeers[i]
-                    if (networkPeer.socket.id === callerIdToAVoid) { continue }
-                    networkPeer.socket.send(messageHeader)
+                for (let i = 0; i < NT.networkNode.p2pNetworkPeers.peers.length; i++) {
+                    let peer = NT.networkNode.p2pNetworkPeers.peers[i]
+                    if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
+                    peer.webSocketsClient.sendMessage(messageHeader.payload)
+                        .catch(onError)
+
+                    function onError() {
+                        console.log('[ERROR] Web Sockets Interface -> broadcastToPeers -> Sending Message Failed.')
+                    }
                 }
             }
 
@@ -511,7 +546,12 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 for (let i = 0; i < thisObject.networkClients.length; i++) {
                     let networkClient = thisObject.networkClients[i]
                     if (networkClient.socket.id === callerIdToAVoid) { continue }
-                    networkClient.socket.send(messageHeader)
+                    networkClient.socket.send(messageHeader.payload)
+                        .catch(onError)
+
+                    function onError() {
+                        console.log('[ERROR] Web Sockets Interface -> broadcastToPeers -> Sending Message Failed.')
+                    }
                 }
             }
 

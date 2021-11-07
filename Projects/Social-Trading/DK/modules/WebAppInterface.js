@@ -58,11 +58,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
-                        data: await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                        data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     }
                 } else {
 
-                    let events = await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                    let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {

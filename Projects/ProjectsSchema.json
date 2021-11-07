@@ -1419,6 +1419,12 @@
                     "propertyName": "p2pNetworkPeers",
                     "functionName": "newNetworkModulesP2PNetworkPeers",
                     "fileName": "P2PNetworkPeers.js"
+                },
+                {
+                    "name": "P2P Network Client",
+                    "propertyName": "p2pNetworkClient",
+                    "functionName": "newNetworkModulesP2PNetworkClient",
+                    "fileName": "P2PNetworkClient.js"
                 }
             ],
             "utilities": [

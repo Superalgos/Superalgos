@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Was Sie gerade durchlaufen haben, ist die Definition der Limit Buy Order die jede Minute platziert und storniert wird, bis sie erfüllt ist.",
                 "updated": 1634225672180
+            },
+            {
+                "language": "TR",
+                "text": "Bu adım her dakika verilen ve iptal edilen Limitli Alış Emrinin (Limit Buy Order ) tanımıdır.",
+                "updated": 1636208410014
             }
         ]
     },

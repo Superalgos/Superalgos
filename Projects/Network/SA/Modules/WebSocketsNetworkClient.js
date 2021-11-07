@@ -2,7 +2,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
     let thisObject = {
         id: undefined,
-        socketClient: undefined,
+        socket: undefined,
         isConnected: undefined,
         host: undefined,
         port: undefined,
@@ -22,8 +22,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
     return thisObject
 
     function finalize() {
-        thisObject.socketClient.close()
-        thisObject.socketClient = undefined
+        thisObject.socket.close()
+        thisObject.socket = undefined
         thisObject.id = undefined
         thisObject.isConnected = undefined
         thisObject.host = undefined
@@ -52,7 +52,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.host = JSON.parse(thisObject.p2pNetworkNode.node.config).host
         thisObject.port = JSON.parse(thisObject.p2pNetworkNode.node.config).webSocketsPort
 
-        thisObject.socketClient = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
+        thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebSocketClient()
 
         console.log('Websockets Client Connected to Network Node via Web Sockets ................ Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
@@ -67,9 +67,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
             try {
 
-                thisObject.socketClient.onopen = () => { onConnectionOpened() }
-                thisObject.socketClient.onclose = () => { onConnectionClosed() }
-                thisObject.socketClient.onerror = err => { onError(err) }
+                thisObject.socket.onopen = () => { onConnectionOpened() }
+                thisObject.socket.onclose = () => { onConnectionClosed() }
+                thisObject.socket.onerror = err => { onError(err) }
 
                 function onConnectionOpened() {
 
@@ -93,7 +93,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             it's own identity, and later we will sign it's own handle
                             to prove ours.
                             */
-                            thisObject.socketClient.onmessage = socketMessage => { stepOneResponse(socketMessage) }
+                            thisObject.socket.onmessage = socketMessage => { stepOneResponse(socketMessage) }
 
                             callerTimestamp = (new Date()).valueOf()
 
@@ -105,7 +105,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node), 
                                 step: 'One'
                             }
-                            thisObject.socketClient.send(JSON.stringify(message))
+                            thisObject.socket.send(JSON.stringify(message))
                         }
 
                         function stepOneResponse(socketMessage) {
@@ -190,7 +190,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             Here we will sign a message with the Network Node profile 
                             handle and timestamp to prove our own identity.
                             */
-                            thisObject.socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
+                            thisObject.socket.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
                             let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).privateKey)
 
@@ -199,7 +199,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 signature: JSON.stringify(signature),
                                 step: 'Two'
                             }
-                            thisObject.socketClient.send(JSON.stringify(message))
+                            thisObject.socket.send(JSON.stringify(message))
                         }
 
                         function stepTwoResponse(socketMessage) {
@@ -215,7 +215,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             Network Node and from now on, all response messages will be received
                             at this following function.
                             */
-                            thisObject.socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+                            thisObject.socket.onmessage = socketMessage => { onMenssage(socketMessage) }
                             resolve()
                         }
                     }
@@ -256,7 +256,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         function sendSocketMessage(resolve, reject) {
 
-            if (thisObject.socketClient.readyState !== 1) { // 1 means connected and ready.
+            if (thisObject.socket.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
                 return
@@ -268,7 +268,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 payload: message
             }
             onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
-            thisObject.socketClient.send(
+            thisObject.socket.send(
                 JSON.stringify(socketMessage)
             )
 
@@ -312,7 +312,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             } catch (err) {
                 console.log('[ERROR] Web Sockets Client -> onMenssage -> message = ' + message)
                 console.log('[ERROR] Web Sockets Client -> onMenssage -> err.stack = ' + err.stack)
-                thisObject.socketClient.close()
+                thisObject.socket.close()
                 return
             }
 

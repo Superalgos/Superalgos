@@ -1,9 +1,9 @@
 exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkPeers() {
     /*
-    This module holds the P2P Nodes we are coonected to and that are connected to us.
+    This module holds the P2P Nodes we are coonected to.
     */
     let thisObject = {
-        outgoingConnectedPeers: undefined,
+        peers: undefined,
 
         /* Framework Functions */
         initialize: initialize,
@@ -16,13 +16,13 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
     return thisObject
 
     function finalize() {
-        thisObject.outgoingConnectedPeers = undefined
+        thisObject.peers = undefined
         clearInterval(intervalIdConnectToPeers)
     }
 
     async function initialize() {
 
-        thisObject.outgoingConnectedPeers = []
+        thisObject.peers = []
 
         connectToPeers()
         intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
@@ -31,11 +31,16 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
 
     async function connectToPeers() {
 
-        if (thisObject.outgoingConnectedPeers.count >= global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS) { return }
+        if (thisObject.peers.count >= global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS) { return }
 
         for (let i = 0; i < NT.networkNode.p2pNetwork.p2pNodesToConnect.length; i++) {
-            if (thisObject.outgoingConnectedPeers.count >= global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS) { break }
-            let peer = {}
+            if (thisObject.peers.count >= global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS) { break }
+            
+            let peer = {
+                p2pNetworkNode: undefined,
+                webSocketsClient: undefined
+            }
+
             peer.p2pNetworkNode = NT.networkNode.p2pNetwork.p2pNodesToConnect[i]
             if (isOutgoingConnectedPeer(peer) === true) { continue }
             peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
@@ -44,7 +49,7 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
                 .catch(onError)
 
             function addPeer() {
-                thisObject.outgoingConnectedPeers.push(peer)
+                thisObject.peers.push(peer)
             }
 
             function onError(err) {
@@ -56,10 +61,10 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
             }
 
             function onConnectionClosed(webSocketsClientId) {
-                for (let i = 0; i < thisObject.outgoingConnectedPeers.length; i++) {
-                    let connectedPeer = thisObject.outgoingConnectedPeers[i]
+                for (let i = 0; i < thisObject.peers.length; i++) {
+                    let connectedPeer = thisObject.peers[i]
                     if (connectedPeer.webSocketsClient.id === webSocketsClientId) {
-                        thisObject.outgoingConnectedPeers.splice(i, 1)
+                        thisObject.peers.splice(i, 1)
                         return
                     }
                 }
@@ -67,8 +72,8 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
         }
 
         function isOutgoingConnectedPeer(peer) {
-            for (let i = 0; i < thisObject.outgoingConnectedPeers.length; i++) {
-                let connectedPeer = thisObject.outgoingConnectedPeers[i]
+            for (let i = 0; i < thisObject.peers.length; i++) {
+                let connectedPeer = thisObject.peers[i]
                 if (connectedPeer.p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
                     return true
                 }

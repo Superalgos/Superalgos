@@ -136,8 +136,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     }
                                 }
                                 if (response.result === 'Ok' && JSON.parse(messageHeader.payload).requestType === 'Event') {
-                                    broadcastToPeers(message, caller)
-                                    broadcastToClients(message, caller)
+                                    broadcastToPeers(messageHeader, caller)
+                                    broadcastToClients(messageHeader, caller)
                                 }
                                 break
                             }
@@ -516,7 +516,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
-            function broadcastToPeers(message, caller) {
+            function broadcastToPeers(messageHeader, caller) {
                 /*
                 The Boradcast to network peers is not done via 
                 the network peers incomming connections, but
@@ -526,14 +526,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 if (caller.role === 'Network Peer') {
                     callerIdToAVoid = caller.node.id
                 }
-                for (let i = 0; i < NT.networkNode.p2pNetworkPeers.outgoingConnectedPeers.length; i++) {
-                    let networkPeer = NT.networkNode.p2pNetworkPeers.outgoingConnectedPeers[i]
-                    if (networkPeer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
-                    networkPeer.socket.send(message)
+                for (let i = 0; i < NT.networkNode.p2pNetworkPeers.peers.length; i++) {
+                    let peer = NT.networkNode.p2pNetworkPeers.peers[i]
+                    if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
+                    peer.webSocketsClient.sendMessage(messageHeader.payload)
+                        .catch(onError)
+
+                    function onError() {
+                        console.log('[ERROR] Web Sockets Interface -> broadcastToPeers -> Sending Message Failed.')
+                    }
                 }
             }
 
-            function broadcastToClients(message, caller) {
+            function broadcastToClients(messageHeader, caller) {
                 let callerIdToAVoid
                 if (caller.role === 'Network Client') {
                     callerIdToAVoid = caller.socket.id
@@ -541,7 +546,12 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 for (let i = 0; i < thisObject.networkClients.length; i++) {
                     let networkClient = thisObject.networkClients[i]
                     if (networkClient.socket.id === callerIdToAVoid) { continue }
-                    networkClient.socket.send(message)
+                    networkClient.socket.send(messageHeader.payload)
+                        .catch(onError)
+
+                    function onError() {
+                        console.log('[ERROR] Web Sockets Interface -> broadcastToPeers -> Sending Message Failed.')
+                    }
                 }
             }
 

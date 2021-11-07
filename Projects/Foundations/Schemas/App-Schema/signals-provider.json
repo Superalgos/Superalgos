@@ -13,7 +13,7 @@
             "label": "Send Test Message",
             "workingLabel": "Sending Message",
             "workDoneLabel": "Message Sent",
-            "workFailedLabel": "Message not Delived",
+            "workFailedLabel": "Message not Delivered",
             "iconPathOn": "run",
             "iconPathOff": "run",
             "actionFunction": "payload.executeAction"

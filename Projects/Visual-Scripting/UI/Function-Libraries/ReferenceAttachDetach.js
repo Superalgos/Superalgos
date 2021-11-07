@@ -2,7 +2,8 @@
 function newVisualScriptingFunctionLibraryReferenceAttachDetach() {
     let thisObject = {
         referenceDetachNode: referenceDetachNode,
-        referenceAttachNode: referenceAttachNode
+        referenceAttachNode: referenceAttachNode,
+        createReference: createReference
     }
 
     return thisObject
@@ -16,6 +17,35 @@ function newVisualScriptingFunctionLibraryReferenceAttachDetach() {
     function referenceAttachNode(node, attachToNode) {
         storeAttachNodePath(node, attachToNode)
         completeAttachment(node, attachToNode)
+    }
+
+    function createReference(node, rootNodes) {
+
+        let action = { node: node }
+        let allNodesFound = []
+
+        let schemaDocument = getSchemaDocument(node)
+        let workspaceRootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+
+        let compatibleTypes = schemaDocument.referencingRules.compatibleTypes.split('->').filter(i => i)
+
+        for (let i = 0; i < compatibleTypes.length; i++) {
+            for (let j = 0; j < workspaceRootNodes.length; j++) {
+                let rootNode = workspaceRootNodes[j]
+                if (rootNode !== null) {
+                    let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(rootNode, compatibleTypes[i])
+                    allNodesFound = allNodesFound.concat(nodeArray)
+                }
+            }
+        }
+
+        let eventSubscriptionId = node.payload.uiObject.container.eventHandler.listenToEvent('listSelectorClicked', onListSelect)
+        node.payload.uiObject.listSelector.activate(action, allNodesFound, eventSubscriptionId)
+
+        function onListSelect(event) {
+            referenceAttachNode(node, event.selectedNode)
+            node.payload.uiObject.container.eventHandler.stopListening('listSelectorClicked')
+        }
     }
 
     // Store the path to the reference parent to make restoring it possible if the reference parent is updated and given a new id

@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Some types of nodes, might have code that defines their behaviour. The code can usually be accesed by users via the Edit menu item. When first created, the code of a Node is initialized with the initial value present at the Node's Definition Document. Some types of node represents Formulas and they hold code that defines those formulas at the Node Code.",
+            "text": "Some types of nodes, might have code that defines their behaviour. The code can usually be accessed by users via the Edit menu item. When first created, the code of a Node is initialized with the initial value present at the Node's Definition Document. Some types of node represents Formulas and they hold code that defines those formulas at the Node Code.",
             "updated": 1609246211297
         }
     ]

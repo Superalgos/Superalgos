@@ -27,7 +27,7 @@
         },
         {
             "style": "Text",
-            "text": "We should trigger off the stategy when either of these conditions validate true. How?"
+            "text": "We should trigger off the strategy when either of these conditions validate true. How?"
         }
     ]
 }

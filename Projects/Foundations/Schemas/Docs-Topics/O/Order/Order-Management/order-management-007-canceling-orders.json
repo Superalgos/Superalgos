@@ -43,7 +43,7 @@
         },
         {
             "style": "List",
-            "text": "If it’s a backtesting or paper trading session, the order cancelation must be simulated (see Simulating Order Cancelation).",
+            "text": "If it’s a backtesting or paper trading session, the order cancellation must be simulated (see Simulating Order Cancellation).",
             "updated": 1610222051378
         },
         {

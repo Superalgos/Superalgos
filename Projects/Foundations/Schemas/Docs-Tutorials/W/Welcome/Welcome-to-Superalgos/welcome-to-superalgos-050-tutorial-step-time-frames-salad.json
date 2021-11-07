@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Kurzmeldung zur Time Frame Scale: Es gibt keinen automatischen Modus!",
                 "updated": 1634217396808
+            },
+            {
+                "language": "TR",
+                "text": "Zaman Çerçevesi Ölçeği ( Time Frame Scale ) hakkında flaş haber: otomatik mod yok!",
+                "updated": 1636095177127
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Sie können mit dem Mausrad oder den Pfeiltasten ↑ ↓ — in absteigender Reihenfolge - durch alle verfügbaren Zeitrahmen schalten: 24, 12, 8, 6, 4, 3, 2 und 1 Stunde sowie 45, 40, 30, 20, 15, 10, 5, 4, 3, 2 und 1 Minute. ",
                     "updated": 1634217420841
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare tekerleğini veya yukarı ve aşağı okları kullanarak mevcut tüm zaman dilimleri arasında geçiş yapabilirsiniz ↑ ↓ — Sırasıyla: 24, 12, 8, 6, 4, 3, 2 ve 1 saat ve 45, 40, 30, 20, 15, 10, 5, 4, 3, 2 ve 1 dakika.",
+                    "updated": 1636095217975
                 }
             ],
             "updated": 1616505407890
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "Wichtig: Seien Sie vorsichtig, wenn Sie die Time Frame Scale auf niedrigere Zeiträume umstellen! Wenn Sie die Zeitrahmen zu schnell und ohne Anpassung der Time Scale verringern, kann dies dazu führen, dass zu viele Informationen auf einmal auf dem Bildschirm dargestellt werden, was Ihren Computer verlangsamt. Wie viel Informationsdichte Ihre Hardware verarbeiten kann, hängt von ihrer CPU- und GPU-Leistung ab.",
                     "updated": 1634217436779
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman çerçevesi ölçeğini daha düşük zaman dilimlerine değiştirirken dikkatli olun! Zaman dilimlerini çok hızlı ve zaman ölçeğini ayarlamadan bırakmak, ekranda aynı anda çok fazla bilgi görüntülenmesine neden olarak bilgisayarınızı yavaşlatabilir. Donanımınızın ne kadar bilgi yoğunluğu kaldırabileceği CPU ve GPU performansına bağlıdır.",
+                    "updated": 1636095244874
                 }
             ]
         }

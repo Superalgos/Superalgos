@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Un Data Mine es una jerarquía que contiene definiciones de sensor, bots indicadores, y sus trazadores. Estas definiciones se obtienen del código de dichos bots.",
                 "updated": 1624230241851
+            },
+            {
+                "language": "RU",
+                "text": "Шахта данных - это иерархия, содержащая определения датчиков и ботов-индикаторов, а также их плоттеров. Эти определения взяты из фактического кода таких ботов.\n",
+                "updated": 1636192911774
             }
         ]
     },

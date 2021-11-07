@@ -1,9 +1,9 @@
 exports.newSocialTradingModulesSocialGraph = function newSocialTradingModulesSocialGraph() {
     /*
-    This module mantains in memory the personal social graph for
+    This module maintains in memory the personal social graph for
     the user profile of the user of the Desktop App. A personal social
-    graph is very similar to the one mantained at a Netwrok Node,
-    the mainn difference is that it only includes information relevant
+    graph is very similar to the one maintained at a Network Node,
+    the main difference is that it only includes information relevant
     to this particular user, and not for all Superalgos users
     as in the Network Node.
 
@@ -14,7 +14,6 @@ exports.newSocialTradingModulesSocialGraph = function newSocialTradingModulesSoc
     no need to ask it to a network node.
     */
     let thisObject = {
-        userProfiles: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -26,7 +25,6 @@ exports.newSocialTradingModulesSocialGraph = function newSocialTradingModulesSoc
     }
 
     async function initialize() {
-        thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-        await thisObject.userProfiles.initialize()
+
     }
 }

@@ -8,8 +8,9 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "La gobernanza del proyecto de Superalgos Project es distribuída sentre todos los miembros de la Superalgos Community que deseen participar. El Governance System ( sistema de gobernanza) seconstruye en la Superalgos Platform, por lo que participar es bastante sencillo.",
-                "updated": 1633533118734
+                "text": "La gobernanza del proyecto de Superalgos Project es distribuída entre todos los miembros de la Superalgos Community que deseen participar. El Governance System ( sistema de gobernanza) se construye en la Superalgos Platform, por lo que es bastante sencillo participar.",
+                "updated": 1636038871200,
+                "style": "Definition"
             }
         ]
     },
@@ -30,7 +31,8 @@
                 {
                     "language": "ES",
                     "text": "Para participar en la gobernanza, los miembros de la comunidad, promedian su tentencia de  Superalgos SA Token, ejerciendo una influencia proporcional a su Token Power. La influencia combinada de todos los que tienen token participando en la gobernanza determina como el token se distribuye encada liberación.",
-                    "updated": 1633533342249
+                    "updated": 1633533342249,
+                    "style": "Text"
                 }
             ]
         },
@@ -41,7 +43,8 @@
                 {
                     "language": "ES",
                     "text": "Aún cuando no tenga tokens para comenzar, la comunidad delegará Token Power a su profile para que pueda comenzar!",
-                    "updated": 1633533429717
+                    "updated": 1633533429717,
+                    "style": "Success"
                 }
             ]
         },
@@ -57,7 +60,8 @@
                 {
                     "language": "ES",
                     "text": "Qué Positions, Features, Assets, o actividades de desarrollo del proyecto, en general, son incentivados y cómo.",
-                    "updated": 1633533525021
+                    "updated": 1633533525021,
+                    "style": "List"
                 }
             ]
         },
@@ -68,7 +72,8 @@
                 {
                     "language": "ES",
                     "text": "Qué Contribuyentes son recompensados y por cuáles contribuciones.",
-                    "updated": 1633533586785
+                    "updated": 1633533586785,
+                    "style": "List"
                 }
             ]
         },
@@ -79,7 +84,8 @@
                 {
                     "language": "ES",
                     "text": "Qué Programs son creados y cómo.",
-                    "updated": 1633533612445
+                    "updated": 1633533612445,
+                    "style": "List"
                 }
             ]
         },
@@ -90,7 +96,8 @@
                 {
                     "language": "ES",
                     "text": "La gobernanza está diseñada como un sistema flexible que  la comunidad dinámicamente dirija influencia en direcciones arbitrarias.",
-                    "updated": 1633533779710
+                    "updated": 1633533779710,
+                    "style": "Text"
                 }
             ]
         },
@@ -106,7 +113,8 @@
                 {
                     "language": "ES",
                     "text": "Una Community comprometida en la gobernanza es crucial para el desarrollo del proyecto, por lo tanto se incentiva la participación. En otras palabras, ganará Superalgos SA Tokens simplemente por ser parte de la gobernanza de Superalgos.",
-                    "updated": 1633542770033
+                    "updated": 1633542770033,
+                    "style": "Text"
                 }
             ]
         },
@@ -117,7 +125,8 @@
                 {
                     "language": "ES",
                     "text": "El sistema permite que la gobernanza evolucione con el proyecto. Tambien motiva a la innovación sin permiso, ya que los contribuyentes pueden proponer nuevas áreas de desarrollo y manejar a  la comunidad para que se motive para expandir nuevas lineas.",
-                    "updated": 1633543011570
+                    "updated": 1633543011570,
+                    "style": "Text"
                 }
             ]
         },
@@ -132,7 +141,8 @@
                 {
                     "language": "ES",
                     "text": "El sistema de gobierno fue construído sobre los bocetos de un nuevo proyecto de Software incluído en el código de base de Superalgos.",
-                    "updated": 1633543179992
+                    "updated": 1633543179992,
+                    "style": "Text"
                 }
             ]
         },
@@ -143,7 +153,8 @@
                 {
                     "language": "ES",
                     "text": "Los siguientes programas de Governance Programs fueron desarrollados en este tiempo:",
-                    "updated": 1633543245169
+                    "updated": 1633543245169,
+                    "style": "Text"
                 }
             ]
         },

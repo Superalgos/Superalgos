@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un paper trading session es un modo de trading mediante el cual la instancia del Trading Bot lee una fuente de datos de mercado en vivo, aplica las reglas definidas en el Trading System asociado y genera una simulación de trading.",
                 "updated": 1624379661697
+            },
+            {
+                "language": "RU",
+                "text": "Административная торговая сессия - это режим торговли, при котором экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, и генерирует торговую симуляцию.",
+                "updated": 1636195850621
             }
         ]
     },

@@ -20,7 +20,7 @@ exports.newPlatformApp = function newPlatformApp() {
         })
 
         process.on('unhandledRejection', (reason, p) => {
-            // Signal user that a necissary node module is missing
+            // Signal user that a necessary node module is missing
             if (reason.code == 'MODULE_NOT_FOUND') {
                 console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Platform Client.")
                 console.log('[ERROR] Platform App -> reason = ' + JSON.stringify(reason))

@@ -15,7 +15,7 @@
 
     function raiseEvents(lastFile, timeFrames, callBackFunction) {
         try {
-            /* We will reaise the events for the datasets impacted by the process that just finished. */
+            /* We will raise the events for the datasets impacted by the process that just finished. */
 
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
                 let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')

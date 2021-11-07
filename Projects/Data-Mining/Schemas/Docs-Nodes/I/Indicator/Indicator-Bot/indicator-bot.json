@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un indicator bot es un algoritmo que procesa información que otros bots han generado y produce conjuntos de datos elaborados para que otros los consuman.",
                 "updated": 1624496036942
+            },
+            {
+                "language": "RU",
+                "text": "Бот-индикатор - это алгоритм, который обрабатывает информацию, сгенерированную другими ботами, и создает сложные наборы данных для использования другими.",
+                "updated": 1636192708246
             }
         ]
     },

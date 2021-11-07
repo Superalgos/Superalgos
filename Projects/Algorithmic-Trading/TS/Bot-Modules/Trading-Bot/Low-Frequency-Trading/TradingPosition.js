@@ -71,7 +71,7 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
         /* Updating Episode Counters */
         tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.positions.value++
 
-        /* Inicializing this counter */
+        /* Initializing this counter */
         tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value = 1
 
         /* Remember the balance we had before taking the position to later calculate profit or loss */

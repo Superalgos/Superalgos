@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Sehen Sie die grünen Kugeln mit einem L in der Mitte? Das sind die erwähnten limitierten Kaufaufträge.",
                 "updated": 1634224261070
+            },
+            {
+                "language": "TR",
+                "text": "Ortasında \"L\" olan yeşil mermileri görüyor musunuz? Bahsettiğim limit alış emirleri bunlar.",
+                "updated": 1636203165068
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass jede Minute ein Auftrag erteilt wird, der storniert wird, bevor ein neuer Auftrag erteilt wird. Erkennen Sie das Symbol für die Auftragsstornierung? Es ist die kleinere, dunklere Kugel mit einem weißen horizontalen Streifen in der Mitte!",
                     "updated": 1634224270895
+                },
+                {
+                    "language": "TR",
+                    "text": "Her dakika bir siparişin nasıl verildiğine ve yeni bir sipariş verilmeden önce iptal edildiğine dikkat edin. Sipariş iptali sembolünü tanıyor musunuz? Ortasında beyaz yatay şerit bulunan daha küçük, daha koyu mermi!",
+                    "updated": 1636203192290
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass das \"Knife\" um 00:21 Uhr gefallen ist! Der Preis fiel deutlich unter den Kurs der Limit-Order, daher wurde die Order ausgeführt! Das zeigt der größere, gefüllte, grüne Punkt an!",
                     "updated": 1634224312254
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyatın 00:21'de düştüğüne dikkat edin! Fiyat, limit emrinin oranının çok altına düştü, bu nedenle emir yerine getirildi! Daha büyük, dolu yeşil mermi bunu gösteriyor!",
+                    "updated": 1636203809456
                 }
             ]
         },

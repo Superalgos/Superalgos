@@ -26,7 +26,7 @@
         },
         {
             "style": "Text",
-            "text": "Stage base aset, undoing the previous accounting:"
+            "text": "Stage base asset, undoing the previous accounting:"
         },
         {
             "style": "Javascript",

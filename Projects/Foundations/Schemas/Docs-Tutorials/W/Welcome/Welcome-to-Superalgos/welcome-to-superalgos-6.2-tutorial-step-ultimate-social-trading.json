@@ -3,8 +3,8 @@
     "pageNumber": "106.2",
     "type": "Tutorial Step - Ultimate Social Trading",
     "definition": {
-        "text": "The Superalgos Platform is designed to serve algo-traders. But the project is expanding its scope to cater to all crypto users!",
-        "updated": 1630855795499,
+        "text": "The Superalgos Platform is designed to serve algo traders. But the project is expanding its scope to cater to all crypto users!",
+        "updated": 1636302029793,
         "icon": {
             "name": "User\\user-influencer",
             "project": "Governance"
@@ -20,8 +20,8 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Incentivized by the protocol, algo-traders will compete to produce and disseminate trading signals.",
-            "updated": 1630856058462,
+            "text": "Incentivized by the protocol, algo traders will compete to produce and disseminate trading signals.",
+            "updated": 1636302022130,
             "translations": [
                 {
                     "language": "DE",
@@ -55,8 +55,8 @@
         },
         {
             "style": "Callout",
-            "text": "Both algo-traders and influencers get paid by the protocol, while crypto users get all products and services free of charge. Quite disruptive, right?",
-            "updated": 1630856187731,
+            "text": "Both algo traders and influencers get paid by the protocol, while crypto users get all products and services free of charge. Quite disruptive, right?",
+            "updated": 1636302065775,
             "translations": [
                 {
                     "language": "DE",

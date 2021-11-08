@@ -52,7 +52,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->"
+        "compatibleTypes": "->Trading Episode->Portfolio Episode->Learning Episode->Strategy->Position->Market Order->Limit Order->"
     },
     "propertyNameAtParent": "serialNumber"
 }

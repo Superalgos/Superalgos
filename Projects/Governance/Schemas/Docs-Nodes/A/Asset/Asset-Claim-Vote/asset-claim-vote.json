@@ -2,7 +2,14 @@
     "type": "Asset Claim Vote",
     "definition": {
         "text": "Use this node to establish a reference with an Asset Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Claim Support Power you drive into the Claim Votes node!",
-        "updated": 1630356280267
+        "updated": 1630356280267,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo para establecer una referencia con una Asset Contribution Claim (slicitud decontribución de activo) colocada por un clega en la sección Claims Program de sur User Profile( perfil de usuario). Este voto significa que apoya a la solicitud de su colega  con el Support Power que dirija al nodo de Claim Votes!",
+                "updated": 1636111162787
+            }
+        ]
     },
     "paragraphs": [
         {

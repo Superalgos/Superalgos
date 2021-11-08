@@ -98,7 +98,7 @@ function newSocialTradingModulesWebSocketsWebClient() {
 
         let response = JSON.parse(socketMessage.data)
         /*
-        We get the functioin that is going to resolve or reject the promise given.
+        We get the function that is going to resolve or reject the promise given.
         */
         onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
         onMessageFunctionsMap.delete(response.messageId)

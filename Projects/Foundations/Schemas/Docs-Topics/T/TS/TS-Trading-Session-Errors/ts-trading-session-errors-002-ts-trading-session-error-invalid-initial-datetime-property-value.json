@@ -3,7 +3,7 @@
     "pageNumber": "2",
     "type": "TS Trading Session Error - Invalid Initial Datetime Property Value",
     "definition": {
-        "text": "The initialDatetime  property configured at the Time Range node is not recongnized as a valid Javascript Datetime.",
+        "text": "The initialDatetime  property configured at the Time Range node is not recognized as a valid Javascript Datetime.",
         "updated": 1611322806779
     },
     "paragraphs": [
@@ -14,7 +14,7 @@
         },
         {
             "style": "Success",
-            "text": "Check Node JS Javsacript docs to learn how to correctly express a datetime value.",
+            "text": "Check Node JS Javascript docs to learn how to correctly express a datetime value.",
             "updated": 1611323830743
         },
         {

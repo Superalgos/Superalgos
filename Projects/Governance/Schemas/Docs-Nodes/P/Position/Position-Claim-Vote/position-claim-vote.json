@@ -2,7 +2,14 @@
     "type": "Position Claim Vote",
     "definition": {
         "text": "Use this node to establish a reference with a Position Contribution Claim placed by your colleague in the Claims Program section of their User Profile. This vote means that you support your colleague's claim with the Claim Support Power you drive into the Claim Votes node!",
-        "updated": 1630356265895
+        "updated": 1630356265895,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo para establecer una referencia con una Position Contribution Claim (solicitud de contribución de posición) colocada por un colega en la sección  Claims Program de su User Profile. Este voto significa que apoya la solicitud de su colega con el Claim Support Power que dirija a su nodo de Claim Votes!",
+                "updated": 1636112479494
+            }
+        ]
     },
     "paragraphs": [
         {

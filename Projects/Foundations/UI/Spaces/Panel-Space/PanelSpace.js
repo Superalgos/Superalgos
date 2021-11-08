@@ -1,6 +1,6 @@
 /*
 
-The Panel Space y the place wehre all panels live, no matter who create them.
+The Panel Space y the place where all panels live, no matter who create them.
 
 */
 function newFoundationsPanelSpace() {
@@ -359,8 +359,8 @@ function newFoundationsPanelSpace() {
 
         let container
         /*
-        We search for the container of panels in the oposite direction than we do it for drawing them,
-        so panels overlapping others are picked firt although they are drawn last.
+        We search for the container of panels in the opposite direction than we do it for drawing them,
+        so panels overlapping others are picked first although they are drawn last.
         */
         for (let i = thisObject.panels.length - 1; i >= 0; i--) {
             let panel = thisObject.panels[i]

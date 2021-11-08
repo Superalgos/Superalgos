@@ -11,9 +11,9 @@ exports.newEnvironment = function () {
         DEMO_MODE: false,
         BASE_PATH: basePath,
         WEB_SERVER_URL: 'localhost',
-        PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 18041,
+        PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 16042,
+        DESKTOP_WEB_SOCKETS_INTERFACE_PORT: 17042,
         NETWORK_WEB_SOCKETS_INTERFACE_PORT: 18042,
-        DESKTOP_WEB_SOCKETS_INTERFACE_PORT: 18043,
         DESKTOP_WEB_SOCKETS_INTERFACE_HOST: 'localhost',
         PLATFORM_HTTP_INTERFACE_PORT: 34248,
         DESKTOP_HTTP_INTERFACE_PORT: 34249,
@@ -28,10 +28,14 @@ exports.newEnvironment = function () {
         PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
         PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
         DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
+        DESKTOP_APP_MAX_OUTGOING_PEERS: 2,
         MOBILE_APP_SIGNING_ACCOUNT: 'Social-Trading-Mobile-App-1',
         SERVER_APP_SIGNING_ACCOUNT: 'Social-Trading-Server-App-1',
         PLATFORM_APP_SIGNING_ACCOUNT: 'Algo-Traders-Platform-1',
         P2P_NETWORK_NODE_SIGNING_ACCOUNT: 'P2P-Network-Node-1',
+        P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS: 20,
+        P2P_NETWORK_NODE_MAX_INCOMING_PEERS: 2,
+        P2P_NETWORK_NODE_MAX_OUTGOING_PEERS: 2
     }
 
     if (process.env.DATA_PATH) {

@@ -56,11 +56,11 @@
         },
         {
             "style": "Text",
-            "text": "The variables explained further down this section, written as described for each indicator, are not valid unless they are preceeded by the declaration of the time frame they refer to."
+            "text": "The variables explained further down this section, written as described for each indicator, are not valid unless they are proceeded by the declaration of the time frame they refer to."
         },
         {
             "style": "Text",
-            "text": "To do that, you need to preceed the above syntax with the following:"
+            "text": "To do that, you need to proceed the above syntax with the following:"
         },
         {
             "style": "Javascript",
@@ -262,7 +262,7 @@
         },
         {
             "style": "Text",
-            "text": "You may use any valid piece of JavaScript code for your conditions and formulas. The system imposses no contraints whatsoever. The code on conditions and formulas is run through the eval() function, as follows:",
+            "text": "You may use any valid piece of JavaScript code for your conditions and formulas. The system imposes no constraints whatsoever. The code on conditions and formulas is run through the eval() function, as follows:",
             "updated": 1610215780497
         },
         {

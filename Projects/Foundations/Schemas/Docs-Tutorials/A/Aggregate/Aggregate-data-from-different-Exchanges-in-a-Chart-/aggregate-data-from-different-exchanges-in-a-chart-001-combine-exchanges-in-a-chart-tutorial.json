@@ -17,7 +17,14 @@
         {
             "style": "Text",
             "text": "This Tutorial can be found in Workspace TBD.",
-            "updated": 1617376832024
+            "updated": 1617376832024,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este Tutorial puede encontrarlo en Workspace TBD.",
+                    "updated": 1636383582477
+                }
+            ]
         }
     ]
 }

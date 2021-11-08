@@ -5,8 +5,8 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Un nodo crypto exchangecontiene las definiciones de assets y mercados en un exchange.",
-                "updated": 1628205315370
+                "text": "Un nodo crypto exchange contiene las definiciones de assets y mercados en un exchange.",
+                "updated": 1636383115048
             }
         ]
     },
@@ -23,7 +23,14 @@
         {
             "style": "Text",
             "text": "In theory, Superalgos supports dozens of exchanges. However, each exchange must go through a testing process, as not all of them conform to the standard proposed by the CCXT library.",
-            "updated": 1615201479524
+            "updated": 1615201479524,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En teoría, Superalgos soporta docenas de exchanges. De todas formas, cada exchange debe ir a través de un proceso de testeo, ya que no todos ellos están conformados  bajo los estándares propuestos por la  biblioteca CCXT.",
+                    "updated": 1636383259902
+                }
+            ]
         },
         {
             "style": "List",
@@ -76,7 +83,14 @@
         {
             "style": "Text",
             "text": "Each exchange may require a very specific configuration. This is determined during the exchange testing process. Consult the page of each exchange as listed above. If you are interested in testing a new exchange, go to the How to Test New Exchanges page.",
-            "updated": 1615201685376
+            "updated": 1615201685376,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada exchange puede requerir una configuración muy específica. Esta se determina durante el proceso de testeo del exchange. Consulta la página de cada exchange como está listado aquí arriba. Si está interesado en testear un nuevo exchange, ve a la página de How to Test New Exchanges ( como testear un nuevo exchange).",
+                    "updated": 1636383451633
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -85,7 +99,14 @@
         },
         {
             "style": "List",
-            "text": "codeName is the name of the exchange as handled in the code of the system."
+            "text": "codeName is the name of the exchange as handled in the code of the system.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "codeName es el nombre del exchange como se maneja en el código del sistema.",
+                    "updated": 1636383499342
+                }
+            ]
         },
         {
             "style": "List",

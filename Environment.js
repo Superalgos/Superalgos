@@ -11,7 +11,7 @@ exports.newEnvironment = function () {
         DEMO_MODE: false,
         BASE_PATH: basePath,
         WEB_SERVER_URL: 'localhost',
-        PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 16042,
+        PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 18041,
         DESKTOP_WEB_SOCKETS_INTERFACE_PORT: 17042,
         NETWORK_WEB_SOCKETS_INTERFACE_PORT: 18042,
         DESKTOP_WEB_SOCKETS_INTERFACE_HOST: 'localhost',

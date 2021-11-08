@@ -17012,7 +17012,7 @@
                 "signingAccountChild": {
                     "type": "Social Trading Desktop App",
                     "name": "Social Trading Desktop App # 1",
-                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"17042\"\n}",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}",
                     "project": "Governance",
                     "id": "012c74dd-1a61-4784-bc8a-e18555b4974e",
                     "savedPayload": {
@@ -17404,7 +17404,7 @@
                 "signingAccountChild": {
                     "type": "Social Trading Desktop App",
                     "name": "Social Trading Desktop App # 2",
-                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"17042\"\n}",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33249\",\n    \"webSocketsPort\": \"17043\"\n}",
                     "project": "Governance",
                     "id": "e6f2b6f6-5e40-42d2-92d8-fdd17680a1c7",
                     "savedPayload": {
@@ -17460,7 +17460,7 @@
                 "signingAccountChild": {
                     "type": "Social Trading Desktop App",
                     "name": "Social Trading Desktop App # 3",
-                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-3\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"17042\"\n}",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-3\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33250\",\n    \"webSocketsPort\": \"17044\"\n}",
                     "project": "Governance",
                     "id": "00ca860e-bb19-42b4-8bce-b67f9a1f9af7",
                     "savedPayload": {

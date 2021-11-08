@@ -37,6 +37,11 @@
                 "language": "TR",
                 "text": "Zaman makinesini ekranınızın tam en boy oranına göre şekillendirmeye ne dersiniz?",
                 "updated": 1636035470271
+            },
+            {
+                "language": "RU",
+                "text": "Как насчет того, чтобы настроить по форме машину времени в соответствии с правильным соотношение сторон Вашего экрана?",
+                "updated": 1636202464425
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "TR",
                     "text": "Zaman makinelerinizin en boy oranını ekranınızın en boy oranıyla eşleştirmek, yakınlaştırırken grafiklerin ekranınıza sığabilmesi için çok önemlidir!",
                     "updated": 1636035504803
+                },
+                {
+                    "language": "RU",
+                    "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба!",
+                    "updated": 1636202715136
                 }
             ],
             "updated": 1622198491208
@@ -110,6 +120,11 @@
                     "language": "TR",
                     "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın. Aynısını diğeriyle yapın!",
                     "updated": 1636035527567
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор мыши на одну из машин времени и нажмите Ctrl + Shift + Alt + A. Сделайте то же самое с другой машиной времени.",
+                    "updated": 1636202757134
                 }
             ]
         },
@@ -146,6 +161,11 @@
                     "language": "TR",
                     "text": "Şu andan itibaren ekranınızın en boy oranıyla eşleşen iki zaman makinesini görmen lazım.",
                     "updated": 1636035706936
+                },
+                {
+                    "language": "RU",
+                    "text": "С этого момента оставьте две машины времени, соответствующие соотношению сторон Вашего экрана.",
+                    "updated": 1636202904158
                 }
             ]
         }

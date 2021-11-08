@@ -36,6 +36,11 @@
                 "language": "TR",
                 "text": "Sonunda bir grafiğin içindesiniz. Yapmak isteyeceğiniz ilk şey, etrafta dolaşmak ve bu çizelgelerin sizin için neler yapabileceğini öğrenmek.",
                 "updated": 1636092060224
+            },
+            {
+                "language": "RU",
+                "text": "Итак, наконец-то, Вы находитесь внутри диаграммы. Первое, что Вым захочется сделать  - это осмотреться и узнать, что эти диаграммы могут сделать для Вас.",
+                "updated": 1636205299823
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "TR",
                     "text": "Bununla devam edelim! Tasarım alanında olduğu gibi, bir zaman makinesinin içindeykende farenizi ve klavyenizi kullanarak hareket edersiniz. Nasıl?",
                     "updated": 1636092104788
+                },
+                {
+                    "language": "RU",
+                    "text": "В заключении процесса! Как и в пространстве дизайна, когда Вы находитесь внутри машины времени, Вы перемещаетесь с помощью мыши и клавиатуры. Как это происходит:",
+                    "updated": 1636205706347
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "TR",
                     "text": "Fare ile sol tıklayın ve sürükleyin. Klavye ile ok tuşlarını kullanın: ← → ↑ ↓",
                     "updated": 1636092129919
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью мыши: щелкните левой кнопкой мыши и перетащите. С помощью клавиатуры: используйте клавиши со стрелками ← → ↑ ↓.",
+                    "updated": 1636205526304
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "TR",
                     "text": "Ne? Çalışmıyor mu? Donmuş bir çizelgeye mi takıldınız? Bir sonraki adımdaki videodaki gibi mi? Merak etme! Neler olduğunu biliyorum...",
                     "updated": 1636092166517
+                },
+                {
+                    "language": "RU",
+                    "text": "Что? Это не работает? У Вас все еще заморожен график как на видео в следующем шаге? Не беспокойтесь! Я знаю, что происходит.",
+                    "updated": 1636205608008
                 }
             ]
         }

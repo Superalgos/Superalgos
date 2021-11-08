@@ -2,9 +2,9 @@
 
     /*
 
-    A Status Report is a file that every bot reads at the begining of its execution 
+    A Status Report is a file that every bot reads at the beginning of its execution
     and saves after it finishes its job. The purpose of the file is to record checkpoint information 
-    of what was the last thing done by the bot and helpfull enough to start the next execution.
+    of what was the last thing done by the bot and helpful enough to start the next execution.
     It usually does not include business related context data.
 
     */
@@ -332,11 +332,11 @@
 
             let canUserPrevious
             /*
-            If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not 
-            the latest one, because it might contain transactioinal information related to the context of the 
+            If we are running Trading Engines, we can not allow ourselves to use a Status Report that is not
+            the latest one, because it might contain transactional information related to the context of the
             operations the trading engine is doing.
 
-            On the contraty, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necesary, 
+            On the contrary, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necessary,
             use a previous version of a Status Report since there will be no big impact, just some reprocessing.
             */
             if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined) {

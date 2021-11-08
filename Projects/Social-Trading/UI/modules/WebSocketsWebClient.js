@@ -24,7 +24,7 @@ function newSocialTradingModulesWebSocketsWebClient() {
 
     async function initialize() {
 
-        socketClient = new WebSocket('ws://' + UI.environment.DESKTOP_WEB_SOCKETS_INTERFACE_HOST + ':' + UI.environment.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
+        socketClient = new WebSocket('ws://' + JSON.parse(UI.clientNode.config).host + ':' + JSON.parse(UI.clientNode.config).webSocketsPort)
 
         await setUpWebsocketClient()
     }
@@ -98,7 +98,7 @@ function newSocialTradingModulesWebSocketsWebClient() {
 
         let response = JSON.parse(socketMessage.data)
         /*
-        We get the functioin that is going to resolve or reject the promise given.
+        We get the function that is going to resolve or reject the promise given.
         */
         onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
         onMessageFunctionsMap.delete(response.messageId)

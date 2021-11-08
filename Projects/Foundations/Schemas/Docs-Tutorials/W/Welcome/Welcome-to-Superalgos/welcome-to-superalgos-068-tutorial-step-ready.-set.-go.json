@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Los geht's! Dies wird ohnehin schnell gehen, da wir nur einen einzigen Tag mit historischen Daten testen.",
                 "updated": 1634222237362
+            },
+            {
+                "language": "TR",
+                "text": "Haydi gidelim!  Bir günlük zaman dilimi için Backtest yapacağımız için bu hızlı olacak.",
+                "updated": 1636122670075
             }
         ]
     },
@@ -44,6 +49,11 @@
                     "text": "Ejecutar un Trading Task es bastante similar a ejecutar una tarea de minería de datos. La diferencia radica en que, después de ejecutar la tarea, también debe ejecutar lel Trading Session.",
                     "updated": 1624454018479,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret görevi yürütmek ( Trading Tasks ), bir veri madenciliği (Data Mining Tasks ) görevi yürütmeye oldukça benzer. Aradaki fark, görevi çalıştırdıktan sonra, ticaret oturumunu da çalıştırmanız gerektiğidir.",
+                    "updated": 1636122738568
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Wählen Sie im Menü Lightning Strike Task die Option Run! <br/>Wählen Sie nun Run im Menü Backtesting Session!",
                     "updated": 1634222444040
+                },
+                {
+                    "language": "TR",
+                    "text": "Önce Lightning Strike Task menüsünde Run'ı seçin! Sonra Backtesting Session menüsünde Run'ı seçin!",
+                    "updated": 1636122946019
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Wenn die Backtesting Session anzeigt, dass die Verarbeitung abgeschlossen ist, beenden Sie die Aufgabe und klicken Sie auf Weiter.",
                     "updated": 1634222377772
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye Dönük Test Oturumu ( Backtesting Session ), işlemin tamamlandığını gösterdiğinde, Görevi ( Task) durdurun ve İleri'ye tıklayın.",
+                    "updated": 1636122871481
                 }
             ],
             "updated": 1622201246283

@@ -15,7 +15,7 @@
 
     function initialize(callBackFunction) {
         try {
-            /* Basic Valdidations */
+            /* Basic Validations */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies !== undefined) {
                 if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies.statusDependencies !== undefined) {
                     thisObject.nodeArray = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies.statusDependencies

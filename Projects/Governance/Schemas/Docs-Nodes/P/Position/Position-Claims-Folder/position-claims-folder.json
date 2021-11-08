@@ -2,7 +2,14 @@
     "type": "Position Claims Folder",
     "definition": {
         "text": "Use this node as an organizational device, to spawn Position Contribution Claim nodes, and to map entire structures in a Positions hierarchy to place multiple Contribution Claims at once.",
-        "updated": 1630352182572
+        "updated": 1630352182572,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo como un dispositivo organizacional, para abrir nodos Position Contribution Claim (solicitud de contribución de posición), para mapear estructuras enteras en una jerarquía de Positions (posiciones) para colocar múltiples solcitudes de Contribution al mismo tiempo.",
+                "updated": 1636112230234
+            }
+        ]
     },
     "paragraphs": [
         {

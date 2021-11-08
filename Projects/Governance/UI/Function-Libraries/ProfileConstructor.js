@@ -330,6 +330,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 }
 
                 let secret = {
+                    signingAccountChildId: signingAccountChild.id,
                     signingAccountChildName: signingAccountChild.name,
                     signingAccountChildType: targetNodeType,
                     signingAccountChildCodeName: codeName,

@@ -2,15 +2,18 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
     let thisObject = {
         id: undefined,
+        socket: undefined,
         isConnected: undefined,
         host: undefined,
         port: undefined,
+        callerRole: undefined,
+        p2pNetworkNode: undefined,
+        p2pNetworkIdentity: undefined,
+        onConnectionClosedCallBack: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
     }
-
-    let socketClient
 
     let web3
     let called = {}
@@ -19,33 +22,44 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
     return thisObject
 
     function finalize() {
-        socketClient.close()
-        socketClient = undefined
-        networkInterface = undefined
-        peerInterface = undefined
+        thisObject.socket.close()
+        thisObject.socket = undefined
+        thisObject.id = undefined
+        thisObject.isConnected = undefined
+        thisObject.host = undefined
+        thisObject.port = undefined
+        thisObject.callerRole = undefined
+        thisObject.p2pNetworkNode = undefined
+        thisObject.p2pNetworkIdentity = undefined
+        thisObject.onConnectionClosedCallBack = undefined
 
         web3 = undefined
         called = undefined
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
+    async function initialize(callerRole, p2pNetworkIdentity, p2pNetworkNode, onConnectionClosedCallBack) {
+
+        thisObject.callerRole = callerRole
+        thisObject.p2pNetworkIdentity = p2pNetworkIdentity
+        thisObject.p2pNetworkNode = p2pNetworkNode
+        thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
         web3 = new SA.nodeModules.web3()
 
         thisObject.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
 
-        thisObject.host = JSON.parse(p2pNetworkNode.node.config).host
-        thisObject.port = JSON.parse(p2pNetworkNode.node.config).webSocketsPort
+        thisObject.host = JSON.parse(thisObject.p2pNetworkNode.node.config).host
+        thisObject.port = JSON.parse(thisObject.p2pNetworkNode.node.config).webSocketsPort
 
-        socketClient = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
-        await setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack)
+        thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
+        await setUpWebSocketClient()
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Connected to ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('Websockets Client Connected to Network Node via Web Sockets ................ Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.isConnected = true
     }
 
-    async function setUpWebsocketClient(callerRole, p2pNetworkNode, onConnectionClosedCallBack) {
+    async function setUpWebSocketClient() {
 
         return new Promise(connectToNewtwork)
 
@@ -53,9 +67,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
             try {
 
-                socketClient.onopen = () => { onConnectionOpened() }
-                socketClient.onclose = () => { onConnectionClosed() }
-                socketClient.onerror = err => { onError(err) }
+                thisObject.socket.onopen = () => { onConnectionOpened() }
+                thisObject.socket.onclose = () => { onConnectionClosed() }
+                thisObject.socket.onerror = err => { onError(err) }
 
                 function onConnectionOpened() {
 
@@ -79,18 +93,19 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             it's own identity, and later we will sign it's own handle
                             to prove ours.
                             */
-                            socketClient.onmessage = socketMessage => { stepOneResponse(socketMessage) }
+                            thisObject.socket.onmessage = socketMessage => { stepOneResponse(socketMessage) }
 
                             callerTimestamp = (new Date()).valueOf()
 
                             let message = {
                                 messageType: 'Handshake',
-                                callerRole: callerRole,
+                                callerRole: thisObject.callerRole,
                                 callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
+                                callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node), 
                                 step: 'One'
                             }
-                            socketClient.send(JSON.stringify(message))
+                            thisObject.socket.send(JSON.stringify(message))
                         }
 
                         function stepOneResponse(socketMessage) {
@@ -116,7 +131,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the blockchain account taken from the signature matches
                             the one we have on record for the user profile of the Network Node we are calling.
                             */
-                            if (called.blockchainAccount !== p2pNetworkNode.blockchainAccount) {
+                            if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
@@ -138,7 +153,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
                             */
-                            if (signedMessage.calledProfileHandle !== p2pNetworkNode.userProfile.userProfileHandle) {
+                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
@@ -175,7 +190,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             Here we will sign a message with the Network Node profile 
                             handle and timestamp to prove our own identity.
                             */
-                            socketClient.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
+                            thisObject.socket.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
                             let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).privateKey)
 
@@ -184,7 +199,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 signature: JSON.stringify(signature),
                                 step: 'Two'
                             }
-                            socketClient.send(JSON.stringify(message))
+                            thisObject.socket.send(JSON.stringify(message))
                         }
 
                         function stepTwoResponse(socketMessage) {
@@ -200,7 +215,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             Network Node and from now on, all response messages will be received
                             at this following function.
                             */
-                            socketClient.onmessage = socketMessage => { onMenssage(socketMessage) }
+                            thisObject.socket.onmessage = socketMessage => { onMenssage(socketMessage) }
                             resolve()
                         }
                     }
@@ -208,10 +223,10 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Connected to Network Node via Web Sockets .............. Disconnected from ' + p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)                
+                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ......... Disconnected from ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
-                    if (onConnectionClosedCallBack !== undefined) {
-                        onConnectionClosedCallBack(thisObject.id)
+                    if (thisObject.onConnectionClosedCallBack !== undefined) {
+                        thisObject.onConnectionClosedCallBack(thisObject.id)
                     }
                     thisObject.isConnected = false
                 }
@@ -229,7 +244,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 }
 
             } catch (err) {
-                console.log('[ERROR] Web Sockets Client -> setUpWebsocketClient -> err.stack = ' + err.stack)
+                console.log('[ERROR] Web Sockets Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
             }
 
         }
@@ -241,7 +256,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         function sendSocketMessage(resolve, reject) {
 
-            if (socketClient.readyState !== 1) { // 1 means connected and ready.
+            if (thisObject.socket.readyState !== 1) { // 1 means connected and ready.
                 console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
                 return
@@ -253,7 +268,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 payload: message
             }
             onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
-            socketClient.send(
+            thisObject.socket.send(
                 JSON.stringify(socketMessage)
             )
 
@@ -279,8 +294,44 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
-        onMessageFunctionsMap.delete(response.messageId)
-        onMenssageFunction(response)
+        let onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
+
+        if (onMenssageFunction !== undefined) {
+            /*
+            The message received is a response to a message sent.
+            */
+            onMessageFunctionsMap.delete(response.messageId)
+            onMenssageFunction(response)
+        } else {
+            /*
+            The message received is a not response to a message sent.
+            */
+            let messageHeader
+            try {
+                messageHeader = JSON.parse(message)
+            } catch (err) {
+                console.log('[ERROR] Web Sockets Client -> onMenssage -> message = ' + message)
+                console.log('[ERROR] Web Sockets Client -> onMenssage -> err.stack = ' + err.stack)
+                thisObject.socket.close()
+                return
+            }
+
+            switch (thisObject.callerRole) {
+                case 'Network Client': {
+                    /*
+                    This is the use case of a network client receiving a notification of 
+                    somethinig that happened at the network that is relevant to itself.
+                    */
+                    break
+                }
+                case 'Network Peer': {
+                    /*
+                    No use cases so far were a Network Peer would send a message through an
+                    incomming websockets connection, without having received a request first.
+                    */
+                    break
+                }
+            }
+        }
     }
 }

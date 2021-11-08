@@ -47,6 +47,8 @@ function newListSelector() {
 
     const SIZE = 36
     const FONT_SIZE = 24
+    const MAX_LABELS = 7
+
     let VISIBLE_LABELS = 7
     let selected = 0
 
@@ -107,7 +109,10 @@ function newListSelector() {
             deactivate()
         }
 
-        if (optionsList.length < VISIBLE_LABELS) {
+        console.log(optionsList.length)
+        console.log(VISIBLE_LABELS)
+
+        if (optionsList.length < MAX_LABELS) {
             VISIBLE_LABELS = optionsList.length
         }
 

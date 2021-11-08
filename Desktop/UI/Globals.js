@@ -4,6 +4,7 @@ let UI = {
     projects: {},
     schemas: { projectSchema: undefined },
     environment: undefined,
+    clientNode: undefined,
     running: {}
 }
 

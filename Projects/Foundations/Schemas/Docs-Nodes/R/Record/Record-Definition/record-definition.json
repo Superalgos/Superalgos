@@ -42,7 +42,7 @@
         },
         {
             "style": "Text",
-            "text": "The formulas nodes there are used to expand the record definition adding fields that are not actually going to be saved on disk, to minimize space used, and they are going to be calculated at runtime. This allows proceeses that consume this data to have ell the fields available at runtime even though some were not actually saved on disk."
+            "text": "The formulas nodes there are used to expand the record definition adding fields that are not actually going to be saved on disk, to minimize space used, and they are going to be calculated at runtime. This allows processes that consume this data to have ell the fields available at runtime even though some were not actually saved on disk."
         }
     ]
 }

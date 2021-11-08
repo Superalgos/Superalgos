@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Die Trading Parameters bestimmen wichtige Aspekte des Ablaufs einer Handelssitzung. Werfen wir einen kurzen, oberflächlichen Blick darauf...",
                 "updated": 1634222050905
+            },
+            {
+                "language": "TR",
+                "text": "Alım Satım Parametreleri ( Trading Parameters ), alım satım seansının nasıl yürütüldüğünün temel yönlerini belirler. Hızlı, yüzeysel bir göz atalım...",
+                "updated": 1636120903968
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Session Base Asset: Es wird kein Kapital in BTC zugewiesen.",
                     "updated": 1634222067587
+                },
+                {
+                    "language": "TR",
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'ye sermaye tahsis edilmez.",
+                    "updated": 1636121181916
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "DE",
                     "text": "Session Quoted Asset: 1000 USDT des Anfangskapitals.",
                     "updated": 1634222071545
+                },
+                {
+                    "language": "TR",
+                    "text": "Session Quoted Asset (Oturumda Kote Edilen Varlık): 1000 USDT başlangıç sermayesi.",
+                    "updated": 1636121192365
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "DE",
                     "text": "Time Range: Wir testen einen einzigen Tag, 2020-09-01.",
                     "updated": 1634222083921
+                },
+                {
+                    "language": "TR",
+                    "text": "Time Range (Zaman Aralığı): Tek bir günü test edeceğiz, 01 Eylül 2020",
+                    "updated": 1636121263576
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "DE",
                     "text": "Time Frame: Aufträge werden jede Minute erteilt/storniert, daher ist 01-min angemessen.",
                     "updated": 1634222093512
+                },
+                {
+                    "language": "TR",
+                    "text": "Time Frame (Zaman periyodu): siparişler her dakika verilir/iptal edilir, bu nedenle 01 dakika uygundur.",
+                    "updated": 1636121307468
                 }
             ]
         },
@@ -136,6 +161,11 @@
                     "language": "DE",
                     "text": "Slippage: ist in diesem Fall irrelevant, da dieses spezielle Handelssystem nur Limit-Orders verwendet.",
                     "updated": 1634222103935
+                },
+                {
+                    "language": "TR",
+                    "text": "Slippage (Kayma): Bu özel ticaret sistemi sadece limit emirleri kullandığından, bu durum için önemsizdir.",
+                    "updated": 1636121458592
                 }
             ]
         },
@@ -159,6 +189,11 @@
                     "language": "DE",
                     "text": "Fee Structure: 0,1% ist die niedrigste Binance-Stufe.",
                     "updated": 1634222115242
+                },
+                {
+                    "language": "TR",
+                    "text": "Fee Structure (Komisyon): Binance için %0,1 olduğunu varsayalım.",
+                    "updated": 1636121571785
                 }
             ]
         },
@@ -183,6 +218,11 @@
                     "language": "DE",
                     "text": "Die übrigen Parameter haben keinen Einfluss auf die Simulation. Um mehr über Trading Parameters zu erfahren, werfen Sie einen Blick in die Dokumentation.",
                     "updated": 1634222122265
+                },
+                {
+                    "language": "TR",
+                    "text": "Kalan parametreler simülasyonu etkilemez. İşlem Parametreleri hakkında daha fazla bilgi edinmek için belgelere bakın.",
+                    "updated": 1636121544786
                 }
             ]
         }

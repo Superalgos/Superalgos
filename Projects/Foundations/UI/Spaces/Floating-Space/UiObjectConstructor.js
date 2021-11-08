@@ -47,7 +47,7 @@ function newUiObjectConstructor() {
         When this object is created based on a backup, share or clone, 
         we will have a savedPayload that we will use to set the initial properties.
         If it is a new object being created out of the user interface, 
-        we jusst continue with the construction process.
+        we just continue with the construction process.
         */
         if (userAddingNew === false && payload.node.type !== 'Workspace') {
             let position = {
@@ -224,7 +224,7 @@ function newUiObjectConstructor() {
         return
     }
 
-    function addLeftIcons(menuItemsInitialValues, floatingObject, isPersonalData) {
+    function addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument) {
         menuItemsInitialValues.push(
             {
                 action: 'Pin / Unpin',
@@ -348,7 +348,7 @@ function newUiObjectConstructor() {
                 ring: 2
             }
         )
-        if (isPersonalData !== true) {
+        if (schemaDocument.isPersonalData !== true) {
             menuItemsInitialValues.push(
                 {
                     action: 'Share',
@@ -431,6 +431,23 @@ function newUiObjectConstructor() {
                 ring: 3
             }
         )
+        if (schemaDocument.referencingRules !== undefined) {
+            menuItemsInitialValues.push(
+                {
+                    action: 'Create Reference',
+                    actionFunction: floatingObject.payload.executeAction,
+                    actionProject: 'Visual-Scripting',
+                    label: undefined,
+                    visible: true,
+                    iconPathOn: 'create-reference',
+                    iconPathOff: 'create-reference',
+                    rawRadius: 12,
+                    targetRadius: 0,
+                    currentRadius: 0,
+                    ring: 3
+                }
+            )
+        }
 
         menuItemsInitialValues.push(
             {
@@ -473,6 +490,12 @@ function newUiObjectConstructor() {
                     uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
                 }
+                if (schemaDocument.editors.list === true) {
+                    uiObject.listSelector = newListSelector()
+                    uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                    uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                    uiObject.listSelector.initialize()
+                }
                 if (schemaDocument.editors.condition === true) {
                     uiObject.conditionEditor = newConditionEditor()
                     uiObject.conditionEditor.isVisibleFunction = uiObject.isVisibleFunction
@@ -480,8 +503,14 @@ function newUiObjectConstructor() {
                     uiObject.conditionEditor.initialize()
                 }
             }
+            if (schemaDocument.referencingRules !== undefined) {
+                uiObject.listSelector = newListSelector()
+                uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                uiObject.listSelector.initialize()
+            }
             if (schemaDocument.addLeftIcons === true) {
-                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument.isPersonalData)
+                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument)
             }
             if (schemaDocument.isPinned === true) {
                 floatingObject.isPinned = true

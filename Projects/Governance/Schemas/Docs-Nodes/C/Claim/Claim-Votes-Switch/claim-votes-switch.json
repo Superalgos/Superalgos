@@ -2,7 +2,14 @@
     "type": "Claim Votes Switch",
     "definition": {
         "text": "Use this switch to spawn different types of Claim Votes, and to reference Claims Folder types of nodes within the Claims Program section of the User Profile hierarchy to map large structures of claims.",
-        "updated": 1630349853006
+        "updated": 1630349853006,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este switch abrir tipos diferentes de Claim Votes, y para referenciar tipos de nodos Claims Folder incluídos en el Claims Program en la sección de la jerarquía del User Profilepara mapear grandes estructuras de solicitudess.",
+                "updated": 1636039814895
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,41 +20,97 @@
         {
             "style": "Text",
             "text": "You may use this switch for three different purposes:",
-            "updated": 1630345326820
+            "updated": 1630345326820,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede usar este interruptor para tres propósitos diferentes:",
+                    "updated": 1636039855908
+                }
+            ]
         },
         {
             "style": "List",
             "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes.",
-            "updated": 1630345425238
+            "updated": 1630345425238,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como un dispositivo organizacional: puede crear arbitrariamente arreglos de votos, desplegando más switches y votos.",
+                    "updated": 1636040002945
+                }
+            ]
         },
         {
             "style": "List",
             "text": "As a switch: You may control the flow of Claim Support Power, pretty much like with the Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
-            "updated": 1630355954531
+            "updated": 1630355954531,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como un switch: Ypuede controlar el flujo del Claim Support Power, muy parecido al Token Power Switch, pero sin el Voting Program. Si necesita un recordatorio, lea como fluye el Token Power Flows.",
+                    "updated": 1636040127007
+                }
+            ]
         },
         {
             "style": "List",
             "text": "As a data-structure mapper: Use the node to reference Claims Folder types of nodes to map entire structures of claims on other User Profile hierarchies.",
-            "updated": 1630345729468
+            "updated": 1630345729468,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como mapeador de estructuras de datos: Use el nodo para referir  Claims Foldertipo de nodo para mapear estructuras enteras de solicitudes, en otra jerarquía del User Profile.",
+                    "updated": 1636040291714
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The first two use cases are self-explanatory. Let's explore the third one in more detail.",
-            "updated": 1630349876232
+            "updated": 1630349876232,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los primeros dos casos de uso  son autoexplicativo. Exploremos el tercer caso con más detalle.",
+                    "updated": 1636040377996
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Use a Claim Votes Switch node to establish a reference with a Claims Folder type of node — Position Claims Folder, Feature Claims Folder, or Asset Claims Folder — within the Claims Program section of your colleague's User Profile node. Then use the Install Missing Votes option on the menu of the Claim Votes Switch to map the entire Claims Folder! ",
-            "updated": 1630497475900
+            "updated": 1630497475900,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Use un nodo Claim Votes Switch para establecer la referencia de Claims Folde con un tipo de nodo — Position Claims Folder, Feature Claims Folder, o Asset Claims Folder — incluídos en la sección de Claims Program en el nodo del User Profile de un colega. Entonces use la opción de Install Missing Votes en el menú del Claim Votes Switch para mapear por completo el Claims Folder!",
+                    "updated": 1636040586880
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The process creates a Claim Votes Switch for each Claims Folder, and matching Claim Votes for each Asset Contribution Claim, Feature Contribution Claim, or Position Contribution Claim defined within each folder."
+            "text": "The process creates a Claim Votes Switch for each Claims Folder, and matching Claim Votes for each Asset Contribution Claim, Feature Contribution Claim, or Position Contribution Claim defined within each folder.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El proceso crea un Claim Votes Switch para cada Claims Folder, y emparejando Claim Votes fpara cada Asset Contribution Claim, Feature Contribution Claim, o Position Contribution Claim definida en cada carpeta.",
+                    "updated": 1636040713515
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Votes process again. The process will remap the structure with the appropriate votes and switches.",
-            "updated": 1630348162382
+            "updated": 1630348162382,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si algo cambia del lado de las definiciones, puede siempre retroceder yhacer correr nuevamente el proceso de Install Missing Votes . E proceso remapeará la estructura con los votos y los switches adecuados.",
+                    "updated": 1636040878722
+                }
+            ]
         },
         {
             "style": "Block",

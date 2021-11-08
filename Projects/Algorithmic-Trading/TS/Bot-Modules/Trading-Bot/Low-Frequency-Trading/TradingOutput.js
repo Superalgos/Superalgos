@@ -1,6 +1,6 @@
 exports.newAlgorithmicTradingBotModulesTradingOutput = function (processIndex) {
     /*
-    This module will load if necesary all the data outputs so that they can be appended with new
+    This module will load if necessary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
     */
     const MODULE_NAME = 'Trading Output'

@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set at the node iwhen the Node is first created. ",
+            "text": "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set at the node when the Node is first created. ",
             "updated": 1609244634949
         }
     ]

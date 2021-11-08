@@ -2,7 +2,14 @@
     "type": "Claims Program",
     "definition": {
         "text": "When you contribute to Superalgos, you must produce a claim for your contribution, and you must harness the support of people working close to you, who will vouch or vote for your claims.",
-        "updated": 1630256293740
+        "updated": 1630256293740,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "cuando contribuye con Superalgos, debe producir una solicitud por dicha contribución, y debeand you must aprovechar el apoyo de las personas que trabajan cerca de usted, quienes responderá o votará por sus solicitudes.",
+                "updated": 1636041066589
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,15 +20,36 @@
         {
             "style": "Important",
             "text": "Governance is decentralized. There is no central authority controlling who contributes what or what rewards contributors get. Instead, the project delegates in the Community the capacity to establish the value of contributions and to determine who contributed what.",
-            "updated": 1630256982050
+            "updated": 1630256982050,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La gobernanza es descentralizada. No hay una autoridad central controlando quien contribuye queo que recompensas  reciben los contribuyentes. En lugar de eso, el proyecto delega en la comunidad la capacidad de establecer el valor de las contribuciones y de determinar quien contribuye que.",
+                    "updated": 1636041621066
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As such, governance is a social system. When you get involved with Superalgos, you interact with the Community and find ways to contribute. While doing so, you relate to or associate with community members that have similar interests or are focused on the same areas of the project you may be working in. It is these people that will vouch for your claims!"
+            "text": "As such, governance is a social system. When you get involved with Superalgos, you interact with the Community and find ways to contribute. While doing so, you relate to or associate with community members that have similar interests or are focused on the same areas of the project you may be working in. It is these people that will vouch for your claims!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como tal, la gobernanza es un sistema social. Cuando se involucra con Superalgos,  interactúa con la comunidad y encuentra modos de contribuir. Mientras hace eso, entra en relación o se asocia con miembros de la comunidad que tienen intereses similares o que están focalizados en las mismas áreas del proyecto en las que está trabajando. Esta es la gente que los respaldará en sus solicitudes!",
+                    "updated": 1636041930754
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three different types of claims you may place: "
+            "text": "There are three different types of claims you may place: ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay tres tipos diferentes de solicitudes que puede realizar:",
+                    "updated": 1636041961553
+                }
+            ]
         },
         {
             "style": "List",
@@ -38,7 +66,14 @@
         },
         {
             "style": "Text",
-            "text": "There are also three different folder types of nodes that act as organizational devices from which you may spawn the above claim nodes:"
+            "text": "There are also three different folder types of nodes that act as organizational devices from which you may spawn the above claim nodes:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "También hay tres tipos de carpetas de nodos diferentes que actúan como dispositivos organizativos a partir de los cuales puede generar los nodos de solicitudes anteriores.:",
+                    "updated": 1636042005643
+                }
+            ]
         },
         {
             "style": "List",
@@ -56,7 +91,14 @@
         },
         {
             "style": "Text",
-            "text": "These three types of claims match the three types of definition hierarchies used to describe the project:"
+            "text": "These three types of claims match the three types of definition hierarchies used to describe the project:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos tres tipos de declaraciones coinciden con los tres tipos de jerarquías de definición que se utilizan para describir el proyecto:",
+                    "updated": 1636042035723
+                }
+            ]
         },
         {
             "style": "List",
@@ -73,35 +115,84 @@
         {
             "style": "Callout",
             "text": "To place a claim, use the appropriate type of contribution claim node to reference the matching type of definition. For example, use an Asset Contribution Claim node to reference an Asset node within an Assets hierarchy. When you do that, you are effectively placing a claim on that asset.",
-            "updated": 1630323960334
+            "updated": 1630323960334,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para colocar un reclamo, use el tipo apropiado de nodo de reclamo de contribución para hacer referencia al tipo de definición coincidente.Por ejemplo, use un nodo de Asset Contribution Claim para referenciar un nodo de Asset node con una jerarquía Assets. Cuando hace esto, está efectivamente colocando una solicituda en dicho asset.",
+                    "updated": 1636042322243
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This claim means that you declare that you have worked on that asset, either creating or improving it, and that you expect to be rewarded accordingly."
+            "text": "This claim means that you declare that you have worked on that asset, either creating or improving it, and that you expect to be rewarded accordingly.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta afirmación significa que declara que ha trabajado en ese activo, ya sea creándolo o mejorándolo, y que espera ser recompensado en consecuencia.",
+                    "updated": 1636042350532
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "How a claim is resolved depends on three interrelated concepts:",
-            "updated": 1630256564789
+            "updated": 1630256564789,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La forma en que se resuelve una reclamación depende de tres conceptos interrelacionados:",
+                    "updated": 1636042384399
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Claim Power you drive into the node that places the claim.",
-            "updated": 1630256658386
+            "updated": 1630256658386,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Claim Power que dirija hacia el nodo que coloca la solicitud.",
+                    "updated": 1636042424716
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Claim Votes your claim gets from other users, and the Voting Power they drive into those votes."
+            "text": "The Claim Votes your claim gets from other users, and the Voting Power they drive into those votes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Claim Votes que su solicitud obtenga de otros usuarios, y el Voting Power ellos dirijen a esos votos.",
+                    "updated": 1636042491572
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Token Rewards available within the definition node you are claiming.",
-            "updated": 1630256728009
+            "updated": 1630256728009,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "LasToken Rewards disponibles con la definición del nodo que ha presentado la solicitud.",
+                    "updated": 1636042546324
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To learn all the details about claims resolution, read the How Claims are Resolved page in the Governance Flow topic of The Governance Project book.",
-            "updated": 1630257166423
+            "updated": 1630257166423,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para aprender estos detalles acerca de las claims resolution, leer la página How Claims are Resolved (como se resuelven las solicitudes)en el topico del flujo de gobernanza del libro Governance Project.",
+                    "updated": 1636042664873
+                }
+            ]
         },
         {
             "style": "Text",

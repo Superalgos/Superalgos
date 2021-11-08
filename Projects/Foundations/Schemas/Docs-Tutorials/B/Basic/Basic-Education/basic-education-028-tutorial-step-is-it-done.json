@@ -6,8 +6,8 @@
         "text": "If you haven't yet, go ahead and establish a reference from the Trading System Reference to the Lightning Strike Trading System!",
         "updated": 1615808208398,
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "translations": [
             {

@@ -26,7 +26,7 @@
             TS.projects.foundations.globals.taskVariables.LOGGER_MAP.set('Pre-Bot-Main-Loop' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].id, TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT)
             /*
             There are a few variables with the scope of the process instance. We will store it here so that it can be
-            accesed from where it is needed.
+            accessed from where it is needed.
             */
             VARIABLES_BY_PROCESS_INDEX = {
                 MAIN_LOOP_COUNTER: 0,

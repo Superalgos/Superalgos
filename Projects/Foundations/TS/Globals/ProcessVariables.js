@@ -1,8 +1,8 @@
 exports.newFoundationsGlobalsProcessVariables = function () {
     /*
     We need to count how many process instances we deployd and how many of them have already finished their job, either
-    because they just finished or because there was a request to stop the proceses. In this way, once we reach the
-    amount of instances started, we can safelly destroy the rest of the objects running and let this nodejs process die.
+    because they just finished or because there was a request to stop the processes. In this way, once we reach the
+    amount of instances started, we can safely destroy the rest of the objects running and let this nodejs process die.
     */
     let thisObject = {
         ENDED_PROCESSES_COUNTER: 0,
@@ -13,7 +13,7 @@ exports.newFoundationsGlobalsProcessVariables = function () {
     /*
     VARIABLES_BY_PROCESS_INDEX_MAP
 
-    At the Task Server, a Task run Procesess, potentially many of them, depending on definitions external to the
+    At the Task Server, a Task run Processes, potentially many of them, depending on definitions external to the
     Task Server. Each process is independent from each other and have a set of process level variables that help
     the process do its job. You can consider these variables as the process state. All the modules running inside
     a process know the processIndex, and with that index they can get this Map that contains all the needed variables
@@ -33,7 +33,7 @@ exports.newFoundationsGlobalsProcessVariables = function () {
     IS_SESSION_STOPPING                     This tell us if a session is in the process of being stopped.
     IS_SESSION_RESUMING                     This tell us if a session is resuming from the state at the previous execution.
     IS_SESSION_FIRST_LOOP                   This tell us if we are at the execution of the first loop of the bot related to this session.
-    SIMULATION_STATE                        This is the state of a simulaation, as it is loaded from disk. 
+    SIMULATION_STATE                        This is the state of a simulation, as it is loaded from disk.
     PROCESS_DATETIME                        This holds the date currently being processed.
     DAILY_FILES_PROCESS_DATETIME            When processing daily files, this holds the date of the file being processed.
     TRADING_PROCESSING_DAILY_FILES          When in a trading process, this tell us if we are processing Daily Files or not.

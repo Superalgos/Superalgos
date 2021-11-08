@@ -530,7 +530,7 @@ function newPlottersManager() {
                     }
                     finalizeStorage(connector.storage)
                     thisObject.connectors.splice(i, 1) // Delete item from array.
-                    return // We already found the product woth changes and processed it.
+                    return // We already found the product with changes and processed it.
                 }
             }
         }

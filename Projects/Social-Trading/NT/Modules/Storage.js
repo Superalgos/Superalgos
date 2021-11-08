@@ -89,7 +89,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         function saveOneMinuteOfEvents() {
             /*
             Here we will save all the events that were not saved before,
-            in one minute chunchs files.
+            in one minute batched files.
             */
             let eventsToSave = []
             let minuteToSave

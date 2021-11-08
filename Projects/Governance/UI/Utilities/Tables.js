@@ -74,7 +74,7 @@ function newGovernanceUtilitiesTables() {
             let orderArrow
             /*
             If the property is the one defining the order, then the new order will be
-            the opossite order.
+            the opposite order.
             */
             if (property.name === sortingOrder.property) {
                 if (sortingOrder.order === 'ascending') {
@@ -87,7 +87,7 @@ function newGovernanceUtilitiesTables() {
             } else {
                 orderArrow = ""
                 /*
-                If the property is not the current defininf the order, then the new order will
+                If the property is not the current defining the order, then the new order will
                 be the default order for that property.
                 */
                 for (let i = 0; i < tableRecordDefinition.properties.length; i++) {

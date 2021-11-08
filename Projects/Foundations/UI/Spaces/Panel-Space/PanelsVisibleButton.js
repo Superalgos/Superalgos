@@ -11,7 +11,7 @@ function newPanelsVisibleButton() {
         finalize: finalize
     }
 
-    /* Cointainer stuff */
+    /* Container stuff */
     thisObject.container = newContainer()
     thisObject.container.name = 'Panels Visible Button'
     thisObject.container.initialize()

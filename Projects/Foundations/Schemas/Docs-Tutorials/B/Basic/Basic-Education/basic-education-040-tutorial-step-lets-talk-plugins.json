@@ -6,8 +6,8 @@
         "text": "Plugins are data structures that ship with the system and that you may call into any workspace using the Plugins hierarchy.",
         "updated": 1615914003358,
         "icon": {
-            "name": "Plugins\\plugins",
-            "project": "Foundations"
+            "name": "plugins",
+            "project": "Community-Plugins"
         },
         "translations": [
             {

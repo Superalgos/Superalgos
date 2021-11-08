@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Visual Scripting on Steroids",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "indicator-bot"
+            "name": "indicator-bot",
+            "project": "Data-Mining"
         },
         "text": "Talking about block-building, we are now in the confines of the Masters Data Mine. To your left, the definition of one of the bots you sent mining minutes ago.",
         "translations": [
@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Apropos Blockbildung: Wir befinden uns jetzt in der Masters Data Mine. Zu Ihrer Linken sehen Sie die Definition eines der Bots, die Sie vor einigen Minuten zum Abbau geschickt haben.",
                 "updated": 1634218419044
+            },
+            {
+                "language": "TR",
+                "text": "Blok oluşturma hakkında konuşurken, artık Masters Data Mine'ın sınırlarındayız. Solunuzda, dakikalar önce madenciliğe gönderdiğiniz botlardan birini görüyorsunuz.",
+                "updated": 1636105640974
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Ähnlich wie bei den Lego-ähnlichen Definitionen des Charting Space werden auch die Bots in einer visuellen Umgebung definiert.",
                     "updated": 1634218423345
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanının ( Charting Space )'in Lego benzeri olduğu gibi, botlarda görsel bir ortamda tanımlanmıştır.",
+                    "updated": 1636105839670
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Alles, was die Entwickler programmieren müssen, ist die eigentliche Data Building Procedure.",
                     "updated": 1634218433837
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri oluşturma prosedürleri ( Data Building Procedure ) geliştiriciler tarafından tanımlanmıştır.",
+                    "updated": 1636106164354
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Alles andere wird in einer visuellen Umgebung definiert: Prozesse mit ihren Abhängigkeiten, Ausgaben usw. und Produkte mit ihren Datensatz- und Datasetdefinitionen usw.",
                     "updated": 1634218442797
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer her şey görsel bir ortamda tanımlanır: bağımlılıklar, çıktılar, süreçler, kayıt, veri seti tanımları, ürünler vb.",
+                    "updated": 1636106291422
                 }
             ]
         }

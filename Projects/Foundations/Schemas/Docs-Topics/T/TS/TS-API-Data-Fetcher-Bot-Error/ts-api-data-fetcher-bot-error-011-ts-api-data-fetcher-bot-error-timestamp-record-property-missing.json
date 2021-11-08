@@ -3,7 +3,7 @@
     "pageNumber": "11",
     "type": "TS API Data Fetcher Bot Error - Timestamp Record Property Missing",
     "definition": {
-        "text": "The API Data Fetcher Bot expects that one of the Repord Property nodes is defined with a config property codeName as a timestamp. This is a special value and concept. This means that the Record Property will hold the timestamp value returned by the API, but at the same time it assures the Bot that the information will be well organized by time. To solve this issue simply make sure that you have a Timestamp Record Property that ultimately references the Timestamp API Response Field holding the actual timestamp of the information returned by the API server.",
+        "text": "The API Data Fetcher Bot expects that one of the Record Property nodes is defined with a config property codeName as a timestamp. This is a special value and concept. This means that the Record Property will hold the timestamp value returned by the API, but at the same time it assures the Bot that the information will be well organized by time. To solve this issue simply make sure that you have a Timestamp Record Property that ultimately references the Timestamp API Response Field holding the actual timestamp of the information returned by the API server.",
         "updated": 1621860822884
     },
     "paragraphs": [
@@ -31,7 +31,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -55,7 +55,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -67,7 +67,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",

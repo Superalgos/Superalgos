@@ -1,20 +1,22 @@
 {
-    "type": "Bot Products",
+    "type": "Portfolio Mines Data",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Data Product",
-            "relatedUiObject": "Data Product",
+            "label": "Add Project Portfolio Products",
+            "relatedUiObject": "Project Portfolio Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add UI Object",
-            "label": "Add Data Product Folder",
-            "relatedUiObject": "Data Product Folder",
+            "action": "Add Missing Project Portfolio Products",
+            "label": "Add Missing Projects",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Project Portfolio Products",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -31,21 +33,14 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->"
+        "compatibleTypes": "->Data Storage->"
     },
-    "propertyNameAtParent": "botProducts",
+    "propertyNameAtParent": "portfolioMinesData",
     "childrenNodesProperties": [
         {
-            "name": "dataProducts",
+            "name": "projectPortfolioProducts",
             "type": "array",
-            "childType": "Data Product",
-            "autoAdd": false
-        },
-        {
-            "name": "dataProductFolders",
-            "type": "array",
-            "childType": "Data Product Folder",
-            "autoAdd": false
+            "childType": "Project Portfolio Products"
         }
     ]
 }

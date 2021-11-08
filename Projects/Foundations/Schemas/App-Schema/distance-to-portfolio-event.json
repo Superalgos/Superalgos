@@ -1,14 +1,6 @@
 {
-    "type": "Candle",
+    "type": "Distance To Portfolio Event",
     "menuItems": [
-        {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
-            "relatedUiObject": "Trading Parameters",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
@@ -31,50 +23,62 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode->Portfolio Episode->Learning Episode->"
+        "compatibleTypes": "->Portfolio Episode->"
     },
-    "propertyNameAtParent": "candle",
+    "propertyNameAtParent": "distanceToPortfolioEvent",
     "childrenNodesProperties": [
         {
-            "name": "begin",
+            "name": "triggerOn",
             "type": "node",
-            "childType": "Begin",
+            "childType": "Trigger On",
             "autoAdd": true
         },
         {
-            "name": "end",
+            "name": "triggerOff",
             "type": "node",
-            "childType": "End",
+            "childType": "Trigger Off",
             "autoAdd": true
         },
         {
-            "name": "open",
+            "name": "takePosition",
             "type": "node",
-            "childType": "Open",
+            "childType": "Take Position",
             "autoAdd": true
         },
         {
-            "name": "close",
+            "name": "closePosition",
             "type": "node",
-            "childType": "Close",
+            "childType": "Close Position",
             "autoAdd": true
         },
         {
-            "name": "min",
+            "name": "nextPhase",
             "type": "node",
-            "childType": "Min",
+            "childType": "Next Phase",
             "autoAdd": true
         },
         {
-            "name": "max",
+            "name": "moveToPhase",
             "type": "node",
-            "childType": "Max",
+            "childType": "Move To Phase",
             "autoAdd": true
         },
         {
-            "name": "index",
+            "name": "createOrder",
             "type": "node",
-            "childType": "Index",
+            "childType": "Create Order",
+            "autoAdd": true
+        },
+        {
+            "name": "cancelOrder",
+            "type": "node",
+            "childType": "Cancel Order",
+            "autoAdd": true
+        },
+        {
+            "name": "closeOrder",
+            "type": "node",
+            "childType": "Close Order",
             "autoAdd": true
         }
     ]

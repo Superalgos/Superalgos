@@ -1,18 +1,18 @@
 {
-    "type": "Candle",
+    "type": "Portfolio Episode Statistics",
     "menuItems": [
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
-            "relatedUiObject": "Trading Parameters",
+            "relatedUiObject": "Portfolio Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
-            "relatedUiObject": "Portfolio Parameters",
+            "action": "Add UI Object",
+            "label": "Add User Defined Statistic",
+            "relatedUiObject": "User Defined Statistic",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -31,50 +31,44 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode->Portfolio Episode->Learning Episode->"
+        "compatibleTypes": "->Portfolio Episode->"
     },
-    "propertyNameAtParent": "candle",
+    "propertyNameAtParent": "portfolioEpisodeStatistics",
     "childrenNodesProperties": [
         {
-            "name": "begin",
+            "name": "profitLoss",
             "type": "node",
-            "childType": "Begin",
+            "childType": "Profit Loss",
             "autoAdd": true
         },
         {
-            "name": "end",
+            "name": "ROI",
             "type": "node",
-            "childType": "End",
+            "childType": "ROI",
             "autoAdd": true
         },
         {
-            "name": "open",
+            "name": "hitFail",
             "type": "node",
-            "childType": "Open",
+            "childType": "Hit Fail",
             "autoAdd": true
         },
         {
-            "name": "close",
+            "name": "days",
             "type": "node",
-            "childType": "Close",
+            "childType": "Days",
             "autoAdd": true
         },
         {
-            "name": "min",
+            "name": "annualizedRateOfReturn",
             "type": "node",
-            "childType": "Min",
+            "childType": "Annualized Rate Of Return",
             "autoAdd": true
         },
         {
-            "name": "max",
-            "type": "node",
-            "childType": "Max",
-            "autoAdd": true
-        },
-        {
-            "name": "index",
-            "type": "node",
-            "childType": "Index",
+            "name": "userDefinedStatistics",
+            "type": "array",
+            "childType": "User Defined Statistic",
             "autoAdd": true
         }
     ]

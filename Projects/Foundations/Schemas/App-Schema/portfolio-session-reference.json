@@ -1,5 +1,5 @@
 {
-    "type": "Bot Products",
+    "type": "Portfolio Session Reference",
     "menuItems": [
         {
             "action": "Add UI Object",
@@ -11,10 +11,20 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Data Product Folder",
-            "relatedUiObject": "Data Product Folder",
+            "label": "Add Portfolio Mine Products",
+            "relatedUiObject": "Portfolio Mine Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add All Portfolio Mine Products",
+            "label": "Add All Portfolio Mine Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Portfolio Mine Products",
+            "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -28,12 +38,22 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent",
+        "Use Reference Parent Type",
+        "Use Child @marketDataProducts"
+    ],
     "addLeftIcons": true,
     "level": 3,
-    "attachingRules": {
-        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->"
+    "alternativeIcons": "Use Reference Parent",
+    "referencingRules": {
+        "compatibleTypes": "->Live Portfolio Session->"
     },
-    "propertyNameAtParent": "botProducts",
+    "attachingRules": {
+        "compatibleTypes": "->Market Portfolio Products->"
+    },
+    "propertyNameAtParent": "portfolioSessionReferences",
     "childrenNodesProperties": [
         {
             "name": "dataProducts",
@@ -42,9 +62,9 @@
             "autoAdd": false
         },
         {
-            "name": "dataProductFolders",
+            "name": "portfolioMineProducts",
             "type": "array",
-            "childType": "Data Product Folder",
+            "childType": "Portfolio Mine Products",
             "autoAdd": false
         }
     ]

@@ -1,20 +1,22 @@
 {
-    "type": "Bot Products",
+    "type": "Portfolio Mine Products",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Data Product",
-            "relatedUiObject": "Data Product",
+            "label": "Add Bot Products",
+            "relatedUiObject": "Bot Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add UI Object",
-            "label": "Add Data Product Folder",
-            "relatedUiObject": "Data Product Folder",
+            "action": "Add All Data Products",
+            "label": "Add All Data Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Data Product",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -30,21 +32,22 @@
     ],
     "addLeftIcons": true,
     "level": 3,
-    "attachingRules": {
-        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->"
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Portfolio Mine->"
     },
-    "propertyNameAtParent": "botProducts",
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Session Reference->"
+    },
+    "propertyNameAtParent": "portfolioMineProducts",
     "childrenNodesProperties": [
         {
-            "name": "dataProducts",
+            "name": "botProducts",
             "type": "array",
-            "childType": "Data Product",
-            "autoAdd": false
-        },
-        {
-            "name": "dataProductFolders",
-            "type": "array",
-            "childType": "Data Product Folder",
+            "childType": "Bot Products",
             "autoAdd": false
         }
     ]

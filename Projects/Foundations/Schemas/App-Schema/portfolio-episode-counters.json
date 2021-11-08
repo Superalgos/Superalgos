@@ -1,18 +1,18 @@
 {
-    "type": "Candle",
+    "type": "Portfolio Episode Counters",
     "menuItems": [
         {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
-            "relatedUiObject": "Trading Parameters",
+            "relatedUiObject": "Portfolio Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
-            "relatedUiObject": "Portfolio Parameters",
+            "action": "Add UI Object",
+            "label": "Add User Defined Counter",
+            "relatedUiObject": "User Defined Counter",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -31,51 +31,51 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode->Portfolio Episode->Learning Episode->"
+        "compatibleTypes": "->Portfolio Episode->"
     },
-    "propertyNameAtParent": "candle",
+    "propertyNameAtParent": "portfolioEpisodeCounters",
     "childrenNodesProperties": [
         {
-            "name": "begin",
+            "name": "periods",
             "type": "node",
-            "childType": "Begin",
+            "childType": "Periods",
             "autoAdd": true
         },
         {
-            "name": "end",
+            "name": "strategies",
             "type": "node",
-            "childType": "End",
+            "childType": "Strategies",
             "autoAdd": true
         },
         {
-            "name": "open",
+            "name": "positions",
             "type": "node",
-            "childType": "Open",
+            "childType": "Positions",
             "autoAdd": true
         },
         {
-            "name": "close",
+            "name": "orders",
             "type": "node",
-            "childType": "Close",
+            "childType": "Orders",
             "autoAdd": true
         },
         {
-            "name": "min",
+            "name": "hits",
             "type": "node",
-            "childType": "Min",
+            "childType": "Hits",
             "autoAdd": true
         },
         {
-            "name": "max",
+            "name": "fails",
             "type": "node",
-            "childType": "Max",
+            "childType": "Fails",
             "autoAdd": true
         },
         {
-            "name": "index",
-            "type": "node",
-            "childType": "Index",
-            "autoAdd": true
+            "name": "userDefinedCounters",
+            "type": "array",
+            "childType": "User Defined Counter",
+            "autoAdd": false
         }
     ]
 }

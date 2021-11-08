@@ -1,20 +1,22 @@
 {
-    "type": "Bot Products",
+    "type": "Exchange Portfolio Products",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Data Product",
-            "relatedUiObject": "Data Product",
+            "label": "Add Market Portfolio Products",
+            "relatedUiObject": "Market Portfolio Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add UI Object",
-            "label": "Add Data Product Folder",
-            "relatedUiObject": "Data Product Folder",
+            "action": "Add Missing Market Portfolio Products",
+            "label": "Add Missing Markets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market Portfolio Products",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -28,23 +30,25 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
     "addLeftIcons": true,
     "level": 3,
-    "attachingRules": {
-        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->"
+    "referencingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
     },
-    "propertyNameAtParent": "botProducts",
+    "attachingRules": {
+        "compatibleTypes": "->Project Portfolio Products->"
+    },
+    "propertyNameAtParent": "exchangePortfolioProducts",
     "childrenNodesProperties": [
         {
-            "name": "dataProducts",
+            "name": "marketPortfolioProducts",
             "type": "array",
-            "childType": "Data Product",
-            "autoAdd": false
-        },
-        {
-            "name": "dataProductFolders",
-            "type": "array",
-            "childType": "Data Product Folder",
+            "childType": "Market Portfolio Products",
             "autoAdd": false
         }
     ]

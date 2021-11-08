@@ -1,20 +1,22 @@
 {
-    "type": "Bot Products",
+    "type": "Market Portfolio Products",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Data Product",
-            "relatedUiObject": "Data Product",
+            "label": "Add Portfolio Session Reference",
+            "relatedUiObject": "Portfolio Session Reference",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add UI Object",
-            "label": "Add Data Product Folder",
-            "relatedUiObject": "Data Product Folder",
+            "action": "Add Missing Portfolio Session References",
+            "label": "Add Missing Sessions",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Portfolio Session Reference",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
         },
         {
@@ -30,22 +32,23 @@
     ],
     "addLeftIcons": true,
     "level": 3,
-    "attachingRules": {
-        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->"
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent Parent",
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Market->"
     },
-    "propertyNameAtParent": "botProducts",
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Portfolio Products->"
+    },
+    "propertyNameAtParent": "marketPortfolioProducts",
     "childrenNodesProperties": [
         {
-            "name": "dataProducts",
+            "name": "portfolioSessionReferences",
             "type": "array",
-            "childType": "Data Product",
-            "autoAdd": false
-        },
-        {
-            "name": "dataProductFolders",
-            "type": "array",
-            "childType": "Data Product Folder",
-            "autoAdd": false
+            "childType": "Portfolio Session Reference"
         }
     ]
 }

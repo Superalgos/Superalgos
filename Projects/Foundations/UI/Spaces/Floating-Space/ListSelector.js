@@ -109,9 +109,6 @@ function newListSelector() {
             deactivate()
         }
 
-        console.log(optionsList.length)
-        console.log(VISIBLE_LABELS)
-
         if (optionsList.length < MAX_LABELS) {
             VISIBLE_LABELS = optionsList.length
         }

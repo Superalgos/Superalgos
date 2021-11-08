@@ -1,14 +1,6 @@
 /*
-The Superalgos Network offers 3 types of services:
-
-    * Social Graph Service
-    * Search Index Service
-    * Private Message Service
-    
-Users can decide which services to run at their node.(TODO)
-
-This module represents the Nodejs command that users have to start the Network Node..
-
+This is to start a new instance of a test node running with Node identity #2 as 
+defined at the Environment.js file.
 */
 
 let APP_ROOT = require('./NetworkRoot.js')

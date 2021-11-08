@@ -40,6 +40,11 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
                     }
                     break
+                case 'ClientNode':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(DK.desktopApp.p2pNetworkClient.node), httpResponse)
+                    }
+                    break
                 case 'ProjectsSchema':
                     {
                         let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsSchema.json'

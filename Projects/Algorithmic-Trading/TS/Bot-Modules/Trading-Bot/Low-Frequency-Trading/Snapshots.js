@@ -135,7 +135,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
     function evalNode(node) {
         if (node === undefined) { return }
 
-        /* Here we check if there is a codition to be evaluated */
+        /* Here we check if there is a condition to be evaluated */
         if (node.type === 'Condition') {
             /* We will eval this condition */
             evalCondition(node)
@@ -154,7 +154,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -398,7 +398,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
                     if (record[record.length - 1] === undefined && contentArray.length > 0) {
 
                         let rowToMutateArray = contentArray[contentArray.length - 1].split(',')
-                            // check if are for sure on the same tradenumber and merge the data and remove previous line incl separator
+                            // check if are for sure on the same trade number and merge the data and remove previous line incl separator
                         if (rowToMutateArray[0] == record[0]) {
                             record.pop()
                             rowToMutateArray.splice(0, record.length)
@@ -451,7 +451,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
                 function onFileReceived(err, text) {
                     if (err.result === TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE.result) {
                         try {
-                            // remove the last linebreak and seperator which is introduced extra during save
+                            // remove the last linebreak and separator which is introduced extra during save
                             text = text.replace(/\n$/, '')
                             text = text.replace(/\r\n$/, '')
                             writeOutput(text)

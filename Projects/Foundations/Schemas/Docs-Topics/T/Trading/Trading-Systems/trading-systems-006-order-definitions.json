@@ -3,7 +3,7 @@
     "pageNumber": "6",
     "type": "Order Definitions",
     "definition": {
-        "text": "All types of orders have similar definitions. The one difference between market and limit orders is that market orders do no hace an Order Rate definition.",
+        "text": "All types of orders have similar definitions. The one difference between market and limit orders is that market orders do no have an Order Rate definition.",
         "updated": 1610197366077
     },
     "paragraphs": [

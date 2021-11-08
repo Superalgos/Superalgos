@@ -65,7 +65,7 @@
             This is the Date that is going to be used across the execution of this Trading Process. 
             We need this because it has a different life cycle than the processData stored at the 
             Trading Engine data structure. This date has to remain the same during the whole execution
-            of the Trading Process until the end, inclusind the writing of Data Ranges and Status Reports.
+            of the Trading Process until the end, including the writing of Data Ranges and Status Reports.
             The processDate of the Trading Engine data structure on the other hand can be changed during
             the simulation loop, once we discover that all candles from a certain date have benn processed.
             Here is the point where we sync one and the other.
@@ -108,7 +108,7 @@
                 Here we check if we need to get Daily Files or not. As an optimization, when 
                 we are running on a Time Frame of 1hs or above, we are not going to load 
                 dependencies on Daily Files. The way we recognize that is by checking if 
-                we alreaady set a value to currentTimeFrame.value. We are also not going to loop
+                we already set a value to currentTimeFrame.value. We are also not going to loop
                 through days if we are processing market files.
             */
             if (currentTimeFrame.value) {

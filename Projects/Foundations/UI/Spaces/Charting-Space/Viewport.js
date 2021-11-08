@@ -177,7 +177,7 @@ function newViewport() {
     function positioningPhysics() {
         if (thisObject.visible === false) { return }
         if (thisObject.payload === undefined) { return }
-        /* Save the position at the frame lavel */
+        /* Save the position at the frame level */
         let frame = {}
         frame.position = position
         UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(thisObject.payload, frame)

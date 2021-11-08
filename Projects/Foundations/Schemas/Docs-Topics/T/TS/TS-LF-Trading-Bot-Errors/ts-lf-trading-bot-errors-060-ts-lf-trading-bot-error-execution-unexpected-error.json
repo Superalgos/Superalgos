@@ -3,7 +3,7 @@
     "pageNumber": 60,
     "type": "TS LF Trading Bot Error - Execution Unexpected Error",
     "definition": {
-        "text": "An Unexpected Error occurred while procesing the execution of orders. The LF Trading Bot continued running after reporting this error.",
+        "text": "An Unexpected Error occurred while processing the execution of orders. The LF Trading Bot continued running after reporting this error.",
         "updated": 1611953087876
     },
     "paragraphs": [

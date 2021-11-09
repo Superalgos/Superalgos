@@ -2,7 +2,14 @@
     "type": "Reusable Governance Snippets",
     "definition": {
         "text": "A collection of reusable snippets of text to be reused within the Governance Project.",
-        "updated": 1630091213561
+        "updated": 1630091213561,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "\nUna colección de fragmentos de texto reutilizables que se utilizarán en el Governance Project.",
+                "updated": 1636284706815
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -20,11 +27,25 @@
         },
         {
             "style": "Text",
-            "text": "The governance system does all calculations dynamically, in real-time, with every change in the definitions, and computes all the hierarchies loaded in the Current Workspace."
+            "text": "The governance system does all calculations dynamically, in real-time, with every change in the definitions, and computes all the hierarchies loaded in the Current Workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El sistema de gobernanza realiza todos los cálculos de forma dinámica, en tiempo real, con cada cambio en las definiciones, y calcula todas las jerarquías cargadas en el Current Workspace ( espacio de trabajo actual).",
+                    "updated": 1636284761335
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "The above means that the calculations that you see from within any given Workspace is a partial calculation within the scope of the Current Workspace only. Definitions, claims, votes, and so on, existing on other workspaces or plugins are not computed."
+            "text": "The above means that the calculations that you see from within any given Workspace is a partial calculation within the scope of the Current Workspace only. Definitions, claims, votes, and so on, existing on other workspaces or plugins are not computed.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Lo anterior significa que los cálculos que ve desde dentro de cualquier Espacio de trabajo determinado es un cálculo parcial dentro del alcance del Current Workspace solamente. Definiciones, solicitudes, votos, y lo demás,que existan en otros workspaces o plugins ( enchufes) no se computan.",
+                    "updated": 1636284903141
+                }
+            ]
         },
         {
             "style": "Block",
@@ -34,17 +55,38 @@
         {
             "style": "Text",
             "text": "If you cast votes or place claims in more than one Governance Workspace, you will not be able to see what some of your claims and votes are about — in particular, those that live on a workspace that is not the Current Workspace.",
-            "updated": 1630569998640
+            "updated": 1630569998640,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si emite votos o presenta solicitudes en más de un Governance Workspace, no podrá ver de qué se tratan algunas de sus solicitudes y votos — en particular, auqellos que viven en otro workspace que no sea el Current Workspace.",
+                    "updated": 1636285332446
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you wish to have a clearer picture of all your votes and claims, you may want to set up a new workspace that includes all the hierarchies that you need to interact with. That way, you will be able to see all of your votes and claims at the same time. To do this, save a new workspace deriving from one of the Governance Workspaces and load the plugins you need.",
-            "updated": 1630570350637
+            "updated": 1630570350637,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si desea ver un panorama más claro de todos sus votos y solicitudes puede desear establecer un nuevo workspace que incluya todas las jerarquías que necesita para interactuar. De este modo, le será posible ver todos sus votos y slicitudes  al mismo tiempo. Para hacer esto, grabe un nuevoworkspace derivado de uno de los Governance Workspaces y suba los plugins que necesite.",
+                    "updated": 1636285539916
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Even if you do as suggested above, the calculations you see in terms of Token Rewards, Tokens Awarded, Tokens Bonus, and so on, are still partial. The actual Distribution Event calculation involves computing all of the Project Definition Hierarchies, including all User Profile hierarchies participating in governance.",
-            "updated": 1630570663757
+            "updated": 1630570663757,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Incluso si hace lo sugerido anteriormente, los cálculos que ve en términos deToken Rewards, Tokens Awarded, Tokens Bonus, etcétera, son aún parciales. Los cálculos del actual Distribution Event ( evento de distribución) involucra cómputos de Project Definition Hierarchies ( las jeraquías de definición del proyecto), incluyendo todas las jerarquías de los User Profile ( perfil de usuarios) participando en la gobernanza.",
+                    "updated": 1636285818138
+                }
+            ]
         },
         {
             "style": "Text",
@@ -67,7 +109,14 @@
         {
             "style": "Success",
             "text": "If you have contributed work or wish to go deep with your participation in governance, you will most likely need to interact with one or more of the project-specific Governance Workspaces. To do that, load your User Profile into the corresponding workspaces so that you may establish references to place Contribution Claims and cast Weight Votes.",
-            "updated": 1630574190576
+            "updated": 1630574190576,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si ha contribuido con el trabajo o desea profundizar en su participación en la gobernanza, lo más probable es que necesite interactuar con uno o más de los proyectos específicos. de Governance Workspaces. Para hacer esto, suba su User Profile en los workspaces correspondientes para que pueda establecer las referencias para colocar Contribution Claims ( solicitudes de contribución)y emitir Weight Votes ( votos de peso).",
+                    "updated": 1636285975614
+                }
+            ]
         },
         {
             "style": "Block",
@@ -86,7 +135,14 @@
         {
             "style": "Important",
             "text": "Participation in this program is incentivized with a Tokens Bonus, meaning you earn tokens just by participating! Read about Tokens Bonus to learn more!",
-            "updated": 1630230393431
+            "updated": 1630230393431,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La Participación en este programa es incentivado con un Tokens Bonus( bono de tokens), lo que significa que ganará tokens solo por  participar! Lea más acerca de  Tokens Bonus para aprender más!",
+                    "updated": 1636286109976
+                }
+            ]
         },
         {
             "style": "Block",
@@ -104,7 +160,14 @@
         {
             "style": "Success",
             "text": "Read about the Community Building Programs to learn how this program calculates Tokens Awarded.",
-            "updated": 1630232362107
+            "updated": 1630232362107,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Leer acerca de Community Building Programs ( Progamas para construir comunidades) para aprender como este programa calcula los Tokens Awarded (Tokens otorgados).",
+                    "updated": 1636286206288
+                }
+            ]
         },
         {
             "style": "Block",

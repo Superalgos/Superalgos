@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Der Standard initialBalance ist auf 100 USDT eingestellt, weit über der minimalen Transaktionsgröße, die von Binance unterstützt wird.",
                 "updated": 1634227030636
+            },
+            {
+                "language": "TR",
+                "text": "Varsayılan initialBalance, Binance tarafından desteklenen minimum işlem boyutunun çok üzerinde, 100 USDT'ye ayarlanmıştır.",
+                "updated": 1636404457948
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Die initialBalance wird in der Konfiguration des Session Quoted Asset definiert. Prüfen Sie sie und entscheiden Sie selbst, ob Sie sie ändern möchten!",
                     "updated": 1634227039328
+                },
+                {
+                    "language": "TR",
+                    "text": "initialBalance, Session Quoted Asset yapılandırmasında tanımlanır. Kontrol edin ve değiştirmek isteyip istemediğinize kendiniz karar verin!",
+                    "updated": 1636404734897
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Binance definiert die Mindesttransaktionsgröße in BTC, so dass die Anforderung in USDT mit der Zeit stark variiert. Ich habe den Betrag auf 100 USDT festgelegt, um sicherzustellen, dass Sie keine Fehler machen. Es steht Ihnen frei, es mit einem kleineren Betrag zu versuchen. Sie werden Fehler erhalten, wenn der Betrag zu klein ist, aber Sie können es so oft wie nötig erneut versuchen. Stoppen Sie einfach die Aufgabe, ändern Sie den initialBalance in der Session Quoted Asset, und versuchen Sie es erneut!",
                     "updated": 1634227048102
+                },
+                {
+                    "language": "TR",
+                    "text": "Binance, minimum işlem boyutunu BTC olarak tanımlar. (İlerleyen zamanlarda USDT yada diğer pair'ler ile de işlem yapmayı öğreneceğiz) Bu nedenle USDT'deki gereksinim zamanla çok değişir. Hatalarla karşılaşmamanız için tutarı 100 USDT olarak belirledim. Daha küçük bir miktarla denemekte özgürsünüz. Çok küçükse hata alırsınız, ancak gerektiği kadar tekrar deneyebilirsiniz. Görevi durdurun, Session Quoted Asset başlangıç değerini değiştirin ve yeniden deneyin!",
+                    "updated": 1636404699851
                 }
             ]
         }

@@ -2,7 +2,14 @@
     "type": "Position Contribution Claim",
     "definition": {
         "text": "Use this node to reference a Position node in one of the Positions hierarchy to establish a Position Contribution Claim. This claim means that you declare that you have worked on that Position, and that you expect to be rewarded accordingly!",
-        "updated": 1630349455755
+        "updated": 1630349455755,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo para referenciar un nodo de Position ( Posición) de una jerarquía de posición para establecer una Position Contribution Claim ( Solicitud de Contribución de Posición). Esta solicitud significa que declara que ha trabajado en esa posición, y que espera ser recompensado consecuentemente!",
+                "updated": 1636282196871
+            }
+        ]
     },
     "paragraphs": [
         {

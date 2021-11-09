@@ -5,8 +5,8 @@
     "definition": {
         "text": "Go to your File Explorer app and look for the following paths relative to the root Superalgos folder...",
         "icon": {
-            "name": "Plugins\\plugins",
-            "project": "Foundations"
+            "name": "plugins",
+            "project": "Community-Plugins"
         },
         "updated": 1615906049600,
         "translations": [

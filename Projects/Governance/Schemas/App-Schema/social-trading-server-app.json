@@ -25,7 +25,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webSocketsPort\": \"16042\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,

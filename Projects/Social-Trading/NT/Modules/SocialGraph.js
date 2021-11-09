@@ -9,7 +9,7 @@ exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     their posts.
     */
     let thisObject = {
-        userProfiles: undefined,
+
         /* Framework Functions */
         initialize: initialize,
         finalize: finalize        
@@ -22,7 +22,6 @@ exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     }
 
     async function initialize() {
-        thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-        await thisObject.userProfiles.initialize()
+
     }
 }

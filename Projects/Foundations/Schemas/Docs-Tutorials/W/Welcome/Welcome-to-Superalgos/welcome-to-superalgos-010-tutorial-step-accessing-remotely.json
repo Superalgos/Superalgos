@@ -48,8 +48,9 @@
             {
                 "language": "RU",
                 "text": "Если Вы получаете доступ к Client с того же самого устройства, то можете кликнуть на кнопку Next и пропустить этот шаг на этом этапе.",
-                "updated": 1635581922558},
-                {
+                "updated": 1635581922558
+            },
+            {
                 "language": "TR",
                 "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
                 "updated": 1635579026048
@@ -59,7 +60,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you are accessing the Client from a remote machine, you must adjust the Network Node configuration before continuing.",
+            "text": "If you are accessing the Client from a remote machine, you must adjust the Network Node configuration.",
             "translations": [
                 {
                     "language": "ID",
@@ -100,18 +101,20 @@
                 {
                     "language": "RU",
                     "text": "Если Вы работаете на машине удаленно, то необходимо отрегулировать конфигурацию the Network Node перед тем, как Вы продолжите.",
-                    "updated": 1635517885096},
-                    {
+                    "updated": 1635517885096
+                },
+                {
                     "language": "TR",
                     "text": "İstemciye ( Client ) uzak bir makineden erişiyorsanız, devam etmeden önce Ağ Düğümü ( Node )  yapılandırmasını ayarlamanız gerekir.",
                     "updated": 1635579070105
                 }
-            ]
+            ],
+            "updated": 1636299988021
         },
         {
             "style": "List",
-            "text": "Click Configure on the top-right corner of the  Network Node menu.",
-            "updated": 1610612485562,
+            "text": "Click Configure on the top-right corner of the Network Node menu.",
+            "updated": 1636300153084,
             "translations": [
                 {
                     "language": "ID",
@@ -158,8 +161,9 @@
                 {
                     "language": "RU",
                     "text": "Нажмите Configure в правом верхнем углу в меню the Network Node;",
-                    "updated": 1635517953808},
-                    {
+                    "updated": 1635517953808
+                },
+                {
                     "language": "TR",
                     "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
                     "updated": 1635579264884
@@ -210,6 +214,11 @@
                     "language": "TR",
                     "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin. Ters proxy kullanıyorsanız, \"webSocketsExternalURL\": \"wss://mydomain.com:443\" yapılandırma parametresini manuel olarak eklemelisiniz.",
                     "updated": 1635579170033
+                },
+                {
+                    "language": "RU",
+                    "text": "Измените гостевой параметр для IP-адреса устройства, на котором выполняется серверная часть. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss://mydomain.com:443\" config parameter.",
+                    "updated": 1636194777591
                 }
             ]
         },
@@ -262,8 +271,9 @@
                 {
                     "language": "RU",
                     "text": "Выйдите из конфигурации, убрав указатель мыши из пузырька конфигурации! Если конфигурация происходит верно, то сообщение об ошибке в  Network Node должно исчезнуть через минуту!",
-                    "updated": 1635581935285},
-                    {
+                    "updated": 1635581935285
+                },
+                {
                     "language": "TR",
                     "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
                     "updated": 1635579204588

@@ -17,6 +17,7 @@ function newUiObject() {
         configEditor: undefined,
         conditionEditor: undefined,
         formulaEditor: undefined,
+        listSelector: undefined,
         uiObjectTitle: undefined,
         icon: undefined,
         uiObjectMessage: undefined,
@@ -206,6 +207,11 @@ function newUiObject() {
             thisObject.formulaEditor = undefined
         }
 
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.finalize()
+            thisObject.listSelector = undefined
+        }
+
         icon = undefined
         chainAttachToNode = undefined
         referenceAttachToNode = undefined
@@ -302,6 +308,11 @@ function newUiObject() {
                 if (container !== undefined) { return container }
             }
 
+            if (thisObject.listSelector !== undefined) {
+                container = thisObject.listSelector.getContainer(point)
+                if (container !== undefined) { return container }
+            }
+
             let getitle = true
 
 
@@ -317,6 +328,11 @@ function newUiObject() {
             }
             if (thisObject.formulaEditor !== undefined) {
                 if (thisObject.formulaEditor.visible === true) {
+                    getitle = false
+                }
+            }
+            if (thisObject.listSelector !== undefined) {
+                if (thisObject.listSelector.visible === true) {
                     getitle = false
                 }
             }
@@ -366,6 +382,10 @@ function newUiObject() {
 
         if (thisObject.formulaEditor !== undefined) {
             thisObject.formulaEditor.physics()
+        }
+
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.physics()
         }
 
         if (thisObject.payload.chainParent === undefined || thisObject.payload.chainParent.payload === undefined) {
@@ -1337,6 +1357,9 @@ function newUiObject() {
         if (thisObject.formulaEditor !== undefined) {
             thisObject.formulaEditor.deactivate()
         }
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.deactivate()
+        }
 
         if (thisObject.payload !== undefined &&
             thisObject.isOnFocus === false &&
@@ -1362,6 +1385,9 @@ function newUiObject() {
         }
         if (thisObject.formulaEditor !== undefined) {
             thisObject.formulaEditor.deactivate()
+        }
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.deactivate()
         }
         isDragging = true
         if (event.button === 2) {
@@ -1447,6 +1473,10 @@ function newUiObject() {
                 thisObject.formulaEditor.drawBackground()
                 thisObject.formulaEditor.drawForeground()
             }
+            if (thisObject.listSelector !== undefined) {
+                thisObject.listSelector.drawBackground()
+                thisObject.listSelector.drawForeground()
+            }
 
             let drawMenu = true
             let drawTitle = true
@@ -1466,6 +1496,12 @@ function newUiObject() {
             }
             if (thisObject.formulaEditor !== undefined) {
                 if (thisObject.formulaEditor.visible === true) {
+                    drawMenu = false
+                    drawTitle = false
+                }
+            }
+            if (thisObject.listSelector !== undefined) {
+                if (thisObject.listSelector.visible === true) {
                     drawMenu = false
                     drawTitle = false
                 }
@@ -1644,6 +1680,9 @@ function newUiObject() {
 
         if (thisObject.formulaEditor !== undefined) {
             if (thisObject.formulaEditor.visible === true) { return true }
+        }
+        if (thisObject.listSelector !== undefined) {
+            if (thisObject.listSelector.visible === true) { return true }
         }
     }
 

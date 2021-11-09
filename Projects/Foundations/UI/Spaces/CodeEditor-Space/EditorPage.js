@@ -6,8 +6,11 @@ function newFoundationsCodeEditorEditorPage() {
         finalize: finalize
     }
 
-    let monacoInitialized
-    let monacoEditor
+    let monacoInitialized = false
+    let monacoEditor = undefined
+    let recordFormulaString = ''
+    let codeString = ''
+    let tradingEngineObj = undefined
 
     return thisObject
 
@@ -15,7 +18,7 @@ function newFoundationsCodeEditorEditorPage() {
     function initialize() {
         monacoInitialized = false
         buildEditorHTML()
-
+        buildIntelliSenseModels()
     }
 
     function buildEditorHTML() {
@@ -63,13 +66,12 @@ function newFoundationsCodeEditorEditorPage() {
         monacoEditor = undefined
     }
 
-    function render(originatingNode) {
+    function render(originatingNode, rootNodes) {
 
         thisObject.originatingNode = originatingNode
         intellisenseModels = []
 
         createCodePath()
-        buildIntelliSenseModels()
         /**
          * The reason we are doing the monaco initialization here is simply because monaco will set his own width at the moment it's rendered
          * Rendering it earlier when the code panel is closed will result in a very narrow width
@@ -85,6 +87,12 @@ function newFoundationsCodeEditorEditorPage() {
                     theme: 'vs-dark',
                     fixedOverflowWidgets: true
                 });
+
+
+                //Creating default models
+                monaco.editor.createModel(codeString, "javascript")
+                monaco.editor.createModel(recordFormulaString, "javascript")
+
 
                 monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
                 monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
@@ -105,36 +113,59 @@ function newFoundationsCodeEditorEditorPage() {
 
     }
 
+    /**
+     * The autocomplete models will be based on:
+     * 1.  all data mines loaded into workspace
+     * 2. trading engine loaded into the workspace
+     *
+     * TODO: It is compulsory that at one moment in time we should add proper definitions for our variables (to mimic some framework), but this is a different task and can be improved over time
+     * TODO: It is recommended that for extending it to read the monaco editor docs: https://microsoft.github.io/monaco-editor/api/interfaces/monaco.languages.completionitemprovider.html and https://microsoft.github.io/monaco-editor/playground.html#extending-language-services-completion-provider-example
+     * TODO: Right now the intellisense model is rather primitive being built on existing code available in the workspace without having any definitions, but strong enough to provide accurate autocompletion
+     */
     function buildIntelliSenseModels() {
 
-        /**
-         * Building some autocomplete models is not an easy task, thus the procedure does the following steps
-         * 1. Determines if the code node is part of a Data mine
-         *      a) If yes, it will find its Product Definition parent
-         *      b) It will go trough all the other codes part (e.g Procedure Loop, Procedure initialization etc...), and record formula
-         *      c) It will create a model for each code, and one model for all formulas (memory efficient)
-         *  2. Determines if the code node is part of a Trading System
-         *      a) If yes it will try to create models and autocompletion capabilities based on Trading Mines
-         *      b) It will try to create models and autocompletion capabilities based on available Data mines
-         *
-         */
+        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+            if (node.type === 'Data Mine') {
+                //Getting all the Javascript code into one single variable
+                UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Procedure Javascript Code').forEach(node => {
+                    codeString += '\n'
+                    codeString += node.code
+                })
+                //Getting all the Formula code into one single variable
+                UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Record Formula').forEach(node => {
+                    recordFormulaString += '\n'
+                    recordFormulaString += node.code
+                })
+            } else if (node.type === 'Trading Engine') {
+                // Create an object representation for
+                tradingEngineObj = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, undefined)
+            }
+        })
 
-        if (thisObject.originatingNode.payload.parentNode.type === 'Procedure Initialization' ||
-            thisObject.originatingNode.payload.parentNode.type === 'Procedure Loop') {
+        console.log(codeString)
+        console.log(recordFormulaString)
 
-            let productDefinition = stepBackUntilNodeType(thisObject.originatingNode, 'Product Definition')
-            console.log(productDefinition)
+        function extractCodeValues(node) {
+
         }
 
         function stepBackUntilNodeType(originatingNode, nodeType) {
-            if(originatingNode ===undefined) {return}
-            if(nodeType === undefined) {return}
-            if(originatingNode.payload === undefined) {return}
-            if(originatingNode.payload.parentNode === undefined) {return}
+            if (originatingNode === undefined) {
+                return
+            }
+            if (nodeType === undefined) {
+                return
+            }
+            if (originatingNode.payload === undefined) {
+                return
+            }
+            if (originatingNode.payload.parentNode === undefined) {
+                return
+            }
 
 
             let parent = originatingNode.payload.parentNode;
-            if(parent.type === nodeType) {
+            if (parent.type === nodeType) {
                 console.log(parent)
                 return parent
             } else {

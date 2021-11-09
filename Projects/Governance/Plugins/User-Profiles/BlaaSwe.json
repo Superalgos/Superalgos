@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "BlaaSwe",
-    "config": "{\n    \"signature\": {\n        \"message\": \"BlaaSwe\",\n        \"messageHash\": \"0x7f8ab5cefa1b5b879269f9bb360844ddcec53564a80da7d42231bf35bb28ff33\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a\",\n        \"s\": \"0x1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef53662\",\n        \"signature\": \"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef536621b\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"BlaaSwe\",\"messageHash\":\"0x7f8ab5cefa1b5b879269f9bb360844ddcec53564a80da7d42231bf35bb28ff33\",\"v\":\"0x1b\",\"r\":\"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a\",\"s\":\"0x1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef53662\",\"signature\":\"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef536621b\"},\"codeName\":\"BlaaSwe\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -127,12 +127,12 @@
             "id": "2a0b5125-0f4d-4a4b-94f5-89af9f4a03e4",
             "savedPayload": {
                 "position": {
-                    "x": 13379.000000000002,
-                    "y": 6051.05830753354
+                    "x": 4647.826086956522,
+                    "y": 23300
                 },
                 "targetPosition": {
-                    "x": 13379.000000000002,
-                    "y": 6351.05830753354
+                    "x": 4647.826086956522,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -231,7 +233,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "BlaaSwe",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "ab3caa42-0f65-4c6e-9bd1-d695d6504928"
                                 ]
                             ]
                         }
@@ -354,7 +358,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "cozed-gh",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                 ]
                             ]
                         }
@@ -440,12 +446,12 @@
             "id": "dde7aba0-153e-4940-a335-1434c931830c",
             "savedPayload": {
                 "position": {
-                    "x": 13679.000000000002,
-                    "y": 6351.05830753354
+                    "x": 4947.826086956522,
+                    "y": 23600
                 },
                 "targetPosition": {
-                    "x": 13379.000000000002,
-                    "y": 6351.05830753354
+                    "x": 4647.826086956522,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -525,12 +531,12 @@
             "id": "880ae32d-785f-46ef-b726-e863933f8973",
             "savedPayload": {
                 "position": {
-                    "x": 13379.000000000002,
-                    "y": 6651.05830753354
+                    "x": 4647.826086956522,
+                    "y": 23900
                 },
                 "targetPosition": {
-                    "x": 13379.000000000002,
-                    "y": 6351.05830753354
+                    "x": 4647.826086956522,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -548,12 +554,12 @@
         "id": "b10ada53-4dc6-472c-8bcc-8786fe6d7c4c",
         "savedPayload": {
             "position": {
-                "x": 13379.000000000002,
-                "y": 6351.05830753354
+                "x": 4647.826086956522,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 13079.000000000002,
-                "y": 6351.05830753354
+                "x": 4347.826086956522,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -575,12 +581,12 @@
         "id": "08372d40-80c2-48c6-b5c9-1a1de3c0cb62",
         "savedPayload": {
             "position": {
-                "x": 12779.000000000002,
-                "y": 6351.05830753354
+                "x": 4047.826086956522,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 13079.000000000002,
-                "y": 6351.05830753354
+                "x": 4347.826086956522,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -598,12 +604,12 @@
     "id": "ab3caa42-0f65-4c6e-9bd1-d695d6504928",
     "savedPayload": {
         "position": {
-            "x": 13079.000000000002,
-            "y": 6351.05830753354
+            "x": 4347.826086956522,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 13079.000000000002,
-            "y": 6351.05830753354
+            "x": 4347.826086956522,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,

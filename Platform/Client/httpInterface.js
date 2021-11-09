@@ -1606,7 +1606,15 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'externalScripts': // This means the WebServer folder.
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + requestPath[2], httpResponse)
+                        // This allows to have sub-folders in externalScripts
+                        let fullPath = ''
+                        for (let i = 2; i < requestPath.length; i++) {
+                            fullPath += requestPath[i]
+                            if( i !== requestPath.length - 1) {
+                                fullPath += '/'
+                            }
+                        }
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
                     }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!

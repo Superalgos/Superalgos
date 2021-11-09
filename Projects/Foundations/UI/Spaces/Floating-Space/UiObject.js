@@ -14,7 +14,6 @@ function newUiObject() {
         isOnFocus: false,
         container: undefined,
         payload: undefined,
-        codeEditor: undefined,
         configEditor: undefined,
         conditionEditor: undefined,
         formulaEditor: undefined,
@@ -190,10 +189,7 @@ function newUiObject() {
         thisObject.fitFunction = undefined
         thisObject.isVisibleFunction = undefined
 
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.finalize()
-            thisObject.codeEditor = undefined
-        }
+
 
         if (thisObject.configEditor !== undefined) {
             thisObject.configEditor.finalize()
@@ -289,10 +285,7 @@ function newUiObject() {
         let container
 
         if (isDragging === false && thisObject.isOnFocus === true) {
-            if (thisObject.codeEditor !== undefined) {
-                container = thisObject.codeEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
+
 
             if (thisObject.configEditor !== undefined) {
                 container = thisObject.configEditor.getContainer(point)
@@ -311,11 +304,7 @@ function newUiObject() {
 
             let getitle = true
 
-            if (thisObject.codeEditor !== undefined) {
-                if (thisObject.codeEditor.visible === true) {
-                    getitle = false
-                }
-            }
+
             if (thisObject.configEditor !== undefined) {
                 if (thisObject.configEditor.visible === true) {
                     getitle = false
@@ -365,9 +354,7 @@ function newUiObject() {
         thisObject.menu.physics()
         thisObject.uiObjectMessage.physics()
 
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.physics()
-        }
+
 
         if (thisObject.configEditor !== undefined) {
             thisObject.configEditor.physics()
@@ -1341,9 +1328,6 @@ function newUiObject() {
 
     function onNotFocus() {
         thisObject.isOnFocus = false
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.deactivate()
-        }
         if (thisObject.configEditor !== undefined) {
             thisObject.configEditor.deactivate()
         }
@@ -1369,9 +1353,7 @@ function newUiObject() {
 
     function onDragStarted(event) {
         thisObject.uiObjectTitle.exitEditMode()
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.deactivate()
-        }
+
         if (thisObject.configEditor !== undefined) {
             thisObject.configEditor.deactivate()
         }
@@ -1452,10 +1434,7 @@ function newUiObject() {
             drawReferenceLine()
             drawChainLine()
 
-            if (thisObject.codeEditor !== undefined) {
-                thisObject.codeEditor.drawBackground()
-                thisObject.codeEditor.drawForeground()
-            }
+
             if (thisObject.configEditor !== undefined) {
                 thisObject.configEditor.drawBackground()
                 thisObject.configEditor.drawForeground()
@@ -1472,12 +1451,7 @@ function newUiObject() {
             let drawMenu = true
             let drawTitle = true
 
-            if (thisObject.codeEditor !== undefined) {
-                if (thisObject.codeEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
+
             if (thisObject.configEditor !== undefined) {
                 if (thisObject.configEditor.visible === true) {
                     drawMenu = false
@@ -1658,9 +1632,7 @@ function newUiObject() {
     }
 
     function isEditorVisible() {
-        if (thisObject.codeEditor !== undefined) {
-            if (thisObject.codeEditor.visible === true) { return true }
-        }
+
 
         if (thisObject.configEditor !== undefined) {
             if (thisObject.configEditor.visible === true) { return true }

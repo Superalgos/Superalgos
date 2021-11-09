@@ -463,8 +463,6 @@ function newUiObjectConstructor() {
                 }
                 if (schemaDocument.editors.code === true) {
                     uiObject.codeEditor = newCodeEditor()
-                    uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.codeEditor.initialize()
                 }
                 if (schemaDocument.editors.formula === true) {

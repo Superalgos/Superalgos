@@ -21,32 +21,74 @@
         },
         {
             "style": "Text",
-            "text": "The Crypto Ecosystem hierarchy features five different Crypto Exchanges nodes reflecting the status of the tests of each of the exchanges."
+            "text": "The Crypto Ecosystem hierarchy features five different Crypto Exchanges nodes reflecting the status of the tests of each of the exchanges.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La jerarquía Crypto Ecosystem (ecosistemas cripto) presenta cinco tipos diferentes de nodos Crypto Exchanges reflejando el status de los test de cada uno de los exchanges.",
+                    "updated": 1636366812201
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Untested: Exchanges for which there is no recorded history of tests.",
-            "updated": 1616155760279
+            "updated": 1616155760279,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Untested ( no testeados): Exchanges para los cuales no existe ningun registro pasado de testeos.",
+                    "updated": 1636366882316
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Testing Queue: Exchanges that developers are currently testing.",
-            "updated": 1616155779390
+            "updated": 1616155779390,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing Queue ( Testeando en fila): Exchanges que los developers están actualmente testeando.",
+                    "updated": 1636366941024
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Failed OHLCVs Tests: Exchanges that were tested but failed to serve OHLCV data in the expected manner. Exchanges in this queue are not usable at the moment. Further efforts may be required to put them to work.",
-            "updated": 1616155913345
+            "updated": 1616155913345,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Failed OHLCVs Tests Testeo fallido): Exchanges que han sid testeados pero fallaron al servir los datos de OHLCV de la manera esperada. Exchanges en este listado no son utilizables por el momento. Mayores esfuerzos serán necesarios para lograr hacerlos trabajar.",
+                    "updated": 1636367109571
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Tests Pending: Exchanges that have passed the OHLCV tests (are able to serve data in the manner Superalgos expects it) and are awaiting live trading tests.",
-            "updated": 1616156044085
+            "updated": 1616156044085,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Trading Tests Pending (Tests de trading Pendientes): Exchanges que han pasado los test OHLCV (porporcionan datos en la manera en que Superalgos espera) y están a la espera de los test de trading en vivo.",
+                    "updated": 1636367468491
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Tested: Exchanges that have been tested for data-mining and live trading, and that everyone should be able to use without hassle.",
-            "updated": 1616156004370
+            "updated": 1616156004370,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tested ( testeados): Exchanges que han sido testeados con data-mining y trading en vivo, y que cualquiera debería poder usuarlos sin inconvenientes.",
+                    "updated": 1636367462636
+                }
+            ]
         },
         {
             "style": "Title",

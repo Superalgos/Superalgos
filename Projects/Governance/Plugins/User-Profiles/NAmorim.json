@@ -233,7 +233,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -1012,7 +1014,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "cozed-gh",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                 ]
                             ]
                         }
@@ -1258,7 +1262,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "PLuv",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                 ]
                             ]
                         }
@@ -1367,7 +1373,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 32\n}",
+            "config": "{\n    \"percentage\": 26\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -6874,27 +6880,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "cozed-gh",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                         ],
                                                         [
                                                             "Data Mining Project Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
                                                         ],
                                                         [
                                                             "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
-                                                            "Position Contribution Claim"
+                                                            "Position Contribution Claim",
+                                                            "Governance",
+                                                            "667d2fb7-ef65-4ffd-adb9-aad819d5a065"
                                                         ]
                                                     ]
                                                 }
@@ -6931,23 +6949,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "cozed-gh",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                 ],
                                                 [
                                                     "Data Mining Project Position Class",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "0377d112-8545-4694-9c74-5205b2919ac3"
                                                 ]
                                             ]
                                         }
@@ -19478,7 +19506,7 @@
         "liquidityPrograms": {
             "type": "Liquidity Programs",
             "name": "New Liquidity Programs",
-            "config": "{\"percentage\": 0}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "liquidityProgram": [
                 {
@@ -19491,6 +19519,61 @@
                         "name": "New Tokens Awarded",
                         "project": "Governance",
                         "id": "1f168cf5-73ee-44bc-a797-9aba9fbe5e6f",
+                        "savedPayload": {
+                            "position": {
+                                "x": 11909.841210059156,
+                                "y": 24335.099048196847
+                            },
+                            "targetPosition": {
+                                "x": 11620.063462172435,
+                                "y": 24257.45333466609
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "9da80d2e-2d07-4156-ad67-2fc0359051fc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 11620.063462172435,
+                            "y": 24257.45333466609
+                        },
+                        "targetPosition": {
+                            "x": 11164.285714285714,
+                            "y": 23859.807621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": true,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Liquidity Program",
+                    "name": "BNB",
+                    "config": "{\n    \"asset\": \"BNB\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "4e97a99e-c95c-4640-af3d-e4cf370623dc",
                         "savedPayload": {
                             "position": {
                                 "x": 11464.285714285714,
@@ -19513,11 +19596,66 @@
                             }
                         }
                     },
-                    "id": "9da80d2e-2d07-4156-ad67-2fc0359051fc",
+                    "id": "0f6b8c74-679e-4ce2-8b2b-f9a00a14a87e",
                     "savedPayload": {
                         "position": {
                             "x": 11314.285714285714,
                             "y": 24119.615242270665
+                        },
+                        "targetPosition": {
+                            "x": 11164.285714285714,
+                            "y": 23859.807621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Liquidity Program",
+                    "name": "BUSD",
+                    "config": "{\n    \"asset\": \"BUSD\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "9904b483-e4c4-435f-a9ec-2aaaf3dccf64",
+                        "savedPayload": {
+                            "position": {
+                                "x": 11008.994287224203,
+                                "y": 24439.363116908775
+                            },
+                            "targetPosition": {
+                                "x": 11086.640000754958,
+                                "y": 24149.585369022054
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "7d9a8349-5055-4075-847a-dc80226f3e93",
+                    "savedPayload": {
+                        "position": {
+                            "x": 11086.640000754958,
+                            "y": 24149.585369022054
                         },
                         "targetPosition": {
                             "x": 11164.285714285714,

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Resistenzen und Unterstützungen Multi-Time-Frame-Daily auf der linken Seite ist der letzte der Prozesse zu beenden, so behalten Sie sie im Auge!",
                 "updated": 1634244857267
+            },
+            {
+                "language": "TR",
+                "text": "Dirençler ve Destekler ( Resistance and Supports - Multi-Time-Frame-Daily ) en son tamamlanacak işlemdir. Bu yüzden gözünüz üzerinde olsun!",
+                "updated": 1636470941186
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Wenn dieser Prozess bei 100 % ist, können wir loslegen.",
                     "updated": 1634244866274
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlem %100 ise, o zaman gitmeye hazırız.",
+                    "updated": 1636470957794
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "In jedem Fall passiert nichts Schlimmes, wenn Sie versuchen, eine Live Trading Session zu starten, während die erforderlichen Indikatoren nicht auf dem neuesten Stand sind. Es würde ein Fehler auftreten, und Sie würden über den Grund informiert werden. Also, keine große Sache!",
                     "updated": 1634244877404
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekli göstergeler güncel olmadan Canlı İşlem Oturumu çalıştırmayı denerseniz, bir felaket olmaz, endişelenmeyin. Bir hata olur ve nedeni size bildirilir. Yani, önemli değil! Sakin olun.",
+                    "updated": 1636471187208
                 }
             ]
         },
@@ -97,6 +112,11 @@
                     "language": "DE",
                     "text": "Im nächsten Schritt fordere ich Sie auf, den Task und die Live Trading Session zu starten. Wenn Sie dies nicht tun, fahren Sie mit dem Tutorial fort, als ob Sie es getan hätten...",
                     "updated": 1634244884476
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki adımda, Görevi ve Canlı İşlem Oturumunu ( Live Trading Session ) başlatmanızı isteyeceğim. Yapmamayı seçerseniz, bu eğiticiye devam edebilirsiniz. Next tuşuna basıp ilerleyin..",
+                    "updated": 1636471260722
                 }
             ]
         }

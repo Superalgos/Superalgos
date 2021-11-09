@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Hier konfigurieren Sie Ihren Exchange Account Key für die Live Trading Session des Lightning Strike Trading Systems.",
                 "updated": 1634244424767
+            },
+            {
+                "language": "TR",
+                "text": "Lightning Strike Alım Satım Sisteminin Canlı Alım Satım Oturumu ( Live Trading Session ) için Borsa Hesap Anahtarınızı ( Exchange Account Key ) burada yapılandırabilirsiniz.",
+                "updated": 1636470207278
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Rufen Sie die Konfiguration auf und geben Sie sorgfältig den API Pubilic Key und den API Secret Key ein.",
                     "updated": 1634244438606
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya erişin ve API Genel Anahtarını ve API gizli anahtarını dikkatlice girin.",
+                    "updated": 1636470222796
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Löschen Sie zuerst die Standard-Textzeichenfolge für jeden Parameter, damit keine fremden Zeichen mit den Schlüsseln verwechselt werden.",
                     "updated": 1634244452387
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiçbir yabancı karakterin karışmaması için önce her parametre için varsayılan metin dizesini (Hazır bulunan değerleri) silin.",
+                    "updated": 1636470316136
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Der Exchange Account Key wird unverschlüsselt in der User Workspace Datei gespeichert. Er wird für die Authentifizierung bei der Börse verwendet. Er wird niemals an andere Stellen gesendet oder gespeichert. Geben Sie diesen Workspace nicht weiter, bis Sie im nächsten Tutorial lernen, wie Sie ihn sicher verwenden können.",
                     "updated": 1634244462521
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Hesap Anahtarı ( Exchange Account Key ), şifrelenmemiş olarak Kullanıcı Çalışma Alanı ( User Workspace ) dosyasında saklanır. Ticaret yaparken kimlik doğrulamak için kullanılır. Asla başka bir yere gönderilmez veya saklanmaz. Bir sonraki öğreticide nasıl güvenli bir şekilde yapılacağını öğrenene kadar bu çalışma alanını paylaşmayın.",
+                    "updated": 1636470438561
                 }
             ]
         }

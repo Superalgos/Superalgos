@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Nun ist es an der Zeit, Ihre Data Tasks zu starten.",
                 "updated": 1634244584221
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Veri Görevleri ( Data Tasks ) operasyonunuzu başlatma zamanı.",
+                "updated": 1636470525716
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Wählen Sie im Menü Run All Project Data Tasks.",
                     "updated": 1634244592550
+                },
+                {
+                    "language": "TR",
+                    "text": "Menüden Tüm Proje Veri Görevlerini Çalıştır'ı ( Run All Project Data Tasks ) seçin.",
+                    "updated": 1636470580268
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Wir geben der Maschine ein paar Minuten Zeit, um sich an die aktuelle Zeit anzupassen. Denken Sie daran, dass alle Indikatoren auf 100 % stehen müssen, bevor wir mit dem Handel beginnen können!",
                     "updated": 1634244605109
+                },
+                {
+                    "language": "TR",
+                    "text": "En son verileriı yakalaması için ona birkaç dakika vereceğiz. Ticarete başlayabilmemiz için tüm göstergelerin %100'e ulaşması gerektiğini unutmayın!",
+                    "updated": 1636470610492
                 }
             ]
         },
@@ -96,6 +111,11 @@
                     "language": "DE",
                     "text": "Wenn Sie die Live-Sitzung nicht durchführen wollen, brauchen Sie die Data Tasks nicht zu starten. Machen Sie einfach weiter, um zu lernen, wie der Prozess funktioniert.",
                     "updated": 1634244611806
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı oturumu çalıştırmayacaksanız, Veri Görevlerini ( Data Tasks ) başlatmanız gerekmez. Sadece sürecin nasıl çalıştığını öğrenmeye devam edin.",
+                    "updated": 1636470644008
                 }
             ]
         }

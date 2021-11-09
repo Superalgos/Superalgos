@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Schauen wir uns ein weiteres Beispiel an, um den Begriff der konstanten Rückkopplungsschleife zu verinnerlichen, bevor wir weitermachen!",
                 "updated": 1634226654216
+            },
+            {
+                "language": "TR",
+                "text": "Devam etmeden önce sabit geri besleme döngüsü kavramının anlaşılması için başka bir örneğe bakalım!",
+                "updated": 1636403007502
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Dies ist die Datenstruktur, in der die Informationen über limitierte Kaufaufträge gespeichert werden.",
                     "updated": 1634226647187
+                },
+                {
+                    "language": "TR",
+                    "text": "Limitli alış emirleri ile ilgili bilgilerin tutulduğu veri yapısıdır.",
+                    "updated": 1636403126356
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Ebenen-Manager der Trading Engine auf den Charts (die zweite Zählung von links). Scrollen Sie nach unten und schalten Sie die Ebene Limit Buy Orders ein. Bewegen Sie nun den Mauszeiger über einige der Kaufaufträge und prüfen Sie die Auswirkungen auf die Knoten im Design Space.",
                     "updated": 1634226668445
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklerdeki Trading Engine katmanları yöneticisine gidin (soldan ikinci). Aşağı kaydırın ve Satın Alma Siparişlerini Sınırla ( Limit Buy Order )katmanını açın. Şimdi fare imlecini birkaç satın alma siparişinin üzerine kaydırın ve tasarım alanındaki düğümler üzerindeki etkisini kontrol edin.",
+                    "updated": 1636403375825
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Können Sie sich vorstellen, welche Auswirkungen es hat, wenn Sie diese Ebene der Kontrolle über die vom Trading Bot verwalteten Daten haben?",
                     "updated": 1634226677234
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu tarafından yönetilen veriler üzerinde bu düzeyde bir kontrole sahip olmanın etkilerini hayal edebiliyor musun?",
+                    "updated": 1636403403085
                 }
             ]
         }

@@ -515,6 +515,11 @@ function newCanvas() {
                     return
                 }
             }
+            if (nodeOnFocus.payload.uiObject.listSelector !== undefined) {
+                if (nodeOnFocus.payload.uiObject.listSelector.visible === true) {
+                    return
+                }
+            }
             if (nodeOnFocus.payload.uiObject.conditionEditor !== undefined) {
                 if (nodeOnFocus.payload.uiObject.conditionEditor.visible === true) {
                     return

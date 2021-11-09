@@ -13,6 +13,17 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add Specified User Profile",
+            "label": "Add Specified User Profile",
+            "iconPathOn": "user-profile",
+            "iconPathOff": "user-profile",
+            "iconProject": "Governance",
+            "actionProject": "Governance",
+            "relatedUiObject": "User Profile",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -29,6 +40,9 @@
     "alternativeIcons": "Use Reference Parent Parent",
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
+    },
+    "editors": {
+        "list": true
     },
     "childrenNodesProperties": [
         {

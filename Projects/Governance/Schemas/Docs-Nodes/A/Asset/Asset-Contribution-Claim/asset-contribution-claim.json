@@ -2,7 +2,14 @@
     "type": "Asset Contribution Claim",
     "definition": {
         "text": "Use this node to reference an Asset node in one of the Assets hierarchy to establish an Asset Contribution Claim. This claim means that you declare that you have worked on that Asset, either creating or improving it, and that you expect to be rewarded accordingly!",
-        "updated": 1630349414102
+        "updated": 1630349414102,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo para referenciar un nodo de Asset (Activo) en una de las jerarquías de Assets para establecer una Asset Contribution Claim.( Solicitud de Contribución de Activo) Est solicitud significa que declara que ha trabajado en un activo, ya sea creándolo o mejorándolo, y que espera ser recompensado consecuentemente!",
+                "updated": 1636283349685
+            }
+        ]
     },
     "paragraphs": [
         {

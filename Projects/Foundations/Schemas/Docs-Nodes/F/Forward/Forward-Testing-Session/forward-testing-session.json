@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un forward testing session es un modo de trading mediante el cual la instancia del Trading Bot realiza transacciones en vivo con una fracción definida por el usuario del capital disponible.\n",
                 "updated": 1624379829550
+            },
+            {
+                "language": "RU",
+                "text": "Сессия форвардного тестирования - это торговый режим, в котором экземпляр торгового бота выполняет реальную торговлю с определенной пользователем долей доступного капитала.",
+                "updated": 1636195888530
             }
         ]
     },

@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Lassen wir die Skalen hinter uns und schauen wir uns an, wie das System Daten in den Diagrammen verfügbar macht.",
                 "updated": 1634217725509
+            },
+            {
+                "language": "TR",
+                "text": "Ölçekleri geride bırakarak, sistemin verileri grafiklerde nasıl kullanılabilir hale getirdiğine bir göz atalım.",
+                "updated": 1636096145748
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Jedem Timeline Chart ist ein Layer Manager zugeordnet, der in Form eines Drop-Down-Menüs mit mehreren Layern dargestellt wird.",
                     "updated": 1634217734286
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Zaman Çizelgesi ( Timeline Chart ) Grafiği, birden çok katmanı listeleyen bir açılır menü olarak temsil edilen ilişkili bir Katman Yöneticisine ( Layer Manager ) sahiptir.",
+                    "updated": 1636096050983
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Um einen Ebenenmanager zu öffnen, fahren Sie mit dem Mausrad über seine Kopfzeile. Verwenden Sie das Mausrad auch, um durch den Inhalt zu blättern!",
                     "updated": 1634217743759
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir katman yöneticisi (sol üstteki siyah kutular) açmak için farenin tekerleğini başlığında kaydırın. İçeriğinde gezinmek için de farenin tekerleğini kullanın!",
+                    "updated": 1636096113075
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Zur Verdeutlichung sehen Sie sich das Video im nächsten Schritt an...",
                     "updated": 1634217753499
+                },
+                {
+                    "language": "TR",
+                    "text": "Netlik için bir sonraki adımdaki videoyu izleyin...",
+                    "updated": 1636096131626
                 }
             ]
         }

@@ -26,6 +26,11 @@
                 "text": "Ihre Data-Mining-Operation umfasst Bots, die Datenprodukte erstellen. Jedes Produkt wird in den Diagrammen durch einen Layer in einem Layer Manager verfügbar gemacht.",
                 "updated": 1634217919050,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliği operasyonunuz, veri ürünleri yapan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
+                "updated": 1636096341967
             }
         ],
         "updated": 1616427338175
@@ -52,6 +57,11 @@
                     "text": "Der erste Layer-Manager auf der linken Seite dieser Time Machine besteht aus drei Layern. Diese Layer stellen die Datenprodukte dar, die das Handelssystem, das wir später testen werden, verwendet, um Handelsentscheidungen zu treffen.",
                     "updated": 1634217907919,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu zaman makinesinin solundaki ilk katman yöneticisi üç katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin ( Trading System ) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
+                    "updated": 1636096453476
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Um Ebenen ein- und auszuschalten, klicken Sie mit der linken Maustaste auf sie!",
                     "updated": 1634221550537
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları açmak ve kapatmak için üzerlerine mouse'un sol tuşuyla tıklayın!",
+                    "updated": 1636096510159
                 }
             ]
         },
@@ -100,6 +115,11 @@
                     "text": "Superalgos wird mit vielen weiteren Indikatoren ausgeliefert, die jedoch in diesem Workspace nicht konfiguriert sind. Sie werden sie später kennenlernen!",
                     "updated": 1634217927340,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
+                    "updated": 1636096525958
                 }
             ]
         }

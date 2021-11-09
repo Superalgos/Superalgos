@@ -4,7 +4,14 @@
     "type": "The Voting Program",
     "definition": {
         "text": "Help us decide how what areas of project development to incentivize, and help us validate Contribution Claims!",
-        "updated": 1630496977699
+        "updated": 1630496977699,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ayúdenos a decidir cómo y qué areas del desarrollo del proyecto incentivar, y ayúdenos a validar Contribution Claims ( Solicitudes de Cntribución)!",
+                "updated": 1636282368889
+            }
+        ]
     },
     "paragraphs": [
         {

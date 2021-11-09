@@ -135,6 +135,12 @@ function newFoundationsDocsFooter() {
         } 
         HTML = HTML + '"></a>'
 
+        HTML = HTML + '<a href="#" onClick="UI.projects.education.spaces.docsSpace.changeLanguage(\'AR\')"><img src="Images/Languages/AR.png" title="Arabic" class="docs-footer-language'
+        if (languageCode === 'AR') { 
+            HTML = HTML + '-selected'
+        } 
+        HTML = HTML + '"></a>'
+
         HTML = HTML + '</div>'
 
         HTML = HTML + '<div class="docs-footer-cell">'

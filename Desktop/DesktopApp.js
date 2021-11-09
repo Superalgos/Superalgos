@@ -1,126 +1,69 @@
 exports.newDesktopApp = function newDesktopApp() {
 
     let thisObject = {
+        userProfiles: undefined,
+        p2pNetworkClient: undefined,
+        p2pNetwork: undefined,
+        p2pNetworkPeers: undefined,
+        webSocketsClient: undefined,
+        webSocketsInterface: undefined,
+        socialGraph: undefined,
         run: run
     }
+
+    DK.desktopApp = thisObject
 
     return thisObject
 
     async function run() {
-        /*
-        Here we will store our running objects:
-        */
-        DK.running = {}
-        /*
-        This is the Personal Social Graph for the user running this App.
-        */
-        DK.running.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
-        await DK.running.socialGraph.initialize()
-        /*
-        This is the Web Sockets client that interacts with the Superalgos Network.
-        */
-        DK.running.webSocketsClient = SA.projects.network.modules.webSocketsAppClient.newNetworkModulesWebSocketsAppClient()
-        await DK.running.webSocketsClient.initialize()
-        console.log('Desktop Client Connected to Network Node via Web Sockets ................... Connected to port ' + global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT)
 
-        /* These are the Network Interfaces by which the Web App interacts with this Desktop Client.*/
+        await setupNetwork()
+        await setupServices()
 
-        DK.running.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
-        DK.running.webSocketsInterface.initialize()
-        console.log('Desktop Client Web Sockets Interface ....................................... Listening at port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
-
-
-        DK.running.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
-        DK.running.httpInterface.initialize()
-        console.log('Desktop Client Http Interface .............................................. Listening at port ' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
-
-        return
-
-        let queryMessage
-        let query
-        /*
-        Test Query User Profiles.
-        */
-        queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILES,
-            emitterUserProfileId: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId,
-            initialIndex: 'Last',
-            amountRequested: 10,
-            direction: 'Past'
+        async function setupNetwork() {
+            /*
+            We set up ourselves as a Network Client.
+            */
+            thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
+            await thisObject.p2pNetworkClient.initialize()
+            /*
+            We will read all user profiles plugins and get from there our network identity.
+            */
+            thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
+            await thisObject.userProfiles.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClient)
+            /*
+            We set up the P2P Network.
+            */
+            thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
+            await thisObject.p2pNetwork.initialize('Network Client')
+            /*
+            Set up the connections to network nodes.
+            */
+            thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
+            await thisObject.p2pNetworkPeers.initialize(
+                'Network Client',
+                thisObject.p2pNetworkClient,
+                thisObject.p2pNetwork,
+                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
+            )
         }
 
-        query = {
-            requestType: 'Query',
-            queryMessage: JSON.stringify(queryMessage)
-        }
+        async function setupServices() {
+            /*
+            This is the Personal Social Graph for the user running this App.
+            */
+            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
+            await thisObject.socialGraph.initialize()
+            /* 
+            These are the Network Interfaces by which the Web App interacts with this Desktop Client.
+            */
+            thisObject.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
+            thisObject.webSocketsInterface.initialize()
+            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webSocketsPort)
 
-        await DK.webSocketsClient.sendMessage(
-            JSON.stringify(query)
-        )
-            .then(showProfiles)
-            .catch(onError)
-
-        async function showProfiles(profiles) {
-            console.log(profiles)
-
-            for (let i = 0; i < profiles.length; i++) {
-                let profile = profiles[i]
-
-                /*
-                Test Following Profiles.
-                */
-                let eventMessage = {
-                    eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    eventType: SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE,
-                    emitterUserProfileId: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId,
-                    targetUserProfileId: profile.userProfileId
-                }
-
-                let event = {
-                    requestType: 'Event',
-                    eventMessage: JSON.stringify(eventMessage)
-                }
-
-                await DK.webSocketsClient.sendMessage(
-                    JSON.stringify(event)
-                )
-                    .then(followAdded)
-                    .catch(onError)
-
-                function followAdded() {
-                    console.log("User Profile " + profile.userProfileHandle + " followed.")
-                }
-            }
-        }
-        /*
-        Test Query User Profile Stats.
-        */
-        queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS,
-            emitterUserProfileId: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId,
-            targetUserProfileId: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
-        }
-
-        query = {
-            requestType: 'Query',
-            queryMessage: JSON.stringify(queryMessage)
-        }
-
-        await DK.webSocketsClient.sendMessage(
-            JSON.stringify(query)
-        )
-            .then(showProfilesStats)
-            .catch(onError)
-
-        function showProfilesStats(profile) {
-            console.log(profile)
-        }
-
-        /*
-        Error Handling
-        */
-        function onError(errorMessage) {
-            console.log('[ERROR] Query not executed. ' + errorMessage)
+            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+            thisObject.httpInterface.initialize()
+            console.log('Desktop Client Http Interface ................................................ Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort)
         }
     }
 }

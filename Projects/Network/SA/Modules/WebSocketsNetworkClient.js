@@ -55,7 +55,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebSocketClient()
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets ................ Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.isConnected = true
     }
 
@@ -223,7 +223,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ......... Disconnected from ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)

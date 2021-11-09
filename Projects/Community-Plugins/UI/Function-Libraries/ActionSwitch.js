@@ -38,6 +38,11 @@ function newCommunityPluginsActionSwitch() {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Specified Plugin Data Mine':
+            {
+                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addSpecifiedPluginDataMine(action.node, action.rootNodes)
+            }
+                break
             case 'Add Missing Plugin Trading Mines':
                 {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginTradingMines(action.node, action.rootNodes)

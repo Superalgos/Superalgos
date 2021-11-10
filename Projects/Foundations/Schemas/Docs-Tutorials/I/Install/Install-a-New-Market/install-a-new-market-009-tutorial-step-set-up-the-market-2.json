@@ -12,7 +12,13 @@
             {
                 "language": "ES",
                 "text": "Establecer una referencia de el nodo Market Base Asset en el Market que acabas de definir a el correspondiente nodo Asset definido bajo Exchange Assets.",
-                "updated": 1629165785229
+                "updated": 1629165785229,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Stellen Sie einen Verweis vom Knoten Market Base Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
+                "updated": 1635832090712
             }
         ]
     },
@@ -24,7 +30,13 @@
                 {
                     "language": "ES",
                     "text": "Si no estás familiarizado con el establecimiento de referencias, lee sobre el tema en la documentación.",
-                    "updated": 1629165919563
+                    "updated": 1629165919563,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mit der Erstellung von Verweisen nicht vertraut sind, lesen Sie bitte in der Dokumentation über dieses Thema.",
+                    "updated": 1635832150842
                 }
             ]
         }

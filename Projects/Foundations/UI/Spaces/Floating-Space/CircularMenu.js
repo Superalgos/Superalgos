@@ -109,13 +109,13 @@ function newCircularMenu() {
         }
 
         /* There are 4 possible rings of icons, we will go through each of them here. */
-        let amplitudeArray = [80, 70, 40, 80]
-        let initialAngleArray = [220, 205, 200, 180]
-        for (let j = 1; j < ringsArray.length + 1; j++) {
-            let iconOnlyArray = ringsArray[j - 1]
+        let amplitudeArray = [80, 70, 50, 80]
+        let initialAngleArray = [220, 215, 205, 180]
+        for (let j = 0; j < ringsArray.length; j++) {
+            let iconOnlyArray = ringsArray[j]
             /* Here we calculate the angles for each menu item, and then apply it if it was not previously defined. */
-            let amplitude = amplitudeArray[j - 1]
-            let initialAngle = initialAngleArray[j - 1]
+            let amplitude = amplitudeArray[j]
+            let initialAngle = initialAngleArray[j]
             let step = amplitude / (iconOnlyArray.length - 1)
             if (iconOnlyArray.length === 1) {
                 step = 0
@@ -132,7 +132,7 @@ function newCircularMenu() {
         /* Text and Icon */
         let amplitude = 60
         let initialAngle = -30
-        step = amplitude / 7
+        let step = amplitude / 7
         let currentItem = (7 - iconAndTextArray.length) / 2 + 1
         for (let i = 0; i < iconAndTextArray.length; i++) {
             let menuItem = iconAndTextArray[i]

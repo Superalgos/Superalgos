@@ -64,7 +64,7 @@ exports.newNetworkNode = function newNetworkNode() {
             */
             thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Network Node Web Sockets Interface ....................................... Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort)
+            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort)
         }
     }
 }

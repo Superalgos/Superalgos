@@ -45,6 +45,13 @@
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Fix Missing References",
+            "label": "Fix Missing References",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
         }
     ],
     "initialValues": {

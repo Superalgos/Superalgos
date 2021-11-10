@@ -547,11 +547,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     let networkClient = thisObject.networkClients[i]
                     if (networkClient.socket.id === callerIdToAVoid) { continue }
                     networkClient.socket.send(messageHeader.payload)
-                        .catch(onError)
-
-                    function onError() {
-                        console.log('[ERROR] Web Sockets Interface -> broadcastToPeers -> Sending Message Failed.')
-                    }
                 }
             }
 

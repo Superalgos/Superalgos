@@ -274,7 +274,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
             function onMenssageFunction(response) {
                 try {
-                    if (response.result === 'Ok') {
+                    if (response.result === 'Ok' || response.result === 'Warning') {
                         resolve(response.data)
                     } else {
                         console.log('[ERROR] Web Sockets Network Client -> onMenssageFunction -> response.message = ' + response.message)

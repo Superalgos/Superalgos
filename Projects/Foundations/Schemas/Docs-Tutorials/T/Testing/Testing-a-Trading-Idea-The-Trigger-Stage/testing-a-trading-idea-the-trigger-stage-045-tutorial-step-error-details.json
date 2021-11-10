@@ -6,7 +6,7 @@
         "text": "So, what's in those bullets? Place the mouse at one of the error bullets in the top row and see what happens!",
         "updated": 1622487609515,
         "icon": {
-            "name": "bullet-error",
+            "name": "Bullet\\bullet-error",
             "project": "Foundations"
         }
     },

@@ -4,8 +4,8 @@
     "type": "Tutorial - The Other Stages",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
         "text": "We are a few steps away from being able to fully test the first trading idea! You need to learn a thing or two first!"
     },

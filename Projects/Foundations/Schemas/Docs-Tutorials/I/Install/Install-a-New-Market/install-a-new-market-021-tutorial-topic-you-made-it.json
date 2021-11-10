@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Felicitaciones ... ¡has llegado al final de este tutorial!",
                 "updated": 1629251820232
+            },
+            {
+                "language": "DE",
+                "text": "Herzlichen Glückwunsch... Sie haben das Ende des Tutorials erreicht!",
+                "updated": 1636470750188
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Puedes volver a visitar este tutorial en cualquier momento. Si seleccionas el Play en el menú, comienza desde el principio. Si seleccionas el Resume en su lugar, comienzas donde lo dejaste por última vez o donde saltaste un paso por última vez.",
                     "updated": 1629251900929
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können dieses Lernprogramm jederzeit wieder aufrufen. Wenn Sie im Menü die Option Play wählen, beginnen Sie direkt am Anfang. Wenn Sie stattdessen die Option Resume wählen, beginnen Sie dort, wo Sie zuletzt aufgehört haben oder wo Sie zuletzt einen Schritt übersprungen haben.",
+                    "updated": 1636470883959
                 }
             ]
         }

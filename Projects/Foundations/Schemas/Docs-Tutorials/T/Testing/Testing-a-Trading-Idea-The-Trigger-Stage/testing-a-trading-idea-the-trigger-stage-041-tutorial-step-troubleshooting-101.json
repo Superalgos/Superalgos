@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Troubleshooting 101",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "Whenever you are working on and testing definitions in a trading system, you should be in troubleshooting mode!"
     },

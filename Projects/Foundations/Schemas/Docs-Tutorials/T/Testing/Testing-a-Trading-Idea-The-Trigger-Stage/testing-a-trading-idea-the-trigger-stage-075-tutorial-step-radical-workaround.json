@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Radical Workaround",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "The definitions in the open, close, and manage stages are the subject of the next tutorial in the series!"
     },

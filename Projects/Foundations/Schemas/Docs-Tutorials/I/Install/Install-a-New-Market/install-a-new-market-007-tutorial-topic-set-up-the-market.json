@@ -12,7 +12,13 @@
             {
                 "language": "ES",
                 "text": "Si no hay un Market configurado con el par con el que deseas trabajar en Exchange Markets, debes configurar la definición de mercado antes de instalarlo.",
-                "updated": 1629164083032
+                "updated": 1629164083032,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn für das Paar, mit dem Sie arbeiten möchten, unter Exchange Markets kein Market eingerichtet ist, müssen Sie die Marktdefinition vor der Installation einrichten.",
+                "updated": 1635829019620
             }
         ]
     },
@@ -24,7 +30,13 @@
                 {
                     "language": "ES",
                     "text": "Los siguientes pasos te enseñarán cómo configurar el mercado para que puedas instalarlo más tarde.",
-                    "updated": 1629164109911
+                    "updated": 1629164109911,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "In den nächsten Schritten lernen Sie, wie Sie den Markt einrichten, damit Sie ihn später installieren können.",
+                    "updated": 1635829102056
                 }
             ]
         },
@@ -36,7 +48,13 @@
                 {
                     "language": "ES",
                     "text": "Asegúrese de que la combinación de Market Base Asset y Market Quoted Asset que desea definir como Market en Superalgos existe como un mercado que cotiza en el exchange.",
-                    "updated": 1629164457557
+                    "updated": 1629164457557,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie sicher, dass die Kombination aus Market Base Asset und Market Quoted Asset, die Sie als Market in Superalgos definieren möchten, als börsennotierter Markt existiert.",
+                    "updated": 1635829254330
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Pipeline",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "dataset-definition"
+            "name": "Data\\dataset-definition",
+            "project": "Foundations"
         },
         "text": "We will cover several topics! Let's make a quick list to use as a guide along the way!"
     },

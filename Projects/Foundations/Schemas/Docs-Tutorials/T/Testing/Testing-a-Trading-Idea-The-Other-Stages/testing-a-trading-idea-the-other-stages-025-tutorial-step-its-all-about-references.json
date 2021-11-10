@@ -4,8 +4,8 @@
     "type": "Tutorial Step - It's All About References!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-order"
+            "name": "Market\\market-order",
+            "project": "Foundations"
         },
         "text": "Do you remember what references are and how to establish them? Watch the video for a quick refresher!",
         "updated": 1617198810582

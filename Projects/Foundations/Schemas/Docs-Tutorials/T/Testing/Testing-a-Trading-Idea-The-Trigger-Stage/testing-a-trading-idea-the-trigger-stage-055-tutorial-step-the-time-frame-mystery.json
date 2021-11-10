@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Time Frame Mystery",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "time-frames-filter"
+            "name": "Time\\time-frames-filter",
+            "project": "Foundations"
         },
         "text": "Let's pull one more trick! Switch the time frame to 12 hs and slide the pointer over the charts!"
     },

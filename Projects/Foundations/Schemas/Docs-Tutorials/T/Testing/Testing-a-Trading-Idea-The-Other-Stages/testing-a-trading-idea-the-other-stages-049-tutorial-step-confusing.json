@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Confusing?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-warning"
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
         },
         "text": "Don't worry! You'll get used to this level of feedback from the LF Trading Bot, and will certainly get to appreciate it!",
         "updated": 1612715858929

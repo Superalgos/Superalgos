@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Taking a Position",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "open-stage"
+            "name": "Open\\open-stage",
+            "project": "Foundations"
         },
         "text": "As soon as the Take Position Event validates true, both the open stage and the manage stage become active."
     },

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Market Sell Orders",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-sell-order"
+            "name": "Market\\market-sell-order",
+            "project": "Foundations"
         },
         "text": "We'll use a single execution algorithm handling 100% of the size we defined earlier! Time to learn a bit about orders!"
     },

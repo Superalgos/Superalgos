@@ -4,8 +4,8 @@
     "type": "Tutorial Step - One More Detail!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-bands"
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
         },
         "text": "Look at the BB properties again! Two standard deviations is the deviation property!"
     },

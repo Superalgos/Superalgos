@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What's Next....?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "tutorial"
+            "name": "Tutorial\\tutorial",
+            "project": "Foundations"
         },
         "text": "In the next tutorial, we'll keep working on this idea, incorporating a few more fundamental considerations left out until now."
     },

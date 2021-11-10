@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Bollinger Subchannels",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-trends"
+            "name": "Layer\\layer-trends",
+            "project": "Foundations"
         },
         "text": "The slope provides an indication of how steep the MA curve is... that is, how pronounced is the decline or ascent of the MA!"
     },

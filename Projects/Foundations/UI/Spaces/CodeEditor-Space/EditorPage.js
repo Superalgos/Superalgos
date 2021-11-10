@@ -66,7 +66,7 @@ function newFoundationsCodeEditorEditorPage() {
         monacoEditor = undefined
     }
 
-    function render(originatingNode, rootNodes) {
+    function render(originatingNode) {
 
         thisObject.originatingNode = originatingNode
         intellisenseModels = []
@@ -93,6 +93,9 @@ function newFoundationsCodeEditorEditorPage() {
                 monaco.editor.createModel(codeString, "javascript")
                 monaco.editor.createModel(recordFormulaString, "javascript")
 
+                showAutocompletionFor(tradingEngineObj)
+
+
 
                 monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
                 monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
@@ -109,70 +112,145 @@ function newFoundationsCodeEditorEditorPage() {
             monacoEditor.getModel().onDidChangeContent(function () {
                 originatingNode.payload.node.code = monacoEditor.getValue()
             })
+
+
+
+            function showAutocompletionFor(obj) {
+                // Disable default autocompletion for javascript
+                monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ noLib: true  });
+
+                // Helper function to return the monaco completion item type of a thing
+                function getType(thing, isMember) {
+                    isMember =  (isMember === undefined) ? (typeof isMember == "boolean") ? isMember : false : false; // Give isMember a default value of false
+
+                    switch ((typeof thing).toLowerCase()) {
+                        case "object":
+                            return monaco.languages.CompletionItemKind.Class;
+
+                        case "function":
+                            return (isMember) ? monaco.languages.CompletionItemKind.Method : monaco.languages.CompletionItemKind.Function;
+
+                        default:
+                            return (isMember) ? monaco.languages.CompletionItemKind.Property : monaco.languages.CompletionItemKind.letiable;
+                    }
+                }
+
+                // Register object that will return autocomplete items
+                monaco.languages.registerCompletionItemProvider('javascript', {
+                    // Run this function when the period or open parenthesis is typed (and anything after a space)
+                    triggerCharacters: ['.', '('],
+
+                    // Function to generate autocompletion results
+                    provideCompletionItems: function(model, position, token) {
+                        // Split everything the user has typed on the current line up at each space, and only look at the last word
+                        let last_chars = model.getValueInRange({startLineNumber: position.lineNumber, startColumn: 0, endLineNumber: position.lineNumber, endColumn: position.column});
+                        let words = last_chars.replace("\t", "").split(" ");
+                        let active_typing = words[words.length - 1]; // What the user is currently typing (everything after the last space)
+                        if (active_typing.includes('(')) {
+                            let split = active_typing.split('(');
+                            active_typing = split[split.length-1]
+                        }
+
+                        // If the last character typed is a period then we need to look at member objects of the obj object
+                        let is_member = active_typing.charAt(active_typing.length - 1) === ".";
+
+                        // Array of autocompletion results
+                        let result = [];
+
+                        // Used for generic handling between member and non-member objects
+                        let last_token = obj;
+                        let prefix = '';
+
+                        if (is_member) {
+                            // Is a member, get a list of all members, and the prefix
+                            let parents = active_typing.substring(0, active_typing.length - 1).split(".");
+                            last_token = obj[parents[0]];
+                            prefix = parents[0];
+
+                            // Loop through all the parents the current one will have (to generate prefix)
+                            for (let i = 1; i < parents.length; i++) {
+                                if (last_token.hasOwnProperty(parents[i])) {
+                                    prefix += '.' + parents[i];
+                                    last_token = last_token[parents[i]];
+                                } else {
+                                    // Not valid
+                                    return result;
+                                }
+                            }
+
+                            prefix += '.';
+                        }
+
+                        // Get all the child properties of the last token
+                        for (let prop in last_token) {
+                            // Do not show properites that begin with "__"
+                            if (last_token.hasOwnProperty(prop) && !prop.startsWith("__")) {
+                                // Get the detail type (try-catch) incase object does not have prototype
+                                let details = '';
+                                try {
+                                    details = last_token[prop].__proto__.constructor.name;
+                                } catch (e) {
+                                    details = typeof last_token[prop];
+                                }
+
+                                // Create completion object
+                                let to_push = {
+                                    label: prefix + prop,
+                                    kind: getType(last_token[prop], is_member),
+                                    detail: details,
+                                    insertText: prop
+                                };
+
+                                // Change insertText and documentation for functions
+                                if (to_push.detail.toLowerCase() === 'function') {
+                                    to_push.insertText += "(";
+                                    to_push.documentation = (last_token[prop].toString()).split("{")[0]; // Show function prototype in the documentation popup
+                                }
+
+                                // Add to final results
+                                result.push(to_push);
+                            }
+                        }
+
+                        return {
+                            suggestions: result
+                        };
+                    }
+                });
+            }
+
         });
 
     }
 
     /**
      * The autocomplete models will be based on:
-     * 1.  all data mines loaded into workspace
-     * 2. trading engine loaded into the workspace
+     * 1.  all data mines loaded into workspace - by creating a model in monaco (basically is like opening a file containing all the variables in vs-code, thus it will make them available in other files as well)
+     * 2. trading engine loaded into the workspace - we create an obj. representation using getProtocolNode and we are using monaco registerCompletionItemProvider
      *
-     * TODO: It is compulsory that at one moment in time we should add proper definitions for our variables (to mimic some framework), but this is a different task and can be improved over time
-     * TODO: It is recommended that for extending it to read the monaco editor docs: https://microsoft.github.io/monaco-editor/api/interfaces/monaco.languages.completionitemprovider.html and https://microsoft.github.io/monaco-editor/playground.html#extending-language-services-completion-provider-example
-     * TODO: Right now the intellisense model is rather primitive being built on existing code available in the workspace without having any definitions, but strong enough to provide accurate autocompletion
      */
     function buildIntelliSenseModels() {
 
         UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Data Mine') {
-                //Getting all the Javascript code into one single variable
+                //Getting all the Javascript code into one single letiable
                 UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Procedure Javascript Code').forEach(node => {
                     codeString += '\n'
                     codeString += node.code
                 })
-                //Getting all the Formula code into one single variable
+                //Getting all the Formula code into one single letiable
                 UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Record Formula').forEach(node => {
                     recordFormulaString += '\n'
                     recordFormulaString += node.code
                 })
             } else if (node.type === 'Trading Engine') {
                 // Create an object representation for
-                tradingEngineObj = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, undefined)
+                tradingEngineObj = {tradingEngine : UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
             }
         })
 
-        console.log(codeString)
-        console.log(recordFormulaString)
-
-        function extractCodeValues(node) {
-
-        }
-
-        function stepBackUntilNodeType(originatingNode, nodeType) {
-            if (originatingNode === undefined) {
-                return
-            }
-            if (nodeType === undefined) {
-                return
-            }
-            if (originatingNode.payload === undefined) {
-                return
-            }
-            if (originatingNode.payload.parentNode === undefined) {
-                return
-            }
-
-
-            let parent = originatingNode.payload.parentNode;
-            if (parent.type === nodeType) {
-                console.log(parent)
-                return parent
-            } else {
-                stepBackUntilNodeType(parent, nodeType)
-            }
-        }
     }
+    
 
     function createCodePath() {
         let parentNodeStructure = []
@@ -202,5 +280,4 @@ function newFoundationsCodeEditorEditorPage() {
             }
         }
     }
-
 }

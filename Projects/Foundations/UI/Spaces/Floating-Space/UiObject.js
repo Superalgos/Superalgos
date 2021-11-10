@@ -16,7 +16,6 @@ function newUiObject() {
         payload: undefined,
         configEditor: undefined,
         conditionEditor: undefined,
-        formulaEditor: undefined,
         listSelector: undefined,
         uiObjectTitle: undefined,
         icon: undefined,
@@ -202,10 +201,6 @@ function newUiObject() {
             thisObject.conditionEditor = undefined
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.finalize()
-            thisObject.formulaEditor = undefined
-        }
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.finalize()
@@ -303,11 +298,6 @@ function newUiObject() {
                 if (container !== undefined) { return container }
             }
 
-            if (thisObject.formulaEditor !== undefined) {
-                container = thisObject.formulaEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
-
             if (thisObject.listSelector !== undefined) {
                 container = thisObject.listSelector.getContainer(point)
                 if (container !== undefined) { return container }
@@ -323,11 +313,6 @@ function newUiObject() {
             }
             if (thisObject.conditionEditor !== undefined) {
                 if (thisObject.conditionEditor.visible === true) {
-                    getitle = false
-                }
-            }
-            if (thisObject.formulaEditor !== undefined) {
-                if (thisObject.formulaEditor.visible === true) {
                     getitle = false
                 }
             }
@@ -380,9 +365,6 @@ function newUiObject() {
             thisObject.conditionEditor.physics()
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.physics()
-        }
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.physics()
@@ -1354,9 +1336,7 @@ function newUiObject() {
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.deactivate()
         }
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.deactivate()
-        }
+
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.deactivate()
         }
@@ -1382,9 +1362,6 @@ function newUiObject() {
         }
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.deactivate()
-        }
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.deactivate()
         }
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.deactivate()
@@ -1461,18 +1438,12 @@ function newUiObject() {
             drawChainLine()
 
 
-            if (thisObject.configEditor !== undefined) {
-                thisObject.configEditor.drawBackground()
-                thisObject.configEditor.drawForeground()
-            }
+
             if (thisObject.conditionEditor !== undefined) {
                 thisObject.conditionEditor.drawBackground()
                 thisObject.conditionEditor.drawForeground()
             }
-            if (thisObject.formulaEditor !== undefined) {
-                thisObject.formulaEditor.drawBackground()
-                thisObject.formulaEditor.drawForeground()
-            }
+
             if (thisObject.listSelector !== undefined) {
                 thisObject.listSelector.drawBackground()
                 thisObject.listSelector.drawForeground()
@@ -1494,12 +1465,7 @@ function newUiObject() {
                     drawTitle = false
                 }
             }
-            if (thisObject.formulaEditor !== undefined) {
-                if (thisObject.formulaEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
+
             if (thisObject.listSelector !== undefined) {
                 if (thisObject.listSelector.visible === true) {
                     drawMenu = false
@@ -1678,9 +1644,6 @@ function newUiObject() {
             if (thisObject.conditionEditor.visible === true) { return true }
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            if (thisObject.formulaEditor.visible === true) { return true }
-        }
         if (thisObject.listSelector !== undefined) {
             if (thisObject.listSelector.visible === true) { return true }
         }

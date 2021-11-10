@@ -484,8 +484,6 @@ function newUiObjectConstructor() {
                 }
                 if (schemaDocument.editors.formula === true) {
                     uiObject.formulaEditor = newFormulaEditor()
-                    uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
                 }
                 if (schemaDocument.editors.list === true) {

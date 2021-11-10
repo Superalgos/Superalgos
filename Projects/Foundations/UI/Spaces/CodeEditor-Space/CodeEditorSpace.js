@@ -6,7 +6,6 @@ function newFoundationsCodeEditorSpace() {
         container: undefined,
         editorPage: undefined,
         openSpaceArea: openSpaceArea,
-        // navigateTo: navigateTo,
         physics: physics,
         draw: draw,
         getContainer: getContainer,

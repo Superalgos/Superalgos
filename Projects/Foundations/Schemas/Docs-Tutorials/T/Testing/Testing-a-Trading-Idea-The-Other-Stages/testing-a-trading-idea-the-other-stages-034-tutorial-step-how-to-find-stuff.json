@@ -4,8 +4,8 @@
     "type": "Tutorial Step - How to Find Stuff",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-engine"
+            "name": "Trading\\trading-engine",
+            "project": "Foundations"
         },
         "text": "Let me walk you through the reasoning to find the required information on the Trading Engine"
     },

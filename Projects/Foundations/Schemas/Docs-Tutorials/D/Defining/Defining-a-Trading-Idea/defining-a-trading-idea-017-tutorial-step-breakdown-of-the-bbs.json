@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Breakdown of the BBs",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
         "text": "Weak-hands Buster is based on the idea that a breakdown of the BB may predict a deepening of a downtrend and some reversals."
     },

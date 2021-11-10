@@ -12,7 +12,13 @@
             {
                 "language": "ES",
                 "text": "Añade un nuevo nodo Market usando el Add Market opción en el menú.",
-                "updated": 1629164947647
+                "updated": 1629164947647,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Fügen Sie einen neuen Market knoten hinzu, indem Sie die Option Market hinzufügen im Menü wählen.\n",
+                "updated": 1635829868443
             }
         ]
     },
@@ -25,7 +31,13 @@
                 {
                     "language": "ES",
                     "text": "Se debe agregar un nodo de Market con dos descendientes: a Market Base Asset y a Market Quoted Asset.",
-                    "updated": 1629165004233
+                    "updated": 1629165004233,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Market knoten sollte mit zwei Ablegern hinzugefügt werden: einem Market Base Asset und einem Market Quoted Asset.",
+                    "updated": 1635830106575
                 }
             ]
         },
@@ -36,7 +48,13 @@
                 {
                     "language": "ES",
                     "text": "Antes de continuar, asegúrate de cuál es la base y cuál es el asset cotizado en la cotización de el exchange. Por lo general, el asset base es el primero en el nombre del par, pero esto no se aplica en todos los exchanges, así que esté atento.",
-                    "updated": 1629165598676
+                    "updated": 1629165598676,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie fortfahren, vergewissern Sie sich, welches der Basiswert und welches der börsennotierte Vermögenswert in der Börsennotierung ist. In der Regel ist der Basiswert der erste im Namen des Paares, aber das wird nicht an jeder Börse durchgesetzt, also seien Sie wachsam.",
+                    "updated": 1635830457846
                 }
             ]
         }

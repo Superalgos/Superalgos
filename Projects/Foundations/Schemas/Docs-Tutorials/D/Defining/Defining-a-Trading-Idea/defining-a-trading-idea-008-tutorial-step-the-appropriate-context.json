@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Appropriate Context",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-trends"
+            "name": "Layer\\layer-trends",
+            "project": "Foundations"
         },
         "text": "The second important dimension to define is the general context that the hypothesis is aimed at."
     },

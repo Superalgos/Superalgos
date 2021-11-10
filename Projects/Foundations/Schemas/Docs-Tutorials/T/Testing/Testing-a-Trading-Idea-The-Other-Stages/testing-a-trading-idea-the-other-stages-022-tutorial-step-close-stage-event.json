@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Close Stage Event",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "close-stage-event"
+            "name": "Close\\close-stage-event",
+            "project": "Foundations"
         },
         "text": "We are not going to use the Close Stage Event either, so go ahead and delete it too!"
     },

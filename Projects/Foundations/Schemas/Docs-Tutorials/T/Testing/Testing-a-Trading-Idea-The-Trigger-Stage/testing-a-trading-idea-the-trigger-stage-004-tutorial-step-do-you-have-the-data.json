@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Do You Have The Data?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "data-tasks"
+            "name": "Data\\data-tasks",
+            "project": "Foundations"
         },
         "text": "If you didn't do the second tutorial in the series, chances are you are missing the data you need to do this one!"
     },

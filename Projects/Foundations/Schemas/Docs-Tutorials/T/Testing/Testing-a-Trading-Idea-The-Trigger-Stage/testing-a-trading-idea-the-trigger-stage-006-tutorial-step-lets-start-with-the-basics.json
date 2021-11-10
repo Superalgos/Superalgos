@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Start With the Basics!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
         "text": "You define trading strategies following the Superalgos Protocol!"
     },

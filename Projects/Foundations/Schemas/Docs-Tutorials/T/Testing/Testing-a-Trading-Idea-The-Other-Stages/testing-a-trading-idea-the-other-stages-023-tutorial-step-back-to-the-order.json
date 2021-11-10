@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Back to the Order",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-order"
+            "name": "Market\\market-order",
+            "project": "Foundations"
         },
         "text": "There's one more thing we need to take care of before we move on to the definitions in the manage stage!"
     },

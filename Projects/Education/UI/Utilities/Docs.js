@@ -523,7 +523,7 @@ function newEducationUtilitiesDocs() {
 
     function addToolTips(text, excludedType) {
 
-        const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
+        const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip" id="tooltip-container" data-tippy-content="DEFINITION">TYPE_LABEL</div>'
         const LINK_ONLY_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
 
         let resultingText = ''

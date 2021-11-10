@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Previous Property",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "record-property"
+            "name": "Record\\record-property",
+            "project": "Foundations"
         },
         "text": "I mentioned we would use the previous property to modify each property on both sides of the statement..."
     },

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Do Some Reading!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "open-execution"
+            "name": "Open\\open-execution",
+            "project": "Foundations"
         },
         "text": "Read these first few paragraphs about the Open Execution so that we may then start working on the definitions."
     },

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - March 7th to March 12th",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-bands"
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
         },
         "text": "Back in the 1H time frame, let's take a look at what happened between these dates in the context of a daily downtrend."
     },

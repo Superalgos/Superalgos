@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Predictions and Testing",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "user-defined-statistic"
+            "name": "User\\user-defined-statistic",
+            "project": "Foundations"
         },
         "text": "It's not like we're trying to divine the future and will get graded on our accuracy! The prediction is more like an expectation!"
     },

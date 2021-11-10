@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Verifica que las tareas del Testing Trading Tasks del correspondiente Market fueron creados con éxito.",
                 "updated": 1629248966784
+            },
+            {
+                "language": "DE",
+                "text": "Vergewissern Sie sich, dass die Testing Trading Tasks für den entsprechenden Market erfolgreich erstellt wurden.",
+                "updated": 1636468598028
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Busca las siguientes estructuras de datos:",
                     "updated": 1629249005363
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach den folgenden Datenstrukturen:",
+                    "updated": 1636468630701
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Un nodo Market Trading Tasks para el nuevo mercado.",
                     "updated": 1629249052629
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Market Trading Tasks Knoten für den neuen Markt.",
+                    "updated": 1636468840153
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "Un Trading Mine Tasks nodo para cada mina comercial incluida en el Workspace.",
                     "updated": 1629249077978
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten Trading Mine Tasks für jede im Workspace enthaltene Handelsmine.",
+                    "updated": 1636468853305
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "ES",
                     "text": "Un Task Manager por mina comercial y un Task con un Backtesting Session para cada  Trading System en el espacio de trabajo.",
                     "updated": 1629249127594
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Task Manager pro Handelsmine und ein Task mit einer Backtesting Session für jedes Trading System im Arbeitsbereich.",
+                    "updated": 1636468875339
                 }
             ]
         }

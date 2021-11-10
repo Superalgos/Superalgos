@@ -1,7 +1,8 @@
 function newFoundationsFunctionLibraryWorkspaceFunctions() {
     let thisObject = {
         addMissingWorkspaceProjects: addMissingWorkspaceProjects,
-        checkForMissingReferences: checkForMissingReferences
+        checkForMissingReferences: checkForMissingReferences,
+        fixMissingReferences: fixMissingReferences
     }
 
     return thisObject
@@ -33,6 +34,30 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
 
     // This function scales the current workspace and highlights any nodes that have unresolved references 
     function checkForMissingReferences(rootNodes) {
+        let nodes
+        for (let i = 0; i < rootNodes.length; i++) {
+            if (rootNodes[i] !== undefined) {
+                nodes = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(rootNodes[i]) 
+                for (let [key, value] of nodes) {
+                    // Check nodes that have a saved reference parent
+                    if (value.savedPayload.referenceParent !== undefined) {
+                        // Highlight nodes that do not have an active reference connected to their reference parent
+                        if (value.payload.referenceParent === undefined) {
+                            console.log("[WARN] Reference Parent not found in the current workspace.\n Node:", value.name, " Type:", value.type, " ID:", key, " Node Object:", value)
+                            UI.projects.foundations.spaces.floatingSpace.inMapMode = true
+                            value.payload.uiObject.setWarningMessage('Reference Parent not found in the current workspace.', 10)
+                        }
+                           
+                    }
+                }
+                
+            }
+        }
+       
+    }
+
+    // This function fixes any missing references leveraging the docs search engine 
+    function fixMissingReferences(rootNodes) {
         let nodes
         let docIndex = UI.projects.education.spaces.docsSpace.searchEngine.documentIndex
 

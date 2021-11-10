@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Lesson Learned?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "learning-bot"
+            "name": "Learning\\learning-bot",
+            "project": "Foundations"
         },
         "text": "At this moment, the error doesn't affect us, because the first 19 days of the data set correspond to an uptrend! However...",
         "updated": 1612696618351

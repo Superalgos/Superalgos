@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Target Size",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "target-size-in-base-asset"
+            "name": "Target\\target-size-in-base-asset",
+            "project": "Foundations"
         },
         "text": "I mentioned earlier that&mdash;like when setting up a manual order at the exchange&mdash;you may define the size in either of the assets!"
     },

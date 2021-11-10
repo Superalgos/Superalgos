@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Time Frame Matters!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "time-frame"
+            "name": "Time\\time-frame",
+            "project": "Foundations"
         },
         "text": "The Time Frame of the trading session determines how often the trading bot does what it does!"
     },

@@ -5,7 +5,7 @@ let UI = {
     schemas: { projectSchema: undefined },
     environment: undefined,
     clientNode: undefined,
-    running: {}
+    webApp: undefined
 }
 
 let SA = { projects: {} }

@@ -42,7 +42,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                 webApp = {
                     socket: socket
                 }
-                console.log('Desktop Web App Connected to Web Sockets Interface ............................. Connected to port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
+                console.log('Desktop Web App Connected to Web Sockets Interface ........................... Connected to port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
 
                 webApp.socket.on('close', onConnectionClosed)
                 webApp.socket.on('message', onMenssage)

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Define the First Two!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-trends"
+            "name": "Layer\\layer-trends",
+            "project": "Foundations"
         },
         "text": "Let's advance with the definition of the trading process and the context in which these ideas should operate."
     },

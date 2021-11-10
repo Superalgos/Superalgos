@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Hyper Specialization!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "Specialization is a very interesting concept that may lead to designing more efficient trading systems!"
     },

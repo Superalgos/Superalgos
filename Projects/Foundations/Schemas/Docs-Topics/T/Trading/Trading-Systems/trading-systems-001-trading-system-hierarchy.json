@@ -9,12 +9,13 @@
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Definition",
-            "updated": 1610138679068
+            "text": "Algorithmic-Trading->Node->Trading System->Definition",
+            "updated": 1636540615102
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Content"
+            "text": "Algorithmic-Trading->Node->Trading System->Content",
+            "updated": 1636540640617
         }
     ]
 }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Look to Your Left!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
         "text": "Does the price action to your left ring a bell? Do you recognize this major market crash?"
     },

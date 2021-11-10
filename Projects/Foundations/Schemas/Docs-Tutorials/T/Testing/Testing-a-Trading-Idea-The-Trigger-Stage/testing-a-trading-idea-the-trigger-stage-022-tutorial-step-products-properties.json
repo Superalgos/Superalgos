@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Products & Properties",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "record-property"
+            "name": "Record\\record-property",
+            "project": "Foundations"
         },
         "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas!"
     },

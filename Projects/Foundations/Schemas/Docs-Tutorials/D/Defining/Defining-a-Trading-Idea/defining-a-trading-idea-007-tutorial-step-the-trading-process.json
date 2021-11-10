@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Trading Process",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "The first dimension we should define is what type of strategy the hypothesis is aimed at."
     },

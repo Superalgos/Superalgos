@@ -4,8 +4,8 @@
     "type": "Tutorial Step - 100% of 100% = ?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-sell-order"
+            "name": "Market\\market-sell-order",
+            "project": "Foundations"
         },
         "text": "As you can see, the percentageOfAlgorithmSize is also 100% by default, and that is what we'll use for the test."
     },

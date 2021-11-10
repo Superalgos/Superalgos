@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Zoom Out!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "time-frame"
+            "name": "Time\\time-frame",
+            "project": "Foundations"
         },
         "text": "We've got an idea of what's going on in the 1H time frame. Let's zoom out a bit and take a look at the intermediate-term."
     },

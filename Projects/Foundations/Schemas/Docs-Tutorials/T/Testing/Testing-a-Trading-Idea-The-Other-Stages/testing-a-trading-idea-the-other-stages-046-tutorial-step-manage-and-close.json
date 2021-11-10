@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Manage and Close",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "position"
+            "name": "Position\\position",
+            "project": "Foundations"
         },
         "text": "Those were the trigger and open stages. Let's look into the manage and close stages!"
     },

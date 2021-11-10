@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Рабочее пространство плагина является первой точкой соприкосновения с Superalgos. Его цель - познакомить новых пользователей со всеми базовыми аспектами Superalgos.",
                 "updated": 1635628485258
+            },
+            {
+                "language": "ES",
+                "text": "Este workspace es el primer punto de contacto con Superalgos. Su propósito es familiarizar a los nuevs usuarios con lo aspectos básicos de Superalgos.",
+                "updated": 1636559957769
             }
         ]
     },
@@ -21,20 +26,48 @@
         },
         {
             "style": "List",
-            "text": "Welcome to Superalgos Tutorial"
+            "text": "Welcome to Superalgos Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Welcome to Superalgos Tutorial ( bienvenido al tutorial de Superalgos)",
+                    "updated": 1636559981023
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Basic Education Tutorial"
+            "text": "Basic Education Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Basic Education Tutorial  (Tutorial de educación básica)",
+                    "updated": 1636560011609
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Beyond the Basics Tutorial"
+            "text": "Beyond the Basics Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Beyond the Basics Tutorial. ( Tutorial más allá de lo básico)",
+                    "updated": 1636560038688
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "It's important to keep this workspace clean, light and simple, to ensure that the first experience is not cumbersome or limits users with small hardware.",
-            "updated": 1616145428799
+            "updated": 1616145428799,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es importante mantener este workspace limpio, liviano y simple, to asegurarse de que la primera experiencia no sea engorrosa o limite a los usuarios con hardware pequeño",
+                    "updated": 1636560111843
+                }
+            ]
         },
         {
             "style": "Title",

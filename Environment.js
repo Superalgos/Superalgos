@@ -28,7 +28,7 @@ exports.newEnvironment = function () {
         PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
         PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
         DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
-        DESKTOP_APP_MAX_OUTGOING_PEERS: 2,
+        DESKTOP_APP_MAX_OUTGOING_PEERS: 1,
         MOBILE_APP_SIGNING_ACCOUNT: 'Social-Trading-Mobile-App-1',
         SERVER_APP_SIGNING_ACCOUNT: 'Social-Trading-Server-App-1',
         PLATFORM_APP_SIGNING_ACCOUNT: 'Algo-Traders-Platform-1',

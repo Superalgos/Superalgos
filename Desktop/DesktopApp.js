@@ -7,6 +7,8 @@ exports.newDesktopApp = function newDesktopApp() {
         p2pNetworkPeers: undefined,
         webSocketsClient: undefined,
         webSocketsInterface: undefined,
+        webAppInterface: undefined,
+        p2pNetworkInterface: undefined,
         socialGraph: undefined,
         run: run
     }
@@ -49,6 +51,14 @@ exports.newDesktopApp = function newDesktopApp() {
         }
 
         async function setupServices() {
+            /*
+            This is where we will process all the messages comming from our web app.
+            */
+            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
+            /*
+            This is where we will process all the events comming from the p2p network.
+            */
+            thisObject.p2pNetworkInterface = DK.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
             /*
             This is the Personal Social Graph for the user running this App.
             */

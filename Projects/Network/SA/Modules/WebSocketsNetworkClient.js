@@ -102,7 +102,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 callerRole: thisObject.callerRole,
                                 callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
-                                callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node), 
+                                callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node),
                                 step: 'One'
                             }
                             thisObject.socket.send(JSON.stringify(message))
@@ -112,7 +112,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             let response = JSON.parse(socketMessage.data)
 
                             if (response.result !== 'Ok') {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> response.message = ' + response.message)
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> response.message = ' + response.message)
                                 reject()
                                 return
                             }
@@ -123,7 +123,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the signature received produces a valid Blockchain Account.
                             */
                             if (called.blockchainAccount === undefined) {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> Signature does not produce a valid Blockchain Account.')
                                 reject()
                                 return
                             }
@@ -132,7 +132,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             the one we have on record for the user profile of the Network Node we are calling.
                             */
                             if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
                             }
@@ -145,7 +145,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             */
                             let hash = web3.eth.accounts.hashMessage(signature.message)
                             if (hash !== signature.messageHash) {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> signature.message Hashed Does Not Match signature.messageHash.')
                                 reject()
                                 return
                             }
@@ -154,7 +154,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             that we have on record, otherwise something is wrong and we should not proceed.
                             */
                             if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.userProfileHandle) {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
                             }
@@ -163,7 +163,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             signed message, to avoid man in the middle attacks.
                             */
                             if (signedMessage.callerProfileHandle !== SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle) {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
                             }
@@ -172,7 +172,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             signed message, also to avoid man in the middle attacks.
                             */
                             if (signedMessage.callerTimestamp !== callerTimestamp) {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node callerTimestamp does not match my own callerTimestamp.')
                                 reject()
                                 return
                             }
@@ -206,7 +206,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             let response = JSON.parse(socketMessage.data)
 
                             if (response.result !== 'Ok') {
-                                console.log('[ERROR] Web Sockets Client -> stepOneResponse -> response.message = ' + response.message)
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> response.message = ' + response.message)
                                 reject()
                                 return
                             }
@@ -233,18 +233,18 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onError(err) {
                     if (err.message.indexOf('ECONNREFUSED') >= 0) {
-                        console.log('[WARN] Web Sockets Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
+                        console.log('[WARN] Web Sockets Network Client -> onError -> Nobody home at ' + thisObject.host + ':' + thisObject.port)
                         reject()
                         return
                     }
-                    console.log('[ERROR] Web Sockets Client -> onError -> err.message = ' + err.message)
-                    console.log('[ERROR] Web Sockets Client -> onError -> err.stack = ' + err.stack)
+                    console.log('[ERROR] Web Sockets Network Client -> onError -> err.message = ' + err.message)
+                    console.log('[ERROR] Web Sockets Network Client -> onError -> err.stack = ' + err.stack)
                     reject()
                     return
                 }
 
             } catch (err) {
-                console.log('[ERROR] Web Sockets Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
+                console.log('[ERROR] Web Sockets Network Client -> setUpWebSocketClient -> err.stack = ' + err.stack)
             }
 
         }
@@ -257,7 +257,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         function sendSocketMessage(resolve, reject) {
 
             if (thisObject.socket.readyState !== 1) { // 1 means connected and ready.
-                console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
+                console.log('[ERROR] Web Sockets Network Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
                 return
             }
@@ -277,20 +277,20 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
-                        console.log('[ERROR] Web Sockets Client -> onMenssageFunction -> response.message = ' + response.message)
+                        console.log('[ERROR] Web Sockets Network Client -> onMenssageFunction -> response.message = ' + response.message)
                         reject(response.message)
                     }
                 } catch (err) {
                     callbackFunction = undefined
-                    console.log('[ERROR] Web Sockets Client -> err.stack = ' + err.stack)
+                    console.log('[ERROR] Web Sockets Network Client -> err.stack = ' + err.stack)
                 }
             }
         }
     }
 
-    function onMenssage(socketMessage) {
+    function onMenssage(message) {
 
-        let response = JSON.parse(socketMessage.data)
+        let response = JSON.parse(message.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
@@ -305,33 +305,22 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         } else {
             /*
             The message received is a not response to a message sent.
+            That means that is a notification received from the Network Node
+            of an event that happened at some other Client of the Network.
+
+            This can only happen when this module is running at an APP like the Desktop App.
             */
             let messageHeader
             try {
                 messageHeader = JSON.parse(message)
             } catch (err) {
-                console.log('[ERROR] Web Sockets Client -> onMenssage -> message = ' + message)
-                console.log('[ERROR] Web Sockets Client -> onMenssage -> err.stack = ' + err.stack)
+                console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
+                console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
                 thisObject.socket.close()
                 return
             }
 
-            switch (thisObject.callerRole) {
-                case 'Network Client': {
-                    /*
-                    This is the use case of a network client receiving a notification of 
-                    somethinig that happened at the network that is relevant to itself.
-                    */
-                    break
-                }
-                case 'Network Peer': {
-                    /*
-                    No use cases so far were a Network Peer would send a message through an
-                    incomming websockets connection, without having received a request first.
-                    */
-                    break
-                }
-            }
+            DK.desktopApp.p2pNetworkInterface.messageReceived(messageHeader.payload)
         }
     }
 }

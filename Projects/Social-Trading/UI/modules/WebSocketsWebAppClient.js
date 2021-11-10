@@ -1,4 +1,4 @@
-function newSocialTradingModulesWebSocketsWebClient() {
+function newSocialTradingModulesWebSocketsWebAppClient() {
 
     let thisObject = {
         sendMessage: sendMessage,
@@ -45,12 +45,12 @@ function newSocialTradingModulesWebSocketsWebClient() {
                 }
 
                 function onError(err) {
-                    console.log('[ERROR] Web Sockets Client -> onError -> err.message = ' + err.message)
-                    console.log('[ERROR] Web Sockets Client -> onError -> err.stack = ' + err.stack)
+                    console.log('[ERROR] Web Sockets WebApp Client -> onError -> err.message = ' + err.message)
+                    console.log('[ERROR] Web Sockets WebApp Client -> onError -> err.stack = ' + err.stack)
                 }
 
             } catch (err) {
-                console.log('[ERROR] Web Sockets Client -> setUpWebsocketClient -> err.stack = ' + err.stack)
+                console.log('[ERROR] Web Sockets WebApp Client -> setUpWebsocketClient -> err.stack = ' + err.stack)
             }
         }
     }
@@ -62,7 +62,7 @@ function newSocialTradingModulesWebSocketsWebClient() {
         function sendSocketMessage(resolve, reject) {
 
             if (socketClient.readyState !== 1) { // 1 means connected and ready.
-                console.log('[ERROR] Web Sockets Client -> sendMessage -> Cannot send message while connection is closed.')
+                console.log('[ERROR] Web Sockets WebApp Client -> sendMessage -> Cannot send message while connection is closed.')
                 reject('Websockets Connection Not Ready.')
                 return
             }
@@ -82,26 +82,48 @@ function newSocialTradingModulesWebSocketsWebClient() {
                     if (response.result === 'Ok') {
                         resolve(response.data)
                     } else {
-                        console.log('[ERROR] Web Sockets Client -> onMenssage -> response.message = ' + response.message)
+                        console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> response.message = ' + response.message)
                         reject(response.message)
                     }
 
                 } catch (err) {
                     callbackFunction = undefined
-                    console.log('[ERROR] Web Sockets Client -> err.stack = ' + err.stack)
+                    console.log('[ERROR] Web Sockets WebApp Client -> err.stack = ' + err.stack)
                 }
             }
         }
     }
 
-    function onMenssage(socketMessage) {
+    function onMenssage(message) {
 
-        let response = JSON.parse(socketMessage.data)
+        let response = JSON.parse(message.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
         onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
         onMessageFunctionsMap.delete(response.messageId)
-        onMenssageFunction(response)
+
+        if (onMenssageFunction !== undefined) {
+            /*
+            The message received is a response to a message sent.
+            */
+            onMenssageFunction(response)
+        } else {
+            /*
+            The message received is a not response to a message sent.
+            That means that is a notification received from the Client App.
+            */
+            let messageHeader
+            try {
+                messageHeader = JSON.parse(message)
+            } catch (err) {
+                console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> message = ' + message)
+                console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> err.stack = ' + err.stack)
+                thisObject.socket.close()
+                return
+            }
+
+            UI.webApp.messageReceived(messageHeader.payload)
+        }
     }
 }

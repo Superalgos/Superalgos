@@ -10,23 +10,18 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
     }
 
     let socketServer
-    let webAppInterface
     let webApp
 
     return thisObject
 
     function finalize() {
         socketServer = undefined
-        webAppInterface = undefined
         webApp = undefined
     }
 
     function initialize() {
         let port = JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webSocketsPort
-
         socketServer = new SA.nodeModules.ws.Server({ port: port })
-        webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
-
         setUpWebSocketServer()
     }
 
@@ -67,7 +62,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                             return
                         }
 
-                        await webAppInterface.messageReceived(messageHeader.payload)
+                        await DK.desktopApp.webAppInterface.messageReceived(messageHeader.payload)
                             .then(sendResponseToWebApp)
                             .catch(onError)
 

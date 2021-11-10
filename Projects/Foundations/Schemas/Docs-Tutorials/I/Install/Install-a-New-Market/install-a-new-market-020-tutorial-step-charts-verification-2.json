@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Verifica que las máquinas del tiempo creadas aparezcan en el espacio de gráficos ... deberías encontrar ...",
                 "updated": 1629251601715
+            },
+            {
+                "language": "DE",
+                "text": "Vergewissern Sie sich, dass die erstellten Zeitmaschinen in der Diagrammfläche angezeigt werden....",
+                "updated": 1636470446401
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Un Time Machine para cada Trading Session crada en el Testing Trading Tasks.",
                     "updated": 1629251649077
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Time Machine für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
+                    "updated": 1636470668493
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Un Time Machine para cada Trading Session creado en el Production Trading Tasks.",
                     "updated": 1629251693396
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Time Machine für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
+                    "updated": 1636470688537
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "Pasa el mouse sobre un gráfico para ver qué Crypto Exchange y Market contiene.",
                     "updated": 1629251750388
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über ein Diagramm, um zu sehen, welche Crypto Exchange und welchen Market es enthält.",
+                    "updated": 1636470700735
                 }
             ]
         }

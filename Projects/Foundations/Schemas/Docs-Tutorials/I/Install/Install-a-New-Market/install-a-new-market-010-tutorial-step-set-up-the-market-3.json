@@ -12,7 +12,13 @@
             {
                 "language": "ES",
                 "text": "Ahora establece una referencia del nodo Market Quoted Asset en el Market que acaba de definir a la correspondiente nodo Asset definido bajo Exchange Assets.",
-                "updated": 1629166070472
+                "updated": 1629166070472,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Stellen Sie nun einen Verweis vom Knoten Market Quoted Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
+                "updated": 1635832310411
             }
         ]
     },
@@ -25,7 +31,13 @@
                 {
                     "language": "ES",
                     "text": "¡Ya casi has terminado con estas referencias!",
-                    "updated": 1629166084110
+                    "updated": 1629166084110,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sind mit diesen Referenzen fast fertig!",
+                    "updated": 1635832357018
                 }
             ]
         }

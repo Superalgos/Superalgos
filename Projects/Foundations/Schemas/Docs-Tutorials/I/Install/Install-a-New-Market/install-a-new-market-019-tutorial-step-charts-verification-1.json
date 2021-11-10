@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Verifica que las estructuras de datos del Charting Space para el mercado correspondiente se crearon con éxito.",
                 "updated": 1629251098125
+            },
+            {
+                "language": "DE",
+                "text": "Überprüfen Sie, ob die Charting Space Datenstrukturen für den entsprechenden Market erfolgreich erstellt wurden.",
+                "updated": 1636470181662
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Busca las siguientes estructuras de datos:",
                     "updated": 1629251126491
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach den folgenden Datenstrukturen:",
+                    "updated": 1636470213873
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Un nodo Time Machine para cada Trading Session creada en el Testing Trading Tasks.",
                     "updated": 1629251359090
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
+                    "updated": 1636470376014
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "Un nodo Time Machine oara cada Trading Session creada en el Production Trading Tasks.",
                     "updated": 1629251407209
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
+                    "updated": 1636470394173
                 }
             ]
         }

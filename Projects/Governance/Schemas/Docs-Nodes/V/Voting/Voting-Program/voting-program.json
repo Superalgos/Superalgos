@@ -2,7 +2,14 @@
     "type": "Voting Program",
     "definition": {
         "text": "The Voting Program is the heart and soul of governance, as it enables you to cast various types of votes. You may decide what to incentivize, weighing Pools, Assets, Features, and Positions. You may also evaluate and support Contribution Claims and transfer Voting Power to other users.",
-        "updated": 1630351287920
+        "updated": 1630351287920,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Voting Program (programa de voto) es el corazón y el alma de la gobernanza ya que te permite emitir varios tipos de votos. Puede decidir que incentivar, agregando peso a Pools, Assets, Features, and Positions. Puede también evaluar y apoyar Contribution Claims y transferir Voting Power a otros usuarios.",
+                "updated": 1636283766725
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,31 +25,73 @@
         {
             "style": "Note",
             "text": "Your Reputation is added to the Token Power that flows into the Voting Program, effectively increasing your Voting Power. Read more about Reputation!",
-            "updated": 1630424362937
+            "updated": 1630424362937,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su Reputation (reputación) es agregada al Token Power que fluye hacia el Voting Program ( programa de voto), incrementando efectivamente su Voting Power. Lea más acerca de la Reputation!",
+                    "updated": 1636283913006
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The features in the Voting Program allow you to cast three different categories of votes:"
+            "text": "The features in the Voting Program allow you to cast three different categories of votes:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estas funciones del Voting Program le permite emitir tres categorías diferentes de votos:",
+                    "updated": 1636283960032
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Claim Votes: Use Claim Votes to support the claims of other users so that they may get the rewards they deserve for their contributions. There are three types of claim vote nodes, namely Asset Claim Vote, Feature Claim Vote, and Position Claim Vote nodes.",
-            "updated": 1630344722135
+            "updated": 1630344722135,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Claim Votes: Usar Claim Votes ( votos de solicitud) para apoyar las solicitudes de otros usuarios para que ellos obtengan las recompensas que se merecen por sus contribuciones. Hay tres tipos de nodos de  claim vote, a saber nodos de Asset Claim Vote, Feature Claim Vote, y Position Claim Vote.",
+                    "updated": 1636284130567
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Weight Votes: Use Weight Votes to influence what areas of the project should be incentivized. There are four types of weight votes, namely Pool Weight Vote, Asset Weight Vote, Feature Weight Vote, and Position Weight Vote nodes.",
-            "updated": 1630344790466
+            "updated": 1630344790466,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Weight Votes: Use Weight Votes (votos de peso) para influenciar que áreas del pryecto deberían ser incentivadas Hay cautro tipos de weight votes, a saber nodos de Pool Weight Vote, Asset Weight Vote, Feature Weight Vote, y Position Weight Vote.",
+                    "updated": 1636284236503
+                }
+            ]
         },
         {
             "style": "List",
             "text": "User Profile Votes: Use a User Profile Vote to transfer Voting Power to other users.",
-            "updated": 1630344853204
+            "updated": 1630344853204,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "User Profile Votes: Use un User Profile Vote (voto de perfil de usuario) para transferir Voting Power a otros usuarios.",
+                    "updated": 1636284287487
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There is a top-level Votes Switch node that allows spawning several other switches, each one associated to the different types of votes described above:",
-            "updated": 1630343139964
+            "updated": 1630343139964,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay un nivel superior de nodo de Votes Switch ( interruptor de voto)que permite desplegar muchos otros switches, cada uno asociado a los diferentes tipos de votos descriptos aquí arriba:",
+                    "updated": 1636284440520
+                }
+            ]
         },
         {
             "style": "List",
@@ -60,7 +109,14 @@
         {
             "style": "Success",
             "text": "These switches control the flow of Voting Power, may be used as organizational devices, may spawn the different types of votes, and may help you map entire data structures easily. Find the details on the page of each switch!",
-            "updated": 1630348670996
+            "updated": 1630348670996,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos interruptores controlan el flujo del Voting Power,puede ser usado coomo dispositivos organizacionales, puede generar los diferentes tipos de votos, y puede ayudarlo a mapear estructuras de datos completas fácilmente. Encuentre más detalles en la página de cada switch!",
+                    "updated": 1636284604967
+                }
+            ]
         },
         {
             "style": "Block",

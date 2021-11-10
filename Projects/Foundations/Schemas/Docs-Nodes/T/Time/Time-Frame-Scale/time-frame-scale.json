@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El time frame scale controla la configuración del marco de tiempo, es decir, el período representado por cada vela, ya sea de la máquina del tiempo o del gráfico de la línea de tiempo, dependiendo de dónde se encuentre el nodo.",
                 "updated": 1628898828318
+            },
+            {
+                "language": "RU",
+                "text": "Шкала временных рамок управляет настройкой временных рамок, т.е. периодом, представленным каждой свечой, либо машины времени, либо графика временной шкалы, в зависимости от месторасположения узла.",
+                "updated": 1636561017281
             }
         ]
     },

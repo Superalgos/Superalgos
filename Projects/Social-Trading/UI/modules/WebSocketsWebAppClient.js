@@ -94,28 +94,28 @@ function newSocialTradingModulesWebSocketsWebAppClient() {
         }
     }
 
-    function onMenssage(message) {
+    function onMenssage(socketMessage) {
 
-        let response = JSON.parse(message.data)
+        let message = JSON.parse(socketMessage.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
-        onMessageFunctionsMap.delete(response.messageId)
+        onMenssageFunction = onMessageFunctionsMap.get(message.messageId)
+        onMessageFunctionsMap.delete(message.messageId)
 
         if (onMenssageFunction !== undefined) {
             /*
             The message received is a response to a message sent.
             */
-            onMenssageFunction(response)
+            onMenssageFunction(message)
         } else {
             /*
             The message received is a not response to a message sent.
-            That means that is a notification received from the Client App.
+            That means that is an event received from the Client App.
             */
-            let messageHeader
+            let event
             try {
-                messageHeader = JSON.parse(message)
+                event = JSON.parse(message)
             } catch (err) {
                 console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> message = ' + message)
                 console.log('[ERROR] Web Sockets WebApp Client -> onMenssage -> err.stack = ' + err.stack)
@@ -123,7 +123,7 @@ function newSocialTradingModulesWebSocketsWebAppClient() {
                 return
             }
 
-            UI.webApp.messageReceived(messageHeader.payload)
+            UI.webApp.messageReceived(JSON.stringify(event))
         }
     }
 }

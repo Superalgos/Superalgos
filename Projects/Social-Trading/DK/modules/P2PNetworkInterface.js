@@ -7,7 +7,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     by the user running this app, in particular trading events.
     */
     let thisObject = {
-        messageReceived: messageReceived,
+        eventReceived: eventReceived,
         initialize: initialize,
         finalize: finalize
     }
@@ -22,8 +22,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
 
     }
 
-    async function messageReceived(message) {
-        message.messageId = undefined
-        DK.webSocketsInterface.sendToWebApp(JSON.stringify(response))
+    async function eventReceived(event) {
+        DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
     }
 }

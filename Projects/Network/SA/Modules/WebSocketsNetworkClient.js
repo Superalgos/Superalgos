@@ -288,20 +288,20 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         }
     }
 
-    function onMenssage(message) {
+    function onMenssage(socketMessage) {
 
-        let response = JSON.parse(message.data)
+        let message = JSON.parse(socketMessage.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        let onMenssageFunction = onMessageFunctionsMap.get(response.messageId)
+        let onMenssageFunction = onMessageFunctionsMap.get(message.messageId)
 
         if (onMenssageFunction !== undefined) {
             /*
             The message received is a response to a message sent.
             */
-            onMessageFunctionsMap.delete(response.messageId)
-            onMenssageFunction(response)
+            onMessageFunctionsMap.delete(message.messageId)
+            onMenssageFunction(message)
         } else {
             /*
             The message received is a not response to a message sent.
@@ -310,9 +310,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
             This can only happen when this module is running at an APP like the Desktop App.
             */
-            let messageHeader
+            let event
             try {
-                messageHeader = JSON.parse(message)
+                event = JSON.parse(message.eventMessage)
             } catch (err) {
                 console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
                 console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
@@ -320,7 +320,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 return
             }
 
-            DK.desktopApp.p2pNetworkInterface.messageReceived(messageHeader.payload)
+            DK.desktopApp.p2pNetworkInterface.eventReceived(event)
         }
     }
 }

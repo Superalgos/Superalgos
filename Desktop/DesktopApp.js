@@ -5,7 +5,6 @@ exports.newDesktopApp = function newDesktopApp() {
         p2pNetworkClient: undefined,
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
-        webSocketsClient: undefined,
         webSocketsInterface: undefined,
         webAppInterface: undefined,
         p2pNetworkInterface: undefined,

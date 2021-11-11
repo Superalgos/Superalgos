@@ -12,12 +12,12 @@ function newFoundationsCodeEditorEditorPage() {
     let codeString = ''
     let tradingEngineObj = undefined
     let recordFormulasObj = {}
+    let chartObj = {}
 
     return thisObject
 
 
     function initialize() {
-        monacoInitialized = false
         buildEditorHTML()
         buildIntelliSenseModels()
     }
@@ -63,15 +63,16 @@ function newFoundationsCodeEditorEditorPage() {
 
             // Create autocomplete models and providers only once
             monaco.editor.createModel(codeString, "javascript")
-            showAutocompletionFor(tradingEngineObj)
-            showAutocompletionFor(recordFormulasObj)
+            createAutocompletionFor(tradingEngineObj)
+            createAutocompletionFor(recordFormulasObj)
+            createAutocompletionFor(chartObj)
+
+            monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
+            monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+                allowNonTsExtensions: true
+            });
+
         }
-
-        monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
-        monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
-            allowNonTsExtensions: true
-        });
-
 
         createCurrentEditorModel()
     }
@@ -97,7 +98,7 @@ function newFoundationsCodeEditorEditorPage() {
 
     }
 
-    function showAutocompletionFor(obj) {
+    function createAutocompletionFor(object) {
         // Disable default autocompletion for javascript
         monaco.languages.typescript.javascriptDefaults.setCompilerOptions({noLib: true});
 
@@ -132,70 +133,70 @@ function newFoundationsCodeEditorEditorPage() {
                     endColumn: position.column
                 });
                 let words = last_chars.replace("\t", "").split(" ");
-                let active_typing = words[words.length - 1]; // What the user is currently typing (everything after the last space)
-                if (active_typing.includes('(')) {
-                    let split = active_typing.split('(');
-                    active_typing = split[split.length - 1]
+                let activeTyping = words[words.length - 1]; // What the user is currently typing (everything after the last space)
+                if (activeTyping.includes('(')) {
+                    let split = activeTyping.split('(');
+                    activeTyping = split[split.length - 1]
                 }
 
-                // If the last character typed is a period then we need to look at member objects of the obj object
-                let is_member = active_typing.charAt(active_typing.length - 1) === ".";
+                // If the last character typed is a period then we need to look at member objects of our object
+                let isMember = activeTyping.charAt(activeTyping.length - 1) === ".";
 
                 // Array of autocompletion results
                 let result = [];
 
                 // Used for generic handling between member and non-member objects
-                let last_token = obj;
+                let lastToken = object;
                 let prefix = '';
 
-                if (is_member) {
+                if (isMember) {
                     // Is a member, get a list of all members, and the prefix
-                    let parents = active_typing.substring(0, active_typing.length - 1).split(".");
-                    last_token = obj[parents[0]];
+                    let parents = activeTyping.substring(0, activeTyping.length - 1).split(".");
+                    lastToken = object[parents[0]];
                     prefix = parents[0];
 
                     // Loop through all the parents the current one will have (to generate prefix)
                     for (let i = 1; i < parents.length; i++) {
-                        if (last_token.hasOwnProperty(parents[i])) {
+                        if (lastToken !== undefined && lastToken.hasOwnProperty(parents[i])) {
                             prefix += '.' + parents[i];
-                            last_token = last_token[parents[i]];
+                            lastToken = lastToken[parents[i]];
                         } else {
                             // Not valid
-                            return result;
+                            return result[0] = '';
                         }
                     }
-
                     prefix += '.';
                 }
 
                 // Get all the child properties of the last token
-                for (let prop in last_token) {
-                    // Do not show properites that begin with "__"
-                    if (last_token.hasOwnProperty(prop) && !prop.startsWith("__")) {
-                        // Get the detail type (try-catch) incase object does not have prototype
+                for (let prop in lastToken) {
+                    if (lastToken.hasOwnProperty(prop) && !prop.startsWith("__")) {
+                        // Get the detail type (try-catch) in case object does not have prototype
                         let details = '';
                         try {
-                            details = last_token[prop].__proto__.constructor.name;
+                            details = lastToken[prop].__proto__.constructor.name;
                         } catch (e) {
-                            details = typeof last_token[prop];
+                            details = typeof lastToken[prop];
                         }
 
                         // Create completion object
-                        let to_push = {
+                        let suggestion = {
                             label: prop,
-                            kind: getType(last_token[prop], is_member),
+                            kind: getType(lastToken[prop], isMember),
                             detail: details,
                             insertText: prop
                         };
 
                         // Change insertText and documentation for functions
-                        if (to_push.detail.toLowerCase() === 'function') {
-                            to_push.insertText += "(";
-                            to_push.documentation = (last_token[prop].toString()).split("{")[0]; // Show function prototype in the documentation popup
+                        if (suggestion.detail.toLowerCase() === 'function') {
+                            suggestion.insertText += "(";
+                            suggestion.documentation = (lastToken[prop].toString()).split("{")[0]; // Show function prototype in the documentation popup
                         }
 
                         // Add to final results
-                        result.push(to_push);
+                        result.push(suggestion);
+                        // TODO: Manually adding "value" property if parent is tradingEngine
+
                     }
                 }
 
@@ -223,6 +224,66 @@ function newFoundationsCodeEditorEditorPage() {
                     codeString += '\n'
                     codeString += node.code
                 })
+
+                /**
+                 * Generating an object represantation for "chart" object autocomplete
+                 * The logic is inspired by the condition editor
+                 * First we create a string representation with "." notation e.g: chart.at24hs.candlesChannel.begin for all the data mines and their bots in the workspace
+                 * Secondly we are going to convert all the strings to an object which will be used by the editor to predict possible values
+                 * e.g : we will end with something like {
+                 *     chart: {
+                 *         at24hs: {
+                 *              candlesChannel: {
+                 *                  begin: "",
+                 *                  direction: "",
+                 *                  end: "",
+                 *                  period: ""
+                 *              },
+                 *              previous: {...},
+                 *              previous: {
+                 *                  previous: {...}
+                 *              }
+                 *              ...
+                 *          },
+                 *         at01hs: {...}
+                 *         ...
+                 *     },
+                 * }
+                 *
+                 */
+                let bots = node.sensorBots.concat(node.apiDataFetcherBots).concat(node.indicatorBots)
+
+                bots.forEach(bot => {
+                    let products = bot.products
+                    products.forEach(product => {
+                        let productName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(product.payload, 'singularVariableName')
+                        if (product.record !== undefined) {
+                            product.record.properties.forEach(property => {
+                                let propertyName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(property.payload, 'codeName')
+                                product.datasets.forEach(dataset => {
+                                    let validTimeFrames = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(dataset.payload, 'validTimeFrames')
+                                    if (validTimeFrames !== undefined) {
+                                        validTimeFrames.forEach(tf => {
+                                            let prop = 'chart.at' + tf.replace('-', '') + '.' + productName + '.' + propertyName
+                                            // This will let us to enhance the autocomplete logic to add as many previous kids as we want to
+                                            let propWithPrevious = 'chart.at' + tf.replace('-', '') + '.previous.' + productName + '.' + propertyName
+                                            let propWithTwoPrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.' + productName + '.' + propertyName
+                                            let propWithThreePrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.previous.' + productName + '.' + propertyName
+                                            let propWithFourPrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.previous.previous.' + productName + '.' + propertyName
+                                            let propWithFivePrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.previous.previous.previous.' + productName + '.' + propertyName
+                                            objectMerge(chartObj, prop.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                            objectMerge(chartObj, propWithPrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                            objectMerge(chartObj, propWithTwoPrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                            objectMerge(chartObj, propWithThreePrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                            objectMerge(chartObj, propWithFourPrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                            objectMerge(chartObj, propWithFivePrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                        })
+                                    }
+                                })
+                            })
+                        }
+                    })
+                })
                 /**
                  * Getting all the Formula codes and create an object representation, all non-object children will be initialized with strings
                  *
@@ -237,7 +298,7 @@ function newFoundationsCodeEditorEditorPage() {
                  *         }
                  *     }
                  * }
-                 * the above object will have as many properties as we can find in the entire workspace
+                 * the above object will have as many properties as we can find in the entire workspace by scanning the formulas
                  *
                  */
 

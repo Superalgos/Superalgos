@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu video katman yöneticisi ve katanları öğrenmeniz içindir.",
                 "updated": 1636096574908
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636566615423
             }
         ]
     },

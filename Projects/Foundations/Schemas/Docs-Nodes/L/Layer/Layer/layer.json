@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un layer representa una referencia a un producto de datos en el nodo de almacenamiento de datos de la jerarquía de red. Conceptualmente, significa que un determinado producto de datos, que existe en una determinada ubicación de la red, contiene los datos que se van a representar en los gráficos.",
                 "updated": 1624410918494
+            },
+            {
+                "language": "RU",
+                "text": "Слой представляет собой ссылку на продукт данных в узле хранения данных сетевой иерархии. Концептуально это означает, что определенный продукт данных, который существует в определенном месте в сети, содержит данные для отображения на диаграммах.",
+                "updated": 1636566192630
             }
         ]
     },

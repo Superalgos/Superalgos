@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "theblockchainarborist",
-    "config": "{\n    \"signature\": {\n        \"message\": \"theblockchainarborist\",\n        \"messageHash\": \"0x2b96d84519ace41f3130b6c0816df64dbedeaebfedb5208f82ae3e5aab409600\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e880\",\n        \"s\": \"0x6750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec8\",\n        \"signature\": \"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e8806750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec81c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"theblockchainarborist\",\"messageHash\":\"0x2b96d84519ace41f3130b6c0816df64dbedeaebfedb5208f82ae3e5aab409600\",\"v\":\"0x1c\",\"r\":\"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e880\",\"s\":\"0x6750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec8\",\"signature\":\"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e8806750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec81c\"},\"codeName\":\"theblockchainarborist\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -256,11 +258,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 5136.000000000002,
-                        "y": 6365.865928668872
+                        "y": 5846.250686398208
                     },
                     "targetPosition": {
-                        "x": 4836.000000000002,
-                        "y": 6365.865928668872
+                        "x": 4986.000000000002,
+                        "y": 6106.05830753354
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -289,12 +291,12 @@
                         "id": "96d88bf0-a576-4d53-ae50-66f6af65beae",
                         "savedPayload": {
                             "position": {
-                                "x": 4945.807621135334,
-                                "y": 6775.6735498042035
+                                "x": 5395.807621135334,
+                                "y": 6215.865928668872
                             },
                             "targetPosition": {
-                                "x": 4686.000000000002,
-                                "y": 6625.6735498042035
+                                "x": 5136.000000000002,
+                                "y": 6365.865928668872
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -315,7 +317,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -328,12 +332,12 @@
                     "id": "86261cfd-861a-4b2e-a988-93e16d506d2a",
                     "savedPayload": {
                         "position": {
-                            "x": 4536.000000000002,
-                            "y": 6885.481170939535
+                            "x": 5286.000000000002,
+                            "y": 6625.6735498042035
                         },
                         "targetPosition": {
-                            "x": 4686.000000000002,
-                            "y": 6625.6735498042035
+                            "x": 5136.000000000002,
+                            "y": 6365.865928668872
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -355,12 +359,12 @@
                     "id": "a7acfbca-1216-4846-b56c-efef58504afa",
                     "savedPayload": {
                         "position": {
-                            "x": 4426.19237886467,
-                            "y": 6475.6735498042035
+                            "x": 4876.19237886467,
+                            "y": 6515.865928668872
                         },
                         "targetPosition": {
-                            "x": 4686.000000000002,
-                            "y": 6625.6735498042035
+                            "x": 5136.000000000002,
+                            "y": 6365.865928668872
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -378,12 +382,12 @@
                 "id": "2b7da48c-2c45-4a74-aaa4-53156462a230",
                 "savedPayload": {
                     "position": {
-                        "x": 4686.000000000002,
-                        "y": 6625.6735498042035
+                        "x": 5136.000000000002,
+                        "y": 6365.865928668872
                     },
                     "targetPosition": {
-                        "x": 4836.000000000002,
-                        "y": 6365.865928668872
+                        "x": 4986.000000000002,
+                        "y": 6106.05830753354
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -411,7 +415,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -474,17 +478,17 @@
     "id": "4f18c127-098f-4695-aed6-90632d3db544",
     "savedPayload": {
         "position": {
-            "x": 4386.000000000002,
-            "y": 6106.05830753354
+            "x": 4347.826086956522,
+            "y": 28400
         },
         "targetPosition": {
-            "x": 4386.000000000002,
-            "y": 6106.05830753354
+            "x": 4347.826086956522,
+            "y": 28400
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

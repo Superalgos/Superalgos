@@ -1543,7 +1543,10 @@ function newEducationTutorialSpace() {
 
             tutorialDiv.innerHTML = html
             _self.Prism.highlightAllUnder(tutorialDiv, true)
-
+            // Create tooltip objects for all the elements
+            tippy('#tooltip-container', {
+                theme: "superalgos"
+            });
         }
     }
 

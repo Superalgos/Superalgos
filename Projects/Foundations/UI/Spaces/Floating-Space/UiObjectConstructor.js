@@ -474,8 +474,6 @@ function newUiObjectConstructor() {
             if (schemaDocument.editors !== undefined) {
                 if (schemaDocument.editors.config === true) {
                     uiObject.configEditor = newConfigEditor()
-                    uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.configEditor.initialize()
                 }
                 if (schemaDocument.editors.code === true) {

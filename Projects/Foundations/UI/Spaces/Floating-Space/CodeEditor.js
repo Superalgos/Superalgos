@@ -25,7 +25,7 @@ function newCodeEditor() {
 
 
     function activate(action) {
-        UI.projects.foundations.spaces.codeEditorSpace.openSpaceArea(action.node)
+        UI.projects.foundations.spaces.codeEditorSpace.openSpaceArea(action.node, codeEditorType.CODE)
     }
 
 }

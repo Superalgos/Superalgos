@@ -1651,7 +1651,6 @@ exports.newHttpInterface = function newHttpInterface() {
                             SA.projects.foundations.utilities.httpResponses.respondWithFont(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
                             break
                         default:
-                            console.log("Default file")
                             SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
                     }
 

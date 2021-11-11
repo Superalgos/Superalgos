@@ -60,10 +60,10 @@ function newFoundationsCodeEditorSpace() {
 
     }
 
-    function openSpaceArea(originatingNode) {
+    function openSpaceArea(originatingNode, codeEditorType) {
 
         thisObject.sidePanelTab.open()
-        thisObject.editorPage.render(originatingNode)
+        thisObject.editorPage.render(originatingNode, codeEditorType)
     }
 
     function physics() {

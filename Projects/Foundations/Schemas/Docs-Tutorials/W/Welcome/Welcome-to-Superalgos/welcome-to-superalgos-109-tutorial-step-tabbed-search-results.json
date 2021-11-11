@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Ergebnisse sind in verschiedene Kategorien eingeteilt, und jede Kategorie wird durch eine Registerkarte repräsentiert, die die der Kategorie entsprechenden Ergebnisse zusammenfasst...",
                 "updated": 1634246412249
+            },
+            {
+                "language": "TR",
+                "text": "Sonuçlar birkaç kategoride düzenlenir ve her kategori, kategoriyle eşleşen sonuçları gruplayan bir sekme ile temsil edilir...",
+                "updated": 1636642465424
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Ich erkläre jede Kategorie kurz und überlasse es Ihnen, sich umzusehen:",
                     "updated": 1634246421578
+                },
+                {
+                    "language": "TR",
+                    "text": "Her birini kısaca açıklayacağım ve etrafınıza bakmanız için sizi serbest bırakacağım:",
+                    "updated": 1636642479116
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "All: enthält Ergebnisse aus allen Kategorien.",
                     "updated": 1634246435535
+                },
+                {
+                    "language": "TR",
+                    "text": "Tümü (All): Tüm kategorilerden sonuçları içerir.",
+                    "updated": 1636642639726
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Nodes: Ergebnisse vom Node Type, die den Begriff enthalten.",
                     "updated": 1634246458058
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler (Nodes): Düğüm Türü ifadesi içeren  sözcüklerle eşleşir.",
+                    "updated": 1636642633711
                 }
             ]
         },
@@ -122,6 +142,11 @@
                     "language": "DE",
                     "text": "Concepts: enthält Begriffe wie References.",
                     "updated": 1634246469250
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramlar (Concepts): Referanslar vb. gibi kavramları içerir.",
+                    "updated": 1636642672030
                 }
             ]
         },
@@ -146,6 +171,11 @@
                     "language": "DE",
                     "text": "Topics: große Themen, die in aufeinanderfolgenden Seiten behandelt werden.",
                     "updated": 1634246475658
+                },
+                {
+                    "language": "TR",
+                    "text": "Konular (Topics): Birçok sayfadan oluşan konular.",
+                    "updated": 1636642724279
                 }
             ]
         },
@@ -170,6 +200,11 @@
                     "language": "DE",
                     "text": "Tutorials: enthält die Seiten, aus denen Tutorials bestehen.",
                     "updated": 1634246482307
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler (Tutorials): Öğreticileri oluşturan sayfaları içerir.",
+                    "updated": 1636642744211
                 }
             ]
         },
@@ -194,6 +229,11 @@
                     "language": "DE",
                     "text": "Reviews: enthält Benutzerrezensionen zu Plugins usw..",
                     "updated": 1634246489513
+                },
+                {
+                    "language": "TR",
+                    "text": "İncelemeler (Reviews): Kullanıcıların eklentiler vb. hakkındaki incelemelerini içerir.",
+                    "updated": 1636642782352
                 }
             ]
         },
@@ -218,6 +258,11 @@
                     "language": "DE",
                     "text": "Books: Sammlungen von Themen, die in Kapiteln organisiert sind, die ganze App-Bereiche abdecken, um ein geordnetes Lesen zu ermöglichen.",
                     "updated": 1634246497013
+                },
+                {
+                    "language": "TR",
+                    "text": "Kitaplar (Books): Düzenli bir okuma için tüm uygulama alanlarını kapsayan bölümleri içerir.",
+                    "updated": 1636642824353
                 }
             ]
         },
@@ -242,6 +287,11 @@
                     "language": "DE",
                     "text": "Workspace: zeigt Knoten an, die sich im aktiven Arbeitsbereich befinden... klicken Sie darauf, um zu ihnen zu gelangen!",
                     "updated": 1634246504156
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı (Workspace): Aktif çalışma alanında bulunan düğümleri döndürür... Onlara gitmek için tıklayın!",
+                    "updated": 1636642870169
                 }
             ]
         },

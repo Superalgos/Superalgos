@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Es gibt noch ein paar Dinge, die ich dir erzählen möchte, bevor ich dich gehen lasse! Habt Geduld mit mir!",
                 "updated": 1634246641749
+            },
+            {
+                "language": "TR",
+                "text": "Gitmene izin vermeden önce sana söylemek istediğim birkaç şey daha var! Benimle kal.",
+                "updated": 1636643056079
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Ich gebe Ihnen eine kurze Einführung darüber, woran wir für kommende Versionen von Superalgos arbeiten! Ich habe die Machine Learning Algorithmen erwähnt, aber es gibt noch mehr! Eine Menge mehr!",
                     "updated": 1634246651390
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un gelecek sürümleri için üzerinde çalıştığımız şeyler hakkında size hızlı bir giriş yapacağım! Makine Öğrenimi ( Machine Learning) algoritmalarından bahsetmiştim ama dahası da var! Çok daha fazla!",
+                    "updated": 1636643093703
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Ich möchte Sie auch wissen lassen, dass - wenn Sie schätzen, was wir tun - Sie helfen können! Zehntausende von Stunden harter Arbeit sind in den Aufbau von Superalgos geflossen und haben es zu seinem heutigen Stand gebracht. Ich hoffe, Sie können sich ein paar Minuten Zeit nehmen, um etwas zurückzugeben, und ich werde Ihnen gerne sagen, wo Sie anfangen können!",
                     "updated": 1634246659750
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, yaptığımız şeyi takdir ediyorsanız, yardımcı olabileceğinizi de bilmenizi isterim! Superalgos'u inşa etmek ve onu mevcut durumuna getirmek için on binlerce saatlik sıkı çalışma yapıldı. Umarım birkaç dakikanızı ayırıp geri bildirim verebilirsiniz. Size nereden başlayacağınızı söylemekten mutluluk duyacağım!",
+                    "updated": 1636643137813
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Legen wir los!",
                     "updated": 1634246666260
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi devam edelim!",
+                    "updated": 1636643263166
                 }
             ]
         }

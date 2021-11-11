@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Unpack This Error",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "The error is associated with one of our conditions. The error details clearly pointed to the Javascript Code we used!",
         "updated": 1612639466412

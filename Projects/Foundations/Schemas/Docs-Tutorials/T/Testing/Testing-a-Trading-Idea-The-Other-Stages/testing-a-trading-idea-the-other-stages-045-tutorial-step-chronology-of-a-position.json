@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Chronology of a Position",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "position"
+            "name": "Position\\position",
+            "project": "Foundations"
         },
         "text": "Let's take a few minutes to dissect this position, looking particularly into what makes each stage tick..."
     },

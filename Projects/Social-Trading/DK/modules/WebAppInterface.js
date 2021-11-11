@@ -132,7 +132,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Event Processed.',
-                    data: await DK.desktopApp.webSocketsClient.sendMessage(JSON.stringify(messageHeader))
+                    data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response
             }

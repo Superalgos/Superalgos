@@ -98,8 +98,8 @@ function newWebAppLoader() {
 
                             if (downloadedCounter === modulesArray.length) {
                                 setTimeout(() => {
-                                    UI.running.webApp = newWebApp()
-                                    UI.running.webApp.initialize()
+                                    UI.webApp = newWebApp()
+                                    UI.webApp.initialize()
                                 }, 500)
 
                             }

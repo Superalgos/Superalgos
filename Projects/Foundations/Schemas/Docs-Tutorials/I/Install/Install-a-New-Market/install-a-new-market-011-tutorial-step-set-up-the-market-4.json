@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Etiqueta el Market con los nombres de ticker correspondientes a el Market Base Asset ay el Market Quoted Asset, al igual que la lista de exchange.",
                 "updated": 1629247010585
+            },
+            {
+                "language": "DE",
+                "text": "Beschriften Sie den Market mit den Tickernamen, die dem Market Base Asset und dem Market Quoted Asset entsprechen, genau wie bei der Börsennotierung.",
+                "updated": 1636093674049
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Por ejemplo: ETH/USDT.",
                     "updated": 1629247028876
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel: ETH/USDT",
+                    "updated": 1636093747607
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Manteniendo un ordenado Workspace con etiquetas adecuadas para nodos importantes, ayuda a gestionar grandes operaciones y a administrar la complejidad. ¡Estas etiquetas pueden ser utilizadas por otros nodos!",
                     "updated": 1629247073143
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein aufgeräumter Workspace mit den richtigen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung großer Vorgänge und der Beherrschung der Komplexität. Diese Bezeichnungen können von anderen Knoten verwendet werden!",
+                    "updated": 1636093838222
                 }
             ]
         }

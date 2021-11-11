@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Deciphering Errors",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "Can not read property \"direction\" of undefined. What is that all about?",
         "updated": 1617191618477

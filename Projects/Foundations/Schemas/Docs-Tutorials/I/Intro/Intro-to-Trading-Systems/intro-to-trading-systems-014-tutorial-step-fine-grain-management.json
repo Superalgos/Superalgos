@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Fine-Grain Management!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "When complex trading logic is split into multiple strategies, you gain the opportunity to manage the resulting trades differently!"
     },

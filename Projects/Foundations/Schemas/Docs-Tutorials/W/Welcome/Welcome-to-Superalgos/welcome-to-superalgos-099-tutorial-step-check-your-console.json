@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Wenn Sie keine Fehler in der Trading Process Instance sehen, ist die Wahrscheinlichkeit groß, dass alles einwandfrei funktioniert!",
                 "updated": 1634245167087
+            },
+            {
+                "language": "TR",
+                "text": "İşlem Süreci Eşgörünümünde ( Trading Process Instance ) herhangi bir hata görmüyorsanız, muhtemelen her şey yolunda gidiyor demektir!",
+                "updated": 1636575842336
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Werfen Sie jedoch einen Blick auf Ihre Komandozeile, um zu sehen, ob Ihnen etwas Ungewöhnliches auffällt.",
                     "updated": 1634245193653
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, konsol uygulamanıza bir göz atmak ve normların dışında bir şey fark edip etmediğinizi görmek isteyebilirsiniz.",
+                    "updated": 1636575862276
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Werfen Sie einen Blick auf Ihre Kommandozeile!",
                     "updated": 1634245211481
+                },
+                {
+                    "language": "TR",
+                    "text": "Konsol uygulamanıza bir göz atın!",
+                    "updated": 1636575893503
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Sie sollten in der Lage sein, die abwechselnden Ausführungen der Indikatoren Candles-Volumes und Resistances-And-Support mit dem Low-Frequency Trading Bot zu sehen.",
                     "updated": 1634245229635
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşük Frekanslı Ticaret Botu ( Low-Fequency Trading Bot ) ile Mumlar-Hacimler (Candles-Volumes) ve Dirençler-Destekler (Resistance And Support) göstergelerinin alternatif uygulamalarını görebilmeniz gerekir.",
+                    "updated": 1636576040494
                 }
             ]
         }

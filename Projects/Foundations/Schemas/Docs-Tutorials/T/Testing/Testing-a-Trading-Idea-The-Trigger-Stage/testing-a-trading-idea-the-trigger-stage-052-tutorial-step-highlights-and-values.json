@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Highlights and Values",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "nodes-highlights"
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
         },
         "text": "Let's move on to a brighter topic! I'll show you how to verify the validation of conditions with the highlights and values layers."
     },

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Et Voilà..!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "nodes-highlights"
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
         },
         "text": "That's it! We finally have a proper hypothesis that we can test to decide if the idea is worth pursuing or not!"
     },

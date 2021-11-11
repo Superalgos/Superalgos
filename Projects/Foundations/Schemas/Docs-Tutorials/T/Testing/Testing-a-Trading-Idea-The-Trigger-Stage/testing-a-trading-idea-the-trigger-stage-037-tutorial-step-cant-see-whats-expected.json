@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Can't See What's Expected?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "If you can't see what I showed in the video, chances are you skipped one or more of my previous instructions!"
     },

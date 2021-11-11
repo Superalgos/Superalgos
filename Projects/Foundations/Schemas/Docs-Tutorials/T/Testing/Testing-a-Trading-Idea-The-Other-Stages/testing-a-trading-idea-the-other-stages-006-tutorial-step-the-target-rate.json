@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Target Rate",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "target-rate"
+            "name": "Target\\target-rate",
+            "project": "Foundations"
         },
         "text": "As I said earlier, the Target Rate is a concept that entails some depth, but we'll keep it simple for the time being!"
     },

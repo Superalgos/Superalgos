@@ -11,6 +11,7 @@ function newFoundationsCodeEditorEditorPage() {
     let recordFormulaString = ''
     let codeString = ''
     let tradingEngineObj = undefined
+    let recordFormulasObj = {}
 
     return thisObject
 
@@ -76,7 +77,7 @@ function newFoundationsCodeEditorEditorPage() {
          * The reason we are doing the monaco initialization here is simply because monaco will set his own width at the moment it's rendered
          * Rendering it earlier when the code panel is closed will result in a very narrow width
          * Thus we choose to render it after the panel has his width set correctly
-         * Probably there is a better way but at the time this has been coded, nothing seemed to work
+         * Probably there is a better way but at the time this has been coded, nothing else seemed to work
          **/
 
         require(["vs/editor/editor.main"], function () {
@@ -94,7 +95,7 @@ function newFoundationsCodeEditorEditorPage() {
                 monaco.editor.createModel(recordFormulaString, "javascript")
 
                 showAutocompletionFor(tradingEngineObj)
-
+                showAutocompletionFor(recordFormulasObj)
 
 
                 monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
@@ -114,14 +115,13 @@ function newFoundationsCodeEditorEditorPage() {
             })
 
 
-
             function showAutocompletionFor(obj) {
                 // Disable default autocompletion for javascript
-                monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ noLib: true  });
+                monaco.languages.typescript.javascriptDefaults.setCompilerOptions({noLib: true});
 
                 // Helper function to return the monaco completion item type of a thing
                 function getType(thing, isMember) {
-                    isMember =  (isMember === undefined) ? (typeof isMember == "boolean") ? isMember : false : false; // Give isMember a default value of false
+                    isMember = (isMember === undefined) ? (typeof isMember == "boolean") ? isMember : false : false; // Give isMember a default value of false
 
                     switch ((typeof thing).toLowerCase()) {
                         case "object":
@@ -131,7 +131,7 @@ function newFoundationsCodeEditorEditorPage() {
                             return (isMember) ? monaco.languages.CompletionItemKind.Method : monaco.languages.CompletionItemKind.Function;
 
                         default:
-                            return (isMember) ? monaco.languages.CompletionItemKind.Property : monaco.languages.CompletionItemKind.letiable;
+                            return (isMember) ? monaco.languages.CompletionItemKind.Property : monaco.languages.CompletionItemKind.Variable;
                     }
                 }
 
@@ -141,14 +141,19 @@ function newFoundationsCodeEditorEditorPage() {
                     triggerCharacters: ['.', '('],
 
                     // Function to generate autocompletion results
-                    provideCompletionItems: function(model, position, token) {
+                    provideCompletionItems: function (model, position, token) {
                         // Split everything the user has typed on the current line up at each space, and only look at the last word
-                        let last_chars = model.getValueInRange({startLineNumber: position.lineNumber, startColumn: 0, endLineNumber: position.lineNumber, endColumn: position.column});
+                        let last_chars = model.getValueInRange({
+                            startLineNumber: position.lineNumber,
+                            startColumn: 0,
+                            endLineNumber: position.lineNumber,
+                            endColumn: position.column
+                        });
                         let words = last_chars.replace("\t", "").split(" ");
                         let active_typing = words[words.length - 1]; // What the user is currently typing (everything after the last space)
                         if (active_typing.includes('(')) {
                             let split = active_typing.split('(');
-                            active_typing = split[split.length-1]
+                            active_typing = split[split.length - 1]
                         }
 
                         // If the last character typed is a period then we need to look at member objects of the obj object
@@ -195,7 +200,7 @@ function newFoundationsCodeEditorEditorPage() {
 
                                 // Create completion object
                                 let to_push = {
-                                    label: prefix + prop,
+                                    label: prop,
                                     kind: getType(last_token[prop], is_member),
                                     detail: details,
                                     insertText: prop
@@ -225,32 +230,78 @@ function newFoundationsCodeEditorEditorPage() {
 
     /**
      * The autocomplete models will be based on:
-     * 1.  all data mines loaded into workspace - by creating a model in monaco (basically is like opening a file containing all the variables in vs-code, thus it will make them available in other files as well)
-     * 2. trading engine loaded into the workspace - we create an obj. representation using getProtocolNode and we are using monaco registerCompletionItemProvider
+     * 1.  Existing code in the data mines -> we will create models for each code node (it's like opening multiple files in vscode)
+     * 2.  Formulas from data mines by creating an object representation of all formulas see implementation below than passing it to the monaco registerCompletionItemProvider
+     * 2.  Trading engine loaded into the workspace - we create an obj. representation using getProtocolNode and we are using monaco registerCompletionItemProvider
      *
      */
     function buildIntelliSenseModels() {
 
+
         UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Data Mine') {
-                //Getting all the Javascript code into one single letiable
+                // Getting all the Javascript code nodes into one single model
                 UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Procedure Javascript Code').forEach(node => {
                     codeString += '\n'
                     codeString += node.code
                 })
-                //Getting all the Formula code into one single letiable
+                /**
+                 * Getting all the Formula codes and create an object representation, all non-object children will be initialized with strings
+                 *
+                 * e.g : we will end with something like {
+                 *     variable: {
+                 *         last24hsDirection: "",
+                 *         last24HsMax: ""
+                 *     },
+                 *     record: {
+                 *         current: {
+                 *             direction: ""
+                 *         }
+                 *     }
+                 * }
+                 * the above object will have as many properties as we can find in the entire workspace
+                 *
+                 */
+
                 UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Record Formula').forEach(node => {
-                    recordFormulaString += '\n'
-                    recordFormulaString += node.code
+                    /**
+                     * Extract each code formula as an object to be merged with the next one until we end up with an object containing all the objects present in the formula with proper children
+                     * The resulting object will be later used as model for autocompletion
+                     */
+                    console.log(node.code)
+                    objectMerge(recordFormulasObj, node.code.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+
                 })
             } else if (node.type === 'Trading Engine') {
-                // Create an object representation for
-                tradingEngineObj = {tradingEngine : UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
+                // Create an object representation for the engine
+                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
             }
         })
 
+
+        function objectMerge(target, source) {
+            for (const key of Object.keys(source)) {
+                const currTarget = target[key];
+                const currSource = source[key];
+
+                if (currTarget) {
+                    const objSource = typeof currSource === 'object';
+                    const objTarget = typeof currTarget === 'object';
+
+                    if (objSource && objTarget) {
+                        void objectMerge(currTarget, currSource)
+                        continue;
+                    }
+                }
+
+                target[key] = currSource;
+            }
+
+            return target;
+        }
+
     }
-    
+
 
     function createCodePath() {
         let parentNodeStructure = []

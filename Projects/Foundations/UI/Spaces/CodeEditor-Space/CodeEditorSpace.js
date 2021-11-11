@@ -62,7 +62,6 @@ function newFoundationsCodeEditorSpace() {
 
     function openSpaceArea(originatingNode) {
 
-
         thisObject.sidePanelTab.open()
         thisObject.editorPage.render(originatingNode)
     }

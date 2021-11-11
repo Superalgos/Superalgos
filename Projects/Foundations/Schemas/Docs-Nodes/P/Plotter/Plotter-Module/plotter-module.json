@@ -84,7 +84,14 @@
         {
             "style": "List",
             "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
-            "updated": 1609852182210
+            "updated": 1609852182210,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
+                    "updated": 1636664751673
+                }
+            ]
         },
         {
             "style": "Javascript",

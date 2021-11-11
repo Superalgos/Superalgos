@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Ich gebe Ihnen ein paar Minuten Zeit, um mit Ihrer Live-Sitzung herumzuspielen, und wenn Sie bereit sind, gehen wir zu anderen Dingen über!",
                 "updated": 1634245629094
+            },
+            {
+                "language": "TR",
+                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda başka şeylere geçeceğiz!",
+                "updated": 1636633146523
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich etwas Zeit, um zu verarbeiten, was Sie bisher gelernt haben...",
                     "updated": 1634245636711
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen şimdiye kadar öğrendiklerinizi anlayabilmek için biraz zaman ayırın...",
+                    "updated": 1636633177020
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Das ist wichtig: Wenn Sie bereit sind, weiterzumachen, können Sie die Live Trading Session und die Data Tasks beenden. Sie können die Sitzung weiterlaufen lassen, wenn Sie möchten, aber ich würde mein hart verdientes Geld nicht auf unbestimmte Zeit der Demostrategie anvertrauen!",
                     "updated": 1634245651095
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu ( Live Trading Session ) ve Veri Görevlerini ( Data Tasks ) durdurmaktan çekinmeyin. İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak zor kazanılmış paramı süresiz olarak demo stratejisine emanet etmem!",
+                    "updated": 1636633220202
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Es gibt noch ein paar Dinge, die ich Ihnen zeigen möchte, bevor ich Sie gehen lasse! Haben Sie Geduld mit mir!",
                     "updated": 1634245657922
+                },
+                {
+                    "language": "TR",
+                    "text": "Gitmene izin vermeden önce sana göstermek istediğim birkaç şey daha var!",
+                    "updated": 1636633248352
                 }
             ]
         }

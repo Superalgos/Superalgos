@@ -1,6 +1,5 @@
 
 function newCodeEditor() {
-    const MODULE_NAME = 'Code Editor'
 
     let thisObject = {
         isVisibleFunction: undefined,
@@ -34,6 +33,7 @@ function newCodeEditor() {
     let isMouseOver = false
     let SIZE_FACTOR = 1.0
 
+<<<<<<< Updated upstream
     return thisObject
 
     function finalize() {
@@ -42,6 +42,8 @@ function newCodeEditor() {
         thisObject.payload = undefined
         thisObject.isVisibleFunction = undefined
     }
+=======
+>>>>>>> Stashed changes
 
     function initialize() {
 

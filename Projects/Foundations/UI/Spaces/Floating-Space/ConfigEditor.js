@@ -1,6 +1,5 @@
 
 function newConfigEditor() {
-    const MODULE_NAME = 'Config Editor'
 
     let thisObject = {
         isVisibleFunction: undefined,
@@ -34,6 +33,7 @@ function newConfigEditor() {
     let isMouseOver = false
     let SIZE_FACTOR = 1
 
+<<<<<<< Updated upstream
     return thisObject
 
     function finalize() {
@@ -42,6 +42,8 @@ function newConfigEditor() {
         thisObject.payload = undefined
         thisObject.isVisibleFunction = undefined
     }
+=======
+>>>>>>> Stashed changes
 
     function initialize() {
 

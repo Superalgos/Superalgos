@@ -1,6 +1,5 @@
 
 function newFormulaEditor() {
-    const MODULE_NAME = 'Formula Editor'
 
     let thisObject = {
         isVisibleFunction: undefined,
@@ -34,6 +33,7 @@ function newFormulaEditor() {
     let isMouseOver = false
     let SIZE_FACTOR = 1.0
 
+<<<<<<< Updated upstream
     return thisObject
 
     function finalize() {
@@ -42,6 +42,8 @@ function newFormulaEditor() {
         thisObject.payload = undefined
         thisObject.isVisibleFunction = undefined
     }
+=======
+>>>>>>> Stashed changes
 
     function initialize() {
 

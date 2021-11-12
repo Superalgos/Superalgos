@@ -7,17 +7,38 @@
             "project": "Foundations",
             "name": "run"
         },
-        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!"
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ahora que comprende las implicaciones de ejecutar esta operación de minería de datos, ¡sigamos adelante!",
+                "updated": 1636723961413
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
-            "updated": 1622447060448
+            "updated": 1622447060448,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Seleccionar \"Run All Project Data Tasks\"en el menú  Data Tasks!",
+                    "updated": 1636723999566
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!"
+            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si está realizando este tutorial después de realizar otros tutoriales, es probable que ya tenga parte de los datos necesarios, ¡lo que puede hacer las cosas más rápido! De cualquier manera, no es necesario esperar a que la minería de datos llegue al presente ... ¡puede continuar con el tutorial!",
+                    "updated": 1636724042227
+                }
+            ]
         }
     ]
 }

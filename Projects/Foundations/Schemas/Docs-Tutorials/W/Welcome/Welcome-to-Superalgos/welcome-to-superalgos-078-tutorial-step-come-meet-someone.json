@@ -20,6 +20,16 @@
                 "text": "Perdón por sacarte de los gráfico, pero quería presentarte a alguien: ¡el tipo de la derecha es el que hace las órdenes de compra!",
                 "updated": 1624458802818,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Entschuldigen Sie, dass ich Sie von den Charts weggezerrt habe, aber ich wollte Ihnen jemanden vorstellen: Der Typ rechts ist derjenige, der die Kaufaufträge erteilt!",
+                "updated": 1634225548501
+            },
+            {
+                "language": "TR",
+                "text": "Sizi grafiklerden uzaklaştırdığım için özür dilerim ama sizi biriyle tanıştırmak istedim: satın alma siparişlerini veren kişi sağdaki adam!",
+                "updated": 1636206465488
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "Estamos dentro de Lightning Strike Trading System, dentro de las definiciones del Open Stage. En esta etapa, el Execution Algorithm asume el control después de que ya se haya tomado la decisión de tomar una posición en el Trigger Stage.Sé que todavía no sabes qué Situation o un Condition son, pero aun así me gustaría que hicieras algo...",
                     "updated": 1624458987851,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir befinden uns im Lightning Strike Trading System, innerhalb der Definitionen der Open Stage. In dieser Phase übernimmt der Execution Algorithm, nachdem die Entscheidung, eine Position einzugehen, bereits in der Trigger Stage getroffen wurde. Ich weiß, dass Sie immer noch nicht wissen, was eine Situation oder eine Condition ist, aber ich möchte, dass Sie trotzdem etwas tun...",
+                    "updated": 1634225553603
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Trading Sisteminin ( Trading System ), Open Stage tanımları içerisindeyiz. Bu aşamada, Tetik Aşamasında pozisyon alma kararı verildikten sonra Yürütme Algoritması ( Execution Algorithm ) devreye girer. Hala bir Durum ( Situation ) veya Koşulun ( Condition ) ne olduğunu bilmediğini biliyorum, ama yine de bir şeyler yapmanı istiyorum...",
+                    "updated": 1636207188259
                 }
             ]
         },
@@ -57,6 +77,16 @@
                     "text": "Tómate unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y ve qué puedes hacer con ellas!",
                     "updated": 1627314866507,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um die Knoten unterhalb des Ausführungsalgorithmus zu erkunden, die Formeln und Bedingungen zu überprüfen und zu sehen, was Sie daraus machen können!",
+                    "updated": 1634225560838
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme algoritmasının altındaki düğümleri keşfetmek için birkaç dakikanızı ayırın, formülleri ve koşulları kontrol edin ve bunlardan neler yapabileceğinizi görün!",
+                    "updated": 1636207209256
                 }
             ]
         }

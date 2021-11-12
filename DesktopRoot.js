@@ -10,21 +10,25 @@ exports.newDesktopRoot = function newDesktopRoot() {
 
     return thisObject
 
-    async function run() {
+    async function run(debugSettings) {
         /* 
-        The DK object is accesible everywhere at the Superalgos Desktop App. 
+        The DK object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for this App.
         */
         global.DK = {}
         /* 
-        The SA object is accesible everywhere at the Superalgos Desktop App. 
+        The SA object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for Superalgos in general.
         */
         global.SA = {}
         /* Load Environment Variables */
-        let ENVIRONMENT = require('./EnvironmentForDebug.js');
+        let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
+
+        if (debugSettings !== undefined && debugSettings.DESKTOP_APP_SIGNING_ACCOUNT !== undefined) {
+            global.env.DESKTOP_APP_SIGNING_ACCOUNT = debugSettings.DESKTOP_APP_SIGNING_ACCOUNT
+        }
         /*
         First thing is to load the project schema file.
         */
@@ -51,17 +55,16 @@ exports.newDesktopRoot = function newDesktopRoot() {
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch')
         }
-
         /*
         Setting up Secrets.
         */
         SA.secrets = {
-            array: require('./My-Secrets/Secrets.json'),
+            array: require('./My-Secrets/Secrets.json').secrets,
             map: new Map()
         }
         for (let i = 0; i < SA.secrets.array.length; i++) {
             let secret = SA.secrets.array[i]
-            SA.secrets.map.set (secret.codeName, secret)
+            SA.secrets.map.set (secret.signingAccountChildCodeName, secret)
         }
 
         run()

@@ -26,6 +26,22 @@
                 "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
                 "updated": 1625872662394,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Plugin Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
+                "updated": 1634167337552,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Plugin Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
+                "updated": 1636013396906
+            },
+            {
+                "language": "RU",
+                "text": "\nPlugin Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
+                "updated": 1636192226552
             }
         ],
         "updated": 1629803469668
@@ -53,6 +69,22 @@
                     "text": "En cuanto inició el interfaz de usuario por primera vez, se cargó el espacio de Getting Started Tutorials y Plugin Workspace. Se guardó un nuevo User Workspace después de 60 segundos en la carpeta My-Workspaces.",
                     "updated": 1624492978440,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces speichern alle Informationen zu den Datenstrukturen, die im Arbeitsbereich enthalten sind.",
+                    "updated": 1634167346842,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanları ( Workspaces ), çalışma alanına dahil edilen veri yapılarına ilişkin tüm bilgileri kaydeder.",
+                    "updated": 1636013436668
+                },
+                {
+                    "language": "RU",
+                    "text": "Workspaces сохраняют всю информацию относительно структур данных, включенных в рабочую область.",
+                    "updated": 1636192315950
                 }
             ]
         },
@@ -65,7 +97,23 @@
                     "language": "ES",
                     "text": "El Workspace se guarda automáticamente cada minuto. Antes de cerrar el navegador, y manualmente con Ctrl + Shift + Key-S",
                     "updated": 1625872986091,
-                    "style": "Success"
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Kopie dieses Plugin Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
+                    "updated": 1634167512053,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelin bu Plugin Workspace'in bir kopyasını oluşturalım ve sizin için yapalım! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
+                    "updated": 1636013459404
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте создадим копию этого Plugin Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
+                    "updated": 1636192471516
                 }
             ]
         },
@@ -90,6 +138,22 @@
                     "text": "Los cambios en los Plugins Workspaces no persisten en el plugin sino en el User Workspace.",
                     "updated": 1624493291791,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie nun die Registerkarte Workspaces auf der linken Seite, scrollen Sie ganz nach unten und suchen Sie den einzigen Workspace mit einem lila Hintergrund! Das ist Ihr Arbeitsbereich! Sie brauchen ihn aber nicht anzuklicken!",
+                    "updated": 1634167411161,
+                    "style": "Important"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip tek çalışma alanını bulun! Bu sizin çalışma alanınız! Ama üzerine tıklamanıza gerek yok!",
+                    "updated": 1636013495006
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее место! Но не нужно нажимать на него!",
+                    "updated": 1636192559470
                 }
             ],
             "updated": 1629803460646

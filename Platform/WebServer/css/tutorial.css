@@ -25,6 +25,27 @@ content: "Summary: ";
 font-weight: bold;
 }
 
+.tutorial-content-div {
+    overflow-y: auto;
+    overflow-x: clip;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track { 
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 .tutorial-definitionTable {
 background-color: #f3f3f3;
 border-top-color: #a6e1ec;

@@ -20,6 +20,16 @@
                 "text": "Me tomé la libertad de llevarlos a un momento particular en el tiempo, interesante para lo que viene a continuación.",
                 "updated": 1624454940309,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe mir die Freiheit genommen, Sie zu einem bestimmten Zeitpunkt zu bringen, der interessant für das ist, was jetzt kommt.",
+                "updated": 1634222639833
+            },
+            {
+                "language": "TR",
+                "text": "Sizi zaman içinde belirli bir ana getirme cüretinde bulundum, bundan sonra gelecekte ilginç.",
+                "updated": 1636180974748
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "Estás a punto de estar expuesto a la belleza de las simulaciones. ¿Soy una simulación? ¿Eres tú? ¿Es todo esto real?",
                     "updated": 1624454971486,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden nun die Schönheit von Simulationen kennen lernen. Bin ich eine Simulation? Sind Sie eine? Ist die ganze Sache real?",
+                    "updated": 1634222646214
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyonların güzelliğine maruz kalmak üzeresiniz. Ben bir simülasyon muyum? Bütün bunlar gerçek mi?",
+                    "updated": 1636181003797
                 }
             ]
         },
@@ -57,6 +77,16 @@
                     "text": "¡Mira a tu alrededor y decide por ti mismo!",
                     "updated": 1624454989293,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich um und entscheiden Sie selbst!",
+                    "updated": 1634222649291
+                },
+                {
+                    "language": "TR",
+                    "text": "Etrafınıza bakın ve kendiniz karar verin!",
+                    "updated": 1636181015871
                 }
             ]
         },
@@ -75,6 +105,16 @@
                     "text": "En primer lugar, observa que ahora te encuentras en el marco de tiempo de 1 minuto, por lo tanto, estas son velas de 1 minuto. El lapso de tiempo en tu pantalla es de poco más de una hora, a principios del 1 de septiembre de 2020.",
                     "updated": 1627313698391,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie zunächst, dass Sie sich jetzt im 1-Minuten-Zeitrahmen befinden, es handelt sich also um 1-Minuten-Kerzen. Die Zeitspanne auf Ihrem Bildschirm ist etwas mehr als eine Stunde, zu Beginn des 1. September 2020.",
+                    "updated": 1634222657547
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şeyden önce, 1 dakikalık zaman diliminde olduğunuza dikkat edin, bu nedenle bunlar 1 dakikalık mumlardır.",
+                    "updated": 1636181143231
                 }
             ]
         }

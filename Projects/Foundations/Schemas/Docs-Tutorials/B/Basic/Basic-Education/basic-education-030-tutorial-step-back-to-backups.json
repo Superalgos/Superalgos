@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Ahora que comprendes las referencias, podemos profundizar en Backups,tal vez incluso discutir las diferencias con Clones!",
-                "updated": 1626568459683
+                "updated": 1626568459683,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt, da Sie die Referenzen verstanden haben, können wir uns näher mit Backups befassen und vielleicht sogar die Unterschiede zu Clones diskutieren!",
+                "updated": 1634585586598
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "¡Tienes más que leer! ¡Por favor, lee esta página detenidamente y deja que la información se asimile!",
-                    "updated": 1626569135266
+                    "updated": 1626569135266,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen noch etwas lesen! Bitte lesen Sie diese Seite sorgfältig und lassen Sie die Informationen auf sich wirken!",
+                    "updated": 1634585594377
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "En resumen:",
-                    "updated": 1626613851965
+                    "updated": 1626613851965,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zusammengefasst:",
+                    "updated": 1634585604403
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Outgoing references: Siempre se mantienen intactos.",
-                    "updated": 1626569183871
+                    "updated": 1626569183871,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgehende Referenzen: Sie werden immer beibehalten.",
+                    "updated": 1634585629017
                 }
             ]
         },
@@ -92,7 +116,13 @@
                 {
                     "language": "ES",
                     "text": "Incoming references: Se conservan solo cuando se elimina la estructura original antes de restaurar la copia de seguridad.",
-                    "updated": 1626613813084
+                    "updated": 1626613813084,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eingehende Referenzen: Sie werden nur beibehalten, wenn die Originalstruktur vor der Wiederherstellung der Sicherung gelöscht wird.",
+                    "updated": 1634585637023
                 }
             ]
         },
@@ -110,7 +140,13 @@
                 {
                     "language": "ES",
                     "text": "Internal references: Permanecen internos, solo cuando la estructura original se elimina primero.",
-                    "updated": 1626613836362
+                    "updated": 1626613836362,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Interne Referenzen: Sie bleiben nur dann intern, wenn die ursprüngliche Struktur zuerst gelöscht wird.",
+                    "updated": 1634585642707
                 }
             ]
         }

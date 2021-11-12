@@ -20,6 +20,16 @@
                 "text": "Los humanos pueden acceder a esta información utilizando un truco genial que hace que el espacio de gráficos interactúe con el espacio de diseño.",
                 "updated": 1624463589570,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Menschen können auf diese Informationen zugreifen, indem sie einen coolen Trick anwenden, der den Charting Space mit dem Design Space interagieren lässt!",
+                "updated": 1634226392881
+            },
+            {
+                "language": "TR",
+                "text": "İnsanlar, grafik alanını tasarım alanıyla etkileşime sokan harika bir numara kullanarak bu bilgilere erişebilir!",
+                "updated": 1636377604628
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "Para usar este truco, hice lo siguiente:",
                     "updated": 1624463610320,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um diesen Trick anzuwenden, habe ich einfach Folgendes getan:",
+                    "updated": 1634226400148
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapabilmek için aşağıdakileri yaptım:",
+                    "updated": 1636377635056
                 }
             ]
         },
@@ -57,6 +77,16 @@
                     "text": "Divide la pantalla por la mitad tirando del control deslizante hacia arriba para que podamos ver ambos espacios al mismo tiempo.",
                     "updated": 1624463628608,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Teilen Sie den Bildschirm in zwei Hälften und ziehen Sie den Schieberegler nach oben, so dass wir beide Bereiche gleichzeitig sehen können.",
+                    "updated": 1634226408567
+                },
+                {
+                    "language": "TR",
+                    "text": "İki alanı aynı anda görebilmemiz için kaydırıcıyı aşağı çekerek ekranı ikiye bölün.",
+                    "updated": 1636377658042
                 }
             ]
         },
@@ -76,6 +106,16 @@
                     "text": "Enciende el Current Position Layer en el Trading Engine Layer Manager. Elegí esta capa porque corresponde a esta sección de la jerarquía... tradingEngine.tradingCurrent.position",
                     "updated": 1625926367329,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktivieren Sie die Ebene Aktuelle Position im Ebenenmanager der Handelsmaschine. Ich habe diese Ebene gewählt, weil sie diesem Abschnitt der Hierarchie entspricht... tradingEngine.tradingCurrent.position, erinnern Sie sich?",
+                    "updated": 1634226425815
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoru katmanı yöneticisinde Mevcut Konum ( Position ) katmanını açın. Bu katmanı seçtim çünkü hiyerarşinin bu bölümüne karşılık geliyor... tradingEngine.tradingCurrent.position, hatırladın mı?",
+                    "updated": 1636377701183
                 }
             ]
         },
@@ -94,6 +134,16 @@
                     "text": "Ahora, desliza el puntero del mouse sobre las velas en las que se toma la posición y vea qué sucede en los nodos de la izquierda...",
                     "updated": 1627315168446,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie nun den Mauszeiger über die Kerzen, auf denen die Position eingenommen wird, und sehen Sie sich an, was auf den Knotenpunkten links davon passiert...",
+                    "updated": 1634226434636
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi, fare işaretçisini konumun alındığı mumların üzerinde kaydırın ve soldaki düğümlerde ne olduğunu görün...",
+                    "updated": 1636377731601
                 }
             ]
         }

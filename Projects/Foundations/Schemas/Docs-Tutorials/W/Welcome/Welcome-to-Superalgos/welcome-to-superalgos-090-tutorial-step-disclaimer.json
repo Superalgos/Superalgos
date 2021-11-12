@@ -10,6 +10,16 @@
                 "text": "Questo warning verrà visualizzato a schermo intero.",
                 "updated": 1618069224090,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Diese Warnung wird im Vollbildmodus wiedergegeben.",
+                "updated": 1634226875668
+            },
+            {
+                "language": "TR",
+                "text": "Bu uyarı tam ekran modunda gösterilecektir.",
+                "updated": 1636404372696
             }
         ]
     },
@@ -27,7 +37,18 @@
                 {
                     "language": "ES",
                     "text": "Superalgos es un software de computadora. Al igual que con cualquier software, pueden ocurrir errores en cualquier momento, incluidos errores que pueden provocar una pérdida de dinero. Usted es responsable de tomar las precauciones que considere apropiadas antes de operar en vivo. Incluso si toma todas las medidas de precaución posibles, las cosas pueden salir mal y pueden ocurrir errores. Al usar este software para operar en vivo a pesar de las advertencias, usted reconoce que es consciente de los riesgos inherentes al comercio y al uso de software para ese propósito. El Proyecto Superalgos ofrece el software TAL CUAL, sin garantías explícitas o implícitas de ningún tipo. El proyecto, el software, el sitio web superalgos.org y este tutorial no ofrecen asesoramiento financiero. Las estrategias que se envían con el sistema pueden ser completamente funcionales,pero Superalgos no hace ninguna recomendación implícita sobre cómo debe usarlas. Compartimos estrategias solo con fines educativos. Opere bajosu propio riesgo. El uso del software está sujeto a los términos de la LICENCIA.",
-                    "updated": 1624465065714
+                    "updated": 1624465065714,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein Stück Computer-Software. Wie bei jeder Software können jederzeit Fehler auftreten, auch solche, bei denen Sie Geld verlieren können. Sie sind dafür verantwortlich, alle Vorsichtsmaßnahmen zu treffen, die Sie für angemessen halten, bevor Sie live handeln. Selbst wenn Sie alle möglichen Vorsichtsmaßnahmen ergreifen, kann immer noch etwas schief gehen und es können Fehler auftreten. Indem Sie diese Software trotz der Warnungen für den Live-Handel verwenden, erkennen Sie an, dass Sie sich der inhärenten Risiken des Handels und der Verwendung von Software für diesen Zweck bewusst sind. Das Superalgos Projekt bietet die Software so an, wie sie ist, ohne ausdrückliche oder stillschweigende Garantien jeglicher Art. Das Projekt, die Software, die Website superalgos.org und dieses Tutorial bieten keine finanzielle Beratung. Auch wenn die mit dem System gelieferten Strategien voll funktionsfähig sind, gibt Superalgos keine ausdrückliche oder stillschweigende Empfehlung ab, wie Sie sie verwenden sollten. Wir geben die Strategien nur zu Ausbildungszwecken weiter. Handeln Sie auf eigene Verantwortung und auf eigenes Risiko. Die Nutzung der Software unterliegt den Bedingungen der LIZENZ.",
+                    "updated": 1634226901092
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos bir bilgisayar yazılımı parçasıdır. Herhangi bir yazılımda olduğu gibi, para kaybetmenize neden olabilecek hatalar da dahil olmak üzere herhangi bir noktada hatalar meydana gelebilir. Canlı işlem yapmadan önce uygun görebileceğiniz tüm önlemleri almak sizin sorumluluğunuzdadır. Olası tüm ihtiyati tedbirleri alsanız bile, işler yine de ters gidebilir ve hatalar meydana gelebilir. Uyarılara rağmen canlı ticaret yapmak için bu yazılımı kullanarak, ticarette ve yazılımı bu amaçla kullanmanın doğasında var olan risklerin farkında olduğunuzu kabul etmektesiniz. Superalgos Projesi, yazılımı OLDUĞU GİBİ sunar ve hiçbir açık veya zımni garanti içermez. Proje, yazılım, superalgos.org web sitesi ve bu eğitim, finansal tavsiye sunmamaktadır. Sistemle birlikte gönderilen stratejiler tamamen işlevsel olsa da, Superalgos bunları nasıl kullanmanız gerektiği konusunda açık veya zımni herhangi bir öneride bulunmaz. Stratejileri yalnızca eğitim amaçlı paylaşıyoruz. Kendi sorumluluğunuzda ve riski size ait olmak üzere ticaret yapın. Yazılımın kullanımı LİSANS şartlarına tabidir.",
+                    "updated": 1636404351933
                 }
             ]
         }

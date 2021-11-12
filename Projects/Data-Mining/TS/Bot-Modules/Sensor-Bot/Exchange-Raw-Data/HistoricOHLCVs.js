@@ -69,7 +69,7 @@
         1. Parameters set by SA user at the Crypto Exchange node are extracted. There might be parameters for each supported method at the CCXT library.
         2. The CCXT class for the configured exchange is instantiated, with whatever options where configured.
 
-        This gives the SA user a lot of control over the underlaying CCXT gateway to exchanges.
+        This gives the SA user a lot of control over the underlying CCXT gateway to exchanges.
         */
         try {
             statusDependencies = pStatusDependencies;
@@ -204,7 +204,7 @@
 
                     if (statusDependencies.statusReports.get(reportKey).status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ");
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE);
                         return;
                     }
@@ -664,11 +664,11 @@
                 What we are going to do in this function is to save all the candles 
                 received from the exchange. We need to partition the batch of candles
                 into 1 day files. At the same time we need to take care of the situation
-                that some exchanges send inconsitent data. We have detected some cases
+                that some exchanges send inconsistent data. We have detected some cases
                 where candles do not begin at second 0 of the minute but are a little
                 bit shifted. We will try to detect this and fix it as we go. 
 
-                We have the data received from the exchange at the arrary rawDataArray
+                We have the data received from the exchange at the array rawDataArray
                 */
                 try {
 
@@ -761,7 +761,7 @@
                             Here we will check that the current candle is not going into the future.
                             Remember we are looping around all possible minutes of a day, and when 
                             that day is the current actual day, and the current minute is in the future,
-                            it manke no more sense to continue inside this loop since we are not going 
+                            it make no more sense to continue inside this loop since we are not going
                             to find more OHLCVs matchings.
 
                             At the same time, we are going to check that we haven't processed the whole
@@ -808,7 +808,7 @@
 
                             /* 
                             We will check that we can have a record to 
-                            analize. It might happen that we don't have one
+                            analyze. It might happen that we don't have one
                             in the situation that we could not get a single
                             record from the exchange. We still want to be
                             here so that everything is properly logged.
@@ -828,7 +828,7 @@
                             let OHLCVMinute
                             /*
                             Some exchanges return inconsistent data. It is not guaranteed 
-                            that each candle will have a timeStamp exactly at the begining of an
+                            that each candle will have a timeStamp exactly at the beginning of an
                             UTC minute. It is also not guaranteed that the distance
                             between timestamps will be the same. To fix this, we will do this.
                             */
@@ -839,12 +839,12 @@
                             If the minute of the record item received from the exchange is
                             less than the minute of the current minute in our loop, 
                             that means that we need to reposition the inded at the rawDataArray 
-                            array, moving it one record fordward, and that is what we are 
+                            array, moving it one record forward, and that is what we are
                             doing here. 
                             */
                             while (OHLCVMinute < candleMinute) {
 
-                                /* Move fordward at the rawDataArray array. */
+                                /* Move forward at the rawDataArray array. */
                                 ohlcvArrayIndex++
 
                                 /* Check that we have not passed the end of the array */
@@ -903,7 +903,7 @@
 
                                 /* 
                                 Since we extracted this OHLCV value, we move 
-                                fordward our array index. 
+                                forward our array index.
                                 */
                                 if (ohlcvArrayIndex < rawDataArray.length - 1) {
                                     ohlcvArrayIndex++
@@ -915,7 +915,7 @@
                             }
 
                             /*
-                            Here we remeber the last candle and volumen, in case
+                            Here we remember the last candle and volume, in case
                             we need it.
                             */
                             lastCandle = candle
@@ -1088,7 +1088,7 @@
 
                         /*
                         One possible exit is when we reached the amount of candles downloaded. 
-                        This does not necesary happens at the end of the market
+                        This does not necessary happens at the end of the market
                         if the process was canceled for any reason at the middle, 
                         or the exchange became unavailable.
                         */
@@ -1111,7 +1111,7 @@
                         }
 
                         /*
-                        If there is no reson to exit, we will process the next day.
+                        If there is no reason to exit, we will process the next day.
                         */
                         setImmediate(loop)
                     }

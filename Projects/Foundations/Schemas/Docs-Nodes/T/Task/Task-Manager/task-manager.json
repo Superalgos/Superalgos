@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un task manageres un dispositivo que se utiliza para organizar y controlar cualquier cantidad de tareas que, a su vez, controlan las instancias de bot. Utiliza un administrador de tareas para iniciar o detener varias tareas al mismo tiempo.",
                 "updated": 1624493800354
+            },
+            {
+                "language": "RU",
+                "text": "Диспетчер задач - это устройство, используемое для организации и управления любым количеством задач, которые, в свою очередь, управляют экземплярами ботов. Вы используете диспетчер задач для запуска или остановки нескольких задач одновременно.\n",
+                "updated": 1636193320098
             }
         ]
     },

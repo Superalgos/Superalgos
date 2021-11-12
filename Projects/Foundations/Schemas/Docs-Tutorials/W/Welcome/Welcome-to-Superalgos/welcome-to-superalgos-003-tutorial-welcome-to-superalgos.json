@@ -42,7 +42,18 @@
             {
                 "language": "DE",
                 "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, die Ihnen den Einstieg erleichtern und Ihnen alle Grundlagen vermitteln soll!",
-                "updated": 1634070025309
+                "updated": 1634070025309,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я - интерактивное учебное пособие, первое в серии, предназначенное для облегчения Вашей адаптации и обучения всем основам.",
+                "updated": 1635448912724
+            },
+            {
+                "language": "TR",
+                "text": "Ben interaktif bir öğreticiyim, Superalgos'u öğrenmenize yardımcı olmak,işinizi  kolaylaştırmak ve size tüm temel bilgileri öğretmek için tasarlanmış bir serinin ilk öğreticisiyim.",
+                "updated": 1635575887053
             }
         ],
         "updated": 1633159917192
@@ -84,8 +95,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ich werde Ihnen den Einstieg erleichtern, Ihnen die Werkzeuge zeigen, mit denen Sie Navigieren können, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
-                    "updated": 1634070189968
+                    "text": "Ich werde Ihnen die Werkzeuge zeigen, mit denen Sie sich bequem zurechtfinden, und Ihnen helfen, all die coolen Dinge zu entdecken, die Superalgos für Sie tun kann.",
+                    "updated": 1634159537847,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я помогу Вам начать, покажу панель инструментов, с помощью которых Вы сможете комфортно передвигаться и раскрыть все интересные вещи, которые Superalgos может сделать для Вас.",
+                    "updated": 1635449021102
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlamanıza yardımcı olacağım, rahatça hareket etmenize yardımcı olacak araçları göstereceğim ve Superalgos'un sizin için yapabileceği tüm harika şeyleri keşfetmenize yardımcı olacağım.",
+                    "updated": 1635575910092
                 }
             ],
             "updated": 1633159949363
@@ -126,8 +148,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Tutorials sind das Einführungswerkzeug! Mit Superalgos auf eine andere Art und Weise zu starten wäre ein Fehler, denn keine andere Ressource wird Sie schneller auf den neuesten Stand bringen. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
-                    "updated": 1634070223080
+                    "text": "Tutorials sind der beste Start in Superalgos!  Keine andere Ressource wird Sie schneller einarbeiten. Sie sollten alle Tutorials durcharbeiten, bevor Sie versuchen, Ihre eigenen Ideen zu implementieren!",
+                    "updated": 1634159523866,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Это учебное пособие является окончательным инструментом для адаптации в системе Superalgos. Начинать ознакомление с этой системой каким-либо другим образом, является ошибкой, так как никакой другой ресурс не поможет Вам ускорить процесс. Вам следовало бы ознакомиться с полным учебным пособием, прежде чем пытаться реализовать свои собственные идеи!",
+                    "updated": 1635449358224
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler, Superalgos'a alıştırma aracıdır! Superalgos'a başka bir şekilde başlamak bir hatadır, çünkü başka hiçbir kaynak sizi daha fazla hızlandıramaz. Kendi fikirlerinizi uygulamaya çalışmadan önce tüm dersleri yapmalısınız!",
+                    "updated": 1635576039599
                 }
             ],
             "updated": 1633159975051
@@ -175,7 +208,13 @@
                 {
                     "language": "DE",
                     "text": " Bitte klicken Sie immer auf Weiter, um fortzufahren!",
-                    "updated": 1634070092386
+                    "updated": 1634070092386,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, всегда нажимайте Next, чтобы продолжить.",
+                    "updated": 1635449400949
                 }
             ]
         }

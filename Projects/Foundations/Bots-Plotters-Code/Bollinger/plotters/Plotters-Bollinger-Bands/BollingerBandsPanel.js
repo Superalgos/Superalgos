@@ -118,7 +118,7 @@ function newBollingerPlottersBollingerBandsBollingerBandsBollingerBandsPanel() {
             y: Y_AXIS - currentBand.rightBodyHeight / 2 + currentBand.bottomDelta / 4
         };
 
-        /* Extra bounderies due to constrained space */
+        /* Extra boundaries due to constrained space */
 
         const upperLimit = frameTitleHeight + frameBodyHeight * 0.25;
         const downLimit = frameTitleHeight + frameBodyHeight * 0.75;

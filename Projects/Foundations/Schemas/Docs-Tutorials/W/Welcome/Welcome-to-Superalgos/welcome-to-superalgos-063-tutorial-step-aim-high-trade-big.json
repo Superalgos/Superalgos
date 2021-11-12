@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Aim High, Trade Big!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "network-node"
+            "name": "network",
+            "project": "Network"
         },
         "text": "Picture an army of bots working with multiple exchanges, markets, and strategies, running on a network <i>à la</i> trading farm.",
         "translations": [
@@ -20,6 +20,16 @@
                 "text": "Imagínate un ejército de bots trabajando con múltiples exchanges, mercados y estrategias, ejecutándose en una red al estilo de una granja trading.",
                 "updated": 1624415133666,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Stellen Sie sich eine Armee von Bots vor, die mit mehreren Börsen, Märkten und Strategien arbeiten und in einem Netzwerk à la Trading Farm laufen.",
+                "updated": 1634220019128
+            },
+            {
+                "language": "TR",
+                "text": "Birden çok borsa, pazar ve stratejiyle çalışan, bir ağ üzerinden ticaret çiftliğinizin olduğunu ve burada çalışan bir robot ordusu hayal edin.",
+                "updated": 1636108738487
             }
         ],
         "updated": 1622200549490
@@ -41,6 +51,16 @@
                     "text": "De eso se trata el nodo Network. Lo que haz visto hasta ahora se ejecuta en una sola máquina. Pero...",
                     "updated": 1624415210197,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Genau darum geht es beim Network Node. Was Sie bisher gesehen haben, läuft auf einer einzigen Maschine. Aber...",
+                    "updated": 1634220028409
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümü bununla ilgili. Şimdiye kadar gördükleriniz tek bir makinede çalışıyor. Fakat...",
+                    "updated": 1636109072742
                 }
             ]
         },
@@ -60,6 +80,16 @@
                     "text": "¡Superalgos soporta la distribución y coordinación de tareas a través de redes de nodos que ejecutan el Client! Esto permite operaciones inteligentes y escalables. ¡Cualquier máquina que ejecute la GUI puede controlar el trabajo!",
                     "updated": 1624415389550,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos unterstützt die Verteilung und Koordinierung von Aufgaben über Netzwerke von Knoten, auf denen der Client läuft! Dies ermöglicht intelligente und skalierbare Operationen. Jeder Rechner, auf dem die GUI läuft, kann das Unternehmen steuern!",
+                    "updated": 1634220039839
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabilmeniz anlamına gelir.",
+                    "updated": 1636109149775
                 }
             ]
         },
@@ -78,6 +108,16 @@
                     "text": "Puede configurar una red con algunos Raspberry Pi, un centro de datos de grado industrial o cualquier cosa entre medio.",
                     "updated": 1624415501921,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können ein Netzwerk mit ein paar Raspberry Pi, einem industriellen Rechenzentrum oder irgendetwas dazwischen einrichten.",
+                    "updated": 1634220046648
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç Raspberry Pi, endüstriyel düzeyde bir veri merkezi veya bunların arasında herhangi bir şey ile bir ağ kurabilirsiniz.",
+                    "updated": 1636109177686
                 }
             ],
             "updated": 1629821982211

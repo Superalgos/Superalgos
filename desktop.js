@@ -1,11 +1,11 @@
 /*
-The Superalgos Desktop is one of the 3 clients of the Superalgos Network:
+The Superalgos Desktop is one of the 3 clients of the Superalgos P2P Network:
 
     * Superalgos Mobile
     * Superalgos Desktop
     * Superalgos Server
     
-Users can unse any of these clients for their social trading activities.
+Users can use any of these clients for their social trading activities.
 
 This module represents the Nodejs command that users have to start the Desktop App..
 

@@ -21,6 +21,16 @@
                 "text": "¡Hay más cosas de las que quiero contarte antes de dejarte ir! ¡Ten paciencia conmigo!",
                 "updated": 1625934470264,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt noch ein paar Dinge, die ich dir erzählen möchte, bevor ich dich gehen lasse! Habt Geduld mit mir!",
+                "updated": 1634246641749
+            },
+            {
+                "language": "TR",
+                "text": "Gitmene izin vermeden önce sana söylemek istediğim birkaç şey daha var! Benimle kal.",
+                "updated": 1636643056079
             }
         ]
     },
@@ -41,6 +51,16 @@
                     "text": "¡Te daré una breve introducción sobre en qué estamos trabajando para las próximas versiones de Superalgos! Mencioné los algoritmos de aprendizaje automático, ¡pero hay más! ¡Tiene que ver con la integración de proyectos criptográficos!",
                     "updated": 1624487373295,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich gebe Ihnen eine kurze Einführung darüber, woran wir für kommende Versionen von Superalgos arbeiten! Ich habe die Machine Learning Algorithmen erwähnt, aber es gibt noch mehr! Eine Menge mehr!",
+                    "updated": 1634246651390
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un gelecek sürümleri için üzerinde çalıştığımız şeyler hakkında size hızlı bir giriş yapacağım! Makine Öğrenimi ( Machine Learning) algoritmalarından bahsetmiştim ama dahası da var! Çok daha fazla!",
+                    "updated": 1636643093703
                 }
             ]
         },
@@ -60,6 +80,16 @@
                     "text": "Si aprecias lo que estamos haciendo, ¡puedes ayudar! Se han invertido decenas de miles de horas de arduo trabajo para construir Superalgos y llevarlo a su estado actual. Espero que puedas tomarte un par de minutos de tu tiempo para retribuir y estaré feliz de decirle por dónde empezar.",
                     "updated": 1625934723800,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich möchte Sie auch wissen lassen, dass - wenn Sie schätzen, was wir tun - Sie helfen können! Zehntausende von Stunden harter Arbeit sind in den Aufbau von Superalgos geflossen und haben es zu seinem heutigen Stand gebracht. Ich hoffe, Sie können sich ein paar Minuten Zeit nehmen, um etwas zurückzugeben, und ich werde Ihnen gerne sagen, wo Sie anfangen können!",
+                    "updated": 1634246659750
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, yaptığımız şeyi takdir ediyorsanız, yardımcı olabileceğinizi de bilmenizi isterim! Superalgos'u inşa etmek ve onu mevcut durumuna getirmek için on binlerce saatlik sıkı çalışma yapıldı. Umarım birkaç dakikanızı ayırıp geri bildirim verebilirsiniz. Size nereden başlayacağınızı söylemekten mutluluk duyacağım!",
+                    "updated": 1636643137813
                 }
             ]
         },
@@ -79,6 +109,16 @@
                     "text": "¡Sigamos adelante!",
                     "updated": 1624487447210,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Legen wir los!",
+                    "updated": 1634246666260
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi devam edelim!",
+                    "updated": 1636643263166
                 }
             ]
         }

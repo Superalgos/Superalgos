@@ -26,6 +26,22 @@
                 "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico al cuadrado con su pantalla, ¿verdad? No te preocupes ... ¡prueba este truco!",
                 "updated": 1624384343958,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich weiß! Wenn Sie auf eine beliebige Stelle zoomen, ist es unwahrscheinlich, dass Sie die Karte im rechten Winkel zu Ihrem Bildschirm positionieren, oder? Keine Sorge... versuchen Sie diesen Trick!",
+                "updated": 1634207830054,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Biliyorum! Rastgele bir noktaya zum yapmak, grafiği ekranınızla kare şeklinde konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
+                "updated": 1636036151336
+            },
+            {
+                "language": "RU",
+                "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк!",
+                "updated": 1636204552263
             }
         ],
         "updated": 1616417516192
@@ -47,6 +63,22 @@
                     "text": "Adjust the aspect ratio: apunta al gráfico Backtesting Session (está en la parte superior) y presiona Ctrl + Shift + Key-A",
                     "updated": 1627304634273,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie das Seitenverhältnis ein: Zeigen Sie mit der Maus auf den Chart der Backtesting Session (den oberen) und drücken Sie Ctrl + Shift + Alt + Key-A",
+                    "updated": 1634207859976,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "En-boy oranını ayarlayın: Farenizi Backtesting Session grafiğine (üstteki) getirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın",
+                    "updated": 1636036205725
+                },
+                {
+                    "language": "RU",
+                    "text": "Отрегулируйте соотношение сторон: наведите курсор мыши на график сеансов тестирования (тот, что сверху) и нажмите Ctrl + Shift + Alt + A.",
+                    "updated": 1636204626786
                 }
             ]
         },
@@ -65,6 +97,22 @@
                     "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
                     "updated": 1624403987866,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Verkleinern: Benutzen Sie das Mausrad, um zur äußersten Verkleinerungsposition zu gelangen; nur von dieser Position aus funktioniert der nächste Befehl!",
+                    "updated": 1634207868032,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzaklaştır: en uzak uzaklaştırma konumuna gitmek için fare tekerleğini kullanın; sadece bu konumdan sonraki komut çalışacaktır!",
+                    "updated": 1636036274866
+                },
+                {
+                    "language": "RU",
+                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
+                    "updated": 1636204795612
                 }
             ]
         },
@@ -89,6 +137,22 @@
                     "text": "Double-click once: esto centra el gráfico y te lleva a un cierto nivel de zoom; se deja un margen para ajustar el nombre y la pestaña del gráfico en la esquina superior izquierda.",
                     "updated": 1624384580827,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Doppelklicken Sie einmal: Dies zentriert das Diagramm und bringt Sie zu einer bestimmten Zoomstufe; es wird ein Rand gelassen, damit der Name und die Registerkarte des Diagramms in die obere linke Ecke passen.",
+                    "updated": 1634207894965,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir kez çift tıklayın: bu, grafiği ortalar ve sizi belirli bir yakınlaştırma düzeyine götürür; sol üst köşede grafiğin adına ve sekmesine uyacak şekilde bir kenar boşluğu bırakılır.",
+                    "updated": 1636037063264
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды щелкните один раз: это центрирует диаграмму и приведет Вас к определенному уровню масштабирования; в левом верхнем углу остается поле, соответствующее названию вкладке диаграммы.",
+                    "updated": 1636204908775
                 }
             ],
             "updated": 1616418234728
@@ -114,6 +178,22 @@
                     "text": "Double-click again: esto lo lleva más lejos, al nivel de zoom en el que el gráfico se ajusta perfectamente a la pantalla y emergen los Layer Managers.",
                     "updated": 1624404060794,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein weiterer Doppelklick: bringt Sie weiter in das Diagramm, bis zu einer Zoomstufe, in der das Diagramm perfekt auf den Bildschirm passt und die Layer Manager erscheinen.",
+                    "updated": 1634207914480,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tekrar çift tıklayın: bu sizi grafikte daha ileri götürür, grafiğin ekrana tam olarak oturduğu ve Katman Yöneticilerinin ortaya çıktığı yakınlaştırma düzeyine gidersiniz.",
+                    "updated": 1636037090275
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды щелкните еще раз: это поведет Вас дальше по диаграмме, к уровню масштабирвания, при котором диаграмма идеально соответствует экрану и появятся Layer Managers.",
+                    "updated": 1636204981598
                 }
             ],
             "updated": 1622198926988

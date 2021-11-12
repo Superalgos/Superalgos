@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Machines Learn Too!",
     "definition": {
         "icon": {
-            "name": "tensorflow-project",
+            "name": "tensorflow",
             "project": "TensorFlow"
         },
         "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",
@@ -21,6 +21,16 @@
                 "text": "¡La última versión de Superalgos presenta una integración experimental de TensorFlow para aprovechar ML desde la aplicación!",
                 "updated": 1624415664853,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die neueste Version von Superalgos bietet eine experimentelle Integration von TensorFlow zur Nutzung von ML innerhalb der App!",
+                "updated": 1634220174054
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden (ML)yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir!",
+                "updated": 1636109475710
             }
         ]
     },
@@ -41,6 +51,16 @@
                     "text": "La integración mapea la definición de un NodeJSTensorFlow Library acompañando un algoritmo Supervised Learning y sus Artificial Neural Network en la típica estructura de nodos de Superalgos.",
                     "updated": 1624415970291,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Integration bildet die Definition einer NodeJS TensorFlow Library mit einem Supervised Learning Algorithmus und seinem Artificial Neural Network in der gleichen Art von Knotenstruktur ab, wie sie für Superalgos typisch ist.",
+                    "updated": 1634220190097
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegrasyon, Superalgos'a özgü düğümlerin yapısında bir Öğrenme algoritması ( Supervised Learning ) ve Yapay Sinir Ağı ( Artificial Neural Network ) içeren bir NodeJS TensorFlow Kitaplığı tanımını eşler.",
+                    "updated": 1636109802947
                 }
             ]
         },
@@ -60,6 +80,16 @@
                     "text": "¡Podemos usar sus conjuntos de datos para entrenar algoritmos de ML y usar los modelos resultantes desde dentro de los Trading System!",
                     "updated": 1625883974828,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Integration nutzt den Rest der Superalgos-Infrastruktur, so dass Sie Ihre Datensätze verwenden können, um ML-Algos zu trainieren und die resultierenden Modelle innerhalb von Handelssystemen zu verwenden!",
+                    "updated": 1634220194628
+                },
+                {
+                    "language": "TR",
+                    "text": "Entegrasyon, Superalgos altyapısından yararlanır, böylece veri kümelerinizi Makine öğrenimi (ML) algoritmalarını eğitmek için kullanabilir ve elde edilen modelleri ticaret sistemlerinizde kullanabilirsiniz!",
+                    "updated": 1636109892078
                 }
             ]
         },
@@ -79,6 +109,16 @@
                     "text": " ¡Echa un vistazo a la Machine Learning Demo Plugin Workspace!",
                     "updated": 1624416262760,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie später einen Blick auf den ML CrossCategoricalEntropy Demo Plugin Workspace!",
+                    "updated": 1634220207869
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha sonra, ML CrossCategoricalEntropy Demo Plugin Workspace'e bir göz atın!",
+                    "updated": 1636109933292
                 }
             ]
         }

@@ -41,6 +41,7 @@ function newGovernanceReportsReportsPage() {
                 'Claims',
                 'Votes',
                 'Staking',
+                'Liquidity',
                 'Delegation',
                 'Pools',
                 'Assets',
@@ -133,38 +134,44 @@ function newGovernanceReportsReportsPage() {
                         resultCounter = response.resultCounter
                         break
                     }
+                    case 'Liquidity': {
+                        let response = UI.projects.governance.spaces.reportsSpace.liquidity.addHTML(11, filters)
+                        HTML = HTML + response.HTML
+                        resultCounter = response.resultCounter
+                        break
+                    }
                     case 'Delegation': {
-                        let response = UI.projects.governance.spaces.reportsSpace.delegation.addHTML(11, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.delegation.addHTML(12, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Pools': {
-                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(12, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.pools.addHTML(13, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Assets': {
-                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(13, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.assets.addHTML(14, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Features': {
-                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(14, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.features.addHTML(15, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Positions': {
-                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(15, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.positions.addHTML(16, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break
                     }
                     case 'Mining': {
-                        let response = UI.projects.governance.spaces.reportsSpace.mining.addHTML(16, filters)
+                        let response = UI.projects.governance.spaces.reportsSpace.mining.addHTML(17, filters)
                         HTML = HTML + response.HTML
                         resultCounter = response.resultCounter
                         break

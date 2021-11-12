@@ -22,7 +22,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
     function initialize(queryReceived) {
 
         NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
-        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.projects.socialTrading.globals.memory.arrays.EVENTS)
+        NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, NT.projects.network.globals.memory.arrays.EVENTS)
 
     }
 
@@ -31,7 +31,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
         switch (thisObject.direction) {
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
-                    let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
+                    let event = NT.projects.network.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
@@ -39,7 +39,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
-                    let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
+                    let event = NT.projects.network.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
                 }
@@ -54,16 +54,16 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
             to the profile making the query. How it can be related?
 
             1. The Emitter or Target profile must be the same as the Context Profile.
-            2. The Emitter or Traget profile must be at the Following map of the Context Profile.
-            3. The Emmiter or Target post must be belong to any profile at the Following of the Context Profile.
+            2. The Emitter or Target profile must be at the Following map of the Context Profile.
+            3. The Emitter or Target post must be belong to any profile at the Following of the Context Profile.
 
             Any of the above happening, means that indeed it is related.
             */
-            let emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(event.emitterUserProfileId)
+            let emitterUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(event.emitterUserProfileId)
             let emitterBotProfile = emitterUserProfile.bots.get(event.emitterBotProfileId)
             let emitterPost = emitterUserProfile.posts.get(event.emitterPostHash)
 
-            let targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(event.targetUserProfileId)
+            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(event.targetUserProfileId)
             let targetBotProfile
             let targetPost
 
@@ -106,7 +106,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
             }
             /*
-            Test #2 : The Emitter or Traget profile must be at the Following map of the Context Profile.
+            Test #2 : The Emitter or Target profile must be at the Following map of the Context Profile.
             */
             if (thisObject.profile.botProfileId === undefined) {
                 /*
@@ -140,7 +140,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
             }
             /*
-            Test #3 : The Emmiter or Target post must be belong to any profile at the Following of the Context Profile.
+            Test #3 : The Emitter or Target post must be belong to any profile at the Following of the Context Profile.
             */
             if (thisObject.profile.botProfileId === undefined) {
                 /*

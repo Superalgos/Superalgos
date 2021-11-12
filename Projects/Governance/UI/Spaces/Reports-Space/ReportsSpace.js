@@ -15,6 +15,7 @@ function newGobernanceReportsSpace() {
         claims: undefined,
         votes: undefined,
         staking: undefined,
+        liquidity: undefined,
         delegations: undefined,
         github: undefined,
         airdrop: undefined,
@@ -91,6 +92,9 @@ function newGobernanceReportsSpace() {
         thisObject.staking.finalize()
         thisObject.staking = undefined
 
+        thisObject.liquidity.finalize()
+        thisObject.liquidity = undefined
+
         thisObject.delegation.finalize()
         thisObject.delegation = undefined
 
@@ -123,7 +127,7 @@ function newGobernanceReportsSpace() {
 
     function initialize() {
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
@@ -150,6 +154,7 @@ function newGobernanceReportsSpace() {
         thisObject.claims = newGovernanceReportsClaims()
         thisObject.votes = newGovernanceReportsVotes()
         thisObject.staking = newGovernanceReportsStaking()
+        thisObject.liquidity = newGovernanceReportsLiquidity()
         thisObject.delegation = newGovernanceReportsDelegation()
         thisObject.github = newGovernanceReportsGithub()
         thisObject.airdrop = newGovernanceReportsAirdrop()
@@ -171,6 +176,7 @@ function newGobernanceReportsSpace() {
         thisObject.claims.initialize()
         thisObject.votes.initialize()
         thisObject.staking.initialize()
+        thisObject.liquidity.initialize()
         thisObject.delegation.initialize()
         thisObject.github.initialize()
         thisObject.airdrop.initialize()

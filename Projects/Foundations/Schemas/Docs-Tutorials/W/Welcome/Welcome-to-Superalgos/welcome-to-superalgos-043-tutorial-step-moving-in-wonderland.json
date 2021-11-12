@@ -26,6 +26,21 @@
                 "text": "Entonces, finalmente estás dentro de un gráfico. Lo primero que querrás hacer es moverte y aprender qué pueden hacer estos gráficos por ti.",
                 "updated": 1624404419428,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sie befinden sich also endlich in einem Diagramm. Das erste, was Sie tun möchten, ist, sich zu bewegen und zu lernen, was diese Diagramme für Sie tun können.",
+                "updated": 1634216714226
+            },
+            {
+                "language": "TR",
+                "text": "Sonunda bir grafiğin içindesiniz. Yapmak isteyeceğiniz ilk şey, etrafta dolaşmak ve bu çizelgelerin sizin için neler yapabileceğini öğrenmek.",
+                "updated": 1636092060224
+            },
+            {
+                "language": "RU",
+                "text": "Итак, наконец-то, Вы находитесь внутри диаграммы. Первое, что Вым захочется сделать  - это осмотреться и узнать, что эти диаграммы могут сделать для Вас.",
+                "updated": 1636205299823
             }
         ]
     },
@@ -51,6 +66,21 @@
                     "text": "¡Sigamos con esto! Como en el espacio de diseño, cuando estas dentro de una máquina del tiempo, se mueve usando el mouse y el teclado. Así es como:",
                     "updated": 1624404511697,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fangen wir damit an! Wie im Designbereich - wenn Sie sich in einer Time Machine befinden - bewegen Sie sich mit Hilfe Ihrer Maus und Ihrer Tastatur. So geht's:",
+                    "updated": 1634216711619
+                },
+                {
+                    "language": "TR",
+                    "text": "Bununla devam edelim! Tasarım alanında olduğu gibi, bir zaman makinesinin içindeykende farenizi ve klavyenizi kullanarak hareket edersiniz. Nasıl?",
+                    "updated": 1636092104788
+                },
+                {
+                    "language": "RU",
+                    "text": "В заключении процесса! Как и в пространстве дизайна, когда Вы находитесь внутри машины времени, Вы перемещаетесь с помощью мыши и клавиатуры. Как это происходит:",
+                    "updated": 1636205706347
                 }
             ]
         },
@@ -75,6 +105,21 @@
                     "text": "Con el mouse, haz clic con el botón izquierdo y arrastra. Con el teclado, use las teclas de flecha: ← → ↑ ↓",
                     "updated": 1627304690713,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit der Maus klicken Sie mit der linken Maustaste und ziehen. Mit der Tastatur benutzt du die Pfeiltasten: ← → ↑ ↓",
+                    "updated": 1634216728013
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare ile sol tıklayın ve sürükleyin. Klavye ile ok tuşlarını kullanın: ← → ↑ ↓",
+                    "updated": 1636092129919
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью мыши: щелкните левой кнопкой мыши и перетащите. С помощью клавиатуры: используйте клавиши со стрелками ← → ↑ ↓.",
+                    "updated": 1636205526304
                 }
             ]
         },
@@ -99,6 +144,21 @@
                     "text": "¿Qué? ¿No funciona? ¿Estás atrapado con un gráfico congelado? ¿Como en el video sobre el siguiente paso? Sé lo que está pasando...",
                     "updated": 1627258765795,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Was? Es funktioniert nicht? Bleiben Sie mit einem eingefrorenen Diagramm hängen? Wie im Video im nächsten Schritt? Keine Sorge! Ich weiß, was hier los ist...",
+                    "updated": 1634216736257
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne? Çalışmıyor mu? Donmuş bir çizelgeye mi takıldınız? Bir sonraki adımdaki videodaki gibi mi? Merak etme! Neler olduğunu biliyorum...",
+                    "updated": 1636092166517
+                },
+                {
+                    "language": "RU",
+                    "text": "Что? Это не работает? У Вас все еще заморожен график как на видео в следующем шаге? Не беспокойтесь! Я знаю, что происходит.",
+                    "updated": 1636205608008
                 }
             ]
         }

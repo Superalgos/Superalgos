@@ -6,7 +6,7 @@ exports.newPlatformApp = function newPlatformApp() {
 
     return thisObject
 
-    async function run() {
+    async function run(initialWorkspace) {
 
         process.on('uncaughtException', function (err) {
             if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
@@ -20,7 +20,7 @@ exports.newPlatformApp = function newPlatformApp() {
         })
 
         process.on('unhandledRejection', (reason, p) => {
-            // Signal user that a necissary node module is missing
+            // Signal user that a necessary node module is missing
             if (reason.code == 'MODULE_NOT_FOUND') {
                 console.log("[ERROR] Dependency library not found. Please try running the 'node setup' command and then restart the Superalgos Platform Client.")
                 console.log('[ERROR] Platform App -> reason = ' + JSON.stringify(reason))
@@ -133,14 +133,13 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('')
             console.log('SUPERALGOS PLATFORM CLIENT INTERFACES:')
             console.log('')
-
             WEB_SOCKETS_INTERFACE = WEB_SOCKETS_INTERFACE.newWebSocketsInterface()
             WEB_SOCKETS_INTERFACE.initialize()
-            console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+            console.log('Web Sockets Interface ....................................... Listening at port ' + global.env.PLATFORM_WEB_SOCKETS_INTERFACE_PORT)
 
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
-            HTTP_INTERFACE.initialize()
-            console.log('Http Interface .............................................. Listening at port ' + global.env.CLIENT_HTTP_INTERFACE_PORT)
+            HTTP_INTERFACE.initialize(initialWorkspace)
+            console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
 
             console.log('')
             console.log("You are running Superalgos Beta 12")

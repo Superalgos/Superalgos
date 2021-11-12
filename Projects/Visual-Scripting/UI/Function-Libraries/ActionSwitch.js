@@ -193,6 +193,15 @@ function newVisualScriptingActionSwitch() {
                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceDetachNode(action.node)
                 }
                 break
+            case 'Create Reference':
+            {
+                UI.projects.visualScripting.functionLibraries.attachDetach.createReference(action.node, action.rootNodes)
+            }
+                break
+
+            default: {
+                console.log("[WARN] Action sent to Visual-Scripting Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
+            }
         }
     }
 }

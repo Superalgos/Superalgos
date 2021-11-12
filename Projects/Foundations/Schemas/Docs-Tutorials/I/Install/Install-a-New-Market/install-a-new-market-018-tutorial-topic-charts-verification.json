@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Más allá de las estructuras de datos configuradas en la jerarquía de la Network, la función Install Market también configura gráficos que coinciden las sesiones de trading creadas.",
                 "updated": 1629250291168
+            },
+            {
+                "language": "DE",
+                "text": "Neben den Datenstrukturen, die in der Netzwerkhierarchie eingerichtet werden, richtet die Funktion Market installieren auch Charts ein, die zu den erstellten Handelssitzungen passen.",
+                "updated": 1636469963838
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "En los siguientes pasos, verificará que las estructuras de datos esperadas se hayan creado correctamente.",
                     "updated": 1629250307906
+                },
+                {
+                    "language": "DE",
+                    "text": "In den nächsten Schritten werden Sie überprüfen, ob die erwarteten Datenstrukturen erfolgreich erstellt wurden.",
+                    "updated": 1636470004914
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Los gráficos creados permiten trabajar con las Trading Session de forma independiente.",
                     "updated": 1629250720714
+                },
+                {
+                    "language": "DE",
+                    "text": "Die erstellten Charts ermöglichen es, mit jeder der Handelssitzungen unabhängig zu arbeiten.",
+                    "updated": 1636470034665
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "Observa desde la organización de los gráficos que Superalgos permite escalar tu operación a gráficos y sistemas comerciales ilimitados.",
                     "updated": 1629250466323
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie bei der Organisation der Charts, dass Superalgos die Skalierung Ihrer Operation auf eine unbegrenzte Anzahl von Handelssystemen und Charts ermöglicht.",
+                    "updated": 1636470077906
                 }
             ]
         }

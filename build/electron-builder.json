@@ -1,0 +1,72 @@
+{
+    "appId": "org.superalgos.platform",
+    "productName": "Superalgos",
+    "asar": true,
+    "generateUpdatesFilesForAllChannels": true,
+    "files": [
+      "**/*",
+      "!.github",
+      "!.vscode",
+      "!.dockerignore${/*}",
+      "!Platform/My-Data-Storage/*",
+      "!Platform/My-Log-Files/*",
+      "!Platform/My-Workspaces/*",
+      "!Docker",
+      "!Launch-Scripts",
+      "!run.js",
+      "!setup.js",
+      "!uninstall.js"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": "x64"
+        },
+        {
+            "target": "portable",
+            "arch": "x64"
+          }
+      ],
+      "artifactName": "${productName}-${os}-${version}.${ext}",
+      "icon": "./build/superalgos.ico"
+    },
+    "publish": {
+      "provider": "github",
+      "vPrefixedTagName": false,
+      "releaseType": "prerelease"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "license": "./LICENSE",
+      "runAfterFinish": false,
+      "artifactName": "${productName}_Setup_${os}_${version}.${ext}"
+    },
+    "mac": {
+      "artifactName": "${productName}-${os}-${arch}-${version}.${ext}",
+      "category": "public.app-category.finance",
+      "icon": "./build/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64", "armv7l"]
+        }
+      ]
+    },
+    "extraMetadata": {
+        "main": "electron-wrapper.js"
+    }
+}

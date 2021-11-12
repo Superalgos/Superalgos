@@ -20,6 +20,16 @@
                 "text": "¿Entiendes? ¡El Trading botl coloca un Limit Buy Order en el cuarto nivel de soporte! ¿Cuál es la lógica detrás de esto?",
                 "updated": 1624458595413,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie es? Der Trading Bot platziert die Limit Buy Order auf der vierten Unterstützungsebene! Was ist die Logik dahinter?",
+                "updated": 1634225434245
+            },
+            {
+                "language": "TR",
+                "text": "Trading Bot 'u, Limit Satın Alma Emri'ni ( Limit Buy Order ) dördüncü destek seviyesine yerleştirir! Bunun arkasındaki mantık nedir?",
+                "updated": 1636206183071
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "Es algo arbitrario, pero la estrategia define un cuchillo que cae como la acción del precio capaz de romper al menos tres niveles de soporte y llegar al cuarto durante un solo minuto. Estadísticamente, tales eventos, en este período de tiempo, producen más rebotes que continuaciones. Pueden deberse a grandes órdenes de mercado que aumentan temporalmente el diferencial de oferta / demanda en la cartera de órdenes.",
                     "updated": 1624458684445,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist etwas willkürlich, aber die Strategie definiert ein \"fallendes Messer\" als eine Preisaktion, die in der Lage ist, mindestens drei Unterstützungsniveaus zu durchbrechen und das vierte innerhalb einer einzigen Minute zu erreichen. Statistisch gesehen führen solche Ereignisse in diesem Zeitrahmen zu mehr Abprallern als Fortsetzungen. Sie können durch große Marktaufträge verursacht werden, die die Geld-Brief-Spanne im Orderbuch vorübergehend vergrößern.",
+                    "updated": 1634225456180
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu biraz keyfi bir durumdur, ancak strateji, düşen bıçağı (fiyatın ani düşüşünü), tek bir dakika içinde en az üç destek seviyesini aşabilen ve dördüncü seviyeye ulaşabilen fiyat hareketi olarak tanımlar. İstatistiksel olarak, bu tür olaylar - bu zaman çerçevesinde - sürekli daha fazla sıçrama üretir. Emir defterindeki alış/satış farkını geçici olarak artıran büyük piyasa emirlerinden kaynaklanabilirler.",
+                    "updated": 1636206270568
                 }
             ]
         },
@@ -57,6 +77,16 @@
                     "text": "¡Tómate un minuto para verificar que las órdenes de compra se colocan en el cuarto nivel de soporte!",
                     "updated": 1624458716693,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich eine Minute Zeit, um zu überprüfen, ob Kaufaufträge auf der vierten Unterstützungsebene platziert werden!",
+                    "updated": 1634225445485
+                },
+                {
+                    "language": "TR",
+                    "text": "Satın alma siparişlerinin dördüncü destek seviyesinde verildiğini doğrulamak için bir dakikanızı ayırın!",
+                    "updated": 1636206291919
                 }
             ]
         }

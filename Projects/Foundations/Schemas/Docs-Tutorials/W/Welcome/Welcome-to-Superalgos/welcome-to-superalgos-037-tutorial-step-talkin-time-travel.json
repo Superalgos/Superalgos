@@ -26,6 +26,22 @@
                 "text": "Mencioné anteriormente que hay dos gráficos en este espacio de trabajo. En Superalgos, llamamos a cada uno de estos un Time Machine.",
                 "updated": 1624381357850,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe bereits erwähnt, dass es in diesem Workspace zwei Diagramme gibt. In Superalgos nennen wir jedes dieser Diagramme eine Time Machine.",
+                "updated": 1634205940397,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Daha önce bahsetmiştim, bu çalışma alanında iki çizelge var. Superalgos'ta bu çizelgelerin her birine bir Zaman Makinesi ( Time Machine ) diyoruz.",
+                "updated": 1636035055393
+            },
+            {
+                "language": "RU",
+                "text": "Я упоминал ранее, что в этом рабочем пространстве имеется две диаграммы. В Superalgos мы называем каждую из них - Time Machine.",
+                "updated": 1636199639429
             }
         ]
     },
@@ -51,6 +67,22 @@
                     "text": "Un Time Machine puede tener un Timeline Chart o más. Los llamamos máquinas del tiempo porque todos los gráficos de la línea de tiempo dentro de ella están sincronizados en el tiempo. Esta característica permite superponer diferentes capas de datos compartiendo el mismo Time Scale.",
                     "updated": 1624381666829,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Time Machine kann einen oder mehere Timeline Charts enthalten. Wir nennen sie Time Machines, weil alle Timeline Charts innerhalb einer Time Machine zeitlich synchronisiert sind. Diese Eigenschaft der Time Machines ermöglicht es, verschiedene Datenebenen auf derselben Time Scale zu überlagern.",
+                    "updated": 1634206096721,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir zaman makinesi, bir veya daha fazla Zaman Çizelgesi Grafiği tutabilir. Onlara zaman makineleri diyoruz çünkü bir zaman makinesindeki tüm zaman çizelgeleri zamanla senkronize edilir. Zaman makinelerinin bu özelliği, aynı Zaman Ölçeğini paylaşan farklı veri katmanlarının üst üste binmesine izin verir.",
+                    "updated": 1636035067580
+                },
+                {
+                    "language": "RU",
+                    "text": "Машина времени может содержать одну или несколько Timeline Chart. Мы называем их машиной времени, потому что все графики временной шкалы в машине времени синхронизированы во времени. Эта особенность машин времени позволяет накладывать различные слои данных, используя один и тот же Time Scale.",
+                    "updated": 1636199955416
                 }
             ]
         },
@@ -75,6 +107,22 @@
                     "text": "¡Pasa el mouse sobre un Time Machine!",
                     "updated": 1624406480076,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fahren Sie mit dem Mauszeiger über die Time Machines!",
+                    "updated": 1634206006623,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare imlecinizi zaman makinelerinin üzerine getirin!",
+                    "updated": 1636035197351
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на машины времени!",
+                    "updated": 1636201484840
                 }
             ]
         },
@@ -100,6 +148,22 @@
                     "text": "Observa la etiqueta emergente en el lado izquierdo que muestra a qué exchange y mercados están asociados los datos. ¡Un Time Machine puede contener datos de múltiples mercados y múltiples exchanges!",
                     "updated": 1627304357216,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie die Beschriftung auf der linken Seite, aus der hervorgeht, mit welchen Börsen und Märkten die Daten verbunden sind. Eine einzige Time Machine kann Daten von mehreren Märkten und mehreren Börsen enthalten!",
+                    "updated": 1634206050433,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sol tarafta beliren ve verilerin hangi borsalar ve pazarlarla ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla pazardan ve birden fazla borsadan veri tutabilir!",
+                    "updated": 1636035233840
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на появившуюся слева метку, которая указывает на то, с какими биржами и рынками связаны данные. Одна машина времени может содержать данные с множества рынков и бирж.",
+                    "updated": 1636201607160
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - A Close Below the Bands?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-bands"
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
         },
         "text": "How do we describe a candle closing below the lower band? Let's see how the lower band is described!"
     },

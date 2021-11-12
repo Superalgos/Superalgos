@@ -26,6 +26,22 @@
                 "text": "Vale... tal vez no sea como doblar, pero aguarda.. Te encantará cómo puedes darle forma a las máquinas del tiempo en el formato que desees.",
                 "updated": 1624382256223,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ok... vielleicht ist es nicht wirklich wie Raumkrümmung, aber habt Nachsicht mit mir... Du wirst begeistert sein, wie du Zeitmaschinen in jedes beliebige Format bringen kannst.",
+                "updated": 1634206247154,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tamam,belki zamanı bükmek gibi değil, ama inan bana bu harika birşey... Zaman makinelerini istediğin formatta şekillendirebiliyor olmana bayılacaksın.",
+                "updated": 1636035360393
+            },
+            {
+                "language": "RU",
+                "text": "Хорошо... Может быть, на самом деле это и не похоже на сгибание, но потерпите.. Вам понравится, как Вы сможете сформировать машины времени в любом желаемом формате.",
+                "updated": 1636201767989
             }
         ]
     },
@@ -51,6 +67,22 @@
                     "text": "Pasa el puntero del mouse sobre cualquiera de los bordes del marco turquesa que define la máquina del tiempo y ve qué sucede. ¿Ves cómo el borde está resaltado en amarillo?",
                     "updated": 1627304493474,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie Ihren Mauszeiger über einen der Ränder des türkisfarbenen Rahmens, der die Time Machine definiert, und sehen Sie, was passiert. Sehen Sie, wie der Rand gelb hervorgehoben wird?",
+                    "updated": 1634206251264,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare imlecinizi zaman makinesini tanımlayan turkuaz çerçevenin herhangi bir kenarının üzerine getirin ve ne olduğunu görün. Kenarın sarı ile nasıl vurgulandığını gördünüz mü?",
+                    "updated": 1636035384197
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на любой из краев бирюзовой рамки, определяющий машину времени, и посмотрите, что произойдет. Вы видите, как край рамки выделился желтым цветом?",
+                    "updated": 1636201897527
                 }
             ]
         },
@@ -75,6 +107,22 @@
                     "text": "¡Genial! ¡Ahora, haz clic izquierdo en el marco y tira!",
                     "updated": 1624382849082,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sehr gut! Klicken Sie nun mit der linken Maustaste auf den Rahmen und ziehen Sie!",
+                    "updated": 1634206263662,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Güzel! Şimdi çerçeveye tıklayın ve çekin!",
+                    "updated": 1636035404981
+                },
+                {
+                    "language": "RU",
+                    "text": "Отлично! Теперь щелкните по рамке левой кнопкой мыши и потяните!",
+                    "updated": 1636202014634
                 }
             ]
         },
@@ -99,6 +147,22 @@
                     "text": "Así es como puedes moldear las máquinas del tiempo a tu gusto.",
                     "updated": 1624382834240,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf diese Weise können Sie die Time Machines nach Ihren Wünschen gestalten.",
+                    "updated": 1634206284213,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Böylece zaman makinelerini kendi zevkinize veya ihtiyacınıza göre şekillendirebilirsiniz.",
+                    "updated": 1636035425014
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот как Вы можете формировать машины времени по своему нраву.",
+                    "updated": 1636202062369
                 }
             ]
         }

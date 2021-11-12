@@ -107,7 +107,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
             ) {
                 node.payload.stakingProgram.isActive = false
                 userProfile.payload.uiObject.setErrorMessage(
-                    "Waiting for blockchain balance. It takes 6 seconds to load the balance of each profile, bacause you are using a free API provided by BSC Scan.",
+                    "Waiting for blockchain balance. It takes 1 minute to load the balance of each profile, bacause you are using a free API provided by BSC Scan.",
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                 )
                 return
@@ -121,7 +121,7 @@ function newGovernanceFunctionLibraryStakingProgram() {
             if (programNode === undefined || programNode.payload === undefined) { return }
             /*
             Here we will convert Token Power into Staking Power. 
-            As per system rules Staking Powar = tokensPower
+            As per system rules Staking Power = tokensPower
             */
             let programPower = programNode.payload.tokenPower
             programNode.payload.stakingProgram.ownPower = programPower

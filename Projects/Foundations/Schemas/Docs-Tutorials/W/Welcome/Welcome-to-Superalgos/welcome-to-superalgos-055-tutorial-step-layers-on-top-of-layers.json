@@ -20,6 +20,22 @@
                 "text": "Tu operación de minería de incluye bots que fabrican productos de datos. Cada producto está disponible en los gráficos a través de un Layer en un Layer Manager.",
                 "updated": 1625881909843,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ihre Data-Mining-Operation umfasst Bots, die Datenprodukte erstellen. Jedes Produkt wird in den Diagrammen durch einen Layer in einem Layer Manager verfügbar gemacht.",
+                "updated": 1634217919050,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliği operasyonunuz, veri ürünleri yapan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
+                "updated": 1636096341967
+            },
+            {
+                "language": "RU",
+                "text": "В Вашей операции интеллектуального анализа данных используются боты, создающие продукты данных. Каждый продукт доступен на диаграммах через Layer в Layer Manager.",
+                "updated": 1636566107941
             }
         ],
         "updated": 1616427338175
@@ -40,6 +56,22 @@
                     "text": "El primer Layer Manager de este Time machine presenta tres capas que representan los productos de datos del Trading System que veremos mas adelante.",
                     "updated": 1625883118231,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der erste Layer-Manager auf der linken Seite dieser Time Machine besteht aus drei Layern. Diese Layer stellen die Datenprodukte dar, die das Handelssystem, das wir später testen werden, verwendet, um Handelsentscheidungen zu treffen.",
+                    "updated": 1634217907919,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu zaman makinesinin solundaki ilk katman yöneticisi üç katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin ( Trading System ) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
+                    "updated": 1636096453476
+                },
+                {
+                    "language": "RU",
+                    "text": "Первый менеджер слоев слева от это машины времени содержит три слоя. Это слои представляют собой продукты данных, которые Trading System использует для принятия торговых решений.",
+                    "updated": 1636566329971
                 }
             ]
         },
@@ -58,6 +90,21 @@
                     "text": "¡Para activar y desactivar las capas, haz clic izquierdo en ellas!",
                     "updated": 1624495289554,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um Ebenen ein- und auszuschalten, klicken Sie mit der linken Maustaste auf sie!",
+                    "updated": 1634221550537
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları açmak ve kapatmak için üzerlerine mouse'un sol tuşuyla tıklayın!",
+                    "updated": 1636096510159
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы включать и выключать слои, щелкните по ним левой кнопкой мыши!",
+                    "updated": 1636566368102
                 }
             ]
         },
@@ -77,6 +124,22 @@
                     "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Work Space. ¡Aprenderás sobre ellos más tarde!",
                     "updated": 1624409780086,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos wird mit vielen weiteren Indikatoren ausgeliefert, die jedoch in diesem Workspace nicht konfiguriert sind. Sie werden sie später kennenlernen!",
+                    "updated": 1634217927340,
+                    "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
+                    "updated": 1636096525958
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos поставляется со многими другими индикаторами, но они не настроены в этом Workspace. Вы ознакомитесь с ними позднее.",
+                    "updated": 1636566459062
                 }
             ]
         }

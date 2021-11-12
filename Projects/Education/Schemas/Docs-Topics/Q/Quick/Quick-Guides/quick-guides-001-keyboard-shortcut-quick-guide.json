@@ -1,0 +1,166 @@
+{
+    "topic": "Quick Guides",
+    "pageNumber": 1,
+    "type": "Keyboard Shortcut Quick Guide",
+    "definition": {
+        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly.",
+        "updated": 1634909540261
+    },
+    "paragraphs": [
+        {
+            "style": "Important",
+            "text": "For all Mac Users please substitute <kbd>Cmd</kbd> in place of Ctrl.",
+            "updated": 1634998306538
+        },
+        {
+            "style": "Text",
+            "text": "Here is the current list of all implemented shortcuts and options for customization:"
+        },
+        {
+            "style": "Subtitle",
+            "text": "General Shortcuts"
+        },
+        {
+            "style": "List",
+            "text": "Save the current workspace: Ctrl + Shift + Alt + Key-S ",
+            "updated": 1634908447626
+        },
+        {
+            "style": "List",
+            "text": "Display Reference Connections: Ctrl + Shift + Alt + Key-R",
+            "updated": 1634908480733
+        },
+        {
+            "style": "List",
+            "text": "Display Parent Connections: Ctrl + Shift + Alt + Key-C",
+            "updated": 1634998435755
+        },
+        {
+            "style": "List",
+            "text": "Adjust Chart Aspect Ratio: Ctrl + Shift + Alt + Key-A",
+            "updated": 1634998443465
+        },
+        {
+            "style": "List",
+            "text": "Toggle Map Mode: Ctrl + Shift + Alt + Key-M",
+            "updated": 1634998451423
+        },
+        {
+            "style": "Success",
+            "text": "You can change the shortcut key for these general shortcuts by adjusting the config of your Space Settings node found under the Design Space node. See the Space Settings node page for more details.",
+            "updated": 1634909647891
+        },
+        {
+            "style": "Subtitle",
+            "text": "Node Manipulation Shortcuts",
+            "updated": 1634909665231
+        },
+        {
+            "style": "List",
+            "text": "While hovering over a node: Select a Node to move Ctrl + Shift + Alt + Key-Z",
+            "updated": 1634998486627
+        },
+        {
+            "style": "List",
+            "text": "While hovering over nothing: Clears the selected node Ctrl + Shift + Alt + Key-Z",
+            "updated": 1634998497705
+        },
+        {
+            "style": "List",
+            "text": "Move Selected node to current position of Mouse Pointer: Ctrl + Shift + Alt + Key-X",
+            "updated": 1634998509998
+        },
+        {
+            "style": "Note",
+            "text": "Node must be pinned in order to move.",
+            "updated": 1634911098847
+        },
+        {
+            "style": "List",
+            "text": "Retrieve a lost/out of bounds node: Ctrl + Shift + Alt + Key-K",
+            "updated": 1634998846702
+        },
+        {
+            "style": "Subtitle",
+            "text": "Productivity Shortcuts"
+        },
+        {
+            "style": "List",
+            "text": "Capture a static PNG image: Ctrl + F8 ",
+            "updated": 1634908593022
+        },
+        {
+            "style": "List",
+            "text": "Start capturing a GIF video: Ctrl + F9 hit the same key combination again to end the capture. ",
+            "updated": 1634908656330
+        },
+        {
+            "style": "Note",
+            "text": "Once the capture ends, it takes some time to process the capture and generate the final file."
+        },
+        {
+            "style": "List",
+            "text": "Start capturing a WEBM video: Ctrl + F10 hit the same key combination again to end the capture. ",
+            "updated": 1634908707702
+        },
+        {
+            "style": "Note",
+            "text": "WEBM videos are processed instantly."
+        },
+        {
+            "style": "List",
+            "text": "Display animation performance: Ctrl + Shift + Alt + F11",
+            "updated": 1634910183292
+        },
+        {
+            "style": "List",
+            "text": "Print Node Object of current Node to browser console: Ctrl + Shift + Alt + F12",
+            "updated": 1634910470824
+        },
+        {
+            "style": "Subtitle",
+            "text": "Custom Shortcuts"
+        },
+        {
+            "style": "List",
+            "text": "It is also possible to set a custom shortcut to any node you would like. Simply hover over a node and hit Ctrl + Alt + your preferred key to assign the shortcut.",
+            "updated": 1634909920250
+        },
+        {
+            "style": "Note",
+            "text": "A more detailed walk through can be found here: Keyboard Shortcuts to Nodes"
+        },
+        {
+            "style": "Subtitle",
+            "text": "General Navigation"
+        },
+        {
+            "style": "Text",
+            "text": "You can find additional descriptions of how to use your mouse and keyboard to navigate the Charting Space and Design Space at the Basic Navigation page.",
+            "updated": 1634912820206
+        },
+        {
+            "style": "Subtitle",
+            "text": "Shortcut Troubleshooting and Optimization"
+        },
+        {
+            "style": "Important",
+            "text": "If any of these keyboard shortcuts do not function as expected, please disable any installed browser extentions while using Superalgos as they can override expected functionality.",
+            "updated": 1634999290105
+        },
+        {
+            "style": "Success",
+            "text": "In addition to this, many shortcuts will work without using the Alt key. For example Ctrl + Shift + Key-S. ",
+            "updated": 1634999389000
+        },
+        {
+            "style": "Warning",
+            "text": "However, on certain operating systems or browsers omitting the Alt key may cause a conflict with preset system shortcuts. Therefore, the shortcuts guaranteed to work are those using Alt. But feel free to optimize as you see fit!",
+            "updated": 1634999581536
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

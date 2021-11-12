@@ -26,6 +26,23 @@
                 "text": "\nAhora que te siente cómodo moviéndote, quiero que realices un pequeño recorrido explorando la sección Data Tasks  del nodo Network.",
                 "updated": 1624493667835,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf eine kleine Tour durch den Abschnitt Data Tasks des Network Node mitnehmen.",
+                "updated": 1634167620156,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда Вам удобно передвигаться, я хочу, чтобы Вы отправились в небольшую экскурсию по Network Node раздела Data Tasks.",
+                "updated": 1635630043831,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Artık rahatça dolaşabildiğinize göre, Ağ Düğümü'nün ( Network Node ) Veri Görevleri ( Data Tasks ) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1636014280941
             }
         ],
         "updated": 1622194034630
@@ -52,6 +69,23 @@
                     "text": "Fijate en lo siguiente",
                     "updated": 1618439399867,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie das Folgende:",
+                    "updated": 1634167630784,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на следующее:",
+                    "updated": 1635630070775,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakilere dikkat edin:",
+                    "updated": 1636014296432
                 }
             ]
         },
@@ -76,6 +110,23 @@
                     "text": "La sección está organizada, en primer lugar, por proyecto, exchage  y mercado. Esto le ayudará a trabajar con varios exchanges y mercados de forma ordenada.",
                     "updated": 1618439477366,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Abschnitt ist in erster Linie nach Projekt, Börse und Markt geordnet. Dies hilft Ihnen, mit mehreren Börsen und Märkten in geordneter Weise zu arbeiten.",
+                    "updated": 1634167647959,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет Вам организованно работать со множеством бирж и рынков.",
+                    "updated": 1635630220075,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm, her şeyden önce proje, borsa ve pazara göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla pazarla düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1636014356317
                 }
             ]
         },
@@ -100,6 +151,23 @@
                     "text": "Los nodos de Exchange Data Tasks y Market Data Tasks pueden controlar todas las tareas del exchange y del mercado respectivamente.",
                     "updated": 1618439583481,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Exchange Data Tasks und Market Data Tasks können alle Aufgaben in der Börse bzw. dem Markt steuern.",
+                    "updated": 1634167655448,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Узлы Exchange Data Tasks и Мarket Data Tasks могут управлять всеми задачами на бирже и рынке соответственно.",
+                    "updated": 1635630313880,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Piyasa Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve pazardaki tüm görevleri kontrol edebilir.",
+                    "updated": 1636014775744
                 }
             ]
         },
@@ -124,6 +192,23 @@
                     "text": "Sal y explora esos nodos y sus menús.",
                     "updated": 1624493680231,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich diese Knoten und ihre Menüs an!",
+                    "updated": 1634167662675,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выйдите и проверьте эти узлы и их меню!",
+                    "updated": 1635630414259,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi bu düğümleri ve menülerini kontrol edin!",
+                    "updated": 1636014827396
                 }
             ]
         }

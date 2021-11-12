@@ -39,7 +39,7 @@ function newFoundationsUtilitiesFolders() {
                             let originObject = originNodePropertyArray[m]
                             if (originObjectArrayPropertyName === undefined) {
                                 /*
-                                    In this first Use Case, we are going to connect each orgin object clone
+                                    In this first Use Case, we are going to connect each origin object clone
                                     to its origin object counter part.
                                 */
                                 let clonedObject = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
@@ -48,7 +48,7 @@ function newFoundationsUtilitiesFolders() {
                                 /*
                                     In this second Use Case, we are going to connect an inner object that is
                                     inside the origin object at an array. We recognize we have to do this
-                                    because we did receive this array proeprty name.
+                                    because we did receive this array property name.
                                 */
                                 let originObjectArray = originObject[originObjectArrayPropertyName]
                                 for (let n = 0; n < originObjectArray.length; n++) {

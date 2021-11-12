@@ -16,7 +16,7 @@
         },
         {
             "style": "Note",
-            "text": "When the progress notice of the Trading Process Instance get's to the 100% mark, stop the task and click Next."
+            "text": "When the progress notice of the Trading Process Instance gets to the 100% mark, stop the task and click Next."
         }
     ]
 }

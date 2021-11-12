@@ -20,6 +20,21 @@
                 "text": "¿Aprendiste el truco para escalar el tiempo del video anterior? Si no es así, ve al paso anterior y observa atentamente.",
                 "updated": 1627304776783,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie den Trick mit der Zeitskala aus dem vorherigen Video verstanden? Wenn nicht, gehen Sie zum vorherigen Schritt und schauen Sie aufmerksam zu!",
+                "updated": 1634217059331
+            },
+            {
+                "language": "TR",
+                "text": "Önceki videodan zamanı ölçeklendirmesini nasılçalıştığını anlayabildiniz mı? Eğer teredütünüz varsa önceki adıma gidin ve dikkatlice izleyin!",
+                "updated": 1636094066007
+            },
+            {
+                "language": "RU",
+                "text": "Вы уловили это трюк для масштабирования времени из предыдущего видео? Если нет, перейдите к предыдущему шагу и внимательно посмотрите.",
+                "updated": 1636206379436
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "text": "¡Desplazar la rueda del mouse en la parte superior del cuadro de escala de tiempo reduce y expande el tiempo! Alternativamente, puedes apuntar el mouse al cuadro de escala y presionar las teclas de flecha laterales ← →",
                     "updated": 1624406140665,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das Mausrad über dem Zeitskalenfeld drehen, wird die Zeit verkleinert oder vergrößert! Alternativ können Sie mit der Maus auf das Skalenfeld zeigen und die seitlichen Pfeiltasten ← →  drücken.",
+                    "updated": 1634217078292
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin tekerleğini zaman ölçeği kutusunun üzerinde kaydırmak, zamanı küçültür ve genişletir! Alternatif olarak, fareyi ölçek kutusuna yönlendirebilir ve yan ok tuşlarına basabilirsiniz ← →",
+                    "updated": 1636094091641
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутка колесика мыши в верхней части окна шкалы времени уменьшает и увеличивает время!  Кроме того, Вы можете навести курсор мыши на шкалу и нажать боковые клавиши со стрелками ← →.",
+                    "updated": 1636206456010
                 }
             ],
             "updated": 1616495837967
@@ -58,6 +88,21 @@
                     "text": "Señalar del video anterior: cuando la escala de tiempo sale del modo automático, los dos pequeños triángulos verdes que indican cada extremo de la escala automática desaparecen. ¡La escala se puede configurar en automático en cualquiera, en ninguno o en ambos lados!",
                     "updated": 1624407303951,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt noch ein weiteres interessantes Detail aus dem vorherigen Video: Wenn die Zeitskala den automatischen Modus verlässt, verschwinden die beiden kleinen grünen Dreiecke, die das Ende der automatischen Skala anzeigen! Die Skala kann auf einer, keiner oder beiden Seiten automatisch eingestellt werden!",
+                    "updated": 1634217088926
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki videoda dikkat çeken ilginç bir ayrıntı daha var: zaman ölçeği otomatik moddan çıktığında, otomatik ölçeğin her iki tafafını gösteren iki küçük yeşil üçgen kaybolur! ",
+                    "updated": 1636094195564
+                },
+                {
+                    "language": "RU",
+                    "text": "В предыдущем видео есть одна интересная деталь: когда шкала времени выходит из автоматического режима, два крошечных зеленых треугольника, указывающих на каждый конец автоматической шкалы, - исчезают! Масштаб может быть установлен на автоматический как с одной, так или с обеих сторон.",
+                    "updated": 1636206743590
                 }
             ],
             "updated": 1616504911488

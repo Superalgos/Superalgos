@@ -76,17 +76,40 @@ function newWorkspace() {
                     }
                 }
 
-                /* Check which was the last workspace. */
+                const browserURL = new URLSearchParams(window.location.search);
+                const queryString = Object.fromEntries(browserURL.entries());
+                /* 
+                By default, we will load the last used workspace.
+                */
                 let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
-                if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+                if (
+                    (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) ||
+                    (queryString.initialWorkspaceName !== undefined)
+                ) {
+                    let webCommand
+                    if (queryString.initialWorkspaceType !== undefined) {
+                        /*
+                        We get here when the workspace to lead comes at the URL 
+                        */
+                        UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + queryString.initialWorkspaceName + "...")
+                        if (queryString.initialWorkspaceType !== 'My-Workspaces') {
+                            webCommand = 'LoadPlugin' + '/' + queryString.initialWorkspaceProject + '/' + 'Workspaces' + '/' + queryString.initialWorkspaceName + '.json'
+                        } else {
+                            webCommand = 'LoadMyWorkspace' + '/' + queryString.initialWorkspaceName
+                        }
+                    } else {
+                        /*
+                        We get here when the workspace to lead is the last saved workspace.
+                        */
+                        UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+                        webCommand = 'LoadMyWorkspace' + '/' + lastUsedWorkspace
+                    }
 
-                    UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
-
-                    httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
+                    httpRequest(undefined, webCommand, onFileReceived)
                     function onFileReceived(err, text, response) {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
                             thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
                             thisObject.workspaceNode.project = 'Foundations'
                             recreateWorkspace()
@@ -338,7 +361,7 @@ function newWorkspace() {
                             if (result === false) {
                                 console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
                                 console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
-                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reaload the previously saved workspace again.')
+                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
                                 workingAtTask = 0
                                 return
                             }
@@ -666,7 +689,7 @@ function newWorkspace() {
                 return
             }
 
-            /* It does not exist, so we recreeate it respecting the inner state of each object. */
+            /* It does not exist, so we recreate it respecting the inner state of each object. */
             let positionOffset = {
                 x: spawnPosition.x,
                 y: spawnPosition.y
@@ -696,7 +719,7 @@ function newWorkspace() {
         action.relatedNodeId : It is the id of a node related to the action.
         action.relatedNodeType : It is the type of the node related to the action.
         action.callBackFunction : A callback function to call when the action is complete.
-        action.extraParameter : A parameter to send unusual info to the fnction processing the action.
+        action.extraParameter : A parameter to send unusual info to the function processing the action.
 
         We add rootNodes property here.
         */

@@ -26,7 +26,7 @@
             "iconPathOn": "test-entity",
             "iconPathOff": "test-entity",
             "actionFunction": "payload.executeAction",
-            "actionProject": "SocialBots"
+            "actionProject": "Social-Bots"
         },
         {
             "action": "Delete UI Object",
@@ -40,7 +40,7 @@
         }
     ],
     "initialValues": {
-        "config": "{ \n\"botToken\": \"Paste the bot token obtained from Twitter \",\n}"
+        "config": "{\n \"consumer_key\": \"TWITTER_CONSUMER_KEY\",\n \"consumer_secret\": \"TWITTER_CONSUMER_SECRET\",\n \"access_token_key\": \"TWITTER_ACCESS_TOKEN_KEY\",\n \"access_token_secret\": \"TWITTER_ACCESS_TOKEN_SECRET\"\n}"
     },
     "addLeftIcons": true,
     "level": 3,

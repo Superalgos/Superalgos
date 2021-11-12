@@ -221,7 +221,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
 
         } catch (err) {
             /*
-            If an error ocurred during execution, it was alreeady logged and
+            If an error occurred during execution, it was already logged and
             included at the errors array. That means we need to do nothing here,
             just prevent the execution to be halted for not handling exceptions.
             */
@@ -237,14 +237,14 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
         if (node === undefined) { return }
 
-        /* Verify if this node is decendent of the specified node type */
+        /* Verify if this node is descendent of the specified node type */
         if (isDescendent !== true) {
             if (node.type === descendentOfNodeType) {
                 isDescendent = true
             }
         }
 
-        /* Here we check if there is a codition to be evaluated */
+        /* Here we check if there is a condition to be evaluated */
         if (node.type === 'Condition' && evaluating === 'Conditions') {
             /* We will eval this condition */
             if (isDescendent === true) {
@@ -276,7 +276,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -348,13 +348,13 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         }
         if (errorMessage !== undefined) {
             tradingSystem.addError([node.id, errorMessage, docs])
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] evalCondition -> errorMessage = ' + errorMessage)
         }
         if (value !== undefined) {
             tradingSystem.values.push([node.id, value])
         }
 
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> errorMessage = ' + errorMessage)
     }
 
     function evalFormula(node) {

@@ -20,6 +20,16 @@
                 "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante!",
                 "updated": 1624483496936,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind die 3-Punkte-Checkliste durchgegangen und sind bereit, also legen wir los!",
+                "updated": 1634245028451
+            },
+            {
+                "language": "TR",
+                "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım!",
+                "updated": 1636573370550
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session abajo en la jerarquía!",
                     "updated": 1625928738040,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den Lightning Strike Task aus, und starten Sie dann die Lightning Strike Live Trading Session weiter unten in der Hierarchie!",
+                    "updated": 1634245034579
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Görevini ( Lightning Strike Task ) çalıştırın ve ardından Lightning Strike Live Trading Seansını çalıştırın (Hiyerarşinin daha aşağısında göreceksiniz)",
+                    "updated": 1636573921437
                 }
             ],
             "updated": 1622233324259
@@ -58,6 +78,16 @@
                     "text": "Una vez que ejecute la sesión, es posible que el Trading Bot tenga que esperar hasta 60 segundos para que el último indicador termine de procesarse. Una vez que lo haga, verá la fecha actual y un aviso de progreso del 0% en la Trading Process Instance, que permanecerá así durante toda la ejecución, porque no estamos estableciendo un límite de tiempo para la sesión.",
                     "updated": 1624483658880,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie die Sitzung gestartet haben, muss der Trading-Bot möglicherweise bis zu 60 Sekunden warten, bis der letzte Indikator verarbeitet ist. Sobald dies der Fall ist, sehen Sie das aktuelle Datum und eine 0%-Fortschrittsanzeige unter der Trading Process Instance, die während des gesamten Laufs so bleibt, da wir kein Zeitlimit für die Sitzung festlegen.",
+                    "updated": 1634245041595
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturumu çalıştırdığınızda, işlem botunun son göstergenin işlemeyi bitirmesi için 60 saniyeye kadar beklemesi gerekebilir. Bunu yaptıktan sonra, Trading Process Instance düğümü altında geçerli tarihi ve %0 ilerleme bildirimini göreceksiniz, bu, oturum için bir zaman sınırı belirlemediğimizden çalışma boyunca böyle kalacaktır.",
+                    "updated": 1636574569129
                 }
             ],
             "updated": 1622233370311

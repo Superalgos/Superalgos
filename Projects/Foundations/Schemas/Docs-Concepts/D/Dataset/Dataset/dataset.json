@@ -1,7 +1,7 @@
 {
     "type": "Dataset",
     "definition": {
-        "text": "In Superalgos, a Dataset is a colection of JSON / text files organized in a certain way. ",
+        "text": "In Superalgos, a Dataset is a collection of JSON / text files organized in a certain way. ",
         "updated": 1621695840891
     },
     "paragraphs": [

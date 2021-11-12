@@ -7,7 +7,7 @@
         "updated": 1622379203330,
         "icon": {
             "name": "github",
-           "project": "Foundations"
+            "project": "Foundations"
         },
         "translations": [
             {
@@ -19,7 +19,19 @@
             {
                 "language": "ES",
                 "text": "¡Espero que hayas disfrutado este tutorial! ¿Te gustaría mostrar su gratitud dando una estrella al repositorio de Superalgos?",
-                "updated": 1624487811463
+                "updated": 1624487811463,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich hoffe, dieses Tutorial hat Ihnen gefallen! Möchten Sie Ihre Dankbarkeit zeigen, indem Sie dem Superalgos Repo einen Stern geben?",
+                "updated": 1634247038916,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Umarım bu eğitimi beğenmişsinizdir! Superalgos deposuna bir yıldız vererek minnettarlığınızı göstermek ister misiniz?",
+                "updated": 1636662233970
             }
         ]
     },
@@ -38,7 +50,19 @@
                 {
                     "language": "ES",
                     "text": "¡Los usuarios que vinieron antes que tu dedicaron tiempo y esfuerzo a crear tutoriales para que puedas tener una mejor experiencia! ¡Dar una estrella a nuestro repositorio es una buena manera de agradecer! Mejoran la clasificación en la búsqueda de Github. ¡Cuantas más, más fácil será para los desarrolladores encontrar y contribuir a Superalgos! ¡Dar una estrella al repositorio también sirve a tus propios intereses!",
-                    "updated": 1624488031497
+                    "updated": 1624488031497,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzer, die vor Ihnen da waren, haben Zeit und Mühe in die Erstellung von Tutorials gesteckt, damit Sie eine bessere Erfahrung machen können! Ein Stern für unser Repo ist eine schöne Art, Danke zu sagen! Sterne verbessern die Platzierung in der Github-Suche. Je mehr Sterne, desto einfacher ist es für Entwickler, Superalgos zu finden und schließlich zu unterstützen! Einen Stern für das Projektarchiv zu vergeben, dient auch Ihren eigenen Interessen!",
+                    "updated": 1634247047379,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sizden önce gelen kullanıcılar, daha iyi bir deneyime sahip olabilmeniz ve öğreticiler hazırlamak için zaman ve emek harcardılar! Depomuza bir yıldız vermek, teşekkür etmenin güzel bir yoludur! Yıldızlar, Github'ın aramasındaki sıralamaları iyileştirir. Ne kadar çok yıldız olursa, geliştiricilerin Superalgos'u bulması ve nihayetinde katkıda bulunması o kadar kolay olur! Depoya bir yıldız vermek böylece kendi çıkarlarınıza da hizmet eder!",
+                    "updated": 1636662309410
                 }
             ]
         },
@@ -56,7 +80,19 @@
                 {
                     "language": "ES",
                     "text": "Ve a nuestro repositorio y haz clic en el botón Estrella en la esquina superior derecha.",
-                    "updated": 1624488049094
+                    "updated": 1624488049094,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie es noch nicht getan haben, gehen Sie bitte zu unserem Repository und klicken Sie auf den Stern-Button in der oberen rechten Ecke!",
+                    "updated": 1634247053562,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Henüz yapmadıysanız, lütfen Github depomuza gidin ve sağ üst köşedeki Yıldız düğmesine tıklayın!",
+                    "updated": 1636662334467
                 }
             ]
         },
@@ -69,6 +105,12 @@
                     "language": "IT",
                     "text": "Ecco il link, per comodità! Grazie mille!->github.com/Superalgos/Superalgos",
                     "updated": 1618073740398,
+                    "style": "Link"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier ist ein Link für Sie! Ich danke Ihnen!->github.com/Superalgos/Superalgos",
+                    "updated": 1634590878814,
                     "style": "Link"
                 }
             ]

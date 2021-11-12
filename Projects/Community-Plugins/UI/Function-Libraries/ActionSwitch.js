@@ -38,6 +38,11 @@ function newCommunityPluginsActionSwitch() {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Specified Plugin Data Mine':
+            {
+                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addSpecifiedPluginDataMine(action.node, action.rootNodes)
+            }
+                break
             case 'Add Missing Plugin Trading Mines':
                 {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginTradingMines(action.node, action.rootNodes)
@@ -80,12 +85,12 @@ function newCommunityPluginsActionSwitch() {
                 break
             case 'Enable Saving With Workspace':
                 {
-                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes)
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes, action.callBackFunction)
                 }
                 break
             case 'Disable Saving With Workspace':
                 {
-                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes)
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes, action.callBackFunction)
                 }
                 break
             case 'Save Plugin':
@@ -93,6 +98,10 @@ function newCommunityPluginsActionSwitch() {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(action.node, action.rootNodes)
                 }
                 break
+
+            default: {
+                console.log("[WARN] Action sent to Community-Plugins Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
+            }
         }
     }
 }

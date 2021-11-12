@@ -39,7 +39,7 @@
   - [Superalgos Platform for Developers](#superalgos-platform-for-developers)
   - [Superalgos Platform Saves You Time](#superalgos-platform-saves-you-time)
   - [Superalgos Platform is Permissionless](#superalgos-platform-is-permissionless)
-  - [Superalgos Platform for Algo-Trders](#superalgos-platform-for-algo-trders)
+  - [Superalgos Platform for Algo-Traders](#superalgos-platform-for-algo-trders)
   - [Superalgos Platform Saves You Money](#superalgos-platform-saves-you-money)
   - [Superalgos Platform Minimizes Risks](#superalgos-platform-minimizes-risks)
   - [Superalgos Platform for Companies](#superalgos-platform-for-companies)
@@ -84,14 +84,22 @@ You can use the windows installer (Setup file) which will install all the necess
 > **NOTE**
 > There's a known issue where the screen stays white. In this case, go to "View/Reload" and it should work. 
 
+> **NOTE**
+> The application is not signed yet. The antivirus probably will flag the file as unsecure. You can force the installation and running or way for the signed app. 
+
 The manual installation option, tailored for users who are experienced and who want to contribute to the project (highly appreciated and rewarded with SA tokens). Follow the install wizards to install the latest NodeJS and Github Desktop applications.
 
 - [Node.js download page](https://nodejs.org/en/download/). Select "Current" then "Windows Installer", then follow the wizard to install after the download completes.
-- [GitHub Desktop downloat page](https://desktop.github.com/). Click the "Download for Windows" button and follow the wizard to install after the download completes.
+- [GitHub Desktop download page](https://desktop.github.com/). Click the "Download for Windows" button and follow the wizard to install after the download completes.
 - [Google Chrome download page](https://www.google.com/chrome/). After the install, it is recommended to set Chrome as the default browser.
 - If you intend on running the machine learning features (TensorFlow), you must [install Python 2](https://www.python.org/downloads/release/python-2718/) as well.
 
 ### Mac OS Install
+
+You can use the MacOS installer (DMG file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
+
+> **NOTE**
+> The application is not signed. To be able to run you have to permit it in System Preferences > Security & Privacy > General > Open Anyway. 
 
 [Homebrew](https://brew.sh/) can be used to install the requirements with minimal effort on Mac OS.  After you clone the repository, change directory to the Superalgos base and install the requirements using the Brewfile. Python 3 is only required for running machine learning (TensorFlow).
 
@@ -224,7 +232,7 @@ Now both launcher and desktop shortcuts will launch Superalgos like any other pr
 
 - You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! Free-riding is not cool, particularly on free, open-source, Community-driven projects.
 - The software includes an in-app self-update command / feature. It will help you stay up-to-date with the latest version of the software. Updates are on-demand, so don't worry about undesired updates. The project moves very fast and new features become available regularly, particularly if you choose to run the software in the `develop` branch (you may switch branches from within the app).
-- It is a good idea to perodically run the `node setup` command to keep the underlying dependencies for your Superalgos installation up to date.
+- It is a good idea to periodically run the `node setup` command to keep the underlying dependencies for your Superalgos installation up to date.
 - Before installing the client on a remote computer in an attempt to access the UI from a different machine, we highly recommend you do a standard installation on your PC / laptop first. Leave your Raspberry Pi or VPS for later, once you have done all available tutorials. This single tip will save you a lot of time: you don't need to add complexity before you learn how to handle the app, and the GUI performs best in a local installation.
 
 ### Uninstall
@@ -325,6 +333,18 @@ journalctl -u superalgos -f
 
 See the [Docker Readme for more information](Docker/README.md).
 
+### Workspace Refactoring for beta 13
+Beta 13 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+
+This means that these projects can now have a project leader and a team working on them.
+
+In order to get your custom workspace upgraded to be compatible with beta 13 you will need to make a few changes:
+
+Project nodes need to be present at the workspace for things to work. The presence of the node of a project, somehow, enables that projects features at a workspace. Go to the workspace node and click add missing projects.
+
+At the Plugins hierarchy, new guys appear, each one with their own type of plugins. Meaning that every workspace needs to be manually fixed, because currently all plugins are loaded from Foundations node there. The fix is easy though, it takes 2 - 3 min to delete the child nodes from the foundation node, and add the same plugins from the project they actually belong now.
+
+
 ## Welcome Tutorial
 
 Once the app finishes loading, an interactive tutorial takes you by the hand and walks you all around the system while you learn the basic skills required to use the interface, mine data, backtest strategies, and even run a live trading session. It is highly recommended you follow the tutorial until the end, as it is carefully crafted to make your onboarding as easy as possible. Tutorials are the absolute best way to tackle the learning curve. You should do all tutorials before you start exploring other avenues on your own.
@@ -414,7 +434,7 @@ At Beta 12, trading signals will be able to be sent to the Suerpalgos Network fr
 
 No problem, code or integrate libraries with your own version of any component and we promise we will merge your work and provide it as an alternative to users. We believe in Permissionless Innovation and that users, not team members, are the final judges and the ones who decide what they prefer to use. You are free to create an alternative for any part of the system that you believe that should work or should have been done in a different way. We will help you integrate your vision into the next release and enable a way for users to choose between different implementations of the same functionality. You will also be granted the title of maintainer of the functionality you provide and have decision power on how it evolves in the future.
 
-### Superalgos Platform for Algo-Trders
+### Superalgos Platform for Algo-Traders
 
 - Superalgos is easy to install/uninstall.
 - Superalgos is easy to run.

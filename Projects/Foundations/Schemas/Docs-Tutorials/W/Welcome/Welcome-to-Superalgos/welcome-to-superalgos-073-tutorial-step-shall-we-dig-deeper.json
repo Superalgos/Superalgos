@@ -21,6 +21,16 @@
                 "text": "La lógica detrás de la colocación de órdenes de compra está influenciada por el bot indicador de Resistances and Supports de Masters Data Mine que has ejecutado anteriormente.",
                 "updated": 1624457215845,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Logik, die hinter der Platzierung von Kaufaufträgen steht, wird durch die Widerstände und Unterstützungen des Indikator-Bots aus der Masters Data Mine beeinflusst, die Sie zuvor durchgeführt haben.",
+                "updated": 1634224529417
+            },
+            {
+                "language": "TR",
+                "text": "Satın alma emirlerinin verilmesinin ardındaki mantık, şöyle çalışır. Daha önce çalıştırdığınız Masters Data Mine'daki Dirençler ve Destekler botundan etkilenir.",
+                "updated": 1636204198637
             }
         ]
     },
@@ -40,6 +50,16 @@
                     "text": "Me tomé la libertad de activar la capa Apoyos para mostrarte esta belleza ... ¡Espero que no te importe!",
                     "updated": 1624457509151,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe mir die Freiheit genommen, den Supports-Layer einzuschalten, um Ihnen diese Schönheit zu zeigen... Ich hoffe, es macht Ihnen nichts aus!",
+                    "updated": 1634224537478
+                },
+                {
+                    "language": "TR",
+                    "text": "Size bu güzelliği göstermek için Destekler katmanını açtım... Umarım sakıncası yoktur!",
+                    "updated": 1636204235468
                 }
             ]
         },
@@ -58,6 +78,16 @@
                     "text": "El indicador identifica los niveles (rangos de precios) en los que se rechaza el precio y mantiene un contador de cuántos rechazos ocurren hasta que se supera el nivel.",
                     "updated": 1624457546330,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Indikator identifiziert Niveaus (Preisbereiche), auf denen der Preis abgelehnt wird, und führt einen Zähler, der anzeigt, wie viele Ablehnungen auftreten, bis das Niveau durchbrochen wird.",
+                    "updated": 1634224594321
+                },
+                {
+                    "language": "TR",
+                    "text": "Gösterge, fiyatın reddedildiği seviyeleri (fiyat aralıkları) tanımlar ve seviye ihlal edilene kadar kaç ret gerçekleştiğinin bir sayacını tutar.",
+                    "updated": 1636204267357
                 }
             ]
         },
@@ -76,6 +106,16 @@
                     "text": "Como se presentan los niveles en la pantalla varía con la cantidad de rechazos que presencio el nivel, lo que nos da una pista visual de cuán fuerte puede ser cada nivel de soporte. Una vez que se rompe un nivel, desaparece.",
                     "updated": 1624457785930,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Art und Weise, wie die Niveaus auf dem Bildschirm dargestellt werden, variiert mit der Anzahl der Ablehnungen, die das Niveau erlebt hat, und gibt uns einen visuellen Anhaltspunkt dafür, wie stark jedes Unterstützungsniveau sein kann. Sobald ein Niveau durchbrochen wird, verschwindet es.",
+                    "updated": 1634224586403
+                },
+                {
+                    "language": "TR",
+                    "text": "Seviyelerin ekranda gösterilme şekli, seviyenin tanık olduğu reddedilmelerin sayısına göre değişir ve bize her bir destek seviyesinin ne kadar güçlü olabileceğine dair görsel bir ipucu verir. Bir seviye ihlal edildiğinde, kaybolur.",
+                    "updated": 1636204288960
                 }
             ]
         }

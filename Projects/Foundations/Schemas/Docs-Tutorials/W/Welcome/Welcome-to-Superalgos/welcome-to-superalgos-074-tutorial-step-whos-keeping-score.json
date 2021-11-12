@@ -20,6 +20,16 @@
                 "text": "Consulta la tabla a continuación y ve si puedes interpretar los niveles de soporte que ve en los gráficos.",
                 "updated": 1624457874092,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Schauen Sie sich die folgende Tabelle an und versuchen Sie, die in den Diagrammen angegebenen Unterstützungsniveaus zu interpretieren.",
+                "updated": 1634224665354
+            },
+            {
+                "language": "TR",
+                "text": "Aşağıdaki tabloyu kontrol edin ve grafiklerde gördüğünüz destek seviyelerini yorumlayın. Her seviye ihlalinde barın rengi değişir. Örneğin Seviye 5 defa ihlal edilmişse yeşil renkli olur.",
+                "updated": 1636204496181
             }
         ]
     },
@@ -34,15 +44,25 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "<br>Per un nuovo livello di supporto appena creato, la linea tratteggita segna esattamente dove il prezzo ha rimbalzato. Per ogni rimbalzo futuro, il blocco cambia colore.",
+                    "text": "<br/>Per un nuovo livello di supporto appena creato, la linea tratteggita segna esattamente dove il prezzo ha rimbalzato. Per ogni rimbalzo futuro, il blocco cambia colore.",
                     "updated": 1618062387108,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Para un nuevo nivel de soporte con un rechazo, la línea de puntos marca el nivel exacto en el que rebotó el precio. Para más rechazos, los bloques marcan los rangos de tasas en los que se cuentan los rechazos posteriores.",
+                    "text": "<br/>Para un nuevo nivel de soporte con un rechazo, la línea de puntos marca el nivel exacto en el que rebotó el precio. Para más rechazos, los bloques marcan los rangos de tasas en los que se cuentan los rechazos posteriores.",
                     "updated": 1624457944186,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "<br/>Bei einem neuen Unterstützungsniveau mit einer Ablehnung markiert die gepunktete Linie das genaue Niveau, an dem der Kurs abgeprallt ist. Bei weiteren Ablehnungen markieren die Blöcke die Kursbereiche, auf denen nachfolgende Ablehnungen gezählt werden.",
+                    "updated": 1634224722087
+                },
+                {
+                    "language": "TR",
+                    "text": "Reddedilen yeni bir destek seviyesi (noktalı çizgi ile ifade edilir), fiyatın sıçradığı tam seviyeyi gösterir. Daha sonraki retler için bloklar kullanılır ve sayıya göre renklendirilir.",
+                    "updated": 1636204639724
                 }
             ]
         }

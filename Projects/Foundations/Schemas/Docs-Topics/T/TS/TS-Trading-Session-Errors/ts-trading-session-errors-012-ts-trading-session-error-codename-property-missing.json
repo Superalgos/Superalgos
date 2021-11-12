@@ -3,7 +3,7 @@
     "pageNumber": "12",
     "type": "TS Trading Session Error - Codename Property Missing",
     "definition": {
-        "text": "A property called codeName is expeceted at the Exchange Account Key Node config.",
+        "text": "A property called codeName is expected at the Exchange Account Key Node config.",
         "updated": 1611392953689
     },
     "paragraphs": [

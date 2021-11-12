@@ -15,14 +15,14 @@ function newGovernanceUserProfileSpace() {
     }
 
     let waitingForResponses = 0
-    const BSC_SCAN_RATE_LIMIT_DELAY = 6000
+    const BSC_SCAN_RATE_LIMIT_DELAY = 6000 * 6
     let reputationByAddress = new Map()
 
     return thisObject
 
     function initialize() {
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the Initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
@@ -50,25 +50,35 @@ function newGovernanceUserProfileSpace() {
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
+            if (rootNode.payload === undefined) { continue }
             if (rootNode.payload.floatingObject.isCollapsed !== true) {
                 rootNode.payload.floatingObject.collapseToggle()
             }
         }
         let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+
+        // Initialise the isLoading parameter for each User Profile
+        for (let i = 0; i < userProfiles.length; i++) {
+            let userProfile = userProfiles[i]
+
+            userProfile.payload.isLoading = true
+        }
+        /*
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
         let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
         let features = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
         let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
-
+        */
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
 
-        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.245, 3800, 4)
+        arrangeNodes(userProfiles, SPACE_HEIGHT * 0.280, 4800, 6)
+        /*
         arrangeNodes(pools, SPACE_HEIGHT * 0.570, 0, 1)
         arrangeNodes(features, SPACE_HEIGHT * 0.620, 0, 1)
         arrangeNodes(positions, SPACE_HEIGHT * 0.660, 0, 1)
         arrangeNodes(assets, SPACE_HEIGHT * 0.735, 3800, 4)
-
+        */
 
         function arrangeNodes(nodes, yLevel, yStep, rows) {
             /*
@@ -103,6 +113,14 @@ function newGovernanceUserProfileSpace() {
                         break
                     }
                     case (yOffset === yStep * 3): {
+                        yOffset = yStep * 4
+                        break
+                    }
+                    case (yOffset === yStep * 4): {
+                        yOffset = yStep * 5
+                        break
+                    }
+                    case (yOffset === yStep * 5): {
                         yOffset = 0
                         break
                     }
@@ -133,8 +151,10 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
+
                     let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
-                    let newReputation = previousReputation | 0 + currentReputation
+                    if (previousReputation === undefined) { previousReputation = 0 }
+                    let newReputation = previousReputation + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
                 //console.log('[INFO] tokenTransfers = ' + JSON.stringify(tokenTransfers))
@@ -346,7 +366,7 @@ function newGovernanceUserProfileSpace() {
 
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the Initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
@@ -363,7 +383,16 @@ function newGovernanceUserProfileSpace() {
             let userProfile = userProfiles[i]
             if (userProfile.payload === undefined) { continue }
 
+            if (userProfile.payload.bloackchainBalancesLoading === true) {
+                userProfile.payload.isLoading = true
+                return
+            }
+
             if (userProfile.payload.blockchainTokens === undefined) {
+                userProfile.payload.bloackchainBalancesLoading = true
+                userProfile.payload.isLoading = true
+                UI.projects.foundations.spaces.cockpitSpace.setStatus('Loading blockchain balances for User Profile # ' + (i + 1) + ' / ' + userProfiles.length, 1500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
+
                 getBlockchainAccount(userProfile)
                 return
             }
@@ -384,6 +413,7 @@ function newGovernanceUserProfileSpace() {
             httpRequest(JSON.stringify(request.params), request.url, onResponse)
 
             function onResponse(err, data) {
+
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     userProfile.payload.uiObject.setErrorMessage(
@@ -412,9 +442,27 @@ function newGovernanceUserProfileSpace() {
                     blockchainAccount !== "" &&
                     userProfile.payload.blockchainTokens === undefined
                 ) {
+
+                    userProfile.payload.liquidityTokens = {
+                        BTCB: 0,
+                        BNB: 0,
+                        BUSD: 0
+                    }
+
                     waitingForResponses++
-                    userProfile.payload.blockchainTokens = 0 // We need to set this value here so that the next call to BSCSCAN is not done more than once.
-                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY, userProfile, blockchainAccount)
+                    waitingForResponses++
+                    waitingForResponses++
+                    waitingForResponses++
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 4, userProfile, blockchainAccount, 'ETH', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_ETH_CONTRACT_ADDRESS)
+
+                    /* 
+                    Now we get the SA Tokens Balance.
+                    */
+                    waitingForResponses++
+                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 5, userProfile, blockchainAccount)
                 }
             }
         }
@@ -426,16 +474,49 @@ function newGovernanceUserProfileSpace() {
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                //console.log(data)
+                userProfile.payload.bloackchainBalancesLoading = false
+                userProfile.payload.isLoading = false
                 if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
-                    userProfile.payload.blockchainTokens = undefined // This enables this profile to query the blockchain again.
+                    userProfile.payload.blockchainTokens = undefined
                 } else {
                     userProfile.payload.uiObject.setInfoMessage('Blockchan Balance Succesfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
                     userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
+                    console.log('[INFO] SA Balance of ' + userProfile.name + ' is ', userProfile.payload.blockchainTokens)
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
-                    console.log('Reputation of ' + userProfile.name + ' is ' , userProfile.payload.reputation)
+                    console.log('[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
+                }
+                waitingForResponses--
+            }).catch(function (err) {
+                const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
+                console.log(message)
+                if (userProfile.payload !== undefined) {
+                    userProfile.payload.uiObject.setErrorMessage(message,
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
+                }
+                waitingForResponses--
+            });
+        }
+
+        function getBPancakeTokens(userProfile, blockchainAccount, asset, marketContract) {
+            console.log('[INFO] Loading Pancake Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount, 'asset: ', asset)
+            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + marketContract + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+
+            fetch(url).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                //console.log(data)
+                if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
+                    console.log('[WARN] Rate Limit Reached fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                    userProfile.payload.blockchainTokens = undefined
+                } else {
+                    userProfile.payload.uiObject.setInfoMessage('Pancake Balance Succesfully Loaded for asset ' + asset,
+                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                    )
+                    userProfile.payload.liquidityTokens[asset] = Number(data.result) / 1000000000000000000
+                    console.log('[INFO] Liquidity of ' + userProfile.name + ' for asset ' + asset + ' is ', userProfile.payload.liquidityTokens[asset])
                 }
                 waitingForResponses--
             }).catch(function (err) {

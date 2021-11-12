@@ -20,6 +20,16 @@
                 "text": "¿Por qué los niveles suben y bajan? Hay algo que aún no te he dicho, ¡porque me temo que te dejará boquiabierto!",
                 "updated": 1624458000076,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Warum springen die Pegel hoch und runter? Es gibt etwas, das ich Ihnen noch nicht gesagt habe, denn ich fürchte, es könnte Sie umhauen!",
+                "updated": 1634225275729
+            },
+            {
+                "language": "TR",
+                "text": "Seviyeler neden yukarı ve aşağı zıplıyor? Sana henüz söylemediğim bir şey var, bu aklını başından alacak.",
+                "updated": 1636205310660
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "El bot realiza un seguimiento de todos los niveles de soporte activos desde el inicio del conjunto de datos, pero solo le muestra los cinco niveles más cercanos al precio actual.",
                     "updated": 1624458026149,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Bot verfolgt alle Unterstützungsniveaus seit Beginn des Datensatzes, zeigt Ihnen aber nur die fünf Niveaus, die dem aktuellen Kurs am nächsten liegen.",
+                    "updated": 1634225279501
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot, veri kümesinin başlangıcından bu yana tüm destek seviyelerini canlı olarak takip eder, ancak size yalnızca mevcut fiyata en yakın beş seviyeyi gösterir.",
+                    "updated": 1636205332521
                 }
             ]
         },
@@ -58,6 +78,16 @@
                     "text": "Hacer un seguimiento de la información para todo el conjunto de datos, que puede contar años, es el valor extraordinario de la minería de datos y el tipo de cosas que no podría calcular con una función sobre la marcha. El Plotter asociado con el Indicator Bot muestra dinámicamente los cinco niveles de soporte más cercanos al precio porque esos son los niveles relevantes para el contexto, ¡y así es como se construye el trazador!",
                     "updated": 1624458153398,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Verfolgung von Informationen über die gesamte Spanne des Datensatzes - die Jahre zählen kann - ist der außerordentliche Wert des Data Mining, und die Art von Dingen, die Sie nicht in der Lage wären, mit einer Funktion zu berechnen, on the fly. Der Plotter, der mit dem Indicator Bot verbunden ist, zeigt dynamisch die fünf Unterstützungsebenen an, die dem Preis am nächsten liegen, weil dies die relevanten Ebenen für den Kontext sind, und so ist der Plotter aufgebaut!",
+                    "updated": 1634225288547
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri kümesinin tüm aralığı için - ki bu yılları içerebilir - bilgi kaydını tutmak, veri madenciliğinin olağanüstü değeridir ve bir fonksiyonla anında hesaplayamayacağınız türden şeylerdir. Gösterge Botu ile ilişkili Plotter, fiyata en yakın beş destek seviyesini dinamik olarak gösterir, çünkü bunlar durum için ilgili seviyelerdir ve çizici bu şekilde inşa edilmiştir!",
+                    "updated": 1636205604729
                 }
             ]
         }

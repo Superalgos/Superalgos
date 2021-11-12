@@ -21,6 +21,16 @@
                 "text": "No es para alardear, pero no puedo enfatizar suficiente lo importante que es que pongas a disposición todos los tutoriales antes de aventurarte por tu cuenta.",
                 "updated": 1624489857604,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich will nicht prahlen, aber ich kann nicht genug betonen, wie wichtig es ist, dass Sie alle Tutorials durcharbeiten, bevor Sie sich auf eigene Faust auf den Weg machen!",
+                "updated": 1634247995336
+            },
+            {
+                "language": "TR",
+                "text": "Kendi başınıza bir girişimde bulunmadan önce tüm eğitimleri tamamlamanın ne kadar önemli olduğunu hatılatmama gerek yok umarım!",
+                "updated": 1636663270210
             }
         ]
     },
@@ -41,6 +51,16 @@
                     "text": "El sistema es vasto y cubre asuntos complejos. ¡Ir solo en sus primeros días con Superalgos solo se recomienda para personas que disfrutan golpeándose la cabeza contra la pared!",
                     "updated": 1624489896631,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System ist umfangreich und deckt komplexe Themen ab. Ein Alleingang in den ersten Tagen mit Superalgos ist nur für Leute zu empfehlen, die gerne mit dem Kopf gegen die Wand schlagen!",
+                    "updated": 1634247975987
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem çok geniştir ve karmaşık konuları kapsar. Superalgos ile ilk günlerinizde yalnız başınıza gitmek, yalnızca kafalarını duvara vurmaktan hoşlanan kişiler için önerilir :-) !",
+                    "updated": 1636663300533
                 }
             ]
         },
@@ -60,6 +80,16 @@
                     "text": "The First Steps Tutorials El libro a su derecha brinda todos los detalles sobre la mejor manera de invertir su tiempo aprendiendo Superalgos.",
                     "updated": 1624489939709,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Buch \"The First Steps Tutorials\" auf der rechten Seite enthält alle Details darüber, wie Sie Ihre Zeit am besten investieren, um Superalgos zu lernen.",
+                    "updated": 1634248018430
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağınızdaki İlk Adımlar Öğreticiler kitabı ( First Steps Toturial ) , Superalgos'u öğrenmeye zaman ayırmanın en iyi yolunun tüm ayrıntılarını sağlar.",
+                    "updated": 1636663360924
                 }
             ]
         },
@@ -79,6 +109,16 @@
                     "text": "¡Antes de que termines, te dejo con el siguiente mejor tutorial de la serie!",
                     "updated": 1624489956764,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie fertig sind, überlasse ich Ihnen noch den nächsten Lehrgang der Serie!",
+                    "updated": 1634248037950
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitirmeden önce, sizi bir sonraki öğretici ile baş başa bırakacağım!",
+                    "updated": 1636663390761
                 }
             ]
         }

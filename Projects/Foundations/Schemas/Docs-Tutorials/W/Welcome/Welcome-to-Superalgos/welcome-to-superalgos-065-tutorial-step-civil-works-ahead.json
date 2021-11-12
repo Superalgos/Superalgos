@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Civil Works Ahead!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "under-construction"
         },
         "text": "Don't be surprised if you find an under construction sign here and there...",
@@ -18,7 +18,18 @@
             {
                 "language": "ES",
                 "text": "No te sorprendas si encuentras un letrero en construcción aquí y allá ...",
-                "updated": 1624450913450
+                "updated": 1624450913450,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wundern Sie sich nicht, wenn Sie hier und da ein \"under construction\"-Schild finden...",
+                "updated": 1634220290367
+            },
+            {
+                "language": "TR",
+                "text": "Arada bir \"Under Construction\" tabelası görürseniz şaşırmayın...",
+                "updated": 1636110077834
             }
         ],
         "updated": 1622200773527
@@ -37,24 +48,46 @@
                 {
                     "language": "ES",
                     "text": "Como mencioné anteriormente, Superalgos está en constante crecimiento y la infraestructura diseñada para la próxima versión puede fusionarse ocasionalmente con la versión actual en un paquete de servicio, junto con las correcciones necesarias y las mejoras menores.",
-                    "updated": 1624450981653
+                    "updated": 1624450981653,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie ich bereits erwähnt habe, wächst Superalgos ständig, und die Infrastruktur, die für die kommende Version entworfen wurde, kann gelegentlich in die aktuelle Version in einem Service Pack integriert werden, zusammen mit notwendigen Korrekturen und kleineren Verbesserungen.",
+                    "updated": 1634220302814
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce bahsettiğim gibi, Superalgos sürekli büyüyor ve gelecek sürüm için tasarlanan altyapı, gerekli düzeltmeler ve küçük iyileştirmelerle birlikte zaman zaman bir hizmet paketindeki mevcut sürümle birleştiriliyor.",
+                    "updated": 1636110110844
                 }
             ]
         },
         {
-            "style": "Callout",
+            "style": "Note",
             "text": "If you are curious about what is cooking for the upcoming Superalgos release, join the <a href='https://t.me/superalgosdevelop' target='_blank' style='color:blue;'>Superalgos Develop</a> Telegram group.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se vuoi scoprire cosa bolle in pentola per la prossima release di Superalgos, unisciti al canale Telegram Superalgos Develop.",
+                    "text": "Se vuoi scoprire cosa bolle in pentola per la prossima release di Superalgos, unisciti al canale Telegram <a href='https://t.me/superalgosdevelop' target='_blank' style='color:blue;'>Superalgos Develop</a>.",
                     "updated": 1618059823365,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Si tienes curiosidad sobre lo que se está cocinando para el próximo lanzamiento de Superalgos, únete al grupo Superalgos Develop en Telegram.",
-                    "updated": 1624451110541
+                    "text": "Si tienes curiosidad sobre lo que se está cocinando para el próximo lanzamiento de Superalgos, únete al grupo <a href='https://t.me/superalgosdevelop' target='_blank' style='color:blue;'>Superalgos Develop</a> en Telegram.",
+                    "updated": 1624451110541,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie neugierig sind, was für die kommende Superalgos Version geplant ist, treten Sie der <a href='https://t.me/superalgosdevelop' target='_blank' style='color:blue;'>Superalgos Develop</a> Telegram Gruppe bei. ",
+                    "updated": 1634220334096
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki sürüm içeriğini öğrenebilmek için Telegram Grubumuza Katılın. https://t.me/superalgosdevelop",
+                    "updated": 1636119227691
                 }
             ]
         }

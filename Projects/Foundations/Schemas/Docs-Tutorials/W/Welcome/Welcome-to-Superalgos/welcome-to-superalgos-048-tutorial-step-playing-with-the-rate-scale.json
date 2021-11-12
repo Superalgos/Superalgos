@@ -20,6 +20,21 @@
                 "text": "¿Necesito decirte cómo el Rate Scale funciona o puedes resolverlo por tu cuenta? Vale... te daré una pista ...",
                 "updated": 1624407403842,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Muss ich Ihnen erklären, wie die Rate Scale funktioniert, oder können Sie es selbst herausfinden? Ok... Ich gebe Ihnen einen Tipp...",
+                "updated": 1634217173850
+            },
+            {
+                "language": "TR",
+                "text": "Size Fiyat Ölçeğinin nasıl çalıştığını söylememe gerek var mı yoksa kendi başınıza çözebilir misiniz? Tamam... Sana bir ipucu vereceğim...",
+                "updated": 1636094814213
+            },
+            {
+                "language": "RU",
+                "text": "Необходимо ли мне рассказать Вам, как работает Rate Scale, или Вы можете разобраться в этом самостоятельно? Хорошо... Я дам Вам подсказку...",
+                "updated": 1636206915335
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "text": "El Rate Scale trabaja como el Time Scale, pero —al usar el teclado—¡debes invertir las teclas de flecha! Usa las flechas izquierda y derecha ← → para alternar entre los modos automáticos y las flechas hacia arriba y hacia abajo ↑ ↓ para afectar la escala. ¡Mira el video que viene a continuación para mayor claridad!",
                     "updated": 1624407641584,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Rate Scale funktioniert wie die Time Scale, aber -wenn du die Tastatur benutzt- musst du die Pfeiltasten umkehren! Mit den Pfeiltasten links und rechts ← → schaltest du zwischen den Automatikmodi um und mit den Pfeiltasten auf und ab ↑ ↓ kannst du die Skala beeinflussen! Schauen Sie sich das nächste Video an, um sich Klarheit zu verschaffen!",
+                    "updated": 1634217218782
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarını tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin!",
+                    "updated": 1636094888142
+                },
+                {
+                    "language": "RU",
+                    "text": "Шкала ставок работает так же, как и шкала времени, но при использовании клавиатуры, Вам необходимо поменять местами клавиши со стрелками. Используйте стрелки ← → для переключения между автоматическими режимами и стрелки ↑ ↓ - для изменения масштаба! Проверьте следующее видео для большей ясности!",
+                    "updated": 1636207110611
                 }
             ],
             "updated": 1616505192799
@@ -58,6 +88,21 @@
                     "text": "¡Juega también con los modos de escala semiautomáticos! Ya sabes, cuando un pequeño triángulo permanece visible después de unos pocos movimientos de la rueda del mouse.",
                     "updated": 1624407734966,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Spielen Sie auch mit den halbautomatischen Skalenmodi! Sie wissen schon, wenn ein einziges winziges Dreieck nach ein paar Bewegungen des Mausrads sichtbar bleibt.",
+                    "updated": 1634217227774
+                },
+                {
+                    "language": "TR",
+                    "text": "Yarı otomatik ölçek modlarıyla da oynayın! Fare tekerleğinin birkaç hareketinin ardından tek bir küçük üçgen görünür kaldığında yarı otomatik moddasınızdır.",
+                    "updated": 1636094932757
+                },
+                {
+                    "language": "RU",
+                    "text": "Поиграйте с полуавтоматическими масштабными моделями! Вы знаете, когда один крошечный треугольник остается видимым после нескольких щелчков колесика мыши.",
+                    "updated": 1636207203334
                 }
             ]
         }

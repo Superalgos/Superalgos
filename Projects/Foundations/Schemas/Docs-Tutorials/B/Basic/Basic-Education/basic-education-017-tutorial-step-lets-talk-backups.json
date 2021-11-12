@@ -3,8 +3,8 @@
     "pageNumber": 17,
     "type": "Tutorial Step - Let's Talk Backups",
     "definition": {
-        "text": "Backups are very powerful, and there are multiple use cases! When you click on the backup button, the node and its offspring are saved on a JSON file!",
-        "updated": 1615546227075,
+        "text": "Backups are very powerful, and there are various use cases! When you click on the button, the node and its offspring are saved on a JSON file!",
+        "updated": 1636302782978,
         "icon": {
             "name": "backup-entity",
             "project": "Foundations"
@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Backups son muy potentes y hay varios casos de uso. Cuando haces clic en el botón Backup, el nodo y su descendencia se guardan en un archivo JSON.",
-                "updated": 1626045284178
+                "updated": 1626045284178,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Backups sind sehr leistungsfähig, und es gibt mehrere Anwendungsfälle! Wenn Sie auf die Schaltfläche \"Backup\" klicken, werden der Knoten und seine Unterknoten in einer JSON-Datei gespeichert!",
+                "updated": 1634333266362
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Es posible que desees realizar una copia de seguridad de una estructura de nodos para guardar tu trabajo o mantener una copia de la estructura en su estado actual.",
-                    "updated": 1626044659057
+                    "updated": 1626044659057,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können eine Struktur von Knoten sichern, um Ihre Arbeit zu schützen oder um eine Kopie der Struktur in ihrem aktuellen Zustand zu erhalten.",
+                    "updated": 1634333291426
                 }
             ]
         },
@@ -52,6 +64,11 @@
                     "text": "Fai un backup del nodo Trading System e controlla la tua cartella Downloads!",
                     "updated": 1619465951034,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen Sie ein Backup des Lightning Strike trading system und überprüfen Sie Ihren Download-Ordner!",
+                    "updated": 1634333312934
                 }
             ]
         },
@@ -69,7 +86,13 @@
                 {
                     "language": "ES",
                     "text": "El navegador descarga el archivo y lo almacena en la carpeta Descargas. Si realizas varias copias del mismo archivo, el navegador cambia el nombre con números secuenciales.",
-                    "updated": 1626045200466
+                    "updated": 1626045200466,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Datei wird vom Browser heruntergeladen und im Standardordner Downloads gespeichert. Wenn Sie mehrere Sicherungskopien der gleichen Datei erstellen, benennt der Browser die Datei mit fortlaufenden Nummern um.",
+                    "updated": 1634333320554
                 }
             ]
         }

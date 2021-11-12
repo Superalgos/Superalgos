@@ -26,6 +26,22 @@
                 "text": "¡Es hora de sumergirse en un Time Machine y ver qué pasa! ¿Estás listo para una experiencia inmersiva total?",
                 "updated": 1624384047290,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": " Es ist an der Zeit, in eine Time Machine einzutauchen und zu sehen, was passiert! Sind Sie bereit für ein umfassendes, immersives Erlebnis?",
+                "updated": 1634207146163,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bir Zaman Makinesine ( Time Machine ) dalıp ne olduğunu görmenin zamanı geldi! Tamamen sürükleyici bir deneyime hazır mısınız?",
+                "updated": 1636036023943
+            },
+            {
+                "language": "RU",
+                "text": "Пришло время погрузиться в Time Machine и посмотреть, что произойдет! Готовы ли Вы к полоноценному погружению?",
+                "updated": 1636203869752
             }
         ]
     },
@@ -51,6 +67,22 @@
                     "text": "El Charting Space es como Google Maps de los gráficos de mercado. Como ya sabes, haces clic izquierdo y arrastras para moverte por el paisaje ... pero, ¿cómo haces zoom para ver los detalles?",
                     "updated": 1624384176097,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Charting Space ist so etwas wie das Google Maps der Marktcharts. Wie Sie bereits wissen, können Sie mit der linken Maustaste klicken und ziehen, um sich in der im Charting Space zu bewegen... aber wie zoomen Sie hinein, um die Details zu sehen?",
+                    "updated": 1634207179395,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanı, piyasa verilerinin Google Haritaları gibidir. Bildiğiniz gibi, haritalarda gezinmek için sol tıklayıp sürüklersiniz... ama detayları görmek için nasıl yakınlaştırıyorsunuz?",
+                    "updated": 1636036084427
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство для построения графиков похоже на Google Maps рыночных графиков. Как Вы уже знаете, щелкните левой кнопокй мыши и перетащите, чтобы перемещаться по ландшафту... Но как Вы увеличиваете масштаб, чтобы увидеть детали?",
+                    "updated": 1636204134363
                 }
             ]
         },
@@ -75,31 +107,63 @@
                     "text": "¡Con la rueda del mouse! ¡Intentalo!",
                     "updated": 1624384207479,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dem Rad der Maus! Probieren Sie es aus!",
+                    "updated": 1634207215883,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin tekerleği ile! Dene!",
+                    "updated": 1636036095610
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью колесика мыши! Пробуйте!",
+                    "updated": 1636204160214
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Exactly! Just like in Google Maps! Point the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out!",
-            "updated": 1610622413974,
+            "text": "Exactly! Just like in Google Maps! Pointing the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out!",
+            "updated": 1634207261588,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Esatto! Proprio come su Google Maps! Posiziona il mouse su un'area di interesse e gira la rotella in avanti per aumentare lo zoom, e all'indietro per diminuirlo!",
-                    "updated": 1614892836540,
+                    "text": "Esatto! Proprio come su Google Maps! Posiziona il mouse su un'area di interesse e gira la rotella in avanti per aumentare lo zoom, e all'indietro per diminuirlo!  ",
+                    "updated": 1634207493280,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
-                    "text": "Persis banget! Seperti Google Maps! Point mouse ke area yang diinginkan, lalu putar mouse wheelmu ke depan untuk memperbesar, dan ke belakang untuk memperkecil!",
-                    "updated": 1616948793590,
+                    "text": "Persis banget! Seperti Google Maps! Point mouse ke area yang diinginkan, lalu putar mouse wheelmu ke depan untuk memperbesar, dan ke belakang untuk memperkecil!  ",
+                    "updated": 1634207515158,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Exactamente! ¡Como en Google Maps! Apunte el mouse al área de interés, luego gire la rueda del mouse hacia adelante para acercar y hacia atrás para alejar.",
-                    "updated": 1624384248161,
+                    "text": "¡Exactamente! ¡Como en Google Maps! Apunte el mouse al área de interés, luego gire la rueda del mouse hacia adelante para acercar y hacia atrás para alejar.  ",
+                    "updated": 1634207437297,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ganz genau! Genau wie in Google Maps! Zeigen Sie mit der Maus auf den Bereich, der Sie interessiert, und drehen Sie dann das Mausrad nach vorne, um hineinzuzoomen, und nach hinten, um herauszuzoomen!  ",
+                    "updated": 1634207338450,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynen öyle! Tıpkı Google Haritalar'daki gibi! Fareyi ilgilenilen alana doğrultun, ardından yakınlaştırmak için farenin tekerleğini ileri, uzaklaştırmak için geri çevirin!",
+                    "updated": 1636036116439
+                },
+                {
+                    "language": "RU",
+                    "text": "Точно! Прямо как на Google Maps! Наведите курсор мыши на интересующую Вас область, затем прокрутите колесико мыши вперед, чтобы увеличить масштаб, и назад, чтобы уменьшить.",
+                    "updated": 1636204268639
                 }
             ]
         }

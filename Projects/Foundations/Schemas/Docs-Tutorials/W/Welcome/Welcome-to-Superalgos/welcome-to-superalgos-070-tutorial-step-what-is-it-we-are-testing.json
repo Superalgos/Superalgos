@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What Is It We Are Testing?",
     "definition": {
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!",
         "translations": [
@@ -20,6 +20,16 @@
                 "text": "Hemos realizado un backtest pero no hemos discutido el Trading System que estamos probando. ¡Repasemos los conceptos básicos!",
                 "updated": 1624455109238,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben einen Backtest durchgeführt, aber wir haben noch nicht über das Trading System gesprochen, das wir testen! Lassen Sie uns die Grundlagen durchgehen!",
+                "updated": 1634222921349
+            },
+            {
+                "language": "TR",
+                "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System )tartışmadık! Temel bilgileri gözden geçirelim!",
+                "updated": 1636201414712
             }
         ]
     },
@@ -40,6 +50,16 @@
                     "text": "La idea de trading es comprar \"el cuchillo que cae\" y vender \"el rebote\". La estrategia coloca un Limit Buy Order por debajo del precio. Si el pedido no se completa en el minuto siguiente, el pedido se cancela y se coloca un nuevo pedido, potencialmente a una tarifa ajustada. Si el precio baja repentinamente, es probable que la orden se complete. Si eso sucede, entonces la estrategia intenta vender a un precio más alto.",
                     "updated": 1624455253344,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Handelsidee ist, \"the falling knife\" zu kaufen und \"den Rebound\" zu verkaufen. Die Strategie platziert eine Limit Buy Order mit einem Abstand unter dem Preis. Wenn die Order nicht bis zur nächsten Minute ausgeführt wird, wird sie storniert und eine neue Order platziert, möglicherweise zu einem angepassten Kurs. Wenn der Kurs plötzlich fällt, besteht die Chance, dass der Auftrag ausgeführt wird. In diesem Fall versucht die Strategie, zu einem höheren Preis zu verkaufen.",
+                    "updated": 1634222949643
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret fikri \"düşen bıçağı\" satın almak ve \"geri tepkiyi\" satmaktır. Strateji, fiyatın biraz altına bir Limitli Alış Emri ( Limit Buy Order ) yerleştirir. Emir bir sonraki dakikaya kadar yerine getirilmezse, emir iptal edilir ve potansiyel olarak ayarlanmış bir oranda yeni bir emir verilir. Fiyat aniden düşerse, siparişin doldurulma ihtimali vardır. Bu olursa, strateji daha yüksek bir fiyattan satmaya çalışır.",
+                    "updated": 1636201723387
                 }
             ]
         },
@@ -63,6 +83,16 @@
                     "text": "No discutamos los méritos de la idea de trading, sino la implementación. Esta es solo una demostración para mostrar las capacidades del Trading Bot, no la estrategia per se.",
                     "updated": 1624455325589,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir wollen hier nicht über die Vorzüge der Handelsidee diskutieren, sondern über die Umsetzung. Dies ist nur eine Demo, um die Fähigkeiten des Trading Bot zu zeigen, nicht die Strategie an sich.",
+                    "updated": 1634222957739
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret fikrinin esasını değil, uygulamasını tartışalım. Bu, kendi başına stratejiyi değil, Ticaret Botunun kapasitelerini gösteren bir demodur. Bu strateji doğru olmaya bilir, ya da beğenmeyebilirsiniz. Kendi fikirlerinizle yeni stratejiler oluşturabilirsiniz.",
+                    "updated": 1636201810582
                 }
             ]
         }

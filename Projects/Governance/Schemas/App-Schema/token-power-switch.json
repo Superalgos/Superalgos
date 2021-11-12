@@ -57,6 +57,16 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "liquidityPrograms",
+            "label": "Add Liquidity Programs",
+            "relatedUiObject": "Liquidity Programs",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -108,6 +118,12 @@
             "name": "financialPrograms",
             "type": "node",
             "childType": "Financial Programs",
+            "autoAdd": false
+        },
+        {
+            "name": "liquidityPrograms",
+            "type": "node",
+            "childType": "Liquidity Programs",
             "autoAdd": false
         }
     ]

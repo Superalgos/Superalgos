@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Después de presionar el botón  Generate Token, ¡obtendrás tu precioso token! ¡No salgas de la página, ya que no la volverás a ver!",
-                "updated": 1628195367890
+                "updated": 1628195367890,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Nachdem Sie auf die Schaltfläche \"Token generieren\" geklickt haben, erhalten Sie Ihren wertvollen Token! Verlassen Sie die Seite nicht, denn Sie werden ihn nie wieder sehen!",
+                "updated": 1635151146569
             }
         ]
     },
@@ -37,7 +43,13 @@
                 {
                     "language": "ES",
                     "text": "Copia el token, abre la configuración del nodo Github API, y péguelo entre las comillas dobles del parámetro del token. Complete el parámetro de nombre de usuario con tu usuario de GitHub.com, no con tu correo electrónico.",
-                    "updated": 1628195465628
+                    "updated": 1628195465628,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie das Token, öffnen Sie die Github-API Knotenkonfiguration und fügen Sie es zwischen den Anführungszeichen des Token-Parameters ein. Füllen Sie den Parameter username mit Ihrem GitHub.com-Benutzer aus, nicht mit Ihrer E-Mail!",
+                    "updated": 1635151154637
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "Superalgos almacena el token en el archivo del workspace al igual que tu Exchange Account Key. El token se utiliza para autenticar con GitHub.com's API para crear el Pull Request. Nunca se envía ni se almacena en ningún otro lugar.",
-                    "updated": 1628195820811
+                    "updated": 1628195820811,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos speichert das Token in der Workspace-Datei, genau wie Ihren Exchange Account Key. Das Token wird zur Authentifizierung mit der API von GitHub.com verwendet, um den Pull Request zu erstellen. Es wird niemals an eine andere Stelle gesendet oder gespeichert.",
+                    "updated": 1635151165009
                 }
             ]
         }

@@ -1,7 +1,7 @@
 {
     "type": "Space Settings",
     "definition": {
-        "text": "The space settings node features controls over the phisics, proportions, and positioning of icons representing node, and their menus."
+        "text": "The space settings node features controls over the physics, proportions, and positioning of icons representing node, and their menus."
     },
     "paragraphs": [
         {
@@ -53,7 +53,7 @@
         },
         {
             "style": "List",
-            "text": "animationSteps adjusts the amount of steps the animation takes to open a node menu upon hovering over it. A higher value leads to smoother transtion.",
+            "text": "animationSteps adjusts the amount of steps the animation takes to open a node menu upon hovering over it. A higher value leads to smoother transition.",
             "updated": 1631588728860
         },
         {
@@ -73,46 +73,46 @@
         },
         {
             "style": "List",
-            "text": "radiusPercentage is the reference radious of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread appart while smaller numbers makes items lie closer to each other.",
+            "text": "radiusPercentage is the reference radius of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread apart while smaller numbers makes items lie closer to each other.",
             "updated": 1631554041849
         },
         {
             "style": "Subtitle",
-            "text": "Shorcut Properties"
+            "text": "Shortcut Properties"
         },
         {
             "style": "Text",
-            "text": "Shorcuts are key stroke combinations that helps users execute certain actions very quickly. To execute a shorcut users need to simultaniously press CTRL + SHIFT + a pre-defined key.",
+            "text": "Shortcuts are key stroke combinations that helps users execute certain actions very quickly. To execute a Shortcut users need to simultaneously press CTRL + SHIFT + a pre-defined key.",
             "updated": 1625419324367
         },
         {
             "style": "Success",
-            "text": "Shorcuts default values can be seen below. You can modify those values by changing the Config Properties listed below.",
+            "text": "Shortcuts default values can be seen below. You can modify those values by changing the Config Properties listed below.",
             "updated": 1625419754545
         },
         {
             "style": "List",
-            "text": "toggleMapMode defines which key will be used as a Shorcut for entering and leaving the Map Mode.",
+            "text": "toggleMapMode defines which key will be used as a Shortcut for entering and leaving the Map Mode.",
             "updated": 1625419803171
         },
         {
             "style": "List",
-            "text": "toggleDrawRelationshipLines defines which key will be used as a Shorcut for turning on and off the drawing of Reference Lines.",
+            "text": "toggleDrawRelationshipLines defines which key will be used as a Shortcut for turning on and off the drawing of Reference Lines.",
             "updated": 1625419810253
         },
         {
             "style": "List",
-            "text": "toggleDrawParentLines defines which key will be used as a Shorcut for turning on and off the drawing of Parent Lines.",
+            "text": "toggleDrawParentLines defines which key will be used as a Shortcut for turning on and off the drawing of Parent Lines.",
             "updated": 1625419816654
         },
         {
             "style": "List",
-            "text": "saveWorkspace defines which key will be used as a Shorcut for saving the Workspace.",
+            "text": "saveWorkspace defines which key will be used as a Shortcut for saving the Workspace.",
             "updated": 1625419822252
         },
         {
             "style": "List",
-            "text": "adjustAspectRation defines which key will be used as a Shorcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
+            "text": "adjustAspectRation defines which key will be used as a Shortcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
             "updated": 1625419830418
         }
     ]

@@ -9,7 +9,7 @@
 
     const WEB_SOCKET = SA.nodeModules.ws
     let socketServer
-    let port = global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT  
+    let port = global.env.PLATFORM_WEB_SOCKETS_INTERFACE_PORT
 
     return thisObject
 
@@ -36,13 +36,42 @@
 
                 socket.on('message', onMenssage)
 
-                function onMenssage(message){
+                function onMenssage(message) {
 
                     try {
-                        if (LOG_INFO === true) {
-                            console.log('Message Received: ' + message.substring(0, 1000))
+                        if (global.env.DEMO_MODE === true) {
+                            /*
+                            In DEMO MODE we will accept Task / Sessions Running or Stopping if you are requesting this from localhost only.
+                            */
+                            if (socket._socket.remoteAddress !== "::1") {
+                                if (
+                                    message.toString().indexOf('"eventType":"Run Task"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Stop Task"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Run Trading Session"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Stop Trading Session"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Resume Trading Session"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Run Learning Session"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Stop Learning Session"') >= 0
+                                    ||
+                                    message.toString().indexOf('"eventType":"Resume Learning Session"') >= 0
+                                ) {
+                                    console.log('Trying to execute a Task while in DEMO MODE. Some hacking has taken place!')
+                                    console.log('Hacker IP Address is: ' + socket._socket.remoteAddress)
+                                    return
+                                }
+                            }
                         }
-        
+
+                        if (LOG_INFO === true) {
+                            console.log('Message Received: ' + message.toString().substring(0, 10000))
+                        }
+
                         let messageArray = message.toString().split('|*|')
 
                         let origin = messageArray[0]

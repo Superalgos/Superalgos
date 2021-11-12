@@ -1,13 +1,13 @@
 {
     "type": "CCXT",
     "definition": {
-        "text": "CCXT is a popular open source library that aims to standarize crypto exchanges APIs so as to make it easier for trading bots developers to access crypto exchanges. ",
+        "text": "CCXT is a popular open source library that aims to standardize crypto exchanges APIs so as to make it easier for trading bots developers to access crypto exchanges. ",
         "updated": 1621694347383,
         "translations": [
             {
                 "language": "ES",
-                "text": "CCXT es una biblioteca de código abierto popular que tiene como objetivo estandarizar los exchanges de criptomonedas  APIs para que sea más fácil paralos trading bots developers to access crypto exchanges.",
-                "updated": 1628045764972
+                "text": "CCXT es una biblioteca de código abierto popular que tiene como objetivo estandarizar los exchanges de criptomonedas APIs para que sea más fácil para los trading bots developers to access crypto exchanges.",
+                "updated": 1636383036907
             }
         ]
     },
@@ -15,7 +15,14 @@
         {
             "style": "Text",
             "text": "Superalgos uses this library to fetch one minute candles from exchanges as the raw piece of information with witch it later builds the rest of the indicators. It also use it to place orders from the LF Trading Bot.",
-            "updated": 1621694429513
+            "updated": 1621694429513,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos usa esta blilioteca para buscar candles ( velas) de un minuto de los exchanges como la pieza clave de información con la cual luego se construye el resto de los indicadores. Es también utilizada para colocar órdenes del LF Trading Bot.",
+                    "updated": 1636383060758
+                }
+            ]
         }
     ]
 }

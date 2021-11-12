@@ -128,50 +128,33 @@ cursor: pointer;
 line-height: inherit;
 }
 
-/* Tooltip text */
-.docs-tooltip .docs-tooltiptext {
-visibility: hidden;
-width: 240px;
-background-color: #0295aa;
-color: #fff;
-font-weight: normal;
-font-style: normal;
-font-size: 15px;
-line-height: 130%; 
-text-align: center;
-padding: 15px;
-border-radius: 6px;
-
-/* Position the docs-tooltip text */
-position: absolute;
-z-index: 0;
-bottom: 125%;
-left: 50%;
-margin-left: -120px;
-
-
-/* Fade in docs-tooltip */
-opacity: 0;
-transition: opacity 0.3s;
+/* Tooltip Settings */
+.tippy-box[data-theme~='superalgos'] {
+    background-color: #0295aa;
+    color: #fff;
+    font: normal normal normal 14px/1 "segoeui";
+    width: 240px;
+    padding: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 130%;
+    text-align: center;
 }
 
-/* Tooltip arrow */
-.docs-tooltip .docs-tooltiptext::after {
-content: "";
-position: absolute;
-top: 100%;
-left: 50%;
-margin-left: -5px;
-border-width: 5px;
-border-style: solid;
-border-color: #0295aa transparent transparent transparent;
+.tippy-box[data-theme~='superalgos'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: #0295aa;
+}
+.tippy-box[data-theme~='superalgos'][data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: #0295aa;
+}
+.tippy-box[data-theme~='superalgos'][data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: #0295aa;
+}
+.tippy-box[data-theme~='superalgos'][data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: #0295aa;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.docs-tooltip:hover .docs-tooltiptext {
-visibility: visible;
-opacity: 1;
-}
 
 /* Headings */
 
@@ -824,6 +807,13 @@ background-color: white;
 vertical-align: middle;
 display: table-cell;
 width: 100%;
+}
+
+::placeholder,  /* Chrome, Firefox, Opera, Safari 10.1+ */
+:-ms-input-placeholder, /* Internet Explorer 10-11 */
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #dbdbdb;
+  opacity: 1; /* Firefox */
 }
 
 .docs-search-results-header-tabs-container {

@@ -10,6 +10,21 @@
                 "text": "Questo step eseguirà un video in modalità schermo intero.",
                 "updated": 1615963487852,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634217814739
+            },
+            {
+                "language": "TR",
+                "text": "Katman yöneticlerine buradan ulaşabilir, genişletebilir ve daraltabilirsiniz.",
+                "updated": 1636096226759
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636565866329
             }
         ]
     },

@@ -20,6 +20,16 @@
                 "text": "Ahora es el momento de encender tu operación Data Tasks.",
                 "updated": 1624479320235,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Nun ist es an der Zeit, Ihre Data Tasks zu starten.",
+                "updated": 1634244584221
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Veri Görevleri ( Data Tasks ) operasyonunuzu başlatma zamanı.",
+                "updated": 1636571763327
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "Selecciona Run All Project Data Tasks en el menú.",
                     "updated": 1624479487847,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü Run All Project Data Tasks.",
+                    "updated": 1634244592550
+                },
+                {
+                    "language": "TR",
+                    "text": "Menüden Tüm Proje Veri Görevlerini ( Run All Project Data Tasks ) Çalıştır'ı seçin.",
+                    "updated": 1636571851561
                 }
             ]
         },
@@ -57,6 +77,16 @@
                     "text": "Le daremos unos minutos para ponernos al día con el tiempo actual. Recuerda, todos los indicadores deben llegar al 100% antes de que podamos comenzar a operar.",
                     "updated": 1627315370111,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir geben der Maschine ein paar Minuten Zeit, um sich an die aktuelle Zeit anzupassen. Denken Sie daran, dass alle Indikatoren auf 100 % stehen müssen, bevor wir mit dem Handel beginnen können!",
+                    "updated": 1634244605109
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu ana kadar olan veriyi indirebilmesi için ona birkaç dakika vereceğiz. Ticarete başlayabilmemiz için tüm göstergelerin %100'e ulaşması gerektiğini unutmayın!",
+                    "updated": 1636571904392
                 }
             ]
         },
@@ -76,6 +106,16 @@
                     "text": "Si no vas a ejecutar la sesión en vivo, no es necesario que inicies los Data Task. Sigue aprendiendo cómo funciona el proceso.",
                     "updated": 1624483221831,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Live-Sitzung nicht durchführen wollen, brauchen Sie die Data Tasks nicht zu starten. Machen Sie einfach weiter, um zu lernen, wie der Prozess funktioniert.",
+                    "updated": 1634244611806
+                },
+                {
+                    "language": "TR",
+                    "text": "Şayet canlı oturumu çalıştırmayacaksanız, Veri Görevlerini başlatmanız ( Data Tasks ) gerekmez. Sadece sürecin nasıl çalıştığını öğrenmeye devam edin.",
+                    "updated": 1636572009232
                 }
             ]
         }

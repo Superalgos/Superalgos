@@ -20,6 +20,16 @@
                 "text": "Ahora que sabe cómo funciona el indicador, ¿puede encontrar la relación entre las órdenes de compra y los niveles de soporte?",
                 "updated": 1624458274773,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": " Jetzt, wo Sie wissen, wie der Indikator funktioniert, können Sie die Beziehung zwischen Kaufaufträgen und Unterstützungsniveaus finden?",
+                "updated": 1634225345768
+            },
+            {
+                "language": "TR",
+                "text": "Artık göstergenin nasıl çalıştığını bildiğinize göre, satın alma siparişleri ile destek seviyeleri arasındaki ilişkiyi bulabilir misiniz?",
+                "updated": 1636205670836
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "Tómate tu tiempo para explorar el período de tiempo probado en busca de pistas sobre cómo los niveles de apoyo determinan la tasa del Limit Buy Order!",
                     "updated": 1624458322994,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich etwas Zeit, um den getesteten Zeitraum zu untersuchen und nach Hinweisen darauf zu suchen, wie die Unterstützungsniveaus den Kurs der Limit Buy Order bestimmen!",
+                    "updated": 1634225355612
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek seviyelerinin Limitli Alış Emri oranını nasıl belirlediğine dair ipuçlarını aramak ve test edilen süreyi keşfetmek için biraz zaman ayırın!",
+                    "updated": 1636206011307
                 }
             ]
         },
@@ -57,6 +77,16 @@
                     "text": "Es divertido notar cómo se forman nuevos niveles cuando el precio cambia de dirección, y cómo un nivel establecido cambia de color cuando el precio rebota.",
                     "updated": 1624458385692,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es macht Spaß, zu beobachten, wie sich neue Niveaus bilden, wenn der Preis seine Richtung ändert, und wie ein etabliertes Niveau seine Farbe ändert, wenn der Preis von ihm abprallt.",
+                    "updated": 1634225362477
+                },
+                {
+                    "language": "TR",
+                    "text": "Fiyat yön değiştirdiğinde yeni seviyelerin nasıl oluştuğunu ve fiyat sıçradığında yerleşik bir seviyenin nasıl renk değiştirdiğini fark etmek eğlencelidir.",
+                    "updated": 1636206057671
                 }
             ]
         },
@@ -75,6 +105,16 @@
                     "text": "¡Pero el truco está en contar niveles por encima de la orden!",
                     "updated": 1624458422706,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Trick besteht darin, die Niveaus oberhalb der Order zu zählen!",
+                    "updated": 1634225370008
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak işin püf noktası, sıranın üzerindeki seviyeleri saymakta yatar!",
+                    "updated": 1636206075760
                 }
             ]
         }

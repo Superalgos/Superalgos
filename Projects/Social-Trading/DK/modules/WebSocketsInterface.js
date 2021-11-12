@@ -1,7 +1,7 @@
 exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSocketsInterface() {
     /*
     This module handles the websockets communication between the 
-    Desktop App's Client and the Destop App's Web App.
+    Desktop App's Client and the Desktop App's Web App.
     */
     let thisObject = {
         sendToWebApp: sendToWebApp,
@@ -10,21 +10,18 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
     }
 
     let socketServer
-    let webAppInterface
     let webApp
 
     return thisObject
 
     function finalize() {
         socketServer = undefined
-        webAppInterface = undefined
         webApp = undefined
     }
 
     function initialize() {
-        socketServer = new SA.nodeModules.ws.Server({ port: global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT })
-        webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
-
+        let port = JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webSocketsPort
+        socketServer = new SA.nodeModules.ws.Server({ port: port })
         setUpWebSocketServer()
     }
 
@@ -35,7 +32,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
             function onConnectionOpened(socket)
             /*
             This function is executed every time a new Websockets connection
-            is stablished.  
+            is established.
             */ {
                 if (webApp !== undefined) {
                     console.log('[ERROR] Only one websockets client allowed.')
@@ -45,7 +42,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                 webApp = {
                     socket: socket
                 }
-                console.log('Desktop Web App Connected to Web Sockets Interface ......................... Connected to port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+                console.log('Desktop Web App Connected to Web Sockets Interface ........................... Connected to port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
 
                 webApp.socket.on('close', onConnectionClosed)
                 webApp.socket.on('message', onMenssage)
@@ -65,7 +62,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
                             return
                         }
 
-                        await webAppInterface.messageReceived(messageHeader.payload)
+                        await DK.desktopApp.webAppInterface.messageReceived(messageHeader.payload)
                             .then(sendResponseToWebApp)
                             .catch(onError)
 
@@ -92,7 +89,7 @@ exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSock
 
             function onConnectionClosed() {
                 webApp = undefined
-                console.log('Desktop Web App Discoonnected from Web Sockets Interface ................... Disonnected from port ' + global.env.CLIENT_WEB_SOCKETS_INTERFACE_PORT)
+                console.log('Desktop Web App Discoonnected from Web Sockets Interface ................... Disonnected from port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
             }
 
         } catch (err) {

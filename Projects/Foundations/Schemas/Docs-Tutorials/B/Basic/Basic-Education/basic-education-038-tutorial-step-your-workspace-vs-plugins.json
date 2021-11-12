@@ -5,8 +5,8 @@
     "definition": {
         "text": "Go to your File Explorer app and look for the following paths relative to the root Superalgos folder...",
         "icon": {
-            "name": "Plugins\\plugins",
-            "project": "Foundations"
+            "name": "plugins",
+            "project": "Community-Plugins"
         },
         "updated": 1615906049600,
         "translations": [
@@ -21,14 +21,19 @@
                 "text": "Ve a la aplicación Explorador de archivos y busca las siguientes rutas relativas a la carpeta raíz de Superalgos...",
                 "updated": 1626620466947,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Gehen Sie zu Ihrer Datei-Explorer-Anwendung und suchen Sie nach den folgenden Pfaden relativ zum Stammordner von Superalgos...",
+                "updated": 1634587292897
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Json",
-            "text": "\\My-Workspaces\n",
-            "updated": 1615906070844,
+            "text": "\\Platform\\My-Workspaces",
+            "updated": 1634587417482,
             "translations": [
                 {
                     "language": "IT",
@@ -54,6 +59,11 @@
                     "text": "En esta carpeta, encontrarás un archivo llamado Getting Started Tutorials.json. Tel suyo es el espacio de trabajo actual; el que estás usando en este momento. Todo lo que ha estado haciendo últimamente se ha almacenado aquí.",
                     "updated": 1626620522459,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier finden Sie die Workspaces, die Sie möglicherweise zuvor gespeichert haben. Wenn der Ordner leer ist oder nicht existiert, bedeutet dies, dass Sie noch keine Workspaces gespeichert haben!",
+                    "updated": 1634587301340
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "text": "En esta carpeta, encontrarás Plugin Workspaces conectando con  Superalgos. Es posible que desees leer los Documentos del \"Community Workspaces\" para saber de qué se trata cada uno de ellos.",
                     "updated": 1626620829014,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem Ordner finden Sie die Plugin Workspaces, die mit Superalgos ausgeliefert werden. Vielleicht möchten Sie das Thema \"Community Workspaces\" in den Docs lesen, um zu erfahren, worum es bei den einzelnen Workspaces geht!",
+                    "updated": 1634587316991
                 }
             ]
         },

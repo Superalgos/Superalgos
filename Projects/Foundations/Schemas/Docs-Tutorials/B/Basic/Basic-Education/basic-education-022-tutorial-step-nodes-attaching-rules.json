@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Haz clic en el botón de ayuda en el nodo Trading Parameters para acceder a la página de documentos del nodo. ",
-                "updated": 1626373913487
+                "updated": 1626373913487,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Klicken Sie auf die Hilfe-Schaltfläche des Knotens Trading Parameters, um die Seite Docs des Knotens aufzurufen. Ich werde Ihnen jetzt etwas zeigen...",
+                "updated": 1634333867183
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Desplázate por la página hasta encontrar el título \"Trading Parameters Attaching Rules\".",
-                    "updated": 1626373943083
+                    "updated": 1626373943083,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Blättern Sie die Seite ganz nach unten, bis Sie den Titel \"Trading Parameters Attaching Rules\" finden.",
+                    "updated": 1634333875335
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Cada nodo puede estar asociado a ciertos tipos de nodos. Estas reglas para adjuntar se enumeran en la página del nodo en los Documentos.",
-                    "updated": 1626373851467
+                    "updated": 1626373851467,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Knoten kann an bestimmte Knotentypen angehängt werden. Diese Verknüpfungsregeln sind auf der Seite des Knotens in den Docs aufgeführt.",
+                    "updated": 1634333881601
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "Cuando hay varios nodos que pueden aceptar la conexión, cada candidato muestra un anillo gris que indica que están listos para tomar el archivo adjunto. Solo el candidato más cercano al nodo que se va a adjuntar se resalta en naranja.",
-                    "updated": 1626373870250
+                    "updated": 1626373870250,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn es mehrere Knoten gibt, die die Verbindung annehmen können, zeigt jeder Kandidat einen grauen Ring an, der anzeigt, dass er bereit ist, die Verbindung anzunehmen. Nur der Kandidat, der sich näher am zu verbindenden Knoten befindet, ist orange markiert.",
+                    "updated": 1634333887983
                 }
             ]
         }

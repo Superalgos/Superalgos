@@ -15,7 +15,7 @@ exports.newFoundationsFunctionLibrariesProcessFunctions = function () {
         /* Make sure that the logger associated to this process saves its cache */
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.persist()
 
-        /* Cancell this process timouput */
+        /* Cancel this process timeout */
         clearTimeout(nextLoopTimeoutHandle)
 
         let error = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR

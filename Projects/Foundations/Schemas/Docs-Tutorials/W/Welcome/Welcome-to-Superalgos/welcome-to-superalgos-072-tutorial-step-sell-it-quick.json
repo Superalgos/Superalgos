@@ -20,6 +20,16 @@
                 "text": "Estoy seguro de que haz notado que no hay más Limit Buy Order después de que se completó la orden. En cambio, ¡las órdenes de venta comienzan a aparecer!",
                 "updated": 1624456933199,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Sicherlich haben Sie bemerkt, dass es keine limitierten Kaufaufträge mehr gibt, nachdem der Auftrag ausgeführt wurde. Stattdessen tauchen jetzt Verkaufsaufträge auf!",
+                "updated": 1634224422014
+            },
+            {
+                "language": "TR",
+                "text": "Sipariş doldurulduktan sonra artık limit satın alma emri olmadığını fark etmişsinizdir. Bunun yerine, satış emirleri ortaya çıkmaya başlar!",
+                "updated": 1636203864365
             }
         ]
     },
@@ -39,6 +49,16 @@
                     "text": "¡Observa cómo se coloca la primera Limit Sell Order a las 00:22 a.m., el minuto después de que se completó la orden de compra!",
                     "updated": 1627313892474,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der erste Limit Sell Order um 00:22 Uhr platziert wird, eine Minute nachdem der Kaufauftrag ausgeführt wurde!",
+                    "updated": 1634224435222
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 AM'de nasıl verildiğine dikkat edin!",
+                    "updated": 1636203947395
                 }
             ]
         },
@@ -58,6 +78,16 @@
                     "text": "Es el minuto en que Superalgos habría recibido un aviso del exchange que se cumplió el pedido. El Trading Bot se conecta con el exchange y pasa por dos ciclos.",
                     "updated": 1627313981863,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das ist die gleiche Minute, in der Superalgos die Nachricht von der Börse erhalten hätte, dass die Order ausgeführt wurde. Der Trading Bot verbindet sich mit der Börse und durchläuft zwei verschiedene Zyklen.",
+                    "updated": 1634224443687
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'un borsadan siparişin doldurulduğuna dair bildirim almasıyla aynı dakika. Trading Bot, borsa ile bağlantı kurar ve iki farklı döngüden geçer.",
+                    "updated": 1636203973992
                 }
             ]
         },
@@ -76,6 +106,16 @@
                     "text": "El primer Cycle averigua el estado de los pedidos existentes. El segundo, da nuevas instrucciones.",
                     "updated": 1627258710441,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im ersten Cycle informiert er sich über den Status der bestehenden Aufträge. Im zweiten Zyklus gibt er neue Anweisungen.",
+                    "updated": 1634224454050
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk Döngüde mevcut siparişlerin durumunu öğrenir. İkincisinde yeni talimatlar verir.",
+                    "updated": 1636203996665
                 }
             ]
         }

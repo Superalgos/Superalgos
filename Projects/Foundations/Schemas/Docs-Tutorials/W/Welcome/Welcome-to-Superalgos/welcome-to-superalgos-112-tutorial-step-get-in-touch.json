@@ -4,23 +4,28 @@
     "type": "Tutorial Step - Get In Touch!",
     "definition": {
         "icon": {
-            "name": "Announcement\\telegram-bot",
-            "project": "Foundations"
+            "name": "telegram-bot",
+            "project": "Social-Bots"
         },
         "text": "Drop by to say hi, get help, and meet the Community! You may <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">join the new Discord Server</a> or the original Telegram groups below, where it all started!",
         "updated": 1619810146066,
         "translations": [
             {
                 "language": "IT",
-                "text": "Mettiamo il massimo impegno nell'aiutare gli utenti a migliorare e ridefinire il concetto di cosa sia possibile fare con Superalgos! Unisciti alla conversazione...",
+                "text": "Mettiamo il massimo impegno nell'aiutare gli utenti a migliorare e ridefinire il concetto di cosa sia possibile fare con Superalgos <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a>! Unisciti alla conversazione...",
                 "updated": 1618073819599,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo Discord Server o los grupos originales de Telegram a continuación, ¡donde comenzó todo!",
+                "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> o los grupos originales de Telegram a continuación, ¡donde comenzó todo!",
                 "updated": 1624488526215,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Komm vorbei, um Hallo zu sagen, Hilfe zu bekommen und die Community kennenzulernen! Ihr könnt dem neuen <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> oder den ursprünglichen Telegram-Gruppen unten beitreten, wo alles begann!",
+                "updated": 1634247458200
             }
         ]
     },
@@ -34,43 +39,97 @@
                     "language": "ES",
                     "text": "Community Group — ¡Hablemos de Superalgos!",
                     "updated": 1624488546430,
-                    "style": "Text"
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Announcements Channel - Erfahre offizielle Neuigkeiten zuerst!",
+                    "updated": 1634247467965
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Community Group — Let's talk Superalgos!"
+            "text": "Community Group — Let's talk Superalgos!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Community Group - Lasst uns über Superalgos reden!",
+                    "updated": 1634247474003
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Develop Group — Meet other developers!",
-            "updated": 1630944360229
+            "updated": 1630944360229,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Develop Group - Triff andere Entwickler!",
+                    "updated": 1634247481455
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Support Group — Need help getting started?",
-            "updated": 1630944446828
+            "updated": 1630944446828,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Support Group - Brauchen Sie Hilfe bei den ersten Schritten?",
+                    "updated": 1634247492820
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Token Group — Let's talk Governance and the token!",
-            "updated": 1630944580226
+            "updated": 1630944580226,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Token Group - Reden wir über Governance und den Token!",
+                    "updated": 1634247507289
+                }
+            ]
         },
         {
             "style": "List",
             "text": "UX-UI Group — Can you design?",
-            "updated": 1630944831647
+            "updated": 1630944831647,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "UX-UI Group - Können Sie entwerfen?",
+                    "updated": 1634247513855
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Group — Helps us improve the Docs!",
-            "updated": 1630944624658
+            "updated": 1630944624658,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Group - Helfen Sie uns, die Docs zu verbessern!",
+                    "updated": 1634247519287
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Machine Learning Group — Discuss TensorFlow!",
-            "updated": 1630944752351
+            "updated": 1630944752351,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Machine Learning Group - Diskutieren Sie über TensorFlow!",
+                    "updated": 1634247524820
+                }
+            ]
         },
         {
             "style": "Callout",
@@ -82,6 +141,11 @@
                     "text": "Unisciti agli Announcements Channel per essere sempre al corrente di nuove release, hot fix e aggiornamenti importanti!",
                     "updated": 1618073910521,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf den Einladungslink im Docs-Panel!",
+                    "updated": 1634247545426
                 }
             ]
         }

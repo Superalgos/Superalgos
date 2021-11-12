@@ -14,6 +14,16 @@
                 "text": "I Trading Parameters controllano gli aspetti chiave dell'esecuzione della sessione di trading. Diamo un'occhiata veloce...",
                 "updated": 1618060155151,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Trading Parameters bestimmen wichtige Aspekte des Ablaufs einer Handelssitzung. Werfen wir einen kurzen, oberflächlichen Blick darauf...",
+                "updated": 1634222050905
+            },
+            {
+                "language": "TR",
+                "text": "Alım Satım Parametreleri ( Trading Parameters ), alım satım seansının nasıl yürütüldüğünün temel yönlerini belirler. Hızlı, yüzeysel bir göz atalım...",
+                "updated": 1636120903968
             }
         ]
     },
@@ -31,7 +41,18 @@
                 {
                     "language": "ES",
                     "text": "Session Base Asset: no se asigna capital en BTC.",
-                    "updated": 1627313513547
+                    "updated": 1627313513547,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Session Base Asset: Es wird kein Kapital in BTC zugewiesen.",
+                    "updated": 1634222067587
+                },
+                {
+                    "language": "TR",
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'ye sermaye tahsis edilmez.",
+                    "updated": 1636121181916
                 }
             ]
         },
@@ -48,7 +69,18 @@
                 {
                     "language": "ES",
                     "text": "Session Quoted Asset: 1000 USDT de capital inicial.",
-                    "updated": 1627313540525
+                    "updated": 1627313540525,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Session Quoted Asset: 1000 USDT des Anfangskapitals.",
+                    "updated": 1634222071545
+                },
+                {
+                    "language": "TR",
+                    "text": "Session Quoted Asset (Oturumda Kote Edilen Varlık): 1000 USDT başlangıç sermayesi.",
+                    "updated": 1636121192365
                 }
             ]
         },
@@ -65,7 +97,18 @@
                 {
                     "language": "ES",
                     "text": "Time Range: probaremos un solo día, 2020-09-01.",
-                    "updated": 1627313579546
+                    "updated": 1627313579546,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Time Range: Wir testen einen einzigen Tag, 2020-09-01.",
+                    "updated": 1634222083921
+                },
+                {
+                    "language": "TR",
+                    "text": "Time Range (Zaman Aralığı): Tek bir günü test edeceğiz, 01 Eylül 2020",
+                    "updated": 1636121263576
                 }
             ]
         },
@@ -82,7 +125,18 @@
                 {
                     "language": "ES",
                     "text": "Time Frame: los pedidos se colocan / cancelan cada minuto, por lo que 01-min es apropiado.",
-                    "updated": 1627313609332
+                    "updated": 1627313609332,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Time Frame: Aufträge werden jede Minute erteilt/storniert, daher ist 01-min angemessen.",
+                    "updated": 1634222093512
+                },
+                {
+                    "language": "TR",
+                    "text": "Time Frame (Zaman periyodu): siparişler her dakika verilir/iptal edilir, bu nedenle 01 dakika uygundur.",
+                    "updated": 1636121307468
                 }
             ]
         },
@@ -102,6 +156,16 @@
                     "text": "Slippage: es irrelevante para este caso, ya que este Trading System en particular usa órdenes limitadas solamente.",
                     "updated": 1624453374005,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Slippage: ist in diesem Fall irrelevant, da dieses spezielle Handelssystem nur Limit-Orders verwendet.",
+                    "updated": 1634222103935
+                },
+                {
+                    "language": "TR",
+                    "text": "Slippage (Kayma): Bu özel ticaret sistemi sadece limit emirleri kullandığından, bu durum için önemsizdir.",
+                    "updated": 1636121458592
                 }
             ]
         },
@@ -120,6 +184,16 @@
                     "text": "Fee Structure: 0.1% es el nivel inferior de Binance.",
                     "updated": 1624453402067,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Fee Structure: 0,1% ist die niedrigste Binance-Stufe.",
+                    "updated": 1634222115242
+                },
+                {
+                    "language": "TR",
+                    "text": "Fee Structure (Komisyon): Binance için %0,1 olduğunu varsayalım.",
+                    "updated": 1636121571785
                 }
             ]
         },
@@ -139,6 +213,16 @@
                     "text": "Los demás parámetros no afectan la simulación. Para obtener más información sobre los Trading Parameters consulte la documentación.",
                     "updated": 1624453528622,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die übrigen Parameter haben keinen Einfluss auf die Simulation. Um mehr über Trading Parameters zu erfahren, werfen Sie einen Blick in die Dokumentation.",
+                    "updated": 1634222122265
+                },
+                {
+                    "language": "TR",
+                    "text": "Kalan parametreler simülasyonu etkilemez. İşlem Parametreleri hakkında daha fazla bilgi edinmek için belgelere bakın.",
+                    "updated": 1636121544786
                 }
             ]
         }

@@ -10,6 +10,21 @@
                 "text": "Questo step eseguirà un video in modalità schermo intero.",
                 "updated": 1614894117992,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634217315985
+            },
+            {
+                "language": "TR",
+                "text": "Bu adımda bir video izleyeceksiniz.",
+                "updated": 1636094992004
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636207242104
             }
         ]
     },

@@ -1,7 +1,7 @@
 {
     "type": "Plugin Workspace",
     "definition": {
-        "text": "Refers to a Workspace created by a user, contributed to the project as a plugin and distributed with the software package. Plugin workspaces are useful to give users access to ready-to-run strategies, demos, tutorials, or intoductions to areas of the system under development.",
+        "text": "Refers to a Workspace created by a user, contributed to the project as a plugin and distributed with the software package. Plugin workspaces are useful to give users access to ready-to-run strategies, demos, tutorials, or introductions to areas of the system under development.",
         "updated": 1629895587555,
         "translations": [
             {
@@ -9,6 +9,11 @@
                 "text": "Se refiere a un Workspace creado por un usuario, contribuido al proyecto como un plugin y distribuido con todo el paquete de software. Plugin workspaces son útiles para dar acceso a los usuarios a estrategias, demostraciones, tutoriales o áreas del sistema en desarrollo listas para ejecutar.",
                 "updated": 1624493472781,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Плагин Рабочее пространство относится к Workspace, созданному пользователем, внесенному в проект в виде плагина и распространяемому вместе с программным пакетом. Рабочие области плагинов полезны для предоставления пользователям доступа к готовым к запуску стратегиям, демонстрациям, учебным пособиям или введениям в области разрабатываемой системы.\n",
+                "updated": 1635629179582
             }
         ]
     },

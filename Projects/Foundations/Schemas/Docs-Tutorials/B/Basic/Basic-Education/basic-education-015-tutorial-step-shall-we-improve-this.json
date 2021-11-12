@@ -21,6 +21,11 @@
                 "text": "Si experimentas con esta función, notarás que el comportamiento de cada una de las configuraciones no es claro ni predecible. ",
                 "updated": 1626040532082,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie mit dieser Funktion experimentieren, werden Sie feststellen, dass das Verhalten der einzelnen Einstellungen nicht eindeutig oder vorhersehbar ist.",
+                "updated": 1634333050228
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "La implementación actual de esta función no es óptima y el comportamiento de algunas de las opciones es difícil de predecir. Si eres un desarrollador, esta puede ser una gran oportunidad para iterar sobre el código existente y llevar esta función a un estado más utilizable.",
                     "updated": 1626040570613,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die derzeitige Implementierung dieser Funktion ist nicht optimal, und das Verhalten einiger der Optionen ist schwer vorhersehbar. Wenn Sie ein Entwickler sind, könnte dies eine gute Gelegenheit sein, den bestehenden Code zu überarbeiten und diese Funktion in einen brauchbareren Zustand zu bringen!",
+                    "updated": 1634333057384
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "No dudes en probar esta función, pero lo más probable es que desee volver a la configuración predeterminada.",
                     "updated": 1626040601344,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können diese Funktion gerne ausprobieren, aber Sie werden höchstwahrscheinlich zur Standardeinstellung zurückkehren wollen!",
+                    "updated": 1634333066060
                 }
             ]
         }

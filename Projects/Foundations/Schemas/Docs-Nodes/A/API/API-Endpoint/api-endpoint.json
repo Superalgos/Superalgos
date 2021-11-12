@@ -12,7 +12,7 @@
         },
         {
             "style": "Text",
-            "text": "Read the docs of the API you are trying to map, and indentify which endpoints they support. From there you can choose which endpoint holds the information you are interested in and begin to map it. For a detailed description of how to do this, please read the following description. In addtion please see the API Map page as well as the Data Mining topic for other important concepts surrounding setting up an api map. ",
+            "text": "Read the docs of the API you are trying to map, and identify which endpoints they support. From there you can choose which endpoint holds the information you are interested in and begin to map it. For a detailed description of how to do this, please read the following description. In addition please see the API Map page as well as the Data Mining topic for other important concepts surrounding setting up an api map. ",
             "updated": 1622855071509
         },
         {

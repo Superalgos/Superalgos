@@ -6,8 +6,8 @@
         "text": "Plugins are data structures that ship with the system and that you may call into any workspace using the Plugins hierarchy.",
         "updated": 1615914003358,
         "icon": {
-            "name": "Plugins\\plugins",
-            "project": "Foundations"
+            "name": "plugins",
+            "project": "Community-Plugins"
         },
         "translations": [
             {
@@ -21,6 +21,11 @@
                 "text": "Plugins son estructuras de datos que se envían con el sistema y que puede llamar a cualquier espacio de trabajo utilizando la jerarquía de Plugins.",
                 "updated": 1626622977338,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Plugins sind Datenstrukturen, die mit dem System geliefert werden und die Sie über die Plugins-Hierarchie in jedem Workspace aufrufen können.",
+                "updated": 1634588386781
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Plugins son estructuras de datos destinadas a ser reutilizadas. Es por eso que se envían como plugins, para que puedas colocarlos en cualquier Workspace.",
                     "updated": 1626620113069,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Plugins sind Datenstrukturen, die wiederverwendet werden sollen. Aus diesem Grund werden sie als Plugins ausgeliefert, so dass Sie sie in jedem Workspace platzieren können.",
+                    "updated": 1634588379363
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "¡Amplia el nodo Plugins!",
                     "updated": 1626619242709,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Plugins!",
+                    "updated": 1634588371523
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "Como puede deducirse de la estructura de la jerarquía, existen varios tipos de plugins! Se envían como archivos JSON, ordenados por tipo en la carpeta de plugins. ¡Échale un vistazo!",
                     "updated": 1626619903123,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie Sie an der Struktur der Hierarchie erkennen können, gibt es mehrere Arten von Plugins! Sie werden als JSON-Dateien ausgeliefert, die nach Typ im Plugins-Ordner sortiert sind. Probieren Sie es aus!",
+                    "updated": 1634588393321
                 }
             ]
         },

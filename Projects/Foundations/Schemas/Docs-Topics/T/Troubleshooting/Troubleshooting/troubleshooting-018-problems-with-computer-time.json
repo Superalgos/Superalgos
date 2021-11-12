@@ -3,7 +3,7 @@
     "pageNumber": "18",
     "type": "Problems With Computer Time",
     "definition": {
-        "text": "Some exchanges force the computer that is running your bot to be highly syncronized with thier servers, and to achieve that you need that machine's time to keep itself syncronized with an Internet Time Server.",
+        "text": "Some exchanges force the computer that is running your bot to be highly synchronized with their servers, and to achieve that you need that machine's time to keep itself syncronized with an Internet Time Server.",
         "updated": 1622140103759
     },
     "paragraphs": [
@@ -36,7 +36,7 @@
         },
         {
             "style": "Text",
-            "text": "Sometimes Docker might not be in sync even though the underlaying OS it is. To fix this, you can run this command, which will force Docker to restart and wsl to pickup the correct time from the OS.",
+            "text": "Sometimes Docker might not be in sync even though the underlying OS it is. To fix this, you can run this command, which will force Docker to restart and wsl to pickup the correct time from the OS.",
             "updated": 1622140496709
         },
         {

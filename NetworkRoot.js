@@ -10,21 +10,25 @@ exports.newNetworkRoot = function newNetworkRoot() {
 
     return thisObject
 
-    async function run() {
+    async function run(debugSettings) {
         /* 
-        The NT object is accesible everywhere at the Superalgos Network. 
+        The NT object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for this Network.
         */
         global.NT = {}
         /* 
-        The SA object is accesible everywhere at the Superalgos Network. 
+        The SA object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for Superalgos in general.
         */
         global.SA = {}
         /* Load Environment Variables */
-        let ENVIRONMENT = require('./EnvironmentForDebug.js');
+        let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
+
+        if (debugSettings !== undefined && debugSettings.P2P_NETWORK_NODE_SIGNING_ACCOUNT !== undefined) {
+            global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT = debugSettings.P2P_NETWORK_NODE_SIGNING_ACCOUNT
+        }
         /*
         First thing is to load the project schema file.
         */
@@ -52,12 +56,12 @@ exports.newNetworkRoot = function newNetworkRoot() {
         Setting up Secrets.
         */
         SA.secrets = {
-            array: require('./My-Secrets/Secrets.json'),
+            array: require('./My-Secrets/Secrets.json').secrets,
             map: new Map()
         }
         for (let i = 0; i < SA.secrets.array.length; i++) {
             let secret = SA.secrets.array[i]
-            SA.secrets.map.set(secret.codeName, secret)
+            SA.secrets.map.set(secret.signingAccountChildCodeName, secret)
         }
 
         NT.app = require('./Network/NetwokNode.js').newNetworkNode()

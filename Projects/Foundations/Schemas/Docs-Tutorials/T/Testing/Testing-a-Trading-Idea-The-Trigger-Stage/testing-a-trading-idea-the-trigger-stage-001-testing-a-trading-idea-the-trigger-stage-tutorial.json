@@ -4,7 +4,14 @@
     "type": "Testing a Trading Idea - The Trigger Stage Tutorial",
     "definition": {
         "text": "This tutorial walks you through the implementation of the trading idea defined in the previous tutorial, covering the definitions of the Trigger Stage.",
-        "updated": 1617118397821
+        "updated": 1617118397821,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial le guía a través de la implementación de la idea de trading comercial definida en el tutorial anterior, cubriendo las definiciones de Trigger Stage  (etapa de gatillo).",
+                "updated": 1636725770895
+            }
+        ]
     },
     "paragraphs": [
         {

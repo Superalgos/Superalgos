@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Reinforce The Learning!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "learning-bot"
+            "name": "Learning\\learning-bot",
+            "project": "Foundations"
         },
         "text": "Let's do a quick recap on the matter of the syntax! I'll push this until you learn it!"
     },

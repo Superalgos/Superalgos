@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Veri madenciliği operasyonunuz, veri ürünleri yapan botlara sahiptir. Her ürün, bir Katman Yöneticisindeki ( Layer Manager ) bir Katman ( Layer ) aracılığıyla çizelgelerde kullanılabilir hale getirilir.",
                 "updated": 1636096341967
+            },
+            {
+                "language": "RU",
+                "text": "В Вашей операции интеллектуального анализа данных используются боты, создающие продукты данных. Каждый продукт доступен на диаграммах через Layer в Layer Manager.",
+                "updated": 1636566107941
             }
         ],
         "updated": 1616427338175
@@ -62,6 +67,11 @@
                     "language": "TR",
                     "text": "Bu zaman makinesinin solundaki ilk katman yöneticisi üç katmana sahiptir. Bu katmanlar, daha sonra test edeceğimiz Ticaret Sisteminin ( Trading System ) ticaret kararları vermek için kullandığı veri ürünlerini temsil eder.",
                     "updated": 1636096453476
+                },
+                {
+                    "language": "RU",
+                    "text": "Первый менеджер слоев слева от это машины времени содержит три слоя. Это слои представляют собой продукты данных, которые Trading System использует для принятия торговых решений.",
+                    "updated": 1636566329971
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Katmanları açmak ve kapatmak için üzerlerine mouse'un sol tuşuyla tıklayın!",
                     "updated": 1636096510159
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы включать и выключать слои, щелкните по ним левой кнопкой мыши!",
+                    "updated": 1636566368102
                 }
             ]
         },
@@ -120,6 +135,11 @@
                     "language": "TR",
                     "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
                     "updated": 1636096525958
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos поставляется со многими другими индикаторами, но они не настроены в этом Workspace. Вы ознакомитесь с ними позднее.",
+                    "updated": 1636566459062
                 }
             ]
         }

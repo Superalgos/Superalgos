@@ -19,21 +19,49 @@
         },
         {
             "style": "Text",
-            "text": "Tutorials provide the ultimate hands-on learning experience. Doing all existing tutorials has proven to be the most effective way to tackle the learning curve."
+            "text": "Tutorials provide the ultimate hands-on learning experience. Doing all existing tutorials has proven to be the most effective way to tackle the learning curve.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Tutoriales proveen la mejor experiencia de aprendizaje práctico. Hacer todos los tutoriales existentes ha demostrado ser la forma más eficaz de abordar la curva de aprendizaje.",
+                    "updated": 1636560408468
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
-            "updated": 1617036749800
+            "updated": 1617036749800,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para hacer un tutorial, cargue el correspondiente plugin workspace,busque el tutorial en la parte inferior del espacio de diseño y seleccione Play en el menu.",
+                    "updated": 1636560468727
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When you need a quick refresher, you may always go back and redo the whole tutorial or a few steps. Because tutorials are made of searchable pages, you may also scan the content without actually doing the tutorial."
+            "text": "When you need a quick refresher, you may always go back and redo the whole tutorial or a few steps. Because tutorials are made of searchable pages, you may also scan the content without actually doing the tutorial.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando necesite un repaso rápido, siempre puede volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puede escanear el contenido sin hacer el tutorial.",
+                    "updated": 1636560519878
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The recommended order is given by the list below, but the truth is doing all tutorials is what matters, regardless of the order.",
-            "updated": 1617036785768
+            "updated": 1617036785768,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El orden recomendado viene dado por la lista a continuación, pero la verdad es que hacer todos los tutoriales es lo que importa, sin importar el orden.",
+                    "updated": 1636560552820
+                }
+            ]
         },
         {
             "style": "Title",
@@ -42,7 +70,14 @@
         {
             "style": "Text",
             "text": "For your convenience, find a relation of Plugin Workspaces and the tutorials each of them feature.",
-            "updated": 1617105574778
+            "updated": 1617105574778,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para su conveniencia, encuentre la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
+                    "updated": 1636560626471
+                }
+            ]
         },
         {
             "style": "Include",

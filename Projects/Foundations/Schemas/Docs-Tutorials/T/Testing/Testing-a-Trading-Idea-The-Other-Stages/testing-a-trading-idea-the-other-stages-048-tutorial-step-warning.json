@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Warning!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-warning"
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
         },
         "text": "I see three warning signs on Feb 28th at the 9 hs candle. We should take a look and see what the warnings are about!",
         "updated": 1612712860187

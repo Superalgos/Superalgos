@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Market Buy Order",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-buy-order"
+            "name": "Market\\market-buy-order",
+            "project": "Foundations"
         },
         "text": "Just like for the open stage, I created the execution algorithm and the market buy order..."
     },

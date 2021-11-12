@@ -1607,6 +1607,12 @@
                     "fileName": "WebAppInterface.js"
                 },
                 {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                },
+                {
                     "name": "Social Graph",
                     "propertyName": "socialGraph",
                     "functionName": "newSocialTradingModulesSocialGraph",
@@ -1618,10 +1624,10 @@
         "UI": {
             "modules": [
                 {
-                    "name": "Web Sockets Client",
-                    "propertyName": "webSocketsWebClient",
-                    "functionName": "newSocialTradingModulesWebSocketsWebClient",
-                    "fileName": "WebSocketsWebClient.js"
+                    "name": "Web Sockets WebApp Client",
+                    "propertyName": "webSocketsWebAppClient",
+                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
+                    "fileName": "WebSocketsWebAppClient.js"
                 }
             ]
         }

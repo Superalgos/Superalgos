@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Data Mines ermöglichen die Verarbeitung von Daten, indem sie von anderen erstellte Datensätze nutzen, Berechnungen durchführen und ein neues Datenprodukt mit Mehrwert erzeugen, das von anderen genutzt werden kann. Mit anderen Worten: Data Mines sind vom Benutzer erstellte Definitionspakete. Diese Definitionen umfassen in der Regel Sensor Bot , Indicator Bot und Plotter Definitionen. Die mit Superalgos ausgelieferten Data Mines sind Pakete, die von den Benutzern der Software beigetragen wurden.",
                 "updated": 1634739156353
+            },
+            {
+                "language": "ES",
+                "text": "Las minas de datos permiten el procesamiento de datos consumiendo conjuntos de datos que otros han producido, realizando cálculos, y generar un nuevo producto de datos de valor agregado que otros puedan consumir. En otras palabras, Data Mines son paquetes de definiciones creados por el usuario. Estas definiciones suelen incluir Sensor Bot, Indicator Bot ay definiciones de Plotter. El  Data Mines \nenviado con Superalgos son paquetes aportados por los usuarios del software.",
+                "updated": 1636382728489
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Superalgos gibt Ihnen ein leistungsstarkes Datenverarbeitungs- und Visualisierungssystem an die Hand. Nutzen Sie es in vollem Umfang und Sie werden sehen, dass Ihre Fähigkeiten schnell zunehmen. ",
                     "updated": 1634747145524
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos pone en sus manos un potente sistema de procesamiento y visualización de datos. Úsalo al máximo y verás aumentar tu inteligencia en órdenes de magnitud.",
+                    "updated": 1636383683023
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Jeder kann auf die Rohdaten der exchanges und Auftragsbuchdaten zugreifen. Jeder kann auf Informationen in Form von Standardindikatoren und technical studies zugreifen.",
                     "updated": 1634747953355
+                },
+                {
+                    "language": "ES",
+                    "text": "Cualquiera puede acceder a operaciones sin procesar y datos del libro de órdenes desde los exchanges. Cualquiera puede acceder a la información en forma de indicadores estándar y estudios técnicos.",
+                    "updated": 1636383817080
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "DE",
                     "text": "Mit Superalgos können Sie jedoch jede Art von Verarbeitung vorhandener Informationen über die gesamte Marktspanne hinweg durchführen, die Ergebnisse in neuen Datasets (Datensätzen) speichern und sie für Handelsstrategien verfügbar machen. Darüber hinaus können Sie mit Superalgos aufwendige grafische Darstellungen von Daten erstellen, die sofort über die Charts abrufbar sind.",
                     "updated": 1634748282622
+                },
+                {
+                    "language": "ES",
+                    "text": "De todas maneras Superalgos le permite realizar cualquier tipo de procesamiento sobre la información existente en todo el mercado, almacenar los resultados en nuevos conjuntos de datos, y ponerlos a disposición de estrategias de trading strategies. Además, le permite producir representaciones gráficas elaboradas de datos, que se pueden explorar instantáneamente en los gráficos.",
+                    "updated": 1636383997506
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "DE",
                     "text": "Die Funktionalität von Data Mines ist äußerst flexibel und funktioniert nach demselben Paradigma wie die Erstellung von Strategien. Sie bieten eine visuelle Schnittstelle und ein Framework, welches Sie durch den Prozess der Erstellung neuer Bots führt, wobei nur minimale Programmierkenntnisse erforderlich sind.",
                     "updated": 1634748682456
+                },
+                {
+                    "language": "ES",
+                    "text": "La funcionalidad de los Data mines’ es muy flexible ay trabaja bajo el mismo paradigma utilizado para la construcción de estrategias. Proporcionan una interfaz visual y un marco que lo guía a través del proceso de creación de nuevos bots, con un mínimo de habilidades de codificación requeridas.",
+                    "updated": 1636384123688
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "DE",
                     "text": "Der überwiegende Teil der Komplexität der Datenverarbeitung wird intern von den Bots bewältigt, und Sie müssen sich nicht damit befassen oder sie gar verstehen. Das System isoliert die Komplexität und macht Sie nur mit den entscheidenden Elementen vertraut, die sich auf das auswirken, was Sie erreichen wollen.",
                     "updated": 1634749032287
+                },
+                {
+                    "language": "ES",
+                    "text": "Los bots manejan internamente la gran mayoría de la complejidad del procesamiento de datos, y no es necesario que se ocupe de ello ni siquiera que lo comprenda. El sistema aísla la complejidad y solo le expone a elementos cruciales que impactan lo que desea lograr.",
+                    "updated": 1636384295778
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "DE",
                     "text": "Dieser Abschnitt der Dokumentation vermittelt Ihnen das technische Verständnis dafür, wie das System mit Daten umgeht. Der Kern der in diesem Abschnitt vorgestellten Funktionen umfasst im Wesentlichen die folgenden Punkte:",
                     "updated": 1634752754415
+                },
+                {
+                    "language": "ES",
+                    "text": "Esta sección de la documentación le proporciona la comprensión técnica de cómo el sistema maneja los datos. El núcleo de la funcionalidad que presenta esta sección cubre, en esencia, los siguientes puntos:",
+                    "updated": 1636384399228
                 }
             ]
         },
@@ -89,6 +124,11 @@
                     "language": "DE",
                     "text": "Die Fähigkeit, eine beliebige Anzahl von Berechnungsprozessen zu definieren, deren Ergebnisse sich gegenseitig füttern können (Das Ergebniss eines Prozess kann in einen anderen Prozess übergehen), was zu einer Fülle von Informationen führt, die von Handelsstrategien genutzt werden können.",
                     "updated": 1634752519271
+                },
+                {
+                    "language": "ES",
+                    "text": "La capacidad de definir cualquier número de procesos de cálculo que puedan alimentarse de los resultados de los demás, lo que da como resultado una gran cantidad de información que puede ser consumida por las estrategias comerciales.",
+                    "updated": 1636384432870
                 }
             ]
         },
@@ -100,6 +140,11 @@
                     "language": "DE",
                     "text": "Die Eigenschaften und Merkmale von Datensätzen, die sich aus der Ausführung solcher Prozesse ergeben, wie und wo sie gespeichert werden, in welchem Format, wie sie intern und möglicherweise von anderen Systemen genutzt werden.",
                     "updated": 1634753039133
+                },
+                {
+                    "language": "ES",
+                    "text": "Las propiedades y características de los conjuntos de datos resultantes de la ejecución de dichos procesos: cómo y dónde se almacenan, en qué formato, cómo se consumen internamente y, potencialmente, por otros sistemas",
+                    "updated": 1636384459263
                 }
             ]
         },
@@ -112,6 +157,11 @@
                     "language": "DE",
                     "text": "Die Fähigkeit, die Daten über die Charts/Diagramme zu visualisieren und sie mit allen in das Diagrammsystem eingebauten Funktionen zu durchsuchen.",
                     "updated": 1634753888946
+                },
+                {
+                    "language": "ES",
+                    "text": "La capacidad de visualizar los datos en los gráficos y navegar por ellos con todas las funciones integradas en el sistema de gráficos",
+                    "updated": 1636384483648
                 }
             ]
         },
@@ -134,6 +184,11 @@
                     "language": "DE",
                     "text": "Es ist wichtig zu verstehen, dass eine Data Mine ein Paket von Definitionen ist. Wenn Benutzer einen Bot ausführen, tun sie dies innerhalb einer Task. Diese Task muss wissen, wie der Bot ausgeführt werden soll. Um dies herauszufinden, muss der Bot innerhalb der Task einen Verweis auf eine Process Definition (Prozessdefinition) haben, die in einer Data Mine existiert. Wenn der Bot innerhalb der Task gestartet wird, erhält er in diesem Moment alle Informationen über die Task, die zum Starten des Bots verwendet wird, während er gleichzeitig auch die Informationen über die Definition des Bots von der Data Mine erhält.",
                     "updated": 1634754604505
+                },
+                {
+                    "language": "ES",
+                    "text": "Es muy importante entender que un Data Mine es un paquete de definiciones. Cuando los usuarios When users ejecutan un Bot, lo hacen dentro de un Task ( tarea).Esta tarea necesita saber cómo ejecutar el bot. Para averiguarlo, el bot dentro de la tarea debe tener una referencia a un Process Definition ( proceso de definición) exisitente en un Data Mine. Cuando el bot se lanza dentro de la tarea, en ese momento, recibe toda la información sobre la tarea que se está utilizando para lanzar el bot, mientras que al mismo tiempo también recibe la información sobre la definición del Bot del Data Mine.",
+                    "updated": 1636384694647
                 }
             ]
         },
@@ -146,6 +201,11 @@
                     "language": "DE",
                     "text": "Mit Hilfe beider Seiten dieser Informationen (Task data (Aufgabendaten) und  Bot definition (Bot-Definition)) kann der Bot seine Aufgabe erfüllen.",
                     "updated": 1634754770662
+                },
+                {
+                    "language": "ES",
+                    "text": "Usando ambos lados de la información (Task data and Bot definition) el Bot es capaz de hacer su trabajo.",
+                    "updated": 1636384762232
                 }
             ]
         },
@@ -168,6 +228,11 @@
                     "language": "DE",
                     "text": "Data Mines werden von Power-Usern erstellt und zum Projekt beigesteuert (die, die mit der Software geliefert werden). Benutzer können Data Mines jedoch auch für ihren persönlichen Gebrauch erstellen und sie niemals mit dem Superalgos Projekt teilen. Wenn sie sie jedoch mit dem Superalgos Projekt teilen, erhalten sie dafür SA-Token und auch für die Anpassung und Pflege der Data-Mines, falls erforderlich erhalten sie SA-Tokens. Ebenfalls für jede neue Version.",
                     "updated": 1634756595052
+                },
+                {
+                    "language": "ES",
+                    "text": "Data Mines son creados por usuarios avanzados y contribuidos al proyecto (los que se envían con el software). Los usuarios pueden crear Data Mines para su uso personal y nunca compartirlos. De todas formas, si los comparten, reciben SA Tokens por ello, y también por adaptarlos y mantenerlos, si es necesario, para cada nueva distribución.",
+                    "updated": 1636384942296
                 }
             ]
         },
@@ -190,6 +255,11 @@
                     "language": "DE",
                     "text": "Es gibt drei Arten von Bots, die ihre Definitionen in einer Data Mine festhalten können.",
                     "updated": 1634756764876
+                },
+                {
+                    "language": "ES",
+                    "text": "Hay tres tipos de bots que pueden mantener sus definiciones en un Data Mine.",
+                    "updated": 1636384975297
                 }
             ]
         },
@@ -201,6 +271,11 @@
                     "language": "DE",
                     "text": "Sensor Bots: werden zum Abrufen von Daten aus einer Internetquelle,durch das Programmieren eines speziellen Algorithmus genutzt.",
                     "updated": 1634756898798
+                },
+                {
+                    "language": "ES",
+                    "text": "Sensor Bots: utilizado para obtener datos de alguna fuente de Internet mediante la codificación de un algoritmo especializado.",
+                    "updated": 1636385020930
                 }
             ]
         },
@@ -212,6 +287,11 @@
                     "language": "DE",
                     "text": "API Data Fetcher Bots: werden zum Abrufen von Daten aus einer Internet-API, ohne dass ein Programm-Code erforderlich ist genutzt.",
                     "updated": 1634757022813
+                },
+                {
+                    "language": "ES",
+                    "text": "API Data Fetcher Bots: utilizado para obtener datos de una API de Internet sin necesidad de codificar.",
+                    "updated": 1636385047095
                 }
             ]
         },
@@ -223,6 +303,11 @@
                     "language": "DE",
                     "text": "Indicator Bots: werden zur Verarbeitung von Daten verwendet.",
                     "updated": 1634757050012
+                },
+                {
+                    "language": "ES",
+                    "text": "Indicator Bots: usado para procesar data.",
+                    "updated": 1636385065854
                 }
             ]
         },
@@ -303,6 +388,11 @@
                     "language": "DE",
                     "text": "Data Mines können von anderen Data Mines abhängen. Das bedeutet, dass die Bots in einer Data Mine von Bots in anderen Data Mines abhängen können. Im weiteren Verlauf dieses Themas werden Sie mehr darüber erfahren, wie ein Bot im Detail von anderen Bots abhängen kann. Kurz gesagt können sie auf 3 Arten abhängig sein:",
                     "updated": 1634757580850
+                },
+                {
+                    "language": "ES",
+                    "text": "Data Mines pueden depender de otros other Data Mines. Lo que esto significa que los bots incluídos en un Data Mine puede depender de bots pertenecientes a otros Data Mines. Más adelante en este Tópico, aprenderá más sobre cómo un bot puede depender de otros bots en detalle. En pocas palabras, pueden depender de 3 formas. Pueden tener un:",
+                    "updated": 1636385241455
                 }
             ]
         },
@@ -314,6 +404,11 @@
                     "language": "DE",
                     "text": "Data Dependency (Daten-Abhängigkeit): Dies bedeutet, dass ein Bot die von einem anderen Bot produzierten Daten als Eingabe verwendet.",
                     "updated": 1634757922151
+                },
+                {
+                    "language": "ES",
+                    "text": "Data Dependency: Esto significa que un Bot utiliza como entrada los datos producidos por otro bot.",
+                    "updated": 1636385280441
                 }
             ]
         },
@@ -325,6 +420,11 @@
                     "language": "DE",
                     "text": "Status Dependency (Status-Abhängigkeit): Dies bedeutet, dass ein Bot den Status eines anderen Bots als Parameter für seine eigene Verarbeitung verwendet.",
                     "updated": 1634757876237
+                },
+                {
+                    "language": "ES",
+                    "text": "Status Dependency: Esto significa que un Bot usa el estado de otro Bot como parámetros para su propio procesamiento.",
+                    "updated": 1636385317812
                 }
             ]
         },
@@ -337,6 +437,11 @@
                     "language": "DE",
                     "text": "Der häufigste Anwendungsfall ist, wenn ein Bot das Datum benötigt, an dem ein Markt beginnt oder endet. Diese Information wird automatisch aus dem Status Report (Statusbericht) des Bots geholt, der die Rohdaten erzeugt, da er weiß, welche Daten die ältesten und die neuesten sind.",
                     "updated": 1634757753448
+                },
+                {
+                    "language": "ES",
+                    "text": "El caso de uso más común es cuando un bot necesita la fecha en la que un mercado comienza o termina. Esta información se obtiene automáticamente del Status Report ( reporte de estado) del bot que produce los datos sin procesar porque sabe qué datos son los más antiguos y los más nuevos en todo momento.",
+                    "updated": 1636385485008
                 }
             ]
         },
@@ -348,6 +453,11 @@
                     "language": "DE",
                     "text": "Execution Dependency (Ausführungsabhängigkeit): Das bedeutet, dass ein Bot darauf angewiesen ist, dass die Ausführung eines anderen Bots beendet ist, damit er seine eigene Ausführung starten kann.",
                     "updated": 1634757830197
+                },
+                {
+                    "language": "ES",
+                    "text": "Execution Dependency: Esto significa que un Bot depende de la ejecución de otro Bot para que finalice y comience su propia ejecución.",
+                    "updated": 1636385521664
                 }
             ]
         },
@@ -360,6 +470,11 @@
                     "language": "DE",
                     "text": "Wenn eine Data Mine von einer anderen Data Mine abhängt, müssen beide in dem Arbeitsbereich vorhanden sein, in dem sich die Task (Aufgabe) befindet, der den Bot ausführt.",
                     "updated": 1634757983421
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando un Data Mine depende de otro Data Mine, ambos necesitan estar presentes en el Workspace donde el Task ejecutando el Bot está ubicado.",
+                    "updated": 1636385602230
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The First Position",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer"
+            "name": "Layer\\layer",
+            "project": "Foundations"
         },
         "text": "Remember the Feb 28th case we analyzed in the previous tutorial? This is it! This is the position we got from the rules defined!"
     },

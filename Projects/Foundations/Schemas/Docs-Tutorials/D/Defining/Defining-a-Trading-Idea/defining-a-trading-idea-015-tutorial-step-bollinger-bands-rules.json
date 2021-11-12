@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Bollinger Bands Rules",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-bands"
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
         },
         "text": "Now that you've seen the bands on the charts, let's go through the rules that teach us how to interpret and use them!"
     },

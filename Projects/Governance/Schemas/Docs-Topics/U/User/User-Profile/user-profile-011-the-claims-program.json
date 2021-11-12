@@ -4,7 +4,14 @@
     "type": "The Claims Program",
     "definition": {
         "text": "Tell us what you've done for the project and how we should reward you!",
-        "updated": 1630495910859
+        "updated": 1630495910859,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Díganos que ha hecho por el proyecto y como deberíamos recompensarlo!",
+                "updated": 1636281513982
+            }
+        ]
     },
     "paragraphs": [
         {

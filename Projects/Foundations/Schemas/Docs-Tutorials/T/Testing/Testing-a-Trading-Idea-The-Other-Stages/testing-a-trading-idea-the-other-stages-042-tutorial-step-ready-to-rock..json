@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Ready to Rock....?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
         "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!"
     },

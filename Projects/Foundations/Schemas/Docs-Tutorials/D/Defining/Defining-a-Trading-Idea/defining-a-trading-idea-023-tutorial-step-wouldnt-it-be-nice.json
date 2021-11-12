@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Wouldn't It Be Nice?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
         "text": "How cool would it be to be able to predict the continuation of a downturn once the trend is already established?"
     },

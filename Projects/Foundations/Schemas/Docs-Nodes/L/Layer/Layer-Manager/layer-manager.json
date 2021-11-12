@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El layer manager determina qué capas serán visibles en el gráfico de línea de tiempo correspondiente.",
                 "updated": 1624410606482
+            },
+            {
+                "language": "RU",
+                "text": "Менеджер слоев определяет, какие слои будут видны на соответствующей временной диаграмме.",
+                "updated": 1636564822000
             }
         ]
     },

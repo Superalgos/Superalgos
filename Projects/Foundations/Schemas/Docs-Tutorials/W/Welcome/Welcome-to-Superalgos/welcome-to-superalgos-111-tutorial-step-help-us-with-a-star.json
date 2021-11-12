@@ -27,6 +27,11 @@
                 "text": "Ich hoffe, dieses Tutorial hat Ihnen gefallen! Möchten Sie Ihre Dankbarkeit zeigen, indem Sie dem Superalgos Repo einen Stern geben?",
                 "updated": 1634247038916,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Umarım bu eğitimi beğenmişsinizdir! Superalgos deposuna bir yıldız vererek minnettarlığınızı göstermek ister misiniz?",
+                "updated": 1636662233970
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "text": "Benutzer, die vor Ihnen da waren, haben Zeit und Mühe in die Erstellung von Tutorials gesteckt, damit Sie eine bessere Erfahrung machen können! Ein Stern für unser Repo ist eine schöne Art, Danke zu sagen! Sterne verbessern die Platzierung in der Github-Suche. Je mehr Sterne, desto einfacher ist es für Entwickler, Superalgos zu finden und schließlich zu unterstützen! Einen Stern für das Projektarchiv zu vergeben, dient auch Ihren eigenen Interessen!",
                     "updated": 1634247047379,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sizden önce gelen kullanıcılar, daha iyi bir deneyime sahip olabilmeniz ve öğreticiler hazırlamak için zaman ve emek harcardılar! Depomuza bir yıldız vermek, teşekkür etmenin güzel bir yoludur! Yıldızlar, Github'ın aramasındaki sıralamaları iyileştirir. Ne kadar çok yıldız olursa, geliştiricilerin Superalgos'u bulması ve nihayetinde katkıda bulunması o kadar kolay olur! Depoya bir yıldız vermek böylece kendi çıkarlarınıza da hizmet eder!",
+                    "updated": 1636662309410
                 }
             ]
         },
@@ -78,6 +88,11 @@
                     "text": "Wenn Sie es noch nicht getan haben, gehen Sie bitte zu unserem Repository und klicken Sie auf den Stern-Button in der oberen rechten Ecke!",
                     "updated": 1634247053562,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Henüz yapmadıysanız, lütfen Github depomuza gidin ve sağ üst köşedeki Yıldız düğmesine tıklayın!",
+                    "updated": 1636662334467
                 }
             ]
         },

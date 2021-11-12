@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Go On a Field Trip!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "tutorial"
+            "name": "Tutorial\\tutorial",
+            "project": "Foundations"
         },
         "text": "The rest of this tutorial is about putting into practice what we just discussed!"
     },

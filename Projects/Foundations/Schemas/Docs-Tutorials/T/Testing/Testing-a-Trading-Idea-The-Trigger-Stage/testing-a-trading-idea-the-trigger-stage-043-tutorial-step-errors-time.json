@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Errors & Time",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "Errors are always tied to a point in time, that is, to a specific candle! Like in this case, more than one error may happen at a time!"
     },

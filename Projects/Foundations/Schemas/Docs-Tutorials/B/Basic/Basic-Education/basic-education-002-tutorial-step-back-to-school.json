@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Ich habe gehört, dass mein Freund, das Willkommens-Tutorial, dich herumgeführt und mit ein paar billigen Tricks hypnotisiert hat... Was für eine Angeber!",
                 "updated": 1634296891537
+            },
+            {
+                "language": "TR",
+                "text": "Arkadaşım Hoş Geldiniz dersinin size etrafı gösterdiğini ve birkaç ucuz numarayla sizi büyülediğini duydum... Ne gösteriş! :-)",
+                "updated": 1636698021188
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Nun, jetzt ist es an der Zeit zu arbeiten!",
                     "updated": 1634296898849
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi çalışma zamanı!",
+                    "updated": 1636698045347
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Superalgos zu lernen ist ein ziemliches Unterfangen! Nicht, weil es schwierig ist, sondern weil das System sehr umfangreich, extrem flexibel und auf einem neuen Paradigma aufgebaut ist, das am Anfang nicht offensichtlich ist...",
                     "updated": 1634296907253
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u öğrenmek oldukça zahmetli bir iştir! Zor olduğu için değil, sistem çok geniş, son derece esnek ve yeni bir paradigma üzerine kurulu olduğu için...",
+                    "updated": 1636698298697
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Aber keine Sorge! Wenn Sie aufmerksam sind und alle verfügbaren Tutorials absolvieren, werden Sie die Lernkurve wie ein Champion meistern! Aber seien Sie gewarnt... die meisten Leute machen die Tutorials mehr als einmal!",
                     "updated": 1634296988459
+                },
+                {
+                    "language": "TR",
+                    "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır!",
+                    "updated": 1636698446384
                 }
             ]
         }

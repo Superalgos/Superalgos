@@ -564,6 +564,19 @@
                     "folderName": "Chat-Space",
                     "propertyName": "chatSpace",
                     "functionName": "newFoundationsChatSpace"
+                },
+                {
+                    "name": "Code Editor Space",
+                    "initializationIndex": 8,
+                    "folderName": "CodeEditor-Space",
+                    "propertyName": "codeEditorSpace",
+                    "functionName": "newFoundationsCodeEditorSpace",
+                    "animationPhysicsIndex": 8,
+                    "animationDrawIndex": 8,
+                    "onMouseWheelIndex": 5,
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 8,
+                    "onMouseDownIndex": 8
                 }
             ]
         },

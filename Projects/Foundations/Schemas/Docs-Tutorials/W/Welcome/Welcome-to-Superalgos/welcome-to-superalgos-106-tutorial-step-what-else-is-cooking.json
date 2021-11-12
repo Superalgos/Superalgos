@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Superalgos ist eine Multi-Projekt-Plattform, und nach TensorFlow ist die Ethereum-Integration die nächste in der Reihe...",
                 "updated": 1634246816998
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, çok projeli bir platformdur. TensorFlow'dan sonra sıradaki Ethereum entegrasyonudur...",
+                "updated": 1636636198144
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Was bedeutet die Integration von Ethereum, fragen Sie? Es bedeutet, dass Sie - in zukünftigen Versionen - in der Lage sein werden:",
                     "updated": 1634246807622
+                },
+                {
+                    "language": "TR",
+                    "text": "Ethereum'u entegre etmek ne anlama geliyor? Bu, gelecekteki sürümlerde şunları yapabileceğiniz anlamına gelir:",
+                    "updated": 1636636318950
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Sich mit einem Ethereum-Knoten direkt von Superalgos aus über die visuelle Schnittstelle verbinden.",
                     "updated": 1634246794294
+                },
+                {
+                    "language": "TR",
+                    "text": "Görsel arayüzü kullanarak Superalgos'un içinden bir Ethereum düğümüne bağlanırsınız.",
+                    "updated": 1636637433751
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Blockchain-Daten zu schürfen, um auf Coin- und Vertragsinformationen für alle Ethereum-basierten Projekte zuzugreifen, einschließlich De-Fi oder was auch immer, Daten in den Charts zu visualisieren, Indikatoren zu erstellen und den Rest der Superalgos-Infrastruktur zu nutzen.",
                     "updated": 1634246834706
+                },
+                {
+                    "language": "TR",
+                    "text": "De-Fi veya neye sahipseniz, tüm Ethereum tabanlı projeler için coin ve sözleşme bilgilerine erişmek için blok zinciri verilerini çıkarabilir, grafiklerdeki verileri görselleştirebilir, göstergeler oluşturabilir ve Superalgos altyapısının geri kalanından yararlanabilirsiniz.",
+                    "updated": 1636637425615
                 }
             ]
         },
@@ -121,6 +141,11 @@
                     "language": "DE",
                     "text": "Nutzen Sie die Daten für den Handel, indem Sie die entsprechenden Indikatoren aus den Handelssystemen verwenden!",
                     "updated": 1634246841374
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemlerinden ilgili göstergeleri kullanarak ticaret yapmak için verileri kullanabilirsiniz.",
+                    "updated": 1636637596993
                 }
             ]
         }

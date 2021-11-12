@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
                 "updated": 1634243867885
+            },
+            {
+                "language": "TR",
+                "text": "Canlı İşlem Oturumunu ( Live Trading Session ) çalıştırmadan önce, borsada yeterli miktarda USDT bakiyeniz olduğundan emin olun!",
+                "updated": 1636552555684
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
                     "updated": 1634243896032
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsadaki bakiyenize bir göz atın ve seans için yeterli USDT'yi ayarlayın!",
+                    "updated": 1636552569147
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Der Trading Bot wird eine Limit Order für das initiale Guthaben platzieren und sie in der nächsten Minute stornieren, falls sie nicht ausgeführt wird, wie zuvor erklärt.",
                     "updated": 1634243904481
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım Satım Botu ( Trading Bot ), ilk Bakiye ( initialBalance ) için bir limit emri verecek ve daha önce açıklandığı gibi, doldurulmaması durumunda bir sonraki dakika iptal edecektir.",
+                    "updated": 1636552620567
                 }
             ]
         },
@@ -96,6 +111,11 @@
                     "language": "DE",
                     "text": "Machen Sie weiter, auch wenn Sie nicht bereit sind zu handeln! Das ist wichtig, denn es gibt noch mehr Dinge im Tutorial zu lernen!",
                     "updated": 1634243912421
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticarete hazır olmasanız bile devam edin! Bu önemli çünkü öğreticide öğrenilecek daha çok şey var!",
+                    "updated": 1636552643669
                 }
             ]
         }

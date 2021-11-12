@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Es gibt eine Menge Dinge, die wir noch nicht behandelt haben, ich weiß! Schau dich einfach um! Es gibt so viele Dinge zu sehen! Es ist verblüffend.",
                 "updated": 1634245768717
+            },
+            {
+                "language": "TR",
+                "text": "Henüz ele almadığımız tonlarca şey var, biliyorum! Sadece etrafa bak! Görülecek çok şey var! ",
+                "updated": 1636638137396
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Ich bin mir sicher, dass Sie immer noch eine Menge Fragen im Kopf haben... Wie kann ich meine eigenen Strategien entwickeln? Wie kann ich die Leistung messen? Wie baue ich einen Indikator? Wie setze ich eine Trading-Farm ein? Wie kann ich mich mit TradingView integrieren? Wie richte ich Telegram-Ankündigungen ein? Wie kann ich Daten von anderen APIs abrufen?",
                     "updated": 1634245775761
+                },
+                {
+                    "language": "TR",
+                    "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluştururum? Performansı nasıl ölçerim? Nasıl bir gösterge oluştururum? Bir ticaret çiftliğini nasıl organize edebilirim? TradingView ile nasıl entegre olabilirim? Telegram duyurularını nasıl ayarlarım? Diğer API'lerden nasıl veri alırım?",
+                    "updated": 1636638173407
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Don't worry! Du schaffst das schon, mein Freund! Es gibt noch mehr Tutorials und jede Menge Lesestoff! Vielleicht ist es eine gute Idee, Ihnen einen kurzen Einblick in das integrierte Dokumentationssystem zu geben, bevor ich mich verabschiede!",
                     "updated": 1634245783429
+                },
+                {
+                    "language": "TR",
+                    "text": "Merak etme! Tüm bunları öğreneceksin arkadaşım! Daha fazla öğretici ve birçok okuma materyali mevcut! Belki de hoşçakal demeden önce yerleşik Dokümantasyon sistemine bir göz atmak iyi bir fikirdir!",
+                    "updated": 1636638320357
                 }
             ]
         }

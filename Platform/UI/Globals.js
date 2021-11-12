@@ -261,6 +261,11 @@ let CURRENT_PANORAMA_POSITION = 0
 
 let CAN_SPACES_DRAW = false // This global variable regulates when spaces can or can not draw their contents.
 
+const codeEditorType = {
+    CODE: "code",
+    CONFIG: "config"
+}
+
 function toRadians(angle) {
     return angle * (Math.PI / 180);
 }

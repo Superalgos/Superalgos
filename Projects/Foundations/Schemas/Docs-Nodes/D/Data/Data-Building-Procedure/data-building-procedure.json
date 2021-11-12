@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El Data Building Procedure  procesa la información que se enviará a las propiedades que se almacenan en el conjunto de datos de salida.",
                 "updated": 1624413867963
+            },
+            {
+                "language": "RU",
+                "text": "Процедура построения данных обрабатывает информацию, которая должна быть передана свойствам, хранящимся на выход�� данных.\n",
+                "updated": 1636569783197
             }
         ]
     },

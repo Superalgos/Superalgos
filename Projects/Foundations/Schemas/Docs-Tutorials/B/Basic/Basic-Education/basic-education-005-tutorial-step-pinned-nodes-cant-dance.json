@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn ein Knoten gepinnt wird, wird er an einer Position fixiert, unabhängig von der Einstellung der übrigen Eigenschaften der Anordnung!",
                 "updated": 1634297246558
+            },
+            {
+                "language": "TR",
+                "text": "Bir düğüm sabitlendiğinizde, o düğüm diğer düzenleme özelliklerinin ayarından bağımsız olarak bir konuma sabitlenir!",
+                "updated": 1636699565557
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie können einen Knoten, eine Struktur von Knoten und sogar die gesamte Hierarchie anheften. Lassen Sie uns etwas anderes ausprobieren...",
                     "updated": 1634297272287
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümü, bir düğüm yapısını ve hatta tüm hiyerarşiyi sabitleyebilirsiniz. Başka bir şey deneyelim...",
+                    "updated": 1636699582052
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Heften Sie den Knoten \"Trading Parameters\" an und ziehen Sie ihn weg!",
                     "updated": 1634297297063
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Parametreleri ( Trading Parameters ) düğümünü sabitleyin ve sürükleyin!",
+                    "updated": 1636699715298
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, wie w alle Nachfolgeknoten dem übergeordneten Knoten folgen. Der Knoten \"Session Base Asset\" bleibt jedoch an seiner Position! Bevor wir weitermachen, heben Sie die Anheftung aller Knoten auf, um den Workspace in Ordnung zu halten!",
                     "updated": 1634297334626
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümü konumunda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
+                    "updated": 1636699753332
                 }
             ]
         }

@@ -14,10 +14,7 @@ function newUiObject() {
         isOnFocus: false,
         container: undefined,
         payload: undefined,
-        codeEditor: undefined,
-        configEditor: undefined,
         conditionEditor: undefined,
-        formulaEditor: undefined,
         listSelector: undefined,
         uiObjectTitle: undefined,
         icon: undefined,
@@ -191,25 +188,13 @@ function newUiObject() {
         thisObject.fitFunction = undefined
         thisObject.isVisibleFunction = undefined
 
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.finalize()
-            thisObject.codeEditor = undefined
-        }
 
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.finalize()
-            thisObject.configEditor = undefined
-        }
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.finalize()
             thisObject.conditionEditor = undefined
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.finalize()
-            thisObject.formulaEditor = undefined
-        }
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.finalize()
@@ -295,23 +280,10 @@ function newUiObject() {
         let container
 
         if (isDragging === false && thisObject.isOnFocus === true) {
-            if (thisObject.codeEditor !== undefined) {
-                container = thisObject.codeEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
 
-            if (thisObject.configEditor !== undefined) {
-                container = thisObject.configEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
 
             if (thisObject.conditionEditor !== undefined) {
                 container = thisObject.conditionEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
-
-            if (thisObject.formulaEditor !== undefined) {
-                container = thisObject.formulaEditor.getContainer(point)
                 if (container !== undefined) { return container }
             }
 
@@ -322,23 +294,8 @@ function newUiObject() {
 
             let getitle = true
 
-            if (thisObject.codeEditor !== undefined) {
-                if (thisObject.codeEditor.visible === true) {
-                    getitle = false
-                }
-            }
-            if (thisObject.configEditor !== undefined) {
-                if (thisObject.configEditor.visible === true) {
-                    getitle = false
-                }
-            }
             if (thisObject.conditionEditor !== undefined) {
                 if (thisObject.conditionEditor.visible === true) {
-                    getitle = false
-                }
-            }
-            if (thisObject.formulaEditor !== undefined) {
-                if (thisObject.formulaEditor.visible === true) {
                     getitle = false
                 }
             }
@@ -381,21 +338,11 @@ function newUiObject() {
         thisObject.menu.physics()
         thisObject.uiObjectMessage.physics()
 
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.physics()
-        }
-
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.physics()
-        }
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.physics()
-        }
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.physics()
@@ -1361,18 +1308,11 @@ function newUiObject() {
 
     function onNotFocus() {
         thisObject.isOnFocus = false
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.deactivate()
-        }
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.deactivate()
-        }
+
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.deactivate()
         }
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.deactivate()
-        }
+
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.deactivate()
         }
@@ -1392,17 +1332,9 @@ function newUiObject() {
 
     function onDragStarted(event) {
         thisObject.uiObjectTitle.exitEditMode()
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.deactivate()
-        }
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.deactivate()
-        }
+
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.deactivate()
-        }
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.deactivate()
         }
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.deactivate()
@@ -1478,22 +1410,13 @@ function newUiObject() {
             drawReferenceLine()
             drawChainLine()
 
-            if (thisObject.codeEditor !== undefined) {
-                thisObject.codeEditor.drawBackground()
-                thisObject.codeEditor.drawForeground()
-            }
-            if (thisObject.configEditor !== undefined) {
-                thisObject.configEditor.drawBackground()
-                thisObject.configEditor.drawForeground()
-            }
+
+
             if (thisObject.conditionEditor !== undefined) {
                 thisObject.conditionEditor.drawBackground()
                 thisObject.conditionEditor.drawForeground()
             }
-            if (thisObject.formulaEditor !== undefined) {
-                thisObject.formulaEditor.drawBackground()
-                thisObject.formulaEditor.drawForeground()
-            }
+
             if (thisObject.listSelector !== undefined) {
                 thisObject.listSelector.drawBackground()
                 thisObject.listSelector.drawForeground()
@@ -1502,30 +1425,14 @@ function newUiObject() {
             let drawMenu = true
             let drawTitle = true
 
-            if (thisObject.codeEditor !== undefined) {
-                if (thisObject.codeEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
-            if (thisObject.configEditor !== undefined) {
-                if (thisObject.configEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
+
             if (thisObject.conditionEditor !== undefined) {
                 if (thisObject.conditionEditor.visible === true) {
                     drawMenu = false
                     drawTitle = false
                 }
             }
-            if (thisObject.formulaEditor !== undefined) {
-                if (thisObject.formulaEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
+
             if (thisObject.listSelector !== undefined) {
                 if (thisObject.listSelector.visible === true) {
                     drawMenu = false
@@ -1694,21 +1601,13 @@ function newUiObject() {
     }
 
     function isEditorVisible() {
-        if (thisObject.codeEditor !== undefined) {
-            if (thisObject.codeEditor.visible === true) { return true }
-        }
 
-        if (thisObject.configEditor !== undefined) {
-            if (thisObject.configEditor.visible === true) { return true }
-        }
+
 
         if (thisObject.conditionEditor !== undefined) {
             if (thisObject.conditionEditor.visible === true) { return true }
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            if (thisObject.formulaEditor.visible === true) { return true }
-        }
         if (thisObject.listSelector !== undefined) {
             if (thisObject.listSelector.visible === true) { return true }
         }

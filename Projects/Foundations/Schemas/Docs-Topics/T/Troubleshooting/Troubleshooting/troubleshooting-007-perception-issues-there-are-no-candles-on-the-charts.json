@@ -4,13 +4,27 @@
     "type": "Perception Issues - There Are No Candles on The Charts",
     "definition": {
         "text": "It takes time for your data mining operation to download data from the exchange and process the raw data to build candles. Check the progress of your data mining operation in the network hierarchy.",
-        "updated": 1611513813893
+        "updated": 1611513813893,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "\nSu operación de minería de datos necesita tiempo para descargar datos del exchange \ny procesar los datos sin procesar para construir velas. Verifique el progreso de su operación de minería de datos en la jerarquía de la red.",
+                "updated": 1636726546715
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "There are a few reasons why you may be having issues finding candles on the charts. Please, consider the following…",
-            "updated": 1611513833239
+            "updated": 1611513833239,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay algunas razones por las que puede tener problemas para encontrar velas en los gráficos. Por favor, considere lo siguiente ...",
+                    "updated": 1636726572622
+                }
+            ]
         },
         {
             "style": "Title",
@@ -22,12 +36,26 @@
         },
         {
             "style": "Text",
-            "text": "Check the data mining operation on the network hierarchy. You will be able to see candles on the screen only after the OHLCV Sensor Bot and the Candles Volumes indicator in the Masters task manager of the corresponding exchange data tasks node and market have both reached 100% progress."
+            "text": "Check the data mining operation on the network hierarchy. You will be able to see candles on the screen only after the OHLCV Sensor Bot and the Candles Volumes indicator in the Masters task manager of the corresponding exchange data tasks node and market have both reached 100% progress.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Verifique la operación de minería de datos en la jerarquía de la red. Podrá ver velas en la pantalla solo después del OHLCV Sensor Bot y el indicador de Volúmenes de Velas en el administrador de tareas del Masters del exhange correspondiente del nodo de intercambio de datos y el mercado han alcanzado un avance del 100%..",
+                    "updated": 1636726918060
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you are not sure what the above paragraph refers to, go back to the Welcome tutorial as a refresher.",
-            "updated": 1611513856516
+            "updated": 1611513856516,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si no está seguro de a qué se refiere el párrafo anterior, vuelva al Welcome tutorial como recordatorio.",
+                    "updated": 1636726967868
+                }
+            ]
         },
         {
             "style": "Title",
@@ -35,7 +63,14 @@
         },
         {
             "style": "Text",
-            "text": "Zoom into the chart until you see the layer manager featuring the candles layer. Turn off the candles layer and turn it back on. This forces to candles layer to reload."
+            "text": "Zoom into the chart until you see the layer manager featuring the candles layer. Turn off the candles layer and turn it back on. This forces to candles layer to reload.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Amplíe el gráfico hasta que vea el administrador de capas con la capa de velas. Apaga la capa de velas y vuelve a encenderla. Esto obliga a la capa de velas a recargarse.",
+                    "updated": 1636726991858
+                }
+            ]
         },
         {
             "style": "Title",
@@ -43,11 +78,25 @@
         },
         {
             "style": "Text",
-            "text": "It may happen that you attempted to manipulate the charts and something went wrong in the process."
+            "text": "It may happen that you attempted to manipulate the charts and something went wrong in the process.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Puede suceder que haya intentado manipular los gráficos y algo salió mal en el proceso.",
+                    "updated": 1636727008862
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Try setting the time frame scale to 24 hours, and both the time scale and rate scale to automatic mode. Setting the time scale to automatic mode brings the whole span of the market in focus on the chart. Setting the rate scale to automatic mode sets the scale to fit the entire range of prices in the market. The goal is to make sure that all scales are set in a way in which—if there is any data to show—it will show."
+            "text": "Try setting the time frame scale to 24 hours, and both the time scale and rate scale to automatic mode. Setting the time scale to automatic mode brings the whole span of the market in focus on the chart. Setting the rate scale to automatic mode sets the scale to fit the entire range of prices in the market. The goal is to make sure that all scales are set in a way in which—if there is any data to show—it will show.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Intente establecer la escala del marco de tiempo en 24 horas, y tanto la escala de tiempo como la escala de tasa en modo automático. Al establecer la escala de tiempo en modo automático, todo el mercado se enfoca en el gráfico. Al establecer la escala de tarifas en modo automático, la escala se ajusta a toda la gama de precios del mercado. El objetivo es asegurarse de que todas las escalas estén configuradas de manera que, si hay algún dato que mostrar, se muestre.",
+                    "updated": 1636727044497
+                }
+            ]
         },
         {
             "style": "Title",
@@ -55,7 +104,14 @@
         },
         {
             "style": "Text",
-            "text": "Your PC may have been forcefully shut down or you may have closed the console running the Superalgos backend while running a data-mining operation. Such situations may cause some data to become corrupt."
+            "text": "Your PC may have been forcefully shut down or you may have closed the console running the Superalgos backend while running a data-mining operation. Such situations may cause some data to become corrupt.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es posible que su PC se haya apagado a la fuerza o que haya cerrado la consola que ejecuta el backend de Superalgos mientras se ejecuta una operación de extracción de datos. Tales situaciones pueden hacer que algunos datos se corrompan.",
+                    "updated": 1636727077473
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -63,15 +119,36 @@
         },
         {
             "style": "Text",
-            "text": "Go to the Exchange-Raw-Data folder under Data-Storage > Exchange > Market > Masters and keep opening the subfolders to get to the last day available, and open the Data.json file. If the file opens fine, this may mean that the data you downloaded from the exchange is safe."
+            "text": "Go to the Exchange-Raw-Data folder under Data-Storage > Exchange > Market > Masters and keep opening the subfolders to get to the last day available, and open the Data.json file. If the file opens fine, this may mean that the data you downloaded from the exchange is safe.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "vaya a la carpeta de Exchange-Raw-Data debajo de Data-Storage > Exchange > Market > Masters y siga abriendo las subcarpetas para llegar al último día disponible, y abra el rchivo Data.json. Si el archivo se abre bien, esto puede significar que los datos que descargó del intercambio están seguros.",
+                    "updated": 1636727202383
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the last file in Exchange-Raw-Data does not open properly then delete the whole Data-Storage > Exchange > Market and run the data mining operation. This will have the OHLCV sensor bot download all the data from the exchange again, and all indicators calculated from scratch."
+            "text": "If the last file in Exchange-Raw-Data does not open properly then delete the whole Data-Storage > Exchange > Market and run the data mining operation. This will have the OHLCV sensor bot download all the data from the exchange again, and all indicators calculated from scratch.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el último archivo en Exchange-Raw-Data no se abre correctamente, luego borre todo Data-Storage > Exchange > Market y ejecutar la operación de minería de datos. Esto hará que el robot sensor OHLCV descargue todos los datos del exchange de nuevo y todos los indicadores calculados desde cero.",
+                    "updated": 1636727332248
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the sensor data seems fine, then proceed with the next step."
+            "text": "If the sensor data seems fine, then proceed with the next step.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si los datos del sensor parecen correctos, continúe con el siguiente paso.",
+                    "updated": 1636727349782
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -79,24 +156,59 @@
         },
         {
             "style": "Text",
-            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Time-Frame-Daily and Multi-Time-Frame-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles."
+            "text": "If you are having issues with candles you need to check the data of the Candles Volumes indicator of the Masters Data Mine located deep in Multi-Time-Frame-Daily and Multi-Time-Frame-Market folders under Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si tiene problemas con las velas, debe verificar los datos del indicador de Volúmenes de velas del Masters Data Mine ubicado en lo profundo de Multi-Time-Frame-Daily y archivos  Multi-Time-Frame-Market debajo de Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
+                    "updated": 1636727469722
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you find any .tmp files or you can’t open some of the latest Data.json files in a regular text editor, or some files are empty, chances are the files have been corrupted."
+            "text": "If you find any .tmp files or you can’t open some of the latest Data.json files in a regular text editor, or some files are empty, chances are the files have been corrupted.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si encuentra archivos .tmp o no puede abrir algunos de los archivos Data.json más recientes en un editor de texto normal, o si algunos archivos están vacíos, es probable que los archivos estén dañados.",
+                    "updated": 1636727490907
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Something similar may have happened with other indicators as well, so make sure you check the data storage folders of indicators that may not be working or that you may be experiencing issues with.",
-            "updated": 1611513920939
+            "updated": 1611513920939,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Algo similar también puede haber sucedido con otros indicadores, así que asegúrese de revisar las carpetas de almacenamiento de datos de los indicadores que pueden no estar funcionando o con los que puede estar experimentando problemas.",
+                    "updated": 1636727534325
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If that is the case, then you will delete the folder for each data mine within Data-Storage > Exchange > Market, but will leave Exchange-Raw-Data intact, and get the data mining operation running afterward. This will regenerate all indicators data products, including Candles Volumes."
+            "text": "If that is the case, then you will delete the folder for each data mine within Data-Storage > Exchange > Market, but will leave Exchange-Raw-Data intact, and get the data mining operation running afterward. This will regenerate all indicators data products, including Candles Volumes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si ese es el caso, eliminará la carpeta de cada mina de datos dentro de Data-Storage > Exchange > Market, pero dejará Exchange-Raw-Data intacto, ay conseguir que la operación de minería de datos se ejecute después. Esto regenerará todos los productos de datos de indicadores, incluidos los volúmenes de velas.",
+                    "updated": 1636727614377
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "3. Remember that there is a proper way to close the system!"
+            "text": "3. Remember that there is a proper way to close the system!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "3. Remember that there is a proper way to close the system! ( ¡Recuerde que existe una forma adecuada de cerrar el sistema!)",
+                    "updated": 1636727644457
+                }
+            ]
         },
         {
             "style": "Title",
@@ -104,11 +216,25 @@
         },
         {
             "style": "Text",
-            "text": "Open Chrome’s DevTools with the F12 key (when the browser is in focus) and click the Console tab. Then go back to Superalgos and reproduce the issue. The console may display network errors and warnings of different sorts. Those are not important and you may safely ignore them."
+            "text": "Open Chrome’s DevTools with the F12 key (when the browser is in focus) and click the Console tab. Then go back to Superalgos and reproduce the issue. The console may display network errors and warnings of different sorts. Those are not important and you may safely ignore them.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Open Chrome’s DevTools con la tecla F12  (cuando el navegador está en foco) y clickee el tab de la consola. Luego regrese a Superalgos y reproduzca el problema. La consola puede mostrar errores de red y advertencias de diferentes tipos. Esos no son importantes y puede ignorarlos con seguridad.",
+                    "updated": 1636727744906
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Do pay attention to other kinds of errors, such as files that can not be loaded, or errors in specific system components."
+            "text": "Do pay attention to other kinds of errors, such as files that can not be loaded, or errors in specific system components.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Preste atención a otros tipos de errores, como archivos que no se pueden cargar o errores en componentes específicos del sistema.",
+                    "updated": 1636727766726
+                }
+            ]
         }
     ]
 }

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Superalgos bietet eine bearbeitbare, mehrsprachige In-App-Dokumentation und eine integrierte Befehlszeile! Lernen Sie, diese zu benutzen und Sie werden der Champion sein!",
                 "updated": 1634246238513
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, uygulama içi, düzenlenebilir ve çok dilli bir dokümantasyon sitesi ve yerleşik bir komut satırı içerir! Bunları kullanmayı öğrenin.",
+                "updated": 1636662471831
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie haben bereits einige Dokumentationsseiten im Docs-Panel auf der rechten Seite verwendet, aber das ist nur die Spitze des Eisbergs!",
                     "updated": 1634245877514
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağdaki Dokümanlar panelinde daha önce zaten birkaç belge sayfası kullandınız, ancak bu sadece buzdağının görünen kısmı!",
+                    "updated": 1636662497865
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Probieren wir es aus! Suchen Sie nach dem Wort ... network.",
                     "updated": 1634245899078
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi deneyelim! Ağ ( Network )kelimesini arayın.",
+                    "updated": 1636662526502
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Ich will nicht prahlen, aber die Geschwindigkeit der Suchmaschine kann mit der von Google mithalten ;-)",
                     "updated": 1634245908789
+                },
+                {
+                    "language": "TR",
+                    "text": "Övünmek için değil ama, arama motorunun hızı Google'a rakip olacak kadar yeteneklidir ;-)",
+                    "updated": 1636662590376
                 }
             ]
         },

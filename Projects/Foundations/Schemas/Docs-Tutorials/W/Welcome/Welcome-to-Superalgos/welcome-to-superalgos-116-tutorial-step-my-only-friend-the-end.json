@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Ok, mein Freund, das ist das Ende! Ich hoffe, dass dir die Serie gefallen hat und dass ich dich für Superalgos begeistern konnte!",
                 "updated": 1634248225678
+            },
+            {
+                "language": "TR",
+                "text": "Tamam dostum, bu son! Umarım gösteriyi beğenmişsinizdir ve sizi Superalgos'a bağlamayı başarmışımdır!",
+                "updated": 1636663926205
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Ich habe keinen Zweifel daran, dass du so etwas wie Superalgos noch nicht gesehen hast, oder?",
                     "updated": 1634248232398
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce Superalgos gibi bir şey görmediğine dair aklımda hiç şüphe yok...",
+                    "updated": 1636663950395
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Wenn Sie bereit sind, weiterzumachen, wird mein Freund das Basic Education Tutorial Ihr Verständnis für einige grundlegende Aspekte des Systems vervollständigen, die Sie beherrschen müssen, bevor Sie lernen, wie man Handelssysteme aufbaut!",
                     "updated": 1634248238358
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam etmeye hazırsanız, arkadaşım Temel Eğitim Öğreticisi, Ticaret Sistemlerini nasıl kuracağınızı öğrenmek için yola çıkmadan önce uzmanlaşmanız gereken sistemin bazı temel yönleri hakkındaki bilginizi tamamlayacaktır!",
+                    "updated": 1636664006600
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Wenn Sie bereit sind, weiterzumachen, wird mein Freund das Basic Education Tutorial Ihr Verständnis für einige grundlegende Aspekte des Systems vervollständigen, die Sie beherrschen müssen, bevor Sie lernen, wie man Handelssysteme aufbaut!",
                     "updated": 1634248246090
+                },
+                {
+                    "language": "TR",
+                    "text": "Benimle bitirmek için İleri'ye tıklayın ve hazır olduğunuzda sonraki eğitimde Oynat'a tıklayın!",
+                    "updated": 1636664050098
                 }
             ]
         }

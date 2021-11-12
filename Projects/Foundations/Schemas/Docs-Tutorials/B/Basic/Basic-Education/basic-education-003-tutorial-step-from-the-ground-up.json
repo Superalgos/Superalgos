@@ -8,18 +8,39 @@
         "icon": {
             "name": "tutorial",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Dürüst olmak gerekirse, konuksever arkadaşım, arayüzde gezinmek ve rahat hissetmek için bilmeniz gereken birçok temel işlemi size öğretti...",
+                "updated": 1636700031937
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "With me, you are going to complete your basic education! Once you finish this tutorial, you will be ready to start learning how to build your own Trading System... That's what all is about after all, right?",
-            "updated": 1615459292734
+            "updated": 1615459292734,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Benimle temel eğitiminizi tamamlayacaksınız! Bu öğreticiyi bitirdikten sonra, kendi Ticaret Sisteminizi ( Trading System ) nasıl kuracağınızı öğrenmeye başlamaya hazır olacaksınız... Amacımız da değil mi?",
+                    "updated": 1636700088723
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "We will focus on completing the overview of the interface, dealing with workspaces, backups, plugins, and more!",
-            "updated": 1615311348229
+            "updated": 1615311348229,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Arayüzün genel görünümü, çalışma alanları, yedeklemeler, eklentiler ve daha fazlasına odaklanacağız!",
+                    "updated": 1636700135746
+                }
+            ]
         },
         {
             "style": "Success",

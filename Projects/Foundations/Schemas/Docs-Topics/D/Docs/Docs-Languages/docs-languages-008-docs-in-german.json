@@ -54,8 +54,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Dokumente.",
-                    "updated": 1634069610043
+                    "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
+                    "updated": 1636750877886
                 }
             ],
             "updated": 1636749365748
@@ -67,8 +67,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist.",
-                    "updated": 1634069626053
+                    "text": "Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten.",
+                    "updated": 1636750866679
                 }
             ]
         }

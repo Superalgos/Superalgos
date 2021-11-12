@@ -85,8 +85,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie können nur Seiten/Absätze zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist.",
-                    "updated": 1636748906932
+                    "text": "Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten.",
+                    "updated": 1636749982716
                 }
             ]
         }

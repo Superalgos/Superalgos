@@ -2,12 +2,26 @@
     "type": "Expand Structure of Nodes",
     "definition": {
         "text": "Clicking the plus button expands the structure of offspring nodes.",
-        "updated": 1610029039731
+        "updated": 1610029039731,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn Sie auf die Plus-Schaltfläche klicken, wird die Struktur der offspring-nodes (nodes die mit der node referenziert sind) erweitert.",
+                "updated": 1636659245778
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
+                    "updated": 1636659327164
+                }
+            ]
         }
     ]
 }

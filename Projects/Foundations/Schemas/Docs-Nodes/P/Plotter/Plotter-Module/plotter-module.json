@@ -41,8 +41,8 @@
         },
         {
             "style": "List",
-            "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
-            "updated": 1609852182210
+            "text": "<code class=\"docs-code\">icon</code> is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
+            "updated": 1636672891580
         },
         {
             "style": "Javascript",

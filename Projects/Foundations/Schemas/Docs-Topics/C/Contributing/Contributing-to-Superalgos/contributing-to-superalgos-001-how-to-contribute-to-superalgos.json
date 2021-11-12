@@ -4,18 +4,39 @@
     "type": "How to Contribute to Superalgos",
     "definition": {
         "text": "This topic covers the logistics and details of how to contribute different kinds of assets to the project, including a Trading System, a Data Mine, icons, documentation, translations, tutorials, and so on.",
-        "updated": 1618323854276
+        "updated": 1618323854276,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tema cubre la logística y los detalles de cómo contribuir con diferentes tipos de activos al proyecto, incluido un Trading System, un Data Mine, íconos, documentación, tranducciones, tutoriales, etcetera.",
+                "updated": 1636726366195
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Scan the table of contents below to find the documentation about how to contribute the kind of asset you may have in mind.",
-            "updated": 1617032405931
+            "updated": 1617032405931,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Escanee la tabla de contenido a continuación para encontrar la documentación sobre cómo contribuir con el tipo de activo que pueda tener en mente.",
+                    "updated": 1636726389032
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If there is no explanation about the type of asset you wish to contribute, please reach out to the team in the Superalgos Community Group!",
-            "updated": 1617032427271
+            "updated": 1617032427271,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si no hay una explicación sobre el tipo de activo que desea contribuir, comuníquese con el equipo en el Superalgos Community Group!",
+                    "updated": 1636726430146
+                }
+            ]
         }
     ]
 }

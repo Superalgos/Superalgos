@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Standardmäßig sind die Knoten auf eine Rotationssymmetrie um ihren übergeordneten Knoten festgelegt. Die Symmetrie kann 360 Grad oder weniger umfassen, je nach Einstellung!\n",
                 "updated": 1634331973308
+            },
+            {
+                "language": "TR",
+                "text": "Varsayılan olarak, düğümler, üst düğümlerinin etrafında bir dönme simetrisine kilitlenir. Simetri, ayara bağlı olarak 360 derece veya daha az olabilir!",
+                "updated": 1636700229623
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Wenn Sie auf die Schaltfläche Winkel zum übergeordneten Knoten klicken, können Sie zwischen fünf verschiedenen Einstellungen wählen: 360, 180, 90 und 45 Grad sowie die Möglichkeit, die Rotationssymmetrie zu deaktivieren.",
                     "updated": 1634331981010
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana düğümden Açı butonuna tıkladığınızda, beş farklı ayar arasında geçiş yaparsınız: 360, 180, 90 ve 45 derece ve ayrıca dönme simetrisini devre dışı bırakma seçeneği.",
+                    "updated": 1636700351205
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Werfen Sie einen kurzen Blick auf die Einstellung, die für die einzelnen Nachkommen des Knotens Lightning Strike Backtesting Session node: Trading Parameters, Trading System Reference und die Trading Engine Reference. Sie sind alle auf 180 Grad eingestellt, richtig?",
                     "updated": 1634297686941
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Geri Test Oturumu ( Lightning Strike Backtesting Session ) düğümünün her bir öğesinde seçilen ayara hızlıca göz atın: İşlem Parametreleri ( Trading Parameters ), İşlem Sistemi Referansı ( Trading System Reference ) ve İşlem Motoru Referansı ( Trading Engine Reference ). Hepsi 180 dereceye ayarlanmış, değil mi?",
+                    "updated": 1636700489786
                 }
             ]
         }

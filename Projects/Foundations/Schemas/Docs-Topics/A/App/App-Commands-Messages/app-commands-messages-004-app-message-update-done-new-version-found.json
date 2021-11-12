@@ -11,6 +11,11 @@
                 "text": "Proses pembaruan berhasil dilaksanakan. Versi terbaru Superalgos telah selesai diunduh dan mengganti versi yang sekarang. Agar perubahan diterapkan dengan baik, anda harus memulai ulang Client ini dan merefresh halaman UI ini.",
                 "updated": 1613891855110,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El proceso de actualización ha finalizado exitosamente. Un nueva versión de Superalgos se ha bajado reemplazando a la actual. Para que los cambios se hagan efectivos, debe comenzar nuevamente el Client y refrescar la página UI.",
+                "updated": 1636624628502
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Sekarang Superalgos berada diversi terbaru. Perlu diingat untuk selalu restart Client dan UI. Jika memiliki Task yang berjalan, maka anda harus menghentikan Task tersebut terlebih dahulu, lalu memulai ulang Client, sehingga anda dapat menjalankan Task tersebut lagi menggunakan codebase yang terupdate. ",
                     "updated": 1616762115115,
                     "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tiene ahora la ´ltima versión de Superalgos. Solo recuerde comenzar otra vez el Client y el UI. Si tiene tareas activas, debería primero cerrar las tareas y luego restablecer el cliente, para que pueda ejecutar esas tareas nuevamente usando el código de base actualizado.",
+                    "updated": 1636625028143
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "text": "Pembaruan yang Anda buat, hanya berlaku di Client ini yang terkoneksi http dengan browser. Jika kamu memiliki banyak Client yang berjalan di Network, juga harus diperbaharui, baik secara manual menggunakan Git atau dengan menavigasikan browser ke URL tujuan dan menjalankan App Update Command di sana. ",
                     "updated": 1616762450808,
                     "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "La actualización que ha hecho solo afecta al cliente al cual está conectado a través de http usando su navegador. Si tiene más Clientes ejecutándose como parte de una Red, también deberá actualizarlos, ya sea manualmente usando Git, o navegando con su navegador a su URL y ejecutando el comano de App Update ahí.",
+                    "updated": 1636625003204
                 }
             ],
             "updated": 1616081262353

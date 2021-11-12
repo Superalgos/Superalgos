@@ -42,15 +42,6 @@
         },
         {
             "style": "Subtitle",
-            "text": "Hello World Tutorial",
-            "updated": 1621872363400
-        },
-        {
-            "style": "List",
-            "text": "Hello World Tutorial"
-        },
-        {
-            "style": "Subtitle",
             "text": "Trading System Design Tutorials"
         },
         {
@@ -75,8 +66,16 @@
         },
         {
             "style": "Subtitle",
-            "text": "Install a New Market Tutorial",
-            "updated": 1622625477601
+            "text": "Hello World Tutorial",
+            "updated": 1636633400046
+        },
+        {
+            "style": "List",
+            "text": "Hello World Tutorial"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Install a New Market Tutorial"
         },
         {
             "style": "List",

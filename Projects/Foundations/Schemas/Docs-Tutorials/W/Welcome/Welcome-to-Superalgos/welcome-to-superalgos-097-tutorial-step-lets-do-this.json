@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Wir sind die 3-Punkte-Checkliste durchgegangen und sind bereit, also legen wir los!",
                 "updated": 1634245028451
+            },
+            {
+                "language": "TR",
+                "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım!",
+                "updated": 1636573370550
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Führen Sie den Lightning Strike Task aus, und starten Sie dann die Lightning Strike Live Trading Session weiter unten in der Hierarchie!",
                     "updated": 1634245034579
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Görevini ( Lightning Strike Task ) çalıştırın ve ardından Lightning Strike Live Trading Seansını çalıştırın (Hiyerarşinin daha aşağısında göreceksiniz)",
+                    "updated": 1636573921437
                 }
             ],
             "updated": 1622233324259
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "Sobald Sie die Sitzung gestartet haben, muss der Trading-Bot möglicherweise bis zu 60 Sekunden warten, bis der letzte Indikator verarbeitet ist. Sobald dies der Fall ist, sehen Sie das aktuelle Datum und eine 0%-Fortschrittsanzeige unter der Trading Process Instance, die während des gesamten Laufs so bleibt, da wir kein Zeitlimit für die Sitzung festlegen.",
                     "updated": 1634245041595
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturumu çalıştırdığınızda, işlem botunun son göstergenin işlemeyi bitirmesi için 60 saniyeye kadar beklemesi gerekebilir. Bunu yaptıktan sonra, Trading Process Instance düğümü altında geçerli tarihi ve %0 ilerleme bildirimini göreceksiniz, bu, oturum için bir zaman sınırı belirlemediğimizden çalışma boyunca böyle kalacaktır.",
+                    "updated": 1636574569129
                 }
             ],
             "updated": 1622233370311

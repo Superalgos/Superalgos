@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn alle Nachkommenknoten auf einen Winkel von 180 Grad eingestellt sind, nimmt jeder Knoten einen Platz in einem Bruchteil eines Kreises ein, der sich über 180 Grad erstreckt, normal zum Elternteil.",
                 "updated": 1634297880856
+            },
+            {
+                "language": "TR",
+                "text": "Tüm yavru düğümler 180 derecelik açıya ayarlandığında, her düğüm, ana düğüme dik olan 180 derecelik bir açıyla konumanır.",
+                "updated": 1636745968751
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Aber was passiert, wenn einer der Nachkommenknoten einen anderen Winkel zum Elternteil hat? Lassen Sie uns ein Experiment durchführen!",
                     "updated": 1634297887613
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, yavru düğümlerden birinin ana düğüme farklı bir açıyla bağlıysa ne olur? Hadi bir deney yapalım!",
+                    "updated": 1636746037914
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Klicken Sie einmal auf die Einstellung \"Trading Parameters\" Winkel zu Elternteil und verlassen Sie das Menü!",
                     "updated": 1634297909566
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Parameters düğümünde açı butonuna bir kez tıklayın ve menüden çıkın!",
+                    "updated": 1636746260797
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Der Knoten nimmt einen Platz in einem kleineren Winkel ein - 90 Grad! Machen Sie dasselbe mit den Knoten \"Trading System Reference\" und \"Trading Engine Reference\"!",
                     "updated": 1634297917131
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm daha küçük bir açıda pozisyon alır (- 90 derece)! Aynısını İşlem Sistemi Referansı ( Trading System Reference ) ve İşlem Motoru Referansı ( Trading Engine Reference ) düğümleri ile yapın!",
+                    "updated": 1636746373655
                 }
             ]
         }

@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Dieses Tutorial ergänzt die Informationen aus dem Welcome to Superalgos Tutorial und konzentriert sich auf Nodes Menu, Backups, Clones und Shares, Plugins, Workspaces, References, und mehr.",
                 "updated": 1634585384331
+            },
+            {
+                "language": "TR",
+                "text": "Bu eğitim, Superalgos'a Hoş Geldiniz Eğitiminde verilen bilgileri tamamlar ve Düğümler Menüsü, Yedeklemeler, Klonlar ve Paylaşımlar, Eklentiler, Çalışma Alanları, Referanslar ve daha fazlasına odaklanır.",
+                "updated": 1636699806597
             }
         ]
     },
@@ -34,11 +39,25 @@
         },
         {
             "style": "List",
-            "text": "Workspace: Getting Started Plugin Workspace."
+            "text": "Workspace: Getting Started Plugin Workspace.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanı: Başlarken Eklenti Çalışma Alanı. (Getting Started Tutorials )",
+                    "updated": 1636699919271
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @julianmolina (Telegram)."
+            "text": "Maintainer: @julianmolina (Telegram).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "İlgilenen: @julianmolina (Telegram).",
+                    "updated": 1636699969845
+                }
+            ]
         }
     ]
 }

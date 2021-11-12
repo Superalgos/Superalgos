@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Schaltfläche \"Einfrieren\" ist nur unter ganz bestimmten Umständen sinnvoll: wenn die Physik auf der Ebene des Design Space aktiviert ist.",
                 "updated": 1634333134069
+            },
+            {
+                "language": "TR",
+                "text": "Dondur düğmesi çok özel koşullar altında anlamlıdır.",
+                "updated": 1636752747872
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Der Design Space bietet einige Anpassungsmöglichkeiten, von denen eine die Aktivierung der Physik des Universums ist. Wenn die Physik aktiviert ist, wird der ganze Raum lebendig!",
                     "updated": 1634333140802
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı ( Design Space ), biri evrenin fiziğini etkinleştiren bazı özelleştirme özellikleri sunar. Fizik açıkken, tüm uzay canlanır!",
+                    "updated": 1636752835468
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Wir werden an dieser Stelle nicht auf dieses Thema eingehen, da es nicht im Lehrplan für die Grundausbildung enthalten ist!",
                     "updated": 1634333147196
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel eğitim müfredatında olmadığı için bu noktada o tavşan deliğine girmeyeceğiz!",
+                    "updated": 1636752855204
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Die Option Einfrieren friert die Kettenverbindungen des Knotens mit seinen Über- und Unterknoten ein, und die Verbindungslinien werden blau. Das Einfrieren setzt CPU-Ressourcen frei, wenn die Physik-Animationen eingeschaltet sind, da das System aufhört, die Positionen und den Status der Knoten zu berechnen.",
                     "updated": 1634333202786
+                },
+                {
+                    "language": "TR",
+                    "text": "Dondur seçeneği, düğümün ebeveyni ile zincir bağlantılarını dondurur ve yavrular ve bağlantı hatları maviye döner. Fizik animasyonları açıkken dondurma işlemi, sistem düğümlerin konumlarını ve durumunu hesaplamayı durdurduğundan CPU kaynaklarını serbest bırakır.",
+                    "updated": 1636752891025
                 }
             ]
         }

@@ -55,6 +55,8 @@ function newFoundationsCodeEditorEditorPage() {
 
     function initMonacoEditor() {
         if (monacoEditor === undefined) {
+            document.getElementById('no-content').remove()
+            document.getElementById('code-path').insertAdjacentHTML('afterend',`<div class="docs-summary"><b>Notes:</b> Changes are saved automatically</div>`)
             monacoEditor = monaco.editor.create(document.querySelector('#editor'), {
                 model: null,
                 theme: 'vs-dark',
@@ -349,8 +351,8 @@ function newFoundationsCodeEditorEditorPage() {
         HTML += '</div>'
         HTML += `<div class="docs-title-table"><div class="docs-table-cell"><h2 class="docs-h2"> Code Editor</h2></div><div id="projectImageDiv" class="docs-image-container"><img src="Icons/Foundations/javascript-code.png" width="50" height="50"></div></div>`
         HTML += `<div id="code-path"></div>`
-        HTML += `<div class="docs-summary"><b>Notes:</b> Changes are saved automatically</div>`
-        HTML += `<div class="editor" id="editor"></div>`
+        HTML += `<div id="no-content" style="margin:auto;text-align:center;"><h2>Nothing to edit...</h2><h3>Try opening a node config or node code</h3></div>`
+        HTML += '<div class="editor" id="editor"></div>'
         HTML += `</section>`
         HTML += footer()
         document.getElementById('code-editor-content-div').innerHTML = HTML
@@ -399,8 +401,9 @@ function newFoundationsCodeEditorEditorPage() {
                 nodePathString += `</strong>`
             }
         })
-
-        document.getElementById("code-path").innerHTML = `<strong>Editing node: </strong>` + nodePathString
+        if (nodePathString !== '') {
+            document.getElementById("code-path").innerHTML = `<strong>Editing node: </strong>` + nodePathString
+        }
 
         function parentNodeRecursive(node, output) {
             if (node.payload.parentNode !== undefined) {

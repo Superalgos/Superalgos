@@ -25,12 +25,13 @@
         },
         {
             "style": "Success",
-            "text": "To switch languages, click on the flags on the footer of the Docs."
+            "text": "Users can switch between languages using the links/Flags provided at the footer of every page at the Docs.",
+            "updated": 1636749306719
         },
         {
             "style": "Note",
-            "text": "You may only add or delete pages to the Docs when the language is set to English.",
-            "updated": 1613820648230
+            "text": "You may only add or delete pages to the Docs when the language is set to English. For the translation you have to select the language you want to translate into. (In this case turkish)",
+            "updated": 1636749321941
         }
     ]
 }

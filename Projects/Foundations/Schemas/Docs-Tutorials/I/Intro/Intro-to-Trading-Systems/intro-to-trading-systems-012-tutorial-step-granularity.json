@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Granularity!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?"
     },

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Candle Properties",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
         "text": "We have direct access to the properties of candles, and the value of the close is available at the close property."
     },

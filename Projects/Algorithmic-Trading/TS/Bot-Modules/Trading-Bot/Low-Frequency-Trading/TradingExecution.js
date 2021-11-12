@@ -1,6 +1,6 @@
 exports.newAlgorithmicTradingBotModulesTradingExecution = function (processIndex) {
     /*
-    The Trading Execution modules manages the execution nodes and execution algoritms.
+    The Trading Execution modules manages the execution nodes and execution algorithms.
     */
     const MODULE_NAME = 'Trading Execution'
 

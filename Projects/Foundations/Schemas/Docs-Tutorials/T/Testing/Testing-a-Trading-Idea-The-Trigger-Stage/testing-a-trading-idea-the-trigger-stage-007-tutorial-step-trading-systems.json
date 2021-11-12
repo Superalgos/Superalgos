@@ -4,10 +4,11 @@
     "type": "Tutorial Step - Trading Systems",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
-        "text": "New trading systems are created from the Superalgos Project hierarchy, in particular, from the Other Hierarchies node."
+        "text": "New trading systems are created from the Superalgos Project hierarchy, in particular, from the Trading node.",
+        "updated": 1636542869575
     },
     "paragraphs": [
         {

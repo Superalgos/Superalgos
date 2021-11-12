@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Un trading system es un marco que maneja la lógica de bajo nivel que sirve para estructurar los procesos y métodos utilizados para implementar y desplegar estrategias de trading.",
                 "updated": 1624375355452
+            },
+            {
+                "language": "RU",
+                "text": "Торговая система - это структура, управляющая логикой низкого уровня, которая служит для структурирования процессов и методов, используемых для реализации и развертывания торговых стратегий.",
+                "updated": 1636194401995
+            },
+            {
+                "language": "DE",
+                "text": "Ein Handelssystem ist ein Framework, der die Low-Level-Logik handhabt, die dazu dient, die Prozesse und Methoden zu strukturieren, die zur Umsetzung und Anwendung von trading strategies verwendet werden.",
+                "updated": 1636658948319
             }
         ]
     },

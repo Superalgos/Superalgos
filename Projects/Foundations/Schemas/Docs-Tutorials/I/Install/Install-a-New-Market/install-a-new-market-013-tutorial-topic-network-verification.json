@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "La instalación de la función Market configura muchas estructuras de datos en el local Network Node.",
                 "updated": 1629247715120
+            },
+            {
+                "language": "DE",
+                "text": "Die Funktion Install Market richtet im lokalen Netzwerk Node viele Datenstrukturen ein.",
+                "updated": 1636356142878
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "En los siguientes pasos, verificarás que cada una de las estructuras de datos esperadas se haya creado correctamente. Las estructuras esperadas son:",
                     "updated": 1629247883351
+                },
+                {
+                    "language": "DE",
+                    "text": "In den nächsten Schritten werden Sie überprüfen, ob jede der erwarteten Datenstrukturen erfolgreich erstellt wurde. Die erwarteten Strukturen sind:",
+                    "updated": 1636356136312
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "1. Data Tasks tareas para todas las minas de datos incluidas en tu espacio de trabajo.2. Backtesting and live trading tasks for all included trading systems.3. The corresponding Data Storage definitions.",
                     "updated": 1629247909377
+                },
+                {
+                    "language": "DE",
+                    "text": "1. Data Tasks Aufgaben für alle in Ihrem Arbeitsbereich enthaltenen Datenminen.<br/><br/>2. Backtesting- und Live-Trading-Aufgaben für alle enthaltenen Handelssysteme.<br/><br/>3. Die entsprechenden Datenspeicher-Definitionen.",
+                    "updated": 1636356007305
                 }
             ]
         }

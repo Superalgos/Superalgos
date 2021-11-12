@@ -564,6 +564,19 @@
                     "folderName": "Chat-Space",
                     "propertyName": "chatSpace",
                     "functionName": "newFoundationsChatSpace"
+                },
+                {
+                    "name": "Code Editor Space",
+                    "initializationIndex": 8,
+                    "folderName": "CodeEditor-Space",
+                    "propertyName": "codeEditorSpace",
+                    "functionName": "newFoundationsCodeEditorSpace",
+                    "animationPhysicsIndex": 8,
+                    "animationDrawIndex": 8,
+                    "onMouseWheelIndex": 5,
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 8,
+                    "onMouseDownIndex": 8
                 }
             ]
         },
@@ -1093,7 +1106,7 @@
                 {
                     "name": "Docs Statistics Functions",
                     "propertyName": "docsStatisticsFunctions",
-                    "functionName": "newEducationFunctionLibraryDocsStats"
+                    "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions"
                 }
             ],
             "utilities": [
@@ -1376,12 +1389,6 @@
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
-                },
-                {
-                    "name": "Web Sockets Network Client",
-                    "propertyName": "webSocketsNetworkClient",
-                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
-                    "fileName": "WebSocketsNetworkClient.js"
                 }
             ],
             "utilities": []
@@ -1397,16 +1404,40 @@
             ],
             "modules": [
                 {
-                    "name": "Web Sockets App Client",
-                    "propertyName": "webSocketsAppClient",
-                    "functionName": "newNetworkModulesWebSocketsAppClient",
-                    "fileName": "WebSocketsAppClient.js"
+                    "name": "Web Sockets Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
+                    "fileName": "WebSocketsNetworkClient.js"
                 },
                 {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",
                     "functionName": "newNetworkModulesUserProfiles",
                     "fileName": "UserProfiles.js"
+                },
+                {
+                    "name": "P2P Network",
+                    "propertyName": "p2pNetwork",
+                    "functionName": "newNetworkModulesP2PNetwork",
+                    "fileName": "P2PNetwork.js"
+                },
+                {
+                    "name": "P2P Network Node",
+                    "propertyName": "p2pNetworkNode",
+                    "functionName": "newNetworkModulesP2PNetworkNode",
+                    "fileName": "P2PNetworkNode.js"
+                },
+                {
+                    "name": "P2P Network Peers",
+                    "propertyName": "p2pNetworkPeers",
+                    "functionName": "newNetworkModulesP2PNetworkPeers",
+                    "fileName": "P2PNetworkPeers.js"
+                },
+                {
+                    "name": "P2P Network Client",
+                    "propertyName": "p2pNetworkClient",
+                    "functionName": "newNetworkModulesP2PNetworkClient",
+                    "fileName": "P2PNetworkClient.js"
                 }
             ],
             "utilities": [
@@ -1589,6 +1620,12 @@
                     "fileName": "WebAppInterface.js"
                 },
                 {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                },
+                {
                     "name": "Social Graph",
                     "propertyName": "socialGraph",
                     "functionName": "newSocialTradingModulesSocialGraph",
@@ -1600,10 +1637,10 @@
         "UI": {
             "modules": [
                 {
-                    "name": "Web Sockets Client",
-                    "propertyName": "webSocketsWebClient",
-                    "functionName": "newSocialTradingModulesWebSocketsWebClient",
-                    "fileName": "WebSocketsWebClient.js"
+                    "name": "Web Sockets WebApp Client",
+                    "propertyName": "webSocketsWebAppClient",
+                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
+                    "fileName": "WebSocketsWebAppClient.js"
                 }
             ]
         }

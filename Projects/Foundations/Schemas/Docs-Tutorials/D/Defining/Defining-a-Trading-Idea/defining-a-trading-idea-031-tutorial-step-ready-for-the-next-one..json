@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Ready For The Next One..?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "tutorial"
+            "name": "Tutorial\\tutorial",
+            "project": "Foundations"
         },
         "text": "The tutorial to the right is the next in the series about designing trading systems. Shall we keep going?"
     },

@@ -4,7 +4,14 @@
     "type": "Hello World Tutorial Plugin Workspace",
     "definition": {
         "text": "This workspace serves as a demonstration on how to build a very simple strategy, complementing the education provided by the Trading System Design Tutorials Plugin Workspace, with a different approach.",
-        "updated": 1616148044271
+        "updated": 1616148044271,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace sirve como demostración de cómo construir una estrategia muy simple, complementando la educación brindada por el Trading System Design Tutorials Plugin Workspace, con un enfoque diferente.",
+                "updated": 1636725234290
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,7 +22,14 @@
         {
             "style": "List",
             "text": "Hello World Tutorial",
-            "updated": 1616151556035
+            "updated": 1616151556035,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hello World Tutorial ( Tutorial Hola al mundo)",
+                    "updated": 1636725249737
+                }
+            ]
         },
         {
             "style": "Title",

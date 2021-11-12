@@ -4,7 +4,14 @@
     "type": "Trading System Design Tutorials Plugin Workspace",
     "definition": {
         "text": "This workspace features a series of tutorials about designing trading systems. It is the first step users should take to learn about building strategies after completing their basic education.",
-        "updated": 1616145724293
+        "updated": 1616145724293,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace incluye una serie de tutoriales sobre el diseño de sistemas comerciales. Es el primer paso que los usuarios deben dar para aprender a construir estrategias después de completar su educación básica.",
+                "updated": 1636560802341
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,19 +21,47 @@
         },
         {
             "style": "List",
-            "text": "Intro to Trading Systems Tutorial"
+            "text": "Intro to Trading Systems Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Intro to Trading Systems Tutorial ( Tutorial Introducción a los sistemas de trading)",
+                    "updated": 1636560845957
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Defining a Trading Idea Tutorial"
+            "text": "Defining a Trading Idea Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Defining a Trading Idea Tutorial ( Tutorial definiendo una idea de trading)",
+                    "updated": 1636560878176
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Testing a Trading Idea - The Trigger Stage Tutorial"
+            "text": "Testing a Trading Idea - The Trigger Stage Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing a Trading Idea - The Trigger Stage Tutorial ( Tutorial probando una idea de trading- La etapa del gatillo)",
+                    "updated": 1636560982680
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Testing a Trading Idea - The Other Stages Tutorial"
+            "text": "Testing a Trading Idea - The Other Stages Tutorial",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing a Trading Idea - The Other Stages Tutorial Tutorial testeando una idea de trading - Las otras etapas)",
+                    "updated": 1636560974924
+                }
+            ]
         },
         {
             "style": "Important",

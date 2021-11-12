@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Sie dachten, ich würde Sie den Live Trading Session überwachen lassen, indem Sie die hässliche Liste der Aufträge an der Börse beobachten? Weit gefehlt!",
                 "updated": 1634245518290
+            },
+            {
+                "language": "TR",
+                "text": "Borsadaki kirli emir listesini izleyerek Canlı İşlem Oturumunu ( Live Trading Session ) izlemene izin vereceğimi mi sandın? Mümkün değil!",
+                "updated": 1636632883293
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Superalgos produziert die gleiche Art von Simulationen, in die Sie sich verliebt haben, auch für Live-Sessions, in Echtzeit!",
                     "updated": 1634245526070
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, gerçek zamanlı olarak canlı oturumlar için de aşık olduğunuz simülasyonları üretir!",
+                    "updated": 1636632876142
                 }
             ]
         },
@@ -73,6 +83,11 @@
                     "language": "DE",
                     "text": "Können Sie die ersten Kaufaufträge auf dem Chart sehen?",
                     "updated": 1634245535663
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafikteki ilk birkaç satın alma siparişini görebiliyor musunuz?",
+                    "updated": 1636632901099
                 }
             ]
         },
@@ -96,6 +111,11 @@
                     "language": "DE",
                     "text": "Ich habe Sie gerade in die Gegenwart gebracht, in den 1-Minuten-Chart. Sie sollten in der Lage sein, die letzte Kerze zu sehen, die sich gebildet hat, und bereits ein paar Aufträge. Die Rate Scale ist an beiden Enden im automatischen Modus. Es steht Ihnen frei, die Skalen nach Ihren Wünschen zu ändern.",
                     "updated": 1634245542981
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni 1 dakikalık grafikte şimdiki zamana getirdim. En son mum oluşumunu ve birkaç siparişi zaten görebilmeliyorsun. Hız Ölçeği her iki uçta da otomatik modda. Ölçekleri beğeninize göre değiştirmekten çekinmeyin.",
+                    "updated": 1636632974769
                 }
             ]
         }

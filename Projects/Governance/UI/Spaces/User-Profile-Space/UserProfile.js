@@ -22,7 +22,7 @@ function newGovernanceUserProfileSpace() {
 
     function initialize() {
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the Initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
@@ -50,6 +50,7 @@ function newGovernanceUserProfileSpace() {
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
+            if (rootNode.payload === undefined) { continue }
             if (rootNode.payload.floatingObject.isCollapsed !== true) {
                 rootNode.payload.floatingObject.collapseToggle()
             }
@@ -150,9 +151,9 @@ function newGovernanceUserProfileSpace() {
                     if (transfer.from !== UI.projects.governance.globals.saToken.SA_TOKEN_BSC_TREASURY_ACCOUNT_ADDRESS) { continue }
 
                     let currentReputation = Number(transfer.value) / UI.projects.governance.globals.saToken.SA_TOKEN_BSC_DECIMAL_FACTOR
- 
+
                     let previousReputation = reputationByAddress.get(transfer.to.toLowerCase())
-                    if (previousReputation === undefined) {previousReputation = 0}
+                    if (previousReputation === undefined) { previousReputation = 0 }
                     let newReputation = previousReputation + currentReputation
                     reputationByAddress.set(transfer.to.toLowerCase(), newReputation)
                 }
@@ -365,7 +366,7 @@ function newGovernanceUserProfileSpace() {
 
         if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the Initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }

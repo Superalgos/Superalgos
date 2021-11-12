@@ -3,7 +3,7 @@
     "pageNumber": "3",
     "type": "TS Trading Session Error - Invalid Final Datetime Property Value",
     "definition": {
-        "text": "The finalDatetime property configured at the Time Range node is not recongnized as a valid Javascript Datetime.",
+        "text": "The finalDatetime property configured at the Time Range node is not recognized as a valid Javascript Datetime.",
         "updated": 1611323471271
     },
     "paragraphs": [
@@ -14,7 +14,7 @@
         },
         {
             "style": "Success",
-            "text": "Check Node JS Javsacript docs to learn how to correctly express a datetime value.",
+            "text": "Check Node JS Javascript docs to learn how to correctly express a datetime value.",
             "updated": 1611323848427
         },
         {

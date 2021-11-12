@@ -4,8 +4,8 @@
     "type": "Tutorial Step - We're almost done!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "close-stage-event"
+            "name": "Close\\close-stage-event",
+            "project": "Foundations"
         },
         "text": "We're virtually ready to run a new backtest, this time, with complete definitions in all stages!"
     },

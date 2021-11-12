@@ -95,14 +95,14 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                     */
                     for (let index = 0; index < productRoot.length; index++) {
                         /*
-                        The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
+                        The Product Root Node is the root of the node hierarchy from where we are going to extract the record values.
                         */
                         let productRootNode = productRoot[index]
                         let record = scanRecordDefinition(product, productRootNode, index)
                         if (record !== undefined) {
                             /*
                             We will add the index value to the record itself, so that the plotter can know to which 
-                            brach of the trading engine data structure it belongs. 
+                            branch of the trading engine data structure it belongs.
                             */
                             record.push(index)
                             persistIndividualRecord(record, product, outputDatasetArray)
@@ -114,7 +114,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                     the record to be saved at the output file.
                     */
                     /*
-                    The Product Root Node is the root of the node hiriarchy from where we are going to extract the record values.
+                    The Product Root Node is the root of the node hierarchy from where we are going to extract the record values.
                     */
                     let productRootNode = productRoot
                     let record = scanRecordDefinition(product, productRootNode)
@@ -131,7 +131,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
             for (let j = 0; j < product.record.properties.length; j++) {
                 let recordProperty = product.record.properties[j]
                 /* 
-                The Property Root Node is the Root of the Hiriarchy branch we must find in order
+                The Property Root Node is the Root of the Hierarchy branch we must find in order
                 to get the node where we are going to extract the value. Initially
                 we point it to the Product Root Node, because that is the default in case
                 a property does not have at its configuration a different nodePath configured
@@ -150,7 +150,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                     }
                 }
                 /* 
-                The Target Node is the node from where we are going to exctract the value.
+                The Target Node is the node from where we are going to extract the value.
                 We will use the codeName of the Record Property to match it with 
                 any of the properties of the Root Node to get the Target Node.  
                 */
@@ -170,7 +170,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                     targetNode = propertyRootNode[recordProperty.config.childProperty]
                 }
                 /*
-                It can happen that intead of having a Node in targetNode what we have is an
+                It can happen that instead of having a Node in targetNode what we have is an
                 array of nodes. We need to pick one of the elements of the array and for that
                 we use the Index value we find at the configuration of the Record Property.
                 */
@@ -187,7 +187,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                 of Nodes defined in the Record Properties but not all of them exist at the Root Node.
                 We filter out those cases by not extracting the value from the value property.
                 */
-                let value = 0 // This is a default value, since we do not want null in files because it breakes JSON format.
+                let value = 0 // This is a default value, since we do not want null in files because it brakes JSON format.
                 if (targetNode !== undefined) {
                     if (targetNode.type !== undefined) {
                         /*
@@ -251,14 +251,14 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                                 /*
                                 When dealing with Daily Files, we need to avoid to write an open object at the last 'candle' of the day,
                                 since the object will be duplicated on the next day. How do we know we are positioned at the last candle
-                                of the day? Easy: the end of the candle must be 1 millisecod before the next day. That happens at any 
+                                of the day? Easy: the end of the candle must be 1 millisecond before the next day. That happens at any
                                 time frame. 
                                 */
                                 let currentDay = new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.end.value)
                                 let nextDay = new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.end.value + 1)
                                 if (currentDay.getUTCDate() !== nextDay.getUTCDate()) {
                                     /*
-                                    We will save the object only if it is closed, becasuse we are at the last candle of the day.
+                                    We will save the object only if it is closed, because we are at the last candle of the day.
                                     */
                                     if (propertyValue === product.config.propertyValueThatClosesObject) {
                                         outputDatasetArray.push(record)
@@ -275,7 +275,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                         }
                         else {
                             /*
-                            For Market Files we will add a record everytime that proeprty value does not match this
+                            For Market Files we will add a record everytime that property value does not match this
                             */
                             if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
                                 outputDatasetArray.push(record)

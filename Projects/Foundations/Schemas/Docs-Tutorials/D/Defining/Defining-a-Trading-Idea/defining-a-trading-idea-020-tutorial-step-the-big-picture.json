@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Big Picture!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "time-frame"
+            "name": "Time\\time-frame",
+            "project": "Foundations"
         },
         "text": "The 4H chart showed a clear shift in the trend after the breakdown, but... what about the long-term? Let's check the daily chart!"
     },

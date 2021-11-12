@@ -7,36 +7,92 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "Setting up, testing, and deploying a trading strategy requires time and effort. We test trading ideas to avoid wasting resources."
+        "text": "Setting up, testing, and deploying a trading strategy requires time and effort. We test trading ideas to avoid wasting resources.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Configurar, probar e implementar una estrategia de trading requiere tiempo y esfuerzo. Nosotros testeamos ideas de  trading para no desperdiciar recursos.",
+                "updated": 1636724590963
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "To test a trading idea, we need to formalize it into a hypothesis that:"
+            "text": "To test a trading idea, we need to formalize it into a hypothesis that:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para probar una idea comercial, necesitamos formalizarla en una hipótesis que:",
+                    "updated": 1636724614580
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "proposes a trading process, "
+            "text": "proposes a trading process, ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "proponga un proceso de trading,",
+                    "updated": 1636724682086
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "selects the appropriate context; "
+            "text": "selects the appropriate context; ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "seleccione el contexto adecuado;",
+                    "updated": 1636724687795
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "defines the main entry rules; "
+            "text": "defines the main entry rules; ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "defina las reglas de entrada básicas;",
+                    "updated": 1636724711247
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "predicts a specific outcome; "
+            "text": "predicts a specific outcome; ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "prediga una salida específica;",
+                    "updated": 1636724748969
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "offers a specific testing mechanism. "
+            "text": "offers a specific testing mechanism. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "ofereza un mecanismo de testeo específico.",
+                    "updated": 1636724784337
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Let's expand on each of these topics so that we can set clear goals for defining a trading idea."
+            "text": "Let's expand on each of these topics so that we can set clear goals for defining a trading idea.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ampliemos cada uno de estos temas para que podamos establecer objetivos claros para definir una idea de trading.",
+                    "updated": 1636724820325
+                }
+            ]
         }
     ]
 }

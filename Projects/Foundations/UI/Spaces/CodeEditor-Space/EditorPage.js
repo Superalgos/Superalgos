@@ -10,9 +10,11 @@ function newFoundationsCodeEditorEditorPage() {
     let monacoInitialized = false
     let monacoEditor = undefined
     let codeString = ''
+    let stringObjects = []
+    let assetsArray = []
     let tradingEngineObj = undefined
     let recordFormulasObj = {}
-    let chartObj = {}
+    let chartMarketExchangeObj = {}
 
     return thisObject
 
@@ -27,8 +29,10 @@ function newFoundationsCodeEditorEditorPage() {
         monacoInitialized = false
         monacoEditor = undefined
         codeString = ''
+        stringObjects = []
         tradingEngineObj = undefined
         recordFormulasObj = {}
+        chartMarketExchangeObj = {}
         thisObject.originatingNode = undefined
         thisObject.editorType = undefined
 
@@ -56,7 +60,7 @@ function newFoundationsCodeEditorEditorPage() {
     function initMonacoEditor() {
         if (monacoEditor === undefined) {
             document.getElementById('no-content').remove()
-            document.getElementById('code-path').insertAdjacentHTML('afterend',`<div class="docs-summary"><b>Notes:</b> Changes are saved automatically</div>`)
+            document.getElementById('code-path').insertAdjacentHTML('afterend', `<div class="docs-summary"><b>Notes:</b> Changes are saved automatically</div>`)
             monacoEditor = monaco.editor.create(document.querySelector('#editor'), {
                 model: null,
                 theme: 'vs-dark',
@@ -67,7 +71,7 @@ function newFoundationsCodeEditorEditorPage() {
             monaco.editor.createModel(codeString, "javascript")
             createAutocompletionFor(tradingEngineObj)
             createAutocompletionFor(recordFormulasObj)
-            createAutocompletionFor(chartObj)
+            createAutocompletionFor(chartMarketExchangeObj)
 
             monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
             monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
@@ -218,6 +222,12 @@ function newFoundationsCodeEditorEditorPage() {
     function buildIntelliSenseModels() {
 
 
+        let chartObjectPrefix = 'chart.'
+        let marketPrefix = 'market.'
+        let exchangePrefix = 'exchange.'
+        let dot = '.'
+        let numberOfPreviousSuffixes = 5
+
         UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Data Mine') {
                 // Getting all the Javascript code nodes into one single model
@@ -265,19 +275,13 @@ function newFoundationsCodeEditorEditorPage() {
                                     let validTimeFrames = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(dataset.payload, 'validTimeFrames')
                                     if (validTimeFrames !== undefined) {
                                         validTimeFrames.forEach(tf => {
-                                            let prop = 'chart.at' + tf.replace('-', '') + '.' + productName + '.' + propertyName
-                                            // This will let us to enhance the autocomplete logic to add as many previous kids as we want to
-                                            let propWithPrevious = 'chart.at' + tf.replace('-', '') + '.previous.' + productName + '.' + propertyName
-                                            let propWithTwoPrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.' + productName + '.' + propertyName
-                                            let propWithThreePrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.previous.' + productName + '.' + propertyName
-                                            let propWithFourPrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.previous.previous.' + productName + '.' + propertyName
-                                            let propWithFivePrevious = 'chart.at' + tf.replace('-', '') + '.previous.previous.previous.previous.previous.' + productName + '.' + propertyName
-                                            objectMerge(chartObj, prop.split('.').reduceRight((o, x) => ({[x]: o}), ""))
-                                            objectMerge(chartObj, propWithPrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
-                                            objectMerge(chartObj, propWithTwoPrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
-                                            objectMerge(chartObj, propWithThreePrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
-                                            objectMerge(chartObj, propWithFourPrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
-                                            objectMerge(chartObj, propWithFivePrevious.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+                                            let timeFrame = 'at' + tf.replace('-', '')
+
+                                            stringObjects.push(chartObjectPrefix + timeFrame + '.' + productName + '.' + propertyName)
+                                            for (let i = 1; i === numberOfPreviousSuffixes; i++) {
+                                                stringObjects.push(chartObjectPrefix + timeFrame + getPreviousSuffixTimes(i) + productName + dot + propertyName)
+                                            }
+
                                         })
                                     }
                                 })
@@ -317,6 +321,37 @@ function newFoundationsCodeEditorEditorPage() {
             }
         })
 
+        // Enrich chart data with market and exchange structure
+        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+            if (node.type === 'Crypto Ecosystem') {
+                node.cryptoExchanges.forEach(cxs => {
+                    cxs.exchanges.forEach(exchange => {
+                        let exchangeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(exchange.payload, 'codeName')
+                        exchange.exchangeMarkets.markets.forEach(market => {
+                            let marketPair = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(market.payload, 'codeName')
+                            let baseAsset = marketPair.split('/')[0]
+                            let quotedAsset = marketPair.split('/')[1]
+                            stringObjects.forEach(chartObj => {
+                                /**
+                                 * We will provide auto-complete only for assets pair found in Markets
+                                 * Doing so we will avoid providing completion for assets that are not used in a market
+                                 */
+                                let market = marketPrefix + baseAsset + dot + quotedAsset + dot + chartObj
+                                stringObjects.push(market)
+                                stringObjects.push(exchangePrefix + exchangeName + dot + market)
+                            })
+                        })
+                    })
+                })
+            }
+        })
+
+        //Actually building the objects for chart, market and exchange, no need for multiple objects, as one is enough for the autocomplete to work
+        stringObjects.forEach(stringRepresentation => {
+            objectMerge(chartMarketExchangeObj, stringRepresentation.split('.').reduceRight((o, x) => ({[x]: o}), ""))
+        })
+
+        console.log(chartMarketExchangeObj)
 
         function objectMerge(target, source) {
             for (const key of Object.keys(source)) {
@@ -337,6 +372,20 @@ function newFoundationsCodeEditorEditorPage() {
             }
 
             return target;
+        }
+
+        function getPreviousSuffixTimes(number) {
+            let result = ''
+            let previousString = 'previous.'
+            let dotString = '.'
+            for (let i = 0; i < number; i++) {
+                if (i === 0) {
+                    result += dotString
+                }
+                result += previousString
+            }
+
+            return result
         }
 
     }

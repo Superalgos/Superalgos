@@ -1389,6 +1389,12 @@
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newNetworkModulesHttpInterface",
+                    "fileName": "HttpInterface.js"
                 }
             ],
             "utilities": []
@@ -1629,7 +1635,7 @@
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
                     "functionName": "newDesktopModulesHttpInterface",
-                    "fileName": "httpInterface.js"
+                    "fileName": "HttpInterface.js"
                 },
                 {
                     "name": "Web Sockets Interface",

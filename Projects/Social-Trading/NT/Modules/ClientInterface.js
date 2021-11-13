@@ -64,7 +64,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 return await eventReceived(messageHeader.eventMessage, userProfile)
             }
             case 'Signal': {
-                return await signalReceived(messageHeader.eventMessage, userProfile)
+                return await signalReceived(messageHeader.eventMessage)
             }
         }
     }
@@ -245,7 +245,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         }
     }
 
-    async function signalReceived(signalMessage, userProfile) {
+    async function signalReceived(signalMessage) {
         /*
         We expect here a JSON string with some or all of the following properties:
 

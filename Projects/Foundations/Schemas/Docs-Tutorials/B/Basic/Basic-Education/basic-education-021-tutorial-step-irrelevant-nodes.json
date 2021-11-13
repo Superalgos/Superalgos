@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Knoten, die nicht mit einer Hierarchie verbunden sind, werden nicht berechnet. Sie sind zwar im Workspace vorhanden, haben aber keinen Einfluss auf die Funktionsweise des Systems auf irgendeiner Ebene.",
                 "updated": 1634333669893
+            },
+            {
+                "language": "TR",
+                "text": "Bir hiyerarşiye bağlı olmayan düğümler hesaplanmaz. Çalışma alanında bulunurlar, ancak sistemin işleyişini hiçbir düzeyde etkilemezler.",
+                "updated": 1636791617905
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass Sie beliebig viele Strukturen von Knoten losgelöst von Hierarchien aufbewahren können, um sie für eine spätere Verwendung oder aus anderen Gründen zur Verfügung zu haben.",
                     "updated": 1634333676692
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, hiyerarşilerden kopuk sayıda düğüm yapısını istediğiniz kadar tutabileceğiniz, bunları daha sonra kullanmak üzere veya herhangi bir nedenle elinizin altında tutabileceğiniz anlamına gelir.",
+                    "updated": 1636792301822
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Ein häufiges Szenario ist die Aufbewahrung mehrerer Versionen bestimmter Definitionen bei der Erstellung von Strategien, so dass Sie einen Satz von Regeln testen und beim nächsten Durchlauf zu anderen Regeln wechseln können. Sie können sogar mehrere Versionen von ganzen Strategien aufbewahren!",
                     "updated": 1634333685177
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortak bir senaryo, stratejiler oluştururken belirli tanımların birden çok sürümünü tutmaktır, böylece bir sonraki çalıştırma için bir dizi kuralı test edebilir ve diğer kurallara geçebilirsiniz. Tüm stratejilerin birden fazla versiyonunu bile tutabilirsiniz!",
+                    "updated": 1636792469596
                 }
             ]
         }

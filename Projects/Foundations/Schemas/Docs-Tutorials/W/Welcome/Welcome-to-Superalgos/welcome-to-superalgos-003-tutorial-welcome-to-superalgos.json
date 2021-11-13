@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "name": "tutorial",
-            "project": "Education"
+            "project": "Foundations"
         },
         "text": "I'm an interactive tutorial, the first in a series designed to facilitate your onboarding and teach you all the basics!",
         "translations": [

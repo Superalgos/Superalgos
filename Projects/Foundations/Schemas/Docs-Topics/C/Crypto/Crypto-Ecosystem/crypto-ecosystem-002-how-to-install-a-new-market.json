@@ -4,13 +4,27 @@
     "type": "How to Install a New Market",
     "definition": {
         "text": "To install a new market, select Install Market on the menu of the market you wish to install. If the market is not set up, then you must set it up first.",
-        "updated": 1611651225966
+        "updated": 1611651225966,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "\nPara instalar un nuevo mercado, seleccione Install Market oen el menú del mercado que desea instalar.Si el mercado no está configurado, primero debe configurarlo.",
+                "updated": 1636725597340
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "For the details, please follow the Install New Market tutorial on the Getting Started Workspace.",
-            "updated": 1611651240216
+            "updated": 1611651240216,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para obtener más información, siga las instrucciones de instalación  en  New Market tutorial en el Getting Started Workspace.",
+                    "updated": 1636725638812
+                }
+            ]
         }
     ]
 }

@@ -4,7 +4,14 @@
     "type": "Superalgos Review - Reviewing the starting tutorials",
     "definition": {
         "text": "Superalgos tutorial review\n\nIn general the tutorial is really clear, and takes you through the motions. As such a vast systems it naturally takes some time to absorb. As a point of improvement, it would be nice to have some more overview of how the certain elements work together. Taking starters through the logical steps: 1. Where does the market data come in, 2. How is that data interpreted and translated into indicators, 3. How can the system act on those indicators, 4. How do these actions feeback into the markets to execute trades. If the tutorial could be structured according to those steps, it mentally takes a beginner through all the motions and makes them understand the flow. Maybe this is premature and the following tutorials are structured like this, however making this larger flow already clear in the beginning allows users to place their actions in one of those 4 categories, providing a sense of where in the process you are interacting. ",
-        "updated": 1622820283052
+        "updated": 1622820283052,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Revisión de tutorial Superalgos \n\nEn general, el tutorial es muy claro. y te lleva a través de los movimientos. Con sistemas tan vastos como estos, naturalmente lleva algún tiempo absorberlos. Como punto de mejora, sería bueno tener una visión más general de cómo funcionan juntos ciertos elementos. Llevando a los principiantes a través de los pasos lógicos: 1. Dónde entran los datos del mercado 2. Cómo se interpretan y traducen esos datos en indicadores, 3. Cómo puede actuar el sistema sobre esos indicadores, 4. Cómo repercuten estas acciones en los mercados para ejecutar operaciones. Si el tutorial pudiera estructurarse de acuerdo con esos pasos, mentalmente lleva al principiante a través de todos los movimientos y le hace entender el flujo.. Quizás esto sea prematuro y los siguientes tutoriales están estructurados así, Sin embargo, hacer que este flujo más grande ya sea claro al principio permite a los usuarios colocar sus acciones en una de esas 4 categorías., proporcionando una idea de en qué parte del proceso está interactuando.",
+                "updated": 1636719583916
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -1607,6 +1607,18 @@
                     "propertyName": "eventTypes",
                     "functionName": "newSocialTradingGlobalsSignalTypes",
                     "fileName": "SignalTypes.js"
+                },
+                {
+                    "name": "Post Types",
+                    "propertyName": "postTypes",
+                    "functionName": "newSocialTradingGlobalsPostTypes",
+                    "fileName": "PostTypes.js"
+                },
+                {
+                    "name": "Reaction Types",
+                    "propertyName": "reactionTypes",
+                    "functionName": "newSocialTradingGlobalsReactionTypes",
+                    "fileName": "ReactionTypes.js"
                 }
             ]
         },

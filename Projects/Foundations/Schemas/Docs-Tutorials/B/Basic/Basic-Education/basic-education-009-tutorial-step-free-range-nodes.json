@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn Sie die Option zum Aufheben der Einstellung \"Angle to Parent\" wählen, kann der Knoten jeden beliebigen Winkel relativ zu seinem Elternteil und seinen Geschwistern einnehmen!",
                 "updated": 1634298097508
+            },
+            {
+                "language": "TR",
+                "text": "Ana düğüm açısı ayarını iptal ettiğinizde , düğüm ebeveynine ve kardeşlerine göre herhangi bir açıyı almakta serbesttir!",
+                "updated": 1636747810405
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Rufen Sie das Menü des Knotens \"Trading Parameters\" auf, wählen Sie die Option zum Aufheben der Einstellung \"Angle to Parent\" und bewegen Sie den Knoten in eine beliebige Richtung!",
                     "updated": 1634298112868
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Parametreleri ( Trading Parameters ) düğümünün menüsüne girin, düğüm açısı ayarını iptal etme seçeneğini seçin ve düğümü herhangi bir yöne hareket ettirin!",
+                    "updated": 1636747904764
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Wie Sie sehen können, bleibt der Knoten an der Stelle, an der Sie ihn verlassen haben, und die gepunktete Linie, die ihn mit seinem übergeordneten Knoten verbindet, wird gelb. Beachten Sie, dass sowohl der Winkel zum übergeordneten Knoten als auch der Abstand willkürlich werden.",
                     "updated": 1634298120484
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, düğüm bıraktığınız yerde kalıyor ve ebeveynine bağlanan noktalı çizgi sarıya dönüyor. Hem ana düğüme olan açının hem de uzaklığın keyfi hale geldiğine dikkat edin.",
+                    "updated": 1636747945735
                 }
             ]
         }

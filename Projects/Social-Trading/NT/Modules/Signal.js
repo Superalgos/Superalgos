@@ -20,6 +20,7 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         targetPostHash: undefined,
         /* Signal Unique Properties */
         signalType: undefined,
+        signalData: undefined,
         timestamp: undefined,
         /* Bot Related Properties */
         botAsset: undefined,
@@ -48,6 +49,7 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         thisObject.emitterPostHash = signalReceived.emitterPostHash
         thisObject.targetPostHash = signalReceived.targetPostHash
         thisObject.signalType = signalReceived.signalType
+        thisObject.signalData = signalReceived.signalData
         thisObject.timestamp = signalReceived.timestamp
         thisObject.botAsset = signalReceived.botAsset
         thisObject.botExchange = signalReceived.botExchange
@@ -97,295 +99,39 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
             }
         }
 
-        if (postingSignals()) { 
+        if (tradingSignals()) {
             signalCounters()
-            return 
-        }
-        if (followingSignals()) { 
-            signalCounters()
-            return 
-        }
-        if (reactionSignals()) { 
-            signalCounters()
-            return 
-        }
-        if (botSignals()) { 
-            signalCounters()
-            return 
+            return
         }
 
-        function postingSignals() {
+        function tradingSignals() {
             /*
-            Is it related to Posting?
+            Is it related to Trading?
             */
             if (
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.NEW_USER_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPLY_TO_USER_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPOST_USER_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.QUOTE_REPOST_USER_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.NEW_BOT_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPLY_TO_BOT_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPOST_BOT_POST ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.QUOTE_REPOST_BOT_POST
+                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.TRIGGER_ON ||
+                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.TRIGGER_OFF ||
+                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.TAKE_POSITION ||
+                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.CLOSE_POSITION
             ) {
                 /*
-                New User Post
+                We will create a new Bot Post with the Signal info attached to it.
                 */
-                if (
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.NEW_USER_POST ||
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPLY_TO_USER_POST ||
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPOST_USER_POST ||
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.QUOTE_REPOST_USER_POST
-                ) {
-                    emitterUserProfile.addPost(
-                        thisObject.emitterUserProfileId,
-                        thisObject.targetUserProfileId,
-                        thisObject.emitterPostHash,
-                        thisObject.targetPostHash,
-                        thisObject.signalType - 10,
-                        thisObject.timestamp
-                    )
-                    return true
+                if (emitterBotProfile === undefined) {
+                    throw ('Emitter Bot Profile Id Not Provided.')
                 }
-                /*
-                New Bot Post
-                */
-                if (
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.NEW_BOT_POST ||
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPLY_TO_BOT_POST ||
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REPOST_BOT_POST ||
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.QUOTE_REPOST_BOT_POST
-                ) {
-                    if (emitterBotProfile === undefined) {
-                        throw ('Emitter Bot Profile Id Not Provided.')
-                    }
 
-                    emitterBotProfile.addPost(
-                        thisObject.emitterUserProfileId,
-                        thisObject.targetUserProfileId,
-                        thisObject.emitterBotProfileId,
-                        thisObject.targetBotProfileId,
-                        thisObject.emitterPostHash,
-                        thisObject.targetPostHash,
-                        thisObject.signalType - 20,
-                        thisObject.timestamp
-                    )
-                    return true
-                }
-                /*
-                Remove User Post
-                */
-                if (
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_USER_POST
-                ) {
-                    emitterUserProfile.removePost(
-                        thisObject.emitterPostHash
-                    )
-                    return true
-                }
-                /*
-                Remove Bot Post
-                */
-                if (
-                    thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_BOT_POST
-                ) {
-                    if (emitterBotProfile === undefined) {
-                        throw ('Emitter Bot Profile Id Not Provided.')
-                    }
-
-                    emitterBotProfile.removePost(
-                        thisObject.emitterPostHash
-                    )
-                    return true
-                }
-            }
-        }
-
-        function followingSignals() {
-            /*
-            Is it a following?
-            */
-            if (
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.FOLLOW_USER_PROFILE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.UNFOLLOW_USER_PROFILE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.FOLLOW_BOT_PROFILE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.UNFOLLOW_BOT_PROFILE
-            ) {
-                switch (thisObject.signalType) {
-                    case SA.projects.socialTrading.globals.signalTypes.FOLLOW_USER_PROFILE: {
-
-                        if (thisObject.emitterUserProfileId === undefined) {
-                            throw ('Emitter User Profile Id Not Provided.')
-                        }
-
-                        if (thisObject.targetUserProfileId === undefined) {
-                            throw ('Target User Profile Id Not Provided.')
-                        }
-
-                        emitterUserProfile.addFollowing(
-                            thisObject.targetUserProfileId
-                        )
-                        targetUserProfile.addFollower(
-                            thisObject.emitterUserProfileId
-                        )
-                        break
-                    }
-                    case SA.projects.socialTrading.globals.signalTypes.UNFOLLOW_USER_PROFILE: {
-
-                        if (thisObject.emitterUserProfileId === undefined) {
-                            throw ('Emitter User Profile Id Not Provided.')
-                        }
-
-                        if (thisObject.targetUserProfileId === undefined) {
-                            throw ('Target User Profile Id Not Provided.')
-                        }
-
-                        emitterUserProfile.removeFollowing(
-                            thisObject.targetUserProfileId
-                        )
-                        targetUserProfile.removeFollower(
-                            thisObject.emitterUserProfileId
-                        )
-                        break
-                    }
-                    case SA.projects.socialTrading.globals.signalTypes.FOLLOW_BOT_PROFILE: {
-
-                        if (thisObject.emitterBotProfileId === undefined) {
-                            throw ('Emitter Bot Profile Id Not Provided.')
-                        }
-
-                        if (thisObject.targetBotProfileId === undefined) {
-                            throw ('Target Bot Profile Id Not Provided.')
-                        }
-
-                        emitterBotProfile.addFollowing(
-                            thisObject.targetUserProfileId,
-                            thisObject.targetBotProfileId
-                        )
-                        targetBotProfile.addFollower(
-                            thisObject.emitterUserProfileId,
-                            thisObject.emitterBotProfileId
-                        )
-                        break
-                    }
-                    case SA.projects.socialTrading.globals.signalTypes.UNFOLLOW_BOT_PROFILE: {
-
-                        if (thisObject.emitterBotProfileId === undefined) {
-                            throw ('Emitter Bot Profile Id Not Provided.')
-                        }
-
-                        if (thisObject.targetBotProfileId === undefined) {
-                            throw ('Target Bot Profile Id Not Provided.')
-                        }
-
-                        emitterBotProfile.removeFollowing(
-                            thisObject.targetBotProfileId
-                        )
-                        targetBotProfile.removeFollower(
-                            thisObject.emitterBotProfileId
-                        )
-                        break
-                    }
-                }
+                emitterBotProfile.addPost(
+                    thisObject.emitterUserProfileId,
+                    thisObject.targetUserProfileId,
+                    thisObject.emitterBotProfileId,
+                    thisObject.targetBotProfileId,
+                    thisObject.emitterPostHash,
+                    thisObject.targetPostHash,
+                    thisObject.signalType - 20,
+                    thisObject.timestamp
+                )
                 return true
-            }
-        }
-
-        function reactionSignals() {
-            /*
-            Is it a Reaction?
-            */
-            let targetPost
-
-            if (
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_LIKE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_LOVE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_HAHA ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_WOW ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_SAD ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_ANGRY ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_REACTION_CARE
-            ) {
-
-                if (targetBotProfile !== undefined) {
-                    targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
-                } else {
-                    targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
-                }
-
-                if (targetPost === undefined) {
-                    throw ('Target Post Not Found')
-                }
-
-                targetPost.addReaction(thisObject.signalType - 100)
-                return  true
-            }
-            if (
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_LIKE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_LOVE ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_HAHA ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_WOW ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_SAD ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_ANGRY ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_REACTION_CARE
-            ) {
-
-                if (targetBotProfile !== undefined) {
-                    targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
-                } else {
-                    targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
-                }
-
-                if (targetPost === undefined) {
-                    throw ('Target Post Not Found')
-                }
-
-                targetPost.removeReaction(thisObject.signalType - 200)
-                return  true
-            }
-        }
-
-        function botSignals() {
-            /*
-            Is it a Bot?
-            */
-            if (
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_BOT ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.REMOVE_BOT ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ENABLE_BOT ||
-                thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.DISABLE_BOT
-            ) {
-                switch (thisObject.signalType) {
-                    case SA.projects.socialTrading.globals.signalTypes.ADD_BOT: {
-                        emitterUserProfile.addBot(
-                            thisObject.emitterUserProfileId,
-                            thisObject.emitterBotProfileId,
-                            thisObject.botAsset,
-                            thisObject.botExchange,
-                            thisObject.botEnabled
-                        )
-                        break
-                    }
-                    case SA.projects.socialTrading.globals.signalTypes.REMOVE_BOT: {
-                        emitterUserProfile.removeBot(
-                            thisObject.emitterBotProfileId
-                        )
-                        break
-                    }
-                    case SA.projects.socialTrading.globals.signalTypes.ENABLE_BOT: {
-                        emitterUserProfile.enableBot(
-                            thisObject.emitterBotProfileId
-                        )
-                        break
-                    }
-                    case SA.projects.socialTrading.globals.signalTypes.DISABLE_BOT: {
-                        emitterUserProfile.disableBot(
-                            thisObject.emitterBotProfileId
-                        )
-                        break
-                    }
-                }
-                return  true
             }
         }
 

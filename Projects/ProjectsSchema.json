@@ -1601,6 +1601,12 @@
                     "propertyName": "eventTypes",
                     "functionName": "newSocialTradingGlobalsEventTypes",
                     "fileName": "EventTypes.js"
+                },
+                {
+                    "name": "Signal Types",
+                    "propertyName": "eventTypes",
+                    "functionName": "newSocialTradingGlobalsSignalTypes",
+                    "fileName": "SignalTypes.js"
                 }
             ]
         },

@@ -343,6 +343,7 @@ function newWorkspace() {
 
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
+                    UI.projects.foundations.spaces.codeEditorSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2
                     break
@@ -446,7 +447,7 @@ function newWorkspace() {
 
                         UI.projects.governance.spaces.reportsSpace.reset()
                         UI.projects.governance.spaces.userProfileSpace.reset()
-
+                        UI.projects.foundations.spaces.codeEditorSpace.reset()
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()
 

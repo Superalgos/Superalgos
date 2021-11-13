@@ -211,7 +211,7 @@ function newFoundationsCodeEditorEditorPage() {
     /**
      * The autocomplete models will be based on:
      * 1.  Existing code in the data mines -> we will create models for each code node (it's like opening multiple files in vscode)
-     * 2.  Formulas from data mines by creating an object representation of all formulas see implementation below than passing it to the monaco registerCompletionItemProvider
+     * 2.  Formulas from data mines by creating an object representation of all formulas see implementation below then passing it to the monaco registerCompletionItemProvider
      * 2.  Trading engine loaded into the workspace - we create an obj. representation using getProtocolNode and we are using monaco registerCompletionItemProvider
      *
      */

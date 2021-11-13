@@ -3,6 +3,7 @@ function newFoundationsCodeEditorEditorPage() {
         originatingNode: undefined,
         editorType: undefined,
         render: render,
+        reset:reset,
         initialize: initialize,
         finalize: finalize
     }
@@ -38,6 +39,10 @@ function newFoundationsCodeEditorEditorPage() {
 
     }
 
+    function reset() {
+        finalize()
+        initialize()
+    }
 
     function render(originatingNode, editorType) {
 
@@ -351,7 +356,6 @@ function newFoundationsCodeEditorEditorPage() {
             objectMerge(chartMarketExchangeObj, stringRepresentation.split('.').reduceRight((o, x) => ({[x]: o}), ""))
         })
 
-        console.log(chartMarketExchangeObj)
 
         function objectMerge(target, source) {
             for (const key of Object.keys(source)) {

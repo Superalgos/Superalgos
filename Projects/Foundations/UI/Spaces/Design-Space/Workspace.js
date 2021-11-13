@@ -705,6 +705,9 @@ function newWorkspace() {
             executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
             executeAction({ name: 'Connect Children to Reference Parents', project: 'Visual-Scripting' })
 
+            // Recreate autocomplete models
+            UI.projects.foundations.spaces.codeEditorSpace.editorPage.reset()
+
             droppedNode = undefined
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] spawn -> err = ' + err.stack) }

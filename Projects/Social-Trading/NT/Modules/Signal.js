@@ -128,8 +128,10 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
                     thisObject.targetBotProfileId,
                     thisObject.emitterPostHash,
                     thisObject.targetPostHash,
-                    thisObject.signalType - 20,
-                    thisObject.timestamp
+                    SA.projects.socialTrading.globals.postTypes.SIGNAL_POST,
+                    thisObject.timestamp,
+                    thisObject.signalType,
+                    thisObject.signalData
                 )
                 return true
             }

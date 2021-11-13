@@ -23,6 +23,9 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         /* Post Unique Properties */
         postType: undefined,
         timestamp: undefined,
+        /* Signal Related Properties */
+        signalType: undefined,
+        signalData: undefined,        
         /* Maps */
         replies: undefined,
         reactions: undefined,
@@ -60,7 +63,9 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         emitterPostHash,
         targetPostHash,
         postType,
-        timestamp
+        timestamp,
+        signalType,
+        signalData
     ) {
 
         thisObject.emitterUserProfileId = emitterUserProfileId
@@ -71,13 +76,15 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp
+        thisObject.signalType = signalType
+        thisObject.signalData = signalData        
         /*
         Let's find the Target Post
         */
         if (
             thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPLY_TO_POST ||
-            thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPOST_ ||
-            thisObject.postType === SA.projects.socialTrading.globals.postTypes.QUOTE_REPOST_
+            thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPOST ||
+            thisObject.postType === SA.projects.socialTrading.globals.postTypes.QUOTE_REPOST
         ) {
             /*
             Validate Target User Profile.

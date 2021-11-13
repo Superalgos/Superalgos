@@ -12,7 +12,6 @@ function newFoundationsCodeEditorEditorPage() {
     let monacoEditor = undefined
     let codeString = ''
     let stringObjects = []
-    let assetsArray = []
     let tradingEngineObj = undefined
     let recordFormulasObj = {}
     let chartMarketExchangeObj = {}
@@ -283,7 +282,7 @@ function newFoundationsCodeEditorEditorPage() {
                                             let timeFrame = 'at' + tf.replace('-', '')
 
                                             stringObjects.push(chartObjectPrefix + timeFrame + '.' + productName + '.' + propertyName)
-                                            for (let i = 1; i === numberOfPreviousSuffixes; i++) {
+                                            for (let i = 1; i <= numberOfPreviousSuffixes; i++) {
                                                 stringObjects.push(chartObjectPrefix + timeFrame + getPreviousSuffixTimes(i) + productName + dot + propertyName)
                                             }
 

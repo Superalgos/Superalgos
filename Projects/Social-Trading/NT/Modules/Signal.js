@@ -1,10 +1,12 @@
 exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal() {
     /*
-    An Signal is an action taken by users that triggers a
-    change at the social graph. 
+    A Signal is an action taken by a bot that needs to be 
+    delivered to all the followers of that bot respecting
+    the rule to deliver it fist to the bots belonging to 
+    users with the highers ranking. 
 
-    An Signal (in contrast to a Query) produces a change
-    on the state of the social graph. 
+    An Signal is attached to the Social Graph as a new post
+    from the Bot producing the signal.
     */
     let thisObject = {
         /* Unique Key */
@@ -114,7 +116,7 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
 
         function postingSignals() {
             /*
-            Is is related to Posting?
+            Is it related to Posting?
             */
             if (
                 thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.NEW_USER_POST ||
@@ -201,7 +203,7 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
 
         function followingSignals() {
             /*
-            Is is a following?
+            Is it a following?
             */
             if (
                 thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.FOLLOW_USER_PROFILE ||
@@ -291,7 +293,7 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
 
         function reactionSignals() {
             /*
-            Is is a Reaction?
+            Is it a Reaction?
             */
             let targetPost
 
@@ -345,7 +347,7 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
 
         function botSignals() {
             /*
-            Is is a Bot?
+            Is it a Bot?
             */
             if (
                 thisObject.signalType === SA.projects.socialTrading.globals.signalTypes.ADD_BOT ||

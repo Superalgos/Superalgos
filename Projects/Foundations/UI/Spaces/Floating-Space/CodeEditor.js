@@ -5,7 +5,6 @@
  * Entire functionality is provided by CodeEditor Space
  */
 function newCodeEditor() {
-    const MODULE_NAME = 'Code Editor'
 
     let thisObject = {
         activate: activate,
@@ -13,11 +12,6 @@ function newCodeEditor() {
     }
 
     return thisObject
-
-
-    function finalize() {
-
-    }
 
     function initialize() {
 

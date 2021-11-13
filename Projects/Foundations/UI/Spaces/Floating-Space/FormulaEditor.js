@@ -5,7 +5,6 @@
  * Entire functionality is provided by CodeEditor Space
  */
 function newFormulaEditor() {
-    const MODULE_NAME = 'Formula Editor'
 
     let thisObject = {
         activate: activate,
@@ -14,10 +13,6 @@ function newFormulaEditor() {
 
     return thisObject
 
-
-    function finalize() {
-
-    }
 
     function initialize() {
 

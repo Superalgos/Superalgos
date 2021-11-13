@@ -5,7 +5,6 @@
  * Entire functionality is provided by CodeEditor Space
  */
 function newConfigEditor() {
-    const MODULE_NAME = 'Config Editor'
 
     let thisObject = {
         activate: activate,
@@ -14,10 +13,6 @@ function newConfigEditor() {
 
     return thisObject
 
-
-    function finalize() {
-
-    }
 
     function initialize() {
 

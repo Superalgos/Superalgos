@@ -11,6 +11,11 @@
                 "text": "Halaman Docs dari Superalgos dan proyek lainnya, tertulis dengan bahasa Inggris. Adapun Sistem ini membantu anda untuk mencari dan menjelajah halaman dalam bahasa berbeda, selama anda sebelumnya telah berkontribusi dalam penerjemahan yang sesuai.",
                 "updated": 1613857356680,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben.",
+                "updated": 1636750464649
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Bahasa Inggris dianggap sebagai bahasa default. Saat anda beralih ke bahasa lain, sistem mencoba menampilkan konten dalam bahasa baru. Namun, jika terjemahan belum tersedia, maka yang tampil hanya versi bahasa Inggris saja.",
                     "updated": 1613857511193,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
+                    "updated": 1636750474063
                 }
             ]
         },
@@ -37,21 +47,48 @@
                     "text": "Tipe Node, nama variable, judul halaman di Docs, dan beberapa elemen Superalgos lainnya tidak boleh diterjemahkan, karena merupakan bagian unik dari elemen Superalgos. Anda akan selalu membacanya dalam bahasa Inggris.",
                     "updated": 1613857742821,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
+                    "updated": 1636750480917
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "If you wish to contribute translations, read the How to Contribute Translations page."
+            "text": "If you wish to contribute translations, read the How to Contribute Translations page.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "enn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
+                    "updated": 1636750495638
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "To switch languages, click on the flags on the footer of the Docs."
+            "text": "Users can switch between languages using the links/Flags provided at the footer of every page at the Docs.",
+            "updated": 1636749263074,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
+                    "updated": 1636750521606
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "You may only add or delete pages to the Docs when the language is set to English.",
-            "updated": 1613820648230
+            "text": "You may only add or delete pages to the Docs when the language is set to English. For the translation you have to select the language you want to translate into. (In this case bahasa)",
+            "updated": 1636749282438,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können nur Seiten zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten. ",
+                    "updated": 1636750535105
+                }
+            ]
         }
     ]
 }

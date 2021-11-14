@@ -5,7 +5,7 @@
     "definition": {
         "text": "Remember I said that the plugin file is loaded every time the workspace is loaded? This feature has an immediate consequence...",
         "icon": {
-            "name": "Bullet\\bullet-error",
+            "name": "bullet-error",
             "project": "Foundations"
         },
         "updated": 1615978752612,

@@ -5,7 +5,7 @@
     "definition": {
         "icon": {
             "name": "indicator-bot",
-            "project": "Foundations"
+            "project": "Data-Mining"
         },
         "text": "Talking about block-building, we are now in the confines of the Masters Data Mine. To your left, the definition of one of the bots you sent mining minutes ago.",
         "translations": [

@@ -80,8 +80,8 @@
         },
         {
             "style": "Callout",
-            "text": "Scroll down the Docs page to the footer and select Plugins-Docs as your Contributions Branch! It's the option on the right-hand side, not in the center!",
-            "updated": 1619794957137,
+            "text": "Scroll down the Docs page to the footer and select Develop as your Contributions Branch! It's the option on the right-hand side, not in the center!",
+            "updated": 1636912795665,
             "translations": [
                 {
                     "language": "IT",

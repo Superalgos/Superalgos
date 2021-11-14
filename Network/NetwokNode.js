@@ -69,8 +69,8 @@ exports.newNetworkNode = function newNetworkNode() {
             /*
             Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
             */
-            thisObject.webSocketsInterface = NT.projects.network.modules.webHttpInterface.newNetworkModulesHttpInterface()
-            thisObject.webSocketsInterface.initialize()
+            thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
+            thisObject.httpInterface.initialize()
             console.log('Network Node Http Interface .................................................. Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webPort)
         }
     }

@@ -2,7 +2,14 @@
     "type": "Supervised Learning",
     "definition": {
         "text": "Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples. In supervised learning, each example is a pair consisting of an input object (typically a vector) and a desired output value (also called the supervisory signal).",
-        "updated": 1613197014944
+        "updated": 1613197014944,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Контролируемое обучение - это задача машинного\nобучения по изучению функции, которая направляет входные данные с выходными на основе пар ввода-вывода. Она вводит функцию из помеченных обучающих данных, состоящих из набора обучающих примеров. В обучении под наблюдением каждый пример представляет пару, состоящую из входного объекта (обычно вектора) и желаемого выходного значения (также называемого управляющий сигналом)",
+                "updated": 1636748807235
+            }
+        ]
     },
     "paragraphs": [
         {

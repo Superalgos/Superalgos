@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Angenommen, Sie wollen eine Strategie mit verschiedenen Parametersätzen testen, dann erstellen Sie ein Backup des Knotens Trading Parameters!",
                 "updated": 1634333373800
+            },
+            {
+                "language": "TR",
+                "text": "Diyelim ki farklı parametre setleriyle bir stratejiyi test etmek istiyorsunuz, bu nedenle İşlem Parametreleri düğümünün yedeğini alabilirsiniz!",
+                "updated": 1636790169192
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Machen Sie weiter und nehmen Sie die Sicherung! Jetzt, da Sie eine Sicherungskopie aller Trading Parameter haben, können Sie jede Änderung vornehmen, denn Sie wissen, dass Sie jederzeit auf Ihre Sicherungskopie zurückgreifen können! Wenn Sie mit Chrome arbeiten, muss das Backup in der unteren linken Ecke des Browserfensters sichtbar sein.",
                     "updated": 1634333390672
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam edin ve yedeği alın! Artık tüm İşlem Parametrelerinin ( Trading Parameter ) bir yedeğine sahip olduğunuza göre, her zaman yedeğinize geri dönebileceğinizi bilerek herhangi birini değiştirebilirsiniz! Chrome kullanıyorsanız, yedekleme, tarayıcı penceresinin sol alt köşesinde görünmelidir.",
+                    "updated": 1636790152231
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Ziehen Sie nun die Sicherungsdatei und legen Sie sie im Design Space ab! So stellen Sie ein Backup wieder her!",
                     "updated": 1634333401730
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi yedekleme dosyasını sürükleyin ve Tasarım Alanına ( Design Space ) bırakın! Bir yedeği bu şekilde geri yüklersiniz!",
+                    "updated": 1636790223553
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Einfach, oder? Im nächsten Schritt zeige ich Ihnen, wie Sie wieder die Originalversion verwenden können!",
                     "updated": 1634333412661
+                },
+                {
+                    "language": "TR",
+                    "text": "Kolay değil mi? Bir sonraki adımda, orijinal sürümü kullanmaya nasıl geri döneceğinizi göstereceğim!",
+                    "updated": 1636790201614
                 }
             ]
         }

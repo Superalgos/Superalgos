@@ -5,6 +5,8 @@ function newFoundationsCodeEditorSpace() {
         sidePanelTab: undefined,
         container: undefined,
         editorPage: undefined,
+        isVisible: undefined,
+        reset: reset,
         openSpaceArea: openSpaceArea,
         physics: physics,
         draw: draw,
@@ -23,15 +25,24 @@ function newFoundationsCodeEditorSpace() {
     return thisObject
 
     function finalize() {
-        thisObject.sidePanelTab = undefined
+        if (isInitialized === false) { return }
+
+        thisObject.container.finalize()
+        thisObject.container = undefined
+
 
         canvas.eventHandler.stopListening(browserResizedEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(openingEventSubscriptionId)
         thisObject.sidePanelTab.container.eventHandler.stopListening(closingEventSubscriptionId)
+        UI.projects.foundations.spaces.sideSpace.deleteSidePanelTab('Foundations', 'javascript-code', 'Code', 'right')
+
+        thisObject.editorPage.finalize()
+        thisObject.editorPage = undefined
+
+        isInitialized = false
     }
 
     function initialize() {
-
         thisObject.container = newContainer()
         thisObject.container.name = MODULE_NAME
         thisObject.container.initialize()
@@ -43,10 +54,7 @@ function newFoundationsCodeEditorSpace() {
         resize()
 
         thisObject.editorPage = newFoundationsCodeEditorEditorPage()
-        thisObject.footer = newGovernanceReportsFooter() // Reuse simple footer
-
         thisObject.editorPage.initialize()
-        thisObject.footer.initialize()
 
         thisObject.sidePanelTab = UI.projects.foundations.spaces.sideSpace.createSidePanelTab(thisObject.container, 'Foundations', 'javascript-code', 'Code', 'right')
 
@@ -64,6 +72,11 @@ function newFoundationsCodeEditorSpace() {
 
         thisObject.sidePanelTab.open()
         thisObject.editorPage.render(originatingNode, codeEditorType)
+    }
+
+    function reset() {
+         finalize()
+         initialize()
     }
 
     function physics() {
@@ -92,11 +105,11 @@ function newFoundationsCodeEditorSpace() {
     }
 
     function onOpening() {
-
+        thisObject.isVisible = true
     }
 
     function onClosing() {
-
+        thisObject.isVisible = false
     }
 
     function draw() {

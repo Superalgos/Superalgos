@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die nächste Option im Menü steuert den Abstand zwischen dem Unterknoten und seinem Übergeordneten Knoten. Durch Klicken auf die Schaltfläche werden die Optionen durchlaufen.",
                 "updated": 1634332176300
+            },
+            {
+                "language": "TR",
+                "text": "Menüdeki bir sonraki seçenek, düğümden ebeveynine olan mesafeyi kontrol eder. Düğmeye tıklamak seçenekler arasında geçiş yapar.",
+                "updated": 1636748818153
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Der Abstand eines Knotens zu seinem übergeordneten Knoten wird relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten festgelegt. Die verfügbaren Optionen sind:",
                     "updated": 1634332213957
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümden ebeveynine olan mesafe, ebeveynden ebeveyn düğümüne olan mesafeye göre ayarlanır. Mevcut seçenekler şunlardır:",
+                    "updated": 1636748858484
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Rosa: 0.25X",
                     "updated": 1634332245055
+                },
+                {
+                    "language": "TR",
+                    "text": "Pink (Pembe): 0.25X",
+                    "updated": 1636748869618
                 }
             ]
         },
@@ -81,6 +96,11 @@
                     "text": "Arancione: 0.5X",
                     "updated": 1619460530100,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Orange (Kavuniçi): 0.5X",
+                    "updated": 1636748886700
                 }
             ]
         },
@@ -98,6 +118,11 @@
                     "language": "DE",
                     "text": "Grün: 1X",
                     "updated": 1634332224238
+                },
+                {
+                    "language": "TR",
+                    "text": "Green (Yeşil): 1X",
+                    "updated": 1636748898393
                 }
             ]
         },
@@ -115,6 +140,11 @@
                     "language": "DE",
                     "text": "Blau: 1.5X",
                     "updated": 1634332228958
+                },
+                {
+                    "language": "TR",
+                    "text": "Blue (Mavi): 1.5X",
+                    "updated": 1636749062176
                 }
             ]
         },
@@ -132,6 +162,11 @@
                     "language": "DE",
                     "text": "Rot: 2X",
                     "updated": 1634332233805
+                },
+                {
+                    "language": "TR",
+                    "text": "Red (Kırmızı): 2X",
+                    "updated": 1636749080979
                 }
             ]
         },
@@ -156,6 +191,11 @@
                     "language": "DE",
                     "text": "Nehmen wir an, Sie wählen die grüne Option. Der Abstand des Knotens zu seinem übergeordneten Knoten ist derselbe Abstand, der den übergeordneten Knoten von seinem übergeordneten Knoten trennt!",
                     "updated": 1634332187256
+                },
+                {
+                    "language": "TR",
+                    "text": "Diyelim ki yeşil seçeneği seçtiniz. Düğümden ebeveynine olan mesafe, ebeveyn düğümünden ayıran mesafeyle aynı olacaktır!",
+                    "updated": 1636749146092
                 }
             ]
         }

@@ -7,20 +7,48 @@
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "The first dimension we should define is what type of strategy the hypothesis is aimed at."
+        "text": "The first dimension we should define is what type of strategy the hypothesis is aimed at.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La primera dimensión que debemos definir es a qué tipo de estrategia se dirige la hipótesis.",
+                "updated": 1636724926593
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "A simple rule-of-thumb is determining if it is a scalping, day-trading, swing trading, or position trading strategy."
+            "text": "A simple rule-of-thumb is determining if it is a scalping, day-trading, swing trading, or position trading strategy.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una regla empírica simple es determinar si es una estrategia scalping, day-trading, swing trading, o position trading",
+                    "updated": 1636724992046
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "This definition provides a notion of the expected holding period, that is, the average time range expected for each position to be open."
+            "text": "This definition provides a notion of the expected holding period, that is, the average time range expected for each position to be open.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta definición proporciona una noción del período de tenencia esperado, es decir, el rango de tiempo promedio esperado para que cada posición esté abierta.",
+                    "updated": 1636725015797
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The value of such a definition is that it provides a guideline as to what time frames to analyze to determine the existence of trends."
+            "text": "The value of such a definition is that it provides a guideline as to what time frames to analyze to determine the existence of trends.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El valor de tal definición es que proporciona una guía sobre qué marcos de tiempo analizar para determinar la existencia de tendencias.",
+                    "updated": 1636725046243
+                }
+            ]
         }
     ]
 }

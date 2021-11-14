@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Backups sind sehr leistungsfähig, und es gibt mehrere Anwendungsfälle! Wenn Sie auf die Schaltfläche \"Backup\" klicken, werden der Knoten und seine Unterknoten in einer JSON-Datei gespeichert!",
                 "updated": 1634333266362
+            },
+            {
+                "language": "TR",
+                "text": "Yedeklemeler ( Backups ) çok güçlüdür ve çeşitli kullanım durumları vardır! Düğmeye tıkladığınızda, düğüm ve yavruları bir JSON dosyasına kaydedilir!",
+                "updated": 1636789947185
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie können eine Struktur von Knoten sichern, um Ihre Arbeit zu schützen oder um eine Kopie der Struktur in ihrem aktuellen Zustand zu erhalten.",
                     "updated": 1634333291426
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışmanızı korumak veya yapının bir kopyasını mevcut durumunda tutmak için bir düğüm yapısını yedeklemek isteyebilirsiniz.",
+                    "updated": 1636789960355
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Machen Sie ein Backup des Lightning Strike trading system und überprüfen Sie Ihren Download-Ordner!",
                     "updated": 1634333312934
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike ticaret sisteminin yedeğini alın ve indirilenler klasörünüzü kontrol edin!",
+                    "updated": 1636789977365
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "DE",
                     "text": "Die Datei wird vom Browser heruntergeladen und im Standardordner Downloads gespeichert. Wenn Sie mehrere Sicherungskopien der gleichen Datei erstellen, benennt der Browser die Datei mit fortlaufenden Nummern um.",
                     "updated": 1634333320554
+                },
+                {
+                    "language": "TR",
+                    "text": "Dosya tarayıcı tarafından indirilir ve varsayılan İndirilenler klasöründe saklanır. Aynı dosyanın birden çok yedeğini alırsanız, tarayıcı dosyayı sıralı sayılarla yeniden adlandırır.",
+                    "updated": 1636789994542
                 }
             ]
         }

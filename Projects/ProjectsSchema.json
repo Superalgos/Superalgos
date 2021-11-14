@@ -573,7 +573,7 @@
                     "functionName": "newFoundationsCodeEditorSpace",
                     "animationPhysicsIndex": 8,
                     "animationDrawIndex": 8,
-                    "onMouseWheelIndex": 5,
+                    "onMouseWheelIndex": 7,
                     "onMouseOverIndex": 6,
                     "onMouseClickIndex": 8,
                     "onMouseDownIndex": 8

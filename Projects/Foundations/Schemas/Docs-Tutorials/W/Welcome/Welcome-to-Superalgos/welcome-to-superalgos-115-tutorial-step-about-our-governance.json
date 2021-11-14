@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Bevor ich Sie mit dem nächsten Tutorial verlasse, müssen Sie wissen, dass Superalgos ein Krypto-Projekt mit verteilter Governance ist!",
                 "updated": 1634248136269
+            },
+            {
+                "language": "TR",
+                "text": "Sizi bir sonraki öğretici ile bırakmadan önce, Superalgos'un dağıtılmış yönetişime sahip bir kripto projesi olduğunu söylemeliyim!",
+                "updated": 1636663470511
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Sie können Superalgos SA Token und Reputation verdienen, indem Sie zum Projekt beitragen.",
                     "updated": 1634248142424
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye katkıda bulunarak Superalgos SA Jetonları ve şöhret kazanabilirsiniz.",
+                    "updated": 1636663501606
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "DE",
                     "text": "Dann können Sie Ihre Token und Ihren Ruf nutzen, um an Governance Programs teilzunehmen.",
                     "updated": 1634248151994
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından, Yönetişim Programlarına katılarak projeye ortak olabilirsiniz.",
+                    "updated": 1636663798196
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "DE",
                     "text": "Die Teilnahme an Governance-Programmen bringt Ihnen mehr Token ein, da die Hilfe bei der Leitung des Projekts an sich schon ein wichtiger Beitrag ist!",
                     "updated": 1634248158681
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye yardımcı olmak başlı başına önemli bir katkı olduğundan, yönetişime katılmak size daha fazla jeton kazandırır!",
+                    "updated": 1636663849195
                 }
             ]
         },
@@ -93,6 +113,11 @@
                     "language": "DE",
                     "text": "Sie können Ihre ersten Token mit dem Airdrops-Programm verdienen, indem Sie einfach Ihr User Profile einrichten. Aber bevor Sie das tun, müssen Sie noch ein paar Tutorials machen, um Ihre Ausbildung zu vervollständigen!",
                     "updated": 1634248167434
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece Kullanıcı Profilinizi ayarlayarak Airdrops Programı ile ilk birkaç jetonunuzu kazanabilirsiniz. Ancak bunu yapmadan önce, eğitiminizi tamamlamak için birkaç ders daha yapmanız gerekiyor!",
+                    "updated": 1636663868574
                 }
             ]
         }

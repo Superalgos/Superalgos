@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Die Superalgos-Plattform ist für Algo-Trader konzipiert. Aber das Projekt erweitert seinen Umfang, um alle Krypto-Nutzer zu bedienen!",
                 "updated": 1634246924903
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Platformu, algo tüccarlarına hizmet etmek için tasarlanmıştır. Ancak proje, tüm kripto kullanıcılarına hitap edecek şekilde kapsamını genişletiyor!",
+                "updated": 1636661912945
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "DE",
                     "text": "Angeregt durch das Protokoll, werden Algo-Händler miteinander konkurrieren, um Handelssignale zu produzieren und zu verbreiten.",
                     "updated": 1634246936645
+                },
+                {
+                    "language": "TR",
+                    "text": "Protokol tarafından teşvik edilen algo tüccarları, ticaret sinyalleri üretmek ve yaymak için rekabet edecek.",
+                    "updated": 1636661931970
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Influencer werden Signalanbieter kuratieren und ausgewählte Signale an ihre Anhängerschaft senden.",
                     "updated": 1634246948725
+                },
+                {
+                    "language": "TR",
+                    "text": "Influencer’lar sinyal sağlayıcıları seçecek ve seçilen sinyalleri takipçilerine yayınlayacak.",
+                    "updated": 1636661965784
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "DE",
                     "text": "Krypto-Nutzer werden den Influencern folgen und ihre Signale kostenlos über eine Handy-, Desktop- oder Server-App erhalten! Diese Apps ermöglichen einfaches automatisches Handeln mit kostenloser Intelligenz, die von Experten erstellt wird!",
                     "updated": 1634246955205
+                },
+                {
+                    "language": "TR",
+                    "text": "Kripto kullanıcıları, influencers'ları takip edecek ve sinyallerini mobil, masaüstü veya sunucu uygulamasında ücretsiz olarak alacak! Bu uygulamalar, uzmanlar tarafından üretilen ücretsiz zeka ile kolay otomatik alım satımı mümkün kılacaktır!",
+                    "updated": 1636662050183
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "DE",
                     "text": "Sowohl Algo-Trader als auch Influencer werden über das Protokoll bezahlt, während Krypto-Nutzer alle Produkte und Dienstleistungen kostenlos erhalten. Ziemlich disruptiv, oder?",
                     "updated": 1634246960533
+                },
+                {
+                    "language": "TR",
+                    "text": "Hem algo tüccarları hem de etkileyiciler protokol tarafından ödenirken, kripto kullanıcıları tüm ürün ve hizmetleri ücretsiz olarak kullanacaklar. Oldukça etkileyici değil mi?",
+                    "updated": 1636662121975
                 }
             ]
         }

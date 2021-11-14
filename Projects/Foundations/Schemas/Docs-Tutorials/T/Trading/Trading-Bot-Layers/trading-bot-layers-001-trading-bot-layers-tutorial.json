@@ -11,6 +11,11 @@
                 "text": "Dieses Tutorial führt dich durch die Layer, die der Trading Bot auf den Charts zur Verfügung stellt, insbesondere die Layer, die mit allen Arten von Trading Sessions verbunden sind. Du wirst einen Backtest des BTC-USDT - Weak-hands Buster - WHB Trading Systems durchführen und einige der Trades erkunden, während du lernst, wie man die Layer verwendet.",
                 "updated": 1623011979138,
                 "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Este tutorial lo guía a través de las capas que ofrece el Trading Bot oen los gráficos, en particular, las capas asociadas con todo tipo de sesiones de Trading. Ejecutará una prueba retrospectiva del sistema BTC-USDT - Weak-hands Buster - WHB de trading y explorar alguno de los trades mientras aprende como usar las capas.",
+                "updated": 1636726168093
             }
         ]
     },

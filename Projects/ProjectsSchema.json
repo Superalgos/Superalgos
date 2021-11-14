@@ -564,6 +564,19 @@
                     "folderName": "Chat-Space",
                     "propertyName": "chatSpace",
                     "functionName": "newFoundationsChatSpace"
+                },
+                {
+                    "name": "Code Editor Space",
+                    "initializationIndex": 8,
+                    "folderName": "CodeEditor-Space",
+                    "propertyName": "codeEditorSpace",
+                    "functionName": "newFoundationsCodeEditorSpace",
+                    "animationPhysicsIndex": 8,
+                    "animationDrawIndex": 8,
+                    "onMouseWheelIndex": 7,
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 8,
+                    "onMouseDownIndex": 8
                 }
             ]
         },
@@ -1376,6 +1389,12 @@
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newNetworkModulesHttpInterface",
+                    "fileName": "HttpInterface.js"
                 }
             ],
             "utilities": []
@@ -1516,6 +1535,12 @@
                     "fileName": "Event.js"
                 },
                 {
+                    "name": "Signal",
+                    "propertyName": "signal",
+                    "functionName": "newSocialTradingModulesSignal",
+                    "fileName": "Signal.js"
+                },                
+                {
                     "name": "Client Interface",
                     "propertyName": "clientInterface",
                     "functionName": "newSocialTradingModulesClientInterface",
@@ -1582,6 +1607,24 @@
                     "propertyName": "eventTypes",
                     "functionName": "newSocialTradingGlobalsEventTypes",
                     "fileName": "EventTypes.js"
+                },
+                {
+                    "name": "Signal Types",
+                    "propertyName": "eventTypes",
+                    "functionName": "newSocialTradingGlobalsSignalTypes",
+                    "fileName": "SignalTypes.js"
+                },
+                {
+                    "name": "Post Types",
+                    "propertyName": "postTypes",
+                    "functionName": "newSocialTradingGlobalsPostTypes",
+                    "fileName": "PostTypes.js"
+                },
+                {
+                    "name": "Reaction Types",
+                    "propertyName": "reactionTypes",
+                    "functionName": "newSocialTradingGlobalsReactionTypes",
+                    "fileName": "ReactionTypes.js"
                 }
             ]
         },
@@ -1592,7 +1635,7 @@
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
                     "functionName": "newDesktopModulesHttpInterface",
-                    "fileName": "httpInterface.js"
+                    "fileName": "HttpInterface.js"
                 },
                 {
                     "name": "Web Sockets Interface",

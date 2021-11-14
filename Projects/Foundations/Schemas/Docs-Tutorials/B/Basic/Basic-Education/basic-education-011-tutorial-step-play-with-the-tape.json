@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Probieren Sie die verschiedenen Entfernungseinstellungen des Lightning Strike Trading System Reference Knoten aus! Machen Sie weiter! Klicken Sie auf die Schaltfläche mit dem \"Maßband\"!",
                 "updated": 1634332512924
+            },
+            {
+                "language": "TR",
+                "text": "Lightning Strike Ticaret Sistemi Referans düğümünün ( Trading System Reference Node ) farklı mesafe ayarlarını deneyin! Devam edelim! Bant düğmesine tıklayın!",
+                "updated": 1636749363536
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Ziemlich einfach, oder? Was passiert nun, wenn der Knoten, den Sie einstellen, selbst Ableger hat?",
                     "updated": 1634332545887
+                },
+                {
+                    "language": "TR",
+                    "text": "Oldukça basit, değil mi? Şimdi, ayarladığınız düğümün kendi yavruları olduğunda ne olur ona bakalım.",
+                    "updated": 1636749391543
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Finden wir es heraus! Klicken Sie einmal auf die Schaltfläche Abstand zum Übergeordneten Knoten auf den Knoten Trading Parameters !",
                     "updated": 1634332609115
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi bulalım! İşlem Parametreleri ( Trading Parameters ) düğümünde Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
+                    "updated": 1636749475116
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Da Sie den Abstand zwischen dem Trading Parameters Knoten und dem Backtesting Session Knoten vergrößert haben, haben sich auch die Unterknoten des Trading Parameters Knotens proportional vergrößert!",
                     "updated": 1634332645315
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Parametreleri düğümünü Geri Test Oturumu (Backtesting Session Node ) düğümünden ayıran mesafeyi artırdığınız için, İşlem Parametreleri ( Trading Parameters ) düğümünün yavruları da orantılı olarak arttı!",
+                    "updated": 1636749564919
                 }
             ]
         },

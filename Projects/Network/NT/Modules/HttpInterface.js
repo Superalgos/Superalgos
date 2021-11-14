@@ -22,7 +22,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
         SA.nodeModules.http.createServer(onHttpRequest).listen(port)
     }
 
-    function onHttpRequest(httpRequest, httpResponse) {
+    async function onHttpRequest(httpRequest, httpResponse) {
         try {
             let requestPathAndParameters = httpRequest.url.split('?') // Remove version information
             let requestPath = requestPathAndParameters[0].split('/')

@@ -484,10 +484,15 @@ function newGovernanceUserProfileSpace() {
                     console.log('[WARN] Error fetching blockchain tokens of user profile ' + userProfile.name)
                     userProfile.payload.blockchainTokens = undefined
                 } else {
+                    let commandResponse = JSON.parse(data)
+                    if (commandResponse.result !== "Ok") {
+                        console.log('[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name)
+                        return
+                    }                    
                     userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
-                    userProfile.payload.blockchainTokens = Number(data)
+                    userProfile.payload.blockchainTokens = Number(commandResponse.balance)
                     console.log('[INFO] SA Balance of ' + userProfile.name + ' is ', userProfile.payload.blockchainTokens)
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                     console.log('[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
@@ -514,10 +519,15 @@ function newGovernanceUserProfileSpace() {
                     console.log('[WARN] Error fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
                     userProfile.payload.blockchainTokens = undefined
                 } else {
+                    let commandResponse = JSON.parse(data)
+                    if (commandResponse.result !== "Ok") {
+                        console.log('[WARN] Web3 Error fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                        return
+                    }
                     userProfile.payload.uiObject.setInfoMessage('Pancake Balance Successfully Loaded for asset ' + asset,
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
-                    userProfile.payload.liquidityTokens[asset] = Number(data)
+                    userProfile.payload.liquidityTokens[asset] = Number(commandResponse.balance)
                     console.log('[INFO] Liquidity of ' + userProfile.name + ' for asset ' + asset + ' is ', userProfile.payload.liquidityTokens[asset])
                 }
             }

@@ -3,7 +3,14 @@
     "pageNumber": "106.1",
     "type": "Ultimate Social Trading",
     "definition": {
-        "text": "Write a summary for this tutorial page."
+        "text": "Write a summary for this tutorial page.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "\nEscribe un resumen para esta página de tutorial.",
+                "updated": 1636726238351
+            }
+        ]
     },
     "paragraphs": [
         {

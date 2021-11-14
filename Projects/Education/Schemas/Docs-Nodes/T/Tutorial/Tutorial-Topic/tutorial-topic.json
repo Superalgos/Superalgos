@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Учебная тема - это организационное устройство, которое помогает упорядочивать узлы этапов обучения в логической иерархии по темам и подтемам.",
                 "updated": 1635612097339
+            },
+            {
+                "language": "ES",
+                "text": "Un tema de tutorial es un dispositivo organizativo que ayuda a mantener los nodos de los pasos del tutorial organizados en una jerarquía lógica por temas y subtemas.",
+                "updated": 1636724199296
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "Tutorial topics may be nested within other tutorial topics in unlimited levels, and each level may feature multiple tutorial steps."
+            "text": "Tutorial topics may be nested within other tutorial topics in unlimited levels, and each level may feature multiple tutorial steps.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tópicos de Tutorial puede estar anidado dentro de otros temas de tutoriales en niveles ilimitados, y cada nivel puede incluir varios pasos de tutorial.",
+                    "updated": 1636724273370
+                }
+            ]
         },
         {
             "style": "Block",
@@ -26,12 +38,26 @@
         {
             "style": "Title",
             "text": "Tutorial Topic Configuration",
-            "updated": 1609706732502
+            "updated": 1609706732502,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tutorial Topic Configuration  ( configuración del tópico de tutorial)",
+                    "updated": 1636724300562
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The configuration of the tutorial topic node is the same as the Tutorial node. Refer to the latter, please.",
-            "updated": 1613846326015
+            "updated": 1613846326015,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La configuración del nodo del tema del tutorial es la misma que la del nodo Tutorial . Consulte este último, por favor.",
+                    "updated": 1636724347225
+                }
+            ]
         }
     ]
 }

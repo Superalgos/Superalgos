@@ -1861,7 +1861,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let folder = unescape(requestPath[3])
                             let fileName = unescape(requestPath[4])
 
-                            /*v.1.0.0 Refactoring Code: Remove this before releasing v.1.0.0*/
+                            /*Refactoring Code: Remove this before releasing 1.0.0*/
                             if (fileName === 'Superalgos-CL.json') {
                                 fileName = 'Superalgos-PL.json'
                             }

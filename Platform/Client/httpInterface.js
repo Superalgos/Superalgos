@@ -772,7 +772,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     const octokit = new Octokit({
                                         auth: token,
-                                        userAgent: 'Superalgos Beta 12'
+                                        userAgent: 'Superalgos v.1.0'
                                     })
 
                                     const repo = 'Superalgos'
@@ -1347,7 +1347,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             const octokit = new Octokit({
                                                 auth: token,
-                                                userAgent: 'Superalgos Beta 12'
+                                                userAgent: 'Superalgos v.1.0'
                                             })
 
                                             const repo = 'Superalgos'
@@ -1861,7 +1861,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let folder = unescape(requestPath[3])
                             let fileName = unescape(requestPath[4])
 
-                            /*Beta 12 Refactoring Code: Remove this before releasing beta 12.*/
+                            /*v.1.0 Refactoring Code: Remove this before releasing v.1.0.*/
                             if (fileName === 'Superalgos-CL.json') {
                                 fileName = 'Superalgos-PL.json'
                             }

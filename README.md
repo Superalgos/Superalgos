@@ -1,4 +1,4 @@
-# Superalgos v.1.0.0
+# Superalgos 1.0.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)

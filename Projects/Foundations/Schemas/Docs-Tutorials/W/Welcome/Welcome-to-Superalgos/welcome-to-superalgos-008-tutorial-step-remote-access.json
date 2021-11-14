@@ -48,8 +48,9 @@
             {
                 "language": "RU",
                 "text": "Superalgos позволяет запустить Client на машине и получать к нему доступ через браузер с другого компьютера в сети.",
-                "updated": 1635581826996},
-                {
+                "updated": 1635581826996
+            },
+            {
                 "language": "TR",
                 "text": "Superalgos, İstemciyi bir makinede çalıştırmaya ve ağdaki başka bir makineden tarayıcı aracılığıyla ona erişmeye izin verir.",
                 "updated": 1635577594164
@@ -60,7 +61,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Many users choose to run the Client in the cloud, on single-board machines like the Raspberry Pi, or on a dedicated PC that they can leave on at all times when trading live. The My Computer Network Node represents the machine the Client is running on.",
+            "text": "Many users choose to run the Client in the cloud, on single-board machines like the Raspberry Pi, or on a dedicated PC that they can leave on at all times when trading live. The My Computer LAN Network Node represents the machine the Client is running on.",
             "translations": [
                 {
                     "language": "ID",
@@ -101,13 +102,15 @@
                 {
                     "language": "RU",
                     "text": "Многие пользователи предпочитают запускать Client в облаке, на одноплатном устройстве как, например, Raspberry Pi или РС, который они могут оставить включенным в любое время, когда идет торговля в режиме реального времени. My Computer Network Node представляет машину, на которой работает Client.",
-                    "updated": 1635581854422},
-                    {
+                    "updated": 1635581854422
+                },
+                {
                     "language": "TR",
                     "text": "Birçok kullanıcı İstemciyi ( Client ) bulutta, Raspberry Pi gibi makinelerde veya canlı işlem yaparken her zaman açık bırakabilecekleri özel bir bilgisayarda çalıştırmayı tercih eder. Bilgisayarım Ağ Düğümü ( Node ), İstemcinin ( Client ) üzerinde çalıştığı makineyi temsil eder.",
                     "updated": 1635578604315
                 }
-            ]
+            ],
+            "updated": 1636910159513
         },
         {
             "style": "Warning",
@@ -147,8 +150,9 @@
                 {
                     "language": "RU",
                     "text": "На данном этапе Superalgos не гарантирует никакой формы безопасности. Вам следует использовать систему только в контексте местной сети с ограниченным доступом. Если Вы выбрали запустить Client в облаке, Вам необходимо осуществить свою собственную систему безопасности.",
-                    "updated": 1635581868732},
-                    {
+                    "updated": 1635581868732
+                },
+                {
                     "language": "TR",
                     "text": "Bu aşamada Superalgos herhangi bir güvenlik şekli uygulamamaktadır. Sistemi yalnızca kısıtlı bir Yerel Alan Ağı bağlamında kullanmalısınız. İstemciyi bulutta çalıştırmayı seçtiyseniz, kendi güvenliğinizi uygulamanız gerekir.",
                     "updated": 1635578525124

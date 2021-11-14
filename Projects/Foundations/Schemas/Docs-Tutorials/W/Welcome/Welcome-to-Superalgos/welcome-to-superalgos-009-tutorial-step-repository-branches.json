@@ -3,12 +3,12 @@
     "pageNumber": 9,
     "type": "Tutorial Step - Repository Branches",
     "definition": {
-        "text": "The Superalgos repository features three main branches: master, develop, and the one we're looking for, plugins-docs.",
+        "text": "The Superalgos repository features two main branches: master and develop.",
         "icon": {
             "name": "github",
             "project": "Foundations"
         },
-        "updated": 1618143614949,
+        "updated": 1636912658939,
         "translations": [
             {
                 "language": "IT",
@@ -115,8 +115,8 @@
         },
         {
             "style": "List",
-            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase.",
-            "updated": 1618143744374,
+            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
+            "updated": 1636912699736,
             "translations": [
                 {
                     "language": "IT",
@@ -146,41 +146,6 @@
                     "language": "RU",
                     "text": "Develop Branch: Features имеет версию, которая на данный момент находится в разработке. Размещайте материалы кода, влияющие на кодовую базу.",
                     "updated": 1635515640752
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Plugins-Docs Branch: Features the version in the master branch plus the latest changes in the Docs and Plugins. Submit contributions of translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Plugins-Docs Branch: contiene la versione del master branch più le ultime modifiche a Docs e Plugins. Presenta qui i contributi a Docs, tutorial e plugins, come Data Mines, Trading Systems e così via!",
-                    "updated": 1619633285534,
-                    "style": "List"
-                },
-                {
-                    "language": "FR",
-                    "text": "Plugins-Docs Branch: Features la version de la branche Master plus les derniers changements dans les docs et plugins, pour soumettez des contributions concernant traductions, améliorations de la documentation, didacticiels et de plugins, tels que des mines de données, des systèmes de négociation, etc.",
-                    "updated": 1623953153649,
-                    "style": "List"
-                },
-                {
-                    "language": "ES",
-                    "text": "Plugins-Docs Branch: Es la versión en la rama maestra más los últimos cambios en los Documentos y Complementos. Envía contribuciones de traducciones, mejoras en los docs, tutoriales y plugins, como minas de datos, Trading Systems, etc.",
-                    "updated": 1628121938452,
-                    "style": "List"
-                },
-                {
-                    "language": "DE",
-                    "text": "Plugins-Docs Branch: Enthält die Version im Master-Zweig plus die letzten Änderungen in den Docs und Plugins. Reichen Sie Beiträge zu Übersetzungen, Verbesserungen in den Docs, Tutorials und Plugins wie Data Mines, Trading Systems usw. ein!",
-                    "updated": 1634821050724,
-                    "style": "List"
-                },
-                {
-                    "language": "RU",
-                    "text": "Plugins-Docs Branch: Features содержит версию в главном подразделении, а также последние изменения в документах и Plugins. Размещайте материалы переводов, улучшенные версии в документах, учебных пособиях и плагинах, как например: база данных, торговые системы и так далее.",
-                    "updated": 1635516389444
                 }
             ]
         }

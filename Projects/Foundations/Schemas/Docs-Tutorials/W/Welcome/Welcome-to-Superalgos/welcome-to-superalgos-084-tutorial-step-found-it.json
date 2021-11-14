@@ -64,7 +64,7 @@
         },
         {
             "style": "Callout",
-            "text": "Open the menu of the Exit Target Rate node to the left, and click Copy Node Path. Now, open a text editor and paste what you copied.",
+            "text": "Access the menu of the Exit Target Rate node to the left, and click \"Copy node path\". Now, open an external text editor and paste what you copied.",
             "translations": [
                 {
                     "language": "IT",
@@ -88,7 +88,8 @@
                     "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate ) menüsünü açın ve Düğüm Yolunu ( Path) Kopyala'ya tıklayın. Şimdi bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
                     "updated": 1636377404627
                 }
-            ]
+            ],
+            "updated": 1636911911813
         },
         {
             "style": "Text",

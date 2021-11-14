@@ -60,7 +60,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you are accessing the Client from a remote machine, you must adjust the Network Node configuration.",
+            "text": "If you are accessing the Client from a remote machine, you must adjust the LAN Network Node configuration.",
             "translations": [
                 {
                     "language": "ID",
@@ -109,12 +109,12 @@
                     "updated": 1635579070105
                 }
             ],
-            "updated": 1636299988021
+            "updated": 1636909673978
         },
         {
             "style": "List",
-            "text": "Click Configure on the top-right corner of the Network Node menu.",
-            "updated": 1636300153084,
+            "text": "Click Configure on the top-right corner of the LAN Network Node menu.",
+            "updated": 1636909656938,
             "translations": [
                 {
                     "language": "ID",
@@ -172,7 +172,7 @@
         },
         {
             "style": "List",
-            "text": "Change the host parameter for the IP address of the machine running the backend. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss://mydomain.com:443\" config parameter.",
+            "text": "Change the host parameter for the IP address of the machine running the backend. ",
             "translations": [
                 {
                     "language": "ID",
@@ -220,11 +220,21 @@
                     "text": "Измените гостевой параметр для IP-адреса устройства, на котором выполняется серверная часть. If you use a reverse proxy you must manually add \"webSocketsExternalURL\": \"wss://mydomain.com:443\" config parameter.",
                     "updated": 1636194777591
                 }
-            ]
+            ],
+            "updated": 1636909829414
         },
         {
             "style": "List",
-            "text": "Exit the configuration by removing the mouse pointer from the configuration bubble! If the configuration is correct, the error message in the Network Node should disappear in a minute!",
+            "text": "If you use a reverse proxy, add this parameter...",
+            "updated": 1636909970492
+        },
+        {
+            "style": "Json",
+            "text": "\"webSocketsExternalURL\": \"wss://mydomain.com:443\""
+        },
+        {
+            "style": "List",
+            "text": "Now close the editor. If the configuration is correct, the error message should disappear in a minute!",
             "translations": [
                 {
                     "language": "ID",
@@ -278,7 +288,8 @@
                     "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
                     "updated": 1635579204588
                 }
-            ]
+            ],
+            "updated": 1636910042545
         }
     ]
 }

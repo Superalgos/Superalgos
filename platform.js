@@ -18,7 +18,7 @@ if (
 
     console.log('Superalgos')
     console.log('')
-    console.log('VERSION:               v.1.0')
+    console.log('VERSION:               ' + require('package.json').version)
     console.log('')
     console.log('WEB:                   https://www.superalgos.org')
     console.log('')

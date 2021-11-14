@@ -6,8 +6,8 @@
         "text": "Here's the crazy bit... the Plugin File Position node determines where in the workspace the plugin is placed!",
         "updated": 1615921131447,
         "icon": {
-            "name": "Plugins\\plugin-file-position",
-            "project": "Foundations"
+            "name": "plugin-file-position",
+            "project": "Community-Plugins"
         },
         "translations": [
             {

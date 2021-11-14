@@ -36,7 +36,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Select Run All Project Data Tasks on the menu.",
+            "text": "Select \"Run all project data tasks\" on the menu.",
             "translations": [
                 {
                     "language": "IT",
@@ -60,7 +60,8 @@
                     "text": "Menüden Tüm Proje Veri Görevlerini ( Run All Project Data Tasks ) Çalıştır'ı seçin.",
                     "updated": 1636571851561
                 }
-            ]
+            ],
+            "updated": 1636911854931
         },
         {
             "style": "Text",

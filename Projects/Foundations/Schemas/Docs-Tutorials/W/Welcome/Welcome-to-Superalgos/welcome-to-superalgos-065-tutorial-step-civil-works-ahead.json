@@ -75,7 +75,7 @@
         },
         {
             "style": "Note",
-            "text": "If you are curious about what is cooking for the upcoming Superalgos release, join the Superalgos Develop Telegram group.",
+            "text": "If you are curious about what is cooking for the upcoming Superalgos release, join the <a href='https://t.me/superalgosdevelop' target='_blank' style='color:blue;'>Superalgos Develop</a> Telegram group.",
             "translations": [
                 {
                     "language": "IT",

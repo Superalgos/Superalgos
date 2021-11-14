@@ -17,6 +17,7 @@ exports.newEnvironment = function () {
         DESKTOP_WEB_SOCKETS_INTERFACE_HOST: 'localhost',
         PLATFORM_HTTP_INTERFACE_PORT: 34248,
         DESKTOP_HTTP_INTERFACE_PORT: 33248,
+        NETWORK_HTTP_INTERFACE_PORT: 31248,
         PATH_TO_DATA_STORAGE: path.join(basePath, './Platform/My-Data-Storage'),
         PATH_TO_PROJECTS: path.join(basePath, './Projects'),
         PATH_TO_LOG_FILES: path.join(basePath, './Platform/My-Log-Files'),

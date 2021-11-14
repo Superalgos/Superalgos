@@ -161,7 +161,7 @@ function newGovernanceUserProfileSpace() {
                 if (tokenTransfers.length > 9000) {
                     console.log('[WARN] The total amount of BSC SA Token transfers is above 9000. After 10k this method will need pagination or otherwise users will not get their reputation calculated correctly.')
                 } else {
-                    console.log('[INFO] ' + tokenTransfers.length + ' reputation trasactions found at the blockchain. ')
+                    console.log('[INFO] ' + tokenTransfers.length + ' reputation transactions found at the blockchain. ')
                 }
                 waitingForResponses--
             }).catch(function (err) {
@@ -446,89 +446,91 @@ function newGovernanceUserProfileSpace() {
                     userProfile.payload.liquidityTokens = {
                         BTCB: 0,
                         BNB: 0,
-                        BUSD: 0
+                        BUSD: 0,
+                        ETH: 0
                     }
 
-                    waitingForResponses++
-                    waitingForResponses++
-                    waitingForResponses++
-                    waitingForResponses++
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 1, userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 2, userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 3, userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
-                    setTimeout(getBPancakeTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 4, userProfile, blockchainAccount, 'ETH', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_ETH_CONTRACT_ADDRESS)
+                    getBPancakeTokens(userProfile, blockchainAccount, 'BTCB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BTCB_CONTRACT_ADDRESS)
+                    getBPancakeTokens(userProfile, blockchainAccount, 'BNB', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BNB_CONTRACT_ADDRESS)
+                    getBPancakeTokens(userProfile, blockchainAccount, 'BUSD', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_BUSD_CONTRACT_ADDRESS)
+                    getBPancakeTokens(userProfile, blockchainAccount, 'ETH', UI.projects.governance.globals.saToken.SA_TOKEN_BSC_PANCAKE_LIQUIDITY_POOL_ETH_CONTRACT_ADDRESS)
 
                     /* 
                     Now we get the SA Tokens Balance.
                     */
-                    waitingForResponses++
-                    setTimeout(getBlockchainTokens, BSC_SCAN_RATE_LIMIT_DELAY / 6 * 5, userProfile, blockchainAccount)
+                    getBlockchainTokens(userProfile, blockchainAccount)
                 }
             }
         }
 
         function getBlockchainTokens(userProfile, blockchainAccount) {
-            console.log('[INFO] Loading Blockachain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
-            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
+            console.log('[INFO] Loading Blockchain Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount)
 
-            fetch(url).then(function (response) {
-                return response.json();
-            }).then(function (data) {
+            let request = {
+                url: 'WEB3',
+                params: {
+                    method: "getUserWalletBalance",
+                    walletAddress: blockchainAccount,
+                    contractAddress: UI.projects.governance.globals.saToken.SA_TOKEN_BSC_CONTRACT_ADDRESS
+                }
+            }
+
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
+
+            function onResponse(err, data) {
                 userProfile.payload.bloackchainBalancesLoading = false
                 userProfile.payload.isLoading = false
-                if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
+                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
+                    console.log('[WARN] Error fetching blockchain tokens of user profile ' + userProfile.name)
                     userProfile.payload.blockchainTokens = undefined
                 } else {
-                    userProfile.payload.uiObject.setInfoMessage('Blockchan Balance Succesfully Loaded.',
+                    let commandResponse = JSON.parse(data)
+                    if (commandResponse.result !== "Ok") {
+                        console.log('[WARN] Web3 Error fetching blockchain tokens of user profile ' + userProfile.name)
+                        return
+                    }                    
+                    userProfile.payload.uiObject.setInfoMessage('Blockchain Balance Successfully Loaded.',
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
-                    userProfile.payload.blockchainTokens = Number(data.result) / 1000000000000000000
+                    userProfile.payload.blockchainTokens = Number(commandResponse.balance)
                     console.log('[INFO] SA Balance of ' + userProfile.name + ' is ', userProfile.payload.blockchainTokens)
                     userProfile.payload.reputation = Math.min(reputationByAddress.get(blockchainAccount.toLowerCase()) | 0, userProfile.payload.blockchainTokens)
                     console.log('[INFO] Reputation of ' + userProfile.name + ' is ', userProfile.payload.reputation)
                 }
-                waitingForResponses--
-            }).catch(function (err) {
-                const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
-                console.log(message)
-                if (userProfile.payload !== undefined) {
-                    userProfile.payload.uiObject.setErrorMessage(message,
-                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
-                }
-                waitingForResponses--
-            });
+            }
         }
 
         function getBPancakeTokens(userProfile, blockchainAccount, asset, marketContract) {
             console.log('[INFO] Loading Pancake Balance for User Profile: ', userProfile.name, 'blockchainAccount: ', blockchainAccount, 'asset: ', asset)
-            const url = "https://api.bscscan.com/api?module=account&action=tokenbalance&contractaddress=" + marketContract + "&address=" + blockchainAccount + "&tag=latest&apikey=YourApiKeyToken"
 
-            fetch(url).then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                //console.log(data)
-                if (data.result === "Max rate limit reached, please use API Key for higher rate limit") {
-                    console.log('[WARN] Rate Limit Reached fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+            let request = {
+                url: 'WEB3',
+                params: {
+                    method: "getUserWalletBalance",
+                    walletAddress: blockchainAccount,
+                    contractAddress: marketContract
+                }
+            }
+
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
+
+            function onResponse(err, data) {
+                if (err.result === GLOBAL.DEFAULT_FAIL_RESPONSE) {
+                    console.log('[WARN] Error fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
                     userProfile.payload.blockchainTokens = undefined
                 } else {
-                    userProfile.payload.uiObject.setInfoMessage('Pancake Balance Succesfully Loaded for asset ' + asset,
+                    let commandResponse = JSON.parse(data)
+                    if (commandResponse.result !== "Ok") {
+                        console.log('[WARN] Web3 Error fetching liquidity tokens for asset ' + asset + ' of user profile ' + userProfile.name)
+                        return
+                    }
+                    userProfile.payload.uiObject.setInfoMessage('Pancake Balance Successfully Loaded for asset ' + asset,
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
-                    userProfile.payload.liquidityTokens[asset] = Number(data.result) / 1000000000000000000
+                    userProfile.payload.liquidityTokens[asset] = Number(commandResponse.balance)
                     console.log('[INFO] Liquidity of ' + userProfile.name + ' for asset ' + asset + ' is ', userProfile.payload.liquidityTokens[asset])
                 }
-                waitingForResponses--
-            }).catch(function (err) {
-                const message = err.message + ' - ' + 'Can not access BSC SCAN servers.'
-                console.log(message)
-                if (userProfile.payload !== undefined) {
-                    userProfile.payload.uiObject.setErrorMessage(message,
-                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
-                }
-                waitingForResponses--
-            });
+            }
         }
     }
 

@@ -67,6 +67,8 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
+                signalType: post.signalType,
+                signalData: post.signalData,
                 repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions)
             }

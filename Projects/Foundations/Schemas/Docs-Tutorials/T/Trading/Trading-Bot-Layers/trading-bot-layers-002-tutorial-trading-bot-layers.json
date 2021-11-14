@@ -4,8 +4,8 @@
     "type": "Tutorial - Trading Bot Layers",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-bot"
+            "name": "trading-bot",
+            "project": "Algorithmic-Trading"
         },
         "text": "In this tutorial I'll show you how the layers of the Trading Bot work! I mean the ones featured on charts, associated with all types of trading sessions!",
         "updated": 1617106641313,

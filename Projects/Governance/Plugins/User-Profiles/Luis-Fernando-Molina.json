@@ -17236,7 +17236,7 @@
                 "signingAccountChild": {
                     "type": "P2P Network Node",
                     "name": "P2P Network Node # 1",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18042\"\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18042\",\n    \"webPort\": \"31248\"\n}",
                     "project": "Governance",
                     "id": "bb0f0417-9dfb-47a3-941f-dcfa82fbaea1",
                     "savedPayload": {
@@ -17292,7 +17292,7 @@
                 "signingAccountChild": {
                     "type": "P2P Network Node",
                     "name": "P2P Network Node # 2",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18043\"\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18043\",\n    \"webPort\": \"31248\"\n}",
                     "project": "Governance",
                     "id": "76fa8a24-9ab4-4eaf-82f2-458ba557b204",
                     "savedPayload": {
@@ -17348,7 +17348,7 @@
                 "signingAccountChild": {
                     "type": "P2P Network Node",
                     "name": "P2P Network Node # 3",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-3\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18044\"\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-3\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18044\",\n    \"webPort\": \"31248\"\n}",
                     "project": "Governance",
                     "id": "297e57c2-3c1a-4170-b710-d2705804205b",
                     "savedPayload": {

@@ -79,7 +79,7 @@ exports.newGithubServer = function newGithubServer() {
 
                 const octokit = new Octokit({
                     auth: token,
-                    userAgent: 'Superalgos v.1.0'
+                    userAgent: 'Superalgos ' + SA.version
                 })
                 await getList()
 
@@ -207,7 +207,7 @@ exports.newGithubServer = function newGithubServer() {
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
                         auth: token,
-                        userAgent: 'Superalgos v.1.0'
+                        userAgent: 'Superalgos ' + SA.version
                     })
                     await getPrList()
                     await mergePrs()

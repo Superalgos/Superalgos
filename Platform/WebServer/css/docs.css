@@ -784,6 +784,10 @@ outline: none;
 background-color: transparent;
 }
 
+.docs-search-input::placeholder {
+    color:#bbb;
+}
+
 /* Search Results Page */
 
 /* Search Results Page Header*/

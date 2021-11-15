@@ -1,28 +1,63 @@
 {
     "type": "Crypto Exchanges",
     "definition": {
-        "text": "The crypto exchanges node groups definitions of the different exchanges the user may interact with."
+        "text": "The crypto exchanges node groups definitions of the different exchanges the user may interact with.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los grupos de nodos  de los exchanges cripto  definen los diferentes exchanges con los que el usuario puede interactuar.",
+                "updated": 1636365203486
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The default workspace features several nodes of this type, each with a purpose:",
-            "updated": 1609771412437
+            "updated": 1609771412437,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El workspace (espacio de trabajo) predeterminado presenta varios tipos de nodos, cada uno con un propósito:",
+                    "updated": 1636365369249
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Tested: features Crypto Exchange nodes of exchanges that have been thoroughly tested.",
-            "updated": 1609771181080
+            "updated": 1609771181080,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tested ( testeados): Crypto Exchange caracteriza a nodos de exchanges que ya han sido testados minuciosamente.",
+                    "updated": 1636365489754
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Untested: features a collection of Crypto Exchange nodes of untested exchanges that comply with the set of API requirements of the CCXT library that Superalgos needs to function.",
-            "updated": 1609771650992
+            "updated": 1609771650992,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Untested ( sin testear): presenta una colección de nodos de  Crypto Exchange de exchangesno testeados que cumplen con el conjunto de requisitos  de la API de la CCXT library que Superalgosnecesita para funcionar function.",
+                    "updated": 1636365625749
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Testing Queue: you may use this node to deploy Crypto Exchange nodes while testing them.",
-            "updated": 1609771442675
+            "updated": 1609771442675,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing Queue (fila de testeo): puede usar este nodo para implementar nodos Crypto Exchange mientras los testea.",
+                    "updated": 1636365750538
+                }
+            ]
         },
         {
             "style": "Text",

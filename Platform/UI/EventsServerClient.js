@@ -225,6 +225,10 @@ function newEventsServerClient(lanNetworkNode) {
                 port = config.webSocketsPort
                 extwsurl = config.webSocketsExternalURL
 
+                if (UI.environment.DEMO_MODE === true) {
+                    host = UI.environment.DEMO_MODE_HOST
+                }
+
                 /* Check if we really have to establish the connection. */
                 if (config.autoConnect === false) { return }
             } catch (err) {

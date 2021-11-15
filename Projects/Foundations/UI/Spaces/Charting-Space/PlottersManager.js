@@ -186,6 +186,11 @@ function newPlottersManager() {
             let scheme = 'http'
             if (host === undefined) { host = window.location.hostname }
             if (webPort === undefined) { webPort = window.location.port }
+
+            if (UI.environment.DEMO_MODE === true) {
+                host = UI.environment.DEMO_MODE_HOST
+            }
+            
             if (extWSURL !== undefined) { 
             	host = window.location.hostname
             	webPort = window.location.port

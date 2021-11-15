@@ -29,6 +29,7 @@ function newFoundationsDocsSearchEngine() {
 
     function finalize() {
         thisObject.docsIndex = undefined
+        thisObject.documentIndex = undefined
     }
 
     function setUpSearchEngine(callbackFunction) {

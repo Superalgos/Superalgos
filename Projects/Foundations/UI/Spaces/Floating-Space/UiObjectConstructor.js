@@ -474,20 +474,14 @@ function newUiObjectConstructor() {
             if (schemaDocument.editors !== undefined) {
                 if (schemaDocument.editors.config === true) {
                     uiObject.configEditor = newConfigEditor()
-                    uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.configEditor.initialize()
                 }
                 if (schemaDocument.editors.code === true) {
                     uiObject.codeEditor = newCodeEditor()
-                    uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.codeEditor.initialize()
                 }
                 if (schemaDocument.editors.formula === true) {
                     uiObject.formulaEditor = newFormulaEditor()
-                    uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
                 }
                 if (schemaDocument.editors.list === true) {

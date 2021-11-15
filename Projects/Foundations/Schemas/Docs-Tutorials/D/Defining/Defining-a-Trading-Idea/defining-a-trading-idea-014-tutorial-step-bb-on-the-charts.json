@@ -4,8 +4,8 @@
     "type": "Tutorial Step - BB On the Charts!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-bands"
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
         },
         "text": "Let's take a look at the Bollinger Bands! If it's not on already, find the Bollinger Bands layer in the Masters layer manager."
     },

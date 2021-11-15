@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Tricks of the Trade",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "mouse-pointer"
+            "name": "Mouse\\mouse-pointer",
+            "project": "Foundations"
         },
         "text": "Establishing a reference is kid's play! The only \"challenge\" here is that the node to be referenced is far away from the originator.",
         "updated": 1615805937875

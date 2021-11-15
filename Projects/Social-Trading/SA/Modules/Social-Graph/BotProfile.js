@@ -75,7 +75,9 @@ exports.newSocialTradingModulesSocialGraphBotProfile = function newSocialTrading
         emitterPostHash,
         targetPostHash,
         postType,
-        timestamp
+        timestamp,
+        signalType,
+        signalData
     ) {
         if (thisObject.posts.get(emitterPostHash) !== undefined) {
             throw ('Post Already Exists.')
@@ -89,7 +91,9 @@ exports.newSocialTradingModulesSocialGraphBotProfile = function newSocialTrading
                 emitterPostHash,
                 targetPostHash,
                 postType,
-                timestamp
+                timestamp,
+                signalType,
+                signalData
             )
 
             thisObject.posts.set(emitterPostHash, post)

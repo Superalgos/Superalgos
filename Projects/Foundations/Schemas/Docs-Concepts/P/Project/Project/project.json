@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "La infraestructura de Superalgos integra diferentes proyectos. El objetivo principal de estas integraciones es automatizar las operaciones entre proyectos, extrayendo información valiosa del blockchain o el dominio particular de cada proyecto para ser utilizado en los sistemas de Trading.\n",
                 "updated": 1624283023464
+            },
+            {
+                "language": "DE",
+                "text": "Die Superalgos-Infrastruktur integriert verschiedene Projekte. Das Hauptziel dieser Integrationen ist es, projektübergreifende Operationen zu automatisieren und wertvolle Informationen aus Blockchains oder der jeweiligen Domäne eines jeden Projekts zu extrahieren, um sie in Trading Systems zu verwenden.",
+                "updated": 1636669199719
             }
         ]
     },
@@ -15,7 +20,14 @@
         {
             "style": "Text",
             "text": "The first project is Superalgos itselft, witch provides a lowest level infraestructure that any other integrated project can freely reuse. On the pipeline we have these projects waiting to be integrated soon:",
-            "updated": 1609144390540
+            "updated": 1609144390540,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das erste Projekt ist Superalgos selbst, das eine Infrastruktur der untersten Ebene bereitstellt, die jedes andere integrierte Projekt frei wiederverwenden kann. In der Pipeline haben wir diese Projekte, die darauf warten, bald integriert zu werden:",
+                    "updated": 1636669240132
+                }
+            ]
         },
         {
             "style": "Table",
@@ -24,7 +36,14 @@
         },
         {
             "style": "Text",
-            "text": "Once integrated, each project will provide even more infraestructure which can later be used by other projects to be integrated after that. For example, once Ethereum is fully integrated, it will enable DeFi projects to be integrated on top of it."
+            "text": "Once integrated, each project will provide even more infraestructure which can later be used by other projects to be integrated after that. For example, once Ethereum is fully integrated, it will enable DeFi projects to be integrated on top of it.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sobald es integriert ist, wird jedes Projekt noch mehr Infrastruktur bereitstellen, die später von anderen Projekten genutzt werden kann, die danach integriert werden. Sobald beispielsweise Ethereum vollständig integriert ist, können darauf aufbauend DeFi-Projekte integriert werden.",
+                    "updated": 1636669265115
+                }
+            ]
         }
     ]
 }

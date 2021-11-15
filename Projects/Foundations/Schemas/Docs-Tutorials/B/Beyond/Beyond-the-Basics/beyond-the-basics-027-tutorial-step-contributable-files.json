@@ -32,8 +32,8 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "These folders are exempt from being contributed: My-Workspaces, Data-Storage, and Log-Files.",
-            "updated": 1610984106655,
+            "text": "These folders are exempt from being contributed: My-Workspaces, My-Data-Storage, and My-Log-Files, within the Platform folder.",
+            "updated": 1636914532594,
             "translations": [
                 {
                     "language": "IT",

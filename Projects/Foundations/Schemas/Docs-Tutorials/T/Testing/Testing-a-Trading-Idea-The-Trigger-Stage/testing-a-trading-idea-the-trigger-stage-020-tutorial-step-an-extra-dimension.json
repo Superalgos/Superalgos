@@ -4,8 +4,8 @@
     "type": "Tutorial Step - An Extra Dimension!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-trends"
+            "name": "Layer\\layer-trends",
+            "project": "Foundations"
         },
         "text": "Let's try an indicator that brings an additional dimension to the information we are getting from this one!"
     },

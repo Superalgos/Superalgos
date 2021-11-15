@@ -45,7 +45,7 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Videoserie über die Erstellung eines Indicators wurde für die Beta 5 Version des Systems produziert (inzwischen sind wir bei Beta 12); die Funktionalität funktioniert jedoch immer noch ähnlich. Allerdings kann es geringfügige Unterschiede geben, die noch zu dokumentieren sind. Schauen Sie in der Develop group vorbei und stellen Sie Ihre Fragen, insbesondere wenn etwas nicht wie erwartet oder wie in den Videos beschrieben funktioniert. Die Gruppe ist in der Fußzeile verlinkt.",
+                    "text": "Die Videoserie über die Erstellung eines Indicators wurde für die Beta 5 Version des Systems produziert (inzwischen sind wir bei 1.0.0); die Funktionalität funktioniert jedoch immer noch ähnlich. Allerdings kann es geringfügige Unterschiede geben, die noch zu dokumentieren sind. Schauen Sie in der Develop group vorbei und stellen Sie Ihre Fragen, insbesondere wenn etwas nicht wie erwartet oder wie in den Videos beschrieben funktioniert. Die Gruppe ist in der Fußzeile verlinkt.",
                     "updated": 1635522983953
                 }
             ]

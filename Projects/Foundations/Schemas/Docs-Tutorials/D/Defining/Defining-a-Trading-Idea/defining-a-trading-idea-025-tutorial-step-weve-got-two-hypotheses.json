@@ -4,8 +4,8 @@
     "type": "Tutorial Step - We've got Two Hypotheses!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "nodes-highlights"
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
         },
         "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations!"
     },

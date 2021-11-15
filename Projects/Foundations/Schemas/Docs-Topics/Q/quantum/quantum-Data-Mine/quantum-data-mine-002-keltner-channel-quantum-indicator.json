@@ -1,0 +1,87 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 2,
+    "type": "Keltner Channel - quantum Indicator",
+    "definition": {
+        "text": "This indicator produces the Keltner Channel volatility bands.",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Keltner Channel On the Charts",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “Keltner Channels are volitility based bands that are placed on either side of an asset's price and can aid in determining the direction of a trend.”",
+            "updated": 1611764485658
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-keltner-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The Keltner Channel uses the average true-range (ATR) or volatility, with price action breaking above or below the top or bottom bands signalling a continuation."
+        },
+        {
+            "style": "Text",
+            "text": "Standard Parameters:"
+        },
+        {
+            "style": "List",
+            "text": "Channel Length: 20"
+        },
+		{
+            "style": "List",
+            "text": "Multiplier: 1.5"
+        },		
+		{
+            "style": "List",
+            "text": "ATR Length: 14"
+        },
+		{
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “Keltner Channel” Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-keltner-params.png",
+            "updated": 1611673329568
+        },
+        {
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are three properties available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Keltner Channel | keltner | Upper, Lower, midPoint |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.keltner.Upper > chart.at24hs.previous.keltner.Upper",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Price action is below the lower band:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.candle.close < chart.at24hs.keltner.Lower",
+            "updated": 1636853769
+        }
+    ]
+}

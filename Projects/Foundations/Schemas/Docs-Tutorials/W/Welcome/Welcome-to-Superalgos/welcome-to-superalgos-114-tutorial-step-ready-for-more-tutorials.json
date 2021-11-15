@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Ich will nicht prahlen, aber ich kann nicht genug betonen, wie wichtig es ist, dass Sie alle Tutorials durcharbeiten, bevor Sie sich auf eigene Faust auf den Weg machen!",
                 "updated": 1634247995336
+            },
+            {
+                "language": "TR",
+                "text": "Kendi başınıza bir girişimde bulunmadan önce tüm eğitimleri tamamlamanın ne kadar önemli olduğunu hatılatmama gerek yok umarım!",
+                "updated": 1636663270210
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Das System ist umfangreich und deckt komplexe Themen ab. Ein Alleingang in den ersten Tagen mit Superalgos ist nur für Leute zu empfehlen, die gerne mit dem Kopf gegen die Wand schlagen!",
                     "updated": 1634247975987
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem çok geniştir ve karmaşık konuları kapsar. Superalgos ile ilk günlerinizde yalnız başınıza gitmek, yalnızca kafalarını duvara vurmaktan hoşlanan kişiler için önerilir :-) !",
+                    "updated": 1636663300533
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Das Buch \"The First Steps Tutorials\" auf der rechten Seite enthält alle Details darüber, wie Sie Ihre Zeit am besten investieren, um Superalgos zu lernen.",
                     "updated": 1634248018430
+                },
+                {
+                    "language": "TR",
+                    "text": "Sağınızdaki İlk Adımlar Öğreticiler kitabı ( First Steps Toturial ) , Superalgos'u öğrenmeye zaman ayırmanın en iyi yolunun tüm ayrıntılarını sağlar.",
+                    "updated": 1636663360924
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Bevor Sie fertig sind, überlasse ich Ihnen noch den nächsten Lehrgang der Serie!",
                     "updated": 1634248037950
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitirmeden önce, sizi bir sonraki öğretici ile baş başa bırakacağım!",
+                    "updated": 1636663390761
                 }
             ]
         }

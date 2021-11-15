@@ -3,12 +3,12 @@
     "pageNumber": 13,
     "type": "Tutorial Step - Welcome Back!",
     "definition": {
-        "text": "If you followed my instructions to the letter, you should now be running the software in the plugins-docs branch! Awesome!",
+        "text": "If you followed my instructions to the letter, you should now be running the software in the Develop branch! Awesome!",
         "icon": {
             "name": "hits",
             "project": "Foundations"
         },
-        "updated": 1618159282200,
+        "updated": 1636913180861,
         "translations": [
             {
                 "language": "IT",
@@ -32,8 +32,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The software you are currently running is the version of Superalgos that was at the plugins-docs branch the day you forked the project! This is because the process of switching branches downloads the software from your fork and not the upstream repository.",
-            "updated": 1618159308510,
+            "text": "The software you are currently running is the version of Superalgos that was at the Develop branch the second you switched branches! This is good, as you now know you have the latest version of the software!",
+            "updated": 1636913978584,
             "translations": [
                 {
                     "language": "IT",
@@ -56,8 +56,8 @@
         },
         {
             "style": "Success",
-            "text": "You need to update so that you run the latest version! This is particularly important when you intend to contribute to the project. You should always work on the latest version so that the changes you make include the latest changes produced by other contributors!",
-            "updated": 1617020167891,
+            "text": "This is particularly important because you are about to contribute to the project. You should always work on the latest version so that the changes you make include the latest changes produced by other contributors!",
+            "updated": 1636914060165,
             "translations": [
                 {
                     "language": "IT",

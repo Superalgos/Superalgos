@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Ve Plotter'lar bu şekilde inşa edilir! Plotter'lar, mumlardan diğer şeylere kadar verilerin grafiksel temsillerini oluşturur!",
                 "updated": 1636106406315
+            },
+            {
+                "language": "RU",
+                "text": "И вот как строятся плоттеры! Плоттеры создают графические представления данных... от свечей до всего остального!",
+                "updated": 1636746375089
             }
         ]
     },
@@ -59,13 +64,18 @@
                     "language": "TR",
                     "text": "Bunu yapmanın en iyi yolu görsel komut dosyasıdır! Plotter'lar, verileri temsil eden çizgileri ve şekilleri işaretlemek için koordinat noktalarından yapılmış stilize çokgenler kullanır. Grafiklerde kullanıma sunulan her katman, şu anda baktığınız türden bir dizi tanımla oluşturulur. Dirençler ve Destekler botunun özel durumu oldukça karmaşıktır, ancak aracın gücünü sergilemektedir.!",
                     "updated": 1636106574620
+                },
+                {
+                    "language": "RU",
+                    "text": "Опять же, визуальное описание в лучшем виде! Плоттеры используют стилизованные полигоны, произведенные из координатных точек для окрашивания линий и фигур, представляющих данные. Каждый слой произвел доступ на диаграммах, создавая наборы определений того типа, на который Вы смотрите прямо сейчас. Каждый случай бота сопротивления и поддержки является довольно сложным, но показывает мощность инструмента!",
+                    "updated": 1636746631697
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Find the Resistance Zone 5 Polygon (to the left), expand it, and crawl your way up the branches for a sneak peek of how this beauty was built!",
-            "updated": 1610623154560,
+            "text": "Find the Support Zone 5 Polygon (to the left), expand it, and crawl your way up the branches for a sneak peek of how this beauty was built!",
+            "updated": 1636911282878,
             "translations": [
                 {
                     "language": "IT",
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Direnç Bölgesi 5 Poligonunu (Resistances Zone) (solda) bulun, genişletin ve bu güzelliğin nasıl inşa edildiğine bir göz atın.",
                     "updated": 1636106823729
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите Polygon Зоны сопротивления 5 (Zone 5) - слева, разверните его и поднимайтесь вверх по ветвям, чтобы взглянуть украдкой на то, как была построена эта красота!",
+                    "updated": 1636746844784
                 }
             ]
         }

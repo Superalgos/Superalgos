@@ -79,7 +79,7 @@ exports.newGithubServer = function newGithubServer() {
 
                 const octokit = new Octokit({
                     auth: token,
-                    userAgent: 'Superalgos Beta 12'
+                    userAgent: 'Superalgos ' + SA.version
                 })
                 await getList()
 
@@ -207,7 +207,7 @@ exports.newGithubServer = function newGithubServer() {
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
                         auth: token,
-                        userAgent: 'Superalgos Beta 12'
+                        userAgent: 'Superalgos ' + SA.version
                     })
                     await getPrList()
                     await mergePrs()
@@ -284,13 +284,29 @@ exports.newGithubServer = function newGithubServer() {
                             /*
                             Lets get the files changed at this Pull Request.
                             */
-                            await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                            let listResponse = await octokit.rest.pulls.listFiles({
-                                owner: owner,
-                                repo: repo,
-                                pull_number: pullRequest.number
-                            });
-                            let filesChanged = listResponse.data
+                            let filesChanged = []
+                            const per_page = 100 // Max
+                            let page = 0
+                            let lastPage = false
+
+                            while (lastPage === false) {
+                                await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                let listResponse = await octokit.rest.pulls.listFiles({
+                                    owner: owner,
+                                    repo: repo,
+                                    pull_number: pullRequest.number,
+                                    per_page: per_page,
+                                    page: page
+                                });
+
+                                if (listResponse.data.length < 100) {
+                                    lastPage = true
+                                }
+                                for (let i = 0; i < listResponse.data.length; i++) {
+                                    let listItem = listResponse.data[i]
+                                    filesChanged.push(listItem)
+                                }
+                            }
                             let fileContentUrl  // URL to the only file at the PR
                             let fileContent     // File content of the only file at the PR
                             let userProfile     // User Profile Object

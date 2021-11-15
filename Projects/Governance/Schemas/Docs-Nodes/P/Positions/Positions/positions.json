@@ -2,7 +2,14 @@
     "type": "Positions",
     "definition": {
         "text": "The Positions hierarchy is used to define different positions or roles that Contributors may assume in the project’s organization chart. Contributors may claim to have worked in a specific position or role. When a Position Contribution Claim is supported by a Position Claim Vote, the Contributor receives tokens according to the position’s relative weight.",
-        "updated": 1624707433425
+        "updated": 1624707433425,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Las jerarquías de Posición se usan para definir diferentes posiciones o roles que los contribuyentes pueden asumir en el organigrama del proyecto. Los Contribuyentes pueden solicitar haber trabajado en una determinada posición o rol. Cuando una Position Contribution Claim es apoyada por un Position Claim Vote ( voto de solicitud de posición), El Contribuyente recibe tokens acorde al peso relativo de la positción.",
+                "updated": 1636283470834
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,12 +19,26 @@
         },
         {
             "style": "Text",
-            "text": "Positions hierarchies acquire Token Rewards from Pool nodes referencing the said hierarchy. These are the tokens available for distribution among the different positions in the hierarchy. "
+            "text": "Positions hierarchies acquire Token Rewards from Pool nodes referencing the said hierarchy. These are the tokens available for distribution among the different positions in the hierarchy. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Las jerarquías de Posición adquieren Token Rewards (tokens de recompensa) de un nodo de Pool refenciando la jerarquía mencionada. Estos tokens están disponibles para distribución entre las diferentes posiciones en la jerarquía.",
+                    "updated": 1636282963104
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Any Position and Position Class node within the hierarchy may receive Weight Votes to determine how the Token Rewards in the hierarchy is distributed. How many tokens each Position is awarded depends on the relative weight of the position determined by the number of Weight Votes each position receives from users.",
-            "updated": 1630427395380
+            "updated": 1630427395380,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada Position ( posición) y nodo de Position Class (clase de posición) dentro de la jerarquía puede recibir Weight Votes ( votos de peso) para determinar como son distibuídos en la jerarquía los Token Rewards ( los token de recompensa). Con cuantos tokens cada Position es recompensada depende del peso relativo en la posición  determinado por el número de Weight Votes cada posición recibe de los usuarios.",
+                    "updated": 1636283277095
+                }
+            ]
         }
     ]
 }

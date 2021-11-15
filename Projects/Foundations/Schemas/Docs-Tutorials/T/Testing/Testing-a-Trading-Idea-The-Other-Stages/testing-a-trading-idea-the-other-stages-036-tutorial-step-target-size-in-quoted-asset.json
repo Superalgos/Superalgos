@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Target Size in Quoted Asset",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "target-size-in-quoted-asset"
+            "name": "Target\\target-size-in-quoted-asset",
+            "project": "Foundations"
         },
         "text": "I didn't mention this earlier: we will define the target size in the quoted asset, not the base asset as we did for the open stage!"
     },

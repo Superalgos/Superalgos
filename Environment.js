@@ -8,7 +8,8 @@ if (process.env.PACKAGED_PATH) {
 exports.newEnvironment = function () {
 
     let thisObject = {
-        DEMO_MODE: false,
+        DEMO_MODE: true,
+        DEMO_MODE_HOST: "localhost",
         BASE_PATH: basePath,
         WEB_SERVER_URL: 'localhost',
         PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 18041,

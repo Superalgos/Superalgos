@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System )tartışmadık! Temel bilgileri gözden geçirelim!",
                 "updated": 1636201414712
+            },
+            {
+                "language": "RU",
+                "text": "Мы провели обратное тестирование, но мы не обсуждали Trading System, которую мы тестируем! Давайте пройдемся по основам!",
+                "updated": 1636931402487
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "Ticaret fikri \"düşen bıçağı\" satın almak ve \"geri tepkiyi\" satmaktır. Strateji, fiyatın biraz altına bir Limitli Alış Emri ( Limit Buy Order ) yerleştirir. Emir bir sonraki dakikaya kadar yerine getirilmezse, emir iptal edilir ve potansiyel olarak ayarlanmış bir oranda yeni bir emir verilir. Fiyat aniden düşerse, siparişin doldurulma ihtimali vardır. Bu olursa, strateji daha yüksek bir fiyattan satmaya çalışır.",
                     "updated": 1636201723387
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговая система заключается в том, чтобы купить \"падающий нож\" и продать \"отскок\". Стратегия размещает Limit Buy Order на расстоянии ниже цены. Если заказ не будет выполнен в течение следующей минуты, то он отменяется и размещается новый, возможно, по скорректированной ставке. Если цена внезапно упадет, есть шансы, что заказ будет выполнен. Если это произойдет, то стратегия попытается продать его по более высокой цене.",
+                    "updated": 1636931763305
                 }
             ]
         },
@@ -93,6 +103,11 @@
                     "language": "TR",
                     "text": "Ticaret fikrinin esasını değil, uygulamasını tartışalım. Bu, kendi başına stratejiyi değil, Ticaret Botunun kapasitelerini gösteren bir demodur. Bu strateji doğru olmaya bilir, ya da beğenmeyebilirsiniz. Kendi fikirlerinizle yeni stratejiler oluşturabilirsiniz.",
                     "updated": 1636201810582
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте обсудим не достоинства торговой системы, а ее реализацию. Это всего лишь выставленная на показ демонстрация возможностей Trading Bot, а не стратегии как таковой.",
+                    "updated": 1636933888559
                 }
             ]
         }

@@ -1,0 +1,89 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 6,
+    "type": "Choppiness Index - quantum Indicator",
+    "definition": {
+        "text": "This indicator produces a volatility indicator that determines when the market is following a trend, or if the market is choppy and trading sideways.",
+        "updated": 1611662439678
+    },
+    "paragraphs": [
+		{
+            "style": "Title",
+            "text": "Choppiness Indicator On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The Choppiness index indicator produces a value between 0-100. When the indicator is closer to 100, the market is choppy. Conversely, when the values are near 0, the market is in a directional trend.",
+            "updated": 1611662450791
+        },
+		{
+			"style": "Text",
+            "text": "The indicator is directionless, it does not show which way the trend is going, only if there is a trend or not.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-ChopIndex-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+		{
+            "style": "Text",
+            "text": "There are two locations to change the parameters for this indicator. To change the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Chop Index\" Product Definition. The parameter to change is on line 4, lengthTR. The default setting is 14."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-ChopIndex-params.png",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "To change the plotting thresholds, navigate to the Data Building Procedure -> Procedure Initialization under \"Chop Index\" Product Definition. The parameters to change are on lines 12 and 13. The upperLine default is 61.8 and the lowerLine is set to 45 for the crypto market. It can be changed to the default fibonacci number of 38.2 if desired."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-ChopIndex2-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "Chop Index Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Chop Index | Chop | Index, upperLine, lowerLine |",
+            "updated": 1611662546677
+        },       
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the chop index falls below the lowerLine:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.Chop.Index < chart.at30min.Chop.lowerLine",
+            "updated": 1611662656647
+        },
+		{
+            "style": "Text",
+            "text": "The exit could then be:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.Chop.Index > chart.at30min.Chop.upperLine"
+        },
+        {
+            "style": "Text",
+            "text": "Keep in mind that the example strategies would need input from a directional indicator such as MACD, PSAR, or ADX to ensure you are entering the position in the intended direction.",
+            "updated": 1611662681719
+        }
+    ]
+}

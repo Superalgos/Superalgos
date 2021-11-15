@@ -216,7 +216,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         node,
         rootNodes
     ) {
-
         let market = node
         let cryptoExchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {

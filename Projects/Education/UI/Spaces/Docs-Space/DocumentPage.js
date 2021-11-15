@@ -187,6 +187,10 @@ function newFoundationsDocsDocumentPage() {
             */
             let docsContentDiv = document.getElementById('docs-content-div')
             docsContentDiv.innerHTML = HTML + UI.projects.education.spaces.docsSpace.footer.addFooter()
+            // Create tooltip objects for all the elements
+            tippy('#tooltip-container', {
+                theme: "superalgos"
+            });
 
             hightlightEmbeddedCode()
             UI.projects.education.spaces.docsSpace.mainSearchPage.detectEnterOnSearchBox()

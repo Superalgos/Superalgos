@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Superalgos-Admins, das Core Team und die Community Mods werden Sie niemals direkt kontaktieren, es sei denn, Sie kontaktieren sie zuerst!",
                 "updated": 1634247837275
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos Yöneticileri, Çekirdek Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmedikçe sizinle asla doğrudan iletişime geçmeyecektir!",
+                "updated": 1636663081508
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Es lauern Betrüger! Hüten Sie sich! Es ist keine Neuigkeit, dass Gruppen, die mit dem Handel zu tun haben, alle Arten von Betrügern anziehen, und wir sind uns bewusst, dass sie Leute in unseren Gruppen kontaktieren und alle möglichen Tricks versuchen. Wir werden Sie niemals nach API-Schlüsseln, Münzen oder Bargeld fragen. Tatsächlich werden wir Sie niemals bitten, uns in irgendeiner Weise zu vertrauen! Wir möchten klarstellen, dass es sich um einen Betrug handelt, wenn jemand Sie direkt kontaktiert und behauptet, mit oder für das Projekt zu arbeiten. Bitte melden Sie Betrüger in der Community-Gruppe, damit sie gesperrt werden können und um das Bewusstsein für das Problem zu schärfen, aber blockieren Sie sie auch und melden Sie sie an Telegram, wenn diese Option verfügbar ist.",
                     "updated": 1634247848663
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolandırıcılar pusuda! Dikkat! Ticaretle ilgili grupların her türlü dolandırıcıyı cezbetmesi yeni bir haber değil ve her türlü numarayı deneyerek gruplarımızdaki insanlarla iletişim kurduklarının farkındayız. Sizden asla API anahtarları, coin veya nakit para istemeyeceğiz. Projeyle veya proje için çalıştığını iddia eden biri sizinle doğrudan iletişime geçerse, bunun bir dolandırıcılık olduğunu açıkça belirtmek isteriz. Lütfen Topluluk grubundaki dolandırıcıları yasaklanabilmeleri ve sorunun farkındalığını artırmak için rapor edin, ancak aynı zamanda onları engelleyin ve onları Telegram'a bildirin.",
+                    "updated": 1636663176342
                 }
             ]
         }

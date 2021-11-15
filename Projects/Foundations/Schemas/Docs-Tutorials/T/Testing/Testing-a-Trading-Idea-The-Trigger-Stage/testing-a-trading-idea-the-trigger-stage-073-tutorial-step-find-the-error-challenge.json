@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Find The Error Challenge",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "Have you figured out the error? What? You haven't looked? I just split the screen so that you may find the offending node too!",
         "updated": 1612698780503

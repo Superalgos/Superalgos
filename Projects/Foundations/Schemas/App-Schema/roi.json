@@ -52,7 +52,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
+        "compatibleTypes": "->Trading Episode Statistics->Portfolio Episode Statistics->Position Statistics->Position Statistics->Position Base Asset->Position Quoted Asset->Episode Base Asset->Episode Quoted Asset->"
     },
     "propertyNameAtParent": "ROI"
 }

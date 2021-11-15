@@ -17012,17 +17012,17 @@
                 "signingAccountChild": {
                     "type": "Social Trading Desktop App",
                     "name": "Social Trading Desktop App # 1",
-                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\"\n}",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}",
                     "project": "Governance",
                     "id": "012c74dd-1a61-4784-bc8a-e18555b4974e",
                     "savedPayload": {
                         "position": {
-                            "x": 32588.466416509047,
-                            "y": 18618.508094196695
+                            "x": 32596.44477289305,
+                            "y": 18664.939393355322
                         },
                         "targetPosition": {
-                            "x": 32885.89987492119,
-                            "y": 18579.35023653068
+                            "x": 32889.88905311319,
+                            "y": 18602.565886109995
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17040,8 +17040,8 @@
                 "id": "3863ebb9-c69f-40b2-8bbd-eb8f2b60a49c",
                 "savedPayload": {
                     "position": {
-                        "x": 32885.89987492119,
-                        "y": 18579.35023653068
+                        "x": 32889.88905311319,
+                        "y": 18602.565886109995
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,
@@ -17068,17 +17068,17 @@
                 "signingAccountChild": {
                     "type": "Social Trading Mobile App",
                     "name": "Social Trading Mobile App # 1",
-                    "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\"\n}",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"15042\"\n}",
                     "project": "Governance",
                     "id": "2d03d11f-b553-4b01-9291-9e13da15dd54",
                     "savedPayload": {
                         "position": {
-                            "x": 32603.777837559894,
-                            "y": 18384.900951803153
+                            "x": 32586.62019611237,
+                            "y": 18477.475300904072
                         },
                         "targetPosition": {
-                            "x": 32893.555585446615,
-                            "y": 18462.54666533391
+                            "x": 32884.97676472285,
+                            "y": 18508.83383988437
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17096,8 +17096,8 @@
                 "id": "c84e9e64-7527-4dec-ac58-93696e19a756",
                 "savedPayload": {
                     "position": {
-                        "x": 32893.555585446615,
-                        "y": 18462.54666533391
+                        "x": 32884.97676472285,
+                        "y": 18508.83383988437
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,
@@ -17124,17 +17124,17 @@
                 "signingAccountChild": {
                     "type": "Social Trading Server App",
                     "name": "Social Trading Server App # 1",
-                    "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\"\n}",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"16042\"\n}",
                     "project": "Governance",
                     "id": "c3d218ee-119f-4bd9-9349-8a194844ecd9",
                     "savedPayload": {
                         "position": {
-                            "x": 32707.321329158593,
-                            "y": 18174.935521459432
+                            "x": 32635.20605874777,
+                            "y": 18296.15039301919
                         },
                         "targetPosition": {
-                            "x": 32945.327331245964,
-                            "y": 18357.56395016205
+                            "x": 32909.26969604055,
+                            "y": 18418.17138594193
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17152,8 +17152,8 @@
                 "id": "75f17a55-bf33-4e69-b842-b424a6f517e8",
                 "savedPayload": {
                     "position": {
-                        "x": 32945.327331245964,
-                        "y": 18357.56395016205
+                        "x": 32909.26969604055,
+                        "y": 18418.17138594193
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,
@@ -17185,12 +17185,12 @@
                     "id": "bcffb701-754d-4685-ad09-8bf3f09265d9",
                     "savedPayload": {
                         "position": {
-                            "x": 32883.333333333336,
-                            "y": 18020.577136594
+                            "x": 32737.446438046896,
+                            "y": 18138.71401504935
                         },
                         "targetPosition": {
-                            "x": 33033.333333333336,
-                            "y": 18280.384757729335
+                            "x": 32960.389885690114,
+                            "y": 18339.45319695701
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17208,8 +17208,8 @@
                 "id": "377ee3ed-49e4-415d-87b3-946024f0a1ef",
                 "savedPayload": {
                     "position": {
-                        "x": 33033.333333333336,
-                        "y": 18280.384757729335
+                        "x": 32960.389885690114,
+                        "y": 18339.45319695701
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,
@@ -17236,17 +17236,17 @@
                 "signingAccountChild": {
                     "type": "P2P Network Node",
                     "name": "P2P Network Node # 1",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18042\"\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18042\",\n    \"webPort\": \"31248\"\n}",
                     "project": "Governance",
                     "id": "bb0f0417-9dfb-47a3-941f-dcfa82fbaea1",
                     "savedPayload": {
                         "position": {
-                            "x": 33105.0176180013,
-                            "y": 17945.325462040382
+                            "x": 32883.333333333336,
+                            "y": 18020.577136594
                         },
                         "targetPosition": {
-                            "x": 33144.17547566732,
-                            "y": 18242.758920452525
+                            "x": 33033.333333333336,
+                            "y": 18280.384757729335
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17264,8 +17264,8 @@
                 "id": "7c5f14f9-63c2-42fa-98ee-1d4a36590cf4",
                 "savedPayload": {
                     "position": {
-                        "x": 33144.17547566732,
-                        "y": 18242.758920452525
+                        "x": 33033.333333333336,
+                        "y": 18280.384757729335
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,
@@ -17292,17 +17292,17 @@
                 "signingAccountChild": {
                     "type": "P2P Network Node",
                     "name": "P2P Network Node # 2",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18043\"\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18043\",\n    \"webPort\": \"31248\"\n}",
                     "project": "Governance",
                     "id": "76fa8a24-9ab4-4eaf-82f2-458ba557b204",
                     "savedPayload": {
                         "position": {
-                            "x": 33338.62476039485,
-                            "y": 17960.636883091225
+                            "x": 33058.58631884268,
+                            "y": 17953.303818424385
                         },
                         "targetPosition": {
-                            "x": 33260.97904686409,
-                            "y": 18250.414630977946
+                            "x": 33120.95982608801,
+                            "y": 18246.748098644526
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17320,8 +17320,8 @@
                 "id": "48544424-5b62-417b-897d-9164b26fcd56",
                 "savedPayload": {
                     "position": {
-                        "x": 33260.97904686409,
-                        "y": 18250.414630977946
+                        "x": 33120.95982608801,
+                        "y": 18246.748098644526
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,
@@ -17348,17 +17348,17 @@
                 "signingAccountChild": {
                     "type": "P2P Network Node",
                     "name": "P2P Network Node # 3",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-3\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18044\"\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-3\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"18044\",\n    \"webPort\": \"31248\"\n}",
                     "project": "Governance",
                     "id": "297e57c2-3c1a-4170-b710-d2705804205b",
                     "savedPayload": {
                         "position": {
-                            "x": 33548.59019073856,
-                            "y": 18064.180374689924
+                            "x": 33246.05041129393,
+                            "y": 17943.479241643705
                         },
                         "targetPosition": {
-                            "x": 33365.96176203595,
-                            "y": 18302.186376777296
+                            "x": 33214.69187231363,
+                            "y": 18241.835810254186
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -17376,8 +17376,120 @@
                 "id": "b39e1c4d-4170-4134-ae85-fc9fa7f3eb47",
                 "savedPayload": {
                     "position": {
-                        "x": 33365.96176203595,
-                        "y": 18302.186376777296
+                        "x": 33214.69187231363,
+                        "y": 18241.835810254186
+                    },
+                    "targetPosition": {
+                        "x": 33183.333333333336,
+                        "y": 18540.192378864667
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            {
+                "type": "Signing Account",
+                "name": "New Signing Account",
+                "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xa21640401c1e1ab44678fd6024654d6200025d75998a38d06a2dbb84d2b965b4\",\n        \"s\": \"0x7c1308809675605bf120654214f7566a833158cc54471e8eefbee64e8031a5ce\",\n        \"signature\": \"0xa21640401c1e1ab44678fd6024654d6200025d75998a38d06a2dbb84d2b965b47c1308809675605bf120654214f7566a833158cc54471e8eefbee64e8031a5ce1b\"\n    }\n}",
+                "project": "Governance",
+                "signingAccountChild": {
+                    "type": "Social Trading Desktop App",
+                    "name": "Social Trading Desktop App # 2",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33249\",\n    \"webSocketsPort\": \"17043\"\n}",
+                    "project": "Governance",
+                    "id": "e6f2b6f6-5e40-42d2-92d8-fdd17680a1c7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33427.37531917882,
+                            "y": 17992.065104279107
+                        },
+                        "targetPosition": {
+                            "x": 33305.35432625608,
+                            "y": 18266.128741571887
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "530b3376-a820-4710-a7a0-bab877e4c4be",
+                "savedPayload": {
+                    "position": {
+                        "x": 33305.35432625608,
+                        "y": 18266.128741571887
+                    },
+                    "targetPosition": {
+                        "x": 33183.333333333336,
+                        "y": 18540.192378864667
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            {
+                "type": "Signing Account",
+                "name": "New Signing Account",
+                "config": "{\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x4e4870f2f0061fa5a6e5fca672f1543420e140944a65a294ea25f1c2ef1c5dbe\",\n        \"s\": \"0x58ba993a911c9092967b51da47be22ad85062d5ce49c6b2de4f6a593c67850c6\",\n        \"signature\": \"0x4e4870f2f0061fa5a6e5fca672f1543420e140944a65a294ea25f1c2ef1c5dbe58ba993a911c9092967b51da47be22ad85062d5ce49c6b2de4f6a593c67850c61c\"\n    }\n}",
+                "project": "Governance",
+                "signingAccountChild": {
+                    "type": "Social Trading Desktop App",
+                    "name": "Social Trading Desktop App # 3",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-3\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33250\",\n    \"webSocketsPort\": \"17044\"\n}",
+                    "project": "Governance",
+                    "id": "00ca860e-bb19-42b4-8bce-b67f9a1f9af7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33584.81169714865,
+                            "y": 18094.30548357823
+                        },
+                        "targetPosition": {
+                            "x": 33384.072515240994,
+                            "y": 18317.24893122145
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "72de2a17-d6f1-491b-847b-4e110a122cf6",
+                "savedPayload": {
+                    "position": {
+                        "x": 33384.072515240994,
+                        "y": 18317.24893122145
                     },
                     "targetPosition": {
                         "x": 33183.333333333336,

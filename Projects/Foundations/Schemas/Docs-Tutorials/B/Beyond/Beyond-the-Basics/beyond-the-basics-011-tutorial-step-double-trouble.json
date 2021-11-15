@@ -80,8 +80,8 @@
         },
         {
             "style": "Success",
-            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in another branch to contribute and test new features! But you can't run two versions at the same time, unless you change ports! We won't go there now!",
-            "updated": 1618148172616,
+            "text": "Such a setup allows you to run the stable version for your production tasks, and the version in another branch to contribute and test new features! But you can't run two versions at the same time, unless you change ports!",
+            "updated": 1636913062018,
             "translations": [
                 {
                     "language": "IT",

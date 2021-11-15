@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Right Out of the Box!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "This is the trading system we will use, virtually as it comes right out of the box!"
     },

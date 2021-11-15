@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Nun müssen wir die Sicherung des Knotens Trading Parameters an die Backtesting Session anhängen. Wie machen wir das?",
                 "updated": 1634333572735
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi İşlem Parametreleri ( Trading Parameters ) düğümünün yedeğini Geri Test Oturumuna ( Backtesting Session ) eklememiz gerekiyor. Bunu nasıl yaparız?",
+                "updated": 1636791281138
             }
         ]
     },
@@ -50,6 +55,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf den Knoten Trading Parameters und ziehen Sie ihn näher an den Knoten Backtesting Session! Lassen Sie los, wenn Sie einen orangefarbenen Ring um den Backtesting Session Knoten sehen!",
                     "updated": 1634333597218
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Parametreleri düğümüne ( Trading Parameters ) sağ tıklayın ve Geriye Dönük Test oturumu (Backtesting Session Node ) düğümüne yaklaştırın! Geriye Dönük Test Oturumu düğümünü çevreleyen turuncu bir halka gördüğünüzde bırakın!",
+                    "updated": 1636791340589
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Das war's! Die Sicherung des Knotens Trading Parameters ist wiederhergestellt und kann wieder verwendet werden.",
                     "updated": 1634333609241
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kadar! İşlem Parametreleri düğümünün ( Trading Parameters ) yedeği geri yüklenir ve tekrar kullanıma açılır.",
+                    "updated": 1636791375829
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass Sie den zweiten Trading Parameters-Knoten löschen können, wenn Sie möchten, oder Sie können ihn für eine spätere Verwendung beiseite legen.",
                     "updated": 1634333617512
+                },
+                {
+                    "language": "TR",
+                    "text": "Dilerseniz ikinci İşlem Parametreleri düğümünü ( Trading Parameters ) silebileceğinizi veya daha sonra kullanmak üzere bir tarafta tutabileceğinizi unutmayın.",
+                    "updated": 1636791408211
                 }
             ]
         }

@@ -55,33 +55,9 @@
             ]
         },
         {
-            "style": "Callout",
-            "text": "If you forked the Superalgos repo before April 6th, 2021, follow the instructions on this page to create the plugins-docs branch. Otherwise, keep going!",
-            "updated": 1618154888356,
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Se hai fatto il fork di Superalgos prima del 6 aprile 2021, segui le istruzioni su questa pagine per creare il branch Plugins-Docs. Altrimenti continua!",
-                    "updated": 1619633825511,
-                    "style": "Callout"
-                },
-                {
-                    "language": "ES",
-                    "text": "Si has hecho fork en el repositorio de Superalgos antes del 6 de abril de 2021, sigue las instrucciones de esta página para crear la rama plugins-docs. De lo contrario, ¡sigue adelante!",
-                    "updated": 1628122733300,
-                    "style": "Callout"
-                },
-                {
-                    "language": "DE",
-                    "text": "Wenn Sie das Superalgos-Projektarchiv vor dem 6. April 2021 geforkt haben, folgen Sie den Anweisungen auf dieser Seite, um den plugins-docs-Zweig zu erstellen. Ansonsten machen Sie weiter!",
-                    "updated": 1634821743479
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "When you switch branches, the app will run a series of Git commands that will download the software from the plugins-docs branch of your fork! The current software will be replaced on your disk! For that reason, you will need to close the app after switching. But let's discuss a couple more things before you proceed!",
-            "updated": 1618159009151,
+            "style": "Note",
+            "text": "When you switch branches, the app will run a series of Git commands that will download the software from the Develop branch of your fork! The current software will be replaced on your disk! For that reason, you will need to close the app after switching. But let's discuss a couple more things before you proceed!",
+            "updated": 1636912890459,
             "translations": [
                 {
                     "language": "IT",

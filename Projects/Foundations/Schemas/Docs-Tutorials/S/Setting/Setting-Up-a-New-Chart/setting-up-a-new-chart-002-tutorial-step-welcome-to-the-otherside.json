@@ -5,7 +5,7 @@
     "definition": {
         "text": "Today we will learn how to add your own custom Charts! By the end of this tutorial you will have the basic knowledge you need to unlock the power of the Charting Space.",
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "updated": 1628362693593,
@@ -20,8 +20,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The charting system within Superalgos is powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place. As you may have figured out, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see.",
-            "updated": 1628362713134,
+            "text": "The charting system is powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place. As you may have figured out, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see.",
+            "updated": 1636907861826,
             "translations": [
                 {
                     "language": "ES",

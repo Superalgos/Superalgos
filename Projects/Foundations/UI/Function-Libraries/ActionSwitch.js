@@ -497,6 +497,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.checkForMissingReferences(action.rootNodes)
                 }
                 break
+            case 'Fix Missing References':
+                {
+                    UI.projects.foundations.functionLibraries.workspaceFunctions.fixMissingReferences(action.rootNodes)
+                }
+                break    
             case 'Switch To Forward Testing':
                 {
                     action.node.type = "Forward Testing Session"

@@ -22,6 +22,15 @@ function loadSuperalgos() {
 
         function onResponse(err, file) {
             UI.environment = JSON.parse(file)
+            setupClientNode()
+        }
+    }
+
+    function setupClientNode() {
+        httpRequest(undefined, 'ClientNode', onResponse)
+
+        function onResponse(err, file) {
+            UI.clientNode = JSON.parse(file)
             setupProjectsSchema()
         }
     }

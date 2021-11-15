@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Data mine products son referencias establecidas con minas de datos para facilitar el establecimiento de referencias de productos de datos con múltiples productos en la mina de datos dada.",
                 "updated": 1624413245579
+            },
+            {
+                "language": "RU",
+                "text": "Продукты добычи данных - это ссылки, установленные с помощью шахт данных, для облегчения установления ссылок на продукты данных с несколькими данными в этой шахте.",
+                "updated": 1636568841075
             }
         ]
     },

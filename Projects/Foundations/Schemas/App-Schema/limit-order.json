@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Trading Last->"
+        "compatibleTypes": "->Limit Buy Orders->Limit Sell Orders->Trading Last->Portfolio Last->"
     },
     "propertyNameAtParent": "limitOrders",
     "childrenNodesProperties": [

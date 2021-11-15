@@ -1,0 +1,36 @@
+{
+    "type": "Portfolio",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio System",
+            "relatedUiObject": "Portfolio System",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Portfolio-Management"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio Engine",
+            "relatedUiObject": "Portfolio Engine",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Portfolio-Management"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": false,
+    "level": 2,
+    "propertyNameAtParent": "mines"
+}

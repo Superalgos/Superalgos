@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Jetzt folgen Sie meinem Beispiel! Wir werden die Strategie nicht wirklich mit verschiedenen Parametern testen... wir simulieren nur einen Anwendungsfall!",
                 "updated": 1634333486436
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi beni takip et! Stratejiyi farklı parametrelerle gerçekten test etmeyeceğiz... sadece bir kullanım senaryosunu simüle ediyoruz!",
+                "updated": 1636790394665
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Nehmen wir an, wir haben die Trading Parameter geändert und wollen nun wieder die ursprünglichen Parameter verwenden. Die Sicherungskopie befindet sich bereits im Design Space - losgelöst von der Hierarchie - und wir müssen den bestehenden Knoten Trading Parameters durch die Sicherungskopie ersetzen.",
                     "updated": 1634333510680
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım Satım Parametrelerini ( Trading Parameters ) değiştirdiğimizi varsayalım ve şimdi orijinal olanları kullanmaya geri dönmek istiyoruz. Hiyerarşiden ayrılmış tasarım alanında yedeğimiz zaten var ve mevcut İşlem Parametreleri düğümünü yedekle değiştirmemiz gerekiyor.",
+                    "updated": 1636790758208
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zu dem derzeit verwendeten Knoten Trading Parameters, der mit dem Knoten Backtesting Session verbunden ist, und doppelklicken Sie auf die Schaltfläche Detach Node. Der Knoten wird von der Hierarchie getrennt! Sie können ihn nun zur Seite schieben!",
                     "updated": 1634333522271
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu anda kullanımda olan - Geri Test Oturumu düğümüne ( Backtesting Session Node ) bağlı olan - İşlem Parametreleri ( Trading Parameter ) düğümüne gidin ve Düğümü Ayır ( Detach Node ) düğmesine çift tıklayın. Düğüm hiyerarşiden ayrılıyor! Şimdi yana kaydırabilirsiniz!",
+                    "updated": 1636790630805
                 }
             ]
         }

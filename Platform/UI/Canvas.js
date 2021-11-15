@@ -56,6 +56,7 @@ function newCanvas() {
             UI.projects.foundations.spaces.sideSpace.finalize()
             UI.projects.foundations.spaces.chartingSpace.finalize()
             UI.projects.foundations.spaces.floatingSpace.finalize()
+            UI.projects.foundations.spaces.codeEditorSpace.finalize()
             thisObject.shorcutNumbers = undefined
 
             if (browserCanvas.removeEventListener) {
@@ -385,6 +386,11 @@ function newCanvas() {
         if (UI.projects.education !== undefined && UI.projects.education.spaces.docsSpace.isVisible === true) {
             return
         }
+        /* When the Code Editor is Visible, we do not process key down events of the Designer Space. */
+        if (UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+            return
+        }
+
         thisObject.mouse.event = event
         thisObject.mouse.action = 'key down'
 

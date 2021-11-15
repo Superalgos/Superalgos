@@ -10,7 +10,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
 
     return thisObject
 
-    async function run() {
+    async function run(debugSettings) {
         /* 
         The DK object is accessible everywhere at the Superalgos Desktop App.
         It provides access to all modules built for this App.
@@ -25,6 +25,10 @@ exports.newDesktopRoot = function newDesktopRoot() {
         let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
+
+        if (debugSettings !== undefined && debugSettings.DESKTOP_APP_SIGNING_ACCOUNT !== undefined) {
+            global.env.DESKTOP_APP_SIGNING_ACCOUNT = debugSettings.DESKTOP_APP_SIGNING_ACCOUNT
+        }
         /*
         First thing is to load the project schema file.
         */

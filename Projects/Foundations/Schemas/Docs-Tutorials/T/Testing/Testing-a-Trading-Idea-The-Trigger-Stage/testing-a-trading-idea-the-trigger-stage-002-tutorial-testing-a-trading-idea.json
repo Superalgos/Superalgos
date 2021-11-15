@@ -4,8 +4,8 @@
     "type": "Tutorial - Testing a Trading Idea",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-strategy"
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
         },
         "text": "We got to the point where we can finally put the theory in practice, so let's get on with it!"
     },

@@ -29,6 +29,7 @@
         let secret
         let uid
         let password
+        let brokerId
         let sandBox = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.sandbox || false;
   
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
@@ -37,8 +38,21 @@
                 secret = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
                 uid = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
                 password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
+                brokerId = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.brokerId
             }
         }
+
+        switch (exchangeId) {
+            case 'okex':
+            case 'okex3':
+            case 'okex5':
+                if (brokerId === undefined) {
+                    brokerId = 'c77ccd60ec7b4cBC'
+                }
+                break;
+        }
+        options.brokerId = brokerId
+
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,

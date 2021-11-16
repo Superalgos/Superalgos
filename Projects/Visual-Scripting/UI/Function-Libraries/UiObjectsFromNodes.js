@@ -194,7 +194,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                 return
                             }
 
-                            /* 
+                            /*
                             If the workspace already contains a root node with the id of the head of the hierarchy
                             we are loading, we remove it because the plugin file has precedence.
                             */
@@ -208,7 +208,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             }
                             receivedNode.isPlugin = true
                             /*
-                            We will force the Plugin codeName to the same to the fileName.                             
+                            We will force the Plugin codeName to the same to the fileName.
                             */
                             let config
                             try {
@@ -296,7 +296,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     function syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < portfolioSessionsFoundAtWorkspace.length; i++) {
             let node = portfolioSessionsFoundAtWorkspace[i]
-            UI.projects.algorithmicPortfolio.functionLibraries.portfolioSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.syncronizeSessionWithBackEnd(node)
         }
         portfolioSessionsFoundAtWorkspace = undefined
     }
@@ -399,7 +399,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                             }
                                             break
                                         }
-                                        // If child node is in an array look for it 
+                                        // If child node is in an array look for it
                                         case 'array': {
                                             if (node[property.name] !== undefined) {
                                                 let nodePropertyArray = node[property.name]
@@ -527,9 +527,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
             node.project = "Community-Plugins"
         }
 
-        /* 
+        /*
         This function can be called with a positionOffset to change the node
-        saved position and all of its descendants positions as well with an 
+        saved position and all of its descendants positions as well with an
         offset. It can also happen that the positionOffset is defined as a property
         of the node, in which case it will produce exactly the same effect.
         */

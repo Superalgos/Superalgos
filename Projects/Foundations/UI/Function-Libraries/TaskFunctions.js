@@ -138,6 +138,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
+            'Managed Tasks->' +
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->' +
             'Market Data Tasks->Market Trading Tasks->Market Portfolio Tasks->Market Learning Tasks->' +
@@ -145,6 +146,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Market->Exchange Markets->Crypto Exchange->' +
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Project Data Tasks->Project Trading Tasks->Project Portfolio Tasks->Project Learning Tasks->Project Definition->' +
+            'Managed Sessions->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Live Portfolio Session->' +
             'Back Learning Session->Live Learning Session->' +
             'Process Definition->' +

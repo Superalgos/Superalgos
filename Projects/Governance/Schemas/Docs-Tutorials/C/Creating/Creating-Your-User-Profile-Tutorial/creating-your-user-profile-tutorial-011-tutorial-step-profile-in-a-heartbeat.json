@@ -15,6 +15,11 @@
                 "text": "El Profile Constructor es el dispositivo que utilizarás para configurar tu perfil.",
                 "updated": 1630882802325,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Profil Oluşturucu ( Profile Constructor ), profilinizi ayarlamak için kullanacağınız aygıttır.",
+                "updated": 1637160279537
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Crearás una billetera Binance Smart Chain única que está conectada con tu perfil: tu Governance Address.",
                     "updated": 1630886603829,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizle bağlantılı benzersiz bir Binance Akıllı Zincir cüzdanı oluşturacaktır: Yönetim Adresiniz. (Governance Address )",
+                    "updated": 1637160319359
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Sin embargo, si ya posees una billetera BSC, tendrás la opción de vincular esa dirección en lugar de crear una nueva.",
                     "updated": 1630886627305,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ancak, zaten bir BSC cüzdanınız varsa, yeni bir adres oluşturmak yerine bu adresi bağlama seçeneğiniz vardır.",
+                    "updated": 1637160351309
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Tu Governance Address te permitirá recibir los tokens SA que ganes. Superalgos leerá el saldo de esta dirección para conocer la cantidad de Tokens SA que tiene y le asignará a tu perfil una cantidad equivalente de Token Power.",
                     "updated": 1630886677089,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresiniz ( Governance Address ), kazandığınız SA Jetonlarını alabilmeniz için gereklidir. Superalgos, sahip olduğunuz SA Tokenlerinin sayısından haberdar olmak için bu adresin bakiyesini okuyacak ve profilinize eşdeğer miktarda Token Gücü ( Token Power ) atayacaktır.",
+                    "updated": 1637160430015
                 }
             ]
         }

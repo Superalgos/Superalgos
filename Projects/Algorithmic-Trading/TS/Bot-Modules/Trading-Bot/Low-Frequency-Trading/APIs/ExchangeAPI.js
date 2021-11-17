@@ -24,6 +24,7 @@
         tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
   
         exchangeId = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
+        options = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.options
   
         let key
         let secret
@@ -37,7 +38,6 @@
                 secret = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.secret
                 uid = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.uid
                 password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
-                options = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.options
             }
         }
 

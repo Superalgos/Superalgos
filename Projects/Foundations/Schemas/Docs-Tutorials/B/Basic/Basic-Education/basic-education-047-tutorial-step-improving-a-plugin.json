@@ -6,7 +6,7 @@
         "text": "About the second scenario: let's say you are testing the EMA indicator, found a bug and know how to fix it. You intend to contribute the fix so that everyone benefits from it!",
         "icon": {
             "name": "indicator-bot",
-            "project": "Foundations"
+            "project": "Data-Mining"
         },
         "updated": 1629909327051,
         "translations": [

@@ -17536,11 +17536,11 @@
     "savedPayload": {
         "position": {
             "x": 17391.304347826088,
-            "y": 23600
+            "y": 18800
         },
         "targetPosition": {
             "x": 17391.304347826088,
-            "y": 23600
+            "y": 18800
         },
         "floatingObject": {
             "isPinned": false,

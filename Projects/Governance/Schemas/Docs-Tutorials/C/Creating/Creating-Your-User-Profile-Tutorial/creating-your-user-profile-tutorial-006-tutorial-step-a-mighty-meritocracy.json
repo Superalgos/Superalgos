@@ -15,6 +15,11 @@
                 "text": "¡Superalgos no recompensa el aprovechamiento gratuito! Las contribuciones reales al proyecto y a la comunidad son las que se recompensan con tokens y Token Power.",
                 "updated": 1630873417226,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, sizi, onu yükleyip kulandığınız için ödüllendirmez! Projeye ve topluluğa gerçek katkılar, token ve Token Gücü ( Token Power ) ile ödüllendirilen şeydir.",
+                "updated": 1637147592544
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "text": "¡Esta es una colaboración! Solo juntos podemos continuar haciendo de Superalgos el cambio de juego que es hoy, sin importar lo que depare el futuro.",
                     "updated": 1630873528737,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu bir işbirliğidir! Gelecek ne getirirse getirsin, Superalgos'u bugün olduğu gibi oyunu değiştirici yapmaya ancak birlikte devam edebiliriz.",
+                    "updated": 1637147709307
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "text": "Antes de pasar a la gobernanza, es importante que sepas cómo funciona Superalgos.",
                 "updated": 1630871065288,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Yönetime geçmeden önce Superalgos'un nasıl çalıştığını bilmeniz önemlidir!",
+                "updated": 1637146291519
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Tenemos muchas cosas interesantes de las que hablar, pero quiero asegurarme de que pueda seguirlas fácilmente.",
                     "updated": 1630871195572,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Konuşacak çok heyecan verici şeylerimiz var ama önce bunları kolayca takip edebileceğinizden emin olmak istiyorum.",
+                    "updated": 1637146318583
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Asegúrate de leer los tutoriales en el Getting Started Tutorials Plugin Workspace antes de continuar si aún no lo has hecho!",
                     "updated": 1630872016952,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Henüz yapmadıysanız, devam etmeden önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki ( Getting Started Tutorials Plugin Workspace ) öğreticileri gözden geçirdiğinizden emin olun!",
+                    "updated": 1637146372454
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "No es necesario ser un experto, pero necesitará algunos conocimientos generales del sistema para comprender de qué se trata.",
                     "updated": 1630872031627,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Uzman olmanıza gerek yok, ancak sistemi nasıl çalıştıracağınızı bilmeniz gerekiyor! Aksi takdirde, süreç kafa karıştırıcı ve hatta sinir bozucu olabilir!",
+                    "updated": 1637146395009
                 }
             ]
         }

@@ -52,6 +52,16 @@
             "actionProject": "Visual-Scripting"
         },
         {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedSessions",
+            "label": "Add Managed Sessions",
+            "relatedUiObject": "Managed Sessions",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Portfolio Parameters",
@@ -109,6 +119,11 @@
             "type": "node",
             "childType": "Social Bots",
             "project": "Social-Bots"
+        },
+        {
+          "name": "managedSessions",
+          "type": "node",
+          "childType": "Managed Sessions"
         }
     ],
     "propertyNameAtParent": "session"

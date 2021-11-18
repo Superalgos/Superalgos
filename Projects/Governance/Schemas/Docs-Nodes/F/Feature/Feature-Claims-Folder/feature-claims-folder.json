@@ -2,7 +2,14 @@
     "type": "Feature Claims Folder",
     "definition": {
         "text": "Use this node as an organizational device, to spawn Feature Contribution Claim nodes, and to map entire structures in a Features hierarchy to place multiple Contribution Claims at once.",
-        "updated": 1630352152356
+        "updated": 1630352152356,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo como un dispositivo organizacional, para abrir nodos Feature Contribution Claim (solicitud de  contribución  de función), y para mapear estructuras enteras en una jerarquía de  Feature (función) y colocar múltiples solicitudes de Contribution Claims al mismo tiempo.",
+                "updated": 1636112015354
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,7 @@
         },
         {
             "style": "Block",
-            "text": "Cnfiguration"
+            "text": "Configuration"
         },
         {
             "style": "Title",

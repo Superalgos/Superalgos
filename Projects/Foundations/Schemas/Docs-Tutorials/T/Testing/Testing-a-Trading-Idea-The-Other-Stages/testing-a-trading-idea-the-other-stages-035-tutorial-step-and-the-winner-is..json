@@ -4,8 +4,8 @@
     "type": "Tutorial Step - And the Winner Is...",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "target-size"
+            "name": "Target\\target-size",
+            "project": "Foundations"
         },
         "text": "The answer is Size Filled minus Fees Paid! I'll explain why none of the other nodes fit the bill!"
     },

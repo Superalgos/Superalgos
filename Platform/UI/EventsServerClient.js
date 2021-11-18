@@ -225,7 +225,11 @@ function newEventsServerClient(lanNetworkNode) {
                 port = config.webSocketsPort
                 extwsurl = config.webSocketsExternalURL
 
-                /* Check if we really have to stablish the connection. */
+                if (UI.environment.DEMO_MODE === true) {
+                    host = UI.environment.DEMO_MODE_HOST
+                }
+
+                /* Check if we really have to establish the connection. */
                 if (config.autoConnect === false) { return }
             } catch (err) {
                 lanNetworkNode.payload.uiObject.setErrorMessage(
@@ -285,7 +289,7 @@ function newEventsServerClient(lanNetworkNode) {
                 }
             }
             WEB_SOCKETS_CONNECTION.onmessage = e => {
-                // console.log('Websoked Message Received: ' + e.data)
+                // console.log('WEB_SOCKET Message Received: ' + e.data)
 
                 let message = JSON.parse(e.data)
 

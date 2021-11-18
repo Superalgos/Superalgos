@@ -26,12 +26,12 @@
                     "id": "e6bad077-b21f-4ad5-acf8-eeb293ef1c2e",
                     "savedPayload": {
                         "position": {
-                            "x": 28242.19579244632,
-                            "y": 23067.2210565163
+                            "x": 8262.133308696815,
+                            "y": 12973.892465229113
                         },
                         "targetPosition": {
-                            "x": 28487.283358203083,
-                            "y": 23444.62281209174
+                            "x": 8580.33136023076,
+                            "y": 13292.090516763059
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "21fc9fe9-020e-46e6-aeb2-764f1838fac9",
                 "savedPayload": {
                     "position": {
-                        "x": 28487.283358203083,
-                        "y": 23444.62281209174
+                        "x": 8580.33136023076,
+                        "y": 13292.090516763059
                     },
                     "targetPosition": {
-                        "x": 28732.370923959847,
-                        "y": 23822.02456766718
+                        "x": 8898.529411764706,
+                        "y": 13610.288568297005
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "50079cf4-9746-420e-80c3-2e6b85298ac7",
                     "savedPayload": {
                         "position": {
-                            "x": 28685.268563341197,
-                            "y": 22923.257986388064
+                            "x": 8665.592271172438,
+                            "y": 12740.955324636841
                         },
                         "targetPosition": {
-                            "x": 28708.81974365052,
-                            "y": 23372.641277027622
+                            "x": 8782.060841468572,
+                            "y": 13175.621946466923
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "e1c18d16-d11d-4fbe-9e4d-7e1288221c6f",
                 "savedPayload": {
                     "position": {
-                        "x": 28708.81974365052,
-                        "y": 23372.641277027622
+                        "x": 8782.060841468572,
+                        "y": 13175.621946466923
                     },
                     "targetPosition": {
-                        "x": 28732.370923959847,
-                        "y": 23822.02456766718
+                        "x": 8898.529411764706,
+                        "y": 13610.288568297005
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,12 +127,12 @@
             "id": "1bc0ffaa-83d2-44c7-8231-74fb6b747487",
             "savedPayload": {
                 "position": {
-                    "x": 28732.370923959847,
-                    "y": 23822.02456766718
+                    "x": 8898.529411764706,
+                    "y": 13610.288568297005
                 },
                 "targetPosition": {
-                    "x": 28871.428571428572,
-                    "y": 24250
+                    "x": 9123.529411764706,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{\n    \"percentage\": 5\n}",
+            "config": "{\n    \"percentage\": 1\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -257,12 +257,12 @@
                 "id": "68e7a305-2909-4741-9b12-624d7e556915",
                 "savedPayload": {
                     "position": {
-                        "x": 29305.8817281654,
-                        "y": 23541.036883200573
+                        "x": 9165.497922380597,
+                        "y": 13199.193112357834
                     },
                     "targetPosition": {
-                        "x": 29235.4862188973,
-                        "y": 23985.496636468386
+                        "x": 9348.529411764706,
+                        "y": 13610.288568297005
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -382,12 +382,12 @@
                 "id": "411a6083-99ae-4ece-9334-42801ee0fc8c",
                 "savedPayload": {
                     "position": {
-                        "x": 29599.543866366024,
-                        "y": 23720.993272936772
+                        "x": 9442.089672632697,
+                        "y": 13170.122147966791
                     },
                     "targetPosition": {
-                        "x": 29235.4862188973,
-                        "y": 23985.496636468386
+                        "x": 9348.529411764706,
+                        "y": 13610.288568297005
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -507,12 +507,124 @@
                 "id": "ef87e43d-72f8-4ff4-915d-38d376a381ed",
                 "savedPayload": {
                     "position": {
-                        "x": 29679.94597216511,
-                        "y": 24055.89214573649
+                        "x": 9682.944583229533,
+                        "y": 13309.179795435519
                     },
                     "targetPosition": {
-                        "x": 29235.4862188973,
-                        "y": 23985.496636468386
+                        "x": 9348.529411764706,
+                        "y": 13610.288568297005
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "influencerProgram": {
+                "type": "Influencer Program",
+                "name": "New Influencer Program",
+                "config": "{}",
+                "project": "Governance",
+                "userInfluencers": [
+                    {
+                        "type": "User Influencer",
+                        "name": "",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "106481d0-dc22-438e-a63e-0ec16c3deb2c",
+                        "savedPayload": {
+                            "position": {
+                                "x": 10079.258440652857,
+                                "y": 13213.535077170924
+                            },
+                            "targetPosition": {
+                                "x": 9796.06426468043,
+                                "y": 13563.25075982656
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "f9b9e768-2f65-4794-8cc8-5a1248897372",
+                    "savedPayload": {
+                        "position": {
+                            "x": 10243.599117596154,
+                            "y": 13516.212951356116
+                        },
+                        "targetPosition": {
+                            "x": 9796.06426468043,
+                            "y": 13563.25075982656
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "56ab23dd-7a01-4b06-a522-5c6bdd9c4aaf",
+                    "savedPayload": {
+                        "position": {
+                            "x": 10145.779947336066,
+                            "y": 13846.444935798987
+                        },
+                        "targetPosition": {
+                            "x": 9796.06426468043,
+                            "y": 13563.25075982656
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "c9cbf38e-b183-45b8-93b4-04f1765ced94",
+                "savedPayload": {
+                    "position": {
+                        "x": 9796.06426468043,
+                        "y": 13563.25075982656
+                    },
+                    "targetPosition": {
+                        "x": 9348.529411764706,
+                        "y": 13610.288568297005
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -530,12 +642,12 @@
             "id": "ad9c1239-f4dd-4e12-8998-ecead32065ab",
             "savedPayload": {
                 "position": {
-                    "x": 29235.4862188973,
-                    "y": 23985.496636468386
+                    "x": 9348.529411764706,
+                    "y": 13610.288568297005
                 },
                 "targetPosition": {
-                    "x": 28871.428571428572,
-                    "y": 24250
+                    "x": 9123.529411764706,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -583,12 +695,12 @@
                                         "id": "ad052a9a-68b6-4a8d-97f6-5b4819a401c1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30909.21501242964,
-                                                "y": 22580.10270597846
+                                                "x": 9682.060841468572,
+                                                "y": 12725.621946466923
                                             },
                                             "targetPosition": {
-                                                "x": 31275.277991197858,
-                                                "y": 23402.2936178568
+                                                "x": 10071.77227317157,
+                                                "y": 12950.621946466923
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -613,12 +725,12 @@
                                         "id": "bc6dbc08-dd76-4e58-856a-19a2a33e1fbc",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31597.80914578863,
-                                                "y": 22562.07123400932
+                                                "x": 9955.303702875435,
+                                                "y": 12515.955324636841
                                             },
                                             "targetPosition": {
-                                                "x": 31275.277991197858,
-                                                "y": 23402.2936178568
+                                                "x": 10071.77227317157,
+                                                "y": 12950.621946466923
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -643,12 +755,12 @@
                                         "id": "25ded2e8-c170-450f-8bd3-657e4d7eaf09",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32097.4689030762,
-                                                "y": 23036.230639088582
+                                                "x": 10296.77227317157,
+                                                "y": 12560.910514763926
                                             },
                                             "targetPosition": {
-                                                "x": 31275.277991197858,
-                                                "y": 23402.2936178568
+                                                "x": 10071.77227317157,
+                                                "y": 12950.621946466923
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -667,12 +779,12 @@
                                 "id": "1fd2e51e-768c-4c47-af0c-4a8afce1c2a0",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31275.277991197858,
-                                        "y": 23402.2936178568
+                                        "x": 10071.77227317157,
+                                        "y": 12950.621946466923
                                     },
                                     "targetPosition": {
-                                        "x": 30952.746836607086,
-                                        "y": 24242.516001704284
+                                        "x": 10188.240843467704,
+                                        "y": 13385.288568297005
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -704,12 +816,12 @@
                                         "id": "91dc1bc8-e39f-4546-ad37-7f6a79aeb01c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31962.05827022141,
-                                                "y": 22996.12018227564
+                                                "x": 10230.209354083594,
+                                                "y": 12584.481680654837
                                             },
                                             "targetPosition": {
-                                                "x": 31774.937748485427,
-                                                "y": 23876.453022936064
+                                                "x": 10413.240843467704,
+                                                "y": 12995.577136594007
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -734,12 +846,12 @@
                                         "id": "f8b0dfad-9981-4aa5-9f1e-1448b7a38fc6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32443.76809141508,
-                                                "y": 23274.235477213093
+                                                "x": 10506.801104335695,
+                                                "y": 12555.410716263796
                                             },
                                             "targetPosition": {
-                                                "x": 31774.937748485427,
-                                                "y": 23876.453022936064
+                                                "x": 10413.240843467704,
+                                                "y": 12995.577136594007
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -764,12 +876,12 @@
                                         "id": "af75b9f7-8037-42a4-bb83-22268b4c77ef",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32670.007454316874,
-                                                "y": 23782.377405995176
+                                                "x": 10747.65601493253,
+                                                "y": 12694.468363732522
                                             },
                                             "targetPosition": {
-                                                "x": 31774.937748485427,
-                                                "y": 23876.453022936064
+                                                "x": 10413.240843467704,
+                                                "y": 12995.577136594007
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -794,12 +906,12 @@
                                         "id": "25838d96-56c4-4c70-a580-9302367de46b",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32554.36061189142,
-                                                "y": 24326.453022936064
+                                                "x": 10860.775696383427,
+                                                "y": 12948.539328123563
                                             },
                                             "targetPosition": {
-                                                "x": 31774.937748485427,
-                                                "y": 23876.453022936064
+                                                "x": 10413.240843467704,
+                                                "y": 12995.577136594007
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -818,12 +930,12 @@
                                 "id": "c76a65e8-8140-49b4-b4c6-30d131abdd8c",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31774.937748485427,
-                                        "y": 23876.453022936064
+                                        "x": 10413.240843467704,
+                                        "y": 12995.577136594007
                                     },
                                     "targetPosition": {
-                                        "x": 30952.746836607086,
-                                        "y": 24242.516001704284
+                                        "x": 10188.240843467704,
+                                        "y": 13385.288568297005
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -855,12 +967,12 @@
                                         "id": "5922c520-3860-4e59-a8f0-96aba791183f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32633.19160430205,
-                                                "y": 24887.578310885827
+                                                "x": 11057.574087127867,
+                                                "y": 13152.351427704736
                                             },
                                             "targetPosition": {
-                                                "x": 31792.969220454568,
-                                                "y": 24565.047156295055
+                                                "x": 10622.907465297785,
+                                                "y": 13268.81999800087
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -879,12 +991,12 @@
                                 "id": "07d309b3-6ae5-4167-9618-cd7890de84a4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31792.969220454568,
-                                        "y": 24565.047156295055
+                                        "x": 10622.907465297785,
+                                        "y": 13268.81999800087
                                     },
                                     "targetPosition": {
-                                        "x": 30952.746836607086,
-                                        "y": 24242.516001704284
+                                        "x": 10188.240843467704,
+                                        "y": 13385.288568297005
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -903,12 +1015,12 @@
                         "id": "4faa6559-a5f5-46ee-b293-32fb1567b053",
                         "savedPayload": {
                             "position": {
-                                "x": 30952.746836607086,
-                                "y": 24242.516001704284
+                                "x": 10188.240843467704,
+                                "y": 13385.288568297005
                             },
                             "targetPosition": {
-                                "x": 30130.555924728746,
-                                "y": 24608.578980472503
+                                "x": 9963.240843467704,
+                                "y": 13775.000000000002
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -931,12 +1043,12 @@
                     "id": "04a913e0-5e0b-4533-ae5d-57f7da07af48",
                     "savedPayload": {
                         "position": {
-                            "x": 30858.671219666197,
-                            "y": 25137.585707535727
+                            "x": 10413.240843467704,
+                            "y": 13775.000000000002
                         },
                         "targetPosition": {
-                            "x": 30130.555924728746,
-                            "y": 24608.578980472503
+                            "x": 9963.240843467704,
+                            "y": 13775.000000000002
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -954,19 +1066,19 @@
                 "id": "a3643508-d620-4caa-8444-528b3682fd68",
                 "savedPayload": {
                     "position": {
-                        "x": 30130.555924728746,
-                        "y": 24608.578980472503
+                        "x": 9963.240843467704,
+                        "y": 13775.000000000002
                     },
                     "targetPosition": {
-                        "x": 29235.4862188973,
-                        "y": 24514.503363531614
+                        "x": 9573.529411764706,
+                        "y": 14000.000000000002
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
                         "isCollapsed": false,
                         "angleToParent": 2,
-                        "distanceToParent": 5,
+                        "distanceToParent": 3,
                         "arrangementStyle": 0
                     },
                     "uiObject": {
@@ -982,151 +1094,20 @@
                 "assetClaimsFolders": [
                     {
                         "type": "Asset Claims Folder",
-                        "name": "Docker Asset Class",
-                        "config": "{}",
+                        "name": "New Asset Claims Folder",
+                        "config": "{\n    \"percentage\": 0\n}",
                         "project": "Governance",
                         "assetClaimsFolders": [],
-                        "assetContributionClaims": [
-                            {
-                                "type": "Asset Contribution Claim",
-                                "name": "Superalgos Docker docker-compose.yml",
-                                "config": "{\n  \"description\": \"\"\n}",
-                                "project": "Governance",
-                                "id": "72e640dd-cbe8-40eb-82e3-d58714736714",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 30286.65956094444,
-                                        "y": 24880.10143287005
-                                    },
-                                    "targetPosition": {
-                                        "x": 29858.68412861162,
-                                        "y": 25019.159080338777
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Asset",
-                                        "name": "docker-compose.yml",
-                                        "id": "8b11af37-04c0-4932-93a4-538c96e90393"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Docker",
-                                            "Assets",
-                                            "Governance",
-                                            "f92d7a00-be08-4f44-b000-e0f8c4658f14"
-                                        ],
-                                        [
-                                            "Docker",
-                                            "Asset Class",
-                                            "Governance",
-                                            "a56c295d-b3ea-4c29-917d-a05654851232"
-                                        ],
-                                        [
-                                            "Superalgos",
-                                            "Asset Class",
-                                            "Governance",
-                                            "d1ec3e31-62ba-443c-b765-63cb7eaf2cc9"
-                                        ],
-                                        [
-                                            "Docker",
-                                            "Asset Class",
-                                            "Governance",
-                                            "f279ee42-d52b-46a4-8070-3354efe82dbf"
-                                        ],
-                                        [
-                                            "docker-compose.yml",
-                                            "Asset",
-                                            "Governance",
-                                            "8b11af37-04c0-4932-93a4-538c96e90393"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Asset Contribution Claim",
-                                "name": "Superalgos Docker Dockerfile",
-                                "config": "{\n  \"description\": \"\"\n}",
-                                "project": "Governance",
-                                "id": "f8a0c977-7987-483e-9f01-6ea3ad544efe",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 30193.09930007645,
-                                        "y": 25320.267853200265
-                                    },
-                                    "targetPosition": {
-                                        "x": 29858.68412861162,
-                                        "y": 25019.159080338777
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Asset",
-                                        "name": "Dockerfile",
-                                        "id": "c106ff98-190a-4209-b325-074f8f16d9dc"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Docker",
-                                            "Assets",
-                                            "Governance",
-                                            "f92d7a00-be08-4f44-b000-e0f8c4658f14"
-                                        ],
-                                        [
-                                            "Docker",
-                                            "Asset Class",
-                                            "Governance",
-                                            "a56c295d-b3ea-4c29-917d-a05654851232"
-                                        ],
-                                        [
-                                            "Superalgos",
-                                            "Asset Class",
-                                            "Governance",
-                                            "d1ec3e31-62ba-443c-b765-63cb7eaf2cc9"
-                                        ],
-                                        [
-                                            "Docker",
-                                            "Asset Class",
-                                            "Governance",
-                                            "f279ee42-d52b-46a4-8070-3354efe82dbf"
-                                        ],
-                                        [
-                                            "Dockerfile",
-                                            "Asset",
-                                            "Governance",
-                                            "c106ff98-190a-4209-b325-074f8f16d9dc"
-                                        ]
-                                    ]
-                                }
-                            }
-                        ],
-                        "id": "bb3c760b-f5bc-4085-9b25-bce13f68d4b6",
+                        "assetContributionClaims": [],
+                        "id": "30fcadf1-1bfa-4534-b180-282c27e9fda1",
                         "savedPayload": {
                             "position": {
-                                "x": 29858.68412861162,
-                                "y": 25019.159080338777
+                                "x": 10374.336299406874,
+                                "y": 14041.968510615892
                             },
                             "targetPosition": {
-                                "x": 29418.517708281408,
-                                "y": 24925.598819470786
+                                "x": 9963.240843467704,
+                                "y": 14225.000000000002
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1141,259 +1122,270 @@
                             },
                             "referenceParent": {
                                 "type": "Asset Class",
-                                "name": "Docker",
-                                "id": "f279ee42-d52b-46a4-8070-3354efe82dbf"
+                                "name": "Beta-12-New-Assets by Casual Contributors",
+                                "id": "2b4ec759-9ac7-40c5-b1dc-36bb11dbf5ee"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
-                                    "Superalgos-Docker",
-                                    "Assets",
-                                    "Governance",
-                                    "f92d7a00-be08-4f44-b000-e0f8c4658f14"
-                                ],
-                                [
-                                    "Docker",
-                                    "Asset Class",
-                                    "Governance",
-                                    "a56c295d-b3ea-4c29-917d-a05654851232"
-                                ],
-                                [
                                     "Superalgos",
-                                    "Asset Class",
-                                    "Governance",
-                                    "d1ec3e31-62ba-443c-b765-63cb7eaf2cc9"
+                                    "Assets"
                                 ],
                                 [
-                                    "Docker",
-                                    "Asset Class",
-                                    "Governance",
-                                    "f279ee42-d52b-46a4-8070-3354efe82dbf"
-                                ]
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Asset Claims Folder",
-                        "name": "Root Asset Class",
-                        "config": "{}",
-                        "project": "Governance",
-                        "assetClaimsFolders": [],
-                        "assetContributionClaims": [
-                            {
-                                "type": "Asset Contribution Claim",
-                                "name": "Superalgos Root .dockerignore",
-                                "config": "{\n  \"description\": \"\"\n}",
-                                "project": "Governance",
-                                "id": "21484ac7-d194-467b-96ee-b6f499538c3c",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 30147.601913475715,
-                                        "y": 25399.07163840434
-                                    },
-                                    "targetPosition": {
-                                        "x": 29719.626481142895,
-                                        "y": 25260.013990935615
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Asset",
-                                        "name": ".dockerignore",
-                                        "id": "2ef8163d-7ff6-4f5c-8b0a-a20d882a2eb6"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Root",
-                                            "Assets",
-                                            "Governance",
-                                            "b5e57605-639d-467b-85ab-c1540d744b33"
-                                        ],
-                                        [
-                                            "Root",
-                                            "Asset Class",
-                                            "Governance",
-                                            "b1ec362d-bfb5-4210-8edd-6ceb9ba52014"
-                                        ],
-                                        [
-                                            "Superalgos",
-                                            "Asset Class",
-                                            "Governance",
-                                            "2201a417-cf22-47f4-b8df-8a16c63deb25"
-                                        ],
-                                        [
-                                            "Root",
-                                            "Asset Class",
-                                            "Governance",
-                                            "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
-                                        ],
-                                        [
-                                            ".dockerignore",
-                                            "Asset",
-                                            "Governance",
-                                            "2ef8163d-7ff6-4f5c-8b0a-a20d882a2eb6"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Asset Contribution Claim",
-                                "name": "Superalgos Root README.md",
-                                "config": "{\n  \"description\": \"\"\n}",
-                                "project": "Governance",
-                                "id": "940cf19f-32ab-41df-95d7-8bf04e7378e9",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 29813.186742010887,
-                                        "y": 25700.18041126583
-                                    },
-                                    "targetPosition": {
-                                        "x": 29719.626481142895,
-                                        "y": 25260.013990935615
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Asset",
-                                        "name": "README.md",
-                                        "id": "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos-Root",
-                                            "Assets",
-                                            "Governance",
-                                            "b5e57605-639d-467b-85ab-c1540d744b33"
-                                        ],
-                                        [
-                                            "Root",
-                                            "Asset Class",
-                                            "Governance",
-                                            "b1ec362d-bfb5-4210-8edd-6ceb9ba52014"
-                                        ],
-                                        [
-                                            "Superalgos",
-                                            "Asset Class",
-                                            "Governance",
-                                            "2201a417-cf22-47f4-b8df-8a16c63deb25"
-                                        ],
-                                        [
-                                            "Root",
-                                            "Asset Class",
-                                            "Governance",
-                                            "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
-                                        ],
-                                        [
-                                            "README.md",
-                                            "Asset",
-                                            "Governance",
-                                            "a5ee087a-9889-41fc-b0c5-13a0e40cb7e8"
-                                        ]
-                                    ]
-                                }
-                            }
-                        ],
-                        "id": "c043b8e6-009a-4dba-a95e-3a2113a8f0ef",
-                        "savedPayload": {
-                            "position": {
-                                "x": 29719.626481142895,
-                                "y": 25260.013990935615
-                            },
-                            "targetPosition": {
-                                "x": 29418.517708281408,
-                                "y": 24925.598819470786
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 2,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            },
-                            "referenceParent": {
-                                "type": "Asset Class",
-                                "name": "Root",
-                                "id": "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
-                            },
-                            "referenceParentCombinedNodePath": [
-                                [
-                                    "Superalgos-Root",
-                                    "Assets",
-                                    "Governance",
-                                    "b5e57605-639d-467b-85ab-c1540d744b33"
-                                ],
-                                [
-                                    "Root",
-                                    "Asset Class",
-                                    "Governance",
-                                    "b1ec362d-bfb5-4210-8edd-6ceb9ba52014"
-                                ],
-                                [
-                                    "Superalgos",
-                                    "Asset Class",
-                                    "Governance",
-                                    "2201a417-cf22-47f4-b8df-8a16c63deb25"
-                                ],
-                                [
-                                    "Root",
-                                    "Asset Class",
-                                    "Governance",
-                                    "1e82e5c7-9420-4205-a2c4-aab3f0f96565"
+                                    "Beta-12-New-Assets by Casual Contributors",
+                                    "Asset Class"
                                 ]
                             ]
                         }
                     }
                 ],
-                "featureClaimsFolders": [],
+                "featureClaimsFolders": [
+                    {
+                        "type": "Feature Claims Folder",
+                        "name": "New Feature Claims Folder",
+                        "config": "{\n    \"percentage\": 0\n}",
+                        "project": "Governance",
+                        "featureClaimsFolders": [],
+                        "featureContributionClaims": [],
+                        "id": "a5a710ce-ea04-4b9c-8054-6d0b53a5f4ad",
+                        "savedPayload": {
+                            "position": {
+                                "x": 10403.407263797915,
+                                "y": 14318.560260867993
+                            },
+                            "targetPosition": {
+                                "x": 9963.240843467704,
+                                "y": 14225.000000000002
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Feature Class",
+                                "name": "Beta-12-New-Features by Casual Contributors",
+                                "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Superalgos",
+                                    "Features"
+                                ],
+                                [
+                                    "Beta-12-New-Features by Casual Contributors",
+                                    "Feature Class"
+                                ]
+                            ]
+                        }
+                    }
+                ],
                 "positionClaimsFolders": [
                     {
                         "type": "Position Claims Folder",
-                        "name": "Community Management Position Class",
+                        "name": "Roles Played @ Beta-12 Position Class",
                         "config": "{}",
                         "project": "Governance",
-                        "positionClaimsFolders": [],
-                        "positionContributionClaims": [
+                        "positionClaimsFolders": [
                             {
-                                "type": "Position Contribution Claim",
-                                "name": "Moderator Community Management",
+                                "type": "Position Claims Folder",
+                                "name": "Software Projects Position Class",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "bc3448ff-42b0-4ce0-8701-b06687e83baf",
+                                "positionClaimsFolders": [
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Active Projects Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [
+                                            {
+                                                "type": "Position Claims Folder",
+                                                "name": "Social Bots Project Position Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "positionClaimsFolders": [],
+                                                "positionContributionClaims": [
+                                                    {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Project Leader Brett Ssplatt Social Bots Project",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "2beaca33-c4a5-4c4f-9458-9aebce6d6367",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 12025.015297650043,
+                                                                "y": 14185.174127992857
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 11584.84887731983,
+                                                                "y": 14278.73438886085
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position",
+                                                                "name": "Project Leader Brett Ssplatt",
+                                                                "id": "e5c83959-d287-424e-8dda-a6a5dcc04cad"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Positions"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Software Projects",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Active Projects",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Social Bots Project",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Project Leader Brett Ssplatt",
+                                                                    "Position"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "234a036f-27a3-4813-a163-6cbeaf02ef96",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 11584.84887731983,
+                                                        "y": 14278.73438886085
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 11144.682456989616,
+                                                        "y": 14372.294649728843
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Class",
+                                                        "name": "Social Bots Project",
+                                                        "id": "39e7f6fd-1faa-47e9-862d-45a8482a558a"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Software Projects",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Active Projects",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Social Bots Project",
+                                                            "Position Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionContributionClaims": [],
+                                        "id": "4181840b-43f7-4ea3-8bc9-a43320be1b15",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 11144.682456989616,
+                                                "y": 14372.294649728843
+                                            },
+                                            "targetPosition": {
+                                                "x": 10704.516036659403,
+                                                "y": 14465.854910596836
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Active Projects",
+                                                "id": "75998134-fe6b-4dd0-9995-6beb613cd165"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Software Projects",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Active Projects",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "positionContributionClaims": [],
+                                "id": "1d1a9dd8-9d81-44ad-ae08-b3eeddf2df33",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 29512.593325222293,
-                                        "y": 25820.668525302233
+                                        "x": 10713.732906968748,
+                                        "y": 14582.966351774154
                                     },
                                     "targetPosition": {
-                                        "x": 29465.55551675185,
-                                        "y": 25373.13367238651
+                                        "x": 10264.34961632919,
+                                        "y": 14559.415171464829
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -1401,53 +1393,1046 @@
                                         "isRunning": false
                                     },
                                     "referenceParent": {
-                                        "type": "Position",
-                                        "name": "Moderator",
-                                        "id": "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                        "type": "Position Class",
+                                        "name": "Software Projects",
+                                        "id": "864ef810-2d34-4776-946d-2f4bd68b45c5"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                            "Positions"
                                         ],
                                         [
-                                            "Rewarded Positions",
-                                            "Position Class",
-                                            "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Community Management",
-                                            "Position Class",
-                                            "Governance",
-                                            "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                            "Software Projects",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Claims Folder",
+                                "name": "Marketing Teams Position Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "positionClaimsFolders": [
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Social Network Teams Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [
+                                            {
+                                                "type": "Position Claims Folder",
+                                                "name": "Twitter Team Position Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "positionClaimsFolders": [],
+                                                "positionContributionClaims": [
+                                                    {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Team Member Twitter Team",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "976bc136-0120-4471-a8e4-c9ad5d3630d1",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 11801.321811921876,
+                                                                "y": 14002.69501234259
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 11466.90664045705,
+                                                                "y": 14303.803785204076
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position",
+                                                                "name": "Team Member",
+                                                                "id": "bff24898-e892-4096-bec1-623995cca9aa"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Positions"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Marketing Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Social Network Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Twitter Team",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Team Member",
+                                                                    "Position"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "dd6e55ad-52cc-4910-a0c4-eef76db12591",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 11466.90664045705,
+                                                        "y": 14303.803785204076
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 11132.491468992223,
+                                                        "y": 14604.912558065562
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Class",
+                                                        "name": "Twitter Team",
+                                                        "id": "151e981a-7a2f-465b-8ff3-851ee06d447c"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Marketing Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Social Network Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Twitter Team",
+                                                            "Position Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Claims Folder",
+                                                "name": "Reddit Team Position Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "positionClaimsFolders": [],
+                                                "positionContributionClaims": [
+                                                    {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Team Leader Brett Reddit Team",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "520397c3-8a50-4350-9e97-d9a20f401151",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 11988.442333657862,
+                                                                "y": 14883.027853003014
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 11560.466901325042,
+                                                                "y": 14743.970205534288
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position",
+                                                                "name": "Team Leader Brett",
+                                                                "id": "af91654f-e6e1-475d-bd43-1bd870b50f84"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Positions"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Marketing Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Social Network Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Reddit Team",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Team Leader Brett",
+                                                                    "Position"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "e594053b-86f4-44df-be46-d0170650405c",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 11560.466901325042,
+                                                        "y": 14743.970205534288
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 11132.491468992223,
+                                                        "y": 14604.912558065562
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Class",
+                                                        "name": "Reddit Team",
+                                                        "id": "44213dd4-f80b-4df9-b19f-00d6aac500c6"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Marketing Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Social Network Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Reddit Team",
+                                                            "Position Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionContributionClaims": [],
+                                        "id": "3e5d5a4d-4cf6-4eb5-9450-ed349862a3f1",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 11132.491468992223,
+                                                "y": 14604.912558065562
+                                            },
+                                            "targetPosition": {
+                                                "x": 10692.325048662009,
+                                                "y": 14698.472818933555
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Social Network Teams",
+                                                "id": "6235a447-4974-4e79-aa5e-b98115c560d7"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Marketing Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Social Network Teams",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Content Creation Teams Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [
+                                            {
+                                                "type": "Position Claims Folder",
+                                                "name": "Brett Live Streaming and Videos Team Position Class",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "positionClaimsFolders": [],
+                                                "positionContributionClaims": [
+                                                    {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Team Creator Brett Brett Live Streaming and Videos Team",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "a15aabd7-eb69-48c1-bae3-e61d81166061",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 11743.925885024539,
+                                                                "y": 15390.854342172534
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 11294.54259438498,
+                                                                "y": 15367.303161863209
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position",
+                                                                "name": "Team Creator Brett",
+                                                                "id": "390c3a42-ccf1-4085-92fd-50d6aba1cd71"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Positions"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Marketing Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Content Creation Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Brett Live Streaming and Videos Team",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Team Creator Brett",
+                                                                    "Position"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Team Leader Brett Live Streaming and Videos Team",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "fec46c32-35cb-431d-aa73-7a5858c4df3f",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 11595.651367246466,
+                                                                "y": 15701.718333328035
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 11294.54259438498,
+                                                                "y": 15367.303161863209
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position",
+                                                                "name": "Team Leader",
+                                                                "id": "dba40c20-334a-4feb-aed4-cb9cfeba9412"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Positions"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Marketing Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Content Creation Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Brett Live Streaming and Videos Team",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Team Leader",
+                                                                    "Position"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Team Member Brett Live Streaming and Videos Team",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "8f49479c-f066-40e3-8ca8-e774c69d0397",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 11270.991414075655,
+                                                                "y": 15816.686452502767
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 11294.54259438498,
+                                                                "y": 15367.303161863209
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position",
+                                                                "name": "Team Member",
+                                                                "id": "bf66de3e-a8bf-4c20-bb12-c0a64dfb7df5"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Positions"
+                                                                ],
+                                                                [
+                                                                    "Roles Played @ Beta-12",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Marketing Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Content Creation Teams",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Brett Live Streaming and Videos Team",
+                                                                    "Position Class"
+                                                                ],
+                                                                [
+                                                                    "Team Member",
+                                                                    "Position"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "id": "1c3d87af-03f6-4611-89df-2f21790d063a",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 11294.54259438498,
+                                                        "y": 15367.303161863209
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 10993.433821523495,
+                                                        "y": 15032.887990398382
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Class",
+                                                        "name": "Brett Live Streaming and Videos Team",
+                                                        "id": "50541550-ad5d-479e-b7fd-dfcd11a60d23"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Marketing Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Content Creation Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Brett Live Streaming and Videos Team",
+                                                            "Position Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionContributionClaims": [],
+                                        "id": "085f9db8-69cd-49a0-afcd-b473f33ee3fc",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 10993.433821523495,
+                                                "y": 15032.887990398382
+                                            },
+                                            "targetPosition": {
+                                                "x": 10692.325048662009,
+                                                "y": 14698.472818933555
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Content Creation Teams",
+                                                "id": "6304827a-8366-48a8-ae11-35881c14e135"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Marketing Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Content Creation Teams",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "positionContributionClaims": [],
+                                "id": "f45874a6-7af9-4c4b-bb13-917f801be45b",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 10565.458389190675,
+                                        "y": 14893.830342929656
+                                    },
+                                    "targetPosition": {
+                                        "x": 10264.34961632919,
+                                        "y": 14559.415171464829
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Marketing Teams",
+                                        "id": "27abdc67-60f7-4f6b-8de5-109d1ce1e8d9"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
                                         ],
                                         [
-                                            "Moderator",
-                                            "Position",
-                                            "Governance",
-                                            "6e141ab6-cc79-44b6-a58a-60b6480f706e"
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Claims Folder",
+                                "name": "Tech Teams Position Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "positionClaimsFolders": [
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Sys Admins Team Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Team Creator Brett Sys Admins Team",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "3bde258d-cad3-4224-891e-c281b392d414",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 11287.60348956078,
+                                                        "y": 15293.04178199477
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 10867.49229763704,
+                                                        "y": 15131.776204699385
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Team Creator Brett",
+                                                        "id": "0b94af47-264d-4106-b0ca-0e696e961929"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Tech Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Sys Admins Team",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Team Creator Brett",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "f699cbe7-b54e-4040-ae0e-62ad1ad97753",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 10867.49229763704,
+                                                "y": 15131.776204699385
+                                            },
+                                            "targetPosition": {
+                                                "x": 10447.381105713299,
+                                                "y": 14970.510627403999
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Sys Admins Team",
+                                                "id": "fdd597bc-e6e4-4a1a-93b8-968f81b835d7"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Tech Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Sys Admins Team",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Docker Team Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Team Creator Brett Docker Team",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "31057ec1-a9fd-431d-973a-0df79dc72fa0",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 10813.444084481518,
+                                                        "y": 15792.70153928234
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 10630.412595097408,
+                                                        "y": 15381.60608334317
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Team Creator Brett",
+                                                        "id": "b6df085b-ca00-4819-9267-b5ffcb016950"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Tech Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Docker Team",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Team Creator Brett",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "45b8e493-9f3b-4845-aec0-49efd9b9eef8",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 10630.412595097408,
+                                                "y": 15381.60608334317
+                                            },
+                                            "targetPosition": {
+                                                "x": 10447.381105713299,
+                                                "y": 14970.510627403999
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Docker Team",
+                                                "id": "7c9ae450-8c4b-46f0-93c4-70da6de02e23"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Tech Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Docker Team",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Github Team Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Team Leader Brett Github Team",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "ccf89d0d-672e-4d80-bdc3-0ff1df3d5cb8",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 10124.849951122527,
+                                                        "y": 15810.733011251481
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 10286.115528417913,
+                                                        "y": 15390.62181932774
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Team Leader Brett",
+                                                        "id": "1c0d55c7-f923-400f-afaa-197415fd422b"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Roles Played @ Beta-12",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Tech Teams",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Github Team",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Team Leader Brett",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "49c4b1b9-1743-479c-926a-90d910193df6",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 10286.115528417913,
+                                                "y": 15390.62181932774
+                                            },
+                                            "targetPosition": {
+                                                "x": 10447.381105713299,
+                                                "y": 14970.510627403999
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Github Team",
+                                                "id": "0c8eb68d-1b45-49a6-ae2a-b4322da4159a"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Superalgos",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Roles Played @ Beta-12",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Tech Teams",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Github Team",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "positionContributionClaims": [],
+                                "id": "6d7947eb-6341-4c12-91ae-be560fc56cbe",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 10240.798436019864,
+                                        "y": 15008.798462104387
+                                    },
+                                    "targetPosition": {
+                                        "x": 10264.34961632919,
+                                        "y": 14559.415171464829
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": true,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Tech Teams",
+                                        "id": "1ce8dec7-122f-4a03-bce0-f74a4a1e7a94"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Superalgos",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Roles Played @ Beta-12",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Tech Teams",
+                                            "Position Class"
                                         ]
                                     ]
                                 }
                             }
                         ],
-                        "id": "13d0ff82-dc45-45cd-95cf-0834dce22a52",
+                        "positionContributionClaims": [],
+                        "id": "db682ebd-024c-49bc-a3d4-e4aa774d3fff",
                         "savedPayload": {
                             "position": {
-                                "x": 29465.55551675185,
-                                "y": 25373.13367238651
+                                "x": 10264.34961632919,
+                                "y": 14559.415171464829
                             },
                             "targetPosition": {
-                                "x": 29418.517708281408,
-                                "y": 24925.598819470786
+                                "x": 9963.240843467704,
+                                "y": 14225.000000000002
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -1457,27 +2442,17 @@
                             },
                             "referenceParent": {
                                 "type": "Position Class",
-                                "name": "Community Management",
-                                "id": "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                "name": "Roles Played @ Beta-12",
+                                "id": "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Superalgos",
-                                    "Positions",
-                                    "Governance",
-                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                    "Positions"
                                 ],
                                 [
-                                    "Rewarded Positions",
-                                    "Position Class",
-                                    "Governance",
-                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                ],
-                                [
-                                    "Community Management",
-                                    "Position Class",
-                                    "Governance",
-                                    "35b790f0-c567-498c-83fd-ac0aacd8720b"
+                                    "Roles Played @ Beta-12",
+                                    "Position Class"
                                 ]
                             ]
                         }
@@ -1490,12 +2465,12 @@
                     "id": "299232ef-1aa4-4ea1-9872-56d396957fc9",
                     "savedPayload": {
                         "position": {
-                            "x": 29193.517708281408,
-                            "y": 25315.310251173785
+                            "x": 10010.278651938148,
+                            "y": 14672.534852915725
                         },
                         "targetPosition": {
-                            "x": 29418.517708281408,
-                            "y": 24925.598819470786
+                            "x": 9963.240843467704,
+                            "y": 14225.000000000002
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1513,12 +2488,12 @@
                 "id": "efb5c85c-0a81-4c64-9e00-4211fdbfd558",
                 "savedPayload": {
                     "position": {
-                        "x": 29418.517708281408,
-                        "y": 24925.598819470786
+                        "x": 9963.240843467704,
+                        "y": 14225.000000000002
                     },
                     "targetPosition": {
-                        "x": 29235.4862188973,
-                        "y": 24514.503363531614
+                        "x": 9573.529411764706,
+                        "y": 14000.000000000002
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1536,12 +2511,12 @@
             "id": "768ed0b3-bb30-49df-a068-11b3bff1ab93",
             "savedPayload": {
                 "position": {
-                    "x": 29235.4862188973,
-                    "y": 24514.503363531614
+                    "x": 9573.529411764706,
+                    "y": 14000.000000000002
                 },
                 "targetPosition": {
-                    "x": 28871.428571428572,
-                    "y": 24250
+                    "x": 9123.529411764706,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1559,7 +2534,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 5\n}",
+            "config": "{\n    \"percentage\": 1\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -1573,12 +2548,12 @@
                     "id": "b8362746-3d2e-483d-9fd3-9b3862a0137b",
                     "savedPayload": {
                         "position": {
-                            "x": 28919.49144569583,
-                            "y": 25558.308272993247
+                            "x": 10127.9522751707,
+                            "y": 14839.711431703
                         },
                         "targetPosition": {
-                            "x": 28825.931184827838,
-                            "y": 25118.141852663033
+                            "x": 9738.240843467704,
+                            "y": 14614.711431703
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1596,12 +2571,12 @@
                 "id": "0fc22ee7-da4f-4e39-a5ae-c6192a01cf6a",
                 "savedPayload": {
                     "position": {
-                        "x": 28825.931184827838,
-                        "y": 25118.141852663033
+                        "x": 9738.240843467704,
+                        "y": 14614.711431703
                     },
                     "targetPosition": {
-                        "x": 28732.370923959847,
-                        "y": 24677.97543233282
+                        "x": 9348.529411764706,
+                        "y": 14389.711431703
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1637,18 +2612,18 @@
                                 "userDelegates": [
                                     {
                                         "type": "User Delegate",
-                                        "name": "",
+                                        "name": "Tentacule23",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "e283fe17-5381-4f4e-8972-54aa43d797f7",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 28982.87937188677,
-                                                "y": 26713.220296099713
+                                                "x": 11028.633970511873,
+                                                "y": 29965.39200466883
                                             },
                                             "targetPosition": {
-                                                "x": 28586.12432658935,
-                                                "y": 26167.133824896624
+                                                "x": 10357.33169113829,
+                                                "y": 29894.83529196316
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1680,12 +2655,12 @@
                                 "id": "5433e43c-6993-45ce-ace5-851a5846500e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 28586.12432658935,
-                                        "y": 26167.133824896624
+                                        "x": 10357.33169113829,
+                                        "y": 29894.83529196316
                                     },
                                     "targetPosition": {
-                                        "x": 28189.36928129193,
-                                        "y": 25621.047353693535
+                                        "x": 9686.029411764706,
+                                        "y": 29824.278579257494
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1709,18 +2684,18 @@
                                 "userDelegates": [
                                     {
                                         "type": "User Delegate",
-                                        "name": "",
+                                        "name": "quantum8",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "68446706-20e1-4bd9-91ab-d7fb28bac098",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 28189.36928129193,
-                                                "y": 26971.047353693535
+                                                "x": 10689.274926159189,
+                                                "y": 30727.60489784195
                                             },
                                             "targetPosition": {
-                                                "x": 28189.36928129193,
-                                                "y": 26296.047353693535
+                                                "x": 10187.652168961948,
+                                                "y": 30275.94173854972
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1752,12 +2727,12 @@
                                 "id": "71c72b91-1af9-4569-8fb2-3cf85b9369ce",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 28189.36928129193,
-                                        "y": 26296.047353693535
+                                        "x": 10187.652168961948,
+                                        "y": 30275.94173854972
                                     },
                                     "targetPosition": {
-                                        "x": 28189.36928129193,
-                                        "y": 25621.047353693535
+                                        "x": 9686.029411764706,
+                                        "y": 29824.278579257494
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1781,18 +2756,18 @@
                                 "userDelegates": [
                                     {
                                         "type": "User Delegate",
-                                        "name": "",
+                                        "name": "Ferrox85",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "87d3ee8d-32a5-4bad-913c-e4cbbb56ee2e",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 27395.859190697087,
-                                                "y": 26713.220296099713
+                                                "x": 9966.710194368683,
+                                                "y": 31144.777840248134
                                             },
                                             "targetPosition": {
-                                                "x": 27792.614235994508,
-                                                "y": 26167.133824896624
+                                                "x": 9826.369803066695,
+                                                "y": 30484.528209752814
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1813,7 +2788,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Ferrox85",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "200cfc7e-800e-4670-9c23-37adc34af02d"
                                                 ]
                                             ]
                                         }
@@ -1822,12 +2799,12 @@
                                 "id": "13c7b13f-0f8c-4f30-912a-54b0bb537ada",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 27792.614235994508,
-                                        "y": 26167.133824896624
+                                        "x": 9826.369803066695,
+                                        "y": 30484.528209752814
                                     },
                                     "targetPosition": {
-                                        "x": 28189.36928129193,
-                                        "y": 25621.047353693535
+                                        "x": 9686.029411764706,
+                                        "y": 29824.278579257494
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1851,18 +2828,18 @@
                                 "userDelegates": [
                                     {
                                         "type": "User Delegate",
-                                        "name": "",
+                                        "name": "elipwns",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "52e150c6-82f8-42ba-80ea-5d6dbdfb7050",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 26905.442984293473,
-                                                "y": 26038.220296099713
+                                                "x": 9136.934943612378,
+                                                "y": 31057.564947075007
                                             },
                                             "targetPosition": {
-                                                "x": 27547.4061327927,
-                                                "y": 25829.633824896624
+                                                "x": 9411.482177688542,
+                                                "y": 30440.92176316625
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1883,7 +2860,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "elipwns",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "863669ed-70e1-4336-a2fd-2957db38d038"
                                                 ]
                                             ]
                                         }
@@ -1892,12 +2871,12 @@
                                 "id": "4532e602-f6a6-4ce2-b206-4063f87187fa",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 27547.4061327927,
-                                        "y": 25829.633824896624
+                                        "x": 9411.482177688542,
+                                        "y": 30440.92176316625
                                     },
                                     "targetPosition": {
-                                        "x": 28189.36928129193,
-                                        "y": 25621.047353693535
+                                        "x": 9686.029411764706,
+                                        "y": 29824.278579257494
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1917,12 +2896,12 @@
                         "id": "b9fa29c0-7c2e-4a4c-8af1-0ffc3400d610",
                         "savedPayload": {
                             "position": {
-                                "x": 28189.36928129193,
-                                "y": 25621.047353693535
+                                "x": 9686.029411764706,
+                                "y": 29824.278579257494
                             },
                             "targetPosition": {
-                                "x": 28397.955752495018,
-                                "y": 24979.084205194307
+                                "x": 9348.529411764706,
+                                "y": 29239.711431703
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1945,12 +2924,12 @@
                     "id": "b631e00d-c01c-4a56-b6ac-b74f3ae0141d",
                     "savedPayload": {
                         "position": {
-                            "x": 27957.789332164804,
-                            "y": 25072.6444660623
+                            "x": 9123.529411764706,
+                            "y": 29629.422863406
                         },
                         "targetPosition": {
-                            "x": 28397.955752495018,
-                            "y": 24979.084205194307
+                            "x": 9348.529411764706,
+                            "y": 29239.711431703
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1968,17 +2947,17 @@
                 "id": "c560aadd-012d-48cc-9785-a9ab5c029993",
                 "savedPayload": {
                     "position": {
-                        "x": 28397.955752495018,
-                        "y": 24979.084205194307
+                        "x": 9348.529411764706,
+                        "y": 14839.711431703
                     },
                     "targetPosition": {
-                        "x": 28732.370923959847,
-                        "y": 24677.97543233282
+                        "x": 9348.529411764706,
+                        "y": 14389.711431703
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -1991,12 +2970,12 @@
             "id": "6cb49071-51d5-4a82-ba5d-7bc220037a9d",
             "savedPayload": {
                 "position": {
-                    "x": 28732.370923959847,
-                    "y": 24677.97543233282
+                    "x": 9348.529411764706,
+                    "y": 14389.711431703
                 },
                 "targetPosition": {
-                    "x": 28871.428571428572,
-                    "y": 24250
+                    "x": 9123.529411764706,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2011,15 +2990,210 @@
                 }
             }
         },
+        "liquidityPrograms": {
+            "type": "Liquidity Programs",
+            "name": "New Liquidity Programs",
+            "config": "{\n    \"percentage\": 1\n}",
+            "project": "Governance",
+            "liquidityProgram": [
+                {
+                    "type": "Liquidity Program",
+                    "name": "BNB",
+                    "config": "{\n    \"asset\": \"BNB\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "ad936a1d-99d4-47d8-a313-01d33160a327",
+                        "savedPayload": {
+                            "position": {
+                                "x": 9167.643695591596,
+                                "y": 14984.251990852135
+                            },
+                            "targetPosition": {
+                                "x": 9051.175125295462,
+                                "y": 14549.585369022054
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "cc639cf8-6955-412e-840f-bf6a4b2b67e3",
+                    "savedPayload": {
+                        "position": {
+                            "x": 9051.175125295462,
+                            "y": 14549.585369022054
+                        },
+                        "targetPosition": {
+                            "x": 8973.529411764706,
+                            "y": 14259.807621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Liquidity Program",
+                    "name": "BUSD",
+                    "config": "{\n    \"asset\": \"BUSD\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "fa0b9bd7-70c1-4048-b170-cf7ce534d5b2",
+                        "savedPayload": {
+                            "position": {
+                                "x": 8598.529411764706,
+                                "y": 14909.326673973661
+                            },
+                            "targetPosition": {
+                                "x": 8823.529411764706,
+                                "y": 14519.615242270664
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "47d03727-759f-408b-be71-f4d88b94dc1b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 8823.529411764706,
+                            "y": 14519.615242270664
+                        },
+                        "targetPosition": {
+                            "x": 8973.529411764706,
+                            "y": 14259.807621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Liquidity Program",
+                    "name": "BTCB",
+                    "config": "{\n    \"asset\": \"BTCB\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "9c101349-1fa4-48ac-b531-afd22cb8a7d9",
+                        "savedPayload": {
+                            "position": {
+                                "x": 8249.085042047904,
+                                "y": 14453.921904962222
+                            },
+                            "targetPosition": {
+                                "x": 8683.751663877985,
+                                "y": 14337.453334666088
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "39afe03d-1219-4b0e-824f-7ce50fb3b54d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 8683.751663877985,
+                            "y": 14337.453334666088
+                        },
+                        "targetPosition": {
+                            "x": 8973.529411764706,
+                            "y": 14259.807621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "9288e3d7-b232-49b9-afc5-78904b7eb6ae",
+            "savedPayload": {
+                "position": {
+                    "x": 8973.529411764706,
+                    "y": 14259.807621135333
+                },
+                "targetPosition": {
+                    "x": 9123.529411764706,
+                    "y": 14000.000000000002
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
         "id": "e056163b-0413-488e-913a-8baa59d41a4f",
         "savedPayload": {
             "position": {
-                "x": 28871.428571428572,
-                "y": 24250
+                "x": 9123.529411764706,
+                "y": 14000.000000000002
             },
             "targetPosition": {
-                "x": 28571.428571428572,
-                "y": 24250
+                "x": 8823.529411764706,
+                "y": 14000.000000000002
             },
             "floatingObject": {
                 "isPinned": false,
@@ -2041,12 +3215,12 @@
         "id": "ed7a0fad-e0cb-479d-b197-ae5301647fdb",
         "savedPayload": {
             "position": {
-                "x": 28271.428571428572,
-                "y": 24250
+                "x": 8523.529411764706,
+                "y": 14000.000000000002
             },
             "targetPosition": {
-                "x": 28571.428571428572,
-                "y": 24250
+                "x": 8823.529411764706,
+                "y": 14000.000000000002
             },
             "floatingObject": {
                 "isPinned": false,
@@ -2064,17 +3238,17 @@
     "id": "56600855-7a91-49e8-8a58-2fa28d07efd1",
     "savedPayload": {
         "position": {
-            "x": 28571.428571428572,
-            "y": 24250
+            "x": 8823.529411764706,
+            "y": 14000.000000000002
         },
         "targetPosition": {
-            "x": 28571.428571428572,
-            "y": 24250
+            "x": 8823.529411764706,
+            "y": 14000.000000000002
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

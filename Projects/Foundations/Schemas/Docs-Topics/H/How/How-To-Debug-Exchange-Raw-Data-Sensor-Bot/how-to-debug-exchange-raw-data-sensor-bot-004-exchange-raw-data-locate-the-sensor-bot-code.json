@@ -3,7 +3,7 @@
     "pageNumber": "4",
     "type": "Exchange Raw Data - Locate The Sensor Bot Code",
     "definition": {
-        "text": "Open with VS Code the Task Server Folder and inmediatelly after that, add the Projects Folder to the VS Code workspace.",
+        "text": "Open with VS Code the Task Server Folder and immediately after that, add the Projects Folder to the VS Code workspace.",
         "updated": 1614591834868
     },
     "paragraphs": [
@@ -26,7 +26,7 @@
         },
         {
             "style": "Success",
-            "text": "This is the single code that is executed to extract candles and volumen in 1 minute time frame from any exchange via the CCXT library. Now you can set a breakpoint anywhere in the code to start debugging from there."
+            "text": "This is the single code that is executed to extract candles and volume in 1 minute time frame from any exchange via the CCXT library. Now you can set a breakpoint anywhere in the code to start debugging from there."
         },
         {
             "style": "Title",

@@ -36,7 +36,19 @@
             {
                 "language": "NL",
                 "text": "Dat klopt! Indicators gaan werken zodra de sensor bot klaar is met haar werk!",
-                "updated": 1634456917084
+                "updated": 1634456917084,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Верно! Индикаторы начнуть работать, как только сенсорный бот закончит свою работу! ",
+                "updated": 1635593922335,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Sensör botu işini bitirir bitirmez göstergeler çalışmaya başlayacak!",
+                "updated": 1635944180619
             }
         ]
     },
@@ -72,7 +84,19 @@
                 {
                     "language": "NL",
                     "text": "Je bekijkt het proces van de Candles Volumes. Ze veranderd de één-minuut candles die de sensor bot download van de exchange in candles voor alle tijdkaders.",
-                    "updated": 1634457056780
+                    "updated": 1634457056780,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы наблюдаете процесс увеличения объема свечей. Он превращает одноминутные свечи, которые сенсорный бот загружает с биржи, в свечи для всех временных рамок.",
+                    "updated": 1635594020777,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Mum Hacimlerini (Candles Volumes) sürçlerini izliyorsunuz. Sensör botunun borsadan indirdiği bir dakikalık mumları tüm zaman dilimleri için mumlara dönüştürüyor.",
+                    "updated": 1635944864225
                 }
             ]
         },
@@ -108,7 +132,19 @@
                 {
                     "language": "NL",
                     "text": "Wat gebeurt er als ze klaar is?",
-                    "updated": 1634457082071
+                    "updated": 1634457082071,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что произойдет после того, как он закончит?",
+                    "updated": 1635594060919,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bitirdikten sonra ne olacak?",
+                    "updated": 1635944274935
                 }
             ]
         },
@@ -143,7 +179,19 @@
                 {
                     "language": "NL",
                     "text": "De Candles Volumes bot moet klaar zijn, zodat andere bots hun werk kunnen gaan doen. Stel je voor dat een bot een 20-periodes Simple Moving Average moet berekenen voor alle tijdskaders. Zij heeft dan het Data Product van Candles Volumes nodig als input voor de SMA berekening. Een dergelijke behoefte noemen we een Data Dependency.",
-                    "updated": 1634457249372
+                    "updated": 1634457249372,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Другим ботам необходимы большие объемы свечей для полного окончания их работы для того, чтобы они могли приступить к своей. Представьте, что боту нужно рассчитать Simple Moving Average за 20 периодов для все временных рамок. Ему необходим Data Product, полученный по объемам свечей в качестве входных данных для рассчета SMA. Мы назывем такую потребность Data Dependency.",
+                    "updated": 1635594443248,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer botların işlerini bitirmeleri için Candles Volumes'e ihtiyaçları var, böylece kendi işlerini yapmaya başlayabilirler. Bir botun tüm zaman dilimleri için 20 dönemlik Basit Hareketli Ortalama ( Simple Moving Average ) hesaplaması gerektiğini hayal edin. SMA hesaplaması için girdi olarak Candles Volumes tarafından üretilen Veri Ürünü'ne ( Data Product ) ihtiyacı var. Böyle bir ihtiyaca Veri Bağımlılığı ( Data Dependency) diyoruz.",
+                    "updated": 1635944420387
                 }
             ]
         }

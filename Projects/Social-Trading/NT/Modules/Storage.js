@@ -54,9 +54,9 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     try {
                         let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                         event.initialize(storedEvent)
-                        NT.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                        NT.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
-                        indexLastSavedEvent = NT.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
+                        NT.projects.network.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                        NT.projects.network.globals.memory.arrays.EVENTS.push(event)
+                        indexLastSavedEvent = NT.projects.network.globals.memory.arrays.EVENTS.length - 1
                     } catch (err) {
                         if (err.stack !== undefined) {
                             console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
@@ -89,13 +89,13 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
         function saveOneMinuteOfEvents() {
             /*
             Here we will save all the events that were not saved before,
-            in one minute chunchs files.
+            in one minute batched files.
             */
             let eventsToSave = []
             let minuteToSave
 
-            for (let i = indexLastSavedEvent + 1; i < NT.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
-                let event = NT.projects.socialTrading.globals.memory.arrays.EVENTS[i]
+            for (let i = indexLastSavedEvent + 1; i < NT.projects.network.globals.memory.arrays.EVENTS.length; i++) {
+                let event = NT.projects.network.globals.memory.arrays.EVENTS[i]
 
                 let currentMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                 let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)

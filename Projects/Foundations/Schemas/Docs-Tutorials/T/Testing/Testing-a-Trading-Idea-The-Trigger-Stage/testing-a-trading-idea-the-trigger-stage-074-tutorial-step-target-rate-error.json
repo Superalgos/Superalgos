@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Target Rate Error",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "Did you find the error? You must have tracked it deep into the Open Stage, on the formula of the Target Rate definition!"
     },

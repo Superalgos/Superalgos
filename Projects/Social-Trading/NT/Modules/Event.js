@@ -1,8 +1,7 @@
 exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
     /*
-    An Event is anything that happens system wide that 
-    needs to be delivered to relevant entities via
-    the Superalgos Network.
+    An Event is an action taken by users that triggers a
+    change at the social graph. 
 
     An Event (in contrast to a Query) produces a change
     on the state of the social graph. 
@@ -17,7 +16,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         targetBotProfileId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
-        /* Event Unitque Properties */
+        /* Event Unique Properties */
         eventType: undefined,
         timestamp: undefined,
         /* Bot Related Properties */
@@ -64,7 +63,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         if (thisObject.emitterUserProfileId === undefined) {
             throw ('Emitter User Profile Id Not Provided.')
         }
-        emitterUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
+        emitterUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
         if (emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
@@ -72,7 +71,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         Validate Target User Profile.
         */
         if (thisObject.targetUserProfileId !== undefined) {
-            targetUserProfile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }
@@ -115,7 +114,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function postingEvents() {
             /*
-            Is is related to Posting?
+            Is it related to Posting?
             */
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST ||
@@ -202,7 +201,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function followingEvents() {
             /*
-            Is is a following?
+            Is it a following?
             */
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE ||
@@ -292,7 +291,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function reactionEvents() {
             /*
-            Is is a Reaction?
+            Is it a Reaction?
             */
             let targetPost
 
@@ -346,7 +345,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function botEvents() {
             /*
-            Is is a Bot?
+            Is it a Bot?
             */
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_BOT ||

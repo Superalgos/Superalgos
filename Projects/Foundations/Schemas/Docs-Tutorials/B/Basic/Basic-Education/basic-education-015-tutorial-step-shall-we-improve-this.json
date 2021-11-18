@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn Sie mit dieser Funktion experimentieren, werden Sie feststellen, dass das Verhalten der einzelnen Einstellungen nicht eindeutig oder vorhersehbar ist.",
                 "updated": 1634333050228
+            },
+            {
+                "language": "TR",
+                "text": "Bu özelliği denerseniz, her bir ayarın davranışının net veya tahmin edilebilir olmadığını fark edeceksiniz.",
+                "updated": 1636752597353
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Die derzeitige Implementierung dieser Funktion ist nicht optimal, und das Verhalten einiger der Optionen ist schwer vorhersehbar. Wenn Sie ein Entwickler sind, könnte dies eine gute Gelegenheit sein, den bestehenden Code zu überarbeiten und diese Funktion in einen brauchbareren Zustand zu bringen!",
                     "updated": 1634333057384
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özelliğin mevcut uygulaması optimal değildir ve bazı seçeneklerin davranışını tahmin etmek zordur. Bir geliştiriciyseniz, mevcut kodu tekrarlamak ve bu özelliği daha kullanılabilir bir duruma getirmek için bu harika bir fırsat olabilir!",
+                    "updated": 1636752636392
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Sie können diese Funktion gerne ausprobieren, aber Sie werden höchstwahrscheinlich zur Standardeinstellung zurückkehren wollen!",
                     "updated": 1634333066060
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu özelliği denemekten çekinmeyin, ancak büyük olasılıkla varsayılan ayara geri dönmek isteyeceksiniz!",
+                    "updated": 1636752653398
                 }
             ]
         }

@@ -4,7 +4,14 @@
     "type": "How to Test New Exchanges",
     "definition": {
         "text": "Testing exchanges is an ongoing Community effort. If you wish to work with an exchange that is not tested, this topic covers everything you need to know to debug the Sensor Bot and find out what needs to be done to achieve the goal.",
-        "updated": 1616007833424
+        "updated": 1616007833424,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Testear exchanges es un esfuerzo continuo de la Community. Si desea trabajar con un exchange que no ha sido testeado, este topico cubre todo que necesita saber para depurar el Sensor Bot y descubrir lo que es necesario hacer para alcanzar  el objetivo.",
+                "updated": 1636372905116
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,11 +22,25 @@
         {
             "style": "Text",
             "text": "CCXT is a popular open-source library that acts as a gateway to exchanges APIs. Its goal is to standardize access to different APIs so that software built using CCXT does not need to know the special dealings of each exchange. Even though it does a pretty good job, it is not perfect and there are still special configurations that must be used with different exchanges.",
-            "updated": 1616008057862
+            "updated": 1616008057862,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "CCXT es una biblioteca (open-source) de código abierto) library que actúa como puerta de entrada a las APIs. de los exchanges. Su finalidad es estandarizar el ingreso a diferentes APIs para que el software construido usando CCXTno necesita conocer los asuntos especiales de cada exchange. Aunque hace un buen trabajo, no es perfecto y todavia hay algunas configuraciones especiales que necesitan ser utilizadas con diferentes exchanges.",
+                    "updated": 1636373176510
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The root of this problem is that there is no standard across the industry and each exchange invents its own way to deal with each functionality."
+            "text": "The root of this problem is that there is no standard across the industry and each exchange invents its own way to deal with each functionality.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La raíz de este problema es que no existe un estándar en la industria y cada  exchange inventa su propio modo para lidiar con cada funcionalidad.",
+                    "updated": 1636373249035
+                }
+            ]
         },
         {
             "style": "Link",
@@ -34,7 +55,14 @@
         {
             "style": "Text",
             "text": "The Superalgos software evolves fast as the team chooses to leave the fine-tuning and setups to the Community. The team tested Binance early on because it is the most popular exchange. It didn't work on the first try with the default configuration, so a special configuration was created.",
-            "updated": 1616009190093
+            "updated": 1616009190093,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El software de Superalgos software evoluciona rápido a medida que el equipo decide dejar la puesta a punto  y configuraciones a la Community. El equipo testeó Binance al comienzo porque es el exchange más masivo.No funcionó en el primer intento con la configuración predeterminada , entonces se creó una configuración especial.",
+                    "updated": 1636373526946
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -54,7 +82,14 @@
         {
             "style": "Text",
             "text": "If you get to test an untested exchange, please participate in the Community Effort to Test Exchanges by documenting the results!",
-            "updated": 1616099671162
+            "updated": 1616099671162,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si llega a probar un exchange, participe en el Community Effort to Test Exchanges (esfuerzo de la comunidad para testear exchanges) documentando los resultados!",
+                    "updated": 1636373617227
+                }
+            ]
         },
         {
             "style": "Success",
@@ -96,7 +131,7 @@
         },
         {
             "style": "Text",
-            "text": "For the rest of this guide, we will assume that you are using the Getting Started workspace that comes as a Plugin. If you are not, please load that workpace and close the Welcome tutorial.",
+            "text": "For the rest of this guide, we will assume that you are using the Getting Started workspace that comes as a Plugin. If you are not, please load that workspace and close the Welcome tutorial.",
             "updated": 1616009292308
         },
         {

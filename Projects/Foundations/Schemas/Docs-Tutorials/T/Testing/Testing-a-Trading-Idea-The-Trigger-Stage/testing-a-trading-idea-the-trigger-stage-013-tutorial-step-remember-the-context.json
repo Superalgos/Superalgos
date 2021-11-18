@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Remember the Context?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-trends"
+            "name": "Layer\\layer-trends",
+            "project": "Foundations"
         },
         "text": "Now that you understand what conditions and situations are, let's pose a question: how do we define the Trigger On Event ?",
         "updated": 1617190454094

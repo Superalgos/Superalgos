@@ -36,7 +36,19 @@
             {
                 "language": "NL",
                 "text": "Ik wil je iets laten zien terwijl de datamining operatie bezig is. Ik zal je leren hoe je moet lopen... in twee seconden!",
-                "updated": 1634926689787
+                "updated": 1634926689787,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я хочу показать Вам кое-что, пока операция data mining в процессе. Я научу Вас передвигаться... за 2 секунды!",
+                "updated": 1635596573723,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Veri madenciliği işlemi devam ederken size bir şey göstermek istiyorum. Sana yürümeyi öğreteceğim... iki saniyede!",
+                "updated": 1635944955783
             }
         ]
     },
@@ -72,7 +84,19 @@
                 {
                     "language": "NL",
                     "text": "Gewoon klikken en slepen met je muis!",
-                    "updated": 1634926782434
+                    "updated": 1634926782434,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Просто нажмите на мышку и потащите!",
+                    "updated": 1635607627239,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Candles Volumes düğümünü tıklayın ve mouse'unuzla sürükleyin. Tıpkı Sürükle/Bırak gibi.",
+                    "updated": 1635945252224
                 }
             ]
         },
@@ -108,7 +132,19 @@
                 {
                     "language": "NL",
                     "text": "Gemakkelijk toch? Echter de ontwerpruimte is enorm en ik zou niet willen dat je muisarm krijgt als je zo rondsleept.",
-                    "updated": 1634927028615
+                    "updated": 1634927028615,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Легко, правда? Отлично! Однако дизайнерское пространство - это огромное место и я бы не хотел, чтобы у Вас возникли определенные тендиниты, передвигаясь таким образом.",
+                    "updated": 1635608367917,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kolay değil mi? Harika! Ancak tasarım alanı çok büyük bir yer.",
+                    "updated": 1635945059358
                 }
             ]
         },
@@ -143,7 +179,19 @@
                 {
                     "language": "NL",
                     "text": "Ik zal je nog een paar trucjes leren in de volgende stappen.",
-                    "updated": 1634927063636
+                    "updated": 1634927063636,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я научу Вас ещё паре трюкам в следующих нескольких шагах.",
+                    "updated": 1635608431495,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımda size birkaç numara daha öğreteceğim.",
+                    "updated": 1635945085983
                 }
             ]
         }

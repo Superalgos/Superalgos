@@ -13,7 +13,7 @@ function newLeftRightButton() {
     }
 
     let isInitialized = false
-    /* Cointainer stuff */
+    /* Container stuff */
 
     thisObject.container = newContainer()
     thisObject.container.name = 'Left Right Button'

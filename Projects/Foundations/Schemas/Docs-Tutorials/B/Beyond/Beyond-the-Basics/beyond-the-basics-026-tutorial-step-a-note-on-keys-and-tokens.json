@@ -21,6 +21,11 @@
                 "text": "Permíteme hacer una breve pausa para señalar algo importante con respecto a la seguridad de tus keys y tokens...",
                 "updated": 1628196629922,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Lassen Sie mich eine kurze Pause einlegen, um auf etwas Wichtiges hinzuweisen, was die Sicherheit Ihrer Schlüssel und Token betrifft...",
+                "updated": 1635151451291
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Superalgos almacena el archivo del espacio de trabajo que contiene tus claves y tokens en formato JSON, sin cifrar. En este estado, esta información crucial es tan segura como lo sea tu computadora.",
                     "updated": 1628196749419,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos speichert die Workspace-Datei, die Ihre Schlüssel und Token enthält, im JSON-Format - unverschlüsselt. In diesem Zustand sind diese wichtigen Informationen so sicher wie Ihr Computer selbst.",
+                    "updated": 1635151459148
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Nunca comparta tu archivo de workspace TAL CUAL. Para compartir un workspace, usa el botón Share en el menú. Crea una copia segura para compartir despojada de información confidencial al eliminar el APIs jerarquía y la sección Exchange Accounts del nodo Crypto Exchange.",
                     "updated": 1628196946570,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie Ihre Arbeitsbereichsdatei niemals in diesem Zustand weiter. Um einen Arbeitsbereich freizugeben, verwenden Sie die Schaltfläche Freigeben im Menü. Es wird eine freizugebende Kopie des Arbeitsbereichs erstellt, die um sensible Informationen bereinigt ist, indem die APIs Hierarchie und der Abschnitt Exchange Accounts des Crypto Exchange Knotens entfernt werden.",
+                    "updated": 1635151467293
                 }
             ]
         },

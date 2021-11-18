@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Klicken Sie auf die Hilfe-Schaltfläche des Knotens Trading Parameters, um die Seite Docs des Knotens aufzurufen. Ich werde Ihnen jetzt etwas zeigen...",
                 "updated": 1634333867183
+            },
+            {
+                "language": "TR",
+                "text": "Düğümün Yardım/Dokümanlar sayfasına erişmek için İşlem Parametreleri ( Trading Parameters ) düğümündeki yardım düğmesine tıklayın. Sana bir şey göstereceğim...",
+                "updated": 1636792560853
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Blättern Sie die Seite ganz nach unten, bis Sie den Titel \"Trading Parameters Attaching Rules\" finden.",
                     "updated": 1634333875335
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Ticaret Parametreleri Ekleme Kuralları\" ( Trading Parameters Attaching Rules ) başlığını bulana kadar sayfayı sonuna kadar kaydırın.",
+                    "updated": 1636792599389
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Jeder Knoten kann an bestimmte Knotentypen angehängt werden. Diese Verknüpfungsregeln sind auf der Seite des Knotens in den Docs aufgeführt.",
                     "updated": 1634333881601
+                },
+                {
+                    "language": "TR",
+                    "text": "Her düğüm belirli düğüm türlerine eklenebilir. Bu ekleme kuralları, Dokümanlar'da düğümün sayfasında listelenir.",
+                    "updated": 1636792641639
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Wenn es mehrere Knoten gibt, die die Verbindung annehmen können, zeigt jeder Kandidat einen grauen Ring an, der anzeigt, dass er bereit ist, die Verbindung anzunehmen. Nur der Kandidat, der sich näher am zu verbindenden Knoten befindet, ist orange markiert.",
                     "updated": 1634333887983
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlantıyı kabul edebilecek birkaç düğüm olduğunda, her aday eki almaya hazır olduklarını belirten gri bir halka görüntüler. Yalnızca eklenecek düğüme daha yakın olan aday turuncu renkle vurgulanır.",
+                    "updated": 1636792767216
                 }
             ]
         }

@@ -2,7 +2,14 @@
     "type": "TensorFlow Library",
     "definition": {
         "text": "In Node.js, TensorFlow.js supports binding directly to the TensorFlow API or running with the slower vanilla CPU implementations.",
-        "updated": 1613062988909
+        "updated": 1613062988909,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В Node.js  TensorFlow.js поддерживает привязку непосредственно к API TensorFlow или работает с более медленными реализациями центрального процессора vanilla.",
+                "updated": 1636748173302
+            }
+        ]
     },
     "paragraphs": [
         {

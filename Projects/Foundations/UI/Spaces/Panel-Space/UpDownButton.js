@@ -13,7 +13,7 @@ function newUpDownButton() {
     }
 
     let isInitialized = false
-    /* Cointainer stuff */
+    /* Container stuff */
 
     thisObject.container = newContainer()
     thisObject.container.name = 'Up Down Button'

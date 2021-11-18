@@ -5,6 +5,7 @@ function newWebApp() {
     Everything is being coded here until some structure emerges. 
     */
     let thisObject = {
+        messageReceived: messageReceived, 
         initialize: initialize,
         finalize: finalize
     }
@@ -19,7 +20,7 @@ function newWebApp() {
         try {
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
-            await UI.projects.socialTrading.modules.webSocketsClient.initialize()
+            await UI.projects.socialTrading.modules.webSocketsWebAppClient.initialize()
             loadWUserProfileTimeline()
             loadWhoToFollow()
             setupEventHandlers()
@@ -113,7 +114,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+        await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
             .then(addToContentDiv)
@@ -183,7 +184,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+        await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
             .then(addWhoToFollowTable)
@@ -360,7 +361,7 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
-            await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+            await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
                 .then(resolve)
@@ -396,7 +397,7 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
-            await UI.projects.socialTrading.modules.webSocketsClient.sendMessage(
+            await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
                 .then(resolve)
@@ -408,5 +409,9 @@ function newWebApp() {
                 reject(errorMessage)
             }
         }
+    }
+
+    function messageReceived(message) {
+        window.alert(message)
     }
 }

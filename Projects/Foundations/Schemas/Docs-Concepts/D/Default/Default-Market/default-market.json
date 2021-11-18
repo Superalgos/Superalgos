@@ -1,7 +1,7 @@
 {
     "type": "Default Market",
     "definition": {
-        "text": "The Default Market is the one referenced by the Market Data Tasks, Market Trading Tasks, Market Learning Tasks nodes of which a certain Task decends from. The Trading Bot running inside that Task will considered that reference market to be it's Default Market.",
+        "text": "The Default Market is the one referenced by the Market Data Tasks, Market Trading Tasks, Market Learning Tasks nodes of which a certain Task descends from. The Trading Bot running inside that Task will considered that reference market to be it's Default Market.",
         "updated": 1612352846165
     },
     "paragraphs": [

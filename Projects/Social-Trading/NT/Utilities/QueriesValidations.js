@@ -1,6 +1,6 @@
 exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingUtilitiesQueriesValidations() {
     /*
-    This module have a few funcions that are often needed at Queries Modules.
+    This module have a few functions that are often needed at Queries Modules.
     */
     let thisObject = {
         profilesValidations: profilesValidations,
@@ -15,14 +15,14 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         Validate User Profile
         */
         if (queryReceived.emitterUserProfileId !== undefined) {
-            thisObject.profile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
+            thisObject.profile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.emitterUserProfileId)
             if (thisObject.profile === undefined) {
                 throw ('Emitter User Profile Not Found.')
             }
         }
 
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = NT.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
             if (thisObject.profile === undefined) {
                 throw ('Target User Profile Not Found.')
             }

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Bezieht sich auf den Namen des Tutorials. Seiten mit demselben Docs-Tutorial-Namen gehören zu demselben Tutorial.",
                 "updated": 1633860374031
+            },
+            {
+                "language": "ES",
+                "text": "Hace referencia al nombre del tutorial. Las páginas con el mismo nombre del tutorial de Documentos pertenecen al mismo tutorial.",
+                "updated": 1636725449952
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Es gibt keine Seite, die ein Tutorial beschreibt. Es ist die Tutorial-Hierarchie, die bestimmt, wie Tutorials angeordnet sind. Im Kontext der Docs wird der Name des Docs-Tutorials jedoch verwendet, um eine Reihe von zusammenhängenden Seiten unter einem bestimmten Tutorial zu gruppieren.",
                     "updated": 1633860632317
+                },
+                {
+                    "language": "ES",
+                    "text": "No hay una página que describa un tutorial. Es la jerarquía de los tutoriales la que determina cómo se organizan los tutoriales. Sin embargo, en el contexto de los documentos, el nombre del tutorial de documentos se utiliza para agrupar un conjunto de páginas relacionadas en un determinado tutorial.",
+                    "updated": 1636725484991
                 }
             ]
         }

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Check Those Slopes",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-trends"
+            "name": "Layer\\layer-trends",
+            "project": "Foundations"
         },
         "text": "We will use the slope property of the Bollinger Subchannels indicator to confirm that a trend is a trend!"
     },

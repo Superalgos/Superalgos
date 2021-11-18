@@ -51,6 +51,11 @@
                 "text": "Wenn Sie das Frontend ausführen, verwenden Sie Chrome oder Safari auf dem Mac! Wir testen es nicht mit anderen Browsern!",
                 "updated": 1634070256991,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Когда запускаете внешний интерфейс, используйте Chrome или Safari - на Mac! Мы не тестируем ни на каких-дибо других браузерах!\n",
+                "updated": 1635449722541
             }
         ]
     },
@@ -100,6 +105,11 @@
                     "text": "Webbrowser verhalten sich unterschiedlich. Wir wissen von Funktionen, die in anderen Browsern nicht funktionieren. Wenn Sie mit Chrome oder Safari arbeiten, klicken Sie auf Weiter und fahren Sie fort. Wenn nicht, gehen Sie wie folgt vor:",
                     "updated": 1634160046151,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошо известный факт, что браузеры работают по-разному, и мы знаем о функциях, которые не работают в других браузерах! Если Вы используете Chrome или Safari, нажмите Next и продолжайте. В обратном случае, выполните следующие действия:",
+                    "updated": 1635450080862
                 }
             ]
         },
@@ -149,6 +159,11 @@
                     "text": "kopieren Sie die aktuelle URL;",
                     "updated": 1634070306435,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "скопируйте текущий URL-адрес;",
+                    "updated": 1635450108634
                 }
             ]
         },
@@ -198,6 +213,11 @@
                     "text": "Schließen Sie diesen Browser so wie er ist; dies schließt nicht das Lernprogramm...",
                     "updated": 1634070358662,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "закройте этот браузер как есть, но не закрывайте учебное пособие;",
+                    "updated": 1635450191799
                 }
             ]
         },
@@ -247,6 +267,11 @@
                     "text": "Öffnen Sie Chrome/Safari und fügen Sie die URL ein; das Tutorial wird bei diesem Schritt geöffnet sein.",
                     "updated": 1634160173540,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Откройте Chrome/Safari и вставьте URL-адрес; учебное пособие должно быть открыто на этом шаге, когда Вы вернетесь!",
+                    "updated": 1635450715330
                 }
             ]
         },
@@ -295,6 +320,11 @@
                     "text": "Wir bieten Online-Support, aber wir können Ihnen mit keinem anderen Browser helfen!",
                     "updated": 1634070371187,
                     "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы предлагаем online поддержку, но мы не можем помочь Вам в работе с каким-либо другим браузером!",
+                    "updated": 1635450697046
                 }
             ]
         }

@@ -5,8 +5,8 @@
     "definition": {
         "text": "The Community may also contribute Trading Systems! At this point, there're only a few, but we hope more will emerge soon!",
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "updated": 1616235875824,
         "translations": [

@@ -1,8 +1,16 @@
 {
     "type": "Claim",
     "definition": {
-        "text": "The token distribution is based on claims made by contributors that they have done something for the project. Anyone can make a claim, but without votes from the community, that claim will not be rewareded with tokens. ",
-        "updated": 1623007004449
+        "text": "The token distribution is based on claims made by contributors that they have done something for the project. Anyone can make a claim, but without votes from the community, that claim will not be rewarded with tokens. ",
+        "updated": 1623007004449,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La distribución de token está basada en solicitudes hechas por los contribuyentes que han hecho algo por el proyecto. Cualquiera puede hacer una solicitud, pero sin votos de la comunidad, esa solicitud no será recompensada con tokens.",
+                "updated": 1635268483932,
+                "style": "Definition"
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +20,15 @@
         },
         {
             "style": "Text",
-            "text": "Assets, Features, Positions, etc. defines rewards offered to contributors by the community. Contributors later needs to make claims to get those rewards, and it is the same community the one who desides which claims to support with their votes."
+            "text": "Assets, Features, Positions, etc. defines rewards offered to contributors by the community. Contributors later needs to make claims to get those rewards, and it is the same community the one who desides which claims to support with their votes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Assets, Features, Positions, etc. definen recompensas ofrecidas a los contribuyentes por la comunidad. Luego los contribuyentes necesitan hacer las solicitudes para obtener esas recompensas, y es la misma comunidad la que decide que solicitudes apoyar con sus votos.",
+                    "updated": 1635268812622,
+                    "style": "Text"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -20,33 +36,89 @@
         },
         {
             "style": "List",
-            "text": "1. Weight Votes: The community uses Weight Votes to define what is more important. "
+            "text": "1. Weight Votes: The community uses Weight Votes to define what is more important. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "1. Weight Votes: La comunidad utiliza Weight Votes para definir que es más importante.",
+                    "updated": 1635268885129,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "2. Weights: These Weight Votes: end up generating a weight for each relevant node."
+            "text": "2. Weights: These Weight Votes: end up generating a weight for each relevant node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "2. Weights: Estos Weight Votes: terminan generando un peso para cada nodo relevante.",
+                    "updated": 1635268940212,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "3. Token Rewards: Based on Weights, Token Rewards are calculated. ",
-            "updated": 1623007443739
+            "updated": 1623007443739,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "3. Token Rewards: Basado en Weights, se calculan los Token Rewards.",
+                    "updated": 1635268980023,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "4. Claims: Contributos post claims towards Token Rewards."
+            "text": "4. Claims: Contributos post claims towards Token Rewards.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "4. Claims: Contribuyentes publican solicitudes para Token Rewards.",
+                    "updated": 1635269117070,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "5. Claims Votes: The community vote on claims that believe are true."
+            "text": "5. Claims Votes: The community vote on claims that believe are true.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "5. Claims Votes: La comunidad vota en solicitudes que considera que son verdaderas.",
+                    "updated": 1635269164919,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
             "text": "6. Token Awarded: Based on all claims towards each Token Rewards, Token Awarded is calculated for each Claim.",
-            "updated": 1623007602133
+            "updated": 1623007602133,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "6. Token Awarded: Basados en todas las solicitudes hacia cada Token Rewards, Token Awarded se calcula para cada solicitud.",
+                    "updated": 1635269451905,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "7. Token Distribution: The distribution is made to users based on the Tokens Awarded to each of their claims."
+            "text": "7. Token Distribution: The distribution is made to users based on the Tokens Awarded to each of their claims.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "7. Token Distribution: La distribución se hace a los usuarios basada en los Tokens Awarded a cada una de sus solicitudes.",
+                    "updated": 1635325051083,
+                    "style": "List"
+                }
+            ]
         },
         {
             "style": "Title",
@@ -54,7 +126,7 @@
         },
         {
             "style": "Javascript",
-            "text": "/*\nWe will use the concept of Vote Ratio for the situation in which the total votes in claims exeeds the\namount of votes for wigthing. When this happen the Votes Ratio will be used to redude the amount of \ntokens awarded proportionally to how much was exeeded.\n*/\nlet votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsVotes\nif (votesRatio > 1) { votesRatio = 1 }\n/*\n    Share Count means the amount to claims pointing to the same potential tokens reward.\n*/\nlet shareCount = node.payload.referenceParent.payload.claimsCount\nlet sharePercentage = node.payload.votingProgram.votes * 100 / node.payload.referenceParent.payload.claimsVotes\nlet awarded = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * node.payload.referenceParent.payload.tokens * votesRatio\nlet awardedPercentage = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * 100 * votesRatio",
+            "text": "/*\nWe will use the concept of Vote Ratio for the situation in which the total votes in claims exceeds the\namount of votes for wigthing. When this happen the Votes Ratio will be used to reduce the amount of \ntokens awarded proportionally to how much was exceeded.\n*/\nlet votesRatio = node.payload.referenceParent.payload.votingProgram.votes / node.payload.referenceParent.payload.claimsVotes\nif (votesRatio > 1) { votesRatio = 1 }\n/*\n    Share Count means the amount to claims pointing to the same potential tokens reward.\n*/\nlet shareCount = node.payload.referenceParent.payload.claimsCount\nlet sharePercentage = node.payload.votingProgram.votes * 100 / node.payload.referenceParent.payload.claimsVotes\nlet awarded = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * node.payload.referenceParent.payload.tokens * votesRatio\nlet awardedPercentage = node.payload.votingProgram.votes / node.payload.referenceParent.payload.votingProgram.votes * 100 * votesRatio",
             "updated": 1623007674072
         },
         {

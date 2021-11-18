@@ -25,6 +25,16 @@
                 "language": "DE",
                 "text": "Wir sind zurück in der Netzwerkhierarchie, um Ihnen eine der wichtigsten Ressourcen für Strategietests zu zeigen, die in den Trading Bot integriert sind.",
                 "updated": 1634218612347
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Ticaret Botu'nda ( Trading Bot ) yerleşik olarak bulunan temel strateji test kaynaklarından birini göstermek için Ağ hiyerarşisine geri dönelim.",
+                "updated": 1636106918357
+            },
+            {
+                "language": "RU",
+                "text": "Мы вернулись к сетевой иерархии, чтобы показать Вам один из основных ресурсов для тестирования стратегий, встроенных в Trading Bot.",
+                "updated": 1636747011896
             }
         ]
     },
@@ -50,6 +60,16 @@
                     "language": "DE",
                     "text": "Doch bevor Sie Ihre erste Backtesting Session starten, wollen wir uns erst einmal einen Überblick verschaffen, wie der Knoten Testing Trading Tasks aufgebaut ist.",
                     "updated": 1634218620382
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak ilk Geri Test Oturumunuzu ( Backtesting Session ) çalıştırmadan önce, Ticaret Görevlerini Test Etme düğümünün ( Testing Trading Tasks) nasıl kurulduğunu kavramak için hızlı bir keşif görevine başlayalım.",
+                    "updated": 1636106975655
+                },
+                {
+                    "language": "RU",
+                    "text": "Но прежде чем Вы запустите свою первую Backtesting Session, давайте быстро продолжим  разведочную миссию, чтобы понять, как настроен узел Testing Trading Tasks.",
+                    "updated": 1636747139887
                 }
             ]
         },
@@ -74,6 +94,16 @@
                     "language": "DE",
                     "text": "Erweitern Sie den Testing Trading Tasks und sehen Sie sich die Struktur der Nachfolgeknoten an... Kommt Ihnen das bekannt vor?",
                     "updated": 1634218627346
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme düğümünü ( Testing Trading Tasks ) genişletin ve yavru düğümlerin yapısına bakın... Tanıdık geliyor mu?",
+                    "updated": 1636107045004
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Testing Trading Tasks и посмотрите на структуру узлов-потомков... Выглядит знакомо?",
+                    "updated": 1636747199218
                 }
             ]
         },
@@ -97,6 +127,16 @@
                     "language": "DE",
                     "text": "In der Tat! Sie ähnelt dem Abschnitt Data Tasks : Die Aufgaben sind nach Börse, Markt und Handelsmine geordnet, so dass Sie eine beliebige Anzahl von Strategien testen können, die für verschiedene Märkte an mehreren Börsen optimiert sind.",
                     "updated": 1634218636921
+                },
+                {
+                    "language": "TR",
+                    "text": "Aslında Veri Görevleri (Data Tasks) bölümüne benzerdir. Görevler borsa, piyasa ve ticaret madeni tarafından düzenlenir, böylece farklı pazarlar için optimize edilmiş herhangi bir sayıda stratejiyi birden fazla borsada test edebilirsiniz.",
+                    "updated": 1636107114239
+                },
+                {
+                    "language": "RU",
+                    "text": "Действительно! Это похоже на раздел Data Tasks: задачи организованы по бирже, рынку и торговой шахте, вот поэтому Вы можете протестировать любое количество стратегий, оптимизированных для разных рынков и на нескольких биржах.",
+                    "updated": 1636747320904
                 }
             ]
         }

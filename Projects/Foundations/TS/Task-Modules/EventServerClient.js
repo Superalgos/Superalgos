@@ -103,7 +103,7 @@
     }
 
     function finalize() {
-        /* Before disconnecting we will forze all eventListeners to stop listening. */
+        /* Before disconnecting we will force all eventListeners to stop listening. */
         const eventListenersArray = [...eventListeners.values()]
         for (let i = 0; i < eventListenersArray.length; i++) {
             let handler = eventListenersArray[i]

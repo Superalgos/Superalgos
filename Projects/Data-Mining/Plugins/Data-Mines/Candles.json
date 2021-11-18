@@ -13,7 +13,7 @@
                 {
                     "type": "Process Definition",
                     "name": "Historic-OHLCVs",
-                    "config": "{\n    \"codeName\": \"Historic-OHLCVs\",\n    \"description\": \"Retrieves and saves historical maket data\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 60000,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Exchange Raw Data Historic OHLCVs\"\n}",
+                    "config": "{\n    \"codeName\": \"Historic-OHLCVs\",\n    \"description\": \"Retrieves and saves historical market data\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 60000,\n    \"retryWaitTime\": 10000,\n    \"botModule\": \"Exchange Raw Data Historic OHLCVs\"\n}",
                     "project": "Foundations",
                     "processOutput": {
                         "type": "Process Output",

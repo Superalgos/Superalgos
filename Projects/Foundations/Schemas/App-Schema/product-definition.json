@@ -10,6 +10,17 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Install Product",
+            "label": "Install Product",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Product Definition",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+
+        {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "record",

@@ -14,13 +14,13 @@ function newUiObject() {
         isOnFocus: false,
         container: undefined,
         payload: undefined,
-        codeEditor: undefined,
-        configEditor: undefined,
         conditionEditor: undefined,
-        formulaEditor: undefined,
+        listSelector: undefined,
         uiObjectTitle: undefined,
+        icon: undefined,
         uiObjectMessage: undefined,
         circularProgressBar: undefined,
+        isLoading: undefined,
         isRunning: undefined,
         isPlaying: undefined,
         shortcutKey: undefined,
@@ -188,24 +188,17 @@ function newUiObject() {
         thisObject.fitFunction = undefined
         thisObject.isVisibleFunction = undefined
 
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.finalize()
-            thisObject.codeEditor = undefined
-        }
 
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.finalize()
-            thisObject.configEditor = undefined
-        }
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.finalize()
             thisObject.conditionEditor = undefined
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.finalize()
-            thisObject.formulaEditor = undefined
+
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.finalize()
+            thisObject.listSelector = undefined
         }
 
         icon = undefined
@@ -271,6 +264,10 @@ function newUiObject() {
 
         iconPhysics()
 
+        if (thisObject.icon === undefined) {
+            console.log('[ERROR] uiObject -> initialize -> err = Icon not found, Project: "' + thisObject.payload.node.project + '", Type: "' + thisObject.payload.node.type + '"')
+        }
+
         selfFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onFocus', onFocus)
         selfNotFocusEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onNotFocus', onNotFocus)
         selfDisplaceEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDisplace', onDisplace)
@@ -283,45 +280,27 @@ function newUiObject() {
         let container
 
         if (isDragging === false && thisObject.isOnFocus === true) {
-            if (thisObject.codeEditor !== undefined) {
-                container = thisObject.codeEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
 
-            if (thisObject.configEditor !== undefined) {
-                container = thisObject.configEditor.getContainer(point)
-                if (container !== undefined) { return container }
-            }
 
             if (thisObject.conditionEditor !== undefined) {
                 container = thisObject.conditionEditor.getContainer(point)
                 if (container !== undefined) { return container }
             }
 
-            if (thisObject.formulaEditor !== undefined) {
-                container = thisObject.formulaEditor.getContainer(point)
+            if (thisObject.listSelector !== undefined) {
+                container = thisObject.listSelector.getContainer(point)
                 if (container !== undefined) { return container }
             }
 
             let getitle = true
 
-            if (thisObject.codeEditor !== undefined) {
-                if (thisObject.codeEditor.visible === true) {
-                    getitle = false
-                }
-            }
-            if (thisObject.configEditor !== undefined) {
-                if (thisObject.configEditor.visible === true) {
-                    getitle = false
-                }
-            }
             if (thisObject.conditionEditor !== undefined) {
                 if (thisObject.conditionEditor.visible === true) {
                     getitle = false
                 }
             }
-            if (thisObject.formulaEditor !== undefined) {
-                if (thisObject.formulaEditor.visible === true) {
+            if (thisObject.listSelector !== undefined) {
+                if (thisObject.listSelector.visible === true) {
                     getitle = false
                 }
             }
@@ -359,20 +338,14 @@ function newUiObject() {
         thisObject.menu.physics()
         thisObject.uiObjectMessage.physics()
 
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.physics()
-        }
-
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.physics()
-        }
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.physics()
+
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.physics()
         }
 
         if (thisObject.payload.chainParent === undefined || thisObject.payload.chainParent.payload === undefined) {
@@ -478,7 +451,7 @@ function newUiObject() {
                 if (floatingObject.payload === undefined) { continue }
                 let nearbyNode = floatingObject.payload.node
                 if (compatibleTypes.indexOf('->' + nearbyNode.type + '->') >= 0) {
-                    /* Discard App Schema defined objects with busy coonection ports */
+                    /* Discard App Schema defined objects with busy connection ports */
                     schemaDocument = getSchemaDocument(thisObject.payload.node)
                     if (schemaDocument !== undefined) {
                         let mustContinue = false
@@ -507,7 +480,7 @@ function newUiObject() {
                         if (mustContinue === true) { continue }
                     }
 
-                    /* Discard Phases without partent */
+                    /* Discard Phases without parent */
                     if (thisObject.payload.node.type === 'Phase' && nearbyNode.type === 'Phase' && nearbyNode.payload.parentNode === undefined) { continue }
                     /* Control maxPhases */
                     if (thisObject.payload.node.type === 'Phase') {
@@ -866,7 +839,7 @@ function newUiObject() {
             Next, we are going to try to inform the parent that this 
             node has an error, as a way to show the end user where the
             node with error is. This is useful to detect errors in nodes
-            that are located at braches that are collapsed.
+            that are located at branches that are collapsed.
             */
 
             if (thisObject.payload !== undefined) {
@@ -908,7 +881,7 @@ function newUiObject() {
             Next, we are going to try to inform the parent that this 
             node has an warning, as a way to show the end user where the
             node with warning is. This is useful to detect warnings in nodes
-            that are located at braches that are collapsed.
+            that are located at branches that are collapsed.
             */
 
             if (thisObject.payload !== undefined) {
@@ -950,7 +923,7 @@ function newUiObject() {
             Next, we are going to try to inform the parent that this 
             node has an info, as a way to show the end user where the
             node with info is. This is useful to detect infos in nodes
-            that are located at braches that are collapsed.
+            that are located at branches that are collapsed.
             */
 
             if (thisObject.payload !== undefined) {
@@ -1251,7 +1224,7 @@ function newUiObject() {
         node that actually has the icon list.
 
         On the other hand, if this icon has the icon list definition, then the value of alternativeIcons
-        shoudl be an array of the possible icons. Then to pick one icon from that list we will check 
+        should be an array of the possible icons. Then to pick one icon from that list we will check
         the config.condeName of the node to see with which icon on the list matches.
 
         Finally, if the node we are pointing to does not have a config or does not have a list of 
@@ -1317,6 +1290,7 @@ function newUiObject() {
             }
         }
 
+        thisObject.icon = icon
         executingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
     }
 
@@ -1334,17 +1308,13 @@ function newUiObject() {
 
     function onNotFocus() {
         thisObject.isOnFocus = false
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.deactivate()
-        }
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.deactivate()
-        }
+
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.deactivate()
         }
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.deactivate()
+
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.deactivate()
         }
 
         if (thisObject.payload !== undefined &&
@@ -1362,17 +1332,12 @@ function newUiObject() {
 
     function onDragStarted(event) {
         thisObject.uiObjectTitle.exitEditMode()
-        if (thisObject.codeEditor !== undefined) {
-            thisObject.codeEditor.deactivate()
-        }
-        if (thisObject.configEditor !== undefined) {
-            thisObject.configEditor.deactivate()
-        }
+
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.deactivate()
         }
-        if (thisObject.formulaEditor !== undefined) {
-            thisObject.formulaEditor.deactivate()
+        if (thisObject.listSelector !== undefined) {
+            thisObject.listSelector.deactivate()
         }
         isDragging = true
         if (event.button === 2) {
@@ -1445,46 +1410,31 @@ function newUiObject() {
             drawReferenceLine()
             drawChainLine()
 
-            if (thisObject.codeEditor !== undefined) {
-                thisObject.codeEditor.drawBackground()
-                thisObject.codeEditor.drawForeground()
-            }
-            if (thisObject.configEditor !== undefined) {
-                thisObject.configEditor.drawBackground()
-                thisObject.configEditor.drawForeground()
-            }
+
+
             if (thisObject.conditionEditor !== undefined) {
                 thisObject.conditionEditor.drawBackground()
                 thisObject.conditionEditor.drawForeground()
             }
-            if (thisObject.formulaEditor !== undefined) {
-                thisObject.formulaEditor.drawBackground()
-                thisObject.formulaEditor.drawForeground()
+
+            if (thisObject.listSelector !== undefined) {
+                thisObject.listSelector.drawBackground()
+                thisObject.listSelector.drawForeground()
             }
 
             let drawMenu = true
             let drawTitle = true
 
-            if (thisObject.codeEditor !== undefined) {
-                if (thisObject.codeEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
-            if (thisObject.configEditor !== undefined) {
-                if (thisObject.configEditor.visible === true) {
-                    drawMenu = false
-                    drawTitle = false
-                }
-            }
+
             if (thisObject.conditionEditor !== undefined) {
                 if (thisObject.conditionEditor.visible === true) {
                     drawMenu = false
                     drawTitle = false
                 }
             }
-            if (thisObject.formulaEditor !== undefined) {
-                if (thisObject.formulaEditor.visible === true) {
+
+            if (thisObject.listSelector !== undefined) {
+                if (thisObject.listSelector.visible === true) {
                     drawMenu = false
                     drawTitle = false
                 }
@@ -1651,20 +1601,15 @@ function newUiObject() {
     }
 
     function isEditorVisible() {
-        if (thisObject.codeEditor !== undefined) {
-            if (thisObject.codeEditor.visible === true) { return true }
-        }
 
-        if (thisObject.configEditor !== undefined) {
-            if (thisObject.configEditor.visible === true) { return true }
-        }
+
 
         if (thisObject.conditionEditor !== undefined) {
             if (thisObject.conditionEditor.visible === true) { return true }
         }
 
-        if (thisObject.formulaEditor !== undefined) {
-            if (thisObject.formulaEditor.visible === true) { return true }
+        if (thisObject.listSelector !== undefined) {
+            if (thisObject.listSelector.visible === true) { return true }
         }
     }
 
@@ -2420,6 +2365,14 @@ function newUiObject() {
         /* Image */
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
+
+                // If this UiObject is being loaded then display at half opacity
+                if(thisObject.payload.isLoading === true) {
+                    browserCanvasContext.globalAlpha = 0.5
+                } else {
+                    browserCanvasContext.globalAlpha = 1
+                }
+
                 let additionalImageSize = 0
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
@@ -2453,6 +2406,8 @@ function newUiObject() {
                     position.y - totalImageSize / 2,
                     totalImageSize,
                     totalImageSize)
+
+                browserCanvasContext.globalAlpha = 1
             }
         }
 

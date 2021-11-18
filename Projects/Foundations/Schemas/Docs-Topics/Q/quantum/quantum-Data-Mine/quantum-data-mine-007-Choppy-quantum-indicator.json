@@ -1,0 +1,97 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 7,
+    "type": "Choppy - quantum Indicator",
+    "definition": {
+        "text": "The indicator produces a volatiliy signal and is based on the indicator originally written by TradingRush channel on YouTube.",
+        "updated": 1611662439678
+    },
+    "paragraphs": [
+		{
+            "style": "Title",
+            "text": "Choppy On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The Choppy indicator has three components. When price movement is good, the Choppy indicator will show green bars. When the movement is very good, the bar will indicate dark green. If the movement is choppy, there will be no colored bars.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Text",
+            "text": "The line plot will increase for each green bar printed, indicating a moving market. The value of the line is between 0-100. Please not that this does not indicate the direction of the price movment, only that the market is trending.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Text",
+            "text": "When the line breaks through the printed bars, this indicates a strong trend, and a possible buy/sell signal.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-Choppy-on-the-chart.png",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation to your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Choppy\" Product Definition. Changing the variable \"line\" adjusts the buy signal threshold line and defaults to 50. The Original default value on TradingRush was 20."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-Choppy-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "Choppy Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| Choppy | Choppy | threshold, maProperty, graph |",
+            "updated": 1611662546677
+        },       
+        {
+            "style": "Text",
+            "text": "The property functions are as follows:",
+            "updated": 1611662641354
+        },
+        {
+            "style": "List",
+            "text": "maProperty: the value of the histogram bar. Possible values are, from order of consolidation to trending;  Choppy, Slower, Slow, Up",
+            "updated": 1611662641354
+        },
+        {
+            "style": "List",
+            "text": "graph: the value of the plotted graph",
+            "updated": 1611662641354
+        },
+        {
+            "style": "List",
+            "text": "threshold: the value where the trend graph becomes stronger than the histogram bar.",
+            "updated": 1611662641354
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the threshold rises above the histogram size."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.Choppy.graph > chart.at30min.Choppy.threshold",
+            "updated": 1611662656647
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.Choppy.maProperty == \"Slow\" "
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.Choppy.maProperty == \"Up\" ",
+            "updated": 1611662681719
+        }
+    ]
+}

@@ -17,14 +17,14 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
             let thisReport
             let statusReport
 
-            /* We are going to use the start date as beging of market date. */
+            /* We are going to use the start date as beginning of market date. */
             contextVariables.dateBeginOfMarket = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(initialDatetime)
             /*
             Here we get the status report from the bot who knows which is the end of the market.
             */
             statusReport = statusDependencies.reportsByMainUtility.get("Market Ending Point")
 
-            if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+            if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ")
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -59,7 +59,7 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
             /* Finally we get our own Status Report. */
             statusReport = statusDependencies.reportsByMainUtility.get("Self Reference")
 
-            if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+            if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     "[WARN] start -> getContextVariables -> Status Report does not exist. Retrying Later. ")
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -89,7 +89,7 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
 
             } else {
                 /*
-                We are here becuse either:
+                We are here because either:
                 1. There is no status report
                 2. There is no Last File (this happens on Market Files)
                 */

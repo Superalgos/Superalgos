@@ -12,7 +12,14 @@
             {
                 "language": "ES",
                 "text": "Abre el menú del nodo Exchange Assets y usa el botón Add Asset para agregar los requeridos assets.",
-                "updated": 1628992100719
+                "updated": 1628992100719,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Öffnen Sie das Menü des Knotens Exchange Assets und fügen Sie mit der Schaltfläche Add Asset die gewünschten Vermögenswerte hinzu.",
+                "updated": 1635740044465,
+                "style": "Definition"
             }
         ]
     },
@@ -24,7 +31,13 @@
                 {
                     "language": "ES",
                     "text": "Assets bajo Exchange Assets no se puede duplicar. Si las definiciones de la assets si te interesa que ya existan, puedes reutilizarlos en lugar de crear otros nuevos. Si ese es el caso, simplemente omite los siguientes pasos hasta que necesites configurar el Market.",
-                    "updated": 1628992173230
+                    "updated": 1628992173230,
+                    "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Assets unter Exchange Assets dürfen nicht dupliziert werden. Wenn die Definitionen für die Vermögenswerte, an denen Sie interessiert sind, bereits existieren, können Sie sie wiederverwenden, anstatt neue zu erstellen. Überspringen Sie in diesem Fall einfach die nächsten Schritte, bis Sie den Market einrichten müssen.",
+                    "updated": 1635741249903
                 }
             ]
         }

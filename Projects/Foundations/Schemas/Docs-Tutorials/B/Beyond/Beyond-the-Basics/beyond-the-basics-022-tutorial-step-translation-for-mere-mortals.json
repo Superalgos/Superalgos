@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Si no eres desarrollador o no está familiarizado con Git o GitHub, ¡el paso anterior probablemente sonó como un galimatías! ",
-                "updated": 1628192126203
+                "updated": 1628192126203,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie kein Entwickler sind oder sich mit Git oder GitHub nicht auskennen, hat sich der vorherige Schritt wahrscheinlich wie Kauderwelsch angehört! Ich weiß!",
+                "updated": 1635150468856
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Git es un sistema de control de versiones de código abierto diseñado para manejar la colaboración. Es un estándar de la industria.",
-                    "updated": 1628192185824
+                    "updated": 1628192185824,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Git ist ein Open-Source-Versionskontrollsystem, das für die Zusammenarbeit entwickelt wurde. Es ist ein Industriestandard.",
+                    "updated": 1635150475794
                 }
             ]
         },
@@ -55,7 +67,13 @@
                 {
                     "language": "ES",
                     "text": "El paso anterior detalla los pasos técnicos necesarios para que la colaboración funcione, cumpliendo algunas normas básicas para que tu trabajo no estropee el trabajo de otras personas.",
-                    "updated": 1628192217780
+                    "updated": 1628192217780,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": " Im vorherigen Schritt wurden die technischen Schritte beschrieben, die für eine funktionierende Zusammenarbeit erforderlich sind, und es wurden einige grundlegende Normen eingehalten, damit Ihre Arbeit nicht die Arbeit anderer Leute durcheinanderbringt!",
+                    "updated": 1635150483066
                 }
             ]
         },
@@ -73,7 +91,13 @@
                 {
                     "language": "ES",
                     "text": "Si comprendes Git, ¡siempre puedes decidir qué flujo de trabajo es mejor para ti!",
-                    "updated": 1628192249959
+                    "updated": 1628192249959,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": " Wenn Sie sich mit Git auskennen, steht es Ihnen jederzeit frei zu entscheiden, welcher Arbeitsablauf für Sie am besten geeignet ist!",
+                    "updated": 1635150489801
                 }
             ]
         },

@@ -42,6 +42,15 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     }
 
     function runSession(node, resume, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not execute Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -74,13 +83,13 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Layers API->Core API->' +
             'Sequential Model->Functional Model->' +
             'Data Reporting->' +
-            'Input Layer->Sequential layer->Output Layer->'+
+            'Input Layer->Sequential layer->Output Layer->' +
             'Input Features->Data Feature->Feature Formula->Input Shape->Batch Input Shape->Feature Preprocessing->MinMax Scaler->Standard Scaler->Collection Condition->' +
             'Output Labels->Data Label->Label Formula->' +
             'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +
             'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
             'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +
-            'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->'+
+            'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->' +
             'Dimensionality Units->Activation Function->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' +
             'Kernel Initializer->Kernel Constraint->Kernel Regularizer->' +
             'Bias Initializer->Bias Constraint->Bias Regularizer->'
@@ -121,8 +130,8 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' +
-            'Features->Feature->Begin->End->Feature Value->'+
-            'Labels->Label->Begin->End->Label Value->'+
+            'Features->Feature->Begin->End->Feature Value->' +
+            'Labels->Label->Begin->End->Label Value->' +
             'Predictions->Prediction->Begin->End->Prediction Value->'
 
         let learningEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
@@ -169,6 +178,15 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not STOP Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -275,7 +293,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
         }
 
         if (result.market.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Exchange Markets neeed to be a child of Crypto Exchange.')
+            node.payload.uiObject.setErrorMessage('Exchange Markets need to be a child of Crypto Exchange.')
             return
         }
 

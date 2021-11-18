@@ -153,7 +153,7 @@ function newEducationDocSpace() {
 
             function setupUserLanguage() {
                 /*
-                Getting the used preferred languague
+                Getting the used preferred language
                 */
                 let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
                 let docsLanguage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(workspace.payload, 'docsLanguage')

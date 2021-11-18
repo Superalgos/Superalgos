@@ -1,7 +1,14 @@
 {
     "type": "Plugin Tutorials",
     "definition": {
-        "text": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace."
+        "text": "The plugin tutorials node features the definitions of tutorials to be included as plugins in the current workspace.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo  plugin tutorials  presenta las definiciones de tutoriales que se incluirán como complementos en el workspace.",
+                "updated": 1636559382952
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -22,7 +29,14 @@
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Seleccione Configure en el menu para acceder a la configuración.",
+                    "updated": 1636559608194
+                }
+            ]
         }
     ]
 }

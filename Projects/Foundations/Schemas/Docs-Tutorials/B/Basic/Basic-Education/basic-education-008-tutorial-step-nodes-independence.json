@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Beachten Sie, wie Sie die Einstellung \"Angle to Parent\" bei verschiedenen Geschwistern geändert haben und jedes von ihnen unabhängig von den anderen auf die neue Einstellung reagierte!",
                 "updated": 1634298018896
+            },
+            {
+                "language": "TR",
+                "text": "Farklı alt düğümlerin açı ayarının ana düğüme göre nasıl değiştirdiğinize ve her birinin yeni ayara diğerlerinden bağımsız olarak nasıl tepki verdiğine dikkat edin!",
+                "updated": 1636746759816
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie steuern die Position jedes Knotens über das Menü des Knotens. Weder der übergeordnete Knoten noch die Geschwister können die Position beeinflussen... mit dieser coolen Ausnahme:",
                     "updated": 1634298027723
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler menüsünden her bir düğümün konumunu kontrol edersiniz. Ne ana düğüm ne de alt düğümlerin konumu etkileyemez... bu harika istisna dışında:",
+                    "updated": 1636746814955
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Rufen Sie die Lightning Strike \"Backtesting Session\" auf und wählen Sie \"Add Missing Children\" auf der rechten Seite des Menüs!",
                     "updated": 1634298035258
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Backtesting Oturumuna gidin ve menünün sağ tarafından Kayıp Çocukları Ekle'yi ( Add Missing Children ) seçin!",
+                    "updated": 1636746977214
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass der Knoten \"Social Bots\" die Einstellung \"Winkel zum Elternteil\" von seinem nächsten Geschwisterknoten geerbt hat!",
                     "updated": 1634298043102
+                },
+                {
+                    "language": "TR",
+                    "text": "Sosyal Botlar ( Social Bots ) düğümünün, ana düğüm ayarını en yakın kardeşinden nasıl devraldığına dikkat edin!",
+                    "updated": 1636747051481
                 }
             ]
         },

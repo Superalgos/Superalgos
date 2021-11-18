@@ -230,7 +230,7 @@ function newTimeFrameScale() {
 
     function onViewportZoomChanged(event) {
         if (event !== undefined) { // it is undefined when the level is just being animated.
-            if (event.shiftKey === false || event.shiftKey === undefined) { return } // with no shft key pressed, no automatic change in scale
+            if (event.shiftKey === false || event.shiftKey === undefined) { return } // with no shift key pressed, no automatic change in scale
             let currentTimeFrame = thisObject.timeFrame
             let timeFrame = recalculatePeriod(event.newLevel)
             if (timeFrame !== currentTimeFrame) {

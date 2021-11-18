@@ -25,7 +25,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"host\": \"localhost\", \n\"webPort\": \"34248\", \n\"webSocketsPort\": \"18041\"\n}"
+        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,
@@ -33,5 +33,5 @@
         "compatibleTypes": "->Signing Account->"
     },
     "childrenNodesProperties": [],
-    "propertyNameAtParent": "assignedTo"
+    "propertyNameAtParent": "signingAccountChild"
 }

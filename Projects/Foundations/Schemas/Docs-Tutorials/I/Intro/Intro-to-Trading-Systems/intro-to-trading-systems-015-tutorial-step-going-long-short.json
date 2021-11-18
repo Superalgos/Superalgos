@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Going Long & Short",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-system"
+            "name": "Trading\\trading-system",
+            "project": "Foundations"
         },
         "text": "We covered the three main reasons why it's a good idea to split complex logic into more than one strategy..."
     },

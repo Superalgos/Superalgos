@@ -159,7 +159,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
     function addSigningAccount(
         node,
-        rootNodes
+        rootNodes,
+        targetNodeType
     ) {
         let githubUsername = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
         let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
@@ -299,20 +300,49 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'Signing Account',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
+                
+                let signingAccountChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    signingAccount,
+                    targetNodeType,
+                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                )
+                /*
+                Let's get a cool name for this node. 
+                */
+                let targetNodeTypeCount = 0
+                for (let i = 0; i < signingAccounts.signingAccounts.length; i++) {
+                    let singningAccount = signingAccounts.signingAccounts[i]
+                    if (singningAccount.signingAccountChild.type === targetNodeType) {
+                        targetNodeTypeCount++
+                    }
+                }
+                signingAccountChild.name = targetNodeType +" # " + targetNodeTypeCount
+                let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccountChild.payload, 'codeName', codeName)
                 UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
-    
-                node.config = "{}"
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeName', signingAccount.name)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'codeName', signingAccount.name)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeType', signingAccount.type)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'nodeId', signingAccount.id)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'address', address)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'privateKey', privateKey)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'githubUsername', githubUsername)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'userProfileId', node.payload.referenceParent.id)
+
+                let secrets = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'secrets', signingAccount.name)
+                if (secrets === undefined) {
+                    secrets = []
+                }
+
+                let secret = {
+                    signingAccountChildId: signingAccountChild.id,
+                    signingAccountChildName: signingAccountChild.name,
+                    signingAccountChildType: targetNodeType,
+                    signingAccountChildCodeName: codeName,
+                    signingAccountNodeId: signingAccount.id,
+                    privateKey: privateKey,
+                    userProfileHandle: githubUsername,
+                    userProfileId: node.payload.referenceParent.id
+                }
+
+                secrets.push(secret)
+                
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'secrets', secrets)
                 /*
                 Show nice message.
                 */

@@ -1,0 +1,55 @@
+{
+    "type": "Plugin User Profiles",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin User Profiles",
+            "label": "Add Missing User Profiles",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "User Profile",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Governance",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add Specified User Profile",
+            "label": "Add Specified User Profile",
+            "iconPathOn": "user-profile",
+            "iconPathOff": "user-profile",
+            "iconProject": "Governance",
+            "actionProject": "Governance",
+            "relatedUiObject": "User Profile",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "pluginUserProfiles",
+    "alternativeIcons": "Use Reference Parent Parent",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
+    "editors": {
+        "list": true
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFiles",
+            "type": "array",
+            "childType": "Plugin File",
+            "autoAdd": false
+        }
+    ]
+}

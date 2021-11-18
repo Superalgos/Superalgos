@@ -2,7 +2,14 @@
     "type": "Token Rewards",
     "definition": {
         "text": "Token Rewards represents the number of Superalgos SA Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors.",
-        "updated": 1624780868376
+        "updated": 1624780868376,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Token Rewards representa el número el Superalgos SA Tokens disponibe para incentivar cualquier definición particular en las jerarquías Pools, Positions, Features, and Assets. En otras palabras, es el número de tokens disponibles en cualquier nodo particular, listo para ser solicitado por contribuyentes.",
+                "updated": 1635602121794
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Callout",
-            "text": "Token Rewards represents the number of Superalgos SA Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors."
+            "text": "Token Rewards represents the number of Superalgos SA Tokens available to incentivize any particular definition in the Pools, Positions, Features, and Assets hierarchies. In other words, it’s the number of tokens available in any particular node, ready to be claimed by Contributors.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Token Rewards representa e número de Superalgos SA Tokens disponible para incentivar cualquier definición particular de las jerarquías de Pools, Positions, Features, y Assets. En otras palabras, Es el número de tokens disponibles en cualquier nodo particular, listo para ser solicitado por contribuyentes.",
+                    "updated": 1635602270518
+                }
+            ]
         }
     ]
 }

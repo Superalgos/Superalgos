@@ -7,7 +7,7 @@
             "name": "Data\\data-tasks",
             "project": "Foundations"
         },
-        "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the Network Node.",
+        "text": "Now that you're comfortable moving around, I want you to go on a little tour exploring the Data Tasks section of the LAN Network Node.",
         "translations": [
             {
                 "language": "IT",
@@ -30,10 +30,27 @@
             {
                 "language": "DE",
                 "text": "Da Sie sich nun gut zurechtfinden, möchte ich Sie auf eine kleine Tour durch den Abschnitt Data Tasks des Network Node mitnehmen.",
-                "updated": 1634167620156
+                "updated": 1634167620156,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда Вам удобно передвигаться, я хочу, чтобы Вы отправились в небольшую экскурсию по Network Node раздела Data Tasks.",
+                "updated": 1635630043831,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Artık rahatça dolaşabildiğinize göre, Ağ Düğümü'nün ( Network Node ) Veri Görevleri ( Data Tasks ) bölümünü keşfetmek için küçük bir tura çıkmanızı istiyorum.",
+                "updated": 1636014280941
+            },
+            {
+                "language": "NL",
+                "text": "Nu je jouw weg kan vinden, stel ik voor dat je de Data Tasks sectie van de LAN Network Node gaat verkennen.",
+                "updated": 1636979006293
             }
         ],
-        "updated": 1622194034630
+        "updated": 1636911021993
     },
     "paragraphs": [
         {
@@ -61,7 +78,24 @@
                 {
                     "language": "DE",
                     "text": "Beachten Sie das Folgende:",
-                    "updated": 1634167630784
+                    "updated": 1634167630784,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на следующее:",
+                    "updated": 1635630070775,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdakilere dikkat edin:",
+                    "updated": 1636014296432
+                },
+                {
+                    "language": "NL",
+                    "text": "Let op het volgende:",
+                    "updated": 1636979045649
                 }
             ]
         },
@@ -90,7 +124,24 @@
                 {
                     "language": "DE",
                     "text": "Der Abschnitt ist in erster Linie nach Projekt, Börse und Markt geordnet. Dies hilft Ihnen, mit mehreren Börsen und Märkten in geordneter Weise zu arbeiten.",
-                    "updated": 1634167647959
+                    "updated": 1634167647959,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Раздел делится, в первую очередь, на проекты, биржи и рынки. Он поможет Вам организованно работать со множеством бирж и рынков.",
+                    "updated": 1635630220075,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm, her şeyden önce proje, borsa ve pazara göre düzenlenmiştir. Bu, birden fazla borsa ve birden fazla pazarla düzenli bir şekilde çalışmanıza yardımcı olacaktır.",
+                    "updated": 1636014356317
+                },
+                {
+                    "language": "NL",
+                    "text": "De sectie is eerst en vooral georganiseerd per project, exchange en markt. Dit helpt om overzichtelijk met meerdere exchanges en markten te werken.",
+                    "updated": 1636979188178
                 }
             ]
         },
@@ -119,7 +170,24 @@
                 {
                     "language": "DE",
                     "text": "Die Exchange Data Tasks und Market Data Tasks können alle Aufgaben in der Börse bzw. dem Markt steuern.",
-                    "updated": 1634167655448
+                    "updated": 1634167655448,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Узлы Exchange Data Tasks и Мarket Data Tasks могут управлять всеми задачами на бирже и рынке соответственно.",
+                    "updated": 1635630313880,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Veri Görevleri ( Exchance Data Tasks ) ve Piyasa Veri Görevleri ( Market Data Tasks ) düğümleri, sırasıyla borsadaki ve pazardaki tüm görevleri kontrol edebilir.",
+                    "updated": 1636014775744
+                },
+                {
+                    "language": "NL",
+                    "text": "De Exchange Data Tasks en Market Data Tasks nodes controleren alle taken in de bijbehorende exchange en markt.",
+                    "updated": 1636979270117
                 }
             ]
         },
@@ -148,7 +216,24 @@
                 {
                     "language": "DE",
                     "text": "Schauen Sie sich diese Knoten und ihre Menüs an!",
-                    "updated": 1634167662675
+                    "updated": 1634167662675,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выйдите и проверьте эти узлы и их меню!",
+                    "updated": 1635630414259,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi bu düğümleri ve menülerini kontrol edin!",
+                    "updated": 1636014827396
+                },
+                {
+                    "language": "NL",
+                    "text": "Verken de nodes en hun menu's maar eens!",
+                    "updated": 1636979384554
                 }
             ]
         }

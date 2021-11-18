@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Land of Confusion",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "nodes-highlights"
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
         },
         "text": "Indeed, it is logical that the trading bot evaluates only the definitions that make sense evaluating at any point in time!"
     },

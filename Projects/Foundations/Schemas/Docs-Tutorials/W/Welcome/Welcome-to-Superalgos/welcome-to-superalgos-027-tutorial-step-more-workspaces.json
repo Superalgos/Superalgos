@@ -30,7 +30,23 @@
             {
                 "language": "DE",
                 "text": "Plugin Workspaces, die mit dem System ausgeliefert werden, haben einen schwarzen Hintergrund in der Registerkarte Workspaces auf der linken Seite.",
-                "updated": 1634167337552
+                "updated": 1634167337552,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Sistemle birlikte gönderilen Eklenti Çalışma Alanları ( Plugin Workspaces ), soldaki Çalışma Alanları (Workspaces) Sekmesinde siyah bir arka plana sahiptir. ",
+                "updated": 1636013396906
+            },
+            {
+                "language": "RU",
+                "text": "\nPlugin Workspaces поставляются вместе с системой и имеют черный фон на вкладке Workspaces - слева.\n\n",
+                "updated": 1636192226552
+            },
+            {
+                "language": "NL",
+                "text": "Plugin Workspaces die bij het systeem horen hebben een zwarte achtergrond in het tabblad links.",
+                "updated": 1636978436604
             }
         ],
         "updated": 1629803469668
@@ -62,7 +78,23 @@
                 {
                     "language": "DE",
                     "text": "Workspaces speichern alle Informationen zu den Datenstrukturen, die im Arbeitsbereich enthalten sind.",
-                    "updated": 1634167346842
+                    "updated": 1634167346842,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanları ( Workspaces ), çalışma alanına dahil edilen veri yapılarına ilişkin tüm bilgileri kaydeder.",
+                    "updated": 1636013436668
+                },
+                {
+                    "language": "RU",
+                    "text": "Workspaces сохраняют всю информацию относительно структур данных, включенных в рабочую область.",
+                    "updated": 1636192315950
+                },
+                {
+                    "language": "NL",
+                    "text": "Workspaces slaan alle informatie op met betrekking tot de data structuren in de werkruimte. ",
+                    "updated": 1636978555492
                 }
             ]
         },
@@ -80,7 +112,23 @@
                 {
                     "language": "DE",
                     "text": "Erstellen Sie eine Kopie dieses Plugin Workspace um ihn zu Ihrem eigenen zu machen! Drücken Sie dazu: Ctrl + Shift + Key-S",
-                    "updated": 1634167512053
+                    "updated": 1634167512053,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelin bu Plugin Workspace'in bir kopyasını oluşturalım ve sizin için yapalım! Aşağıdaki tuş kombinasyonuna basın: Ctrl + Shift + Key-S",
+                    "updated": 1636013459404
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте создадим копию этого Plugin Workspace и сделаем его вашим собственным! Нажмите следующую комбинацию клавиш: Ctrl + Shift + S.",
+                    "updated": 1636192471516
+                },
+                {
+                    "language": "NL",
+                    "text": "Laten we met een kopie deze Plugin Workspace ons eigen maken! Druk op de volgende toetsencombinatie: Ctrl + Shift + Key-S",
+                    "updated": 1636978713661
                 }
             ]
         },
@@ -109,7 +157,23 @@
                 {
                     "language": "DE",
                     "text": "Öffnen Sie nun die Registerkarte Workspaces auf der linken Seite, scrollen Sie ganz nach unten und suchen Sie den einzigen Workspace mit einem lila Hintergrund! Das ist Ihr Arbeitsbereich! Sie brauchen ihn aber nicht anzuklicken!",
-                    "updated": 1634167411161
+                    "updated": 1634167411161,
+                    "style": "Important"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip tek çalışma alanını bulun! Bu sizin çalışma alanınız! Ama üzerine tıklamanıza gerek yok!",
+                    "updated": 1636013495006
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее место! Но не нужно нажимать на него!",
+                    "updated": 1636192559470
+                },
+                {
+                    "language": "NL",
+                    "text": "Open nu het  Worspaces tabblad links en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
+                    "updated": 1636978846518
                 }
             ],
             "updated": 1629803460646

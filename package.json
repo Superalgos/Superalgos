@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node platform minMemo noBrowser",
     "presetup": "git checkout develop && git pull upstream develop",
-    "setup": "node setup noShortcuts",
+    "setup": "node setup noShortcuts && node tf_setup.js",
     "postsetup": "npm start",
     "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps"
@@ -35,7 +35,8 @@
     "twitter": "^1.7.1",
     "util": "^0.12.4",
     "web3": "^1.6.0",
-    "ws": "^8.2.3"
+    "ws": "^8.2.3",
+    "@tensorflow/tfjs-node": "^2.8.6"
   },
   "devDependencies": {
     "electron": "^15.1.0",

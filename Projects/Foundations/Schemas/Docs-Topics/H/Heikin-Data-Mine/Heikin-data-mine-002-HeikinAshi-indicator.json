@@ -1,0 +1,60 @@
+{
+    "topic": "Heikin Data Mine",
+    "pageNumber": 2,
+    "type": "Heikin Ashi Candles - Heikin Indicator",
+    "definition": {
+        "text": "This indicator produces the Heikin Ashi style candles.",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Heikin Ashi On the Charts",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "Heikin Ashi means \"average bar\" in Japanese. It is useful for making candlestick chart more readable and trends easier to analyse.",
+            "updated": 1611764485658
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/heikin-heikin-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "Above: The Heikin Ashi Candle."
+        },
+        {
+            "style": "Text",
+            "text": "The Heikin Ashi candle shares some characteristics of standard candles as it contains the same parameters of open, close, maximum and mimimun."
+        },
+        {
+            "style": "Text",
+            "text": "The calculation of the open and close parameters differ from standard candles as they are calculated as follows:"
+        },
+        {
+            "style": "List",
+            "text": "Close; Average price of the current bar: 0.25 * (Open + Close + Maximum + Minimum)"
+        },
+		{
+            "style": "List",
+            "text": "Open; The Midpoint of the previous bar: 0.5 * (Previous.Open + Previous.Close)"
+        },		
+
+		{
+            "style": "Text",
+            "text": "Heikin Ashi candles look smoother as they are essentially taking an average of the price movement, and they tend to stay the same color during a continuing trend."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/heikin-standard-on-the-chart.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Text",
+            "text": "Above: The Standard Candle."
+        }
+    ]
+}

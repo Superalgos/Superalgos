@@ -4,7 +4,14 @@
     "type": "LBank Listing Requirements",
     "definition": {
         "text": "Pending listing requirements and revision.",
-        "updated": 1628538709584
+        "updated": 1628538709584,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Pendiente de revisión y requisitos de cotización.",
+                "updated": 1637228234106
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,12 +26,26 @@
         },
         {
             "style": "List",
-            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research."
+            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "CMC ranking: La posición del exchange en el ranking a partir del día de la investigación.",
+                    "updated": 1637228277765
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Exchange home page: Edit the string below with the name of the exchange and the URL (without the protocol). ",
-            "updated": 1628512823690
+            "updated": 1628512823690,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exchange home page: Edite la cadena de abajo con el nombre del exchange y elURL (sin el protocolo).",
+                    "updated": 1637228317453
+                }
+            ]
         },
         {
             "style": "Link",
@@ -34,7 +55,14 @@
         {
             "style": "List",
             "text": "Listing requirements page: Edit the string below with the URL (without the protocol) of the page where you got the core of the information in this report. ",
-            "updated": 1628512803920
+            "updated": 1628512803920,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Listing requirements page:Edite la cadena a continuación con la URL (sin el protocolo) de la página donde obtuvo el núcleo de la información de este informe.",
+                    "updated": 1637228339943
+                }
+            ]
         },
         {
             "style": "Link",
@@ -43,7 +71,14 @@
         {
             "style": "List",
             "text": "Listing request form page: Edit the string below with the URL (without the protocol) of the page (or online form) the project should use to request the listing of the token. ",
-            "updated": 1628512810149
+            "updated": 1628512810149,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Listing request form page: Edite la cadena a continuación con la URL (sin el protocolo) de la página (o formulario en línea) que el proyecto debe usar para solicitar el listado del token.",
+                    "updated": 1637228387772
+                }
+            ]
         },
         {
             "style": "Link",
@@ -51,31 +86,80 @@
         },
         {
             "style": "List",
-            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible."
+            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Can list BEP 20 BSC tokens: Algunos exchanges puede no estar disponible para listar el tokens en la Binance Smart Chain. Asegúrate de averiguar si listar el tokenes tecnicamente posible.",
+                    "updated": 1637228498438
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case."
+            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Listing fee: Exchanges normalmente para listar nuevas monedas. Ingrese la tarifa e incluya cualquier comentario, excepción o detalle que pueda ser relevante para nuestro caso particular.",
+                    "updated": 1637228553937
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist."
+            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Security deposit: Algunos exchanges requiere que se devuelva un depósito de seguridad al proyecto después de que se complete el listado. Describa los detalles de tales requisitos, si existen.",
+                    "updated": 1637228599932
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words."
+            "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Volume requirements: Los Exchanges están en el negocio de cobrar comisiones de transacción, por lo que generalmente esperan enumerar los tokens que tienen tracción, en el entendimiento de que dichos tokens generarán un cierto nivel de volumen de negociación. Algunos exchanges tener un requisito específico sobre el volumen esperado. Si el exchange requiere un volumen preciso, introdúzcalo en números. De lo contrario, describa lo que se espera con palabras.",
+                    "updated": 1637228891988
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard."
+            "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Market-making requirements: Muchas veces los exchanges esperan que los proyectos garanticen la liquidez del token en ambos lados de la cartera de pedidos. A veces requieren que los proyectos contraten . market-makers específicos o pregunte al proyecto cómo abordarán el problema. Explique lo que espera el exchange expects en este aspecto.",
+                    "updated": 1637228850980
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard."
+            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exchange users requirement: Algunos exchanges requieren que el proyecto lleve a un cierto número de usuarios al exchange.Describa los requisitos que puedan existir al respecto.",
+                    "updated": 1637229511427
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard."
+            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pairs available for first listing: Algunos exchanges limitar el número de pares o incluso los activos de cotización precisos que se pueden utilizar para la primera vez que se lista. Describe lo que sea que el exchange requiere u ofrece al respecto.",
+                    "updated": 1637229620036
+                }
+            ]
         },
         {
             "style": "List",
@@ -83,31 +167,80 @@
         },
         {
             "style": "List",
-            "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\"."
+            "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Legal entity: Algunos exchanges puede requerir que el proyecto sea representado por una entidad legal (una fundación, corporación, etc.). Si ese es el caso, ingrese \"Sí\" y describa cuál es el requisito. Si no existe tal requisito, ingrese \"No\".",
+                    "updated": 1637230107227
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\"."
+            "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Legal opinion: Algunos exchangespuede requerir que el proyecto obtenga asesoramiento legal en forma de \"legal opinion letter\" o algún instrumento del tipo, la mayoría de las veces sobre la naturaleza del token, en particular, para determinar si el token es un security o no. Si ese es el caso, ingrese \"Sí\" y describa cuál es el requisito. Si no existe tal requisito, ingrese \"No\".",
+                    "updated": 1637230171876
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it."
+            "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Selection process: Algunos exchanges describen la naturaleza del proceso de toma de decisiones para seleccionar qué tokens se listarán. Algunos involucran la participación de su comunidad, un proceso de votación o cosas por el estilo. Describe cómo es el proceso si hay alguna información al respecto.",
+                    "updated": 1637230241595
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here."
+            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's comments: Si nota cualquier información importante del proceso para listar  que no está cubierto en esta lista, por favor inclúyalo aqui.",
+                    "updated": 1637230321956
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's Github.com Username: This helps track the author of each research contribution."
+            "text": "Researcher's Github.com Username: This helps track the author of each research contribution.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's Github.com Username: Esto ayuda a rastrear al autor de cada contribución a la investigación..",
+                    "updated": 1637230338989
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's Telegram Username: Same as above."
+            "text": "Researcher's Telegram Username: Same as above.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's Telegram Username:Lo mismo que arriba.",
+                    "updated": 1637230355655
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated."
+            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Date of last revision: Este informe puede actualizarse de vez en cuando. Utilice este campo para anotar la última vez que se actualizó el informe.",
+                    "updated": 1637230373089
+                }
+            ]
         },
         {
             "style": "Title",
@@ -115,7 +248,14 @@
         },
         {
             "style": "List",
-            "text": "List what progress has been made in the ongoing negotiation."
+            "text": "List what progress has been made in the ongoing negotiation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Enumere los avances que se han logrado en la negociación en curso.",
+                    "updated": 1637230426924
+                }
+            ]
         },
         {
             "style": "Title",

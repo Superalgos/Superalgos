@@ -60,7 +60,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 }
 
                 let response = JSON.parse(data)
-debugger
+
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
 

@@ -15,6 +15,11 @@
                 "text": "Cómo usas tu Token Power se define dentro de una serie de Governance Programs dentro de la jerarquía de su perfil.",
                 "updated": 1630875913309,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Token Gücünüzü ( Token Power ) nasıl kullandığınız, profil hiyerarşinizdeki bir dizi Yönetim Programında ( Govarnance Programs ) tanımlanır.",
+                "updated": 1637159684295
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Estos programas ayudan a organizar los tipos de desarrollo y relaciones comunitarias que deseas recompensar.",
                     "updated": 1630877556436,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programlar, ödüllendirmek istediğiniz geliştirme türlerini ve topluluk ilişkilerini düzenlemenize yardımcı olur.",
+                    "updated": 1637159700351
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Por ejemplo, el Claims Program le permite presentar reclamaciones por el trabajo que ha realizado. Mientras que la Support Program te permite agradecer a otros usuarios de Superalgos que te han ayudado con el soporte técnico.",
                     "updated": 1630878873256,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Örneğin, Talepler Programı ( Claims Program ), yaptığınız iş için taleplerde bulunmanıza izin verir. Destek Programı ( Support Program ), size teknik destek konusunda yardımcı olan diğer Superalgos kullanıcılarına teşekkür etmenizi sağlar.",
+                    "updated": 1637159752080
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "¡Cubriremos todos estos y otros programas en detalle una vez que tengas un perfil funcional!",
                     "updated": 1630878930911,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışan bir profiliniz olduğunda tüm bunları ve diğer programları ayrıntılı olarak ele alacağız!",
+                    "updated": 1637159772746
                 }
             ]
         }

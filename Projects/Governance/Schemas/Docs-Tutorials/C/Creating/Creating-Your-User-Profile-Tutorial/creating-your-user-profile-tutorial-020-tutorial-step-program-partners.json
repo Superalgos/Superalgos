@@ -15,6 +15,11 @@
                 "text": "¡Has creado tu perfil con éxito! Ahora está configurado para participar en todos los Governance Programs.",
                 "updated": 1630891621231,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Profilinizi başarıyla oluşturdunuz! Artık çeşitli Yönetişim Programlarına ( Governance Programs ) katılmaya hazırsınız!",
+                "updated": 1637247513837
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Los Onboarding Programs son tu primera parada en el mundo de la gobernanza de Superalgos. ¡Así que añádalos a su perfil!",
                     "updated": 1630891657478,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Onboarding Programları ( Onboarding Programs ), Superalgos yönetişimi dünyasındaki ilk durağınızdır. Bu yüzden onları profilinize ekleyelim!",
+                    "updated": 1637247669076
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Encuentra el nodo Token Power Switch bajo el nodo User Profile y haz clic en Add Onboarding Programs en el menú.",
                     "updated": 1630891743028,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profili ( User Profile ) düğümünün altındaki Token Güç Anahtarı ( Token Power Switch ) düğümünü bulun ve menüden Onboarding Program Ekle'yi ( Onboarding Programs ) tıklayın.",
+                    "updated": 1637247814410
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "El nodo Onboarding Programs debería aparecer como una descendencia del Token Power Switch.",
                     "updated": 1630891780832,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Onboarding Programs düğümü, Token Güç Anahtarının ( Token Power Switch ) bir alt öğesi olarak görünmelidir.",
+                    "updated": 1637247866021
                 }
             ]
         }

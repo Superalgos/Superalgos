@@ -142,7 +142,7 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
 
             console.log('')
-            console.log("You are running Superalgos Platform v.1.0")
+            console.log("You are running Superalgos Platform " + SA.version)
             console.log('')
             console.log("What's new? These are the main new features in this version:")
             console.log('')

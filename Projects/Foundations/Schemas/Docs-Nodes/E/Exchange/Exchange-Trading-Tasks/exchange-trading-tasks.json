@@ -1,7 +1,14 @@
 {
     "type": "Exchange Trading Tasks",
     "definition": {
-        "text": "The exchange trading tasks node organizes trading tasks by exchange. That is, each exchange installed in the system has an exchange trading tasks node grouping all market trading tasks corresponding to the said exchange."
+        "text": "The exchange trading tasks node organizes trading tasks by exchange. That is, each exchange installed in the system has an exchange trading tasks node grouping all market trading tasks corresponding to the said exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El exchange trading tasks node ( nodo de tareas de trading del exchange) organiza tareas de trading por exchange. Esto es, cada exchange instalado en el sistema tiene un nodo de tareas de trading del exchange agrupando todas las tareas de trading del mercado correspondientes a dicho exchange.",
+                "updated": 1637232524756
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The exchange trading tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+            "text": "The exchange trading tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El nodo de tareas de trading del exchange debe referenciar al exchange de elección. Esta referencia limita el resto de las definiciones al contexto de dicho exchange.",
+                    "updated": 1637232575029
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When representing an exchange featured in the system's icons library, the standard exchange trading tasks icon is replaced by the exchange's logo."
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange trading tasks icon is replaced by the exchange's logo.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Al representar un exchange aparece en la biblioteca de iconos del sistema, el estándar ícono de tareas de trading del exchangees reemplazado por el logo del exchange.",
+                    "updated": 1637232710352
+                }
+            ]
         },
         {
             "style": "Block",

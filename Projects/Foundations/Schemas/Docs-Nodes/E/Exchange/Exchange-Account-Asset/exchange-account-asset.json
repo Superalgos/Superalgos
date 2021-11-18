@@ -1,7 +1,14 @@
 {
     "type": "Exchange Account Asset",
     "definition": {
-        "text": "The exchange account asset represents a single asset the user has at the exchange."
+        "text": "The exchange account asset represents a single asset the user has at the exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El activo de la cuenta del exchange representa un único activo que el usuario tiene en el exchange.",
+                "updated": 1637230605691
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The exchange account asset is a reference to an asset defined under the exchange assets node."
+            "text": "The exchange account asset is a reference to an asset defined under the exchange assets node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El activo de la cuenta del exchange es una referencia a un activo definido debajo del nodo de activos del exchange.",
+                    "updated": 1637230688300
+                }
+            ]
         }
     ]
 }

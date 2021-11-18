@@ -14,6 +14,8 @@
   - [Windows Install](#windows-install)
   - [Mac OS Install](#mac-os-install)
   - [Linux Install (e.g. Raspberry Pi running Raspberry Pi OS/Raspbian)](#linux-install--eg-raspberry-pi-running-raspberry-pi-os-raspbian-)
+   - [Installing on Debian & Debian WSL/WSL2](#installing-on-debian-or-debian-wsl-wsl2)
+   - [WSL2 IDE Environment Setup](#wsl2-ide-environment-setup)
 - [Superalgos Platform Client Installation](#superalgos-platform-client-installation)
   - [Fork the Superalgos Repository](#fork-the-superalgos-repository)
   - [Clone Your Fork](#clone-your-fork)
@@ -120,19 +122,111 @@ You can use Safari or Google Chrome as your default browser. If you run into a b
 [Follow the Node.js package manager install instructions](https://nodejs.org/en/download/package-manager/) for your distribution to ensure you are getting the latest version of Node.js. Many distributions only maintain an older version in their default repositories. Python 3 is only required for running machine learning (TensorFlow).
 
 ```sh
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs npm git python3
+curl -sL https://deb.nodesource.com/setup_17.x | sudo -E bash - && sudo apt-get \
+install -y \
+nodejs npm git python3
 ```
 
-You may verify the installed versions with these commands:
+You may verify the installed versions with this command string:
 
 ```sh
-node -v
-npm -v
-git --version
+node \
+-v && npm \
+-v && git --version
 ```
 
 If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
+
+Alternatively, one could use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to setup a tool for using bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian based Distro. Nymea also has tools for automation of IoT products to allow setting up SuperAlgos as a timed function without needing to learn how to code.
+
+Also, if you are having node version errors there is a chance you may need to read the information following this to install and use NVM to handle node versions. This is due to some distributions having out of date repositories in the package manager lists.
+
+#### Installing on Debian or Debian WSL/WSL2 
+(NVM & NPM Fix)
+
+For this to work you will need to [use NVM to install and control node] (https://github.com/nvm-sh/nvm)
+
+- You will need to remove any versions of node already installed on Debian due to the repositories currently being out of date.
+- - __This is necessary before proceeding.__ 
+
+```sh
+sudo apt \
+remove nodejs -y && \
+```
+
+```sh
+sudo apt \
+update && apt upgrade \
+-y sudo apt \
+install npm -y
+```
+
+```sh
+sudo apt \
+autoremove -y && \
+sudo apt autoclean -y
+```
+
+```sh
+sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+```
+
+_Without running the next 3 commands, you will need to logout of your shell/WSL2 user account before you are to use NVM_
+ 
+```sh
+export NVM_DIR="$HOME/.nvm"
+```
+
+```sh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
+
+```sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+```
+
+_Make sure things are up to date and packages not needed are removed_
+
+
+```sh
+sudo apt update \
+sudo apt upgrade && \
+apt autoremove -y
+```
+
+```sh
+cd
+```
+
+into the directory of SuperAlgos
+and __run the install commands as follows__:
+
+```sh
+nvm run node <command string/var>
+```
+
+(This is for node.js/node only as npm should work fine with Debian.)
+
+##### WSL2 IDE Environment Setup
+
+__There is a few parts that are necessary to obtain full functionality from VSCode as an app to run notebooks for ML/AI algos and you can turn VSCode and Windows into a development bench for working with Super Algos.__
+
+- First you need to install WSL and WSL2 [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install) then reboot if promoted.
+  - You may want to review the Docker WSL2 Backend information as well [https://aka.ms/vscode-remote/containers/docker-wsl2](https://aka.ms/vscode-remote/containers/docker-wsl2)
+  - Install Debian or Ubuntu from the Windows Store, Setup the VM as instructed.
+    - To make managing these WSL instances a lot easier, we will now move to installing VSCode + Tools to allow for Dockerizing and rapidly deploying test cases of SuperAlgos.
+
+- Install VSCode 
+  - Install the remote container and remote docker plugins/extensions for Visual Studio Code [https://code.visualstudio.com/docs/remote/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation) 
+ _You may want to spend time reading the specifics of this documentation on their website._ 
+  - When prompted install shell shortcuts for right click options, this way you can open SuperAlgos really easy inside of VSCode
+
+__Please refer to the information above__ for properly setting up node.js and npm on Debian systems with complications regarding versions of node.
+
+Once the install finishes you can now use VSCode as an interactive IDE/Shell to access SuperAlgos, run Dockers for working with SuperAlgos and more.
+
+*As mentioned above, you need to remove node.js/node from your system and install NVM if you are using Debian.*
+
 
 ## Superalgos Platform Client Installation
 

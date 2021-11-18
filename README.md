@@ -212,14 +212,15 @@ nvm run node <command string/var>
 __There is a few parts that are necessary to obtain full functionality from VSCode as an app to run notebooks for ML/AI algos and you can turn VSCode and Windows into a development bench for working with Super Algos.__
 
 - First you need to install WSL and WSL2 [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install) then reboot if promoted.
-  - You may want to review the Docker WSL2 Backend information as well [https://aka.ms/vscode-remote/containers/docker-wsl2](https://aka.ms/vscode-remote/containers/docker-wsl2)
+  - You may want to review the Docker WSL2 Backend information for VSCode as well before proceeding. [https://aka.ms/vscode-remote/containers/docker-wsl2](https://aka.ms/vscode-remote/containers/docker-wsl2)
   - Install Debian or Ubuntu from the Windows Store, Setup the VM as instructed.
-    - To make managing these WSL instances a lot easier, we will now move to installing VSCode + Tools to allow for Dockerizing and rapidly deploying test cases of SuperAlgos.
+  
+  To make managing these WSL instances a lot easier, we will now move to installing VSCode + Tools to allow for Dockerizing and rapidly deploying as well as editing and manging test/usage cases of SuperAlgos edit and forks you create and contribute.
 
-- Install VSCode 
+- Install VSCode [https://code.visualstudio.com/docs/?dv=win64user](https://code.visualstudio.com/docs/?dv=win64user)
   - Install the remote container and remote docker plugins/extensions for Visual Studio Code [https://code.visualstudio.com/docs/remote/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation) 
- _You may want to spend time reading the specifics of this documentation on their website._ 
-  - When prompted install shell shortcuts for right click options, this way you can open SuperAlgos really easy inside of VSCode
+    - _You may want to spend time reading the specifics of this documentation on their website._ 
+  - *When prompted* install shell shortcuts for right click options, this way you can open SuperAlgos really easy inside of VSCode.
 
 __Please refer to the information above__ for properly setting up node.js and npm on Debian systems with complications regarding versions of node.
 

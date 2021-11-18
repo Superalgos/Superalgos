@@ -15,6 +15,11 @@
                 "text": "Tener tokens hace más que mostrar compromiso. Los tokens SA también confieren Token Power!",
                 "updated": 1630873231890,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Token tutmak, Superlagos'a bağlılık göstermekten fazlasını yapar. SA Token'ları size ayrıca Token Gücü verir! ( Token Power! )",
+                "updated": 1637147203152
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Cuantas más fichas tengas, más influencia podrás tener sobre la dirección del proyecto. Esto significa que, al poseer SA Tokens, tienes el poder de usar esos tokens para ejercer influencia sobre qué partes del sistema se desarrollarán y cómo evolucionará la comunidad.",
                     "updated": 1630873381109,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne kadar çok token tutarsanız, projenin yönü üzerinde o kadar fazla etkiye sahip olabilirsiniz. Bu, SA tokenlarına sahip olarak, sistemin hangi bölümlerinin geliştirileceği ve topluluğun nasıl gelişeceği üzerinde etki uygulamak için bu tokenları kullanma gücüne sahip olduğunuz anlamına gelir.",
+                    "updated": 1637147395621
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Esto funciona en un ciclo. Cuanto más contribuyas, más fichas ganarás, ¡más dirá quien más tiene!",
                     "updated": 1631671942707,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "\" Not: Bu bir döngü içinde çalışır. Ne kadar çok katkıda bulunursanız, o kadar çok token kazanırsınız, o kadar çok söz hakkınız olur! \"",
+                    "updated": 1637147430858
                 }
             ]
         }

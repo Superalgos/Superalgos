@@ -15,6 +15,11 @@
                 "text": "El Profile Constructor también hizo un trabajo para asegurarse de que solo usted pueda cambiar su perfil.",
                 "updated": 1630888591827,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Profil Oluşturucu ( Profile Constructor ), profilinizi yalnızca sizin değiştirebileceğinizden emin olmak için de bazı çalışmalar yaptı.",
+                "updated": 1637243208153
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Se ha firmado un mensaje criptográfico con tu usuario de GitHub.com con la clave privada correspondiente a tu Governance Address. Este mensaje se almacenará en tu User Profile para que podamos autenticar que proviene de ti una vez que envíes tu perfil como un complemento al Governance Project.",
                     "updated": 1630888665385,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönetim Adresinize ( Governance Address ) karşılık gelen özel anahtarla GitHub.com kullanıcı adınızı içeren bir kriptografik mesaj imzalandı.Bu mesaj Kullanıcı Profilinizde saklanacaktır, böylece profilinizi Yönetişim Projesine eklenti olarak gönderdiğinizde sizden geldiğini doğrulayabiliriz.",
+                    "updated": 1637244066213
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Lo que esto significa es que solo tu puedes acceder y modificar su perfil y tu dirección de token asociada.",
                     "updated": 1630888698997,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunun anlamı, profilinize ve ilişkili token adresine yalnızca sizin erişilebilmeniz ve değişiklik yapabilecek olmanızdır.",
+                    "updated": 1637244481608
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "text": "A diferencia de algunos tokens criptográficos, Superalgos SA Token realmente significa algo.",
                 "updated": 1630872083712,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bazı kripto tokenlerinin aksine Superalgos SA Token'ın aslında bir anlamı var!\n",
+                "updated": 1637146439380
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "El SA Token es un token BEP20 en Binance Smart Chain (BSC). Sus existencias de tokens representan sus contribuciones al Superalgos Project y Community, ya que el token se utiliza para recompensar a la base de usuarios y hacer crecer el grupo de desarrollo.",
                     "updated": 1630872813106,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "SA token'i, Binance Akıllı Zincirinde (BSC) bir BEP20 tokenidir. Token, kullanıcı tabanını ödüllendirmek ve geliştirme havuzunu büyütmek için kullanıldığından, token varlıklarınız Superalgos Projesi ve Topluluğuna (Superalgos Project and Community ) katkılarınızı somutlaştırır.",
+                    "updated": 1637146564808
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "¡El proyecto distribuye tokens exclusivamente entre contribuyentes!",
                     "updated": 1630872830278,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Proje, token'ları yalnızca katkıda bulunanlar arasında dağıtır!",
+                    "updated": 1637146626633
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "¡Cuanto más contribuyas al proyecto y ayudes a otros, más tokens ganarás!",
                     "updated": 1630872874947,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Projeye ne kadar çok katkıda bulunursanız ve başkalarına yardım ederseniz, o kadar çok token kazanırsınız!",
+                    "updated": 1637146614057
                 }
             ]
         },

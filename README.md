@@ -1,4 +1,4 @@
-# Superalgos Beta 12
+# Superalgos 1.0.0
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -359,7 +359,7 @@ Once the app finishes loading, an interactive tutorial takes you by the hand and
 
 Superalgos Platform is a set of tools to automate crypto-trading. It is implemented as a Node JS Client + Web App that runs on your hardware and scales from a single Raspberry Pi to a Trading Farm. The Platform is fully functional and has been used for trading live since 2020.
 
-At Beta 12, trading signals will be able to be sent to the Suerpalgos Network from the Superalgos Platform.
+At a future version, trading signals will be able to be sent to the Suerpalgos Network from the Superalgos Platform.
 
 ### Superalgos Platform Features
 

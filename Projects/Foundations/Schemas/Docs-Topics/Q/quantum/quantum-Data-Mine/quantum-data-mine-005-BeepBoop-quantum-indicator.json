@@ -1,0 +1,71 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 5,
+    "type": "Beep Boop - quantum Indicator",
+    "definition": {
+        "text": "The indicator produces a buy/sell signal based on the indicator originally written by TradingRush channel on YouTube.",
+        "updated": 1611662439678
+    },
+    "paragraphs": [
+		{
+            "style": "Title",
+            "text": "BeepBoop On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The BeepBoop indicator is based on the MACD 12-26 cross strategy principles. When the MACD crosses up, a Buy signal is generated. When the signal corsses down, a sell signal is generated. For all other times the signal is neutral. The neutral state may be used to exit a trade.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-BeepBoop-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+		{
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “BeepBoop” Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-BeepBoop-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "BeepBoop Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| BeepBoop | BeepBoop | HistCol |",
+            "updated": 1611662546677
+        },       
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy can be built by using the Buy/Sell signals, with a Neutral signal possibly indicating to exit the position. To add confluence, it's recommended to combine with the EMA200 and only take trades in the direction of the EMA. For example, only take buy signals when price action is above the EMA200."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.BeepBoop.HistCol == \"Buy\" ",
+            "updated": 1611662656647
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at15min.BeepBoop.HistCol == \"Sell\" "
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at02hs.BeepBoop.HistCol == \"Neutral\" ",
+            "updated": 1611662681719
+        }
+    ]
+}

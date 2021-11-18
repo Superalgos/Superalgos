@@ -4,7 +4,14 @@
     "type": "Testing a Trading Idea - The Other Stages Tutorial",
     "definition": {
         "text": "This tutorial completes the implementation of the trading idea formulated in the previous tutorials, covering the definitions of the Open Stage, Manage Stage, and Close Stage.",
-        "updated": 1617118735617
+        "updated": 1617118735617,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial completa la implementación de la idea de trading  formulado en los tutoriales anteriores, cubriendo las definiciones del Open Stage ( etapa abierta), Manage Stage Etapa de gestión),  y Close Stage ( etapa de cierre).",
+                "updated": 1636725896473
+            }
+        ]
     },
     "paragraphs": [
         {

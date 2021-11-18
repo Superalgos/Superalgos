@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Birden çok borsa, pazar ve stratejiyle çalışan, bir ağ üzerinden ticaret çiftliğinizin olduğunu ve burada çalışan bir robot ordusu hayal edin.",
                 "updated": 1636108738487
+            },
+            {
+                "language": "RU",
+                "text": "Представьте себе армию ботов, работающих с множеством биржей, рынков и стратегий  в сети а-ля торговая ферма.",
+                "updated": 1636747931667
             }
         ],
         "updated": 1622200549490
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Ağ Düğümü bununla ilgili. Şimdiye kadar gördükleriniz tek bir makinede çalışıyor. Fakat...",
                     "updated": 1636109072742
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот, что такое Network Node. То, что Вы видели до сих пор - работает на одной машине. Но...",
+                    "updated": 1636747649665
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Superalgos, İstemciyi çalıştıran düğüm ağları arasında görevlerin dağıtılmasını ve koordine edilmesini destekler! Bu, akıllı ve ölçeklenebilir operasyonlar sağlar. GUI çalıştıran herhangi bir makine işletmeyi kontrol edebilir! Bu farklı makinelerde aynı operasyonları çalıştırabieceğiniz çiflikler kurabilmeniz anlamına gelir.",
                     "updated": 1636109149775
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos поддерживает распределения и координацию задач между сетями узлов, на которых работает Client! Это обеспечивает интеллектуальные и масштабные операции. Любая машина, на которой работает графический интерфейс, может управлять предприятием!",
+                    "updated": 1636747776256
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Birkaç Raspberry Pi, endüstriyel düzeyde bir veri merkezi veya bunların arasında herhangi bir şey ile bir ağ kurabilirsiniz.",
                     "updated": 1636109177686
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете настроить сеть с несколькими  Raspberry Pi, центром обработки данных промышленного уровня или чем-то средним.",
+                    "updated": 1636747852002
                 }
             ],
             "updated": 1629821982211

@@ -1,7 +1,7 @@
 {
     "type": "Limit Buy Order",
     "definition": {
-        "text": "A limit buy order is an instruction sent to the exchange to buy the base asset, for execution at a specific rate or better.",
+        "text": "A limit order is an order to buy or sell a security at a specific price or better. A buy limit order can only be executed at the limit price or lower, and a sell limit order can only be executed at the limit price or higher.",
         "translations": [
             {
                 "language": "ES",
@@ -13,8 +13,14 @@
                 "language": "DE",
                 "text": "Ein limit buy order ist eine an die Börse gesendete Anweisung zum Kauf des Basiswertes, die zu einem bestimmten Kurs oder besser ausgeführt werden soll.\n",
                 "updated": 1634876555681
+            },
+            {
+                "language": "RU",
+                "text": "Лимитный ордер - это приказ на покупку или продажу ценной бумаги по определенной цене или выше. Лимитный ордер на покупку может быть исполнен только по предельной цене или ниже, а лимитный ордер на продажу может быть исполнен только по предельной цене или выше.",
+                "updated": 1636987786529
             }
-        ]
+        ],
+        "updated": 1636987695057
     },
     "paragraphs": [
         {

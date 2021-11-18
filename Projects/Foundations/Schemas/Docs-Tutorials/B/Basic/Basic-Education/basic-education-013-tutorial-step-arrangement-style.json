@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Schaltfläche schaltet zwischen verschiedenen Anordnungsoptionen um, die sich darauf auswirken, wo ein Knoten im Verhältnis zu seinem übergeordneten Knoten platziert wird.",
                 "updated": 1634332853777
+            },
+            {
+                "language": "TR",
+                "text": "Bu düğme, düğümün üst öğesiyle ilişkili olarak nereye yerleştirileceğini etkileyen çeşitli düzenleme seçenekleri arasında geçiş yapar.",
+                "updated": 1636752213924
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "In der Zeichnung stellt der orangefarbene Punkt den übergeordneten Knoten dar, und die blauen Punkte repräsentieren den Knoten, der den spezifischen Anordnungsstil annimmt.",
                     "updated": 1634332860892
+                },
+                {
+                    "language": "TR",
+                    "text": "Çizimde turuncu nokta üst düğümü, mavi noktalar ise belirli düzenleme stilini benimseyen düğümü temsil eder.",
+                    "updated": 1636752246374
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Konkav: Dies ist der Standardstil. Der Knoten nimmt einen Platz auf einem Kreis um seinen übergeordneten Knoten ein.",
                     "updated": 1634332870561
+                },
+                {
+                    "language": "TR",
+                    "text": "İçbükey: Bu, varsayılan stildir. Düğüm, üst düğümünün etrafındaki bir çevre üzerinde konumlanır",
+                    "updated": 1636752350927
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Konvex: Der Schlitz befindet sich auf einer konvexen Kurve.",
                     "updated": 1634332885678
+                },
+                {
+                    "language": "TR",
+                    "text": "Dışbükey: Yuva dışbükey bir eğri üzerinde konumlanır.",
+                    "updated": 1636752424282
                 }
             ]
         },
@@ -123,6 +143,11 @@
                     "language": "DE",
                     "text": "Vertikal-Rechts: Auf einer vertikalen Linie nach rechts.",
                     "updated": 1634332895278
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikey-Sağ: Sağa dikey bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752436742
                 }
             ]
         },
@@ -147,6 +172,11 @@
                     "language": "DE",
                     "text": "Vertikal-Links: Der Schlitz befindet sich auf einer vertikalen Linie nach links.",
                     "updated": 1634332902630
+                },
+                {
+                    "language": "TR",
+                    "text": "Dikey-Sol: Yuva, sola doğru dikey bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752467099
                 }
             ]
         },
@@ -171,6 +201,11 @@
                     "language": "DE",
                     "text": "Horizontal-unten: Auf einer horizontalen Linie nach unten.",
                     "updated": 1634332909056
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatay-Alt: Aşağıda yatay bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752488032
                 }
             ]
         },
@@ -195,6 +230,11 @@
                     "language": "DE",
                     "text": "Horizontal-Oben: Der Schlitz befindet sich auf einer horizontalen Linie oben.",
                     "updated": 1634332915541
+                },
+                {
+                    "language": "TR",
+                    "text": "Yatay-Üst: Yuva, yukarıda yatay bir çizgi üzerinde konumlanır.",
+                    "updated": 1636752516000
                 }
             ]
         },

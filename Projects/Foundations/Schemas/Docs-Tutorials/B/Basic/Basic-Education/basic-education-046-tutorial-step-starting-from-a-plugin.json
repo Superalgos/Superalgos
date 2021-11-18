@@ -5,8 +5,8 @@
     "definition": {
         "text": "Let's look into the first scenario: a typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "updated": 1629908121952,
         "translations": [

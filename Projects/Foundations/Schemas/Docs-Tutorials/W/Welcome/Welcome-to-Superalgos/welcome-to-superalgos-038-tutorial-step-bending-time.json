@@ -7,7 +7,7 @@
             "name": "Time\\time-machine",
             "project": "Foundations"
         },
-        "text": "Ok... maybe it's not actually like bending, but, bear with me... You'll love how you can shape time machines to whatever format you wish.",
+        "text": "Ok... maybe it's not actually like bending, but bear with me... You'll love how you can shape time machines to the format you wish.",
         "translations": [
             {
                 "language": "IT",
@@ -43,7 +43,8 @@
                 "text": "Хорошо... Может быть, на самом деле это и не похоже на сгибание, но потерпите.. Вам понравится, как Вы сможете сформировать машины времени в любом желаемом формате.",
                 "updated": 1636201767989
             }
-        ]
+        ],
+        "updated": 1636911171982
     },
     "paragraphs": [
         {

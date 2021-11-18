@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Der Grund, warum der Abstand zum übergeordneten Knoten relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten ist, ist, dass Sie lange Strukturen von Knoten beeinflussen können!",
                 "updated": 1634332747191
+            },
+            {
+                "language": "TR",
+                "text": "Ebeveyn düğüme olan uzaklığın ebeveynin ebeveynine olan mesafesine göre olmasının nedeni, uzun düğüm yapılarını etkileyebilmeniz içindir!",
+                "updated": 1636750239895
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Klicken Sie einmal auf die Schaltfläche Abstand zum übergeordneten Knoten des Netzwerkknotens!",
                     "updated": 1634332754400
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ düğümünün Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
+                    "updated": 1636750278445
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Wahnsinn! Sehen Sie? Mit diesen Werkzeugen haben Sie die volle Kontrolle darüber, wie Sie Hierarchien visuell organisieren!",
                     "updated": 1634332763485
+                },
+                {
+                    "language": "TR",
+                    "text": "Vayyy! Gördün mü? Bu araçlar, hiyerarşiler üzerinde görsel olarak tam kontrol sahibi olmanızı sağlar!",
+                    "updated": 1636751755132
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Versuchen Sie, die Einstellung \"Abstand zum Übergeordneten\" auf dem Knoten Testing Trading Tasks aufzuheben! Wie Sie sehen, können Sie einen beliebigen Abstand zum übergeordneten Knoten einstellen, aber der Winkel zum übergeordneten Knoten bleibt fest.",
                     "updated": 1634332795200
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme ( Testing Trading Tasks ) düğümündeki Ebeveyne Mesafe (Distance To Parent) ayarını iptal etmeyi deneyin! Gördüğünüz gibi, ebeveyn düğüme herhangi bir uzaklık ayarlayabilirsiniz, Ancak ebeveyne olan açı sabit kalır.",
+                    "updated": 1636751865776
                 }
             ]
         }

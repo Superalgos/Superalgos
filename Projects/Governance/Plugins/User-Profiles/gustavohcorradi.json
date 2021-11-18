@@ -905,23 +905,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                         ],
                                                         [
                                                             "Community Building Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                         ],
                                                         [
                                                             "Mentorship Program",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "8b3714a0-3bf2-491e-8ffc-9c4286446382"
                                                         ],
                                                         [
                                                             "Mentorship Rewards",
-                                                            "Pool"
+                                                            "Pool",
+                                                            "Governance",
+                                                            "53ddcc36-f693-4193-8284-999a88f1c944"
                                                         ]
                                                     ]
                                                 }
@@ -960,23 +970,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "6f0aed87-db13-4818-bfe6-68abc463ebec"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "4fbb05ee-d7a0-43a7-9983-9fae7a7e4848"
                                                         ],
                                                         [
                                                             "Community Building Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "ef1d7fc5-c776-4af7-8ae6-86a3445dca4b"
                                                         ],
                                                         [
                                                             "Mentorship Program",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "8b3714a0-3bf2-491e-8ffc-9c4286446382"
                                                         ],
                                                         [
                                                             "Mentorship Bonus",
-                                                            "Pool"
+                                                            "Pool",
+                                                            "Governance",
+                                                            "ff1e4a84-3363-4348-ad15-31a34898fa82"
                                                         ]
                                                     ]
                                                 }
@@ -1565,12 +1585,12 @@
                         "id": "a851317c-1283-40e1-9434-a78c5c88caaa",
                         "savedPayload": {
                             "position": {
-                                "x": 30232.83388833814,
-                                "y": 28325
+                                "x": 30172.54532004114,
+                                "y": 28550
                             },
                             "targetPosition": {
-                                "x": 30362.737698905807,
-                                "y": 28400
+                                "x": 30322.54532004114,
+                                "y": 28550
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1588,8 +1608,63 @@
                     "id": "663a7d1a-bb5d-42b4-93c7-a2387f5daae5",
                     "savedPayload": {
                         "position": {
-                            "x": 30362.737698905807,
-                            "y": 28400
+                            "x": 30322.54532004114,
+                            "y": 28550
+                        },
+                        "targetPosition": {
+                            "x": 30622.54532004114,
+                            "y": 28550
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Liquidity Program",
+                    "name": "SA/BNB",
+                    "config": "{\n    \"asset\": \"BNB\"\n}",
+                    "project": "Governance",
+                    "tokensAwarded": {
+                        "type": "Tokens Awarded",
+                        "name": "New Tokens Awarded",
+                        "project": "Governance",
+                        "id": "b426526b-2cf9-442b-b54d-6555bcc5b3bb",
+                        "savedPayload": {
+                            "position": {
+                                "x": 30397.54532004114,
+                                "y": 28160.288568297
+                            },
+                            "targetPosition": {
+                                "x": 30472.54532004114,
+                                "y": 28290.192378864667
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "bb18d045-9155-43d2-aa43-0e103023e07d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30472.54532004114,
+                            "y": 28290.192378864667
                         },
                         "targetPosition": {
                             "x": 30622.54532004114,
@@ -1695,7 +1770,7 @@
         "floatingObject": {
             "isPinned": true,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

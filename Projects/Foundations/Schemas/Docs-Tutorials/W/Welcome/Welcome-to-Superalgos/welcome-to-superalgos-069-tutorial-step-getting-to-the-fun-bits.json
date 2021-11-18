@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Sizi zaman içinde belirli bir ana getirme cüretinde bulundum, bundan sonra gelecekte ilginç.",
                 "updated": 1636180974748
+            },
+            {
+                "language": "RU",
+                "text": "Я взял на себя смелость привести Вас в определенный момент времени, интересный тем, что будет дальше...",
+                "updated": 1636930842187
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Simülasyonların güzelliğine maruz kalmak üzeresiniz. Ben bir simülasyon muyum? Bütün bunlar gerçek mi?",
                     "updated": 1636181003797
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы вот-вот окажетесь в красоте моделирования. Я - моделирование? А Вы? Все эти вещи реальны?",
+                    "updated": 1636931034464
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Etrafınıza bakın ve kendiniz karar verin!",
                     "updated": 1636181015871
+                },
+                {
+                    "language": "RU",
+                    "text": "Оглянитесь вокруг и решайте сами!",
+                    "updated": 1636931122923
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Her şeyden önce, 1 dakikalık zaman diliminde olduğunuza dikkat edin, bu nedenle bunlar 1 dakikalık mumlardır.",
                     "updated": 1636181143231
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде всего, обратите внимание, что сейчас Вы находитесь в 1-минутном временном интервале, т.о. это - 1-минутные свечи. Промежуток времени на Вашем экране составляет чуть более одного часа в начале 1 сентября 2020 года.",
+                    "updated": 1636931248383
                 }
             ]
         }

@@ -43,6 +43,11 @@
                 "language": "TR",
                 "text": "Devam ederken her ayrıntıya girmeyeceğim, ancak bir düğüm hakkında daha fazla bilgiye ihtiyacınız varsa, menüdeki yardım düğmesi (Düğümü geniletiğinizde görebilirsiniz) sizi doğrudan belgelerine götürür.",
                 "updated": 1636012819082
+            },
+            {
+                "language": "NL",
+                "text": "Tijdens onze reis zal ik niet op alle details ingaan, voor meer info over een node, klik dan op het vraagteken in het menu van de node.",
+                "updated": 1636977477286
             }
         ]
     },
@@ -85,6 +90,11 @@
                     "language": "TR",
                     "text": "Bir düğümün dokümantasyonu aşağıdaki bölümlerden bir veya daha fazlasını içerebilir:",
                     "updated": 1636012836829
+                },
+                {
+                    "language": "NL",
+                    "text": "De documentate van een node kan één of meerdere van de volgende secties bevatten:",
+                    "updated": 1636977595624
                 }
             ]
         },
@@ -126,6 +136,11 @@
                     "language": "TR",
                     "text": "Tanım (Definition): düğümün ne olduğunu veya ne yaptığını açıklar.",
                     "updated": 1636012877511
+                },
+                {
+                    "language": "NL",
+                    "text": "Definition: beschrijft wat de node is of doet.",
+                    "updated": 1636977528905
                 }
             ]
         },
@@ -167,6 +182,11 @@
                     "language": "TR",
                     "text": "İçerik (Content): düğümün nasıl çalıştığını açıklar.",
                     "updated": 1636012909187
+                },
+                {
+                    "language": "NL",
+                    "text": "Content: beschrijft hoe de noe werkt.",
+                    "updated": 1636977620505
                 }
             ]
         },
@@ -209,6 +229,11 @@
                     "language": "TR",
                     "text": "Yapılandırma (Configuration): bazı düğümlerde bir tane olabilir.",
                     "updated": 1636012944710
+                },
+                {
+                    "language": "NL",
+                    "text": "Configuration: sommige nodes hebben een configuratie.",
+                    "updated": 1636977660661
                 }
             ]
         },
@@ -251,6 +276,11 @@
                     "language": "TR",
                     "text": "Teknik (Technical): Bilginin geri kalanı genellikle geliştiricilere yönelik teknik niteliktedir.",
                     "updated": 1636012987852
+                },
+                {
+                    "language": "NL",
+                    "text": "Technical: de rest van de informatie is meestal van technische aard, voor ontwikkelaars.",
+                    "updated": 1636977733206
                 }
             ]
         },
@@ -292,6 +322,11 @@
                     "language": "TR",
                     "text": "Veri Görevleri ( Data Tasks ) düğümündeki yardım düğmesine tıklayın!",
                     "updated": 1636013020909
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op help in het menu van de Data Tasks node!",
+                    "updated": 1636977849517
                 }
             ]
         }

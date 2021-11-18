@@ -3,12 +3,12 @@
     "pageNumber": 14,
     "type": "Tutorial Step - Update the App!",
     "definition": {
-        "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
+        "text": "It's good practice to be up-to-date before contributing or when troubleshooting or reporting errors of any kind!",
         "icon": {
             "name": "indicator-process-instance",
             "project": "Foundations"
         },
-        "updated": 1617020636889,
+        "updated": 1636914372518,
         "translations": [
             {
                 "language": "IT",
@@ -32,8 +32,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "That means that you may use this command on either of the branches! This is it:",
-            "updated": 1617020758219,
+            "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
+            "updated": 1636914274377,
             "translations": [
                 {
                     "language": "IT",
@@ -84,8 +84,8 @@
         },
         {
             "style": "Success",
-            "text": "Once the update is done, you will need to close the app again, restart it, find the tutorial and click Resume, just like you did earlier!",
-            "updated": 1617020620260,
+            "text": "Because you just switched branches, you should already be up to date!",
+            "updated": 1636914400732,
             "translations": [
                 {
                     "language": "IT",

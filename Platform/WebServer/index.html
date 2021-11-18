@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <title>Superalgos Platform</title>
     <meta name="description" content="Free and Open Source Crypto Trading Tools">
-    <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="credits.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="tutorial.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="docs.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="governance.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="font-awasome.css" type="text/css" />
-    <link rel="stylesheet" href="prism.css" type="text/css" />
-    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico" />
+    <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="credits.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="tutorial.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="docs.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="governance.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="code-editor.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="font-awasome.css" type="text/css"/>
+    <link rel="stylesheet" href="prism.css" type="text/css"/>
+    <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico"/>
     <script type="text/javascript" src="WebServer/require.js"></script>
     <script type="text/javascript" src="AppPreLoader.js"></script>
     <script src="externalScripts/CCapture.all.min.js"></script>
@@ -21,6 +22,10 @@
     <script src="externalScripts/popper.min.js"></script>
     <script src="externalScripts/tippy-bundle.umd.min.js"></script>
 
+    <script type="text/javascript" src="externalScripts/monaco/vs/loader.js"></script>
+    <script>
+        require.config({paths: {'vs': 'externalScripts/monaco/vs'}});
+    </script>
     <script type="text/javascript">
         function loadApp() {
             // Prevent click-jacking
@@ -30,7 +35,9 @@
                 } else {
                     top.location = self.location
                 }
-            } catch (e) { console.error('CJ protection', e) }
+            } catch (e) {
+                console.error('CJ protection', e)
+            }
 
             try {
                 drawSplashText()
@@ -42,9 +49,15 @@
 
         function onResize() {
             try {
-                if (canvas === undefined) { return }
-                if (canvas.eventHandler === undefined) { return }
-                if (DISABLE_BROWSER_RESIZE_EVENT === true) { return }
+                if (canvas === undefined) {
+                    return
+                }
+                if (canvas.eventHandler === undefined) {
+                    return
+                }
+                if (DISABLE_BROWSER_RESIZE_EVENT === true) {
+                    return
+                }
                 canvas.eventHandler.raiseEvent('Browser Resized')
             } catch (err) {
                 console.log('Error Resizing. ' + err.stack)
@@ -53,7 +66,7 @@
 
         function drawSplashText() {
             const splashTextArray = [
-            {
+                {
                     "splashTextLine1Html": '<span class="credits-red">Superalgos is open source, forever free for everyone, and is constantly improving thanks to the involvement of contributors!</span>'
                     ,
                     "splashTextLine2Html": 'You may contribute, earn tokens, and participate in the governance of the project, no matter what your set of skills may be! It\'s as simple as sharing what you build for yourself, submitting a review, fixing a bug, or even a typo in the Docs!'
@@ -107,155 +120,160 @@
             splashTextElement.innerHTML = splashTextArray[arrayIndex].splashTextLine3Html
         }
     </script>
+
 </head>
 
 <body id="body" onload="loadApp()"
-    style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
-    onresize="onResize()">
-    <div id="splash-text" class="credits">
-        <p id="splash-text-line-1" style="font-size: 120%;"></p>
-        <p id="splash-text-line-2" style="font-size: 120%;"></p>
-        <p id="splash-text-line-3" style="font-size: 120%;"></p>
-        <p id="splash-text-status-paragraph" class="credits-yellow">The UI is loading...</p>
+      style="overflow:hidden; background: url(Images/superalgos-platform.jpg); background-size: cover;"
+      onresize="onResize()">
+<div id="splash-text" class="credits">
+    <p id="splash-text-line-1" style="font-size: 120%;"></p>
+    <p id="splash-text-line-2" style="font-size: 120%;"></p>
+    <p id="splash-text-line-3" style="font-size: 120%;"></p>
+    <p id="splash-text-status-paragraph" class="credits-yellow">The UI is loading...</p>
+</div>
+<div id="masterApp"></div>
+<div id="canvasApp"></div>
+<div id="docs-space-div" class="docs-page" style="position:fixed; top:100000px; left:100000px">
+    <div id="docs-content-div"></div>
+</div>
+<div id="governance-reports-space-div" class="governance-page" style="position:fixed; top:100000px; left:100000px">
+    <div id="governance-content-div"></div>
+</div>
+<div id="code-editor-space-div" class="docs-page" style="position:fixed; top:100000px; left:100000px">
+    <div id="code-editor-content-div" class="code-editor-content-div">
     </div>
-    <div id="masterApp"></div>
-    <div id="canvasApp"></div>
-    <div id="docs-space-div" class="docs-page" style="position:fixed; top:100000px; left:100000px">
-        <div id="docs-content-div"></div>
-    </div>
-    <div id="governance-reports-space-div" class="governance-page" style="position:fixed; top:100000px; left:100000px">
-        <div id="governance-content-div"></div>
-    </div>
-    <div id="chatApp" style="position:fixed; top:100000px; left:100000px">
-        <iframe id="chatIFrame" style="border:none; " height="2000" width="900"></iframe>
-    </div>
-    <div id="textAreaDiv"></div>
-    <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
+</div>
+<div id="chatApp" style="position:fixed; top:100000px; left:100000px">
+    <iframe id="chatIFrame" style="border:none; " height="2000" width="900"></iframe>
+</div>
+<div id="textAreaDiv"></div>
+<div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
 
-    <!-- Tutorial Template Divs -->
-    <div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
-    <div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
-        <form>
-            <table class="tutorial-buttonsTable">
-                <tr>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-stop-button"
-                            onclick="UI.projects.education.spaces.tutorialSpace.stop()"
-                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
-                    </td>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-skip-button"
-                            onclick="UI.projects.education.spaces.tutorialSpace.skip()"
-                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
-                    </td>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-previous-button"
-                            onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
-                    </td>
-                    <td align="center">
-                        <label class="tutorial-font-small tutorial-next-button"
-                            onclick="UI.projects.education.spaces.tutorialSpace.next()"
-                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+<!-- Tutorial Template Divs -->
+<div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
+<div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
+    <form>
+        <table class="tutorial-buttonsTable">
+            <tr>
+                <td align="center">
+                    <label class="tutorial-font-small tutorial-stop-button"
+                           onclick="UI.projects.education.spaces.tutorialSpace.stop()"
+                           value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
+                </td>
+                <td align="center">
+                    <label class="tutorial-font-small tutorial-skip-button"
+                           onclick="UI.projects.education.spaces.tutorialSpace.skip()"
+                           value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
+                </td>
+                <td align="center">
+                    <label class="tutorial-font-small tutorial-previous-button"
+                           onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
+                </td>
+                <td align="center">
+                    <label class="tutorial-font-small tutorial-next-button"
+                           onclick="UI.projects.education.spaces.tutorialSpace.next()"
+                           value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
-    <div id="menu" class="docs-menu-table">
-        <div class="menu-row">
-            <div class="menu-item" onClick="window.contextMenu.editParagraph()">
-                <img src="Icons/Foundations/Docs/docs-action-edit-paragraph.png" class="menu-img" title="Edit">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toTitle()">
-                <img src="Icons/Foundations/Docs/docs-title-style.png" class="menu-img" title="Title">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toSubtitle()">
-                <img src="Icons/Foundations/Docs/docs-subtitle-style.png" class="menu-img" title="Subtitle">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toNote()">
-                <img src="Icons/Foundations/Docs/docs-note-style.png" class="menu-img" title="Note">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toJavascript()">
-                <img src="Icons/Foundations/Docs/docs-js-code-style.png" class="menu-img" title="Javascript">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toYouTubeVideo()">
-                <img src="Icons/Foundations/Docs/docs-youtube-video-style.png" class="menu-img" title="Youtube">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toBlock()">
-                <img src="Icons/Foundations/Docs/docs-block-style.png" class="menu-img" title="Block">
-            </div>
+<div id="menu" class="docs-menu-table">
+    <div class="menu-row">
+        <div class="menu-item" onClick="window.contextMenu.editParagraph()">
+            <img src="Icons/Foundations/Docs/docs-action-edit-paragraph.png" class="menu-img" title="Edit">
         </div>
-        <div class="menu-row">
-            <div class="menu-item" onClick="window.contextMenu.copyLink()">
-                <img src="Icons/Foundations/Docs/docs-action-copy-to-clipboard.png" class="menu-img" title="Copy">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toText()">
-                <img src="Icons/Foundations/Docs/docs-text-style.png" class="menu-img" title="Text">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toList()">
-                <img src="Icons/Foundations/Docs/docs-list-style.png" class="menu-img" title="List">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toSuccess()">
-                <img src="Icons/Foundations/Docs/docs-success-style.png" class="menu-img" title="Success">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toJson()">
-                <img src="Icons/Foundations/Docs/docs-json-code-style.png" class="menu-img" title="Json">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toGif()">
-                <img src="Icons/Foundations/Docs/docs-gif-style.png" class="menu-img" title="Gif">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toInclude()">
-                <img src="Icons/Foundations/Docs/docs-include-style.png" class="menu-img" title="Include">
-            </div>
+        <div class="menu-item" onClick="window.contextMenu.toTitle()">
+            <img src="Icons/Foundations/Docs/docs-title-style.png" class="menu-img" title="Title">
         </div>
-        <div class="menu-row">
-            <div class="menu-item" onClick="window.contextMenu.toPlaceholder()">
-                <img src="Icons/Foundations/Docs/docs-placeholder-style.png" class="menu-img" title="Placeholder">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toSummary()">
-                <img src="Icons/Foundations/Docs/docs-summary-style.png" class="menu-img" title="Summary">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toCallout()">
-                <img src="Icons/Foundations/Docs/docs-callout-style.png" class="menu-img" title="Callout">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toImportant()">
-                <img src="Icons/Foundations/Docs/docs-important-style.png" class="menu-img" title="Important">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toTable()">
-                <img src="Icons/Foundations/Docs/docs-table-style.png" class="menu-img" title="Table">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toPng()">
-                <img src="Icons/Foundations/Docs/docs-png-style.png" class="menu-img" title="Png">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toSection()">
-                <img src="Icons/Foundations/Docs/docs-section-style.png" class="menu-img" title="Section">
-            </div>
+        <div class="menu-item" onClick="window.contextMenu.toSubtitle()">
+            <img src="Icons/Foundations/Docs/docs-subtitle-style.png" class="menu-img" title="Subtitle">
         </div>
-        <div class="menu-row">
-            <div class="menu-item" onClick="window.contextMenu.deleteParagraph()">
-                <img src="Icons/Foundations/Docs/docs-action-delete-paragraph.png" class="menu-img" title="Delete">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toWebPageLink()">
-                <img src="Icons/Foundations/Docs/docs-web-page-link-style.png" class="menu-img" title="Link">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toAnchor()">
-                <img src="Icons/Foundations/Docs/docs-anchor-style.png" class="menu-img" title="Anchor">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toWarning()">
-                <img src="Icons/Foundations/Docs/docs-warning-style.png" class="menu-img" title="Warning">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toHierarchy()">
-                <img src="Icons/Foundations/Docs/docs-hierarchy-style.png" class="menu-img" title="Hierarchy">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toError()">
-                <img src="Icons/Foundations/Docs/docs-error-style.png" class="menu-img" title="Error">
-            </div>
-            <div class="menu-item" onClick="window.contextMenu.toChapter()">
-                <img src="Icons/Foundations/Docs/docs-chapter-style.png" class="menu-img" title="Chapter">
-            </div>
+        <div class="menu-item" onClick="window.contextMenu.toNote()">
+            <img src="Icons/Foundations/Docs/docs-note-style.png" class="menu-img" title="Note">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toJavascript()">
+            <img src="Icons/Foundations/Docs/docs-js-code-style.png" class="menu-img" title="Javascript">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toYouTubeVideo()">
+            <img src="Icons/Foundations/Docs/docs-youtube-video-style.png" class="menu-img" title="Youtube">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toBlock()">
+            <img src="Icons/Foundations/Docs/docs-block-style.png" class="menu-img" title="Block">
         </div>
     </div>
+    <div class="menu-row">
+        <div class="menu-item" onClick="window.contextMenu.copyLink()">
+            <img src="Icons/Foundations/Docs/docs-action-copy-to-clipboard.png" class="menu-img" title="Copy">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toText()">
+            <img src="Icons/Foundations/Docs/docs-text-style.png" class="menu-img" title="Text">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toList()">
+            <img src="Icons/Foundations/Docs/docs-list-style.png" class="menu-img" title="List">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toSuccess()">
+            <img src="Icons/Foundations/Docs/docs-success-style.png" class="menu-img" title="Success">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toJson()">
+            <img src="Icons/Foundations/Docs/docs-json-code-style.png" class="menu-img" title="Json">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toGif()">
+            <img src="Icons/Foundations/Docs/docs-gif-style.png" class="menu-img" title="Gif">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toInclude()">
+            <img src="Icons/Foundations/Docs/docs-include-style.png" class="menu-img" title="Include">
+        </div>
+    </div>
+    <div class="menu-row">
+        <div class="menu-item" onClick="window.contextMenu.toPlaceholder()">
+            <img src="Icons/Foundations/Docs/docs-placeholder-style.png" class="menu-img" title="Placeholder">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toSummary()">
+            <img src="Icons/Foundations/Docs/docs-summary-style.png" class="menu-img" title="Summary">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toCallout()">
+            <img src="Icons/Foundations/Docs/docs-callout-style.png" class="menu-img" title="Callout">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toImportant()">
+            <img src="Icons/Foundations/Docs/docs-important-style.png" class="menu-img" title="Important">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toTable()">
+            <img src="Icons/Foundations/Docs/docs-table-style.png" class="menu-img" title="Table">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toPng()">
+            <img src="Icons/Foundations/Docs/docs-png-style.png" class="menu-img" title="Png">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toSection()">
+            <img src="Icons/Foundations/Docs/docs-section-style.png" class="menu-img" title="Section">
+        </div>
+    </div>
+    <div class="menu-row">
+        <div class="menu-item" onClick="window.contextMenu.deleteParagraph()">
+            <img src="Icons/Foundations/Docs/docs-action-delete-paragraph.png" class="menu-img" title="Delete">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toWebPageLink()">
+            <img src="Icons/Foundations/Docs/docs-web-page-link-style.png" class="menu-img" title="Link">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toAnchor()">
+            <img src="Icons/Foundations/Docs/docs-anchor-style.png" class="menu-img" title="Anchor">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toWarning()">
+            <img src="Icons/Foundations/Docs/docs-warning-style.png" class="menu-img" title="Warning">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toHierarchy()">
+            <img src="Icons/Foundations/Docs/docs-hierarchy-style.png" class="menu-img" title="Hierarchy">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toError()">
+            <img src="Icons/Foundations/Docs/docs-error-style.png" class="menu-img" title="Error">
+        </div>
+        <div class="menu-item" onClick="window.contextMenu.toChapter()">
+            <img src="Icons/Foundations/Docs/docs-chapter-style.png" class="menu-img" title="Chapter">
+        </div>
+    </div>
+</div>
 
 </body>
 

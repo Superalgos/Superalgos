@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Alım Satım Parametreleri ( Trading Parameters ), alım satım seansının nasıl yürütüldüğünün temel yönlerini belirler. Hızlı, yüzeysel bir göz atalım...",
                 "updated": 1636120903968
+            },
+            {
+                "language": "RU",
+                "text": "Trading Parameters определяют ключевые аспекты того, как проходит торговая сессия. Давайте быстро и поверхностно взглянем на это...",
+                "updated": 1636929360190
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "TR",
                     "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'ye sermaye tahsis edilmez.",
                     "updated": 1636121181916
+                },
+                {
+                    "language": "RU",
+                    "text": "Базовый Asset сессии: капитал в BTC не присваивается.",
+                    "updated": 1636929551268
                 }
             ]
         },
@@ -81,6 +91,11 @@
                     "language": "TR",
                     "text": "Session Quoted Asset (Oturumda Kote Edilen Varlık): 1000 USDT başlangıç sermayesi.",
                     "updated": 1636121192365
+                },
+                {
+                    "language": "RU",
+                    "text": "Котируемый Asset сессии: 1000 USDT за начальный капитал.",
+                    "updated": 1636929599187
                 }
             ]
         },
@@ -109,6 +124,11 @@
                     "language": "TR",
                     "text": "Time Range (Zaman Aralığı): Tek bir günü test edeceğiz, 01 Eylül 2020",
                     "updated": 1636121263576
+                },
+                {
+                    "language": "RU",
+                    "text": "Временной диапазон: мы протестируем один день 01-09-2020",
+                    "updated": 1636929643689
                 }
             ]
         },
@@ -137,6 +157,11 @@
                     "language": "TR",
                     "text": "Time Frame (Zaman periyodu): siparişler her dakika verilir/iptal edilir, bu nedenle 01 dakika uygundur.",
                     "updated": 1636121307468
+                },
+                {
+                    "language": "RU",
+                    "text": "Временные рамки: заказы размещаются/отменяются каждую минуту, поэтому подходит 1 минута.",
+                    "updated": 1636929775030
                 }
             ]
         },
@@ -166,6 +191,11 @@
                     "language": "TR",
                     "text": "Slippage (Kayma): Bu özel ticaret sistemi sadece limit emirleri kullandığından, bu durum için önemsizdir.",
                     "updated": 1636121458592
+                },
+                {
+                    "language": "RU",
+                    "text": "Проскальзование: в данном случае это не имеет значения, т.к. данная конкретная торговая система использует только лимитные ордера.",
+                    "updated": 1636930096197
                 }
             ]
         },
@@ -194,6 +224,11 @@
                     "language": "TR",
                     "text": "Fee Structure (Komisyon): Binance için %0,1 olduğunu varsayalım.",
                     "updated": 1636121571785
+                },
+                {
+                    "language": "RU",
+                    "text": "Структура оплаты:  0.1%  - это нижний уровень на Binance.",
+                    "updated": 1636930145101
                 }
             ]
         },
@@ -223,6 +258,11 @@
                     "language": "TR",
                     "text": "Kalan parametreler simülasyonu etkilemez. İşlem Parametreleri hakkında daha fazla bilgi edinmek için belgelere bakın.",
                     "updated": 1636121544786
+                },
+                {
+                    "language": "RU",
+                    "text": "Остальные параметры не влияют на моделирование. Чтобы узнать больше о Trading Parameters, ознакомьтесь с документацией.",
+                    "updated": 1636930345208
                 }
             ]
         }

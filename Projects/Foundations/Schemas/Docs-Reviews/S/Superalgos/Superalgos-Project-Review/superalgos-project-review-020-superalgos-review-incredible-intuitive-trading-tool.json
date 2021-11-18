@@ -4,7 +4,14 @@
     "type": "Superalgos Review - Incredible intuitive trading tool",
     "definition": {
         "text": "Superalgos is an incredible tool, alowing all kinds of traders to work together with an intuitive GUI. The app has a quite steep learning curve and seems at the beginning quite overwhelming but the tutorials are done in a way which guides you quickly through all the important features and one understands that the complexity which seems difficult to master in the beginning allows for an incredible flexibility without having to know a lot about programming.\n\nThe strongest feature of the app is however its community-driven apporach allowing users to alter the software and thereby to contribute to the project. Meaning that not only developpers can contribute but also experienced traders with little or no programming knowledge or also motivated newcomers as every little improvement counts.\n\nAs the software is an ever-increasing project I am looking forward to explore it more and to help to contribute.\n\nfredericopitz",
-        "updated": 1629365654376
+        "updated": 1629365654376,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgoses una herramienta increíble, que permite a todo tipo de traders trabajar junto con un intuitivo GUI. La aplicación tiene una curva de aprendizaje bastante empinada y al principio parece bastante abrumadora, pero los tutoriales están hechos de una manera que lo guía rápidamente a través de todas las características importantes y uno comprende que la complejidad que parece difícil de dominar al principio permite una increíble flexibilidad sin tener que saber mucho sobre programación.\n\nSin embargo, la característica más fuerte de la aplicación es su enfoque impulsado por la comunidad que permite a los usuarios modificar el software y, por lo tanto, contribuir al proyecto. Lo que significa que no solo los desarrolladores pueden contribuir, sino también los operadores experimentados con poco o ningún conocimiento de programación o también los recién llegados motivados, ya que cada pequeña mejora cuenta.\n\nComo el software es un proyecto en constante crecimiento, estoy deseando explorarlo más y ayudar a contribuir.",
+                "updated": 1636728050887
+            }
+        ]
     },
     "paragraphs": [
         {

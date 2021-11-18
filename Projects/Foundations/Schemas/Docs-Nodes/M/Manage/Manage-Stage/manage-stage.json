@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El manage stage se ocupa del establecimiento y la gestión de objetivos de stop loss y take profit, tanto para proteger su capital como para aumentar la eficiencia de su sistema de trading.",
                 "updated": 1629580869439
+            },
+            {
+                "language": "DE",
+                "text": "In der \" manage stage\" geht es um das Setzen und Verwalten von Stop Loss und Take Profit Zielen, sowohl zum Schutz Ihres Kapitals als auch zur Steigerung der Effizienz Ihres trading systems.",
+                "updated": 1636665519510
             }
         ]
     },
@@ -18,16 +23,37 @@
         {
             "style": "Title",
             "text": "Optionality",
-            "updated": 1615101510181
+            "updated": 1615101510181,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Optionalität:",
+                    "updated": 1636665447488
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This Stage is optional. That means that if you do not want to deal with Stop Loss or Take Profits at your strategy, you can just delete this node and everything will continue working just fine. If you do remove this node, what will happen at runtime is that as soon as the position is triggered, the system will detect that that the Manage Stage is undefined, and it will jump it by opening the Close Stage (if it exists, because it is also optional)"
+            "text": "This Stage is optional. That means that if you do not want to deal with Stop Loss or Take Profits at your strategy, you can just delete this node and everything will continue working just fine. If you do remove this node, what will happen at runtime is that as soon as the position is triggered, the system will detect that that the Manage Stage is undefined, and it will jump it by opening the Close Stage (if it exists, because it is also optional)",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese \"Stage\" ist optional. Das bedeutet, dass Sie diese Node einfach löschen können, wenn Sie keine Stop-Loss- oder Take-Profits in Ihrer Strategie verwenden möchten, und alles wird weiterhin gut funktionieren. Wenn Sie diesen Knoten entfernen, wird das System zur runtime(Laufzeit), sobald die Position ausgelöst wird, feststellen, dass die Manage Stage undefiniert ist, und es wird sie überspringen, indem es zur Close Stage springt und sie öffnet (falls sie existiert, da sie ebenfalls optional ist).",
+                    "updated": 1636665947878
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is how optionality looks like at the code:",
-            "updated": 1615101627343
+            "updated": 1615101627343,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "So sieht die Optionalität im Code aus:",
+                    "updated": 1636666049375
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -37,51 +63,135 @@
         {
             "style": "Success",
             "text": "If both the Manage Stage and the Close Stage are undefined, what will happen is that whenever the Open Stage gets closed, you will exit the position.",
-            "updated": 1615103161873
+            "updated": 1615103161873,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn sowohl die Manage Stage als auch die Close Stage undefiniert sind, werden Sie die Position verlassen, sobald die Open Stage geschlossen wird.",
+                    "updated": 1636666084552
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Manage Stage Concept"
+            "text": "Manage Stage Concept",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Manage Stage Konzept:",
+                    "updated": 1636666115181
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first and foremost rule of trading is to preserve capital and its main goal is to increase it."
+            "text": "The first and foremost rule of trading is to preserve capital and its main goal is to increase it.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erste und wichtigste Regel des Handels ist es, das Kapital zu erhalten, und sein Hauptziel ist es, es zu vermehren.",
+                    "updated": 1636666147357
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Conceptually, a position is not an instantaneous event, but an event which has an opening, a period of maturation, and a closing. The management of the position happens throughout the process."
+            "text": "Conceptually, a position is not an instantaneous event, but an event which has an opening, a period of maturation, and a closing. The management of the position happens throughout the process.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vom Konzept her ist eine Position kein sofortiges Ereignis, sondern ein Ereignis, das eine Eröffnung, eine Reifeperiode und eine Schließung hat. Die Verwaltung der Position erfolgt während dem Prozess.",
+                    "updated": 1636666274128
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The concept of managing the position refers to the fact that the formulas that determine the take profit and stop loss targets may change as the position develops. A typical situation in which you may want to change your original take profit and stop loss formulas is when the position seems to be developing well in your favor."
+            "text": "The concept of managing the position refers to the fact that the formulas that determine the take profit and stop loss targets may change as the position develops. A typical situation in which you may want to change your original take profit and stop loss formulas is when the position seems to be developing well in your favor.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Konzept der Positionen-managements bezieht sich auf die Tatsache, dass sich die Formeln zur Bestimmung der Take-Profit- und Stop-Loss-Ziele im Laufe der Entwicklung der Position ändern können. Eine typische Situation, in der Sie Ihre ursprünglichen Take-Profit- und Stop-Loss-Formeln ändern möchten, ist, wenn sich die Position zu Ihren Gunsten entwickelt.",
+                    "updated": 1636666520021
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It may be in your best interest to manage the stop loss, moving the target in the direction that would help protect unrealized profits. It may also be in your interest to move the take profit target to extract a larger profit than originally expected. Or you may wish to set up a mechanism that closes the trade as soon as a certain market situation materializes."
+            "text": "It may be in your best interest to manage the stop loss, moving the target in the direction that would help protect unrealized profits. It may also be in your interest to move the take profit target to extract a larger profit than originally expected. Or you may wish to set up a mechanism that closes the trade as soon as a certain market situation materializes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es kann in Ihrem Interesse sein, den Stop-Loss zu steuern und das Ziel in die Richtung zu verschieben, die zum Schutz nicht realisierter Gewinne beiträgt. Es kann auch in Ihrem Interesse sein, das Take-Profit-Ziel zu verschieben, um einen größeren Gewinn als ursprünglich erwartet zu erzielen. Oder Sie möchten einen Mechanismus einrichten, der den trade schließt, sobald eine bestimmte Marktsituation eintritt.",
+                    "updated": 1636666733738
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The management of take profit and stop loss is done independently of each other, in phases. Therefore, each concept has its own set of management phases."
+            "text": "The management of take profit and stop loss is done independently of each other, in phases. Therefore, each concept has its own set of management phases.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Verwaltung von Take-Profit und Stop-Loss erfolgt unabhängig voneinander, in Phasen. Daher hat jedes Konzept seine eigene Reihe von management phases (Verwaltungsphasen).",
+                    "updated": 1636666836988
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each phase has its formula to describe the corresponding target. Users may define situations in which the current phase shall be abandoned and a different phase&mdash;with its formula&mdash;shall be implemented."
+            "text": "Each phase has its formula to describe the corresponding target. Users may define situations in which the current phase shall be abandoned and a different phase&mdash;with its formula&mdash;shall be implemented.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für jede Phase gibt es eine Formel, die das entsprechende Ziel beschreibt. Die Benutzer können Situationen definieren, in denen die aktuelle Phase aufgegeben und eine andere Phase - mit ihrer Formel - durchgeführt werden soll.",
+                    "updated": 1636666931674
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Keep in mind that the position is in constant development, so there may be as many phases as you deem appropriate for your particular strategy."
+            "text": "Keep in mind that the position is in constant development, so there may be as many phases as you deem appropriate for your particular strategy.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass sich die Position ständig weiterentwickelt, so dass es so viele Phasen geben kann, wie Sie für Ihre spezielle Strategie für angemessen halten.",
+                    "updated": 1636667005964
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The idea of managing targets in phases derives from the notion that big market moves tend to provide clues as to what may come up next. For instance, rallies may accelerate as more traders join the move. Recognizable patterns may emerge. Signs of exhaustion may be identified."
+            "text": "The idea of managing targets in phases derives from the notion that big market moves tend to provide clues as to what may come up next. For instance, rallies may accelerate as more traders join the move. Recognizable patterns may emerge. Signs of exhaustion may be identified.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Idee, Ziele in Phasen zu verwalten, beruht auf der Vorstellung, dass große Marktbewegungen in der Regel Anhaltspunkte dafür liefern, was als Nächstes kommen könnte. So kann sich beispielsweise eine \"Rallye \"beschleunigen, wenn sich mehr trader (Händler) der Bewegung anschließen. Es können sich erkennbare Muster herausbilden. Anzeichen einer Erschöpfung können erkannt werden.",
+                    "updated": 1636667250488
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All of these considerations may feed the dynamic analysis performed in each phase as the position develops."
+            "text": "All of these considerations may feed the dynamic analysis performed in each phase as the position develops.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "All diese Überlegungen können in die dynamische Analyse einfließen, die in jeder Phase der Positionsentwicklung durchgeführt wird.",
+                    "updated": 1636667340670
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Upon execution, the system verifies if the current candle has tagged either of the targets. If&mdash;or when&mdash;it does, the close stage kicks in and closing execution begins."
+            "text": "Upon execution, the system verifies if the current candle has tagged either of the targets. If&mdash;or when&mdash;it does, the close stage kicks in and closing execution begins.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bei der Ausführung prüft das System, ob die aktuelle candle eines der Ziele markiert hat. Wenn dies der Fall ist, wird die close stage eingeleitet und die Ausführung der closing execution beginnt.",
+                    "updated": 1636667407532
+                }
+            ]
         },
         {
             "style": "Callout",

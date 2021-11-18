@@ -4,7 +4,14 @@
     "type": "Intro to Trading Systems Tutorial",
     "definition": {
         "text": "This tutorial is the first in a series of tutorials that teach you how to build trading systems. The series goes deep into multiple topics and takes you through a progression that intends to match basic trading knowledge with particular Superalgos implementations. This first tutorial covers theoretical concepts, explains how trading systems are structured in Superalgos, and highlights how you need to frame your strategies to make the most out of the trading framework built-in the system.",
-        "updated": 1617114418610
+        "updated": 1617114418610,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial es el primero de una serie de tutoriales que le enseñan a construir sistemas de trading. La serie profundiza en múltiples temas y lo lleva a través de una progresión que tiene la intención de hacer coincidir el conocimiento comercial básico con implementaciones particulares de Superalgos.Este primer tutorial cubre conceptos teóricos, explica cómo se estructuran los sistemas de negociación en Superalgos y destaca cómo debe enmarcar sus estrategias para aprovechar al máximo el marco de negociación integrado en el sistema.",
+                "updated": 1636738336791
+            }
+        ]
     },
     "paragraphs": [
         {

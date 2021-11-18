@@ -431,7 +431,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         ) {
             node.project = 'Foundations'
         }
-        /* Migration code from beta 11 to beta 12 */
+        /* Migration code from beta 11 to 1.0.0 */
         if (
             node.type === 'Network'
         ) {

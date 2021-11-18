@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Узлы - это объекты, которые существуют в рабочих пространствах и могут быть визуализированы в the Design Space. Узлы могут быть присоединены друг к другу, образуя иерархические структуры.\n",
                 "updated": 1635514669410
+            },
+            {
+                "language": "DE",
+                "text": "Nodes sind Objekte, die im Workspace existieren und im Design Space visualisiert werden können. Nodes können miteinander verbunden/referenziert werden, um hierarchische Strukturen zu bilden.",
+                "updated": 1636744729977
             }
         ]
     },

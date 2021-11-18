@@ -24,27 +24,32 @@
         },
         {
             "style": "Chapter",
-            "text": "III->Foundations->Topic->Masters Data Mine->",
+            "text": "III->Foundations->Topic->Heikin Data Mine->",
             "updated": 1611686401703
         },
         {
             "style": "Chapter",
-            "text": "IV->Foundations->Topic->Sparta Data Mine->",
+            "text": "IV->Foundations->Topic->Masters Data Mine->",
+            "updated": 1611686401703
+        },
+        {
+            "style": "Chapter",
+            "text": "V->Foundations->Topic->Sparta Data Mine->",
             "updated": 1611686413735
         },
         {
             "style": "Chapter",
-            "text": "V->Foundations->Topic->Zeus Data Mine->",
+            "text": "VI->Foundations->Topic->Zeus Data Mine->",
             "updated": 1611686424488
         },
         {
             "style": "Chapter",
-            "text": "VI->Foundations->Topic->CoinGecko API Map and Mine->",
+            "text": "VII->Foundations->Topic->CoinGecko API Map and Mine->",
             "updated": 1622690513016
         },
         {
-            "style": "Text",
-            "text": ""
+            "style": "Chapter",
+            "text": "VIII->Foundations->Topic->quantum Data Mine->"
         }
     ]
 }

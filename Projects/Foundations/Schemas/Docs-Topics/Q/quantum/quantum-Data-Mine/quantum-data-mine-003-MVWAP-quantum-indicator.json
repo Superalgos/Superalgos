@@ -1,0 +1,69 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 3,
+    "type": "Moving Volume Average Price (MVWAP) - quantum Indicator",
+    "definition": {
+        "text": "Produce the average price of a set time period, taking into account the volume of trade over the same period of time",
+        "updated": 1636853769
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Moving VWAP On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The moving VWAP takes into account the volume of trade over a set period of time. Unlike the standard VWAP, the value is never reset for each trading day, hence why it is called “moving”. There are 5 MVWAP of differing periods produced by this data mine."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-MVWAP-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "There are five MVWAPs produced by this indicator, with the following periods: 5, 10, 20, 50, 100."
+        },
+		{
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “MVWAP” Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-MVWAP-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "MVWAP Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are five properties available:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| MVWAP | MVWAP | mvwap1, mvwap2, mvwap3, mvwap4, mvwap5 |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy can be built by looking for a short period VWAP crossing above a longer one:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.MVWAP.mvwap3 > chart.at01hs.MVWAP.mvwap5",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

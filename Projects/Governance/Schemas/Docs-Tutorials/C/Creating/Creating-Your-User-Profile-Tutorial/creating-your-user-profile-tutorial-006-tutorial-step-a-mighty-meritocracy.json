@@ -15,6 +15,11 @@
                 "text": "¡Superalgos no recompensa el aprovechamiento gratuito! Las contribuciones reales al proyecto y a la comunidad son las que se recompensan con tokens y Token Power.",
                 "updated": 1630873417226,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, sizi, onu yükleyip kulandığınız için ödüllendirmez! Projeye ve topluluğa gerçek katkılar, token ve Token Gücü ( Token Power ) ile ödüllendirilen şeydir.",
+                "updated": 1637147592544
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "La palabra elegante para este tipo de gobernanza de proyectos es meritocracia. En otras palabras, cuanto más contribuyas a la mejora de Superalgos y al apoyo de nuestra Community, cuanto mas Token Power y Reputation ganas para influir en el futuro del proyecto.",
                     "updated": 1630873470291,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür proje yönetişimleri meritokrasidir. Başka bir deyişle, Superalgos'un geliştirilmesine ve Topluluğumuzun desteğine ne kadar çok katkıda bulunursanız, projenin geleceğini etkilemek için o kadar çok Token Gücü ( Token Power ) ve İtibar kazanırsınız.",
+                    "updated": 1637159424216
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "¡Esta es una colaboración! Solo juntos podemos continuar haciendo de Superalgos el cambio de juego que es hoy, sin importar lo que depare el futuro.",
                     "updated": 1630873528737,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu bir işbirliğidir! Gelecek ne getirirse getirsin, Superalgos'u bugün olduğu gibi oyunu değiştirici yapmaya ancak birlikte devam edebiliriz.",
+                    "updated": 1637147709307
                 }
             ]
         }

@@ -15,9 +15,43 @@
     },
     "paragraphs": [
         {
+            "style": "Text",
+            "text": "This command adds a new page to the docs allowing you to specify where and what type of page you would like to add. The command specifies four main properties of your new page:",
+            "updated": 1637179049731
+        },
+        {
+            "style": "List",
+            "text": "Page Type: Superalgos' documentation is broken up into a variety of different page catagories.  You can read more about the different options at this page: Docs Page Category",
+            "updated": 1637179879424
+        },
+        {
+            "style": "List",
+            "text": "The Project within which the page will live: Each project within Superalgos contains it's own documentation. This option allows you to choose the project your page will be added to.",
+            "updated": 1637182337124
+        },
+        {
+            "style": "List",
+            "text": "Topic, Tutorial, or Review Title: Collections of pages are gathered under topic titles. These titles act as unique keys that make the collection of pages browsable as a unit. This option allows you to choose which topic to create or add your page to.",
+            "updated": 1637182170914
+        },
+        {
+            "style": "List",
+            "text": "Page Title: Each page is identified by a unique title. This title should help users find the content of your page. This option allows you to choose this title.",
+            "updated": 1637181908883
+        },
+        {
+            "style": "List",
+            "text": "Page Number: Optionally, a page number can be manually defined for the new page. If you do not, the system will automatically generate the next available number for your page.",
+            "updated": 1637181939592
+        },
+        {
             "style": "Title",
-            "text": "Single-Page Syntax",
-            "updated": 1613765905233
+            "text": "Single-Page Syntax"
+        },
+        {
+            "style": "Text",
+            "text": "Some catagories of pages are added without using a topic title. If you would like to add one of these single page catagories you may use the following syntax.",
+            "updated": 1637181470140
         },
         {
             "style": "Json",
@@ -57,6 +91,10 @@
             "updated": 1613766298709
         },
         {
+            "style": "Text",
+            "text": "The other page catagories use a topic title to group pages together.  You may add one of these pages using this syntax."
+        },
+        {
             "style": "Json",
             "text": "docs.add [Topic|Tutorial|Review] to Project: Docs [Topic|Tutorial|Review] Name->Docs Page Name->Docs Page Number",
             "updated": 1614076299626
@@ -85,79 +123,8 @@
         },
         {
             "style": "Json",
-            "text": "docs.add Review to Project: Superalgos Project Review->Awasome!->2",
-            "updated": 1614076323955
-        },
-        {
-            "style": "Title",
-            "text": "Parameters",
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Parameter",
-                    "updated": 1633893281975
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Project: It's the project where the page is defined.",
-            "updated": 1613764802872,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
-                    "updated": 1633893301146
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Docs Page Category: One of the available categories.",
-            "updated": 1613764813920,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": " Docs Page Category: Eine der verfügbaren Kategorien.",
-                    "updated": 1633893321559
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Docs topic / tutorial / review name: The name of the topic / tutorial / review the new page will belong to.",
-            "updated": 1613767524694,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Docs topic / tutorial / review name: Der Name des topic / tutorial / review, zu dem die neue Seite gehören soll.",
-                    "updated": 1633893492100
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Docs Page Name: The name of the page.",
-            "updated": 1613764889322,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Docs Page Name: Der Name der Seite.",
-                    "updated": 1633893510369
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Docs Page Number: Optional. The number affects the position in the corresponding table of contents only. If a Docs Page Number is not provided, the systems assigns one.",
-            "updated": 1633893655425,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Docs Page Number: Optional. Die Nummer wirkt sich nur auf die Position im entsprechenden Inhaltsverzeichnis aus. Wenn keine Dokumentseitennummer angegeben ist, wird vom System eine zugewiesen.",
-                    "updated": 1633893792768
-                }
-            ]
+            "text": "docs.add Review to Project: Superalgos Project Review->Awesome!->2",
+            "updated": 1637181747607
         }
     ]
 }

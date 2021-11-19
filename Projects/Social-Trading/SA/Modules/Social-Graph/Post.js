@@ -1,13 +1,13 @@
 exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModulesSocialGraphPost() {
     /*
-    Posts represent a collection of multimedia content sotored somewhere else
+    Posts represent a collection of multimedia content stored somewhere else
     and identified by that content hash. Posts might belong to:
         * a User Profile.
         * a Bot Profile.
     
     Posts might be linked to other posts when they are a reply or quote.
     
-    Posts migth have:
+    Posts might have:
         * replies, when a user or bot replies to a post.
         * reactions,  when a user or bot reacts to a post.
     */
@@ -20,9 +20,12 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         /* Unique Keys */
         emitterPostHash: undefined,
         targetPostHash: undefined,
-        /* Post Unitque Properties */
+        /* Post Unique Properties */
         postType: undefined,
         timestamp: undefined,
+        /* Signal Related Properties */
+        signalType: undefined,
+        signalData: undefined,        
         /* Maps */
         replies: undefined,
         reactions: undefined,
@@ -34,33 +37,16 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         finalize: finalize
     }
 
-    const POST_TYPES = {
-        NEW_POST: 0,
-        REPLY_TO_POST: 1,
-        REPOST_: 2,
-        QUOTE_REPOST_: 3
-    }
-
-    const REACTION_TYPES = {
-        REACTION_LIKE: 0,
-        REACTION_LOVE: 1,
-        REACTION_HAHA: 2,
-        REACTION_WOW: 3,
-        REACTION_SAD: 4,
-        REACTION_ANGRY: 5,
-        REACTION_CARE: 6
-    }
-
     thisObject.replies = new Map()
 
     thisObject.reactions = new Map()
-    thisObject.reactions.set(REACTION_TYPES.REACTION_LIKE, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_LOVE, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_HAHA, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_WOW, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_SAD, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_ANGRY, 0)
-    thisObject.reactions.set(REACTION_TYPES.REACTION_CARE, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LIKE, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LOVE, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_HAHA, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_WOW, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_SAD, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
+    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
 
     return thisObject
 
@@ -77,7 +63,9 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         emitterPostHash,
         targetPostHash,
         postType,
-        timestamp
+        timestamp,
+        signalType,
+        signalData
     ) {
 
         thisObject.emitterUserProfileId = emitterUserProfileId
@@ -88,13 +76,15 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp
+        thisObject.signalType = signalType
+        thisObject.signalData = signalData        
         /*
         Let's find the Target Post
         */
         if (
-            thisObject.postType === POST_TYPES.REPLY_TO_POST ||
-            thisObject.postType === POST_TYPES.REPOST_ ||
-            thisObject.postType === POST_TYPES.QUOTE_REPOST_
+            thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPLY_TO_POST ||
+            thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPOST ||
+            thisObject.postType === SA.projects.socialTrading.globals.postTypes.QUOTE_REPOST
         ) {
             /*
             Validate Target User Profile.
@@ -113,7 +103,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             Let's add this post to the replies of the Target Post
             */
             if (
-                thisObject.postType === POST_TYPES.REPLY_TO_POST
+                thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPLY_TO_POST
             ) {
                 targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
             }

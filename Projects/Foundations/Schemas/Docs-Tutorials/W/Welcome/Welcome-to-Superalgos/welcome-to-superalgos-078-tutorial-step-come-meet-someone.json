@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Entschuldigen Sie, dass ich Sie von den Charts weggezerrt habe, aber ich wollte Ihnen jemanden vorstellen: Der Typ rechts ist derjenige, der die Kaufaufträge erteilt!",
                 "updated": 1634225548501
+            },
+            {
+                "language": "TR",
+                "text": "Sizi grafiklerden uzaklaştırdığım için özür dilerim ama sizi biriyle tanıştırmak istedim: satın alma siparişlerini veren kişi sağdaki adam!",
+                "updated": 1636206465488
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Wir befinden uns im Lightning Strike Trading System, innerhalb der Definitionen der Open Stage. In dieser Phase übernimmt der Execution Algorithm, nachdem die Entscheidung, eine Position einzugehen, bereits in der Trigger Stage getroffen wurde. Ich weiß, dass Sie immer noch nicht wissen, was eine Situation oder eine Condition ist, aber ich möchte, dass Sie trotzdem etwas tun...",
                     "updated": 1634225553603
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Trading Sisteminin ( Trading System ), Open Stage tanımları içerisindeyiz. Bu aşamada, Tetik Aşamasında pozisyon alma kararı verildikten sonra Yürütme Algoritması ( Execution Algorithm ) devreye girer. Hala bir Durum ( Situation ) veya Koşulun ( Condition ) ne olduğunu bilmediğini biliyorum, ama yine de bir şeyler yapmanı istiyorum...",
+                    "updated": 1636207188259
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich ein paar Minuten Zeit, um die Knoten unterhalb des Ausführungsalgorithmus zu erkunden, die Formeln und Bedingungen zu überprüfen und zu sehen, was Sie daraus machen können!",
                     "updated": 1634225560838
+                },
+                {
+                    "language": "TR",
+                    "text": "Yürütme algoritmasının altındaki düğümleri keşfetmek için birkaç dakikanızı ayırın, formülleri ve koşulları kontrol edin ve bunlardan neler yapabileceğinizi görün!",
+                    "updated": 1636207209256
                 }
             ]
         }

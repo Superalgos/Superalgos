@@ -4,7 +4,14 @@
     "type": "Custom Charts Tutorials Plugin Workspace",
     "definition": {
         "text": "This workspace will walk you through everything you need to know about setting up custom charts within the Design Space. The tutorials aim to offer step by step guidance taking you from charting beginner to charting expert.",
-        "updated": 1622624767597
+        "updated": 1622624767597,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este workspace lo guiará a través de todo lo que necesita saber sobre la configuración de gráficos personalizados dentro del Design Space. ( espacio de diseño) Los tutorialse Su objetivo es ofrecer una guía paso a paso que lo lleve de principiante a experto en gráficos.",
+                "updated": 1636560253593
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,7 +21,14 @@
         {
             "style": "List",
             "text": "Setting Up a New Chart Tutorial",
-            "updated": 1621990804177
+            "updated": 1621990804177,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Setting Up a New Chart Tutorial ( Cómo configurar un nuevo tutorial de gráfico)",
+                    "updated": 1636560294366
+                }
+            ]
         },
         {
             "style": "Title",

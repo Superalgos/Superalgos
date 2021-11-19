@@ -7,7 +7,7 @@
             "name": "Data\\data-tasks",
             "project": "Foundations"
         },
-        "text": "The Data Tasks node controls all the data mining tasks defined for this Network Node.",
+        "text": "The Data Tasks node controls all the data mining tasks defined for this LAN Network Node.",
         "translations": [
             {
                 "language": "IT",
@@ -43,13 +43,15 @@
                 "language": "RU",
                 "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для Network Node.",
                 "updated": 1635611514856,
-                "style": "Definition"},
-                {
+                "style": "Definition"
+            },
+            {
                 "language": "TR",
                 "text": "Veri Görevleri düğümü ( Data Tasks ), bu Ağ Düğümü ( Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
                 "updated": 1635579379923
             }
-        ]
+        ],
+        "updated": 1636910229969
     },
     "paragraphs": [
         {
@@ -90,8 +92,9 @@
                     "language": "RU",
                     "text": "Теперь Вы готовы приступить к первому из следующих действий, которые мы рассмотрим через несколько минут:",
                     "updated": 1635582572477,
-                    "style": "Text"},
-                    {
+                    "style": "Text"
+                },
+                {
                     "language": "TR",
                     "text": "Önümüzdeki birkaç dakika içinde ele alacağımız aşağıdaki etkinliklerden ilkine başlamak üzeresiniz:",
                     "updated": 1635579409291
@@ -136,8 +139,9 @@
                     "language": "RU",
                     "text": "Run a data mining, чтобы получить данны BTC/USDT Market от Binance.",
                     "updated": 1635583091531,
-                    "style": "List"},
-                    {
+                    "style": "List"
+                },
+                {
                     "language": "TR",
                     "text": "Binance'den BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
                     "updated": 1635579469652
@@ -182,8 +186,9 @@
                 {
                     "language": "RU",
                     "text": "Run a Backtesting Session с использованием существующей стратегии с открытым исходным кодом.",
-                    "updated": 1635583981313},
-                    {
+                    "updated": 1635583981313
+                },
+                {
                     "language": "TR",
                     "text": "Mevcut bir açık kaynak stratejisiyle bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
                     "updated": 1635579517849
@@ -228,8 +233,9 @@
                 {
                     "language": "RU",
                     "text": "Run a Live Trading Session с минимальными средствами, чтобы проверить критические аспекты системы.",
-                    "updated": 1635584028882},
-                    {
+                    "updated": 1635584028882
+                },
+                {
                     "language": "TR",
                     "text": "Sistemin kritik yönlerini test etmek için minimum fonla Canlı Ticaret Oturumu ( Live Trading Session ) çalıştıracağız.",
                     "updated": 1635579557420
@@ -274,8 +280,9 @@
                 {
                     "language": "RU",
                     "text": "Вас это устраивает? Мы можем начать?",
-                    "updated": 1635584052704},
-                    {
+                    "updated": 1635584052704
+                },
+                {
                     "language": "TR",
                     "text": "Hazır mısın, başlayalım mı?",
                     "updated": 1635579651757

@@ -50,24 +50,25 @@
         },
         {
             "style": "Success",
-            "text": "To switch languages, click on the flags on the footer of the Docs.",
+            "text": "Users can switch between languages using the links/Flags provided at the footer of every page at the Docs.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Dokumente.",
-                    "updated": 1634069610043
+                    "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
+                    "updated": 1636750877886
                 }
-            ]
+            ],
+            "updated": 1636749365748
         },
         {
             "style": "Note",
-            "text": "You may only add or delete pages to the Docs when the language is set to English.",
-            "updated": 1613820648230,
+            "text": "You may only add or delete pages to the Docs when the language is set to English. For the translation you have to select the language you want to translate into. (In this case german)",
+            "updated": 1636749376271,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist.",
-                    "updated": 1634069626053
+                    "text": "Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten.",
+                    "updated": 1636750866679
                 }
             ]
         }

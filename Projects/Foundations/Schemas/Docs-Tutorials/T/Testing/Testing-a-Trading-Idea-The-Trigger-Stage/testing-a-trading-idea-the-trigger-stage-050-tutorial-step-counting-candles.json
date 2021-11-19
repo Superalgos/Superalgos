@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Counting Candles!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
         "text": "Take a good look at the first few candles in the data set. Do you see anything unusual?"
     },

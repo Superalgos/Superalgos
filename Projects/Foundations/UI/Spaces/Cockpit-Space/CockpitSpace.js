@@ -138,8 +138,13 @@ function newFoundationsCockpitSpace() {
         statusCounter--
         if (statusCounter < 0) {
             statusCounter = 0
-            statusText = undefined,
-                statusType = undefined
+            statusText = undefined
+            statusType = undefined
+
+            if (UI.environment.DEMO_MODE === true) {
+                statusText = 'You are running Superalgos in DEMO MODE. That means that you will not be able to run or stop tasks. Remember Tutorials were designed for the full version, when you download the software.'
+                statusType = STATUS_TYPES.WARNING
+            }
         }
     }
 

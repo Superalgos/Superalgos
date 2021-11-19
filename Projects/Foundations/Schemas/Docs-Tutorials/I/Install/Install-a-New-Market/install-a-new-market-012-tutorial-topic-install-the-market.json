@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Terminaste la configuración requerida para instalar el mercado! ¡El resto está completamente automatizado!",
                 "updated": 1629247436746
+            },
+            {
+                "language": "DE",
+                "text": "Sie haben die für die Installation des Marktes erforderliche Einrichtung abgeschlossen! Der Rest ist vollständig automatisiert!",
+                "updated": 1636093926793
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Haz clic en el botón Install Market en el nodo Market que acabas de terminar de configurar. Ahora que el Market está configurado, instalarlo está a solo un clic de distancia.",
                     "updated": 1629247557848
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche Install Market auf dem Market Knoten, den Sie gerade eingerichtet haben. Jetzt, wo der Market eingerichtet ist, ist die Installation nur noch einen Klick entfernt.",
+                    "updated": 1636094308147
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "La Install Market La función configura muchas estructuras de datos en el local Network Node y en el Charting Space. Los siguientes pasos del tutorial te ayudarán a familiarizarse con la instalación.",
                     "updated": 1629247622619
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktion Install Market richtet viele Datenstrukturen im lokalen Netzwerk Node und im Charting Space ein. Die nächsten Schritte des Tutorials werden Ihnen helfen, sich mit der Installation vertraut zu machen.",
+                    "updated": 1636094597272
                 }
             ]
         }

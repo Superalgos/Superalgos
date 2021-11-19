@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El rate scale controla la escala del eje vertical, es decir, la escala del asset cotizado, ya sea de la máquina del tiempo o del gráfico de la línea de tiempo, dependiendo de dónde se encuentre el nodo.",
                 "updated": 1624494681459
+            },
+            {
+                "language": "RU",
+                "text": "Шкала ставок управляет масштабом вертикальной оси, т.е. масштабом действующего актива, либо машины времени, либо диаграммы временной шкалы, в зависимости от того, где расположен узел.",
+                "updated": 1636206834295
             }
         ]
     },

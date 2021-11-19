@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What Else is Going On?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
         "text": "We just took note of what happened after this breakdown of the bands on the 1H chart... What else is going on with the market?"
     },

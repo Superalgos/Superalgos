@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Шаг учебного пособия - это тип узла в пособии, который может не иметь потомков. Таким образом, это самая маленькая единица информации в иерархии.",
                 "updated": 1635612531097
+            },
+            {
+                "language": "ES",
+                "text": "Un paso de tutorial es un tipo de nodo dentro de un tutorial que puede no tener descendencia. Como tal, es la unidad de información más pequeña de la jerarquía.",
+                "updated": 1636719725988
             }
         ]
     },
@@ -23,11 +28,25 @@
         {
             "style": "Note",
             "text": "The basic configuration of the tutorial step node is the same as the Tutorial node. Refer to the latter, please.",
-            "updated": 1613846300336
+            "updated": 1613846300336,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La configuración básica del nodo del paso del tutorial es la misma que la del nodo Tutorial. Consulte este último, por favor.",
+                    "updated": 1636719782428
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In addition to the basic configuration, tutorial step nodes feature a large collection of resources that allows you to manipulate the user interface and actual nodes in many ways."
+            "text": "In addition to the basic configuration, tutorial step nodes feature a large collection of resources that allows you to manipulate the user interface and actual nodes in many ways.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Además de la configuración básica, los nodos de pasos del tutorial cuentan con una gran colección de recursos que le permite manipular la interfaz de usuario y los nodos reales de muchas formas.",
+                    "updated": 1636719820832
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -36,7 +55,14 @@
         },
         {
             "style": "Text",
-            "text": "Setting up a reference to any node in the workspace and using the below parameter makes the step load next to the referenced node."
+            "text": "Setting up a reference to any node in the workspace and using the below parameter makes the step load next to the referenced node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La configuración de una referencia a cualquier nodo en el espacio de trabajo y el uso del siguiente parámetro hace que el paso se cargue junto al nodo al que se hace referencia.",
+                    "updated": 1636719856418
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -49,7 +75,14 @@
         },
         {
             "style": "Text",
-            "text": "Setting up a reference to any node in the workspace and using the below parameters allows placing different types of messages on the referenced node."
+            "text": "Setting up a reference to any node in the workspace and using the below parameters allows placing different types of messages on the referenced node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Configurar una referencia a cualquier nodo en el espacio de trabajo y usar los siguientes parámetros permite colocar diferentes tipos de mensajes en el nodo referenciado.",
+                    "updated": 1636719884062
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -64,19 +97,47 @@
         {
             "style": "Text",
             "text": "Setting up a reference to a time machine node in the Charting Space hierarchy while using the below parameter causes the following:",
-            "updated": 1617706853889
+            "updated": 1617706853889,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Configurar una referencia a un nodo de máquina del tiempo en la jerarquía del  Charting Space mientras se utiliza el siguiente parámetro provoca lo siguiente:",
+                    "updated": 1636719950843
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The charting space viewport is centered on the referenced time machine."
+            "text": "The charting space viewport is centered on the referenced time machine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La ventana gráfica del espacio de gráficos está centrada en la máquina del tiempo referenciada.",
+                    "updated": 1636719973599
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The time machine is adjusted to fit the aspect ratio of the screen."
+            "text": "The time machine is adjusted to fit the aspect ratio of the screen.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La máquina del tiempo se ajusta para adaptarse a la relación de aspecto de la pantalla.",
+                    "updated": 1636719989566
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The viewport zooms into the time machine."
+            "text": "The viewport zooms into the time machine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La ventana gráfica se acerca a la máquina del tiempo.",
+                    "updated": 1636720005080
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -90,7 +151,14 @@
         {
             "style": "Text",
             "text": "Setting up a reference to a time machine node in the charting space hierarchy and using the below parameters allows replicating the pressing of relevant key combinations when on a time machine.",
-            "updated": 1617706916777
+            "updated": 1617706916777,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La configuración de una referencia a un nodo de la máquina del tiempo en la jerarquía del espacio de gráficos y el uso de los siguientes parámetros permite replicar la pulsación de combinaciones de teclas relevantes en una máquina del tiempo.",
+                    "updated": 1636720030872
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -103,17 +171,38 @@
         },
         {
             "style": "List",
-            "text": "key may be any letter or number."
+            "text": "key may be any letter or number.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La clave puede ser cualquier letra o número.",
+                    "updated": 1636720046853
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Pressing Keys on the Design Space",
-            "updated": 1620866371352
+            "updated": 1620866371352,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pressing Keys on the Design Space (Pulsando teclas en el espacio de diseño)",
+                    "updated": 1636723423034
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "It is also possible to press any combination of keys within the Design Space. The format works the same as above but the key press will happen within the context of the design space.",
-            "updated": 1620866727876
+            "updated": 1620866727876,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "También es posible presionar cualquier combinación de teclas dentro del Design Space. El formato funciona igual que el anterior, pero la pulsación de la tecla se producirá dentro del contexto del espacio de diseño.",
+                    "updated": 1636723494988
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -127,11 +216,25 @@
         {
             "style": "Subtitle",
             "text": "Toggling Map View",
-            "updated": 1620866823195
+            "updated": 1620866823195,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Toggling Map View (Alternar vista del mapa)",
+                    "updated": 1636723537130
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In order to switch between regular and map view, you can use the following configuration."
+            "text": "In order to switch between regular and map view, you can use the following configuration.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para cambiar entre la vista normal y la vista de mapa, puede utilizar la siguiente configuración.",
+                    "updated": 1636723564528
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -154,20 +257,48 @@
         {
             "style": "Note",
             "text": "When this configuration is active within a tutorial step, the user will be unable to switch between views manually.",
-            "updated": 1620867158361
+            "updated": 1620867158361,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando esta configuración está activa dentro de un paso del tutorial, el usuario no podrá cambiar entre vistas manualmente.",
+                    "updated": 1636723585752
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Changing Node's Configurations"
+            "text": "Changing Node's Configurations",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Changing Node's Configurations (Cambiando las configuraciones del nodo",
+                    "updated": 1636723622329
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The batchConfigChangesReferenceParent property allows you to edit the configuration of a referenced node and their offspring.",
-            "updated": 1617707009812
+            "updated": 1617707009812,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La propiedad batchConfigChangesReferenceParent aLe permite editar la configuración de un nodo referenciado y su descendencia.",
+                    "updated": 1636723673596
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The example below changes the configuration of the three different scale nodes under a time machine. In this case, the time machine is the node referenced, the nodePath is the path of the node whose configuration must be changed relative to the referenceParent, and the properties parameter is the actual configuration to be set."
+            "text": "The example below changes the configuration of the three different scale nodes under a time machine. In this case, the time machine is the node referenced, the nodePath is the path of the node whose configuration must be changed relative to the referenceParent, and the properties parameter is the actual configuration to be set.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El siguiente ejemplo cambia la configuración de los tres nodos de escala diferentes bajo una máquina del tiempo. En este caso, la máquina del tiempo es el nodo referenciado. el nodePath es la ruta del nodo cuya configuración debe cambiarse en relación con el referenceParent, y el parámetro de propiedades es la configuración real que se va a establecer.",
+                    "updated": 1636723752011
+                }
+            ]
         },
         {
             "style": "Json",
@@ -177,7 +308,14 @@
         {
             "style": "Success",
             "text": "A typical use case for this resource is when you wish to bring to user to a specific point in a chart, but it may be used for any other case that requires manipulating node's configurations.",
-            "updated": 1617707174287
+            "updated": 1617707174287,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un caso de uso típico de este recurso es cuando desea llevar al usuario a un punto específico en un gráfico, pero puede usarse para cualquier otro caso que requiera manipular las configuraciones del nodo.",
+                    "updated": 1636723793997
+                }
+            ]
         }
     ]
 }

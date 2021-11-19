@@ -1,0 +1,15 @@
+.code-editor-page {
+    font: 400 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #365558;
+    line-height: 150%;
+    margin: 20 25 20 30px;
+}
+
+.editor{
+    height: 70vh;
+    overflow: hidden;
+}
+
+#code-path {
+    margin-bottom: 15px;
+}

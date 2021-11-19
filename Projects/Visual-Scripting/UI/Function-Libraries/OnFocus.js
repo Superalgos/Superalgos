@@ -17,7 +17,7 @@ function newVisualScriptingFunctionLibraryOnFocus() {
             /* Then we check all of its own children nodes. */
             if (node.payload.floatingObject.isCollapsed !== true) {
                 if (schemaDocument.childrenNodesProperties !== undefined) {
-                    let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+                    let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
                     for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                         let property = schemaDocument.childrenNodesProperties[i]
 

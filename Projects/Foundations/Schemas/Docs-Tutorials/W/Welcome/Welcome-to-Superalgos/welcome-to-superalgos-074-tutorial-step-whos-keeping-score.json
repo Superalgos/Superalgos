@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Schauen Sie sich die folgende Tabelle an und versuchen Sie, die in den Diagrammen angegebenen Unterstützungsniveaus zu interpretieren.",
                 "updated": 1634224665354
+            },
+            {
+                "language": "TR",
+                "text": "Aşağıdaki tabloyu kontrol edin ve grafiklerde gördüğünüz destek seviyelerini yorumlayın. Her seviye ihlalinde barın rengi değişir. Örneğin Seviye 5 defa ihlal edilmişse yeşil renkli olur.",
+                "updated": 1636204496181
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "DE",
                     "text": "<br/>Bei einem neuen Unterstützungsniveau mit einer Ablehnung markiert die gepunktete Linie das genaue Niveau, an dem der Kurs abgeprallt ist. Bei weiteren Ablehnungen markieren die Blöcke die Kursbereiche, auf denen nachfolgende Ablehnungen gezählt werden.",
                     "updated": 1634224722087
+                },
+                {
+                    "language": "TR",
+                    "text": "Reddedilen yeni bir destek seviyesi (noktalı çizgi ile ifade edilir), fiyatın sıçradığı tam seviyeyi gösterir. Daha sonraki retler için bloklar kullanılır ve sayıya göre renklendirilir.",
+                    "updated": 1636204639724
                 }
             ]
         }

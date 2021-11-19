@@ -2,7 +2,14 @@
     "type": "Artificial Neural Network",
     "definition": {
         "text": "An ANN is based on a collection of connected units or nodes called artificial neurons, which loosely model the neurons in a biological brain. Each connection, like the synapses in a biological brain, can transmit a signal to other neurons. An artificial neuron that receives a signal then processes it and can signal neurons connected to it.",
-        "updated": 1613198337105
+        "updated": 1613198337105,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Искуственные нейронные сети основаны на наборе cоединенных блоков или узлов, называемых искуственными нейронами, которые свободно моделируют нейроны в биологическом мозге. Каждое соедининие, подобно синапсам в биологическом мозге, может передавать сигнал другим нейронам. Искуственный нейрон, который получает сизгнал, обрабатывает его и может передавать сигналы нейронам, подключенным к нему.\n",
+                "updated": 1636749291371
+            }
+        ]
     },
     "paragraphs": [
         {

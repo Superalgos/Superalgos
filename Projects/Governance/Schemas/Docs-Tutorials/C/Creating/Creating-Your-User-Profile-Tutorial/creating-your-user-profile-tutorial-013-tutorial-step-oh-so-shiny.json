@@ -15,6 +15,11 @@
                 "text": "Estamos casi alli. Ahora has clic enBuild Profile y ve cómo sucede la magia. Así es, ¡acabas de crear tu perfil!",
                 "updated": 1630888309658,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Neredeyse geldik. Şimdi Profil Oluştur'a ( Build Profile ) tıklayın ve sihrin gerçekleşmesini izleyin. Evet, profilinizi yeni oluşturdunuz!",
+                "updated": 1637242566507
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Si bien no tuvimos que sudar mucho para crear tu perfil, sucedieron algunas cosas asombrosas detrás de escena.",
                     "updated": 1630888348614,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizi ter dökmeden oluştururken, sahne arkasında oldukça şaşırtıcı şeyler oldu.",
+                    "updated": 1637243000359
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "TEl constructor acaba de generar su perfil de usuario y vinculó su dirección o creó un SA Token Governance Address.",
                     "updated": 1630888438347,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Constructor, kullanıcı profilinizi oluşturdu, adresinizi bağladı ve benzersiz bir SA Token Yönetim Adresi ( Governance Addrss ) oluşturdu.",
+                    "updated": 1637243124914
                 }
             ]
         }

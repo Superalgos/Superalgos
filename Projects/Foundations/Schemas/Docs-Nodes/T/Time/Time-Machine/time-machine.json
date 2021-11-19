@@ -8,6 +8,11 @@
                 "text": "Un time machine sincroniza múltiples gráficos de línea de tiempo en la misma línea de tiempo. Gráficos de línea de tiempo dentro de un time machine pueden tener diferentes escalas de tasas o escalas de marco de tiempo, pero su escala de tiempo siempre coincidirá. ",
                 "updated": 1628644798838,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Машина времени синхронизирует несколько графиков временной шкалы на одной и той же временной шкале. Графики временной шкалы в машине времени могут иметь разные шкалы скорости или шкалы временных рамок, но их шкала времени всегда будет совпадать.",
+                "updated": 1636199722951
             }
         ],
         "updated": 1628644911381

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Parameters son propiedades de trading sessions, definido por los usuarios, para determinar su comportamiento y mejorar la calidad de las simulaciones.",
                 "updated": 1624453669656
+            },
+            {
+                "language": "RU",
+                "text": "Параметры - это свойства торговых сессий, определяемые пользователями для установления их поведения и повышения качества моделирования.",
+                "updated": 1636929248350
             }
         ]
     },

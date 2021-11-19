@@ -9,7 +9,7 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "At the Task Node where this error poped up, add a Key Reference Node and reference from it an Exchange Account Key with it. Then you can try to run the Trading Session again.",
+            "text": "At the Task Node where this error popped up, add a Key Reference Node and reference from it an Exchange Account Key with it. Then you can try to run the Trading Session again.",
             "updated": 1611392617497
         }
     ]

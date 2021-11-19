@@ -127,7 +127,7 @@ function newGobernanceReportsSpace() {
 
     function initialize() {
         /*
-        If the workspace is not related to governance, then we exit the Intialize Function
+        If the workspace is not related to governance, then we exit the initialize Function
         */
         let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }

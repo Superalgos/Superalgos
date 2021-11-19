@@ -32,7 +32,7 @@
         },
         {
             "style": "Important",
-            "text": "One of the most important things to undestand of this procedure is that it takes into account the things you have at the workspace at the moment you run this command. "
+            "text": "One of the most important things to understand of this procedure is that it takes into account the things you have at the workspace at the moment you run this command. "
         },
         {
             "style": "Text",
@@ -82,7 +82,7 @@
         },
         {
             "style": "Text",
-            "text": "Assuming you will go with the startegy of installing one Network Node first, this is what you need to know on how to move Task s to other Network Nodes.",
+            "text": "Assuming you will go with the strategy of installing one Network Node first, this is what you need to know on how to move Task s to other Network Nodes.",
             "updated": 1614357184981
         },
         {
@@ -92,7 +92,7 @@
         },
         {
             "style": "Text",
-            "text": "Always remember that the system just needs you to define where you want the Tasks to run and the Data to be Hosted, but there is an implcit relationship between Tasks and Data because a Task produces certain Data, and those definition needs to be consistent and be found at the same Network Node."
+            "text": "Always remember that the system just needs you to define where you want the Tasks to run and the Data to be Hosted, but there is an implicit relationship between Tasks and Data because a Task produces certain Data, and those definition needs to be consistent and be found at the same Network Node."
         },
         {
             "style": "Warning",
@@ -105,7 +105,7 @@
         },
         {
             "style": "Note",
-            "text": "When we say moving, what we are saying is detaching a Node branch and re-attaching that same branch somewhere else. Note that if you, for example, make a backup of a branch, restore that somehwhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up the incoming references, which will cause things to not work anymore.",
+            "text": "When we say moving, what we are saying is detaching a Node branch and re-attaching that same branch somewhere else. Note that if you, for example, make a backup of a branch, restore that somewhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up the incoming references, which will cause things to not work anymore.",
             "updated": 1617264249424
         },
         {

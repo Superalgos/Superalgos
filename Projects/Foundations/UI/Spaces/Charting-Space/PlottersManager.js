@@ -142,7 +142,7 @@ function newPlottersManager() {
             let tradingOrLearningEngine
 
             /*
-            A layer can be referencing a Data Product in 3 different branches of the Network hiriatchy.
+            A layer can be referencing a Data Product in 3 different branches of the Network hierarchy.
             Two of those branches have sessions.
             */
             let sessionReference = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(layer.definition, 'Trading Session Reference', undefined, false, true, true, true)
@@ -177,6 +177,11 @@ function newPlottersManager() {
             let scheme = 'http'
             if (host === undefined) { host = window.location.hostname }
             if (webPort === undefined) { webPort = window.location.port }
+
+            if (UI.environment.DEMO_MODE === true) {
+                host = UI.environment.DEMO_MODE_HOST
+            }
+            
             if (extWSURL !== undefined) { 
             	host = window.location.hostname
             	webPort = window.location.port
@@ -467,7 +472,7 @@ function newPlottersManager() {
                     }
                     finalizeStorage(connector.storage)
                     thisObject.connectors.splice(i, 1) // Delete item from array.
-                    return // We already found the product woth changes and processed it.
+                    return // We already found the product with changes and processed it.
                 }
             }
         }

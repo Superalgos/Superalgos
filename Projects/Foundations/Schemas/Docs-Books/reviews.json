@@ -1,13 +1,13 @@
 {
     "type": "Reviews",
     "definition": {
-        "text": "This book is a cataloge of all types of reviews at the Docs.",
+        "text": "This book is a catalogue of all types of reviews at the Docs.",
         "updated": 1621437863554
     },
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Foundations->Review->Superalgos Project Review->These are reviews of the project submited by users.",
+            "text": "I->Foundations->Review->Superalgos Project Review->These are reviews of the project submitted by users.",
             "updated": 1621437834465
         }
     ]

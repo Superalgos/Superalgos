@@ -10,7 +10,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
 
     return thisObject
 
-    async function run() {
+    async function run(debugSettings) {
         /* 
         The NT object is accessible everywhere at the Superalgos Network.
         It provides access to all modules built for this Network.
@@ -25,6 +25,10 @@ exports.newNetworkRoot = function newNetworkRoot() {
         let ENVIRONMENT = require('./Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
+
+        if (debugSettings !== undefined && debugSettings.P2P_NETWORK_NODE_SIGNING_ACCOUNT !== undefined) {
+            global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT = debugSettings.P2P_NETWORK_NODE_SIGNING_ACCOUNT
+        }
         /*
         First thing is to load the project schema file.
         */
@@ -43,6 +47,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
             fs: require('fs'),
             path: require('path'),
             util: require('util'),
+            http: require('http'),            
             nodeFetch: require('node-fetch'),
             web3: require('web3'),
             ws: require('ws'),

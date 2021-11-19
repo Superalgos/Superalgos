@@ -1,7 +1,8 @@
 {
     "type": "Github API",
     "definition": {
-        "text": "Write the definition for this Node."
+        "text": " {\n    \"username\": \"alejandrogiraldog\",\n    \"token\": \"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\"\n}",
+        "updated": 1637351609907
     },
     "paragraphs": [
         {

@@ -15,6 +15,11 @@
                 "text": "Este es el Governance Project! Hoy te ayudaré a crear un User ProfileY únete a los primeros Governance Programs",
                 "updated": 1630870722161,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bu bir Yönetişim Projesidir ( Governance Project )! Bugün bir Kullanıcı Profili oluşturmanıza ve ilk birkaç Yönetim Programına ( Governance Programs ) katılmanıza yardımcı olacağım!\n",
+                "updated": 1637146172021
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Pero antes de comenzar, debe saber que solo puede enviar su perfil a la rama Develop , ¡así que es hora de cambiar!",
                     "updated": 1630870746617,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak başlamadan önce, profilinizi yalnızca Geliştirme (Develop) şubesine gönderebileceğinizi bilmelisiniz, bu yüzden geliştirme şubesine geçiş zamanı!",
+                    "updated": 1637139022028
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Ve al pie de página y cambia la rama Contrubutions  a la Develop. Luego cierra y reinicia la aplicación después del cambio. Una vez que estés de regreso, ejecuta el comando app.update para actualizarse con Develop, reiniciar, ¡y solo entonces podrá continuar con este tutorial!",
                     "updated": 1630870801873,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sayfanın altına gidin ve hem Katkı (Contributions) Dalını hem de Mevcut (Current) Dalı Geliştirme (Develop) olarak değiştirin.  Şimdi Develop ile güncel kalmak için arama kutusuna app. update yazarak çalıştırın.İstemciyi (Client) ve Kullanıcı Arayüzünü (UI) yeniden başlatın. Ancak o zaman bu eğiticiye devam edebilirsiniz!",
+                    "updated": 1637146216750
                 }
             ]
         },

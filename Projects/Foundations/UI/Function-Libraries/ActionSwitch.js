@@ -53,6 +53,16 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
                 }
                 break
+            case 'Run All Managed Tasks':
+                {   /* Portfolio Task References */
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllManagedTasks(action.node);
+                }
+                break;
+            case 'Stop All Managed Tasks':
+                {   /* Portfolio Task References */
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllManagedTasks(action.node);
+                }
+                break;
             case 'Run All Exchange Data Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.runAllExchangeDataTasks(action.node)

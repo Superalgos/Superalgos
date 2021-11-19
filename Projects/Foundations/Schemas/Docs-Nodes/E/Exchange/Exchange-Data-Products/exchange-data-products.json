@@ -1,7 +1,14 @@
 {
     "type": "Exchange Data Products",
     "definition": {
-        "text": "The exchange data products node organizes data mines data by exchange. That is, each exchange installed in the system has an exchange data products node grouping all market data products nodes corresponding to the said exchange."
+        "text": "The exchange data products node organizes data mines data by exchange. That is, each exchange installed in the system has an exchange data products node grouping all market data products nodes corresponding to the said exchange.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo exchange data products  organiza extrae datos minados por el  exchange. Esto es cada exchange instalado en el sistema tiene un nodo de  exchange data productsagrupando todo el mercado de nodos data products correspondientes a dicho exchange.",
+                "updated": 1637231279112
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The exchange data products node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+            "text": "The exchange data products node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El nodo de productos de datos del exchange debe hacer referencia al exchange de selección. Esta referencia limita el resto de las definiciones al contexto de dicho exchange.",
+                    "updated": 1637231376591
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo."
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Al representar un exchange que aparece en la biblioteca de iconos del sistema, el standard exchange el data tasks ícono es reemplazado por el logo del exchange.",
+                    "updated": 1637231467077
+                }
+            ]
         }
     ]
 }

@@ -43,6 +43,11 @@
                 "language": "TR",
                 "text": "Bir düğümü silmek veya bir konfigürasyonu değiştirmek gibi bir şeyi bozarsanız ve sonuçla nasıl başa çıkacağınızı bilmiyorsanız...",
                 "updated": 1636013094366
+            },
+            {
+                "language": "NL",
+                "text": "Als er iets mis gaat—zoals het verwijderen of de configuratie van een node veranderen—en je komt er niet meer uit...",
+                "updated": 1636977985207
             }
         ]
     },
@@ -85,6 +90,11 @@
                     "language": "TR",
                     "text": "... orijinal Getting Started Tutorials Plugin Workspace! ile kolayca baştan başlayabilirsiniz!...",
                     "updated": 1636013152834
+                },
+                {
+                    "language": "NL",
+                    "text": "... start je simpelweg opnieuw met de originele Getting Started Tutorials Plugin Workspace!",
+                    "updated": 1636978022861
                 }
             ],
             "updated": 1622196973760
@@ -127,6 +137,11 @@
                     "language": "TR",
                     "text": "Böyle bir durumda, sol taraftaki sekmeyi çekin, kaydırın, Getting Started Tutorials Plugin'i bulun ve tıklayın! Orijinal Eklenti Çalışma Alanı ( Plugin Workspace ) yüklenecek ve öğretici, baştan yeni bir şekilde yeniden görünecek!",
                     "updated": 1636013239148
+                },
+                {
+                    "language": "NL",
+                    "text": "in zo'n geval open je de tab aan de linkerkant, scroll en zoek de Getting Started Tutorials plugin, en klik er op! De originele Plugin Workspace zal laden en de tutorial zal herstarten vanaf het begin.",
+                    "updated": 1636978208217
                 }
             ],
             "updated": 1622634394712
@@ -158,6 +173,11 @@
                     "language": "TR",
                     "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Şimdi bunları nasıl kendinize ait hale getirebileceğinizi veya yeni çalışma alanları oluşturabileceğinizi görelim!",
                     "updated": 1636013279897
+                },
+                {
+                    "language": "NL",
+                    "text": "Plugin Workspaces horen bij het systeem, laten we eens kijken of je ze eigen kan maken of zelfs nieuwe kan creëeren!",
+                    "updated": 1636978365070
                 }
             ]
         }

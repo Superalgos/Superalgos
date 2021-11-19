@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Haydi gidelim!  Bir günlük zaman dilimi için Backtest yapacağımız için bu hızlı olacak.",
                 "updated": 1636122670075
+            },
+            {
+                "language": "RU",
+                "text": "Давайте начнем! В любом случае это будет быстро, т.к. мы тестируем исторические данные за 1 день.",
+                "updated": 1636930436914
             }
         ]
     },
@@ -54,6 +59,11 @@
                     "language": "TR",
                     "text": "Bir ticaret görevi yürütmek ( Trading Tasks ), bir veri madenciliği (Data Mining Tasks ) görevi yürütmeye oldukça benzer. Aradaki fark, görevi çalıştırdıktan sonra, ticaret oturumunu da çalıştırmanız gerektiğidir.",
                     "updated": 1636122738568
+                },
+                {
+                    "language": "RU",
+                    "text": "Запуск торговой задачи очень похож на запуск задачи интеллектуального анализа данных. Разница заключается в том, что после запуска задачи, Вам также необходимо запустить торговую сессию.",
+                    "updated": 1636930532553
                 }
             ]
         },
@@ -83,6 +93,11 @@
                     "language": "TR",
                     "text": "Önce Lightning Strike Task menüsünde Run'ı seçin! Sonra Backtesting Session menüsünde Run'ı seçin!",
                     "updated": 1636122946019
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Run в меню Task: Lightning Strike! Сейчас выберите Run в меню Backtesting Session!",
+                    "updated": 1636930675030
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "TR",
                     "text": "Geriye Dönük Test Oturumu ( Backtesting Session ), işlemin tamamlandığını gösterdiğinde, Görevi ( Task) durdurun ve İleri'ye tıklayın.",
                     "updated": 1636122871481
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда Backtesting Session покажет, что обработка завершена, остановите Task и нажмите Next.",
+                    "updated": 1636930736439
                 }
             ],
             "updated": 1622201246283

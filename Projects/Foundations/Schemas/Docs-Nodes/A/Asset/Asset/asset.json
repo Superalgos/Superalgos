@@ -2,7 +2,14 @@
     "type": "Asset",
     "definition": {
         "text": "An asset node is the definition of an asset in Superalgos.",
-        "updated": 1609771995506
+        "updated": 1609771995506,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел актива - это определение актива в Superalgos.",
+                "updated": 1636929400025
+            }
+        ]
     },
     "paragraphs": [
         {

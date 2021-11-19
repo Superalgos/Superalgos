@@ -25,7 +25,7 @@
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "portfolioMinesData",
-            "label": "Add Trading Mines Data",
+            "label": "Add Portfolio Mines Data",
             "relatedUiObject": "Portfolio Mines Data",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",

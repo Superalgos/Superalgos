@@ -15,6 +15,11 @@
                 "text": "Tus Superalgos SA Token irán a la dirección que acabas de generar, debes almacenar de forma segura la clave privada que utilizará para acceder a la dirección.",
                 "updated": 1630891338657,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos SA Token ödülleriniz yeni oluşturduğunuz adrese gidecek, bu nedenle adrese erişmek için kullanacağınız özel anahtarı güvenle saklamalısınız.",
+                "updated": 1637246577187
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "No ofrecemos una solución integrada para realizar copias de seguridad de tus claves privadas de forma segura. El sistema genera un par de dirección BSC / clave privada y lo entrega en la configuración del Profile Constructor. Depende de ti decidir cómo manejar esta información confidencial.",
                     "updated": 1630890942338,
                     "style": "Important"
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Superalgos, özel anahtarlarınızı güvenli bir şekilde yedeklemek için yerleşik bir çözüm sunmaz. Sistem bir BSC adresi / özel anahtar çifti oluşturur ve bunu Profil Oluşturucusunun yapılandırmasında sunar. Bu hassas bilgileri nasıl saklayacağınıza karar vermek size kalmış.",
+                    "updated": 1637246608838
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Accede a la configuración del Profile Constructor. Busca la dirección y la clave privada, y has una copia de seguridad de la información de la forma que consideres conveniente.",
                     "updated": 1630890851074,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profil Oluşturucusunun yapılandırmasına erişin. Adresi ve özel anahtarı bulun ve bilgileri uygun gördüğünüz şekilde yedekleyin.",
+                    "updated": 1637246625741
                 }
             ]
         },

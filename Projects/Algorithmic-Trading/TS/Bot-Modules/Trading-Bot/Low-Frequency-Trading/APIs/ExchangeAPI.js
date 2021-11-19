@@ -22,14 +22,18 @@
   
     function initialize() {
         tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
-  
-        exchangeId = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.codeName
-  
+
+        let exchangeConfig = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config
+        exchangeId = exchangeConfig.codeName
+        if (exchangeConfig.options !== undefined) {
+            options = exchangeConfig.options
+        }
+
         let key
         let secret
         let uid
         let password
-        let sandBox = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.config.sandbox || false;
+        let sandBox = exchangeConfig.sandbox || false;
   
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference !== undefined) {
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent !== undefined) {
@@ -39,6 +43,17 @@
                 password = TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference.referenceParent.config.password
             }
         }
+
+        switch (exchangeId) {
+            case 'okex':
+            case 'okex3':
+            case 'okex5':
+                if (!('brokerId' in options)) {
+                    options.brokerId = 'c77ccd60ec7b4cBC'
+                }
+                break;
+        }
+
         const exchangeClass = ccxt[exchangeId]
         const exchangeConstructorParams = {
             'apiKey': key,

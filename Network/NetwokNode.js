@@ -6,6 +6,7 @@ exports.newNetworkNode = function newNetworkNode() {
         p2pNetworkPeers: undefined,
         p2pNetworkNode: undefined,
         webSocketsInterface: undefined,
+        httpInterface: undefined,
         socialGraphService: undefined,
         storage: undefined,
         run: run
@@ -65,6 +66,12 @@ exports.newNetworkNode = function newNetworkNode() {
             thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
             console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort)
+            /*
+            Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
+            */
+            thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
+            thisObject.httpInterface.initialize()
+            console.log('Network Node Http Interface .................................................. Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webPort)
         }
     }
 }

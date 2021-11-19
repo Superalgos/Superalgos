@@ -9,6 +9,7 @@ exports.newEnvironment = function () {
 
     let thisObject = {
         DEMO_MODE: false,
+        DEMO_MODE_HOST: "super-super-uzzdd68dwm9w-22a320db4ede63aa.elb.us-east-2.amazonaws.com",
         BASE_PATH: basePath,
         WEB_SERVER_URL: 'localhost',
         PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 18041,
@@ -17,6 +18,7 @@ exports.newEnvironment = function () {
         DESKTOP_WEB_SOCKETS_INTERFACE_HOST: 'localhost',
         PLATFORM_HTTP_INTERFACE_PORT: 34248,
         DESKTOP_HTTP_INTERFACE_PORT: 33248,
+        NETWORK_HTTP_INTERFACE_PORT: 31248,
         PATH_TO_DATA_STORAGE: path.join(basePath, './Platform/My-Data-Storage'),
         PATH_TO_PROJECTS: path.join(basePath, './Projects'),
         PATH_TO_LOG_FILES: path.join(basePath, './Platform/My-Log-Files'),

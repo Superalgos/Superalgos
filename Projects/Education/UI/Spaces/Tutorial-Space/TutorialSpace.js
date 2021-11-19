@@ -1006,7 +1006,7 @@ function newEducationTutorialSpace() {
     function resumeTutorial(node) {
         if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
-        navigationStack = []
+        //navigationStack = []
         node.payload.uiObject.isPlaying = true
         tutorialRootNode = node
         currentNode = node
@@ -1028,7 +1028,7 @@ function newEducationTutorialSpace() {
 
     function resumeTutorialTopic(node) {
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
-        navigationStack = []
+        //navigationStack = []
         currentTopicNode = node
         currentNode = node
         currentStatus = 'Playing Topic'
@@ -1049,7 +1049,7 @@ function newEducationTutorialSpace() {
 
     function resumeTutorialStep(node) {
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
-        navigationStack = []
+        //navigationStack = []
         currentStepNode = node
         currentNode = node
         currentStatus = 'Playing Step'

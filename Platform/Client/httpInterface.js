@@ -79,6 +79,16 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'getUserWalletBalance': {
+
+                                    let serverResponse = await PL.servers.WEB3_SERVER.getUserWalletBalance(
+                                        params.walletAddress,
+                                        params.contractAddress
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 case 'getWalletBalances': {
 
                                     let serverResponse = await PL.servers.WEB3_SERVER.getWalletBalances(
@@ -762,7 +772,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     const octokit = new Octokit({
                                         auth: token,
-                                        userAgent: 'Superalgos Beta 12'
+                                        userAgent: 'Superalgos ' + SA.version
                                     })
 
                                     const repo = 'Superalgos'
@@ -1337,7 +1347,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             const octokit = new Octokit({
                                                 auth: token,
-                                                userAgent: 'Superalgos Beta 12'
+                                                userAgent: 'Superalgos ' + SA.version
                                             })
 
                                             const repo = 'Superalgos'
@@ -1851,7 +1861,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let folder = unescape(requestPath[3])
                             let fileName = unescape(requestPath[4])
 
-                            /*Beta 12 Refactoring Code: Remove this before releasing beta 12.*/
+                            /*Refactoring Code: Remove this before releasing 1.0.0*/
                             if (fileName === 'Superalgos-CL.json') {
                                 fileName = 'Superalgos-PL.json'
                             }

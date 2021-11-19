@@ -4,7 +4,14 @@
     "type": "Listing Requirements Research Task",
     "definition": {
         "text": "This task is a Community effort lead by the Token Task Force. Researching the listing requirements of exchanges is the first step in the process of getting the Superalgos SA Token listed.",
-        "updated": 1618851904040
+        "updated": 1618851904040,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Esta tarea es un esfuerzo de la Community liderada por el Token Task Force (fuerza de tarea del token). Investigar los requisitos para listar en los exchanges es el primer paso en el proceso de lograr que sea listado el Superalgos SA Token.",
+                "updated": 1637234081113
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,16 +26,37 @@
         {
             "style": "Text",
             "text": "In brief, the job is about researching the token listing process and requirements of top exchanges so that we may later evaluate and decide which exchanges the project shall approach first, and how.",
-            "updated": 1618848602693
+            "updated": 1618848602693,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En resumen, el trabajo consiste en investigar el proceso de listado de tokens y los requisitos de los principales exchanges para que luego podamos evaluar y decidir a qué exchanges se abordará primero el proyecto y cómo.",
+                    "updated": 1637161592614
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In brief:"
+            "text": "In brief:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En resumen:",
+                    "updated": 1637161599238
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Pick any of the exchanges in the Top 100 list of coinmarketcap.com",
-            "updated": 1618500361591
+            "updated": 1618500361591,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Elija cualquiera de los exchanges de los  Top 100 listados en coinmarketcap.com",
+                    "updated": 1637161662049
+                }
+            ]
         },
         {
             "style": "Link",
@@ -38,59 +66,143 @@
         {
             "style": "List",
             "text": "Search the exchange's website for information describing the listing process and requirements. Study the information carefully.",
-            "updated": 1618562031958
+            "updated": 1618562031958,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Buscar el sitio del exchange para información describiendo el proceso de listado y sus requerimientos. Estudie la información detenidamente.",
+                    "updated": 1637161765451
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If not enough information is available publicly, feel free to contact their support or listing teams for more information."
+            "text": "If not enough information is available publicly, feel free to contact their support or listing teams for more information.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si no hay suficiente información disponible públicamente, no dude en ponerse en contacto con su equipo de soporte o listado para obtener más información.",
+                    "updated": 1637161799068
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You may also want to start filling a dummy listing requirement form to find out what kind of information the exchange requires."
+            "text": "You may also want to start filling a dummy listing requirement form to find out what kind of information the exchange requires.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "También es posible que desee comenzar a completar un formulario de requisitos de listado ficticio para averiguar qué tipo de información el exchange requiere.",
+                    "updated": 1637161845312
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Report on your findings using the Research Requirements bullet list below.",
-            "updated": 1618503420995
+            "updated": 1618503420995,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Informe sobre sus hallazgos utilizando la lista de viñetas de Requisitos de investigación a continuación.",
+                    "updated": 1637161875626
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you wish to participate in this task, please join the Token Group and let us know which exchanges you intend to research! Communicating with the rest of the participants helps avoid duplicating efforts! You may start as soon as you can!",
-            "updated": 1618562059185
+            "updated": 1618562059185,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si desea participar en esta tarea, por favor únase al Token Group y comuníquenos que exchanges tiene la intencion de investigar! Comunicarse con el resto de los participantes ayuda a evitar la duplicación de esfuerzos. ¡Puede comenzar tan pronto como pueda!",
+                    "updated": 1637162017064
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "Do not use third-party sources to obtain information about the listing process and requirements. Always go directly to the source!",
-            "updated": 1618562161136
+            "updated": 1618562161136,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No utilice fuentes de terceros para obtener información sobre el proceso y los requisitos de listar. ¡Vaya siempre directamente a la fuente!",
+                    "updated": 1637162053784
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When you are ready to report on the findings of any given exchange, follow the steps below.",
-            "updated": 1618562184135
+            "updated": 1618562184135,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando esté listo para informar sobre los resultados de un determinado exchange, siga los pasos a continuación.",
+                    "updated": 1637162092640
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "1. Get up to speed with your contributions setup"
+            "text": "1. Get up to speed with your contributions setup",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "1. Get up to speed with your contributions setup (Ponte al día con la configuración de tus contribuciones)",
+                    "updated": 1637162124822
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you're not familiar with the process of editing pages in the Docs and contributing the pages you create or edit, please go to the Getting Started Tutorials Plugin Workspace and do the Beyond the Basics Tutorial.",
-            "updated": 1628509381517
+            "updated": 1628509381517,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si no está familiarizado con el proceso de editar páginas en los Documentos y contribuir con las páginas que crea o edita, vaya a  Getting Started Tutorials Plugin Workspace y haga Beyond the Basics Tutorial.",
+                    "updated": 1637162184012
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "2. Create a new page on this topic",
-            "updated": 1618562206227
+            "updated": 1618562206227,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "2. Create a new page on this topic (Cree una nueva página sobre este tema)",
+                    "updated": 1637162213374
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The easiest way to set up the new page is as follows:",
-            "updated": 1618849031020
+            "updated": 1618849031020,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La forma más sencilla de configurar la nueva página es la siguiente:",
+                    "updated": 1637162229090
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Use the following syntax, replacing \"Exchange Name\" with the name of the exchange, and replacing the \"N\" in the last section of the command with the next page number available in the topic (look at the last page in the TOC below and assign the next number in the series).",
-            "updated": 1618849098487
+            "updated": 1618849098487,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Utilice la siguiente sintaxis, reemplazando\"Exchange Name\" con el nombre del exchange, y reemplazando el \"N\" en la última sección del comando con el siguiente número de página disponible en el tema (mire la última página en el TOC a continuación y asigne el siguiente número de la serie).",
+                    "updated": 1637162350910
+                }
+            ]
         },
         {
             "style": "Json",
@@ -100,51 +212,121 @@
         {
             "style": "List",
             "text": "Assign the Docs List Style to the first paragraph of the new page (the one showing the default blurb of text).",
-            "updated": 1618849141146
+            "updated": 1618849141146,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asigne el Docs List Style al primer párrafo de la nueva página (el que muestra el texto publicitario predeterminado).",
+                    "updated": 1637162425098
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Select and copy the below Research Requirements list. Do not include the title.",
-            "updated": 1618489636622
+            "updated": 1618489636622,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Seleccione y copie la lista de requisitos de investigación a continuación. No incluya el título.",
+                    "updated": 1637162445001
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Edit the first paragraph on the new page and paste what you just copied. This should result in a list just like the one below.",
-            "updated": 1618562247672
+            "updated": 1618562247672,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Edite el primer párrafo de la nueva página y pegue lo que acaba de copiar. Esto debería resultar en una lista como la que se muestra a continuación.",
+                    "updated": 1637162466723
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Replace the explanation of each point in the list with the results of your research.",
-            "updated": 1618487056091
+            "updated": 1618487056091,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Reemplace la explicación de cada punto de la lista con los resultados de su investigación.",
+                    "updated": 1637162482666
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If any of the required pieces of information is not available or does not apply to the exchange in question, please complete the field with \"N/A\". Do not leave blank fields, as that may suggest that the report is incomplete.",
-            "updated": 1618848890250
+            "updated": 1618848890250,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si alguno de los datos requeridos no está disponible o no se aplica al exchange en cuestión, por favor complete el campo con \"N/A\". No deje campos en blanco, ya que eso puede sugerir que el informe está incompleto.",
+                    "updated": 1637162559130
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Do not submit a Pull Request until the research is complete! We don't want meaningless or incomplete reports. Only submit the research once you have gathered all the data required. Please, make sure you are submitting a quality report. We prefer quality over quantity, always!",
-            "updated": 1618999399703
+            "updated": 1618999399703,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No solicite  Pull Request hasta que su investigación esté cmpleta! No queremos informes incompletos o sin sentido. Envíe la investigación solo una vez que haya reunido todos los datos necesarios. Por favor, asegúrese de enviar un informe de calidad. ¡Preferimos la calidad a la cantidad, siempre!",
+                    "updated": 1637162638008
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Research Requirements",
-            "updated": 1618487167171
+            "updated": 1618487167171,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Research Requirements (Requisitos de investigación)",
+                    "updated": 1637162660796
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Exchange name: Use the official, most common name of the exchange; the same you used in the name of the page.",
-            "updated": 1618487538591
+            "updated": 1618487538591,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exchange name(nombre del excahnge):Utilice el nombre oficial y más común del exchange; el mismo que usaste en el nombre de la página.",
+                    "updated": 1637162717190
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research."
+            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "CMC ranking: La posición del .exchange en el ranking a partir del día de la investigación.",
+                    "updated": 1637162786270
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Exchange home page: Edit the string below with the name of the exchange and the URL (without the protocol). Adding the paragraph the Docs Web Page Link Style and delete this explanation. Test the link and make sure it works.",
-            "updated": 1618563171395
+            "updated": 1618563171395,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exchange home page:Edite la cadena a continuación con el nombre del exchange  y la URL (sin el protocolo). Añadiendo el párrafo Docs Web Page Link Style y borre esta explicaión.Pruebe el enlace y asegúrese de que funcione.",
+                    "updated": 1637162865297
+                }
+            ]
         },
         {
             "style": "List",
@@ -154,7 +336,14 @@
         {
             "style": "List",
             "text": "Listing requirements page: Edit the string below with the URL (without the protocol) of the page where you got the core of the information in this report. Adding the paragraph the Docs Web Page Link Style and delete this explanation. Test the link and make sure it works.",
-            "updated": 1618563178702
+            "updated": 1618563178702,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Listing requirements page: Edite la cadena a continuación con la URL (sin el protocolo) de la página donde obtuvo el núcleo de la información de este informe. Añadiendo el párrafo Docs Web Page Link Style y elimine esta explicación. Pruebe el enlace y asegúrese de que funcione.",
+                    "updated": 1637162914462
+                }
+            ]
         },
         {
             "style": "List",
@@ -164,7 +353,14 @@
         {
             "style": "List",
             "text": "Listing request form page: Edit the string below with the URL (without the protocol) of the page (or online form) the project should use to request the listing of the token. Adding the paragraph the Docs Web Page Link Style and delete this explanation. Test the link and make sure it works.",
-            "updated": 1618563162279
+            "updated": 1618563162279,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Listing request form page:Edite la cadena a continuación con la URL (sin el protocolo) de la página (o formulario en línea) que el proyecto debe usar para solicitar que el token. sea listado Añadiendo el párrafo Docs Web Page Link Style y elimine esta explicación. Pruebe el enlace y asegúrese de que funcione.",
+                    "updated": 1637163085847
+                }
+            ]
         },
         {
             "style": "List",
@@ -173,71 +369,176 @@
         },
         {
             "style": "List",
-            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible."
+            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Can list BEP 20 BSC tokens: Algunos exchanges puden no estar capacitados para listar tokens en la Binance Smart Chain. Asegúrese de averiguar si listar eltoken es tecnicamente posible.",
+                    "updated": 1637163207116
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case.",
-            "updated": 1618563298620
+            "updated": 1618563298620,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Listing fee: Exchanges usualmente cobran por listar nuevas monedas. Ingrese la comisión e incluya cualquier comentario, excepciones, o detallesque pueda ser relevante para nuestro caso particular.",
+                    "updated": 1637163339255
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist."
+            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Security deposit: Algunos exchanges requieren un déposito de seguridad para ser devuelto al priyect despues de que el listado se complete. Describa los detalles de tales requisitos, si existen..",
+                    "updated": 1637163416572
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Volume requirements: Exchanges are in the business of charging transaction fees, so they usually expect to list tokens that have traction, in the understanding that such tokens will generate a certain level of trading volume. Some exchanges have a specific requirement about the expected volume. If the exchange requires a precise volume, enter it in numbers. Otherwise, describe what is expected in words.",
-            "updated": 1618496697565
+            "updated": 1618496697565,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Volume requirements: Exchanges están en el negocio de cobrar tarifas de transacción, por lo que generalmente esperan listar tokens que tengan tracción,en el entendimiento de que tales tokens generarán un cierto nivel de volumen de trading. Algunos exchanges tienen requisitos específicos acerca del volumen esperado. Si el exchange requiere un volumen preciso, ingréselo en números. De otro modo, describa que se espera en palabras.",
+                    "updated": 1637163647215
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Market-making requirements: Many times exchanges expect projects to guarantee liquidity for the token on both sides of the order book. They sometimes require projects to hire specific market-makers or ask the project how they will deal with the issue. Explain what the exchange expects in this regard.",
-            "updated": 1618496806801
+            "updated": 1618496806801,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Market-making requirements: Muchas veces los exchanges esperan que los proyectos garanticen liquidéz para el token en ambos lados del libro de solicitudes. A veces requieren proyectos para contratar proyectos específicos .de market-makers o pregunte al proyecto cómo abordarán el problema. Explica lo que exchange espera al respecto.",
+                    "updated": 1637163841957
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard."
+            "text": "Exchange users requirement: Some exchanges require the project to drive a certain number of users to the exchange. Describe any requirements that may exist in this regard.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Exchange users requirement Algunos exchanges requieren que el proyecto maneje un cierto número de usuarios del exchange. Describa los requisitos que puedan existir al respecto.",
+                    "updated": 1637163941086
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard.",
-            "updated": 1618497261513
+            "updated": 1618497261513,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pairs available for first listing:  Algunos exchanges limitan el número de pares o  of pairs orincluso los activos de cotización precisos que se pueden utilizar para el primer listado. Describe lo que sea que exchange requiere u ofrece al respecto.",
+                    "updated": 1637164115142
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Waiting period: Most exchanges have a queue of listing requests and they may be able to estimate how long it takes to process. If there is information in this regard, include it here. The exchange may not announce what the estimate is, but you may deduce it or find out in community chats, forums, etc. Do your research.",
-            "updated": 1618497924251
+            "updated": 1618497924251,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Waiting period: La mayoría de los exchanges tienen una cola de requisitos par listar y es posible que puedan estimar cuánto tiempo se tarda en procesar. Si hay información al respecto, inclúyala aquí.. The exchange puede que no anuncie cuál es la estimación, pero puede deducirlo o averiguarlo en los chats de la comunidad, foros, etc. Haga su investigación.",
+                    "updated": 1637164208150
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Legal entity: Some exchanges may require the project to be represented by a legal entity (a foundation, corporation, etc). If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
-            "updated": 1618563333459
+            "updated": 1618563333459,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Legal entity: Algunos exchanges puede requerir que el proyecto sea representado por una entidad legal (una fundación, corporación, etc.). Si ese es el caso, ingrese \"Sí\" y describa cuál es el requisito. Si no existe tal requisito, ingrese \"No\".",
+                    "updated": 1637164244969
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Legal opinion: Some exchanges may require the project to get legal advice in the form of a \"legal opinion letter\" or some instrument of the sort, most times about the nature of the token, in particular, to determine if the token is a security or not. If that is the case, enter \"Yes\", and describe what the requirement is. If there is no such requirement, enter \"No\".",
-            "updated": 1618563404176
+            "updated": 1618563404176,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Legal opinion: Algunos exchanges puede requerir que el proyecto obtenga asesoramiento legal en forma de una \"carta de opinión legal\" o algún instrumento por el estilo, la mayoría de las veces sobre la naturaleza del token, en particular, para determinar si el token es un security o no. Si ese es el caso, ingrese \"Sí\" y describa cuál es el requisito. Si no existe tal requisito, ingrese \"No\".",
+                    "updated": 1637164365388
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Selection process: Some exchanges describe the nature of the decision-making process to select which tokens shall be listed. Some involve the participation of their community, a voting process, or things of the sort. Describe what the process is like if there is any information about it.",
-            "updated": 1618563421527
+            "updated": 1618563421527,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Selection process: Algunos exchanges describen la naturaleza del proceso de toma de decisiones para seleccionar qué tokens serán listados. Algunos involucran la participación de su comunidad, un proceso de votación o cosas por el estilo. Describe cómo es el proceso si hay alguna información al respecto.",
+                    "updated": 1637164443782
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here."
+            "text": "Researcher's comments: If you notice any information of importance to the listing process that is not covered in this list, include it here.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's comments: Si nota alguna información de importancia para el proceso de listado que no esté cubierta en esta lista, inclúyala aquí.",
+                    "updated": 1637164466638
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's Github.com Username: This helps track the author of each research contribution."
+            "text": "Researcher's Github.com Username: This helps track the author of each research contribution.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's Github.com Username: Esto ayuda a rastrear al autor de cada contribución a la investigación..",
+                    "updated": 1637164489394
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Researcher's Telegram Username: Same as above."
+            "text": "Researcher's Telegram Username: Same as above.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's Telegram Username: Lo mismo que arriba.",
+                    "updated": 1637164507310
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated."
+            "text": "Date of last revision: This report may be updated every once in a while. Use this field to note the last time the report was updated.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Date of last revision: Este informe puede actualizarse de vez en cuando. Utilice este campo para anotar la última vez que se actualizó el informe.",
+                    "updated": 1637164536522
+                }
+            ]
         },
         {
             "style": "Text",

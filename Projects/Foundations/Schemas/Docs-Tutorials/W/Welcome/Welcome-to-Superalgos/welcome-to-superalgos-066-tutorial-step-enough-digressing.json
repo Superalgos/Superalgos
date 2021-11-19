@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Simülasyonların nasıl çalıştığına hızlıca bir göz atabilmeniz için bir dizi önceden yapılandırılmış parametre ile bir Geri Test Oturumu ( Backtesting Session ) çalıştıracağız.",
                 "updated": 1636117912488
+            },
+            {
+                "language": "RU",
+                "text": "Мы запустим Backtesting Session с несколькими предварительно настроенными параметрами, чтобы Вы могли быстро взглянуть на то, как работает моделирование.",
+                "updated": 1636928151422
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Tading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
                     "updated": 1636118809271
+                },
+                {
+                    "language": "RU",
+                    "text": "Как видете",
+                    "updated": 1636987830548
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "İşlem seansı birkaç parametreden (Trading Parameters) oluşur. Menüden Yapılandır'ı seçerek konfigürasyonlarına hızlıca göz atın!",
                     "updated": 1636118950433
+                },
+                {
+                    "language": "RU",
+                    "text": "На торговую сессию влияет несколько параметров. Быстро взгляните на их конфигурации, выбрав Configure в меню!",
+                    "updated": 1636928483525
                 }
             ]
         }

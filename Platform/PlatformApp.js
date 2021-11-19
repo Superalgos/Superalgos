@@ -142,7 +142,7 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
 
             console.log('')
-            console.log("You are running Superalgos Beta 12")
+            console.log("You are running Superalgos Platform " + SA.version)
             console.log('')
             console.log("What's new? These are the main new features in this version:")
             console.log('')
@@ -154,7 +154,7 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('Superalgos P2P Network ...................................... Will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.')
             console.log('Real-time Trading Signals ................................... Will allow users to emit trading signals and be rewarded with SA Tokens.')
             console.log('Superalgos Mobile ........................................... Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.')
-            console.log('Ethereum Integration ........................................ Will allow mining data from an Ethereum network node, and bring it into the Superalgos workflow. [Looking for an Ethereum dev that would like to continue this line of development.]')
+            console.log('Portfolio Manager ........................................... Will allow a Portfolio Manager bot to supervize Trading Bots deciding where and when to increase or decrease their position sizes.]')
 
             console.log('')
 

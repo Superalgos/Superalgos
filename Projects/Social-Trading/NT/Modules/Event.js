@@ -1,8 +1,7 @@
 exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
     /*
-    An Event is anything that happens system wide that 
-    needs to be delivered to relevant entities via
-    the Superalgos Network.
+    An Event is an action taken by users that triggers a
+    change at the social graph. 
 
     An Event (in contrast to a Query) produces a change
     on the state of the social graph. 
@@ -115,7 +114,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function postingEvents() {
             /*
-            Is is related to Posting?
+            Is it related to Posting?
             */
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST ||
@@ -202,7 +201,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function followingEvents() {
             /*
-            Is is a following?
+            Is it a following?
             */
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE ||
@@ -292,7 +291,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function reactionEvents() {
             /*
-            Is is a Reaction?
+            Is it a Reaction?
             */
             let targetPost
 
@@ -346,7 +345,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
 
         function botEvents() {
             /*
-            Is is a Bot?
+            Is it a Bot?
             */
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_BOT ||

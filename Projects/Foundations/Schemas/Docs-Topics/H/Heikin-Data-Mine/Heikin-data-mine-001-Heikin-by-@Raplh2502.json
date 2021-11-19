@@ -1,0 +1,25 @@
+{
+    "topic": "Heikin Data Mine",
+    "pageNumber": 1,
+    "type": "Heikin By @Raplh2502",
+    "definition": {
+        "text": "This data mine includes the Heikin Ashi candle style, as well as a Heikin Ashi based Supertrend indicator.",
+        "updated": 1611685345604
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Heikin data mine is brought to you by...",
+            "updated": 1611685372883
+        },
+        {
+            "style": "Link",
+            "text": "@Raplh2502->github.com/Raplh2502/",
+            "updated": 1611685413223
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+        }
+    ]
+}

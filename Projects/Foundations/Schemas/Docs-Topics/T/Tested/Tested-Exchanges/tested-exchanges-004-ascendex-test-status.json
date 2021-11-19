@@ -3,8 +3,8 @@
     "pageNumber": 4,
     "type": "Ascendex Test Status",
     "definition": {
-        "text": "Passed Fetch OHLVCs and Backtesting test. Live trading will soon be tested.",
-        "updated": 1635446898934
+        "text": "Passed all tests",
+        "updated": 1636749168642
     },
     "paragraphs": [
         {
@@ -24,8 +24,8 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability: Unknown. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616003699055
+            "text": "Trading Capability: Yes. The ability to place market orders, create and cancel limit orders for Live Trading purposes has been verified.",
+            "updated": 1636749320010
         },
         {
             "style": "List",
@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"ascendex\",\n    \"rateLimit\": 500,\n    \"sandBox\": \"false\"\n}",
-            "updated": 1635446820958
+            "text": "{\n    \"codeName\": \"ascendex\"\n}",
+            "updated": 1615204693035
         },
         {
             "style": "Text",

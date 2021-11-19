@@ -49,6 +49,5 @@
             "type": "array",
             "childType": "Exchange Portfolio Products"
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

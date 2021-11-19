@@ -33,7 +33,16 @@ function newPortfolioManagementActionSwitch() {
                     UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.stopSession(action.node, action.callBackFunction)
                 }
                 break
-
+            case 'Run Managed Sessions':
+                {
+                    UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.runManagedSessions(action.node);
+                }
+                break;
+            case 'Stop Managed Sessions':
+                {
+                    UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.stopManagedSessions(action.node);
+                }
+                break;
             default: {
                 console.log("[WARN] Action sent to Portfolio-Management Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
             }

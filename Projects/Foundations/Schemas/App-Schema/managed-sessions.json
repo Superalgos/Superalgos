@@ -2,24 +2,26 @@
     "type": "Managed Sessions",
     "menuItems": [
         {
-            "action": "Run All Sessions",
-            "label": "Run All Sessions",
+            "action": "Run Managed Sessions",
+            "label": "Run Managed Sessions",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
             "workDoneLabel": "Run Request Sent",
             "iconPathOn": "run",
             "iconPathOff": "run",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Portfolio-Management"
         },
         {
-            "action": "Stop All Sessions",
-            "label": "Stop All Sessions",
+            "action": "Stop Managed Sessions",
+            "label": "Stop Managed Sessions",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
             "workDoneLabel": "Stop Request Sent",
             "iconPathOn": "stop",
             "iconPathOff": "stop",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Portfolio-Management"
         },
         {
             "action": "Add UI Object",

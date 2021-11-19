@@ -2,8 +2,8 @@
     "type": "Managed Tasks",
     "menuItems": [
         {
-            "action": "Run All Tasks",
-            "label": "Run All Tasks",
+            "action": "Run All Managed Tasks",
+            "label": "Run All Managed Tasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Run",
             "workDoneLabel": "Run Request Sent",
@@ -12,8 +12,8 @@
             "actionFunction": "payload.executeAction"
         },
         {
-            "action": "Stop All Tasks",
-            "label": "Stop All Tasks",
+            "action": "Stop All Managed Tasks",
+            "label": "Stop All Managed Tasks",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Stop",
             "workDoneLabel": "Stop Request Sent",

@@ -625,7 +625,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         We will make ourselves sure that the Project Portfolio Products nodes are there.
                         */
-                        portfolioMinesData.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Products')
+                        portfolioMinesData.payload.uiObject.menu.internalClick('Add UI Object')
                         portfolioMinesData.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Products')
 
                         for (let i = 0; i < portfolioMinesData.projectPortfolioProducts.length; i++) {

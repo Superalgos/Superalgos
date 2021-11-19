@@ -2,7 +2,9 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
     let thisObject = {
         syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
         runSession: runSession,
-        stopSession: stopSession
+        stopSession: stopSession,
+        runManagedSessions: runManagedSessions,
+        stopManagedSessions: stopManagedSessions
     }
 
     return thisObject
@@ -61,6 +63,11 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
+        }
+
+        // Check for Managed-Sessions and run them:
+        if (node.managedSessions !== undefined) {
+            runManagedSessions(node.managedSessions);
         }
 
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
@@ -225,12 +232,49 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             return
         }
 
+        /* Deal with any Managed Sessions and shut them down: */
+        if (node.managedSessions !== undefined) {
+            stopManagedSessions(node.managedSessions);
+        }
+
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Portfolio Session')
 
         node.payload.uiObject.stop(callBackFunction, undefined, true)
+    }
+
+    function runManagedSessions(managedSessions) {
+        for (let i = 0; i < managedSessions.sessionReference.length; i++) {
+            let refParent = managedSessions.sessionReference[i].payload.referenceParent;
+            let sessionType = refParent.type;
+            
+            if (sessionType === 'Live Trading Session'      ||
+                sessionType === 'Backtesting Session'       ||
+                sessionType === 'Forward Testing Session'   ||
+                sessionType === 'Paper Trading Session') {
+                    refParent.payload.uiObject.menu.internalClick('Run Trading Session');
+            } else if (sessionType === 'Back Learning Session' || sessionType === 'Live Learning Session') {
+                refParent.payload.uiObject.menu.internalClick('Run Learning Session');
+            }
+        }
+    }
+
+    function stopManagedSessions(managedSessions) {
+        for (let i = 0; i < managedSessions.sessionReference.length; i++) {
+            let refParent = managedSessions.sessionReference[i].payload.referenceParent;
+            let sessionType = refParent.type;
+
+            if (sessionType === 'Live Trading Session' ||
+                sessionType === 'Backtesting Session' ||
+                sessionType === 'Forward Testing Session' ||
+                sessionType === 'Paper Trading Session') {
+                refParent.payload.uiObject.menu.internalClick('Stop Trading Session');
+            } else if (sessionType === 'Back Learning Session' || sessionType === 'Live Learning Session') {
+                refParent.payload.uiObject.menu.internalClick('Stop Learning Session');
+            }
+        }
     }
 
     function validations(node) {

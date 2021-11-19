@@ -63,6 +63,9 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         addMissingMarketPortfolioTasks: addMissingMarketPortfolioTasks,
         addMissingPortfolioMineTasks: addMissingPortfolioMineTasks,
 
+        runAllManagedTasks: runAllManagedTasks,
+        stopAllManagedTasks: stopAllManagedTasks,
+
         addAllTasks: addAllTasks
     }
 
@@ -119,6 +122,11 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
 
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+
+        // Check for Managed-Tasks and run them first prior to bots:
+        if (node.managedTasks !== undefined) {
+            runAllManagedTasks(node.managedTasks);
+        }
 
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
@@ -258,6 +266,12 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
         }
+
+        /* Deal with shutting down any managed tasks: */
+        if (node.managedTasks !== undefined) {
+            stopAllManagedTasks(node.managedTasks);
+        }
+
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let event = {
@@ -697,6 +711,19 @@ function newFoundationsFunctionLibraryTaskFunctions() {
 
             menu.internalClick('Stop All Task Managers')
             menu.internalClick('Stop All Task Managers')
+        }
+    }
+
+    /* run|stop ManagedTasks(): Portfolio Management managed task runners: */
+    function runAllManagedTasks(managedTasks) {
+        for (let i = 0; i < managedTasks.taskReference.length; i++) {
+            managedTasks.taskReference[i].payload.referenceParent.payload.uiObject.menu.internalClick('Run Task');
+        }
+    }
+
+    function stopAllManagedTasks(managedTasks) {
+        for (let i = 0; i < managedTasks.taskReference.length; i++) {
+            managedTasks.taskReference[i].payload.referenceParent.payload.uiObject.menu.internalClick('Stop Task');
         }
     }
 

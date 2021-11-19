@@ -9,6 +9,7 @@ exports.newEnvironment = function () {
 
     let thisObject = {
         DEMO_MODE: false,
+        DEMO_MODE_HOST: "super-super-uzzdd68dwm9w-22a320db4ede63aa.elb.us-east-2.amazonaws.com",
         BASE_PATH: basePath,
         WEB_SERVER_URL: 'localhost',
         PLATFORM_WEB_SOCKETS_INTERFACE_PORT: 18041,

@@ -179,6 +179,10 @@ function newWorkspace() {
     }
 
     async function saveWorkspace(callBackFunction) {
+        if (UI.environment.DEMO_MODE === true) {
+            return
+        }
+
         let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */

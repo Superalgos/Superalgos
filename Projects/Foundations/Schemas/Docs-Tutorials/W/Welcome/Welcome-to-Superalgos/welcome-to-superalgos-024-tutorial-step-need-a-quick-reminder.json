@@ -55,7 +55,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you ever need a reminder about any of these topics...",
+            "text": "If you ever need a reminder about any of these topics, you may replay any Tutorial Topic or Tutorial Step. ",
             "translations": [
                 {
                     "language": "IT",
@@ -98,54 +98,12 @@
                     "text": "Bu konulardan herhangi biri hakkında bir hatırlatmaya ihtiyacınız olursa...",
                     "updated": 1635952719290
                 }
-            ]
+            ],
+            "updated": 1636910771339
         },
         {
-            "style": "List",
-            "text": "Find a Tutorial Topic and replay it! You may find me on the bottom-left corner of the design space, expand me, browse through the hierarchy of topics and steps, and click Play on any of them. Topics are arranged in a clockwise direction, starting from the right-hand side of the main Tutorial node.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Cerca un Tutorial Topic e ri-eseguilo! Puoi trovarmi nell'angolo in basso a sinistra del Design Space. Espandimi, naviga nella gerarchia dei topics e degli steps e clicca Play su uno qualsiasi di questi. I topics sono strutturati in senso orario, a partire dal lato destro del nodo Tutorial principale.",
-                    "updated": 1614790602319,
-                    "style": "List"
-                },
-                {
-                    "language": "ID",
-                    "text": "Temukan Tutorial Topic dan replay! Kamu mungkin menemukannya dibawah-kiri dari design space, expand itu, dan Jelajahi melalui hirarki dari topik dan step, dan click Play yang dipilih. Topik diatur searah jarum jam, dimulai dari kanan yang ada pada main Tutorial node.",
-                    "updated": 1616769317775,
-                    "style": "List"
-                },
-                {
-                    "language": "ES",
-                    "text": "Busca el Tutorial Topic y reprodúcelo. Puedes encontrarme en la esquina inferior izquierda del Desing Space, expandirme, navegar por la jerarquía de temas y pasos, y hacer clic en Play en cualquiera de ellos. Los temas están ordenados en el sentido de las agujas del reloj, empezando por la derecha del nodo principal de Tutorial.",
-                    "updated": 1627303448829,
-                    "style": "List"
-                },
-                {
-                    "language": "DE",
-                    "text": "Suchen Sie ein Tutorial Topic ? Sie finden Tutorial am linken Rand des Design Space. Blättern Sie durch die Themen und Schritte und klicken Sie auf \"Abspielen\" bei einem Thema. Die Themen sind im Uhrzeigersinn angeordnet, beginnend auf der rechten Seite des Hauptknotens Tutorial.",
-                    "updated": 1634165716356,
-                    "style": "List"
-                },
-                {
-                    "language": "NL",
-                    "text": "Vind een Tutorial Topic en speel het af! Je kan mij in de linkerbenedenhoek van de ontwerpruimte, vouw mij uit en loop door de hiërarchie van onderwerpen en stappen, kies je onderwerp en klik op Play. Onderwerpen zijn gerangschikt met de klok mee, startend rechts van de hoofdknoop van de Tutorial.",
-                    "updated": 1635182170565,
-                    "style": "List"
-                },
-                {
-                    "language": "RU",
-                    "text": "Найдите Tutorial Topic и повторите ее! Вы можете найти меня в левом нижнем углу пространства дизайна, развернуть, просмотреть иерархию тем и шагов и нажать Play на любом шаге или теме. Темы расположены по часовой стрелке, начиная с правой стороны главного узла Tutorial.",
-                    "updated": 1635612033411,
-                    "style": "List"
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir Eğitim Konusu ( Tutorial Topic ) bulun ve tekrar oynatın! Tasarım alanının sol alt köşesinde beni bulabilir, genişletebilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
-                    "updated": 1635953243684
-                }
-            ]
+            "style": "Text",
+            "text": "You may find me on the bottom-left corner of the design space, browse through the hierarchy of topics and steps, and click Play on any of them. Topics are arranged in a clockwise direction, starting from the right-hand side of the main Tutorial node."
         },
         {
             "style": "Callout",

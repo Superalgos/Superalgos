@@ -21,23 +21,58 @@
         },
         {
             "style": "List",
-            "text": "codeName is the name or label of your key, as supplied by the exchange."
+            "text": "codeName is the name or label of your key, as supplied by the exchange.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "codeName es el nombre o etiqueta de su llave, suministrado por el exchange.",
+                    "updated": 1637230815507
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "secret is the secret key supplied by the exchange."
+            "text": "secret is the secret key supplied by the exchange.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "secrete es la clave secreta proporcionada por el exchange.",
+                    "updated": 1637230936259
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "uid is the uid supplied by the exchange. This is not required for all exchanges."
+            "text": "uid is the uid supplied by the exchange. This is not required for all exchanges.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "uid es la identificación de usuario proporcionado por el exchange. Esto no es obligatorio para todos los exchanges.",
+                    "updated": 1637230922445
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "password is the password or passphrase supplied at the creation of the key and secret. This is not required for all exchanges."
+            "text": "password is the password or passphrase supplied at the creation of the key and secret. This is not required for all exchanges.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "password ies la contraseña o frase de contraseña proporcionada al crear la clave y el secreto. Esto no es obligatorio para todos los exchanges.",
+                    "updated": 1637230970843
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "To keep your exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing."
+            "text": "To keep your exchange keys safe, never share data structures you may download from the system, as downloads contain all information in the data structure, including personal information such as exchange keys. Use the share option on the menu instead. The share option strips sensitive information and outputs a file that is safe for sharing.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para mantener sus llaves del exchange seguras, nnunca comparta estructuras de datos que pueda descargar del sistema, ya que las descargas contienen toda la información en la estructura de datos, incluida información personal como llave del exchange. En su lugar, use la opción de compartir en el menú. La opción de compartir elimina la información confidencial y genera un archivo que es seguro para compartir.",
+                    "updated": 1637231067789
+                }
+            ]
         }
     ]
 }

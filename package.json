@@ -35,7 +35,9 @@
     "twitter": "^1.7.1",
     "util": "^0.12.4",
     "web3": "^1.6.0",
-    "ws": "^8.2.3",
+    "ws": "^8.2.3"
+  },
+  "optionalDependencies": {
     "@tensorflow/tfjs-node": "^2.8.6"
   },
   "devDependencies": {

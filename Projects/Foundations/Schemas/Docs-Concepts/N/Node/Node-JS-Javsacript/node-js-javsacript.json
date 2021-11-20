@@ -2,13 +2,27 @@
     "type": "Node JS Javsacript",
     "definition": {
         "text": "A Task in Superalgos runs in Node JS, which means that the Conditions and Formulas you write at your Trading System must comply with Javascript for Node JS syntax.  ",
-        "updated": 1611323749488
+        "updated": 1611323749488,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Eine Task in Superalgos läuft in Node JS, was bedeutet, dass die Bedingungen und Formeln, die Sie in Ihrem Trading System schreiben, der Syntax von Javascript für Node JS entsprechen müssen.",
+                "updated": 1637416496544
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The same is true for properties values in configs. They need to be valid data types of Javascript for Node JS.",
-            "updated": 1611323797820
+            "updated": 1611323797820,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Gleiche gilt für propertie values in den Configs. Sie müssen gültige Datentypen von Javascript für Node JS sein.",
+                    "updated": 1637416588142
+                }
+            ]
         }
     ]
 }

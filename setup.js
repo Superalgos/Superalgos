@@ -23,7 +23,7 @@ if (process.argv.includes("noShortcuts")) {
         console.log('')
         console.log(err)
         console.log('')
-
+        process.exit(1)
     }
 }
 
@@ -89,7 +89,7 @@ for (let dir of nodeModulesDirs) {
                     console.log("There was an error installing some dependencies error: ");
                     console.log('');
                     console.log( error );
-                    return;
+                    process.exit(1)
                 }
                 console.log('');
                 console.log( stdout );
@@ -113,7 +113,7 @@ exec( command,
             if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
                 tfjsWinInstall();
             }
-            return;
+            process.exit(1)
         }
         console.log('');
         console.log( stdout );

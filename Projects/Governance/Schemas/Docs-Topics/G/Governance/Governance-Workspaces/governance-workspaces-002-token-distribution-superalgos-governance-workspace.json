@@ -4,7 +4,14 @@
     "type": "Token Distribution Superalgos Governance Workspace",
     "definition": {
         "text": "This is the main governance workspace where broad Superalgos Project definitions live.",
-        "updated": 1630575735214
+        "updated": 1630575735214,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este es el workspace principal de la gobernanaza donde ampliar definiciones en vivo del Superalgos Project (el proyecto Superalgos).",
+                "updated": 1637406477955
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,7 +22,14 @@
         {
             "style": "List",
             "text": "Creating Your User Profile Tutorial",
-            "updated": 1630576522747
+            "updated": 1630576522747,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Creating Your User Profile Tutorial   (Tutorial de creación de su perfil de usuario)",
+                    "updated": 1637406504592
+                }
+            ]
         },
         {
             "style": "Title",
@@ -23,7 +37,14 @@
         },
         {
             "style": "List",
-            "text": "Profiles of Core Team members and Community Mods."
+            "text": "Profiles of Core Team members and Community Mods.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Pérfiles de los miembros del  Core Team ( equipo central) y Community Mods  (moderadores de la comunidad).",
+                    "updated": 1637406590297
+                }
+            ]
         },
         {
             "style": "Title",
@@ -32,7 +53,14 @@
         {
             "style": "Text",
             "text": "The workspace features definitions that span the whole Superalgos Project.",
-            "updated": 1630576025223
+            "updated": 1630576025223,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Este workspaceincluye definiciones que abarcan todo el Superalgos Project.",
+                    "updated": 1637406627595
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -41,7 +69,14 @@
         {
             "style": "List",
             "text": "Superalgos Pools hierarchy.",
-            "updated": 1630576375102
+            "updated": 1630576375102,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Jerarquías Superalgos Pools.",
+                    "updated": 1637406655122
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -50,12 +85,26 @@
         {
             "style": "List",
             "text": "Superalgos Marketing (project-wide marketing-related positions),",
-            "updated": 1630576292069
+            "updated": 1630576292069,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos Marketing (posiciones relacionadas con el marketing de todo el proyecto),",
+                    "updated": 1637406711264
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Superalgos (project-wide positions such as Community Mods, Core Team, or Business Lead).",
-            "updated": 1630576271333
+            "updated": 1630576271333,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos (posiciones de todo el proyecto como Community Mods, Core Team, or Business Lead).",
+                    "updated": 1637406807754
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -64,7 +113,14 @@
         {
             "style": "List",
             "text": "Superalgos (project-wide features such as the Charting Space, the Visual Designer, the Tensor Flow integration, and so on).",
-            "updated": 1630576362020
+            "updated": 1630576362020,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos (características de todo el proyecto, como Charting Space, el diseñador visual, la integración de Tensor Flow, etc.).",
+                    "updated": 1637406897904
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -73,12 +129,26 @@
         {
             "style": "List",
             "text": "Superalgos Exchanges (assets related to exchange listings),",
-            "updated": 1630576480397
+            "updated": 1630576480397,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos Exchanges (activos relacionados con el listado de los exchange),",
+                    "updated": 1637406934412
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Superalgos Marketing (project-wide, marketing-related assets),",
-            "updated": 1630576486012
+            "updated": 1630576486012,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos Marketing (activos relacionados con el marketing de todo el proyecto),",
+                    "updated": 1637406967294
+                }
+            ]
         },
         {
             "style": "List",

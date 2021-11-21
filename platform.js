@@ -71,7 +71,7 @@ let optionsAccepted = 0
 
 if (process.argv.includes("minMemo")) {
     optionsAccepted++
-    console.log('minMemo ..................................................... Running with Minimun Required Memory.')
+    console.log('minMemo ..................................................... Running with Minimum Required Memory.')
 } 
 
 if (process.argv.includes("noBrowser")) {

@@ -15,6 +15,11 @@
                 "text": "Echemos un vistazo más de cerca a la firma criptográfica en tu nuevo perfil.",
                 "updated": 1630888742337,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Yeni profilinizdeki kriptografik imzaya daha yakından bakalım.",
+                "updated": 1637244588517
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Haz clic en la opción de configuración en tu nodo User Profile y echa un vistazo a lo que hay dentro.",
                     "updated": 1630888787848,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı Profili ( User Profile ) düğümünüzdeki yapılandırma seçeneğine tıklayın ve içinde ne olduğuna bir göz atın.",
+                    "updated": 1637244643042
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "¡Vaya, son muchos números! Nuevamente, así es como el sistema de gobernanza sabrá que este User Profile pertenece a la clave privada que firmó el mensaje, que a su vez pertenece a la dirección que albergará los tokens que confieren tu perfil con Token Power.",
                     "updated": 1630888835905,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Vay, ne kadar çok sayı var! Yönetim sistemi bu şekilde, bu Kullanıcı Profilinin ( User Profile ) mesajı imzalayan özel anahtara ait olduğunu bilecektir, bu da profilinize Token Gücü veren tokenleri tutacak adrese aittir.",
+                    "updated": 1637244772999
                 }
             ]
         }

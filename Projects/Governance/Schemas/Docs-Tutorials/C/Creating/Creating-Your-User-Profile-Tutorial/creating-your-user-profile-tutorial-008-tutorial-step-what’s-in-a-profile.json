@@ -15,6 +15,11 @@
                 "text": "Entonces que estamos esperando. ¡Empecemos! Para participar en la gobernanza, necesitarás un User Profile.",
                 "updated": 1630874855704,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Peki ne bekliyoruz? Başlayalım! Yönetime katılmak için bir Kullanıcı Profiline ( User Profile ) ihtiyacınız olacak.",
+                "updated": 1637159477888
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Tu perfil está configurado como el resto del sistema Superalgos. Es una jerarquía de nodos. Solo esta jerarquía define cómo pretende utilizar el Token Power que has ganado o que otros usuarios te delegan.",
                     "updated": 1630875440411,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profiliniz tıpkı Superalgos sisteminin geri kalanda olduğu gibi kurulur. Bu bir düğüm hiyerarşisidir. Yalnızca bu hiyerarşi, kazandığınız veya diğer kullanıcılar tarafından size devredilen Token Gücünü ( Token Power ) nasıl kullanmayı planladığınızı tanımlar.",
+                    "updated": 1637159542629
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Al canalizar tu poder simbólico, ayudas a decidir qué partes del sistema se incentivarán para un mayor desarrollo y quiénes serán recompensados ​​por los roles comunitarios que han desempeñado.",
                     "updated": 1630875625415,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Token gücünüzü kanalize ederek, sistemin hangi bölümlerinin daha fazla gelişme için teşvik edileceğine ve oynadıkları topluluk rolleri için kimlerin ödüllendirileceğine karar vermeye yardımcı olursunuz.",
+                    "updated": 1637159570272
                 }
             ]
         }

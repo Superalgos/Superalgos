@@ -15,6 +15,11 @@
                 "text": "Necesitas la copia de seguridad de la clave privada para luego importar tu dirección de gobierno en una billetera criptográfica.",
                 "updated": 1632014909086,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Daha sonra Yönetim Adresinizi ( Governance Address ) bir kripto cüzdanına aktarabilmeniz için özel anahtarı yedeklemeniz gerekir.",
+                "updated": 1637244864917
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Superalgos genera la clave privada localmente. Nadie más en el mundo tiene acceso o conocimiento de tu clave, siempre que su máquina sea segura.",
                     "updated": 1632014575112,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, özel anahtarı yerel olarak oluşturur. Makineniz güvende olduğu sürece, dünyada başka hiç kimse anahtarınıza erişemez veya anahtarınıza ilişkin bilgi sahibi olamaz.",
+                    "updated": 1637244882805
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Algunas personas imprimen varias copias de la clave privada para almacenarla en diferentes lugares. Recuerda la mayoría de los casos de criptomonedas perdidas involucran personas que pierden claves, ¡no hackeos!",
                     "updated": 1632014671513,
                     "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Bazı kişiler, her kopyayı farklı yerlerde saklamak için özel anahtarın birkaç kopyasını yazdırır. Çoğu kayıp kripto vakasının, hacklerden değil, anahtarları kaybeden insanlardan kaynaklandığını unutmayın!",
+                    "updated": 1637244946888
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Al vincular una dirección anterior, no necesitarás guardar la clave privada, pero debes hacer un Backup del contenido del constructor.",
                     "updated": 1632016270585,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": " Not: Daha önce sahip olduğunuz bir adresi bağladıysanız, özel anahtarı kaydetmeniz gerekmez, ancak güvenlik için kurucunun ( Constructor ) içeriğini yedeklemeniz gerekir.",
+                    "updated": 1637245002227
                 }
             ]
         },

@@ -15,6 +15,11 @@
                 "text": "Ahora configuremos el Profile Constructor para que luego podamos construir el perfil.",
                 "updated": 1630887647502,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Profil Oluşturucuyu ( Profile Constructor ) yapılandıralım, profil oluşturabilmek için önce bunu yapmalıyız.",
+                "updated": 1637242355962
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Has clic en la opción de configuración e ingrese su nombre de usuario de GitHub así:",
                     "updated": 1630888170425,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırma seçeneğini tıklayın ve GitHub kullanıcı adınızı şu şekilde girin:",
+                    "updated": 1637242376080
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "text": "Escribe tu mnemónico de doce palabras en la propiedad mnemotécnica. ¡Deja la propiedad en blanco para generar una nueva dirección! Eliminarás esta información confidencial más adelante, no saldrá de tu computadora y no se guardará en el disco.",
                     "updated": 1632012849405,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut bir adresi bağlamak istiyorsanız, on iki kelimelik anımsatıcı özelliğini mnemonic kısmına yazın. Yeni bir adres oluşturmak için özelliği boş bırakın! Bu hassas bilgiyi daha sonra sileceğiz endişelenmeyin.Bu, bilgisayarınızdan başka bir yerde kullanılmayacak ve diske kaydedilmeyecektir.",
+                    "updated": 1637242473343
                 }
             ]
         },

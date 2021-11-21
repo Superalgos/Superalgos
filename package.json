@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@octokit/rest": "^18.11.4",
-    "@tensorflow/tfjs-node": "^3.11.0",
     "ccxt": "^1.57.36",
     "child_process": "^1.0.2",
     "electron-updater": "^4.3.9",

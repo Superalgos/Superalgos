@@ -39,6 +39,16 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "socialPersonas",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Social Personas",
+            "relatedUiObject": "Social Personas",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Install as Plugin",
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
@@ -92,6 +102,12 @@
             "name": "userBots",
             "type": "node",
             "childType": "User Bots",
+            "autoAdd": false
+        },
+        {
+            "name": "socialPersonas",
+            "type": "node",
+            "childType": "Social Personas",
             "autoAdd": false
         }
     ],

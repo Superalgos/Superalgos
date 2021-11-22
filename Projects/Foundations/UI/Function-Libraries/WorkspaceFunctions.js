@@ -1,6 +1,7 @@
 function newFoundationsFunctionLibraryWorkspaceFunctions() {
     let thisObject = {
         addMissingWorkspaceProjects: addMissingWorkspaceProjects,
+        addSpecifiedWorkspaceProject: addSpecifiedWorkspaceProject,
         checkForMissingReferences: checkForMissingReferences,
         fixMissingReferences: fixMissingReferences
     }
@@ -30,6 +31,42 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
                 child.projectDefinition.config = "{ \n  \"codeName\": \"" + project + "\"\n}"
             }
         }
+    }
+
+    function addSpecifiedWorkspaceProject(node, rootNodes) {
+        let action = { node: node }
+        let validProjects = PROJECTS_SCHEMA
+
+        // Find the Projects not already part of the Workspace
+        for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+            let projectDefinition = PROJECTS_SCHEMA[i]
+            let project = projectDefinition.name
+
+            for (let k = 0; k < rootNodes.length; k++) {
+                let rootNode = rootNodes[k]
+                if (rootNode.type === project + ' Project') {
+                    validProjects = validProjects.filter(function(val) {
+                        return val.name + ' Project' !== rootNode.type
+                    })
+                }
+            }
+        }
+
+        // Create the Projects as an Array
+        let projectList = []
+
+        for (let i = 0; i < validProjects.length; i++) {
+            projectList.push(validProjects[i].name)
+        }
+
+        let eventSubscriptionId = node.payload.uiObject.container.eventHandler.listenToEvent('listSelectorClicked', onListSelect)
+        node.payload.uiObject.listSelector.activate(action, projectList, eventSubscriptionId)
+
+        function onListSelect(event) {
+            UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, event.selectedNode + ' Project', rootNodes, event.selectedNode)
+            node.payload.uiObject.container.eventHandler.stopListening('listSelectorClicked')
+        }
+
     }
 
     // This function scales the current workspace and highlights any nodes that have unresolved references 

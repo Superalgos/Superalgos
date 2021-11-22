@@ -285,9 +285,21 @@ function newListSelector() {
 
                 let index = i + selected
                 let label = ''
+                let subLabel = ''
                 if (index >= 0 && index < optionsList.length) {
                     if (typeof(optionsList[index]) !== "string") {
+
+                        let path = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(optionsList[index].payload.parentNode)
+
+                        for (let i = 0; i < path.length; i++) {
+                            path[i].splice(1, 3)
+                        }
+
                         label = optionsList[index].name
+                        subLabel = path.join("->")
+
+                        if (label.length > 65) { label = label.substring(0,65) + " (cont...)" }
+                        if (subLabel.length > 65) { subLabel = subLabel.substring(0,65) + " (cont...)" }
 
                         if (optionsList[index].payload.uiObject.icon !== undefined) {
                             icon = optionsList[index].payload.uiObject.icon
@@ -333,13 +345,19 @@ function newListSelector() {
 
                 let middleValue = Math.floor(VISIBLE_LABELS / 2)
                 let evenOffset = 0
+                let subOffset = 0
 
                 if (VISIBLE_LABELS % 2 === 0) {
                     evenOffset = rowHeight / 2
                 }
 
+                if (subLabel !== '') {
+                    subOffset = 10
+                }
+
                 UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, - offset + SIZE, (i - middleValue) * rowHeight + evenOffset, SIZE, thisObject.container)
-                UI.projects.foundations.utilities.drawPrint.drawLabel(label, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+                UI.projects.foundations.utilities.drawPrint.drawLabel(label, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset - subOffset, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+                UI.projects.foundations.utilities.drawPrint.drawLabel(subLabel, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset + subOffset, fontSize / 2, thisObject.container, fontColor, undefined, undefined, opacity)
             }
         }
     }

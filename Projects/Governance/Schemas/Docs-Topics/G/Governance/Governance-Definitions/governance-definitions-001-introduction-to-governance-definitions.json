@@ -4,21 +4,49 @@
     "type": "Introduction to Governance Definitions",
     "definition": {
         "text": "For Contributors to participate in governance, the project must be thoroughly defined, as it is these definitions that may accept votes and claims from Contributors.",
-        "updated": 1624706736435
+        "updated": 1624706736435,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Para que los Contribuyentes participen en la gobernanza, el proyecto debe estar completamente definido, ya que son estas definiciones las que pueden aceptar votos y reclamos de los Contribuyentes.",
+                "updated": 1637405662285
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Governance Project is designed in a way that allows describing the project in a highly granular fashion. This is one of the features that enable a massive collaboration, as it allows different people to get involved with very specific areas of the project.",
-            "updated": 1624706744817
+            "updated": 1624706744817,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "The Governance Project ( el proyecto de gobernanza) iestá diseñado de una manera que permite describir el proyecto de una manera muy granular. Ésta es una de las características que posibilita una colaboración masiva, ya que permite que distintas personas se involucren en áreas muy específicas del proyecto.",
+                    "updated": 1637405719048
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Usually, governance definitions are produced by top contributors leading significant areas of the project. They are best suited to define the areas they lead, as they have profound knowledge of the existing infrastructure and the development roadmap."
+            "text": "Usually, governance definitions are produced by top contributors leading significant areas of the project. They are best suited to define the areas they lead, as they have profound knowledge of the existing infrastructure and the development roadmap.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por lo general, las definiciones de gobernanza son elaboradas por los principales contribuyentes que lideran áreas importantes del proyecto. Son los más adecuados para definir las áreas que lideran, ya que tienen un conocimiento profundo de la infraestructura existente y la hoja de ruta del desarrollo.",
+                    "updated": 1637406151282
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Regular contributors tend to interact with these definitions to cast their votes and raise their claims."
+            "text": "Regular contributors tend to interact with these definitions to cast their votes and raise their claims.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los contribuyentes habituales tienden a interactuar con estas definiciones para emitir sus votos y plantear sus solicitudes.",
+                    "updated": 1637406185693
+                }
+            ]
         }
     ]
 }

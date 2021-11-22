@@ -29,6 +29,16 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userBots",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Bots",
+            "relatedUiObject": "User Bots",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Install as Plugin",
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
@@ -76,6 +86,12 @@
             "name": "signingAccounts",
             "type": "node",
             "childType": "Signing Accounts",
+            "autoAdd": false
+        },
+        {
+            "name": "userBots",
+            "type": "node",
+            "childType": "User Bots",
             "autoAdd": false
         }
     ],

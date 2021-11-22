@@ -323,6 +323,11 @@ exports.newGithubServer = function newGithubServer() {
                             if (await validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() === false) { continue }
                             if (await validateUserProfileSigningAccountsDoesNotBelongtoAnotherUserProfile() === false) { continue }
 
+                            /*
+                                TODO: We need to check before merging a User Profile that none of id of the node of the profile hierearchy exists at any other
+                                User Profile already at the repository, to avoid atacts of users highjacking references of other user profiles. 
+                            */
+
                             if (await mergePullRequest() === false) {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)
                             } else {

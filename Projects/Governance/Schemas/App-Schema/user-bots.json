@@ -1,0 +1,52 @@
+{
+    "type": "User Bots",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tradingBots",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Trading Bots",
+            "relatedUiObject": "Trading Bots",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "userBots",
+    "childrenNodesProperties": [
+        {
+            "name": "tradingBots",
+            "type": "node",
+            "childType": "Trading Bots",
+            "autoAdd": false
+        }
+    ]
+}

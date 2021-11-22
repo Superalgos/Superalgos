@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Процедура построения данных обрабатывает информацию, которая должна быть передана свойствам, хранящимся на выход�� данных.\n",
                 "updated": 1636569783197
+            },
+            {
+                "language": "DE",
+                "text": "Die data building procedure verarbeitet die Informationen, die den Eigenschaften (properties) zugeführt werden, die im Ausgabedatensatz (output dataset) gespeichert sind.",
+                "updated": 1637588171931
             }
         ]
     },
@@ -22,7 +27,14 @@
         },
         {
             "style": "Text",
-            "text": "This procedure holds the core logic of the bot, as it features the code that performs the calculations required to produce the new data set. The code is split between a procedure initialization and a procedure loop."
+            "text": "This procedure holds the core logic of the bot, as it features the code that performs the calculations required to produce the new data set. The code is split between a procedure initialization and a procedure loop.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Prozedur enthält die Kernlogik des Bots, da sie den Code enthält, der die Berechnungen durchführt, die erforderlich sind, um den neuen Datensatz zu erzeugen. Der Code ist aufgeteilt in eine Prozedurinitialisierung (procedure initialization) und eine Prozedurschleife (procedure loop).",
+                    "updated": 1637588231987
+                }
+            ]
         }
     ]
 }

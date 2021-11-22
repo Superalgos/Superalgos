@@ -16991,7 +16991,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -17566,21 +17566,132 @@
         "name": "New User Bots",
         "config": "{}",
         "project": "Governance",
-        "tradingBots": {
-            "type": "Trading Bots",
-            "name": "New Trading Bots",
+        "socialTradingBots": {
+            "type": "Social Trading Bots",
+            "name": "New Social Trading Bots",
             "config": "{}",
             "project": "Governance",
-            "tradingBots": [
+            "socialTradingBots": [
                 {
-                    "type": "Trading Bot",
-                    "name": "New Trading Bot",
+                    "type": "Social Trading Bot",
+                    "name": "New Social Trading Bot",
                     "config": "{}",
-                    "project": "Algorithmic-Trading",
-                    "processes": [],
-                    "products": [],
-                    "productDefinitionFolders": [],
-                    "id": "d9a29f23-5aa6-46ea-8275-aaa95492d333",
+                    "project": "Governance",
+                    "socialTradingBotsFollowing": {
+                        "type": "Social Trading Bots Following",
+                        "name": "New Social Trading Bots Following",
+                        "config": "{}",
+                        "project": "Governance",
+                        "socialTradingBotsFollowed": [
+                            {
+                                "type": "Social Trading Bot Followed",
+                                "name": "New Social Trading Bot Followed",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "a9484759-a37e-4c5f-a11a-964bc88371ba",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 36184.73287771697,
+                                        "y": 18573.407887978872
+                                    },
+                                    "targetPosition": {
+                                        "x": 36417.87666615406,
+                                        "y": 18384.61177066392
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Social Trading Bot Followed",
+                                "name": "New Social Trading Bot Followed",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "a8bf7c62-5df7-475b-a43d-77c47cf1af5d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 36119.52009754357,
+                                        "y": 18353.253231683622
+                                    },
+                                    "targetPosition": {
+                                        "x": 36417.87666615406,
+                                        "y": 18384.61177066392
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Social Trading Bot Followed",
+                                "name": "New Social Trading Bot Followed",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "30d456e2-e263-4e12-a486-9f1aa5cc2bf1",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 36229.080548839105,
+                                        "y": 18151.46798222683
+                                    },
+                                    "targetPosition": {
+                                        "x": 36417.87666615406,
+                                        "y": 18384.61177066392
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "e42dfedc-6906-4833-8737-44d5f45ab82e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36417.87666615406,
+                                "y": 18384.61177066392
+                            },
+                            "targetPosition": {
+                                "x": 36716.23323476454,
+                                "y": 18415.970309644217
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "5167a23f-1e17-4cd5-85a7-3c7f2a3019ac",
                     "savedPayload": {
                         "position": {
                             "x": 36716.23323476454,
@@ -17604,14 +17715,11 @@
                     }
                 },
                 {
-                    "type": "Trading Bot",
-                    "name": "New Trading Bot",
+                    "type": "Social Trading Bot",
+                    "name": "New Social Trading Bot",
                     "config": "{}",
-                    "project": "Algorithmic-Trading",
-                    "processes": [],
-                    "products": [],
-                    "productDefinitionFolders": [],
-                    "id": "3a131692-8cc9-49bf-a017-ac240b5d3ed7",
+                    "project": "Governance",
+                    "id": "c27748af-db60-44fc-a095-530401057beb",
                     "savedPayload": {
                         "position": {
                             "x": 36892.568810452285,
@@ -17635,7 +17743,7 @@
                     }
                 }
             ],
-            "id": "2036b0ba-f560-4985-b90b-5f3c764b5ed4",
+            "id": "4809934c-d45d-4565-a686-5d96bd695b4f",
             "savedPayload": {
                 "position": {
                     "x": 37014.58980337503,
@@ -17692,6 +17800,92 @@
                 "name": "New Social Persona",
                 "config": "{}",
                 "project": "Governance",
+                "socialPersonasFollowing": {
+                    "type": "Social Personas Following",
+                    "name": "New Social Personas Following",
+                    "config": "{}",
+                    "project": "Governance",
+                    "socialPersonasFollowed": [
+                        {
+                            "type": "Social Persona Followed",
+                            "name": "New Social Persona Followed",
+                            "config": "{}",
+                            "project": "Governance",
+                            "id": "45f1a092-8a89-45f8-b31c-c4c062a56a8a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 37267.21890191417,
+                                    "y": 17704.851037027955
+                                },
+                                "targetPosition": {
+                                    "x": 37467.95808382183,
+                                    "y": 17927.794484671173
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Social Persona Followed",
+                            "name": "New Social Persona Followed",
+                            "config": "{}",
+                            "project": "Governance",
+                            "id": "2eb918aa-742f-49c8-bea2-4cdc2d9bd1c7",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 37560.66318213432,
+                                    "y": 17642.477529782627
+                                },
+                                "targetPosition": {
+                                    "x": 37467.95808382183,
+                                    "y": 17927.794484671173
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "c0e85aee-8f7e-42bf-a2ea-5e3d9414c114",
+                    "savedPayload": {
+                        "position": {
+                            "x": 37467.95808382183,
+                            "y": 17927.794484671173
+                        },
+                        "targetPosition": {
+                            "x": 37530.33159106716,
+                            "y": 18221.238764891314
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
                 "id": "ed15b68f-c9e0-447a-9ef7-660db229244c",
                 "savedPayload": {
                     "position": {

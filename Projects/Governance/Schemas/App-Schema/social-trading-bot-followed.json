@@ -1,5 +1,5 @@
 {
-    "type": "Trading Bots",
+    "type": "Social Trading Bot Followed",
     "menuItems": [
         {
             "action": "Configure",
@@ -7,14 +7,6 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Trading Bot",
-            "relatedUiObject": "Trading Bot",
-            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
@@ -36,15 +28,9 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Bots->"
+        "compatibleTypes": "->Social Trading Bots Following->"
     },
-    "propertyNameAtParent": "tradingBots",
+    "propertyNameAtParent": "socialTradingBotsFollowed",
     "childrenNodesProperties": [
-        {
-            "name": "tradingBots",
-            "type": "array",
-            "childType": "Trading Bot",
-            "autoAdd": false
-        }
     ]
 }

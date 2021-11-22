@@ -1,5 +1,5 @@
 {
-    "type": "User Bots",
+    "type": "Social Trading Bots",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,11 +11,9 @@
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialTradingBots",
             "actionFunction": "payload.executeAction",
-            "label": "Add Social Trading Bots",
-            "relatedUiObject": "Social Trading Bots",
+            "label": "Add Social Trading Bot",
+            "relatedUiObject": "Social Trading Bot",
             "relatedUiObjectProject": "Governance"
         },
         {
@@ -38,14 +36,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->User Bots->"
     },
-    "propertyNameAtParent": "userBots",
+    "propertyNameAtParent": "socialTradingBots",
     "childrenNodesProperties": [
         {
             "name": "socialTradingBots",
-            "type": "node",
-            "childType": "Social Trading Bots",
+            "type": "array",
+            "childType": "Social Trading Bot",
             "autoAdd": false
         }
     ]

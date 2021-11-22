@@ -17859,7 +17859,26 @@
                                 },
                                 "uiObject": {
                                     "isRunning": false
-                                }
+                                },
+                                "referenceParent": {
+                                    "type": "Social Persona",
+                                    "name": "New Social Persona",
+                                    "id": "d2502a7d-63af-408e-80d1-52458b9e7aec"
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Luis-Fernando-Molina",
+                                        "User Profile"
+                                    ],
+                                    [
+                                        "New Social Personas",
+                                        "Social Personas"
+                                    ],
+                                    [
+                                        "New Social Persona",
+                                        "Social Persona"
+                                    ]
+                                ]
                             }
                         }
                     ],

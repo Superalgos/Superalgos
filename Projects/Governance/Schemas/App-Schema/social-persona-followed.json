@@ -30,7 +30,13 @@
     "attachingRules": {
         "compatibleTypes": "->Social Personas Following->"
     },
+    "referencingRules": {
+        "compatibleTypes": "->Social Persona->"
+    },  
     "propertyNameAtParent": "socialPersonasFollowed",
     "childrenNodesProperties": [
+    ],
+    "title": [
+        "Use Reference Parent"
     ]
 }

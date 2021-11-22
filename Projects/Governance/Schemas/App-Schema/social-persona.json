@@ -39,7 +39,7 @@
     "level": 2,
     "attachingRules": {
         "compatibleTypes": "->Social Personas->"
-    },
+    },  
     "propertyNameAtParent": "socialPersonas",
     "childrenNodesProperties": [
         {

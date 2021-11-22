@@ -676,7 +676,7 @@ function newFoundationsDocsDocumentPage() {
                         }
                         case 'Tutorial': {
                             orderedTutorialPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project,
+                                project,
                                 'Tutorial',
                                 chapterName
                             )

@@ -186,49 +186,72 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
     }
 
     function sendTwitterTestMessage(node, callBackFunction) {
-        let message = JSON.stringify({text: "Test message from Superalgos!"})
-        let url = "https://api.twitter.com/1.1/statuses/update.json"
-        
-        httpRequestJSON(message, url, onResponse)
+        let message = {text: "Test message from Superalgos!"}
 
-        function onResponse(err) {
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                node.payload.uiObject.setInfoMessage('Twitter status update sent.')
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not send test messages.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
+        let validationsResult = validations(node)
+        if (validationsResult === undefined) {
+            // If something fails at validations we just quit.
+            console.log('[DEBUG] valiations empty')
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+        let lanNetworkNode = validationsResult.lanNetworkNode
+        if (lanNetworkNode === undefined) {
+            // This means that the validations failed.
+            console.log('[DEBUG] lan network empty')
+            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+            return
+        }
+
+        // create event listener
+        console.log('[DEBUG] creating listener')
+        let eventSubscriptionIdOnStatus
+        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventHandlerKey = `Social Bot - ${node.payload.parentNode.payload.parentNode.payload.parentNode.id}`
+        console.log('[DEBUG] event handler key: ', eventHandlerKey)
+        eventsServerClient.listenToEvent(eventHandlerKey, 'Test announcement', undefined, node.id, onResponse, onStatus)
+
+        // create event
+        console.log('[DEBUG] creating event')
+        let event = {
+            message: message
+        }
+        let key = node.name + '-' + node.type + '-' + node.id
+        eventsServerClient.raiseEvent(key, 'Test announcement', event)
+
+        function onResponse(message) {
+            console.log('[DEBUG] on response')
+            eventSubscriptionIdOnStatus = message.eventSubscriptionId
+        }
+
+        function onStatus(message) {
+            console.log('[DEBUG] on status')
+            eventsServerClient.stopListening(eventHandlerKey, eventSubscriptionIdOnStatus, node.id)
+
+            if (message.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                node.payload.uiObject.setInfoMessage('Twitter message sent.')
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
             } else {
-                node.payload.uiObject.setErrorMessage('Could not send Twitter status update. Error Response: ' + err.message)
+                node.payload.uiObject.setErrorMessage('Could not send Twitter message. Error Response: ' + err.message)
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
         }
+    }
 
-        function httpRequestJSON(pContentToSend, pPath, callBackFunction) {
-            let xmlHttpRequest = new XMLHttpRequest();
-            xmlHttpRequest.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE, xmlHttpRequest.responseText);
-                    return;
-                } else if (this.readyState === 4 && (this.status === 404 || this.status === 401 || this.status === 400)) {
-                    callBackFunction({
-                        result: "Fail",
-                        message: xmlHttpRequest.responseText
-                    });
-                    return;
-                }
-            };
+    function validations(node) {
+        let result = {}
+        console.log(node)
+        result.taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
+        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
-            if (pContentToSend === undefined) {
-                xmlHttpRequest.open("GET", pPath, true);
-                xmlHttpRequest.send();
-            } else {
-                try {
-                    let blob = new Blob([pContentToSend]);
-                    xmlHttpRequest.open("POST", pPath, true);
-                    xmlHttpRequest.send(blob);
-                } catch (err) {
-                    if (ERROR_LOG === true) { console.log(spacePad(MODULE_NAME, 50) + " : " + "[ERROR] callServer -> err.message = " & err.message); }
-                    callBackFunction({ result: "Fail", message: err.message })
-                }
-            }
-        }
+        return result
     }
 }

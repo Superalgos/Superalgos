@@ -74,18 +74,14 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
     function sendMessage(message) {
         try {
-            message = {status: formatMessage(message)}
+            message = {text: formatMessage(message)}
         } catch (err) {
-            logError("announce -> Twitter JSON message error -> err = " + err)
+            logError(`announce -> Twitter message formatting error -> err = ${err}`)
         }
 
-        thisObject.twitterClient.post('statuses/update', message, function(error) {
-            if(error) {
-                logError(error)
-                throw error
-            }
-        });
-        
+        const response  = await thisObject.twitterClient.post('tweets', message)
+            .then(logInfo(`announce -> Twitter bot post tweet -> response -> ${response}`))
+            .catch((err) => { logError(`announce -> Twitter bot post tweet -> ${err}`) })
     }
 
     function formatMessage(message) {
@@ -96,6 +92,10 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         return formattedMessage
     }
 
+    function logInfo(message) {
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] ' + message)
+    }
+    
     function logWarn(message) {
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[WARN] ' + message)
     }

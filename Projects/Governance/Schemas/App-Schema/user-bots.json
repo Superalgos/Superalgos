@@ -33,7 +33,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\"socialHandle\": \"\",\"bio\": \"\"}"
     },
     "addLeftIcons": true,
     "level": 2,

@@ -30,8 +30,8 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Signing Account->"
+        "compatibleTypes": "->Desktop Apps->"
     },
     "childrenNodesProperties": [],
-    "propertyNameAtParent": "signingAccountChild"
+    "propertyNameAtParent": "socialTradingDesktopApps"
 }

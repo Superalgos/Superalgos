@@ -1,5 +1,5 @@
 {
-    "type": "Social Persona",
+    "type": "Mobile Apps",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,11 +11,9 @@
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tradingBotsFollowing",
             "actionFunction": "payload.executeAction",
-            "label": "Add Social Personas Following",
-            "relatedUiObject": "Social Personas Following",
+            "label": "Add Social Trading Mobile App",
+            "relatedUiObject": "Social Trading Mobile App",
             "relatedUiObjectProject": "Governance"
         },
         {
@@ -33,19 +31,19 @@
         "config": true
     },
     "initialValues": {
-        "config": "{\"socialHandle\": \"\",\"bio\": \"\"}"
+        "config": "{}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Social Personas->"
+        "compatibleTypes": "->User Apps->"
     },
-    "propertyNameAtParent": "socialPersonas",
+    "propertyNameAtParent": "mobileApps",
     "childrenNodesProperties": [
         {
-            "name": "socialPersonasFollowing",
-            "type": "node",
-            "childType": "Social Personas Following",
+            "name": "socialTradingMobileApps",
+            "type": "array",
+            "childType": "Social Trading Mobile App",
             "autoAdd": false
         }
     ]

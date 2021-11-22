@@ -16,7 +16,7 @@ Projects/Foundations/Icons/Thumbs.db
 !uninstall-shortcut-windows.bat
 *.exe
 node_modules
-launch.json
+
 package-lock.json
 .idea
 dist

@@ -1,6 +1,7 @@
 function newGovernanceFunctionLibraryProfileConstructor() {
     let thisObject = {
         buildProfile: buildProfile,
+        installSecrets: installSecrets,
         addSigningAccount: addSigningAccount
     }
 
@@ -139,6 +140,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 */
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                /* 
+                Delete the mnemonic from the Profile Constructor config.
+                */
+                node.config = "{}"
                 /*
                 Show nice message.
                 */
@@ -155,6 +160,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 }
             }
         }
+    }
+
+    function installSecrets() {
+
     }
 
     function addSigningAccount(
@@ -251,11 +260,11 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     }
                 }
 
-                signUserProfileData(response.address, response.privateKey)
+                signSigningAccountData(response.address, response.privateKey)
             }
         }
 
-        function signUserProfileData(address, privateKey) {
+        function signSigningAccountData(address, privateKey) {
 
             let request = {
                 url: 'WEB3',

@@ -15,6 +15,11 @@
                 "text": "Community Building Programs tienen dos tipos de incentivos incorporados: un Tokens Bonus, y Tokens Awarded por el programa.",
                 "updated": 1630893270729,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tüm Topluluk Oluşturma Programlarının ( Community Building Programs ) iki yerleşik teşvik türü vardır: bir Token Bonusu ( Token Bonus ) ve program tarafından Verilen Jetonlar ( Tokens Awarded ).",
+                "updated": 1637443563586
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "En términos generales, así es como funciona:",
                     "updated": 1630893389941,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel olarak, bu şöyle çalışır:",
+                    "updated": 1637443596180
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Tokens Bonus: Es un incentivo para participar en el programa. Ganas estos tokens simplemente cumpliendo con las reglas de participación.",
                     "updated": 1630893419741,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Bonusu: Programa katılmak için bir teşviktir. Bu jetonları sadece katılım kurallarını yerine getirerek kazanırsınız.",
+                    "updated": 1637443634860
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "Tokens Awarded: Estos programas incentivan los comportamientos deseables. Si participas de manera constructiva en la comunidad, ¡ganarás más tokens!",
                     "updated": 1630893448980,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tokens Awarded: Bu programlar kullanıcılardan beklenen davranışları teşvik eder. Topluluğa yapıcı bir şekilde katılırsanız, daha fazla jeton kazanırsınız!",
+                    "updated": 1637443737752
                 }
             ]
         },
@@ -67,6 +87,11 @@
                     "text": "¡Lo interesante de estos programas es que recompensan cadenas de colaboraciones! Exploremos este concepto dentro del Referral Program!",
                     "updated": 1630893469226,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programlarla ilgili ilginç olan şey, işbirlikleri zincirlerini ödüllendirmeleridir! Haydi bu konsepti Referans Programında ( Referral Program ) inceleyelim!",
+                    "updated": 1637443792247
                 }
             ]
         }

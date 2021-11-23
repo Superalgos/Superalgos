@@ -85,6 +85,10 @@ function newFoundationsCodeEditorEditorPage() {
         }
 
         createCurrentEditorModel()
+        // Ensure proper code formatting
+        monacoEditor.getAction('editor.action.formatDocument').run();
+
+
     }
 
 
@@ -99,6 +103,8 @@ function newFoundationsCodeEditorEditorPage() {
                 payload.node.code = monacoEditor.getValue()
             })
         } else if (thisObject.editorType === codeEditorType.CONFIG) {
+
+            // monacoEditor.setModel(monaco.editor.createModel(JSON.stringify(payload.node.config, null, 4), "json"))
             monacoEditor.setModel(monaco.editor.createModel(payload.node.config, "json"))
             //Update config values
             monacoEditor.getModel().onDidChangeContent(function () {

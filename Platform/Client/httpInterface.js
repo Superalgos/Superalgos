@@ -1353,8 +1353,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                             const repo = 'Superalgos'
                                             const owner = 'Superalgos'
                                             const head = username + ':' + contributionsBranch
-                                            const base = currentBranch
-                                            const title = 'Contribution: ' + mess
+                                            //const base = currentBranch
+                                            let base = undefined
+                                            if(process.env.SA_MODE === 'gitDisable') {
+                                                base = 'develop'
+                                            } else {
+                                                base = currentBranch
+                                            }
+                                            const title = 'Governance: ' + mess
                                             const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json';
 
                                             const sha = await getSHA(path);

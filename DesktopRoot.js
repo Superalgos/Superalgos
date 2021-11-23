@@ -50,7 +50,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
             web3: require('web3'),
             ws: require('ws'),
             open: require('open'),
-            http: require('https'),
+            http: require('http'),
             octokit: require("@octokit/rest"),
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch')

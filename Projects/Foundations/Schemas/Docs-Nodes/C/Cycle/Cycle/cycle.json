@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "The trading bot realiza sus funciones con respecto las órdenes del exchange y cuentas en dos ciclos consecutivos para cada vela.",
                 "updated": 1624457112696
+            },
+            {
+                "language": "RU",
+                "text": "Торговый бот выполняет свои обязанности в отношении биржевых ордеров и счетов в два последовательных цикла для каждой свечи.",
+                "updated": 1637596581446
             }
         ]
     },

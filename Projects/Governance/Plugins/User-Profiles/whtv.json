@@ -12,7 +12,7 @@
         "onboardingPrograms": {
             "type": "Onboarding Programs",
             "name": "New Onboarding Programs",
-            "config": "{\n   \"percentage\": 0\n }",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "airdropProgram": {
                 "type": "Airdrop Program",
@@ -78,7 +78,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "1bf9c925-7992-46e1-a036-f124fa0e838e",
+                    "id": "e5ef5a47-d65e-4bde-a054-ac6300a2d57f",
                     "savedPayload": {
                         "position": {
                             "x": 14283.000000000002,
@@ -101,7 +101,7 @@
                         }
                     }
                 },
-                "id": "cffdc110-d6ab-4cce-bb2b-794c04a62e34",
+                "id": "aa3ec61e-82e2-4ab5-b17c-10aff38100ea",
                 "savedPayload": {
                     "position": {
                         "x": 13983.000000000002,

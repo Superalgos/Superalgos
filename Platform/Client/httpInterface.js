@@ -240,6 +240,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                     break
+                case 'Social-Bots': {
+                    switch (requestPath[2]) { // switch by command
+                        case 'Test-Twitter-Message': {
+                            SA.projects.socialBots.botModules.twitterBot.sendMessage(message)
+                            break
+                        }
+                    }
+                }
                 case 'Webhook': {
                     switch (requestPath[2]) { // switch by command
                         case 'Fetch-Messages': {

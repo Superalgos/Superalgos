@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "К этому моменту все процессы должны работать на 100%. Когда это происходит, мы называем операцию интеллектиуального анализа данных \"актуальной\".",
                 "updated": 1636193865762
+            },
+            {
+                "language": "NL",
+                "text": "Ondertussen horen alle processen op 100% te staan. We noemen de datamijn operatie dan \"up to date\".",
+                "updated": 1637500003121
             }
         ],
         "updated": 1616415623576
@@ -84,6 +89,11 @@
                     "language": "RU",
                     "text": "Когда все процессы обновлены, боты продолжают работать, обрабатывая информацию в режиме реального времени по мере ее получения на бирже. То есть операция интеллектуального анализа данных не остановится, пока Вы ее не остановите!",
                     "updated": 1636194015988
+                },
+                {
+                    "language": "NL",
+                    "text": "Als alle processen up to date zijn, blijven de bots draaien om informatie van de exchange realtime te verwerken. De datamijn operatie blijft doorgaan tenzij je het zelf stopt!",
+                    "updated": 1637500291829
                 }
             ]
         },
@@ -124,6 +134,11 @@
                     "language": "RU",
                     "text": "Оглянитесь вокруг и посмотрите, все ли процессы работают на 100%.",
                     "updated": 1636194193682
+                },
+                {
+                    "language": "NL",
+                    "text": "Kijk en controleer of alle processen op 100% staan.",
+                    "updated": 1637500340878
                 }
             ]
         },
@@ -164,6 +179,11 @@
                     "language": "RU",
                     "text": "...To run a Live Trading Session, you need a constant feed of information from the exchange processed in realtime so that the Trading Bot may apply the rules of your Trading System to make live trading decisions.",
                     "updated": 1636194159296
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een Live Trading Session te draaien, heb je een constante stroom van informatie van de exchange nodig die realtime verwerkt wordt zodat de Trading Bot de regels van jouw Trading System kan toepassen om live trading beslissingen te maken.",
+                    "updated": 1637501395384
                 }
             ],
             "updated": 1616415667438

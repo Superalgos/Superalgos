@@ -1,7 +1,7 @@
 const path     = require("path");
 const fs       = require("fs");
 const { exec, execSync } = require("child_process");
-const os       = require("os"); 
+const os       = require("os");
 
 // Get the name of the main directory
 let cwd = __dirname;
@@ -21,7 +21,7 @@ if (os.platform() == "win32") {
     // Place Shortcuts using powershell
     for (let dir of shortcutPaths) {
         let command = `$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut("${dir}"); $S.TargetPath = "${target}"; $S.IconLocation = "${icon}"; $S.Save()`;
-     
+
         exec( command,
             {
                 shell: "powershell.exe",
@@ -52,12 +52,12 @@ if (os.platform() == "win32") {
         let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png");
 
         // Create .desktop shortcut file
-        fs.writeFileSync( `${name}.desktop`, 
+        fs.writeFileSync( `${name}.desktop`,
             `[Desktop Entry]
             Type=Application
             Encoding=UTF-8
             Name=${name}
-            Comment=Launch Shortcut for Superalgos 
+            Comment=Launch Shortcut for Superalgos
             Path=${__dirname}
             Exec=gnome-terminal -e ${__dirname}/launch-linux-mac.sh
             Terminal=true
@@ -87,20 +87,20 @@ if (os.platform() == "win32") {
             });
 
     } else {
-        console.log( "Automatic shortcut creation is not yet supported on your flavor of linux.  If you would like to see this feature add, message @harrellbm on telegram or discord to ask how you can help!")    
+        console.log( "Automatic shortcut creation is not yet supported on your flavor of linux.  If you would like to see this feature add, message @harrellbm on telegram or discord to ask how you can help!")
     }
-   
+
 // Mac Shortcuts
 } else if (os.platform() == "darwin") {
     const icon = path.join( __dirname,"/superalgos.ico");
     const createShortcutCommand = `chmod +x ${name}.command & cp ${name}.command ~/Desktop/${name}.command`
-    const installFileIconcommand = `npm install fileicon`;
+    const installFileIconcommand = `npm install -g fileicon`;
     const changeIconCommand = `./node_modules/fileicon/bin/fileicon set ~/Desktop/${name}.command ./Launch-Scripts/superalgos.ico`
-    const unInstallFileIconcommand = `npm uninstall fileicon`;
-    
+    const unInstallFileIconcommand = `npm uninstall -g fileicon`;
+
     try {
         // Create .desktop shortcut file
-            fs.writeFileSync( `${name}.command`, 
+            fs.writeFileSync( `${name}.command`,
             `#!/bin/sh
             cd ${__dirname}
             cd ..
@@ -113,14 +113,14 @@ if (os.platform() == "win32") {
 
         // Remove temporary .command file
         fs.unlinkSync( `${name}.command` )
-        
-        //Install fileicon utility 
+
+        //Install fileicon utility
         execSync(installFileIconcommand, {stdio: 'inherit', timeout: 30000});
 
         //change Icon
         execSync(changeIconCommand, {stdio: 'inherit', timeout: 30000});
 
-        //Un-Install fileicon utility 
+        //Un-Install fileicon utility
         execSync(unInstallFileIconcommand, {stdio: 'inherit', timeout: 30000});
     } catch (error) {
         console.log('');

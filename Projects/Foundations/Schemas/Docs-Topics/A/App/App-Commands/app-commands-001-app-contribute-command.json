@@ -314,12 +314,12 @@
         },
         {
             "style": "Text",
-            "text": "If you can't find the node by using the search box, it may not exist in the active workspace. The APIs hierarchy is included by default in the Getting Started workspace only. You may spawn a new APIs hierarchy from the Other Hierarchies node in the Superalgos Project hierarchy.",
+            "text": "If you can't find the node by using the search box, it may not exist in the active workspace. The APIs hierarchy is included by default in the Getting Started workspace only. You may spawn a new APIs hierarchy from the Other Hierarchies node in the Foundations Project hierarchy.",
             "updated": 1610909893231,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie die node nicht über das Suchfeld finden können, ist er möglicherweise nicht im aktiven Arbeitsbereich vorhanden. Die APIs-Hierarchie ist standardmäßig nur im Arbeitsbereich \"Erste Schritte\" enthalten. Sie können eine neue APIs-Hierarchie über den Node \"Other Hierarchies\" in der Superalgos Project hierarchy erstellen.",
+                    "text": "Wenn Sie die node nicht über das Suchfeld finden können, ist er möglicherweise nicht im aktiven Arbeitsbereich vorhanden. Die APIs-Hierarchie ist standardmäßig nur im Arbeitsbereich \"Erste Schritte\" enthalten. Sie können eine neue APIs-Hierarchie über den Node \"Other Hierarchies\" in der Foundations Project hierarchy erstellen.",
                     "updated": 1636813227032
                 }
             ]

@@ -115,30 +115,6 @@
             "style": "Include",
             "text": "Foundations->Node->Execution Started Event->Content",
             "updated": 1610105598223
-        },
-        {
-            "style": "Text",
-            "text": "Foundations->Node->XXXXXXXX->Definition"
-        },
-        {
-            "style": "Text",
-            "text": "Foundations->Node->XXXXXXXX->Content"
-        },
-        {
-            "style": "Text",
-            "text": "Foundations->Node->XXXXXXXX->Definition"
-        },
-        {
-            "style": "Text",
-            "text": "Foundations->Node->XXXXXXXX->Content"
-        },
-        {
-            "style": "Text",
-            "text": "Foundations->Node->XXXXXXXX->Definition"
-        },
-        {
-            "style": "Text",
-            "text": "Foundations->Node->XXXXXXXX->Content"
         }
     ]
 }

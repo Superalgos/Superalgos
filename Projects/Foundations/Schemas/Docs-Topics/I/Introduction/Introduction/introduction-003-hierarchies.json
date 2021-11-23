@@ -31,12 +31,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Superalgos Project->Definition",
+            "text": "Foundations->Node->Foundations Project->Definition",
             "updated": 1609944933341
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Superalgos Project->Content",
+            "text": "Foundations->Node->Foundations Project->Content",
             "updated": 1609944944285
         },
         {
@@ -105,12 +105,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Definition",
+            "text": "Algorithmic-Trading->Node->Trading System->Definition",
             "updated": 1609945942207
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Content",
+            "text": "Algorithmic-Trading->Node->Trading System->Content",
             "updated": 1609945952584
         },
         {
@@ -119,12 +119,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Mine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Mine->Definition",
             "updated": 1609945981528
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Mine->Content",
+            "text": "Algorithmic-Trading->Node->Trading Mine->Content",
             "updated": 1609945984960
         },
         {
@@ -134,12 +134,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Definition",
             "updated": 1609945998216
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Content",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Content",
             "updated": 1609946001567
         },
         {
@@ -149,12 +149,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Definition",
+            "text": "Data-Mining->Node->Data Mine->Definition",
             "updated": 1609946022992
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Content",
+            "text": "Data-Mining->Node->Data Mine->Content",
             "updated": 1609946026584
         },
         {
@@ -164,12 +164,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Plugins->Definition",
+            "text": "Community-Plugins->Node->Plugins->Definition",
             "updated": 1609946038957
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Plugins->Content",
+            "text": "Community-Plugins->Node->Plugins->Content",
             "updated": 1609946042538
         },
         {
@@ -179,12 +179,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Tutorial->Definition",
+            "text": "Education->Node->Tutorial->Definition",
             "updated": 1609946067573
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Tutorial->Content",
+            "text": "Education->Node->Tutorial->Content",
             "updated": 1609946070683
         },
         {

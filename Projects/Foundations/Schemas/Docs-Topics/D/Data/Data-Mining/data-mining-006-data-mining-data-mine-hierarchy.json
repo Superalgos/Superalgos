@@ -318,26 +318,13 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Definition",
+            "text": "Data-Mining->Node->Data Mine->Definition",
             "updated": 1611407782909
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Content",
+            "text": "Data-Mining->Node->Data Mine->Content",
             "updated": 1611407786577
-        },
-        {
-            "style": "Include",
-            "text": "Foundations->Concept->Reusable Snippets->Note for Hierarchy Tables No Discussion"
-        },
-        {
-            "style": "Hierarchy",
-            "text": "Foundations->Data Mine->2",
-            "updated": 1611407832651
-        },
-        {
-            "style": "Text",
-            "text": ""
         },
         {
             "style": "Title",

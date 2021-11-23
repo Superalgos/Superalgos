@@ -59,6 +59,16 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkNodes",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Nodes",
+            "relatedUiObject": "P2P Network Nodes",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Install as Plugin",
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
@@ -124,6 +134,12 @@
             "name": "socialPersonas",
             "type": "node",
             "childType": "Social Personas",
+            "autoAdd": false
+        },
+        {
+            "name": "p2pNetworkNodes",
+            "type": "node",
+            "childType": "P2P Network Nodes",
             "autoAdd": false
         }
     ],

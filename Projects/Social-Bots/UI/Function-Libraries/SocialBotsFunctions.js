@@ -186,72 +186,30 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
     }
 
     function sendTwitterTestMessage(node, callBackFunction) {
-        let message = {text: "Test message from Superalgos!"}
+        // http api request to backend platform
+        let endpoint = "Social-Bots/Test-Message"
+        let consumer_key = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_key')
+        let consumer_secret = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_secret')
+        let access_token_key = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'access_token_key')
+        let access_token_secret = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'access_token_secret')
+        let body = JSON.stringify({
+            consumer_key: consumer_key,
+            consumer_secret: consumer_secret,
+            access_token_key: access_token_key,
+            access_token_secret: access_token_secret,
+            text: "Test message from Superalgos!"
+        })
 
-        if (UI.environment.DEMO_MODE === true) {
-            if (window.location.hostname !== 'localhost') {
-                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not send test messages.', 5)
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-                return
-            }
-        }
+        httpRequest(body, endpoint, onResponse)
 
-        let validationsResult = validations(node)
-        if (validationsResult === undefined) {
-            // If something fails at validations we just quit.
-            console.log('[DEBUG] valiations empty')
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            return
-        }
-        let lanNetworkNode = validationsResult.lanNetworkNode
-        if (lanNetworkNode === undefined) {
-            // This means that the validations failed.
-            console.log('[DEBUG] lan network empty')
-            callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            return
-        }
-
-        // create event listener
-        console.log('[DEBUG] creating listener')
-        let eventSubscriptionIdOnStatus
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
-        let eventHandlerKey = `Social Bot - ${node.payload.parentNode.payload.parentNode.payload.parentNode.id}`
-        console.log('[DEBUG] event handler key: ', eventHandlerKey)
-        eventsServerClient.listenToEvent(eventHandlerKey, 'Test announcement', undefined, node.id, onResponse, onStatus)
-
-        // create event
-        console.log('[DEBUG] creating event')
-        let event = {
-            message: message
-        }
-        let key = node.name + '-' + node.type + '-' + node.id
-        eventsServerClient.raiseEvent(key, 'Test announcement', event)
-
-        function onResponse(message) {
-            console.log('[DEBUG] on response')
-            eventSubscriptionIdOnStatus = message.eventSubscriptionId
-        }
-
-        function onStatus(message) {
-            console.log('[DEBUG] on status')
-            eventsServerClient.stopListening(eventHandlerKey, eventSubscriptionIdOnStatus, node.id)
-
-            if (message.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                node.payload.uiObject.setInfoMessage('Twitter message sent.')
+        function onResponse(err) {
+            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                node.payload.uiObject.setInfoMessage('Test message sent successfully.')
                 callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
             } else {
-                node.payload.uiObject.setErrorMessage('Could not send Twitter message. Error Response: ' + err.message)
+                node.payload.uiObject.resetErrorMessage('Error sending test message.')
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             }
         }
-    }
-
-    function validations(node) {
-        let result = {}
-        console.log(node)
-        result.taskManager = node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode
-        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
-
-        return result
     }
 }

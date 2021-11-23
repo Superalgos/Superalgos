@@ -72,14 +72,14 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
     function finalize() {}
 
-    function sendMessage(message) {
+    async function sendMessage(message) {
         try {
             message = {text: formatMessage(message)}
         } catch (err) {
             logError(`announce -> Twitter message formatting error -> err = ${err}`)
         }
 
-        const response  = await thisObject.twitterClient.post('tweets', message)
+        const response = await thisObject.twitterClient.post('tweets', message)
             .then(logInfo(`announce -> Twitter bot post tweet -> response -> ${response}`))
             .catch((err) => { logError(`announce -> Twitter bot post tweet -> ${err}`) })
     }

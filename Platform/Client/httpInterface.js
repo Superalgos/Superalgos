@@ -242,8 +242,18 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Social-Bots': {
                     switch (requestPath[2]) { // switch by command
-                        case 'Test-Twitter-Message': {
-                            SA.projects.socialBots.botModules.twitterBot.sendMessage(message)
+                        case 'Test-Message': {
+                            SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
+                            function processRequest(messageReceived) {
+                                if (messageReceived === undefined) {
+                                    return
+                                }        
+                                let socialBot = SA.projects.socialBots.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
+                                socialBot.botInstance.initialize()
+                                socialBot.sendMessage(messageReceived)
+                                console.log('[INFO] httpInterface -> Social-Bots -> Test-Twitter-Message -> messageReceived = ' + messageReceived)
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                            }
                             break
                         }
                     }

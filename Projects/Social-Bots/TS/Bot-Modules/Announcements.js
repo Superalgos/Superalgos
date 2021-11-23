@@ -109,8 +109,8 @@ exports.newSocialBotsBotModulesAnnouncements = function (processIndex) {
                     if (errorMessage == undefined) { text = formulaValue }
                 }
 
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots !== undefined) {
-                    TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
+                if (SA.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots !== undefined) {
+                    SA.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.socialBots.announce(text)
                     tradingSystem.announcements.push([announcement.id, text])
                 } else {
 

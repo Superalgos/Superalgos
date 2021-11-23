@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un limit sell order es una instrucción enviada al exchange para comprar el asset base, para su ejecución a una tasa específica o mejor.",
                 "updated": 1624457049736
+            },
+            {
+                "language": "RU",
+                "text": "Лимитный ордер на продажу - это приказ, отправленный на биржу для продажи базового актива, для исполнения по определенному курсу или выше.\n",
+                "updated": 1637596266339
             }
         ]
     },

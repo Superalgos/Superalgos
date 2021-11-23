@@ -162,209 +162,249 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         }
     }
 
-    function installSecrets() {
-
-    }
-
-    function addSigningAccount(
+    function installSecrets(
         node,
-        rootNodes,
-        targetNodeType
+        rootNodes
     ) {
-        let githubUsername = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
-        let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
-        let signingAccounts
-
-        if (githubUsername === undefined || githubUsername === "") {
-            node.payload.uiObject.setErrorMessage(
-                "githubUsername config property missing.",
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
-            return
-        }
-
+        let userProfile = signingAccounts = node.payload.referenceParent
         /*
-        Some validations first...
+        Delete Signing Accounts with all its children, it it exists.
         */
-        if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage(
-                "The Profile Contstructor needs to reference your User Profile.",
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
-            return
+        if (userProfile.signingAccounts !== undefined) {
+            let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(userProfile.signingAccounts, rootNodes)
+        }
+        /*
+        Create Signing Accounts.
+        */
+        let signingAccounts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
+            node.payload.referenceParent,
+            'Signing Accounts',
+            UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+        )
+
+        let algoTradersPlatform = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform')
+        let socialTradingDesktopApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Desktop App')
+        let socialTradingMobileApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Mobile App')
+        let socialTradingServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Server App')
+        let socialTradingBots = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userBots, 'Social Trading Bot')
+        let socialPersonas = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.socialPersonas, 'Social Persona')
+        let p2pNetworkNodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.p2pNetworkNodes, 'P2P Network Node')
+
+        addSigningAccounts(algoTradersPlatform) 
+        addSigningAccounts(socialTradingDesktopApp) 
+        addSigningAccounts(socialTradingMobileApp) 
+        addSigningAccounts(socialTradingServerApp) 
+        addSigningAccounts(socialTradingBots) 
+        addSigningAccounts(socialPersonas) 
+        addSigningAccounts(p2pNetworkNodes) 
+
+        function addSigningAccounts(nodeArray, targetNodeType) {
+            for (let i = 0; i < nodeArray.length; i++) {
+                let currentNode = nodeArray[i]
+                addSigningAccount(currentNode, targetNodeType)
+            }
         }
 
-        if (node.payload.referenceParent.signingAccounts === undefined) {
-            signingAccounts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-                node.payload.referenceParent,
-                'Signing Accounts',
-                UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-            )
-        } else {
-            signingAccounts = node.payload.referenceParent.signingAccounts
-        }
-
-        createWallet()
-
-        function createWallet() {
-            let params
+        function addSigningAccount(
+            node,
+            targetNodeType
+        ) {
+            let githubUsername = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+            let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'mnemonic')
+            let signingAccounts
+    
+            if (githubUsername === undefined || githubUsername === "") {
+                node.payload.uiObject.setErrorMessage(
+                    "githubUsername config property missing.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
+                return
+            }
+    
             /*
-            If the user provides a mnemonic then we will get the private key and address from it,
-            otherwise, we will create a new private key and address.
+            Some validations first...
             */
-            if (mnemonic === undefined || mnemonic === "") {
-                params = {
-                    method: 'createWalletAccount',
-                    entropy: node.id + (new Date()).valueOf()
-                }
+            if (node.payload.referenceParent === undefined) {
+                node.payload.uiObject.setErrorMessage(
+                    "The Profile Contstructor needs to reference your User Profile.",
+                    UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                )
+                return
+            }
+    
+            if (node.payload.referenceParent.signingAccounts === undefined) {
+                signingAccounts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    node.payload.referenceParent,
+                    'Signing Accounts',
+                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                )
             } else {
-                params = {
-                    method: 'mnemonicToPrivateKey',
-                    mnemonic: mnemonic
+                signingAccounts = node.payload.referenceParent.signingAccounts
+            }
+    
+            createWallet()
+    
+            function createWallet() {
+                let params
+                /*
+                If the user provides a mnemonic then we will get the private key and address from it,
+                otherwise, we will create a new private key and address.
+                */
+                if (mnemonic === undefined || mnemonic === "") {
+                    params = {
+                        method: 'createWalletAccount',
+                        entropy: node.id + (new Date()).valueOf()
+                    }
+                } else {
+                    params = {
+                        method: 'mnemonicToPrivateKey',
+                        mnemonic: mnemonic
+                    }
+                }
+    
+                let url = 'WEB3' // We will access the default Client WEB3 endpoint.
+    
+                httpRequest(JSON.stringify(params), url, onResponse)
+    
+                function onResponse(err, data) {
+                    /* Lets check the result of the call through the http interface */
+                    if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                        node.payload.uiObject.setErrorMessage(
+                            'Call via HTTP Interface failed.',
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
+                        return
+                    }
+    
+                    let response = JSON.parse(data)
+    
+                    /* Lets check the result of the method call */
+                    if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+    
+                        if (mnemonic === undefined || mnemonic === "") {
+                            node.payload.uiObject.setErrorMessage(
+                                'Call to WEB3 Server failed. ' + response.error,
+                                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
+                            console.log('Call to WEB3 Server failed. ' + response.error)
+                            return
+                        } else {
+                            node.payload.uiObject.setErrorMessage(
+                                'Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error,
+                                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
+                            console.log('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error)
+                            return
+                        }
+                    }
+    
+                    signSigningAccountData(response.address, response.privateKey)
                 }
             }
-
-            let url = 'WEB3' // We will access the default Client WEB3 endpoint.
-
-            httpRequest(JSON.stringify(params), url, onResponse)
-
-            function onResponse(err, data) {
-                /* Lets check the result of the call through the http interface */
-                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage(
-                        'Call via HTTP Interface failed.',
-                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
-                    return
+    
+            function signSigningAccountData(address, privateKey) {
+    
+                let request = {
+                    url: 'WEB3',
+                    params: {
+                        method: "signData",
+                        privateKey: privateKey,
+                        data: githubUsername
+                    }
                 }
-
-                let response = JSON.parse(data)
-
-                /* Lets check the result of the method call */
-                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-
-                    if (mnemonic === undefined || mnemonic === "") {
+    
+                httpRequest(JSON.stringify(request.params), request.url, onResponse)
+    
+                function onResponse(err, data) {
+                    /* Lets check the result of the call through the http interface */
+                    if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                        node.payload.uiObject.setErrorMessage(
+                            'Call via HTTP Interface failed.',
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
+                        return
+                    }
+    
+                    let response = JSON.parse(data)
+    
+                    /* Lets check the result of the method call */
+                    if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                         node.payload.uiObject.setErrorMessage(
                             'Call to WEB3 Server failed. ' + response.error,
                             UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                         )
                         console.log('Call to WEB3 Server failed. ' + response.error)
                         return
-                    } else {
-                        node.payload.uiObject.setErrorMessage(
-                            'Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error,
-                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    }
+    
+                    createSigningAccount(response.signature)
+                }
+    
+                function createSigningAccount(signature) {
+    
+                    let signingAccount = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
+                        signingAccounts,
+                        'Signing Account',
+                        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    )
+    
+                    let signingAccountChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
+                        signingAccount,
+                        targetNodeType,
+                        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    )
+                    /*
+                    Let's get a cool name for this node. 
+                    */
+                    let targetNodeTypeCount = 0
+                    for (let i = 0; i < signingAccounts.signingAccounts.length; i++) {
+                        let singningAccount = signingAccounts.signingAccounts[i]
+                        if (singningAccount.signingAccountChild.type === targetNodeType) {
+                            targetNodeTypeCount++
+                        }
+                    }
+                    signingAccountChild.name = targetNodeType + " # " + targetNodeTypeCount
+                    let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
+                    /*
+                    We store at the User Profile the Signed githubUsername
+                    */
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccountChild.payload, 'codeName', codeName)
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
+    
+                    let secrets = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'secrets', signingAccount.name)
+                    if (secrets === undefined) {
+                        secrets = []
+                    }
+    
+                    let secret = {
+                        signingAccountChildId: signingAccountChild.id,
+                        signingAccountChildName: signingAccountChild.name,
+                        signingAccountChildType: targetNodeType,
+                        signingAccountChildCodeName: codeName,
+                        signingAccountNodeId: signingAccount.id,
+                        privateKey: privateKey,
+                        userProfileHandle: githubUsername,
+                        userProfileId: node.payload.referenceParent.id
+                    }
+    
+                    secrets.push(secret)
+    
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'secrets', secrets)
+                    /*
+                    Show nice message.
+                    */
+                    if (mnemonic === undefined || mnemonic === "") {
+                        node.payload.uiObject.setInfoMessage(
+                            "Signing Account has been successfully created.",
+                            UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                         )
-                        console.log('Call to WEB3 Server failed. Most likely the Mnemonic provided is not correct or you need to run node setup because a dependency is missing. ' + response.error)
-                        return
+                    } else {
+                        node.payload.uiObject.setInfoMessage(
+                            "Mnemonic successfully imported. Signing Account has been successfully created.",
+                            UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                        )
                     }
-                }
-
-                signSigningAccountData(response.address, response.privateKey)
-            }
-        }
-
-        function signSigningAccountData(address, privateKey) {
-
-            let request = {
-                url: 'WEB3',
-                params: {
-                    method: "signData",
-                    privateKey: privateKey,
-                    data: githubUsername
-                }
-            }
-
-            httpRequest(JSON.stringify(request.params), request.url, onResponse)
-
-            function onResponse(err, data) {
-                /* Lets check the result of the call through the http interface */
-                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage(
-                        'Call via HTTP Interface failed.',
-                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
-                    return
-                }
-
-                let response = JSON.parse(data)
-
-                /* Lets check the result of the method call */
-                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage(
-                        'Call to WEB3 Server failed. ' + response.error,
-                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
-                    console.log('Call to WEB3 Server failed. ' + response.error)
-                    return
-                }
-
-                createSigningAccount(response.signature)
-            }
-
-            function createSigningAccount(signature) {
-
-                let signingAccount = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-                    signingAccounts,
-                    'Signing Account',
-                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-                )
-                
-                let signingAccountChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-                    signingAccount,
-                    targetNodeType,
-                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-                )
-                /*
-                Let's get a cool name for this node. 
-                */
-                let targetNodeTypeCount = 0
-                for (let i = 0; i < signingAccounts.signingAccounts.length; i++) {
-                    let singningAccount = signingAccounts.signingAccounts[i]
-                    if (singningAccount.signingAccountChild.type === targetNodeType) {
-                        targetNodeTypeCount++
-                    }
-                }
-                signingAccountChild.name = targetNodeType +" # " + targetNodeTypeCount
-                let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
-                /*
-                We store at the User Profile the Signed githubUsername
-                */
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccountChild.payload, 'codeName', codeName)
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
-
-                let secrets = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'secrets', signingAccount.name)
-                if (secrets === undefined) {
-                    secrets = []
-                }
-
-                let secret = {
-                    signingAccountChildId: signingAccountChild.id,
-                    signingAccountChildName: signingAccountChild.name,
-                    signingAccountChildType: targetNodeType,
-                    signingAccountChildCodeName: codeName,
-                    signingAccountNodeId: signingAccount.id,
-                    privateKey: privateKey,
-                    userProfileHandle: githubUsername,
-                    userProfileId: node.payload.referenceParent.id
-                }
-
-                secrets.push(secret)
-                
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'secrets', secrets)
-                /*
-                Show nice message.
-                */
-                if (mnemonic === undefined || mnemonic === "") {
-                    node.payload.uiObject.setInfoMessage(
-                        "Signing Account has been successfully created.",
-                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                    )
-                } else {
-                    node.payload.uiObject.setInfoMessage(
-                        "Mnemonic successfully imported. Signing Account has been successfully created.",
-                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                    )
                 }
             }
         }

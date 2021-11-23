@@ -138,6 +138,11 @@
             "style": "Chapter",
             "text": "XI->Foundations->Tutorial->Setting Up a New Chart->This tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
             "updated": 1621991930816
+        },
+        {
+            "style": "Chapter",
+            "text": "XII->Governance->Tutorial->Creating Your User Profile Tutorial->This tutorial covers everything you need to know about adding a user profile within the  Superalgos Governance system.",
+            "updated": 1637591853047
         }
     ]
 }

@@ -18,7 +18,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
 
     }
 
-    async function initialize(signingAccountChildCodeName, p2pNetworkIdentity) {
+    async function initialize(nodeCodeName, p2pNetworkIdentity) {
 
         let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
             'Governance',
@@ -95,7 +95,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     Now, we will extract the information from the User Profile, specifically of our identity at the p2p network.
                     */
                     if (
-                        signingAccount.signingAccountChild.id === SA.secrets.map.get(signingAccountChildCodeName).signingAccountChildId
+                        signingAccount.signingAccountChild.id === SA.secrets.map.get(nodeCodeName).nodeId
                     ) {
                         p2pNetworkIdentity.node = signingAccount.signingAccountChild
                         p2pNetworkIdentity.blockchainAccount = blockchainAccount

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El nodo order rate define la tasa de órdenes límite.",
                 "updated": 1624459989822
+            },
+            {
+                "language": "RU",
+                "text": "Узел скорости заказов определяет скорость лимитных ордеров.",
+                "updated": 1637757390733
             }
         ]
     },

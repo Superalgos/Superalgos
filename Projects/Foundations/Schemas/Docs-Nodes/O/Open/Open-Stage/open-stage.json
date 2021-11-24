@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El open stage se ocupa de las definiciones que componen la lógica para ingresar a una posición, incluida la tasa y el tamaño objetivo, y la ejecución de la orden.",
                 "updated": 1624459561011
+            },
+            {
+                "language": "RU",
+                "text": "На открытой стадии рассматриваются определения, которые составляют логику входа в позицию, включая целевую ставку и размер, а также выполнение ордеров.",
+                "updated": 1637756161148
             }
         ]
     },

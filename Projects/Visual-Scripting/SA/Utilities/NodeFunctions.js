@@ -12,7 +12,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
 
     function nodeBranchToArray(node, nodeType) {
         let resultArray = []
-        scanNodeBranch(node, nodeType)
+        scanNodeBranch(node)
         return resultArray
 
         function scanNodeBranch(startingNode) {

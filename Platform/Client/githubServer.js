@@ -168,8 +168,6 @@ exports.newGithubServer = function newGithubServer() {
             username = unescape(username)
             token = unescape(token)
 
-            let error
-
             await doGithub()
 
             async function doGithub() {
@@ -184,7 +182,7 @@ exports.newGithubServer = function newGithubServer() {
 
                     await octokit.repos.createFork({
                         owner: 'Superalgos',
-                        repo: "Superalgos"
+                        repo: 'Superalgos'
                     })
                 } catch (err) {
                     if (err === undefined) { return }

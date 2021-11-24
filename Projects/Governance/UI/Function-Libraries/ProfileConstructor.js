@@ -140,8 +140,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
 
                 let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
-                liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                liquidProgs.payload.uiObject.menu.internalClick('Add Tokens Awarded')
+                liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
 
                 /*
                 Check if the user already has the SA fork. If not, do it for them.

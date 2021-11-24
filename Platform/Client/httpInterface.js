@@ -259,8 +259,14 @@ exports.newHttpInterface = function newHttpInterface() {
                                 let socialBot = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(0)
                                 socialBot.initialize(config)
                                 socialBot.sendMessage(message)
-                                console.log('[INFO] httpInterface -> Social-Bots -> Test-Twitter-Message -> message:', message)
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    .then((response) => {
+                                        console.log('[INFO] httpInterface -> Social-Bots -> Test-Twitter-Message -> response:', response)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                    })
+                                    .catch((err) => {
+                                        console.log(err)
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                    })
                             }
                             break
                         }

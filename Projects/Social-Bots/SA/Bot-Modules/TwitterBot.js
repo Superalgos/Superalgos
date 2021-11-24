@@ -82,12 +82,15 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         try {
             message = {text: formatMessage(message)}
         } catch (err) {
-            logError('announce -> Twitter message formatting error -> err:', err)
+            logError('sendMessage -> Twitter message formatting error -> err:', err)
         }
         let urlParams = {}
         await thisObject.twitterClient.post('tweets', message, urlParams)
-            .then((response) => { logInfo('announce -> Twitter bot post tweet -> response ->', response) })
-            .catch((err) => { logError('announce -> Twitter bot post tweet ->', err) })
+            .then((response) => { 
+                logInfo('sendMessage -> Twitter bot post tweet -> response ->', response)
+                return response
+            })
+            .catch((err) => { logError('sendMessage -> Twitter bot post tweet ->', err) })
     }
 
     function formatMessage(message) {

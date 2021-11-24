@@ -38,7 +38,7 @@
     "attachingRules": {
         "compatibleTypes": "->Social Persona->"
     },
-    "propertyNameAtParent": "following",
+    "propertyNameAtParent": "socialPersonasFollowing",
     "childrenNodesProperties": [
         {
             "name": "socialPersonasFollowed",

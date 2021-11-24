@@ -38,7 +38,7 @@
     "attachingRules": {
         "compatibleTypes": "->Social Trading Bot->"
     },
-    "propertyNameAtParent": "following",
+    "propertyNameAtParent": "socialTradingBotsFollowing",
     "childrenNodesProperties": [
         {
             "name": "socialTradingBotsFollowed",

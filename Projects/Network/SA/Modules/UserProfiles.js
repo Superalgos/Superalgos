@@ -113,13 +113,13 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
 
                     let networkClientsMap = new Map()
 
-                    addToNetworkClientMap(algoTradersPlatform, 'Algo Traders Platform')
-                    addToNetworkClientMap(socialTradingDesktopApp, 'Social Trading Desktop App')
-                    addToNetworkClientMap(socialTradingMobileApp, 'Social Trading Mobile App')
-                    addToNetworkClientMap(socialTradingServerApp, 'Social Trading Server App')
-                    addToNetworkClientMap(socialTradingBots, 'Social Trading Bot')
-                    addToNetworkClientMap(socialPersonas, 'Social Persona')
-                    addToNetworkClientMap(p2pNetworkNodes, 'P2P Network Node')
+                    addToNetworkClientMap(algoTradersPlatform)
+                    addToNetworkClientMap(socialTradingDesktopApp)
+                    addToNetworkClientMap(socialTradingMobileApp)
+                    addToNetworkClientMap(socialTradingServerApp)
+                    addToNetworkClientMap(socialTradingBots)
+                    addToNetworkClientMap(socialPersonas)
+                    addToNetworkClientMap(p2pNetworkNodes)
 
                     function addToNetworkClientMap(nodeArray) {
                         for (let i = 0; i < nodeArray.length; i++) {

@@ -360,7 +360,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
                     }
                 }
-
+                    break
                 case 'Docs': {
                     switch (requestPath[2]) { // switch by command
                         case 'Save-Node-Schema': {

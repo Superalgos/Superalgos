@@ -265,10 +265,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                signSigningAccountData(response.address, response.privateKey)
+                signSigningAccountData(response.privateKey)
             }
 
-            function signSigningAccountData(address, privateKey) {
+            function signSigningAccountData(privateKey) {
 
                 let request = {
                     url: 'WEB3',

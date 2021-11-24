@@ -125,6 +125,60 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
                 /*
+                Set up a basic profile to start receiving benefits
+                */
+                let finServices = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
+                finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                finServices.payload.uiObject.menu.internalClick("Add Financial Program")
+                
+                let stakeProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
+                stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
+
+                let liquidProgs = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
+                liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
+
+                let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
+                liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProgs.payload.uiObject.menu.internalClick('Add Tokens Awarded')
+
+                /*
+                Check if the user already has the SA fork. If not, do it for them.
+                */
+                
+                const hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
+                if(hasFork === undefined) {
+                    // New user! Probably doesn't have a fork, so let's create it.
+                    let params = {
+                        method: 'createGithubFork',
+                        username: config.username,
+                        token: config.token,
+                    }
+
+                    let url = 'GOV' // We will access the default Client GOV endpoint.
+
+                    httpRequest(JSON.stringify(params), url, onResponse)
+
+                    function onResponse(err, data) {
+                      
+                        data = JSON.parse(data)
+                        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Automated User Profile Creation Done')
+                        } else {
+                            if (data.docs === undefined) {return}
+                            UI.projects.education.spaces.docsSpace.navigateTo(
+                                data.docs.project,
+                                data.docs.category,
+                                data.docs.type,
+                                data.docs.anchor,
+                                undefined,
+                                data.docs.placeholder
+                            )
+                        }
+                    }
+                } 
+                /*
                 We store at the User Profile the Signed githubUsername
                 */
                 UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)
@@ -138,11 +192,12 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 We also Install the User Profile as a Plugin, which in turns saves it.
                 */
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
-                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin') 
                 /*
                 Show nice message.
                 */
                 if (mnemonic === undefined || mnemonic === "") {
+                    // TODO link to some wallet and setup the token
                     node.payload.uiObject.setInfoMessage(
                         "Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.",
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR

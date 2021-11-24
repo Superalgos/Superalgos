@@ -1286,6 +1286,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'createGithubFork': {
+
+                                    let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
+                                        params.repository,
+                                        params.username,
+                                        params.token
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 case 'mergePullRequests': {
 
                                     let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(

@@ -4,7 +4,8 @@
         initialize: initialize,
         finalize: finalize,
         run: run,
-        onMessage: onMessage
+        onMessage: onMessage,
+        name: 'Events Server'
     }
 
     let eventHandlers = new Map()

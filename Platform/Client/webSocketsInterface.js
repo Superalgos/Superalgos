@@ -4,7 +4,9 @@
 
     let thisObject = {
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        name: 'Web Sockets Interface',
+        port: global.env.PLATFORM_WEB_SOCKETS_INTERFACE_PORT
     }
 
     const WEB_SOCKET = SA.nodeModules.ws

@@ -13,7 +13,8 @@ exports.newWeb3Server = function newWeb3Server() {
         payContributors: payContributors,
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'WEB3 Server'
     }
 
     const Web3 = SA.nodeModules.web3

@@ -5,7 +5,8 @@ exports.newPluginServer = function newPluginServer() {
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'Plugin Server'
     }
 
     return thisObject

@@ -7,7 +7,8 @@ exports.newGithubServer = function newGithubServer() {
         mergePullRequests: mergePullRequests,
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'Github Server'
     }
 
     const GITHUB_API_WAITING_TIME = 250

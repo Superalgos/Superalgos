@@ -82,10 +82,29 @@ for (let i = 0; i < process.argv.length; i++) {
 run(initialWorkspace)
 
 async function run(initialWorkspace) {
-    PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
-    await PL.app.run(initialWorkspace)
-    console.log('Superalgos Platform App is Running!')
+    let PlatformApp = require('./Platform/PlatformApp.js');
+    let servers = {
+        /* Servers */
+        WEB_SERVER: require('./Client/webServer.js').newWebServer(),
+        DATA_FILE_SERVER: require('./Client/dataFileServer.js').newDataFileServer(),
+        PROJECT_FILE_SERVER: require('./Client/projectFileServer.js').newProjectFileServer(),
+        UI_FILE_SERVER: require('./Client/uiFileServer.js').newUIFileServer(),
+        PLUGIN_SERVER: require('./Client/pluginServer.js').newPluginServer(),
+        EVENT_SERVER: require('./Client/eventServer.js').newEventServer(),
+        TASK_MANAGER_SERVER: require('./Client/taskManagerServer.js').newTaskManagerServer(),
+        CCXT_SERVER: require('./Client/ccxtServer.js').newCCXTServer(),
+        WEB3_SERVER: require('./Client/web3Server.js').newWeb3Server(),
+        GITHUB_SERVER: require('./Client/githubServer.js').newGithubServer()
+    };
+    let networkInterfaces = [
+        /* Network Interfaces */
+        require('./Client/webSocketsInterface.js').newWebSocketsInterface(),
+        require('./Client/httpInterface.js').newHttpInterface(),
+    ];
+    PL.app = new PlatformApp(servers, networkInterfaces);
+    PL.app.run(servers, networkInterfaces, initialWorkspace, PL);
+    console.log('Superalgos Platform App is Running!');
     if(process.send) {
-        process.send("Running")
+        process.send("Running");
     }
 }

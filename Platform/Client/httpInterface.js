@@ -9,7 +9,9 @@ exports.newHttpInterface = function newHttpInterface() {
     */
     let thisObject = {
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        name: 'Http Interface',
+        port: global.env.PLATFORM_HTTP_INTERFACE_PORT
     }
 
     let webhook = new Map()

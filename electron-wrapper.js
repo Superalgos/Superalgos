@@ -13,7 +13,7 @@ process.env.DATA_PATH = app.getPath('documents')
 const WINDOW_WIDTH = null
 const WINDOW_HEIGHT = null
 
-var w
+let window;
 
 var app_ready = false
 var server_ready = false
@@ -39,18 +39,18 @@ function open () {
     resizable: true
   }
 
-  w = new BrowserWindow(
-    bw_options
+  app.window = new BrowserWindow(
+      bw_options
   )
 
-  w.setResizable(true)
-  
-  w.loadURL("http://localhost:" + port)
+  app.window.setResizable(true)
+
+  app.window.loadURL("http://localhost:" + port)
 
   // w.webContents.openDevTools()
 
-  w.on('closed', function () {
-    w = null
+  app.window.on('closed', function () {
+    window = null
   })
 }
 

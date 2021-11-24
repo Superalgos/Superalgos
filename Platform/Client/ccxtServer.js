@@ -5,7 +5,8 @@ exports.newCCXTServer = function newWebServer() {
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'CCXT Server'
     }
 
     return thisObject

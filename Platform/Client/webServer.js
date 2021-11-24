@@ -5,7 +5,8 @@ exports.newWebServer = function newWebServer() {
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'Web Server'
     }
 
     return thisObject

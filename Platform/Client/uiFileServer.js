@@ -5,7 +5,8 @@ exports.newUIFileServer = function newUIFileServer() {
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'UI File Server'
     }
 
     return thisObject

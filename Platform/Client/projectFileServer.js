@@ -5,7 +5,8 @@ exports.newProjectFileServer = function newProjectFileServer() {
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'Project File Server'
     }
 
     return thisObject

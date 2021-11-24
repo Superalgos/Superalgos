@@ -5,7 +5,8 @@ exports.newDataFileServer = function newDataFileServer() {
     let thisObject = {
         initialize: initialize,
         finalize: finalize,
-        run: run
+        run: run,
+        name: 'Data File Server'
     }
 
     return thisObject

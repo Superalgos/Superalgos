@@ -346,9 +346,11 @@ function newFoundationsCodeEditorEditorPage() {
                                  * We will provide auto-complete only for assets pair found in Markets
                                  * Doing so we will avoid providing completion for assets that are not used in a market
                                  */
+
+                                    //TODO: Disabled on purpose, causes high memory consumption when multiple exchanges are loaded
                                 let market = marketPrefix + baseAsset + dot + quotedAsset + dot + chartObj
-                                stringObjects.push(market)
-                                stringObjects.push(exchangePrefix + exchangeName + dot + market)
+                                // stringObjects.push(market)
+                                // stringObjects.push(exchangePrefix + exchangeName + dot + market)
                             })
                         })
                     })

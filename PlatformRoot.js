@@ -52,7 +52,8 @@ SA.nodeModules = {
     simpleGit: require('simple-git'),
     lookpath: require('lookpath'),
     process: require('process'),
-    childProcess: require('child_process')
+    childProcess: require('child_process'),
+    twitter: require('twitter-v2')
 }
 
 SA.version = require('./package.json').version    

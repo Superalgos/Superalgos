@@ -187,7 +187,7 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
 
     function sendTwitterTestMessage(node, callBackFunction) {
         // http api request to backend platform
-        let endpoint = "Social-Bots/Test-Message"
+        let endpoint = "Social-Bots/Twitter-Test-Message"
         let consumer_key = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_key')
         let consumer_secret = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_secret')
         let access_token_key = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'access_token_key')

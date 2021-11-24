@@ -1691,13 +1691,6 @@
         "SA": {
             "botModules": [
                 {
-                    "name": "Social Bots",
-                    "propertyName": "socialBots",
-                    "functionName": "newSocialBotsBotModulesSocialBots",
-                    "fileName": "SocialBots.js",
-                    "folderName": ""
-                },
-                {
                     "name": "Telegram Bot",
                     "propertyName": "telegramBot",
                     "functionName": "newSocialBotsBotModulesTelegramBot",
@@ -1734,6 +1727,13 @@
                     "propertyName": "announcements",
                     "functionName": "newSocialBotsBotModulesAnnouncements",
                     "fileName": "Announcements.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Social Bots",
+                    "propertyName": "socialBots",
+                    "functionName": "newSocialBotsBotModulesSocialBots",
+                    "fileName": "SocialBots.js",
                     "folderName": ""
                 }
             ]

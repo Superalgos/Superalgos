@@ -242,16 +242,24 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Social-Bots': {
                     switch (requestPath[2]) { // switch by command
-                        case 'Test-Message': {
+                        case 'Twitter-Test-Message': {
                             SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
-                            function processRequest(messageReceived) {
-                                if (messageReceived === undefined) {
+                            function processRequest(body) {
+                                if (body === undefined) {
                                     return
-                                }        
-                                let socialBot = SA.projects.socialBots.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
-                                socialBot.botInstance.initialize()
-                                socialBot.sendMessage(messageReceived)
-                                console.log('[INFO] httpInterface -> Social-Bots -> Test-Twitter-Message -> messageReceived = ' + messageReceived)
+                                }
+                                body = JSON.parse(body)
+                                let config = {
+                                    consumer_key: body.consumer_key,
+                                    consumer_secret: body.consumer_secret,
+                                    access_token_key: body.access_token_key,
+                                    access_token_secret: body.access_token_secret,
+                                }
+                                let message = body.text
+                                let socialBot = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(0)
+                                socialBot.initialize(config)
+                                socialBot.sendMessage(message)
+                                console.log('[INFO] httpInterface -> Social-Bots -> Test-Twitter-Message -> message:', message)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
                             break

@@ -15,7 +15,7 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
     function initialize(config) {
         /* Twitter Bot Initialization */
-        var Twitter = SA.nodeModules.twitter
+        const Twitter = SA.nodeModules.twitter
 
         let consumer_key = config.consumer_key
         let consumer_secret = config.consumer_secret
@@ -56,9 +56,15 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         thisObject.twitterClient = twitterClient
 
         try {
+            let exchange = 'TestExchange'
+            let market = 'TestBase/TestQuote'
+            if (typeof TS !== 'undefined' && TS) {
+                exchange = TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name
+                market = `${TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName}/${TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName}`
+            }
             thisObject.taskParameters = {
-                exchange: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.parentNode.parentNode.name,
-                market: `${TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName}/${TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName}`
+                exchange: exchange,
+                market: market
             }
             if (config.format === undefined) {
                 thisObject.format = "%{MESSAGE}"
@@ -76,12 +82,12 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         try {
             message = {text: formatMessage(message)}
         } catch (err) {
-            logError(`announce -> Twitter message formatting error -> err = ${err}`)
+            logError('announce -> Twitter message formatting error -> err:', err)
         }
-
-        const response = await thisObject.twitterClient.post('tweets', message)
-            .then(logInfo(`announce -> Twitter bot post tweet -> response -> ${response}`))
-            .catch((err) => { logError(`announce -> Twitter bot post tweet -> ${err}`) })
+        let urlParams = {}
+        await thisObject.twitterClient.post('tweets', message, urlParams)
+            .then((response) => { logInfo('announce -> Twitter bot post tweet -> response ->', response) })
+            .catch((err) => { logError('announce -> Twitter bot post tweet ->', err) })
     }
 
     function formatMessage(message) {
@@ -93,14 +99,14 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     }
 
     function logInfo(message) {
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] ' + message)
+        console.log('[INFO]', message)
     }
     
     function logWarn(message) {
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[WARN] ' + message)
+        console.log('[WARN]', message)
     }
 
     function logError(message) {
-        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] ' + message)
+        console.log('[ERROR]', message)
     }
 }

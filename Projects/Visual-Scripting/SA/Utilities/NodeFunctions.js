@@ -12,11 +12,15 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
 
     function nodeBranchToArray(node, nodeType) {
         let resultArray = []
-        scanNodeBranch(node, nodeType)
+        scanNodeBranch(node)
         return resultArray
 
         function scanNodeBranch(startingNode) {
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            if (startingNode === undefined) {
+                return
+            }
+
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.type === nodeType) {
@@ -53,14 +57,14 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         returns the first instance found. 
         */
         let nodeFound
-        scanNodeMesh(node, nodeType)
+        scanNodeMesh(node)
         return nodeFound
 
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
             if (nodeFound !== undefined) { return }
 
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.type === nodeType) {
@@ -114,7 +118,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
 
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.id === nodeId) {

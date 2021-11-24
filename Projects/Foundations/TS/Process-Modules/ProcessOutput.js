@@ -18,23 +18,23 @@
             /* We will raise the events for the datasets impacted by the process that just finished. */
 
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
-                let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
                 for (let j = 0; j < outputDatasets.length; j++) {
                     let outputDataset = outputDatasets[j]
 
-                    let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
+                    let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
                     if (botNode === undefined) { 
-                        botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
+                        botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                     }
                     if (botNode === undefined) { 
-                        botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
+                        botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                     }
                     if (botNode === undefined) { 
-                        botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
+                        botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
                     }
                     if (botNode === undefined) { 
-                        botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
+                        botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
                     }
 
                     /* Some validations to verify that everything is in place. */
@@ -112,23 +112,23 @@
     function asyncRaiseEvents(lastFile, timeFrames) {
 
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput !== undefined) {
-            let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
             for (let j = 0; j < outputDatasets.length; j++) {
                 let outputDataset = outputDatasets[j]
 
-                let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
+                let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Indicator Bot')
                 if (botNode === undefined) { 
-                    botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
+                    botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                 }
                 if (botNode === undefined) { 
-                    botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
+                    botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
                 }
                 if (botNode === undefined) { 
-                    botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
+                    botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'API Data Fetcher Bot')
                 }
                 if (botNode === undefined) { 
-                    botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
+                    botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Learning Bot')
                 }
 
                 /* Some validations to verify that everything is in place. */

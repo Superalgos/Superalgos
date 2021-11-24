@@ -62,7 +62,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         }
         for (let i = 0; i < SA.secrets.array.length; i++) {
             let secret = SA.secrets.array[i]
-            SA.secrets.map.set(secret.signingAccountChildCodeName, secret)
+            SA.secrets.map.set(secret.nodeCodeName, secret)
         }
 
         NT.app = require('./Network/NetwokNode.js').newNetworkNode()

@@ -139,7 +139,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     return
                                 }
                                 default: {
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({error: 'Method ' + params.method + ' is invalid.'}), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }
                             }
                         } catch (err) {
@@ -320,6 +320,42 @@ exports.newHttpInterface = function newHttpInterface() {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
                             }
 
+                            break
+                        }
+                    }
+                }
+                    break
+                case 'Secrets': {
+                    switch (requestPath[2]) { // switch by command
+                        case 'Save-Secrets-File': {
+                            SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
+
+                            async function processRequest(body) {
+                                try {
+
+                                    let filePath = global.env.PATH_TO_SECRETS + '/'
+                                    let fileName = "Secrets.json"
+
+                                    createNewDir(filePath)
+                                    SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
+
+                                    console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+
+                                } catch (err) {
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Params Received = ' + body)
+
+                                    let error = {
+                                        result: 'Fail Because',
+                                        message: err.message,
+                                        stack: err.stack
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                }
+                            }
                             break
                         }
                     }
@@ -633,16 +669,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
                             }
-
-                            function createNewDir(path) {
-                                try {
-                                    fs.mkdirSync(path, {recursive: true})
-                                } catch (err) {
-                                    if (err.message.indexOf('file already exists') < 0) {
-                                        throw (err)
-                                    }
-                                }
-                            }
                         }
 
                         return noErrorsDuringSaving
@@ -697,7 +723,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 contribute()
 
                                 async function contribute() {
-                                    const {lookpath} = SA.nodeModules.lookpath
+                                    const { lookpath } = SA.nodeModules.lookpath
                                     const gitpath = await lookpath('git')
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
@@ -768,7 +794,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGithub() {
 
-                                    const {Octokit} = SA.nodeModules.octokit
+                                    const { Octokit } = SA.nodeModules.octokit
 
                                     const octokit = new Octokit({
                                         auth: token,
@@ -832,7 +858,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 update()
 
                                 async function update() {
-                                    const {lookpath} = SA.nodeModules.lookpath
+                                    const { lookpath } = SA.nodeModules.lookpath
                                     const gitpath = await lookpath('git');
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
@@ -873,11 +899,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                     let message
                                     try {
                                         message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
-                                        return {message: message}
+                                        return { message: message }
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
                                         console.log(err.stack)
-                                        return {error: err}
+                                        return { error: err }
                                     }
                                 }
 
@@ -903,7 +929,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 checkout()
 
                                 async function checkout() {
-                                    const {lookpath} = SA.nodeModules.lookpath
+                                    const { lookpath } = SA.nodeModules.lookpath
                                     const gitpath = await lookpath('git');
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
@@ -1001,7 +1027,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 branch()
 
                                 async function branch() {
-                                    const {lookpath} = SA.nodeModules.lookpath
+                                    const { lookpath } = SA.nodeModules.lookpath
                                     const gitpath = await lookpath('git');
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
@@ -1343,7 +1369,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         async function doGithubUser() {
 
-                                            const {Octokit} = SA.nodeModules.octokit
+                                            const { Octokit } = SA.nodeModules.octokit
 
                                             const octokit = new Octokit({
                                                 auth: token,
@@ -1355,7 +1381,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             const head = username + ':' + contributionsBranch
                                             //const base = currentBranch
                                             let base = undefined
-                                            if(process.env.SA_MODE === 'gitDisable') {
+                                            if (process.env.SA_MODE === 'gitDisable') {
                                                 base = 'develop'
                                             } else {
                                                 base = currentBranch
@@ -1435,11 +1461,11 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         async function getSHA(path) {
                                             let sha = ''
-                                            const {graphql} = SA.nodeModules.graphql
+                                            const { graphql } = SA.nodeModules.graphql
 
                                             try {
 
-                                                const {repository} = await graphql(
+                                                const { repository } = await graphql(
                                                     '{  ' +
                                                     '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
                                                     '    object(expression: "develop:' + path + '") {' +
@@ -1524,7 +1550,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     return
                                 }
                                 default: {
-                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({error: 'Method ' + params.method + ' is invalid.'}), httpResponse)
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify({ error: 'Method ' + params.method + ' is invalid.' }), httpResponse)
                                 }
                             }
                         } catch (err) {
@@ -1555,132 +1581,132 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'Images': // This means the Images folder.
-                {
-                    let path = global.env.PATH_TO_PLATFORM + '/WebServer/Images/' + requestPath[2]
+                    {
+                        let path = global.env.PATH_TO_PLATFORM + '/WebServer/Images/' + requestPath[2]
 
-                    if (requestPath[3] !== undefined) {
-                        path = path + '/' + requestPath[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
+                        }
+
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
+                        }
+
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
+                        }
+
+                        path = unescape(path)
+
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
-
-                    if (requestPath[4] !== undefined) {
-                        path = path + '/' + requestPath[4]
-                    }
-
-                    if (requestPath[5] !== undefined) {
-                        path = path + '/' + requestPath[5]
-                    }
-
-                    path = unescape(path)
-
-                    SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
-                }
                     break
                 case 'Icons': // This means the Icons folder under Projects.
-                {
-                    let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/Icons'
+                    {
+                        let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/Icons'
 
-                    if (requestPath[3] !== undefined) {
-                        path = path + '/' + requestPath[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
+                        }
+
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
+                        }
+
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
+                        }
+
+                        path = unescape(path)
+
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
-
-                    if (requestPath[4] !== undefined) {
-                        path = path + '/' + requestPath[4]
-                    }
-
-                    if (requestPath[5] !== undefined) {
-                        path = path + '/' + requestPath[5]
-                    }
-
-                    path = unescape(path)
-
-                    SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
-                }
                     break
                 case 'GIFs': // This means the GIFs folder under Projects.
-                {
-                    let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/GIFs'
+                    {
+                        let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/GIFs'
 
-                    if (requestPath[3] !== undefined) {
-                        path = path + '/' + requestPath[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
+                        }
+
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
+                        }
+
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
+                        }
+
+                        path = unescape(path)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
-
-                    if (requestPath[4] !== undefined) {
-                        path = path + '/' + requestPath[4]
-                    }
-
-                    if (requestPath[5] !== undefined) {
-                        path = path + '/' + requestPath[5]
-                    }
-
-                    path = unescape(path)
-                    SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
-                }
                     break
                 case 'PNGs': // This means the PNGs folder under Projects.
-                {
-                    let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/PNGs'
+                    {
+                        let path = global.env.PATH_TO_PROJECTS + '/' + requestPath[2] + '/PNGs'
 
-                    if (requestPath[3] !== undefined) {
-                        path = path + '/' + requestPath[3]
+                        if (requestPath[3] !== undefined) {
+                            path = path + '/' + requestPath[3]
+                        }
+
+                        if (requestPath[4] !== undefined) {
+                            path = path + '/' + requestPath[4]
+                        }
+
+                        if (requestPath[5] !== undefined) {
+                            path = path + '/' + requestPath[5]
+                        }
+
+                        path = unescape(path)
+                        SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
                     }
-
-                    if (requestPath[4] !== undefined) {
-                        path = path + '/' + requestPath[4]
-                    }
-
-                    if (requestPath[5] !== undefined) {
-                        path = path + '/' + requestPath[5]
-                    }
-
-                    path = unescape(path)
-                    SA.projects.foundations.utilities.httpResponses.respondWithImage(path, httpResponse)
-                }
                     break
                 case 'WebServer': // This means the WebServer folder.
-                {
-                    SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/' + requestPath[2], httpResponse)
-                }
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/' + requestPath[2], httpResponse)
+                    }
                     break
                 case 'externalScripts': // This means the WebServer folder.
-                {
-                    // This allows to have sub-folders in externalScripts
-                    let fullPath = ''
-                    for (let i = 2; i < requestPath.length; i++) {
-                        fullPath += requestPath[i]
-                        if (i !== requestPath.length - 1) {
-                            fullPath += '/'
+                    {
+                        // This allows to have sub-folders in externalScripts
+                        let fullPath = ''
+                        for (let i = 2; i < requestPath.length; i++) {
+                            fullPath += requestPath[i]
+                            if (i !== requestPath.length - 1) {
+                                fullPath += '/'
+                            }
                         }
+
+                        /**
+                         *  Sometimes libs will call fonts/images etc. by themselves thus we should have a filter for file type to respond with the correct content and headers, but from the externalScripts folder
+                         *  This code should be improved when needed with specific file types
+                         */
+
+                        let requestedFileExtension = requestPath[requestPath.length - 1].split('.').pop()
+                        switch (requestedFileExtension) {
+                            case 'otf':
+                            case 'ttf':
+                            case 'eot':
+                            case 'woff':
+                            case 'woff2':
+                                SA.projects.foundations.utilities.httpResponses.respondWithFont(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
+                                break
+                            default:
+                                SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
+                        }
+
                     }
-
-                    /**
-                     *  Sometimes libs will call fonts/images etc. by themselves thus we should have a filter for file type to respond with the correct content and headers, but from the externalScripts folder
-                     *  This code should be improved when needed with specific file types
-                     */
-
-                    let requestedFileExtension = requestPath[requestPath.length - 1].split('.').pop()
-                    switch (requestedFileExtension) {
-                        case 'otf':
-                        case 'ttf':
-                        case 'eot':
-                        case 'woff':
-                        case 'woff2':
-                            SA.projects.foundations.utilities.httpResponses.respondWithFont(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
-                            break
-                        default:
-                            SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/WebServer/externalScripts/' + fullPath, httpResponse)
-                    }
-
-                }
                     break
                 case 'Plotters': // This means the plotter folder, not to be confused with the Plotters script!
-                {
-                    let project = requestPath[2]
-                    let dataMine = requestPath[3]
-                    let codeName = requestPath[4]
-                    let moduleName = requestPath[5]
-                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'Bots-Plotters-Code' + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
-                    SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
-                }
+                    {
+                        let project = requestPath[2]
+                        let dataMine = requestPath[3]
+                        let codeName = requestPath[4]
+                        let moduleName = requestPath[5]
+                        let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/' + 'Bots-Plotters-Code' + '/' + dataMine + '/plotters/' + codeName + '/' + moduleName
+                        SA.projects.foundations.utilities.httpResponses.respondWithFile(filePath, httpResponse)
+                    }
                     break
                 case 'ChartLayers': {
                     SA.projects.foundations.utilities.httpResponses.respondWithFile(global.env.PATH_TO_PLATFORM + '/UI/' + endpointOrFile + '/' + requestPath[2], httpResponse)
@@ -1878,8 +1904,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                 fileName
                             )
                                 .then(response => {
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
-                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(response, httpResponse)
+                                }
                                 )
                                 .catch(err => {
                                     let error = {
@@ -2059,7 +2085,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             /* Create Dir if it does not exist */
                             if (!fs.existsSync(dir)) {
-                                fs.mkdirSync(dir, {recursive: true});
+                                fs.mkdirSync(dir, { recursive: true });
                             }
 
                             fs.writeFile(filePath, fileContent, onFileWritten)
@@ -2200,6 +2226,16 @@ exports.newHttpInterface = function newHttpInterface() {
             }
             if (err.message !== undefined) {
                 console.log('[ERROR] onHttpRequest -> err.message = ' + err.message)
+            }
+        }
+    }
+
+    function createNewDir(path) {
+        try {
+            SA.nodeModules.fs.mkdirSync(path, { recursive: true })
+        } catch (err) {
+            if (err.message.indexOf('file already exists') < 0) {
+                throw (err)
             }
         }
     }

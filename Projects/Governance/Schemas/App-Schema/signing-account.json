@@ -25,6 +25,9 @@
     "attachingRules": {
         "compatibleTypes": "->Signing Accounts->"
     },
+    "referencingRules": {
+        "compatibleTypes": "->P2P Network Node->Algo Traders Platform->Social Trading Mobile App->Social Trading Desktop App->Social Trading Server App->"
+    },
     "editors": {
         "config": true
     },
@@ -32,36 +35,8 @@
         "config": "{}"
     },
     "propertyNameAtParent": "signingAccounts",
-    "childrenNodesProperties": [
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "P2P Network Node",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Algo Traders Platform",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Social Trading Mobile App",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Social Trading Desktop App",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Social Trading Server App",
-            "autoAdd": false
-        }
+    "childrenNodesProperties": [],
+    "title": [
+        "Use Reference Parent"
     ]
 }

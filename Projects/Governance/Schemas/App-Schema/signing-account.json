@@ -35,5 +35,8 @@
         "config": "{}"
     },
     "propertyNameAtParent": "signingAccounts",
-    "childrenNodesProperties": []
+    "childrenNodesProperties": [],
+    "title": [
+        "Use Reference Parent"
+    ]
 }

@@ -326,7 +326,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     We store at the User Profile the Signed userProfileHandle
                     */
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
-                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'signature', signature)
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'codeName', codeName)
+                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
 
                     let secrets = secretsFile.secrets
 

@@ -56,7 +56,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
             SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
             /*
             Each User Profile might have Signing Accounts, meaning
-            accounts that can be signed on behalf of the User Profile.
+            accounts that can sign on behalf of the User Profile.
             */
             if (userProfilePlugin.signingAccounts !== undefined) {
                 for (let j = 0; j < userProfilePlugin.signingAccounts.signingAccounts.length; j++) {
@@ -70,14 +70,15 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     If the Signing Account is for a P2P node, we will add the node to the array of available nodes at the p2p network.
                     */
                     if (
-                        signingAccount.signingAccountChild.type === "P2P Network Node" &&
-                        signingAccount.signingAccountChild.config !== undefined
+                        signingAccount.referenceParent !== undefined &&
+                        signingAccount.referenceParent.type === "P2P Network Node" &&
+                        signingAccount.referenceParent.config !== undefined 
                     ) {
                         let config
                         try {
-                            config = JSON.parse(signingAccount.signingAccountChild.config)
+                            config = JSON.parse(signingAccount.referenceParent.config)
                         } catch (err) {
-                            console.log('P2P Network Node Config not in JSON format. userProfileHandle = ' + userHandle + ' NodeId = ' + signingAccount.signingAccountChild.id)
+                            console.log('P2P Network Node Config not in JSON format. userProfileHandle = ' + userHandle + ' NodeId = ' + signingAccount.referenceParent.id)
                             continue
                         }
                         if (config.host === undefined) {
@@ -88,16 +89,17 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                         }
 
                         let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                        p2pNetworkNode.initialize(signingAccount.signingAccountChild, userProfile, blockchainAccount)
+                        p2pNetworkNode.initialize(signingAccount.referenceParent, userProfile, blockchainAccount)
                         SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                     }
                     /*
                     Now, we will extract the information from the User Profile, specifically of our identity at the p2p network.
                     */
                     if (
-                        signingAccount.signingAccountChild.id === SA.secrets.map.get(nodeCodeName).nodeId
+                        signingAccount.referenceParent !== undefined &&
+                        signingAccount.referenceParent.id === SA.secrets.map.get(nodeCodeName).nodeId
                     ) {
-                        p2pNetworkIdentity.node = signingAccount.signingAccountChild
+                        p2pNetworkIdentity.node = signingAccount.referenceParent
                         p2pNetworkIdentity.blockchainAccount = blockchainAccount
                         p2pNetworkIdentity.userProfile = userProfile
                     }

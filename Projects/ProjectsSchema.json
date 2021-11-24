@@ -329,7 +329,7 @@
                 }
             ]
         },
-        "TS": {
+        "SA": {
             "utilities": [
                 {
                     "name": "Node Functions",
@@ -795,6 +795,12 @@
                     "propertyName": "timeConstants",
                     "functionName": "newFoundationsGlobalsTimeConstants",
                     "fileName": "TimeConstants.js"
+                },
+                {
+                    "name": "Schemas",
+                    "propertyName": "schemas",
+                    "functionName": "newFoundationsGlobalsSchemas",
+                    "fileName": "Schemas.js"
                 }
             ],
             "utilities": [

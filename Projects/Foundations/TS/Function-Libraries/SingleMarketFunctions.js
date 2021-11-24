@@ -91,12 +91,12 @@
                 return
             }
 
-            let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
+            let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
             if (botNode === undefined) {
-                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
-                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
             }
             if (botNode === undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. ");
@@ -110,11 +110,11 @@
                 return
             }
 
-            let dataMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
+            let dataMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
             if (dataMineNode === undefined) {
-                let tradingMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Mine')
+                let tradingMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Mine')
                 if (tradingMineNode === undefined) {
-                    let learningMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Mine')
+                    let learningMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Mine')
                     if (learningMineNode === undefined) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine, Trading Mine or Learning Mine.");
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);

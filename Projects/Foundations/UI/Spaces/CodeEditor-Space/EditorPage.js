@@ -332,7 +332,7 @@ function newFoundationsCodeEditorEditorPage() {
         })
 
         // Enrich chart data with market and exchange structure
-        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+/*        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Crypto Ecosystem') {
                 node.cryptoExchanges.forEach(cxs => {
                     cxs.exchanges.forEach(exchange => {
@@ -342,19 +342,21 @@ function newFoundationsCodeEditorEditorPage() {
                             let baseAsset = marketPair.split('/')[0]
                             let quotedAsset = marketPair.split('/')[1]
                             stringObjects.forEach(chartObj => {
-                                /**
+                                /!**
                                  * We will provide auto-complete only for assets pair found in Markets
                                  * Doing so we will avoid providing completion for assets that are not used in a market
-                                 */
+                                 *!/
+
+                                    //TODO: Disabled on purpose, causes high memory consumption when multiple exchanges are loaded
                                 let market = marketPrefix + baseAsset + dot + quotedAsset + dot + chartObj
-                                stringObjects.push(market)
-                                stringObjects.push(exchangePrefix + exchangeName + dot + market)
+                                // stringObjects.push(market)
+                                // stringObjects.push(exchangePrefix + exchangeName + dot + market)
                             })
                         })
                     })
                 })
             }
-        })
+        })*/
 
         //Actually building the objects for chart, market and exchange, no need for multiple objects, as one is enough for the autocomplete to work
         stringObjects.forEach(stringRepresentation => {

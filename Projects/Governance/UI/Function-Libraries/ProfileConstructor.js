@@ -165,6 +165,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         node,
         rootNodes
     ) {
+        let secretsFile = {
+            secrets: []
+        }
         let userProfile = node.payload.referenceParent
         /*
         Get Message to Sign.
@@ -317,7 +320,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     /*
                     Let's get a cool name for this node. 
                     */
-                    targetNode.name = targetNodeType + " # " + targetNodeTypeCount
+                    targetNode.name = targetNodeType + " #" + targetNodeTypeCount
                     let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
                     /*
                     We store at the User Profile the Signed userProfileHandle
@@ -325,10 +328,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'signature', signature)
 
-                    let secrets = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'secrets')
-                    if (secrets === undefined) {
-                        secrets = []
-                    }
+                    let secrets = secretsFile.secrets
 
                     let secret = {
                         nodeId: targetNode.id,
@@ -342,15 +342,28 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     }
 
                     secrets.push(secret)
-
-                    UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'secrets', secrets)
                     /*
-                    Show nice message.
+                    Save Secrets File
                     */
-                    node.payload.uiObject.setInfoMessage(
-                        "Signing Account has been successfully created.",
-                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                    )
+                    httpRequest(JSON.stringify(secretsFile, undefined, 4), 'Secrets/Save-Secrets-File', onResponse)
+                    function onResponse(err, data) {
+                        /* Lets check the result of the call through the http interface */
+                        data = JSON.parse(data)
+                        if (err.result != GLOBAL.DEFAULT_OK_RESPONSE.result || data.result != GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            node.payload.uiObject.setErrorMessage(
+                                "Secrets file could not be created.",
+                                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                            )
+                        } else {
+                            /*
+                            Show nice message.
+                            */
+                            node.payload.uiObject.setInfoMessage(
+                                "Secrets file have been sucessfully created.",
+                                UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                            )
+                        }
+                    }
                 }
             }
         }

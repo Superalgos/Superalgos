@@ -120,9 +120,9 @@
             "updated": 1623411423507
         },
         {
-            "style": "Note",
-            "text": "Tip: In cases where the values turn to \"NaN\" or stays \"undefined\" without a logical reason - There's a point to raise doubt.",
-            "updated": 1614512232138,
+            "style": "Success",
+            "text": "In cases where the values turn to \"NaN\" or stays \"undefined\" without a logical reason - There's a point to raise doubt.",
+            "updated": 1637882309343,
             "translations": [
                 {
                     "language": "DE",

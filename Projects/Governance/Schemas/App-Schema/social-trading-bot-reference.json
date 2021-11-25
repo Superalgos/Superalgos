@@ -1,5 +1,5 @@
 {
-    "type": "Signing Accounts",
+    "type": "Social Trading Bot Reference",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -12,18 +12,16 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "title": [
+        "Use Reference Parent"
+    ],
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Trading Bot Instance->"
     },
-    "propertyNameAtParent": "signingAccounts",
-    "childrenNodesProperties": [
-        {
-            "name": "signingAccounts",
-            "type": "array",
-            "childType": "Signing Account",
-            "autoAdd": false
-        }
-    ]
+    "referencingRules": {
+        "compatibleTypes": "->Social Trading Bot->"
+    },
+    "propertyNameAtParent": "socialTradingBotReference"
 }

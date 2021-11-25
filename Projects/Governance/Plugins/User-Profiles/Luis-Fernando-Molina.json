@@ -215,12 +215,12 @@
                 "id": "43a24543-03cf-4511-b670-63566159dbd7",
                 "savedPayload": {
                     "position": {
-                        "x": 30734.022053201028,
-                        "y": 23797.022053201028
+                        "x": 38091.16616011563,
+                        "y": 18351.64343138952
                     },
                     "targetPosition": {
-                        "x": 30448.705098312483,
-                        "y": 23704.316954888545
+                        "x": 38059.80762113533,
+                        "y": 18650
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -248,12 +248,12 @@
                     "id": "c6367a1d-4bc7-4348-8309-a3e6f3fcdd50",
                     "savedPayload": {
                         "position": {
-                            "x": 30858.184462437315,
-                            "y": 24135.81817051598
+                            "x": 38396.743952964855,
+                            "y": 18159.754595100272
                         },
                         "targetPosition": {
-                            "x": 30625.040674000225,
-                            "y": 23947.022053201028
+                            "x": 38260.54680304299,
+                            "y": 18427.056552356782
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -275,12 +275,12 @@
                     "id": "3d5e14b8-8187-4f3b-8142-8daa540977a7",
                     "savedPayload": {
                         "position": {
-                            "x": 30732.551058863817,
-                            "y": 24227.096181150187
+                            "x": 38512.14797342662,
+                            "y": 18263.664841852275
                         },
                         "targetPosition": {
-                            "x": 30625.040674000225,
-                            "y": 23947.022053201028
+                            "x": 38260.54680304299,
+                            "y": 18427.056552356782
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -298,17 +298,17 @@
                 "id": "91d82012-4362-4fe0-b02b-0eb3b394ace5",
                 "savedPayload": {
                     "position": {
-                        "x": 30625.040674000225,
-                        "y": 23947.022053201028
+                        "x": 38260.54680304299,
+                        "y": 18427.056552356782
                     },
                     "targetPosition": {
-                        "x": 30448.705098312483,
-                        "y": 23704.316954888545
+                        "x": 38059.80762113533,
+                        "y": 18650
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -381,12 +381,12 @@
                 "id": "8af4af68-62bf-4ad2-bf84-f1124cba0abf",
                 "savedPayload": {
                     "position": {
-                        "x": 30448.705098312483,
-                        "y": 24004.316954888545
+                        "x": 38353.25190135548,
+                        "y": 18587.626492754673
                     },
                     "targetPosition": {
-                        "x": 30448.705098312483,
-                        "y": 23704.316954888545
+                        "x": 38059.80762113533,
+                        "y": 18650
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -493,12 +493,12 @@
                 "id": "40a85ef0-c213-4aef-9f80-01521a8034a9",
                 "savedPayload": {
                     "position": {
-                        "x": 30272.36952262474,
-                        "y": 23947.022053201028
+                        "x": 38333.87125842812,
+                        "y": 18772.02099292274
                     },
                     "targetPosition": {
-                        "x": 30448.705098312483,
-                        "y": 23704.316954888545
+                        "x": 38059.80762113533,
+                        "y": 18650
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -526,7 +526,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -17067,19 +17067,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Apps",
-                            "User Apps"
+                            "User Apps",
+                            "Governance",
+                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
                         ],
                         [
                             "New Desktop Apps",
-                            "Desktop Apps"
+                            "Desktop Apps",
+                            "Governance",
+                            "abcc6b01-099e-42b4-84cc-24fb6daa7a15"
                         ],
                         [
                             "Algo Traders Platform #1",
-                            "Algo Traders Platform"
+                            "Algo Traders Platform",
+                            "Governance",
+                            "0a06a54b-825b-4ff4-93cc-36465348ad26"
                         ]
                     ]
                 }
@@ -17118,19 +17126,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Apps",
-                            "User Apps"
+                            "User Apps",
+                            "Governance",
+                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
                         ],
                         [
                             "New Server Apps",
-                            "Server Apps"
+                            "Server Apps",
+                            "Governance",
+                            "b0db0d19-5529-4b96-ab4f-ac7d54e1e6db"
                         ],
                         [
                             "Social Trading Server App #1",
-                            "Social Trading Server App"
+                            "Social Trading Server App",
+                            "Governance",
+                            "0216b143-0e46-4da6-b2cb-e95556fc1bfd"
                         ]
                     ]
                 }
@@ -17169,19 +17185,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Apps",
-                            "User Apps"
+                            "User Apps",
+                            "Governance",
+                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
                         ],
                         [
                             "New Desktop Apps",
-                            "Desktop Apps"
+                            "Desktop Apps",
+                            "Governance",
+                            "abcc6b01-099e-42b4-84cc-24fb6daa7a15"
                         ],
                         [
                             "Social Trading Desktop App #1",
-                            "Social Trading Desktop App"
+                            "Social Trading Desktop App",
+                            "Governance",
+                            "33c4f8e9-f8a3-4dea-91f4-1539e3aed0d3"
                         ]
                     ]
                 }
@@ -17220,19 +17244,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Bots",
-                            "User Bots"
+                            "User Bots",
+                            "Governance",
+                            "54ced611-b518-435f-a284-935666ef47db"
                         ],
                         [
                             "New Social Trading Bots",
-                            "Social Trading Bots"
+                            "Social Trading Bots",
+                            "Governance",
+                            "4809934c-d45d-4565-a686-5d96bd695b4f"
                         ],
                         [
                             "Social Trading Bot #1",
-                            "Social Trading Bot"
+                            "Social Trading Bot",
+                            "Governance",
+                            "5167a23f-1e17-4cd5-85a7-3c7f2a3019ac"
                         ]
                     ]
                 }
@@ -17271,19 +17303,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Apps",
-                            "User Apps"
+                            "User Apps",
+                            "Governance",
+                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
                         ],
                         [
                             "New Desktop Apps",
-                            "Desktop Apps"
+                            "Desktop Apps",
+                            "Governance",
+                            "abcc6b01-099e-42b4-84cc-24fb6daa7a15"
                         ],
                         [
                             "Social Trading Desktop App #2",
-                            "Social Trading Desktop App"
+                            "Social Trading Desktop App",
+                            "Governance",
+                            "ad887d5f-998f-48c5-9db7-78e17c66f4e4"
                         ]
                     ]
                 }
@@ -17322,19 +17362,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Apps",
-                            "User Apps"
+                            "User Apps",
+                            "Governance",
+                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
                         ],
                         [
                             "New Mobile Apps",
-                            "Mobile Apps"
+                            "Mobile Apps",
+                            "Governance",
+                            "de1b0ac7-1bcf-4412-af43-4597443c0ec3"
                         ],
                         [
                             "Social Trading Mobile App #1",
-                            "Social Trading Mobile App"
+                            "Social Trading Mobile App",
+                            "Governance",
+                            "42843263-b1f3-4e4e-885a-5d8b9d7b647a"
                         ]
                     ]
                 }
@@ -17373,19 +17421,27 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New User Bots",
-                            "User Bots"
+                            "User Bots",
+                            "Governance",
+                            "54ced611-b518-435f-a284-935666ef47db"
                         ],
                         [
                             "New Social Trading Bots",
-                            "Social Trading Bots"
+                            "Social Trading Bots",
+                            "Governance",
+                            "4809934c-d45d-4565-a686-5d96bd695b4f"
                         ],
                         [
                             "Social Trading Bot #2",
-                            "Social Trading Bot"
+                            "Social Trading Bot",
+                            "Governance",
+                            "c27748af-db60-44fc-a095-530401057beb"
                         ]
                     ]
                 }
@@ -17424,15 +17480,21 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New Social Personas",
-                            "Social Personas"
+                            "Social Personas",
+                            "Governance",
+                            "e453990c-57e2-4886-9dc1-060cd2750467"
                         ],
                         [
                             "Social Persona #1",
-                            "Social Persona"
+                            "Social Persona",
+                            "Governance",
+                            "ed15b68f-c9e0-447a-9ef7-660db229244c"
                         ]
                     ]
                 }
@@ -17471,15 +17533,21 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New Social Personas",
-                            "Social Personas"
+                            "Social Personas",
+                            "Governance",
+                            "e453990c-57e2-4886-9dc1-060cd2750467"
                         ],
                         [
                             "Social Persona #2",
-                            "Social Persona"
+                            "Social Persona",
+                            "Governance",
+                            "01c33294-124f-4d68-8619-8e1d1cca7e0a"
                         ]
                     ]
                 }
@@ -17518,15 +17586,21 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New P2P Network Nodes",
-                            "P2P Network Nodes"
+                            "P2P Network Nodes",
+                            "Governance",
+                            "da779e56-cb36-4825-bcd5-06692175a982"
                         ],
                         [
                             "P2P Network Node #1",
-                            "P2P Network Node"
+                            "P2P Network Node",
+                            "Governance",
+                            "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3"
                         ]
                     ]
                 }
@@ -17565,15 +17639,21 @@
                     "referenceParentCombinedNodePath": [
                         [
                             "Luis-Fernando-Molina",
-                            "User Profile"
+                            "User Profile",
+                            "Governance",
+                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                         ],
                         [
                             "New P2P Network Nodes",
-                            "P2P Network Nodes"
+                            "P2P Network Nodes",
+                            "Governance",
+                            "da779e56-cb36-4825-bcd5-06692175a982"
                         ],
                         [
                             "P2P Network Node #2",
-                            "P2P Network Node"
+                            "P2P Network Node",
+                            "Governance",
+                            "352cd906-c36c-48c7-8f01-728ff78b78e9"
                         ]
                     ]
                 }
@@ -17852,7 +17932,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

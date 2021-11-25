@@ -1,5 +1,5 @@
 {
-    "type": "Trading Engine Reference",
+    "type": "Social Trading Bot Reference",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -18,10 +18,10 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->"
+        "compatibleTypes": "->Trading Bot Instance->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Trading Engine->"
+        "compatibleTypes": "->Social Trading Bot->"
     },
-    "propertyNameAtParent": "tradingEngineReference"
+    "propertyNameAtParent": "socialTradingBotReference"
 }

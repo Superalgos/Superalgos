@@ -1,5 +1,5 @@
 {
-    "type": "Social Trading Bot",
+    "type": "Trigger Stage Signals",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,22 +12,32 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialTradingBotsFollowing",
+            "propertyToCheckFor": "triggerOnSignal",
             "actionFunction": "payload.executeAction",
-            "label": "Add Social Trading Bots Following",
-            "relatedUiObject": "Social Trading Bots Following",
-            "relatedUiObjectProject": "Governance"
+            "label": "Add Trigger On Signal",
+            "relatedUiObject": "Trigger On Signal",
+            "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "availableSignals",
+            "propertyToCheckFor": "triggerOffSignal",
             "actionFunction": "payload.executeAction",
-            "label": "Add Available Signals",
-            "relatedUiObject": "Available Signals",
+            "label": "Add Trigger Off Signal",
+            "relatedUiObject": "Trigger Off Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },        
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "takePositionSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Take Position Signal",
+            "relatedUiObject": "Take Position Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },          
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -48,27 +58,27 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Social Trading Bots->"
+        "compatibleTypes": "->Available Signals->"
     },
-    "propertyNameAtParent": "socialTradingBots",
+    "propertyNameAtParent": "triggerStageSignals",
     "childrenNodesProperties": [
         {
-            "name": "socialTradingBotsFollowing",
+            "name": "triggerOnSignal",
             "type": "node",
-            "childType": "Social Trading Bots Following",
-            "autoAdd": false
+            "childType": "Trigger On Signal",
+            "autoAdd": true
         },
         {
-            "name": "signingAccount",
+            "name": "triggerOffSignal",
             "type": "node",
-            "childType": "Signing Account",
-            "autoAdd": false
+            "childType": "Trigger Off Signal",
+            "autoAdd": true
         },
         {
-            "name": "availableSignals",
+            "name": "takePositionSignal",
             "type": "node",
-            "childType": "Available Signals",
-            "autoAdd": false
+            "childType": "Take Position Signal",
+            "autoAdd": true
         }
     ]
 }

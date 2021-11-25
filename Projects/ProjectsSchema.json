@@ -1740,5 +1740,30 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Signals Functions",
+                    "propertyName": "tradingSignalsFunctions",
+                    "functionName": "newSocialBotsFunctionLibraryTradingSignalsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Trading Signals",
+                    "propertyName": "tradingSignals",
+                    "functionName": "newTradingSignalsBotModulesTradingSignals",
+                    "fileName": "TradingSignals.js",
+                    "folderName": ""
+                }
+            ]
+        }
     }
 ]

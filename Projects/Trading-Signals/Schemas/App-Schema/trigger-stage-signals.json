@@ -1,0 +1,84 @@
+{
+    "type": "Trigger Stage Signals",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "triggerOnSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Trigger On Signal",
+            "relatedUiObject": "Trigger On Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "triggerOffSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Trigger Off Signal",
+            "relatedUiObject": "Trigger Off Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },        
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "takePositionSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Take Position Signal",
+            "relatedUiObject": "Take Position Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },          
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Available Signals->"
+    },
+    "propertyNameAtParent": "triggerStageSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "triggerOnSignal",
+            "type": "node",
+            "childType": "Trigger On Signal",
+            "autoAdd": true
+        },
+        {
+            "name": "triggerOffSignal",
+            "type": "node",
+            "childType": "Trigger Off Signal",
+            "autoAdd": true
+        },
+        {
+            "name": "takePositionSignal",
+            "type": "node",
+            "childType": "Take Position Signal",
+            "autoAdd": true
+        }
+    ]
+}

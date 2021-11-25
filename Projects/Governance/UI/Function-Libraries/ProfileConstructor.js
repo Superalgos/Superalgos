@@ -1,7 +1,7 @@
 function newGovernanceFunctionLibraryProfileConstructor() {
     let thisObject = {
         buildProfile: buildProfile,
-        installSecrets: installSecrets
+        installSigningAccounts: installSigningAccounts
     }
 
     return thisObject
@@ -124,6 +124,83 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
+
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
+                /*
+                Set up a basic profile to start receiving benefits
+                */
+                let finServices = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
+                finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                finServices.payload.uiObject.menu.internalClick("Add Financial Program")
+
+                let stakeProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
+                stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
+
+                let liquidProgs = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
+                liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
+
+                let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
+                liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
+                /*
+                Check if the user already has the SA fork. If not, do it for them.
+                */
+
+                /*
+                const hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
+                if (hasFork === undefined) {
+                    // New user! Probably doesn't have a fork, so let's create it.
+                    let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+                    if (apisNode === undefined) {
+                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                        return
+                    }
+                    if (apisNode.githubAPI === undefined) {
+                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                        return
+                    }
+
+                    let config = JSON.parse(apisNode.githubAPI.config)
+                    if (config.username === undefined || config.username === "") {
+                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                        return
+                    }
+                    if (config.token === undefined || config.token === "") {
+                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
+                        return
+                    }
+
+                    let params = {
+                        method: 'createGithubFork',
+                        username: config.username,
+                        token: config.token,
+                    }
+
+                    let url = 'GOV' // We will access the default Client GOV endpoint.
+
+                    httpRequest(JSON.stringify(params), url, onResponse)
+
+                    function onResponse(err, data) {
+
+                        data = JSON.parse(data)
+                        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Automated User Profile Contribute Done')
+                        } else {
+                            if (data.docs === undefined) { return }
+                            UI.projects.education.spaces.docsSpace.navigateTo(
+                                data.docs.project,
+                                data.docs.category,
+                                data.docs.type,
+                                data.docs.anchor,
+                                undefined,
+                                data.docs.placeholder
+                            )
+                        }
+                    }
+                }
+                */
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
@@ -147,6 +224,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 Show nice message.
                 */
                 if (mnemonic === undefined || mnemonic === "") {
+                    // TODO link to some wallet and setup the token
                     node.payload.uiObject.setInfoMessage(
                         "Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.",
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
@@ -161,7 +239,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         }
     }
 
-    function installSecrets(
+    function installSigningAccounts(
         node,
         rootNodes
     ) {
@@ -191,21 +269,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             )
             return
         }
-        /*
-        Delete Signing Accounts with all its children, it it exists.
-        */
-        if (userProfile.signingAccounts !== undefined) {
-            let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(userProfile.signingAccounts, rootNodes)
-        }
-        /*
-        Create Signing Accounts.
-        */
-        let signingAccounts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-            userProfile,
-            'Signing Accounts',
-            UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-        )
 
         let algoTradersPlatform = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform')
         let socialTradingDesktopApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Desktop App')
@@ -308,15 +371,19 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                 function createSigningAccount(signature) {
 
+                    /*
+                    Delete Signing Account if it already exists.
+                    */
+                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    if (targetNode.signingAccount !== undefined) {
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(targetNode.signingAccount, rootNodes)
+                    }
+
                     let signingAccount = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-                        signingAccounts,
+                        targetNode,
                         'Signing Account',
-                        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                        rootNodes
                     )
-
-                    signingAccount.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-
-                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(signingAccount, targetNode)
                     /*
                     Let's get a cool name for this node. 
                     */

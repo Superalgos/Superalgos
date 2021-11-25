@@ -1,0 +1,92 @@
+{
+    "type": "Close Stage Signals",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Limit Buy Order Signals",
+            "relatedUiObject": "Limit Buy Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Limit Sell Order Signals",
+            "relatedUiObject": "Limit Sell Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },  
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Market Buy Order Signals",
+            "relatedUiObject": "Market Buy Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },     
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Market Sell Order Signals",
+            "relatedUiObject": "Market Sell Order Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },   
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Available Signals->"
+    },
+    "propertyNameAtParent": "closeStageSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "limitBuyOrderSignals",
+            "type": "array",
+            "childType": "Limit Buy Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "limitSellOrderSignals",
+            "type": "array",
+            "childType": "Limit Sell Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "marketBuyOrderSignals",
+            "type": "array",
+            "childType": "Market Buy Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "marketBuyOrderSignals",
+            "type": "array",
+            "childType": "Market Buy Order Signals",
+            "autoAdd": false
+        }
+    ]
+}

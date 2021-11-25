@@ -17008,8 +17008,8 @@
         "id": "9870ca2a-cefc-484b-b7fc-206d62782ebc",
         "savedPayload": {
             "position": {
-                "x": 37687.04694055762,
-                "y": 19034.54944474041
+                "x": 37650,
+                "y": 19059.807621135333
             },
             "targetPosition": {
                 "x": 37500,
@@ -17019,660 +17019,6 @@
                 "isPinned": false,
                 "isFrozen": false,
                 "isCollapsed": false,
-                "angleToParent": 1,
-                "distanceToParent": 3,
-                "arrangementStyle": 0
-            },
-            "uiObject": {
-                "isRunning": false
-            }
-        }
-    },
-    "signingAccounts": {
-        "type": "Signing Accounts",
-        "name": "New Signing Accounts",
-        "project": "Governance",
-        "signingAccounts": [
-            {
-                "type": "Signing Account",
-                "name": "Algo Traders Platform #1",
-                "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xe4566a497221d797935bf52fcfc4ac379142ff4fd04eb5dab9f895225c5efc3f\",\n        \"s\": \"0x169e3cc82bd518811122af751964d4ebaff089bc47b586fd6fa8aab6ff93510e\",\n        \"signature\": \"0xe4566a497221d797935bf52fcfc4ac379142ff4fd04eb5dab9f895225c5efc3f169e3cc82bd518811122af751964d4ebaff089bc47b586fd6fa8aab6ff93510e1b\"\n    }\n}",
-                "project": "Governance",
-                "id": "bc6d5f74-265d-4c43-a1f7-d266ca6f2864",
-                "savedPayload": {
-                    "position": {
-                        "x": 37698.47833786449,
-                        "y": 19232.658962136466
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Algo Traders Platform",
-                        "name": "Algo Traders Platform #1",
-                        "id": "0a06a54b-825b-4ff4-93cc-36465348ad26"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Apps",
-                            "User Apps",
-                            "Governance",
-                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
-                        ],
-                        [
-                            "New Desktop Apps",
-                            "Desktop Apps",
-                            "Governance",
-                            "abcc6b01-099e-42b4-84cc-24fb6daa7a15"
-                        ],
-                        [
-                            "Algo Traders Platform #1",
-                            "Algo Traders Platform",
-                            "Governance",
-                            "0a06a54b-825b-4ff4-93cc-36465348ad26"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Trading Server App #1",
-                "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x6366189e1139c88e1207a1d7572107e91ee4d022ac327ad10b72fcc409fe170a\",\n        \"s\": \"0x3a63f7735b50c54cdd11f4745c63e05567605a8d018a587e2fd5906cf299e137\",\n        \"signature\": \"0x6366189e1139c88e1207a1d7572107e91ee4d022ac327ad10b72fcc409fe170a3a63f7735b50c54cdd11f4745c63e05567605a8d018a587e2fd5906cf299e1371b\"\n    }\n}",
-                "project": "Governance",
-                "id": "8411cea1-d4f8-4014-91e3-8d25da5a37b9",
-                "savedPayload": {
-                    "position": {
-                        "x": 37653.15928136206,
-                        "y": 19296.530194985822
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Trading Server App",
-                        "name": "Social Trading Server App #1",
-                        "id": "0216b143-0e46-4da6-b2cb-e95556fc1bfd"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Apps",
-                            "User Apps",
-                            "Governance",
-                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
-                        ],
-                        [
-                            "New Server Apps",
-                            "Server Apps",
-                            "Governance",
-                            "b0db0d19-5529-4b96-ab4f-ac7d54e1e6db"
-                        ],
-                        [
-                            "Social Trading Server App #1",
-                            "Social Trading Server App",
-                            "Governance",
-                            "0216b143-0e46-4da6-b2cb-e95556fc1bfd"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Trading Desktop App #1",
-                "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xe90c72318a537fa499c2168d0968a77a258d121b79db659a732efb645952c45b\",\n        \"s\": \"0x3cdae989d8414d89583e4237771ba1a50246dd594f9426138293c02e0bc8e277\",\n        \"signature\": \"0xe90c72318a537fa499c2168d0968a77a258d121b79db659a732efb645952c45b3cdae989d8414d89583e4237771ba1a50246dd594f9426138293c02e0bc8e2771c\"\n    }\n}",
-                "project": "Governance",
-                "id": "79b79d42-906b-4f7e-859f-307c1f59c609",
-                "savedPayload": {
-                    "position": {
-                        "x": 37592.85334276771,
-                        "y": 19346.495633423034
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Trading Desktop App",
-                        "name": "Social Trading Desktop App #1",
-                        "id": "33c4f8e9-f8a3-4dea-91f4-1539e3aed0d3"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Apps",
-                            "User Apps",
-                            "Governance",
-                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
-                        ],
-                        [
-                            "New Desktop Apps",
-                            "Desktop Apps",
-                            "Governance",
-                            "abcc6b01-099e-42b4-84cc-24fb6daa7a15"
-                        ],
-                        [
-                            "Social Trading Desktop App #1",
-                            "Social Trading Desktop App",
-                            "Governance",
-                            "33c4f8e9-f8a3-4dea-91f4-1539e3aed0d3"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Trading Bot #1",
-                "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x8c4d79e56bad649717fdd43dadea04af3501101828415fec6c8e154a88b9274c\",\n        \"s\": \"0x510c3d0eea03e630fed4babbba9733f2f9769a3af46f886ad309ba06b5962f84\",\n        \"signature\": \"0x8c4d79e56bad649717fdd43dadea04af3501101828415fec6c8e154a88b9274c510c3d0eea03e630fed4babbba9733f2f9769a3af46f886ad309ba06b5962f841c\"\n    }\n}",
-                "project": "Governance",
-                "id": "33e9a11c-fd0f-4a93-94b5-8ec4a0e36872",
-                "savedPayload": {
-                    "position": {
-                        "x": 37521.670272136376,
-                        "y": 19379.15021539039
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Trading Bot",
-                        "name": "Social Trading Bot #1",
-                        "id": "5167a23f-1e17-4cd5-85a7-3c7f2a3019ac"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Bots",
-                            "User Bots",
-                            "Governance",
-                            "54ced611-b518-435f-a284-935666ef47db"
-                        ],
-                        [
-                            "New Social Trading Bots",
-                            "Social Trading Bots",
-                            "Governance",
-                            "4809934c-d45d-4565-a686-5d96bd695b4f"
-                        ],
-                        [
-                            "Social Trading Bot #1",
-                            "Social Trading Bot",
-                            "Governance",
-                            "5167a23f-1e17-4cd5-85a7-3c7f2a3019ac"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Trading Desktop App #2",
-                "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xe954670fce311d449291afd63d2c583801b198f5bffbd354a17dc0953c0d246b\",\n        \"s\": \"0x65ce3dbf442db3f5fe4885b9abf30163d1902673cfc422489f670f3691b30513\",\n        \"signature\": \"0xe954670fce311d449291afd63d2c583801b198f5bffbd354a17dc0953c0d246b65ce3dbf442db3f5fe4885b9abf30163d1902673cfc422489f670f3691b305131b\"\n    }\n}",
-                "project": "Governance",
-                "id": "2e7afb68-f902-48e6-862c-fe920cbbf6a0",
-                "savedPayload": {
-                    "position": {
-                        "x": 37444.46107809601,
-                        "y": 19392.268585091068
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Trading Desktop App",
-                        "name": "Social Trading Desktop App #2",
-                        "id": "ad887d5f-998f-48c5-9db7-78e17c66f4e4"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Apps",
-                            "User Apps",
-                            "Governance",
-                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
-                        ],
-                        [
-                            "New Desktop Apps",
-                            "Desktop Apps",
-                            "Governance",
-                            "abcc6b01-099e-42b4-84cc-24fb6daa7a15"
-                        ],
-                        [
-                            "Social Trading Desktop App #2",
-                            "Social Trading Desktop App",
-                            "Governance",
-                            "ad887d5f-998f-48c5-9db7-78e17c66f4e4"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Trading Mobile App #1",
-                "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x781eefd6933468afc56d0fadbde7e970325963f21538e810a6ca1aad00f20c0e\",\n        \"s\": \"0x3f7a4f4ce85e58212da363641f5d4c7362f858f4ebfefe8430b16ac845debc2c\",\n        \"signature\": \"0x781eefd6933468afc56d0fadbde7e970325963f21538e810a6ca1aad00f20c0e3f7a4f4ce85e58212da363641f5d4c7362f858f4ebfefe8430b16ac845debc2c1b\"\n    }\n}",
-                "project": "Governance",
-                "id": "b981e982-39a2-407c-aaee-f83fd149aeed",
-                "savedPayload": {
-                    "position": {
-                        "x": 37366.48743962622,
-                        "y": 19384.956747309094
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Trading Mobile App",
-                        "name": "Social Trading Mobile App #1",
-                        "id": "42843263-b1f3-4e4e-885a-5d8b9d7b647a"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Apps",
-                            "User Apps",
-                            "Governance",
-                            "c57bd931-a0e1-4cf2-9270-b33f08839484"
-                        ],
-                        [
-                            "New Mobile Apps",
-                            "Mobile Apps",
-                            "Governance",
-                            "de1b0ac7-1bcf-4412-af43-4597443c0ec3"
-                        ],
-                        [
-                            "Social Trading Mobile App #1",
-                            "Social Trading Mobile App",
-                            "Governance",
-                            "42843263-b1f3-4e4e-885a-5d8b9d7b647a"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Trading Bot #2",
-                "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xf0499a689d4b09f8a3ba68dbd748ca757b9d7749eea50a52a3cb9673583b0608\",\n        \"s\": \"0x7ca826f7198a2dd15ae23e0fd376c43a4d060fffdd8e293748b6592c450b42e1\",\n        \"signature\": \"0xf0499a689d4b09f8a3ba68dbd748ca757b9d7749eea50a52a3cb9673583b06087ca826f7198a2dd15ae23e0fd376c43a4d060fffdd8e293748b6592c450b42e11c\"\n    }\n}",
-                "project": "Governance",
-                "id": "0c931463-b609-43e6-9353-1b13450895a7",
-                "savedPayload": {
-                    "position": {
-                        "x": 37293.06313133119,
-                        "y": 19357.71299170593
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Trading Bot",
-                        "name": "Social Trading Bot #2",
-                        "id": "c27748af-db60-44fc-a095-530401057beb"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New User Bots",
-                            "User Bots",
-                            "Governance",
-                            "54ced611-b518-435f-a284-935666ef47db"
-                        ],
-                        [
-                            "New Social Trading Bots",
-                            "Social Trading Bots",
-                            "Governance",
-                            "4809934c-d45d-4565-a686-5d96bd695b4f"
-                        ],
-                        [
-                            "Social Trading Bot #2",
-                            "Social Trading Bot",
-                            "Governance",
-                            "c27748af-db60-44fc-a095-530401057beb"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Persona #1",
-                "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xbd9657c69743d2fd097c5728391f971b00b8bc9d2ea787a13436263b6cfd1423\",\n        \"s\": \"0x5b4b7593b3a221f636ff16825c8f49d5bd409c83dcd47f20badc1797596afb27\",\n        \"signature\": \"0xbd9657c69743d2fd097c5728391f971b00b8bc9d2ea787a13436263b6cfd14235b4b7593b3a221f636ff16825c8f49d5bd409c83dcd47f20badc1797596afb271b\"\n    }\n}",
-                "project": "Governance",
-                "id": "60f58a3e-ce39-4669-8c85-9fbed91ee97a",
-                "savedPayload": {
-                    "position": {
-                        "x": 37229.19189848183,
-                        "y": 19312.393935203494
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Persona",
-                        "name": "Social Persona #1",
-                        "id": "ed15b68f-c9e0-447a-9ef7-660db229244c"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New Social Personas",
-                            "Social Personas",
-                            "Governance",
-                            "e453990c-57e2-4886-9dc1-060cd2750467"
-                        ],
-                        [
-                            "Social Persona #1",
-                            "Social Persona",
-                            "Governance",
-                            "ed15b68f-c9e0-447a-9ef7-660db229244c"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "Social Persona #2",
-                "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xf7e6fde3e7bc19db547a3446c43aaf4e1af8327c72e782a4a68fef2869679cd7\",\n        \"s\": \"0x337f8310b83332ea0d50f891dd9f98632854665717888fb39e266173769ad92b\",\n        \"signature\": \"0xf7e6fde3e7bc19db547a3446c43aaf4e1af8327c72e782a4a68fef2869679cd7337f8310b83332ea0d50f891dd9f98632854665717888fb39e266173769ad92b1c\"\n    }\n}",
-                "project": "Governance",
-                "id": "91e8a4a8-e18b-4a8b-8269-1a464b18715d",
-                "savedPayload": {
-                    "position": {
-                        "x": 37179.22646004462,
-                        "y": 19252.08799660915
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "Social Persona",
-                        "name": "Social Persona #2",
-                        "id": "01c33294-124f-4d68-8619-8e1d1cca7e0a"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New Social Personas",
-                            "Social Personas",
-                            "Governance",
-                            "e453990c-57e2-4886-9dc1-060cd2750467"
-                        ],
-                        [
-                            "Social Persona #2",
-                            "Social Persona",
-                            "Governance",
-                            "01c33294-124f-4d68-8619-8e1d1cca7e0a"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "P2P Network Node #1",
-                "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xfec6d4f26fcbcf624bd218f781fea8a8e78e5501fe167e082288a6bed8b10a9b\",\n        \"s\": \"0x0c05a17a4eb6636e2895ac164680e89d1618bd7b42a77b2db61b8e942ee6fc3a\",\n        \"signature\": \"0xfec6d4f26fcbcf624bd218f781fea8a8e78e5501fe167e082288a6bed8b10a9b0c05a17a4eb6636e2895ac164680e89d1618bd7b42a77b2db61b8e942ee6fc3a1c\"\n    }\n}",
-                "project": "Governance",
-                "id": "c7ffb93c-a17f-4f62-9c32-600f679c6e98",
-                "savedPayload": {
-                    "position": {
-                        "x": 37146.571878077266,
-                        "y": 19180.90492597782
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "P2P Network Node",
-                        "name": "P2P Network Node #1",
-                        "id": "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New P2P Network Nodes",
-                            "P2P Network Nodes",
-                            "Governance",
-                            "da779e56-cb36-4825-bcd5-06692175a982"
-                        ],
-                        [
-                            "P2P Network Node #1",
-                            "P2P Network Node",
-                            "Governance",
-                            "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3"
-                        ]
-                    ]
-                }
-            },
-            {
-                "type": "Signing Account",
-                "name": "P2P Network Node #2",
-                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x48a8f063db1cca44822eed9f69cb55bf2252d6b2f75fc86b4829f2b657f52a98\",\n        \"s\": \"0x7de0368fd6620541fa47ea699c2c06e3266bbe7fb0b8d5093dbf5337ec45541e\",\n        \"signature\": \"0x48a8f063db1cca44822eed9f69cb55bf2252d6b2f75fc86b4829f2b657f52a987de0368fd6620541fa47ea699c2c06e3266bbe7fb0b8d5093dbf5337ec45541e1c\"\n    }\n}",
-                "project": "Governance",
-                "id": "2fbcc3a0-26c1-4ebe-b6b5-2ddecf29175b",
-                "savedPayload": {
-                    "position": {
-                        "x": 37133.45350837659,
-                        "y": 19103.695731937445
-                    },
-                    "targetPosition": {
-                        "x": 37433.24371981311,
-                        "y": 19092.478373654547
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    },
-                    "referenceParent": {
-                        "type": "P2P Network Node",
-                        "name": "P2P Network Node #2",
-                        "id": "352cd906-c36c-48c7-8f01-728ff78b78e9"
-                    },
-                    "referenceParentCombinedNodePath": [
-                        [
-                            "Luis-Fernando-Molina",
-                            "User Profile",
-                            "Governance",
-                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                        ],
-                        [
-                            "New P2P Network Nodes",
-                            "P2P Network Nodes",
-                            "Governance",
-                            "da779e56-cb36-4825-bcd5-06692175a982"
-                        ],
-                        [
-                            "P2P Network Node #2",
-                            "P2P Network Node",
-                            "Governance",
-                            "352cd906-c36c-48c7-8f01-728ff78b78e9"
-                        ]
-                    ]
-                }
-            }
-        ],
-        "id": "6a917b82-f14a-49cb-a233-152ac2053b88",
-        "savedPayload": {
-            "position": {
-                "x": 37433.24371981311,
-                "y": 19092.478373654547
-            },
-            "targetPosition": {
-                "x": 37500,
-                "y": 18800
-            },
-            "floatingObject": {
-                "isPinned": false,
-                "isFrozen": false,
-                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -17922,8 +17268,8 @@
         "id": "c57bd931-a0e1-4cf2-9270-b33f08839484",
         "savedPayload": {
             "position": {
-                "x": 37229.70933962928,
-                "y": 18930.165121735266
+                "x": 37350,
+                "y": 19059.807621135333
             },
             "targetPosition": {
                 "x": 37500,
@@ -18181,8 +17527,8 @@
         "id": "54ced611-b518-435f-a284-935666ef47db",
         "savedPayload": {
             "position": {
-                "x": 37229.70933962928,
-                "y": 18669.834878264734
+                "x": 37200,
+                "y": 18800
             },
             "targetPosition": {
                 "x": 37500,
@@ -18403,8 +17749,8 @@
         "id": "e453990c-57e2-4886-9dc1-060cd2750467",
         "savedPayload": {
             "position": {
-                "x": 37433.24371981311,
-                "y": 18507.521626345453
+                "x": 37350,
+                "y": 18540.192378864667
             },
             "targetPosition": {
                 "x": 37500,
@@ -18437,12 +17783,12 @@
                 "id": "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3",
                 "savedPayload": {
                     "position": {
-                        "x": 37731.75962041048,
-                        "y": 18268.801307392052
+                        "x": 37650,
+                        "y": 18240.192378864667
                     },
                     "targetPosition": {
-                        "x": 37687.04694055762,
-                        "y": 18565.45055525959
+                        "x": 37650,
+                        "y": 18540.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -18465,12 +17811,12 @@
                 "id": "352cd906-c36c-48c7-8f01-728ff78b78e9",
                 "savedPayload": {
                     "position": {
-                        "x": 37966.30906515088,
-                        "y": 18455.84824794967
+                        "x": 37909.80762113533,
+                        "y": 18390.192378864667
                     },
                     "targetPosition": {
-                        "x": 37687.04694055762,
-                        "y": 18565.45055525959
+                        "x": 37650,
+                        "y": 18540.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -18489,8 +17835,8 @@
         "id": "da779e56-cb36-4825-bcd5-06692175a982",
         "savedPayload": {
             "position": {
-                "x": 37687.04694055762,
-                "y": 18565.45055525959
+                "x": 37650,
+                "y": 18540.192378864667
             },
             "targetPosition": {
                 "x": 37500,

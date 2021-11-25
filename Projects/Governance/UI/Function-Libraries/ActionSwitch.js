@@ -38,9 +38,9 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.profileConstructor.buildProfile(action.node, action.rootNodes)
                     break
                 }
-            case 'Install Secrets':
+            case 'Install Signing Accounts':
                 {
-                    UI.projects.governance.functionLibraries.profileConstructor.installSecrets(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.profileConstructor.installSigningAccounts(action.node, action.rootNodes)
                     break
                 }
             case 'Add Missing Plugin User Profiles':

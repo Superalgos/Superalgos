@@ -124,6 +124,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
+
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
                 /*
                 Set up a basic profile to start receiving benefits
                 */
@@ -142,11 +144,11 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
-
                 /*
                 Check if the user already has the SA fork. If not, do it for them.
                 */
 
+                /*
                 const hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
                 if (hasFork === undefined) {
                     // New user! Probably doesn't have a fork, so let's create it.
@@ -198,6 +200,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         }
                     }
                 }
+                */
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
@@ -217,10 +220,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 Delete the mnemonic from the Profile Constructor config.
                 */
                 node.config = "{}"
-                /*
-                TODO: Let's create a nice basic profile to start with liquidity and community
-                */
-
                 /*
                 Show nice message.
                 */

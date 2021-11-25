@@ -1,5 +1,5 @@
 {
-    "type": "Social Trading Bot",
+    "type": "Limit Sell Order Signals",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,22 +12,22 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialTradingBotsFollowing",
+            "propertyToCheckFor": "createOrderSignal",
             "actionFunction": "payload.executeAction",
-            "label": "Add Social Trading Bots Following",
-            "relatedUiObject": "Social Trading Bots Following",
-            "relatedUiObjectProject": "Governance"
+            "label": "Add Create Order Signal",
+            "relatedUiObject": "Create Order Signal",
+            "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "availableSignals",
+            "propertyToCheckFor": "cancelOrderSignal",
             "actionFunction": "payload.executeAction",
-            "label": "Add Available Signals",
-            "relatedUiObject": "Available Signals",
+            "label": "Add Cancel Order Signal",
+            "relatedUiObject": "Cancel Order Signal",
             "relatedUiObjectProject": "Trading-Signals"
-        },        
+        },
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -48,26 +48,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Social Trading Bots->"
+        "compatibleTypes": "->Open Stage Signals->Close Stage Signals->"
     },
-    "propertyNameAtParent": "socialTradingBots",
+    "propertyNameAtParent": "limitSellOrderSignals",
     "childrenNodesProperties": [
         {
-            "name": "socialTradingBotsFollowing",
+            "name": "createOrderSignal",
             "type": "node",
-            "childType": "Social Trading Bots Following",
+            "childType": "Create Order Signal",
             "autoAdd": false
         },
         {
-            "name": "signingAccount",
+            "name": "cancelOrderSignal",
             "type": "node",
-            "childType": "Signing Account",
-            "autoAdd": false
-        },
-        {
-            "name": "availableSignals",
-            "type": "node",
-            "childType": "Available Signals",
+            "childType": "Cancel Order Signal",
             "autoAdd": false
         }
     ]

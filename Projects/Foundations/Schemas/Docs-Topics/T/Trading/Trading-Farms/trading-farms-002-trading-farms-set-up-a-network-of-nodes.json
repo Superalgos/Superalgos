@@ -4,26 +4,61 @@
     "type": "Trading Farms - Set Up a Network of Nodes",
     "definition": {
         "text": "Install Superalgos on each machine, to then create and set up a network node for each machine. ",
-        "updated": 1614352888183
+        "updated": 1614352888183,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Installieren Sie Superalgos auf jedem Rechner, um dann für jeden Rechner eine Netzwerknode (Netzwerk Knoten) zu erstellen und einzurichten.",
+                "updated": 1637875812350
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "There are essentially two approaches from here. ",
-            "updated": 1614354810094
+            "updated": 1614354810094,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Von hier aus gibt es im Wesentlichen zwei Ansätze.",
+                    "updated": 1637875828713
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Install All in One Node: The first one and probably the easiest one is to first install the markets at one Network Node and later move the branches you want to move to other Network Nodes.",
-            "updated": 1614354841546
+            "updated": 1614354841546,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "All in One Node installieren: Die erste und wahrscheinlich einfachste Möglichkeit besteht darin, die Markets zunächst an einer Netzwerk node zu installieren und später die branches (Zweigstellen), die Sie verschieben möchten, zu anderen Netzwerk nodes zu verschieben.",
+                    "updated": 1637875895046
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Install All in All Nodes: In this approach, you first create all Network Nodes and the install the markets you wish to work with, the install procedure will install each market at all nodes, so then you will need to delete all the duplicate stuff by hand."
+            "text": "Install All in All Nodes: In this approach, you first create all Network Nodes and the install the markets you wish to work with, the install procedure will install each market at all nodes, so then you will need to delete all the duplicate stuff by hand.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "All in All Node installieren: Bei diesem Ansatz erstellen Sie zunächst alle Network Nodes und installieren dann die markets, mit denen Sie arbeiten möchten. Die Installationsprozedur installiert jeden Markt auf allen Knoten, so dass Sie anschließend alle doppelten Daten (Duplikate) von Hand löschen müssen.",
+                    "updated": 1637875971847
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Install Market"
+            "text": "Install Market",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Market installieren",
+                    "updated": 1637875998237
+                }
+            ]
         },
         {
             "style": "Text",

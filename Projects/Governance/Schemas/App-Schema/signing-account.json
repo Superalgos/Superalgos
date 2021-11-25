@@ -31,6 +31,6 @@
     "initialValues": {
         "config": "{}"
     },
-    "propertyNameAtParent": "signingAccounts",
+    "propertyNameAtParent": "signingAccount",
     "childrenNodesProperties": []
 }

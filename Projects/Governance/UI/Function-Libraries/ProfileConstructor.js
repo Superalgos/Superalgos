@@ -145,63 +145,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
                 /*
-                Check if the user already has the SA fork. If not, do it for them.
-                */
-
-                /*
-                const hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
-                if (hasFork === undefined) {
-                    // New user! Probably doesn't have a fork, so let's create it.
-                    let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
-                    if (apisNode === undefined) {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-                    if (apisNode.githubAPI === undefined) {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-
-                    let config = JSON.parse(apisNode.githubAPI.config)
-                    if (config.username === undefined || config.username === "") {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-                    if (config.token === undefined || config.token === "") {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-
-                    let params = {
-                        method: 'createGithubFork',
-                        username: config.username,
-                        token: config.token,
-                    }
-
-                    let url = 'GOV' // We will access the default Client GOV endpoint.
-
-                    httpRequest(JSON.stringify(params), url, onResponse)
-
-                    function onResponse(err, data) {
-
-                        data = JSON.parse(data)
-                        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Automated User Profile Contribute Done')
-                        } else {
-                            if (data.docs === undefined) { return }
-                            UI.projects.education.spaces.docsSpace.navigateTo(
-                                data.docs.project,
-                                data.docs.category,
-                                data.docs.type,
-                                data.docs.anchor,
-                                undefined,
-                                data.docs.placeholder
-                            )
-                        }
-                    }
-                }
-                */
-                /*
                 We store at the User Profile the Signed githubUsername
                 */
                 UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)

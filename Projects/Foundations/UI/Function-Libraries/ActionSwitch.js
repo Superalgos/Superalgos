@@ -502,6 +502,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Specified Workspace Project':
+            {
+                UI.projects.foundations.functionLibraries.workspaceFunctions.addSpecifiedWorkspaceProject(action.node, action.rootNodes)
+            }
+                break
             case 'Check For Missing References':
                 {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.checkForMissingReferences(action.rootNodes)

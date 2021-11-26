@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un execution algorithmes es un conjunto de instrucciones que se utilizan para realizar y gestionar pedidos en el exchange.",
                 "updated": 1624459612098
+            },
+            {
+                "language": "RU",
+                "text": "Алгоритм выполнения - это набор инструкций, используемых для размещения и управления ордерами на бирже.",
+                "updated": 1637756233547
             }
         ]
     },

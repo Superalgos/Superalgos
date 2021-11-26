@@ -43,11 +43,18 @@
         },
         {
             "style": "Text",
-            "text": "In the pages describing data mines and trading mines you will learn that bots are algorithms defined in such mines. That is, mines hold the source code and configuration—the complete set of definitions—of the three existing kinds of bots: sensors, indicators, and the trading bot."
+            "text": "Bots are a very fluid concept within superalgos. You can think of them like a set of personal assistants each with a very specific job to do. A sensor bot collects information. An indicator bot preforms calculations on that information to create trading indicators. A trading bot places trade orders or backtests strategies. A social bot sends notifications using a social platform based on the preformance of the other bots, etc.",
+            "updated": 1637698573606
         },
         {
             "style": "Text",
-            "text": "As a user, you may use all bots in data mines shipping with the system. As a developer, you may create your own mines to develop your own sensors, indicators, and even a new trading bot."
+            "text": "In the pages describing data mines and trading mines you will learn that bots are algorithms defined within these mines. That is, mines hold the source code and configuration—the complete set of definitions—of the existing kinds of bots: sensors, indicators, social, learning, the trading bots, etc. You can think of mines as the home for each kind of bot.",
+            "updated": 1637698856223
+        },
+        {
+            "style": "Text",
+            "text": "As a user, you may use all bots in data mines shipping with the system. As a developer, you may create your own mines to develop your own bots. Anything that can be executed using a computer algorithm can be turned into a bot! The sky is the limit, with developers adding new bots regularly.",
+            "updated": 1637698955490
         },
         {
             "style": "Title",
@@ -82,6 +89,15 @@
             "text": "A good example of such dependencies may be found when running a live trading session. In such a case, the trading bot depends on the sensor and all indicator bots used in the referenced trading system. Indicators must process the data so that the trading bot may analyze it in realtime. Therefore, before running a live trading session, the data mining operation must be running and up to date."
         },
         {
+            "style": "Text",
+            "text": "Bots need to know what kind of data they will need to access to do its job. Trading bots need to know which market of which exchange they should work with. Exchanges and markets are defined in the crypto ecosystem hierarchy. Bots obtain that information by establishing references with the appropriate markets in that hierarchy. It also needs to know which type of trading session it should run, and what trading system’s rules it should follow. For those reasons, trading bots are paired with a specific session, which in turn, references a trading system.",
+            "updated": 1637699705206
+        },
+        {
+            "style": "Text",
+            "text": "Trading systems are themselves hierarchies. You may create a trading system by following a framework in which strategies are described in stages. You do not need to code to create a strategy, as the rules are written with simple mathematical statements. However, both basic and advanced knowledge of JavaScript will give you an edge. You may test and deploy your trading system by running trading sessions from within the network hierarchy."
+        },
+        {
             "style": "Title",
             "text": "Bots Execution"
         },
@@ -91,15 +107,8 @@
         },
         {
             "style": "Text",
-            "text": "Bots need to know which market of which exchange they should work with. Exchanges and markets are defined in the crypto ecosystem hierarchy. Bots obtain that information by establishing references with the appropriate markets in that hierarchy."
-        },
-        {
-            "style": "Text",
-            "text": "In the case of the trading bot, it also needs to know which type of trading session it should run, and what trading system’s rules it should follow. For those reasons, trading bots are paired with a specific session, which in turn, references a trading system."
-        },
-        {
-            "style": "Text",
-            "text": "Trading systems are themselves hierarchies. You may create a trading system by following a framework in which strategies are described in stages. You do not need to code to create a strategy, as the rules are written with simple mathematical statements. However, both basic and advanced knowledge of JavaScript will give you an edge. You may test and deploy your trading system by running trading sessions from within the network hierarchy."
+            "text": "In the end, bots can be created to access and use data from all hierarchies within the Superalgos ecosystem. They use this data to preform a job that helps the whole system work together to acomplish fine tuned effective trading!",
+            "updated": 1637699645798
         },
         {
             "style": "Text",

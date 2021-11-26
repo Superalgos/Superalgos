@@ -144,6 +144,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             'Portfolio Bot Instance->' +
             'Learning Bot Instance->' +
             'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
+            'Social Trading Bot Reference->Social Trading Bot->Signing Account->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Managed Tasks->' +

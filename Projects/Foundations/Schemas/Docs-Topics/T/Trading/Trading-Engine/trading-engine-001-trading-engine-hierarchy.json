@@ -9,12 +9,12 @@
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Definition",
             "updated": 1611253576142
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Content"
+            "text": "Algorithmic-Trading->Node->Trading Engine->Content"
         },
         {
             "style": "Success",

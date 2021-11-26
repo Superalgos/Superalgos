@@ -4,13 +4,27 @@
     "type": "The Superalgos Meritocracy",
     "definition": {
         "text": "The Superalgos Governance Project implements a meritocratic system by which the more you contribute, the more you are entitled to influence the direction of development. ",
-        "updated": 1624780224978
+        "updated": 1624780224978,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Superalgos Governance Project ( el proyecto de gobernanza de Superalgos) implementa un sistema de meritocracia por el cuál mientras más contribuye, más derechos tiene a influir en la dirección del desarrollo.",
+                "updated": 1637436733851
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Everything starts with your existing holdings of Superalgos SA Tokens that you earned for previous contributions. Your holdings confer you Token Power.",
-            "updated": 1624780384340
+            "updated": 1624780384340,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Todo comienza con su tenecia de Superalgos SA Tokens existentes que ha ganando previamente con sus contribuciones. Su tenencia le confiere Token Power.",
+                    "updated": 1637426880734
+                }
+            ]
         },
         {
             "style": "Include",
@@ -20,7 +34,14 @@
         {
             "style": "Text",
             "text": "There is a second concept that is crucial to how Superalgos values contributions: Reputation.",
-            "updated": 1630508777182
+            "updated": 1630508777182,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay un segundo concepto que es crucial en como Superalgos valúa las contribuciones: la Reputación.",
+                    "updated": 1637426971474
+                }
+            ]
         },
         {
             "style": "Include",

@@ -2,7 +2,14 @@
     "type": "Reputation Power",
     "definition": {
         "text": "Reputation Power is added to the Token Power you direct into the Voting Program to increase your Voting Power. Reputation power comes from the Reputation in your Governance Address.",
-        "updated": 1630065079427
+        "updated": 1630065079427,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El poder de reputación se agrega al Power you directamente en el Voting Program para incrementar su Voting Power. Su poder de Reputation viene de la  Reputation en su Governance Address.",
+                "updated": 1637436662625
+            }
+        ]
     },
     "paragraphs": [
         {

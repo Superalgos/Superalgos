@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "На каждом рынке операция организована с помощью Data Mine. Superalgos поставляется вместе с несколькими шахтами данных с открытым исходным кодом, каждая - с множеством индикаторов.\n",
                 "updated": 1636192680294
+            },
+            {
+                "language": "NL",
+                "text": "De operatie binnen elke markt is georganiseerd per Data Mine. Superalgos komt met verschillende open-source datamijnen, met meerdere indicatoren.",
+                "updated": 1637497885132
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "RU",
                     "text": "Думайте о шахтах данных как о плагинах, которые разработчики могут создавать для расширения объема анализа данных системы. Indicator Bot может обрабатывать данные, которые производят другие индикаторы, производя более глубокий и насыщенный анализ.",
                     "updated": 1636192861205
+                },
+                {
+                    "language": "NL",
+                    "text": "Zie datamijnen als een plugins die door ontwikkelaars gemaakt zijn om de data analyse mogelijkheden van het systeem uite te breiden. Een Indicator Bot kan de data van andere indicator gebruiken om meer waarde, diepere en rijkere analyses te maken.",
+                    "updated": 1637498102349
                 }
             ]
         },
@@ -123,6 +133,11 @@
                     "language": "RU",
                     "text": "Если у Вас имеется базовое понимание JavaScript, Вы также можете создать индикаторы! Если Вы внесете свой вклад в Data Mine, то заработаете токены Superalgos (SA)!",
                     "updated": 1636193134329
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je een basiskennis van JavaScript hebt, kan jij ook indicatoren maken! Als je een contributie aan een Data Mine toevoegd, verdien je daar Superalgos SA Tokens mee!",
+                    "updated": 1637498198951
                 }
             ],
             "updated": 1622196189467

@@ -15,6 +15,11 @@
                 "text": "Ahora te conectaré con el Community Building Programs, que también son bastante fáciles de configurar y te harán ganar más tokens.",
                 "updated": 1630892980021,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi sizi, kurulumu oldukça kolay olan ve size daha fazla jeton kazandıracak olan Topluluk Oluşturma Programları ( Community Building Programs ) ile tanıştıracağım!",
+                "updated": 1637443015636
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Ve a el nodo Token Power Switch y selecciona Add Comunity Building Programs del menú.",
                     "updated": 1630893046476,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Güç Anahtarı ( Token Power Switch ) düğümüne gidin ve menüden Topluluk Oluşturma Programları Ekle'yi (Add Comunity Buildings Programs) seçin.",
+                    "updated": 1637443107132
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Superalgos prospera a través de contribuciones y colaboración. ¡Diseñamos estos programas para fomentar una comunidad en la que los miembros siempre estén listos para ayudar!",
                     "updated": 1630893106465,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, katkılar ve işbirliği yoluyla gelişir. Bu programları, üyelerin her zaman yardım etmeye ve karşılık vermeye hazır olduğu bir topluluğu teşvik etmek için tasarladık!",
+                    "updated": 1637443174686
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Estos programas son un poco más elaborados en su funcionamiento ... ¡te encantarán!",
                     "updated": 1630893135626,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu programlar, işleyişlerinde biraz daha ayrıntılıdırlar... Ama Onları seveceksiniz!",
+                    "updated": 1637443220077
                 }
             ]
         }

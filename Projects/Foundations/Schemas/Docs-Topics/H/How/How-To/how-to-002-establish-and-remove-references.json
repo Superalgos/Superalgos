@@ -3,8 +3,8 @@
     "pageNumber": "2",
     "type": "Establish and Remove References",
     "definition": {
-        "text": "To establish a reference, right-click on the first node and drag it close to the target node. The remove a reference, use the delink button on the menu.",
-        "updated": 1609949247846,
+        "text": "To establish a reference, right-click on the first node and drag it close to the target node. To remove a reference, use the delink button on the menu.",
+        "updated": 1637690929227,
         "translations": [
             {
                 "language": "ES",
@@ -39,7 +39,7 @@
         },
         {
             "style": "Text",
-            "text": "The reference is visually represented by a faint grey dotted line. Such line is visible only when both ends of the reference are visible.",
+            "text": "The reference is visually represented by a faint grey dotted line.",
             "translations": [
                 {
                     "language": "ES",
@@ -47,7 +47,12 @@
                     "updated": 1633521251780,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1637691076887
+        },
+        {
+            "style": "Success",
+            "text": "You may toggle these grey lines on and off using: Ctrl + Shift + Alt + Key-R"
         },
         {
             "style": "Text",
@@ -77,8 +82,8 @@
         },
         {
             "style": "Text",
-            "text": "The process is exactly the same. All you need to do is master a few tricks so that you may drag one of the nodes all the way to where the second node is.",
-            "updated": 1611940896508,
+            "text": "The process is exactly the same. All you need to do is master a few tricks so that you may move one of the nodes all the way to where the second node is.",
+            "updated": 1637690797249,
             "translations": [
                 {
                     "language": "ES",
@@ -89,71 +94,9 @@
             ]
         },
         {
-            "style": "Youtube",
-            "text": "_7Qp8KmNmWU?rel=0&amp;autoplay=1&mute=1",
-            "updated": 1616182407466
-        },
-        {
-            "style": "Text",
-            "text": "These UI tricks may make your life easier:",
-            "updated": 1611940968078,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Estos UI trucos pueden hacer tu vida más fácil:",
-                    "updated": 1633295979755,
-                    "style": "Text"
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other.",
-            "updated": 1611940996169,
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Use el design space map tantas veces como sea necesario para encontrar el camino desde una jeraquía a la otra.",
-                    "updated": 1633296062866,
-                    "style": "List"
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Fije el nodo que va a mover a través del espacio de diseño, para que pueda soltarlo en cualquier punto para chequear las direcciones en el mapa del espacio de diseño.",
-                    "updated": 1633296213030,
-                    "style": "List"
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Use Ctrl / Command + arteclas de flechas para arrastrar el nodo a través dela pantalla despues de clickear en el con el mouse. Mantenga las teclas presionadas y el nodo vuela!",
-                    "updated": 1633296325908,
-                    "style": "List"
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
-            "translations": [
-                {
-                    "language": "ES",
-                    "text": "Remueve el fijado ona vez que la referencia sea establecida para que el nodo vuelva a su lugar.",
-                    "updated": 1633521325505,
-                    "style": "List"
-                }
-            ]
+            "style": "Include",
+            "text": "Foundations->Topic->Basic Navigation->Moving Node Shortcuts",
+            "updated": 1637690507758
         }
     ]
 }

@@ -52,13 +52,13 @@
             }
 
             /* The first phase here is about checking that we have everything we need at the definition level. */
-            let dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+            let dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency'
             )
 
             if (TS.projects.foundations.functionLibraries.singleMarketFunctions.validateDataDependencies(processIndex, dataDependencies, callBackFunction) !== true) { return }
 
-            let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+            let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
             )
             if (TS.projects.foundations.functionLibraries.singleMarketFunctions.validateOutputDatasets(processIndex, outputDatasets, callBackFunction) !== true) { return }
@@ -138,9 +138,9 @@
                 contextSummary.dataset = outputDatasetNode.referenceParent.config.codeName
                 contextSummary.product = outputDatasetNode.referenceParent.parentNode.config.codeName
 
-                let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
+                let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
                 contextSummary.bot = botNode.config.codeName
-                let dataMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
+                let dataMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
                 contextSummary.dataMine = dataMineNode.config.codeName
                 contextSummary.mineType = dataMineNode.type.replace(' ', '-')
                 contextSummary.project = dataMineNode.project

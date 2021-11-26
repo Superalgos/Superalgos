@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Antes de comenzar a crear gráficos personalizados, debes asegurate de conocer los conceptos básicos para moverse dentro de Superalgos.",
                 "updated": 1628638892014
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie mit der Erstellung von benutzerdefinierten Diagrammen beginnen, sollten Sie sicherstellen, dass Sie sich mit den Grundlagen in Superalgos vertraut gemacht haben.",
+                "updated": 1637608746725
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Antes de comenzar, este tutorial asume que has terminado los siguientes tutoriales:",
                     "updated": 1628638917375
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor wir beginnen, geht dieses Tutorial davon aus, dass Sie die folgenden Tutorials abgeschlossen haben:",
+                    "updated": 1637608800606
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "ES",
                     "text": "Si no has completado estos tutoriales y no tienes un conocimiento básico de cómo moverte dentro de tu Workspace, este tutorial puede resultar confuso. Te sugiero que hagas una pausa y vuelvas aquí una vez que conozcas un poco el camino.",
                     "updated": 1628638970811
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie diese Tutorials noch nicht absolviert haben und nicht wissen, wie Sie sich in Ihrem Arbeitsbereich bewegen, kann dieses Tutorial verwirrend sein. Ich würde vorschlagen, dass Sie eine Pause einlegen und hierher zurückkommen, sobald Sie sich ein wenig auskennen.",
+                    "updated": 1637609330133
                 }
             ]
         }

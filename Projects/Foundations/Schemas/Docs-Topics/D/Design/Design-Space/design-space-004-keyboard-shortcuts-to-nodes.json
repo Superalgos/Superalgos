@@ -8,9 +8,19 @@
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Custom Node Shortcuts",
+            "updated": 1637691199216
+        },
+        {
             "style": "Text",
-            "text": "You may define shortcuts for frequently-used nodes with the following procedure:",
-            "updated": 1610043064924
+            "text": "It is also possible to set a custom shortcut to any node you would like. This is useful for accessing frequenty used nodes.",
+            "updated": 1637691354831
+        },
+        {
+            "style": "Text",
+            "text": "You may define this type of shortcut using the following procedure:",
+            "updated": 1637691378647
         },
         {
             "style": "List",

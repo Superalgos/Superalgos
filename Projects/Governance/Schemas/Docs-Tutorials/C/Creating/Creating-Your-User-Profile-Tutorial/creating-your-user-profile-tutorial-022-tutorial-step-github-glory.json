@@ -15,6 +15,11 @@
                 "text": "¡Ahora el Github Program te recompensa con más tokens por ayudar a los desarrolladores a encontrar Superalgos en la búsqueda de Github.com!",
                 "updated": 1630892122507,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Github Programı ( Github Program ), geliştiricilerin Github.com aramasında Superalgos bulmasına yardımcı olduğunuz için sizi daha fazla token'la ödüllendirir!",
+                "updated": 1637440604562
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Añade el Github Program desde el menú de el nodo Onboarding Programs.",
                     "updated": 1630892163878,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Onboarding Programs düğümünün menüsünden Github Programını ( Add The Github Program ) ekleyin.",
+                    "updated": 1637440701982
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "¡Hay tres cosas en las que puede ayudar! ¡Hacer los tres te puede llevar hasta 3000 SA más!",
                     "updated": 1630892190133,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yardımcı olabileceğiniz üç şey var! Üçünü de yapmak sizi 3.000 SA' kazandırabilir!",
+                    "updated": 1637440758442
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Dale una estrella al repositorio de Superalgos.",
                     "updated": 1630892205893,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Github'da Superalgos deposuna bir yıldız verin.(Sağ üst köşede)",
+                    "updated": 1637440800303
                 }
             ]
         },
@@ -66,6 +86,11 @@
                     "text": "Bifurca el repositorio de Superalgos a tu cuenta de Github, ¡probablemente ya lo hayas hecho!",
                     "updated": 1630892265394,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos deposunu Github hesabınıza çatallayın - muhtemelen zaten yapmışsınızdır! ( Sağ üst köşede \"Fork\" butonu)",
+                    "updated": 1637440976090
                 }
             ]
         },
@@ -79,6 +104,11 @@
                     "text": "¡Haz clic en el botón Watch también!",
                     "updated": 1630892294669,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Takip et düğmesini de tıklayın! ( Sağ üst köşede \"Watch\" butonu)",
+                    "updated": 1637440948069
                 }
             ]
         },

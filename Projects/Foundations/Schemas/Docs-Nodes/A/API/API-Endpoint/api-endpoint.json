@@ -2,22 +2,50 @@
     "type": "API Endpoint",
     "definition": {
         "text": "Endpoints are important aspects of interacting with server-side web APIs, as they specify where resources can be accessed. Usually the access is via a URL to which HTTP requests are posted. Once these requests are posted correctly, the API will respond with the requested data.",
-        "updated": 1622854645690
+        "updated": 1622854645690,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Endpoints sind wichtige Aspekte der Interaktion mit serverseitigen Web-APIs, da sie angeben, wo auf Ressourcen zugegriffen werden kann. Normalerweise erfolgt der Zugriff über eine URL, an die HTTP-Anforderungen gesendet werden. Sobald diese Anfragen korrekt übermittelt wurden, antwortet die API mit den angeforderten Daten.",
+                "updated": 1637406311302
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Subtitle",
             "text": "How to Use an Endpoint Node",
-            "updated": 1622854703461
+            "updated": 1622854703461,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "So verwenden sie Endpoint Node`s:",
+                    "updated": 1637406356154
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Read the docs of the API you are trying to map, and identify which endpoints they support. From there you can choose which endpoint holds the information you are interested in and begin to map it. For a detailed description of how to do this, please read the following description. In addition please see the API Map page as well as the Data Mining topic for other important concepts surrounding setting up an api map. ",
-            "updated": 1622855071509
+            "updated": 1622855071509,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie die Dokumentation der API, die Sie abbilden möchten, und stellen Sie fest, welche endpoints sie unterstützt. Von dort aus können Sie wählen, welcher Endpunkt die Informationen enthält, an denen Sie interessiert sind, und damit beginnen, diese zuzuordnen (mapping). Eine detaillierte Beschreibung der Vorgehensweise finden Sie in der folgenden Beschreibung. Darüber hinaus finden Sie auf der Seite API-Map und im Data Mining topic weitere wichtige Konzepte zur Einrichtung einer API-Map.",
+                    "updated": 1637406471296
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The first page of the Data Mining topic is Data Mining - Introduction."
+            "text": "The first page of the Data Mining topic is Data Mining - Introduction.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erste Seite des Themas Data Mining lautet: Data Mining - Introduction.",
+                    "updated": 1637406539017
+                }
+            ]
         },
         {
             "style": "Include",
@@ -27,15 +55,36 @@
         {
             "style": "Title",
             "text": "API Endpoint Configuration",
-            "updated": 1622895671396
+            "updated": 1622895671396,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Endpoint Konfiguration",
+                    "updated": 1637406560957
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Properties/Eigenschaften:",
+                    "updated": 1637406584743
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName: Define the endpoint this branch of the map will handle."
+            "text": "codeName: Define the endpoint this branch of the map will handle.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "codeName: Definieren Sie den endpoint, den dieser branch der Map behandeln soll.",
+                    "updated": 1637406633445
+                }
+            ]
         }
     ]
 }

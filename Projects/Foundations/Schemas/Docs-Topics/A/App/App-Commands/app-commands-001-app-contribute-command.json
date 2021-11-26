@@ -447,13 +447,13 @@
         },
         {
             "style": "Subtitle",
-            "text": "Linux and iOS",
-            "updated": 1621085154588,
+            "text": "Linux and macOS",
+            "updated": 1637872934184,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Linux und iOS",
-                    "updated": 1636813726982
+                    "text": "Linux und macOS",
+                    "updated": 1637873000919
                 }
             ]
         },

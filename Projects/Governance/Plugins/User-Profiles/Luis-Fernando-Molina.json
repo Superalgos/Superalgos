@@ -5647,7 +5647,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Referrals Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "01022de6-da20-4520-a905-1d20e7c27d37",
@@ -5712,7 +5712,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Referrals Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{\n    \"percentage\": 10\n}",
                                                                         "project": "Governance",
                                                                         "id": "24ec355d-10dd-495c-841b-2dd0e419a419",
@@ -5842,7 +5842,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Support Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "8d25ea13-8256-4d27-a03a-6bf9d78a5025",
@@ -5907,7 +5907,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Support Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{\n    \"percentage\": 10\n}",
                                                                         "project": "Governance",
                                                                         "id": "722f1936-8bb9-4c37-b96f-1826f7fab2d8",
@@ -6037,7 +6037,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Mentorship Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "71d3c245-791f-4a6d-9773-eab5f4f16bab",
@@ -6102,7 +6102,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Mentorship Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{\n    \"percentage\": 10\n}",
                                                                         "project": "Governance",
                                                                         "id": "56912512-d7d2-4d80-ae87-dfc19ee568a4",
@@ -6291,7 +6291,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Airdrop Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "4fda5f11-2d53-4ef4-9828-3458cfa62d06",
@@ -6421,7 +6421,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Github Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "f3ddb474-39ba-4972-a0bb-da40d30ac5e0",
@@ -6610,7 +6610,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Voting Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "b259ed9e-b56d-4c7c-b68e-b2128a74be0e",
@@ -6799,7 +6799,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Liquidity Rewards BTCB Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "50f24aa6-eaae-4cdb-a533-8d59fb32d078",
@@ -6864,7 +6864,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Liquidity Rewards BNB Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "e3171da9-e065-4fae-a556-0ad5aa6ae326",
@@ -6929,7 +6929,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Liquidity Rewards BUSD Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "93248092-3b9b-4f2d-a931-a6812a03590e",
@@ -7118,7 +7118,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Staking Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "1ec2248d-3288-462b-967f-c4c58e679cf1",
@@ -7248,7 +7248,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Delegation Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "903b9765-2a96-471e-a8df-06d1068af3d2",
@@ -7478,7 +7478,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Positions Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "673afb27-d299-4168-89bf-a3c415cb9a3e",
@@ -7531,7 +7531,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Assets Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "a2137812-e2a8-4a33-a930-4d95c6345d5d",
@@ -7584,7 +7584,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Features Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e10b784e-76ad-4283-b257-aa3e8900b228",
@@ -7759,7 +7759,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Governance Project Project Creator Luis-Fernando-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "1ad5e984-52b9-4a79-a574-852cd8e72313",
@@ -7830,7 +7830,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Governance Project Project Contributor Smidy13 Tentacule23",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "a81a119d-15fc-40a3-8d5e-7ece70cdb4e3",
@@ -7972,7 +7972,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Education Project Project Creator Luis-Fernando-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "f645080c-f534-4869-9081-447444231502",
@@ -8043,7 +8043,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Education Project Project Leader Harrell harrellbm",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "07ee1c2c-8119-4463-a6f4-e779fcfe0d07",
@@ -8114,7 +8114,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Education Project Team Member",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "a906f01e-dc8a-4578-b5d2-075579da87e6",
@@ -8256,7 +8256,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Foundations Project Project Creator Luis-Fernando-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "93558da9-0b45-4ab7-8100-d15e6d5561d0",
@@ -8398,7 +8398,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Data Mining Project Project Creator Luis-Fernando-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "8c28f090-e829-4e41-aa27-bfef3b23dd88",
@@ -8469,7 +8469,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Data Mining Project Project Leader Thomas-Raplh2502",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "07f5c470-09ec-4b8e-93fd-c55b29d691c7",
@@ -8540,7 +8540,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Data Mining Project 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "843b8436-3420-40db-89f0-f26b3a8d92f6",
@@ -8682,7 +8682,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Social Bots Project Project Creator Luis-Fernando-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "64f59b7f-8775-4891-89d6-404c15268ae3",
@@ -8753,7 +8753,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Social Bots Project Project Leader Brett Ssplatt",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "8b323050-afe2-4e0e-baaa-f41ef7590851",
@@ -8824,7 +8824,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Social Bots Project Project Contributor",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "592f3a9f-d0e7-4001-808b-d3eebfbe4e59",
@@ -8966,7 +8966,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Visual Scripting Project Project Creator Luis-Fernando-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "66c5370c-abe1-4834-8fce-9d75f18bad35",
@@ -9037,7 +9037,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Visual Scripting Project 1 Project Contributor Tentacle23",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "0f0cdc41-da2c-4f9e-854e-ae1603a94c3b",
@@ -9303,7 +9303,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Twitter Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "9f38002b-e14b-4718-a0c4-ff9a6f0fee9b",
@@ -9374,7 +9374,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Twitter Team Team Member",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "f3530cf9-6700-4c49-b568-45b87fb11f98",
@@ -9516,7 +9516,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Facebook Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "9e57b333-b9a7-4b19-a687-e75f2e4fcbe8",
@@ -9658,7 +9658,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Reddit Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "987f72d2-5c07-4121-8fd4-bbda98f6ed89",
@@ -9729,7 +9729,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Reddit Team Team Leader Brett",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "81553189-c387-4a01-b588-c7647b85c65b",
@@ -9871,7 +9871,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Youtube Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "2e3cef71-374b-4490-9a88-9dcaf4d1700e",
@@ -10078,7 +10078,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Superalgos.org Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "df3ec0fa-baec-4616-93ab-c1bf537c621a",
@@ -10220,7 +10220,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Superalgos Blog Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "abdf2eaf-b3ba-4aa4-8e2c-eca0ffdb0954",
@@ -10291,7 +10291,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Superalgos Blog Team Team Member",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "2aa46a04-524f-49a0-be79-ef5d02e2a9d0",
@@ -10433,7 +10433,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Brett Live Streaming and Videos Team Team Creator Brett",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "fe3b0e81-b102-4f50-a04f-5abd13a677b2",
@@ -10504,7 +10504,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Brett Live Streaming and Videos Team Team Leader",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "1ee10a05-798c-46cc-ab6b-a6fd9f34e535",
@@ -10575,7 +10575,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Brett Live Streaming and Videos Team Team Member",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "0f4afe6e-bab2-4e55-b297-d7a7f717ea7c",
@@ -10776,7 +10776,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Exchange Relationships Team Team Creator Julian-Molina",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "0ff203c7-137b-4cb7-a4ad-71a81fe3fa85",
@@ -10841,7 +10841,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Exchange Relationships Team Team Member",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "2c3f0889-521a-4461-83a3-5680ace40528",
@@ -11030,7 +11030,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Docs Teams Team Creator Harrell harrellbm",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "46d4bc93-9173-4254-ab36-13f0c44adfb4",
@@ -11095,7 +11095,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Docs Teams 2 Team Member Tentacle23 quantum8",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5c5a43fa-1932-4539-877d-cab1d322b8be",
@@ -11225,7 +11225,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Tutorials Team Team Creator Harrell harrellbm",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "0cf935f1-994c-46c9-9004-b499bb711a61",
@@ -11290,7 +11290,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Tutorials Team 1 Team Member quantum8",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "5c6fdd71-a38d-45e9-9bd2-9011edf498bd",
@@ -11420,7 +11420,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Translations Team Team Creator Harrell harrellbm",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "b3cf3da6-65cb-49fa-a723-40474c11d618",
@@ -11485,7 +11485,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Translations Team Team Leader mARTin1978",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "2d4c6721-2c01-4045-ad34-313b4e3006b4",
@@ -11550,7 +11550,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Translations Team 5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "eaf94a14-68c6-49d3-9282-779b1fd87e90",
@@ -11680,7 +11680,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Workspaces Team Team Creator Harrell harrellbm",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "631acb4c-14e7-4dfd-b4f2-92f26afb1ed6",
@@ -11745,7 +11745,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Workspaces Team Team Leader PiyanthaK piyanthak",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "9b9f0aed-ab60-4905-aa7e-4b45670f02e7",
@@ -11934,7 +11934,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Sys Admins Team Team Creator Brett",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "ad1767a9-78b4-404d-8b6e-5e304c1146e7",
@@ -11999,7 +11999,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Sys Admins Team Team Leader",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "2c6d3a17-951b-4fc6-8f2d-5723bb4f1b15",
@@ -12064,7 +12064,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Sys Admins Team Team Member",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "36dbd04a-5f94-4870-b120-85b1b4f9b3fc",
@@ -12194,7 +12194,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Docker Team Team Creator Brett",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "be90a3b3-5e52-4a2a-a5e0-cda31a555c6b",
@@ -12259,7 +12259,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Docker Team Team Leader",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "27b632db-9a73-4ca7-a26c-a74904efea1c",
@@ -12324,7 +12324,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Docker Team Team Member",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "434a0c22-e679-45be-83e8-65f3d0573b98",
@@ -12454,7 +12454,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Distribution Team Team Creator Nuno",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a7bc19b9-1d9a-41a3-a1ab-30b8ff99de0c",
@@ -12584,7 +12584,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Github Team Team Creator Luis-Fernando-Molina",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "1956b492-1754-4c13-b16c-04effcb667e7",
@@ -12649,7 +12649,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Github Team Team Leader Brett",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "f28042b1-fcf5-4026-ba4c-e089c5bdf238",
@@ -12714,7 +12714,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Github Team Team Member",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "7c7075e4-8b34-4ac8-b1a5-8d81b2d39969",
@@ -12844,7 +12844,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Setup Team Team Creator Harrell harrellbm",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "aa9bbc43-8bff-4069-9934-d349e60dcb67",
@@ -12909,7 +12909,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Setup Team Team Leader",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "9153ea27-4429-42be-a803-b673fce96369",
@@ -12974,7 +12974,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Setup Team Team Member",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "e8479ac6-b0ce-43a3-8759-781250e4bdce",
@@ -13169,7 +13169,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Telegram Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "00246d9a-916a-465a-815e-4b6f41aeee82",
@@ -13311,7 +13311,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Discord Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "c5c10d48-ec69-43f6-aa43-283effae282e",
@@ -13382,7 +13382,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Discord Team Team Leader Tee Haning",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "b5acd575-1262-4b57-93e0-a2a49b218194",
@@ -13453,7 +13453,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Discord Team 1 Team Member quantum8",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "21229041-75f7-4599-b576-708c328b086f",
@@ -13595,7 +13595,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Forum Team Team Creator Alexandru",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "5af3e4c4-492b-49b6-ba86-45b637334a56",
@@ -13666,7 +13666,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Forum Team Team Leader",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "ef03fa89-55ed-494a-9ec2-f99d014ad086",
@@ -13737,7 +13737,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Forum Team 1 Team Member  Thomas-Raplh2502",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "8add4587-4d15-48f4-98ea-298e4c0812f7",
@@ -13944,7 +13944,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Icons Team Team Creator Julian-Molina",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "7647758b-70c2-41b9-852c-9a850cf6dfbc",
@@ -14015,7 +14015,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Icons Team Team Member",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "9ed2267e-8461-41a2-926f-24dbe5ce710c",
@@ -14222,7 +14222,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Russian Community Team Team Creator Evgheni_Snejj",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "0d8319cd-6b18-44cc-a404-9f542bf91e37",
@@ -14364,7 +14364,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Turkish Community Team Team Creator Soligann_Prepheadrus",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "ce18ca1c-5429-46e9-800d-d4205f92b963",
@@ -14506,7 +14506,7 @@
                                                                         "positionWeightVotes": [
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Non-Tech-Users Community Team Team Creator EvaMaria70",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "53e85729-77a1-42a5-9ea6-8dd438f5dcf3",
@@ -14577,7 +14577,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Non-Tech-Users Community Team Team Leader @gustavohcorradi ",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "6272ebdf-0161-438d-8279-c672aa1c7ae2",
@@ -14648,7 +14648,7 @@
                                                                             },
                                                                             {
                                                                                 "type": "Position Weight Vote",
-                                                                                "name": "Non-Tech-Users Community Team 3 Team Members @gitforkgit @Soligann_Prepheadrus",
+                                                                                "name": "",
                                                                                 "config": "{}",
                                                                                 "project": "Governance",
                                                                                 "id": "eda22c0b-6077-4fda-b56e-1ed961fab476",
@@ -14987,7 +14987,7 @@
                                         "poolWeightVotes": [
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Liquidity Rewards BTCB Pool",
+                                                "name": "",
                                                 "config": "{\n    \"percentage\": 75\n}",
                                                 "project": "Governance",
                                                 "id": "b530b885-04f5-46e3-a2f7-79eccd53870b",
@@ -15052,7 +15052,7 @@
                                             },
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Liquidity Rewards BNB Pool",
+                                                "name": "",
                                                 "config": "{\n    \"percentage\": 11\n}",
                                                 "project": "Governance",
                                                 "id": "e9168842-6196-405e-9ead-0456a45eecf5",
@@ -15117,7 +15117,7 @@
                                             },
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Liquidity Rewards BUSD Pool",
+                                                "name": "",
                                                 "config": "{\n    \"percentage\": 11\n}",
                                                 "project": "Governance",
                                                 "id": "bcb67429-673a-4d80-9824-1f827c8de47c",
@@ -15182,7 +15182,7 @@
                                             },
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Liquidity Rewards ETH Pool",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "89e5b66f-bee5-491a-a9ad-6d8887554bb7",
@@ -15312,7 +15312,7 @@
                                         "poolWeightVotes": [
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Positions Pool",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "f6f85019-6d58-42eb-8d08-ba661342b1d0",
@@ -15433,7 +15433,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Visual Scripting Project 1 Project Contributor Tentacle23",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "71846ab2-14c4-4387-9da9-0e31c6f93d37",
@@ -15609,7 +15609,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Distribution Team Team Creator Nuno",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "d13e8401-2a24-41ee-bdce-b3b21dd13678",
@@ -15773,7 +15773,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Data Mining Project 3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "1d858fb4-834a-42d6-86be-04ca2500eb40",
@@ -15968,7 +15968,7 @@
                                         "poolWeightVotes": [
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Support Rewards Pool",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "4c5a099c-6d9e-4827-bbde-b1440e7a967f",
@@ -16033,7 +16033,7 @@
                                             },
                                             {
                                                 "type": "Pool Weight Vote",
-                                                "name": "Support Bonus Pool",
+                                                "name": "",
                                                 "config": "{\n    \"percentage\": 5\n}",
                                                 "project": "Governance",
                                                 "id": "70fb603c-0bf8-4155-86da-1a04841d332c",
@@ -16305,7 +16305,7 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Project Contributor Smidy13 Tentacule23 Governance Project",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "e855c2fb-ad83-4957-b639-423a3a1f5c63",
@@ -16981,11 +16981,11 @@
         "id": "f8182a9c-f830-4ec1-a238-ac3a5efd69e6",
         "savedPayload": {
             "position": {
-                "x": 37800,
+                "x": 33633.333333333336,
                 "y": 18800
             },
             "targetPosition": {
-                "x": 37500,
+                "x": 33333.333333333336,
                 "y": 18800
             },
             "floatingObject": {
@@ -17008,11 +17008,11 @@
         "id": "9870ca2a-cefc-484b-b7fc-206d62782ebc",
         "savedPayload": {
             "position": {
-                "x": 37650,
+                "x": 33483.333333333336,
                 "y": 19059.807621135333
             },
             "targetPosition": {
-                "x": 37500,
+                "x": 33333.333333333336,
                 "y": 18800
             },
             "floatingObject": {
@@ -17052,11 +17052,11 @@
                         "id": "37571576-8c99-49d9-ab4d-50aa4707d7ba",
                         "savedPayload": {
                             "position": {
-                                "x": 37947.26095580142,
+                                "x": 33780.59428913476,
                                 "y": 19649.585369022054
                             },
                             "targetPosition": {
-                                "x": 37687.45333466609,
+                                "x": 33520.786667999426,
                                 "y": 19499.585369022054
                             },
                             "floatingObject": {
@@ -17075,11 +17075,11 @@
                     "id": "33c4f8e9-f8a3-4dea-91f4-1539e3aed0d3",
                     "savedPayload": {
                         "position": {
-                            "x": 37687.45333466609,
+                            "x": 33520.786667999426,
                             "y": 19499.585369022054
                         },
                         "targetPosition": {
-                            "x": 37427.64571353076,
+                            "x": 33260.97904686409,
                             "y": 19349.585369022054
                         },
                         "floatingObject": {
@@ -17108,11 +17108,11 @@
                         "id": "947be666-7f33-4b4b-88ca-5d579b3e3158",
                         "savedPayload": {
                             "position": {
-                                "x": 37582.93714059227,
+                                "x": 33416.27047392561,
                                 "y": 19929.140864795496
                             },
                             "targetPosition": {
-                                "x": 37505.291427061515,
+                                "x": 33338.62476039485,
                                 "y": 19639.363116908775
                             },
                             "floatingObject": {
@@ -17131,11 +17131,11 @@
                     "id": "ad887d5f-998f-48c5-9db7-78e17c66f4e4",
                     "savedPayload": {
                         "position": {
-                            "x": 37505.291427061515,
+                            "x": 33338.62476039485,
                             "y": 19639.363116908775
                         },
                         "targetPosition": {
-                            "x": 37427.64571353076,
+                            "x": 33260.97904686409,
                             "y": 19349.585369022054
                         },
                         "floatingObject": {
@@ -17166,11 +17166,11 @@
                         "id": "d29d5158-2332-437e-9b58-deb65df48932",
                         "savedPayload": {
                             "position": {
-                                "x": 37127.64571353076,
+                                "x": 32960.97904686409,
                                 "y": 19869.20061129272
                             },
                             "targetPosition": {
-                                "x": 37277.64571353076,
+                                "x": 33110.97904686409,
                                 "y": 19609.392990157387
                             },
                             "floatingObject": {
@@ -17189,11 +17189,11 @@
                     "id": "0a06a54b-825b-4ff4-93cc-36465348ad26",
                     "savedPayload": {
                         "position": {
-                            "x": 37277.64571353076,
+                            "x": 33110.97904686409,
                             "y": 19609.392990157387
                         },
                         "targetPosition": {
-                            "x": 37427.64571353076,
+                            "x": 33260.97904686409,
                             "y": 19349.585369022054
                         },
                         "floatingObject": {
@@ -17213,11 +17213,11 @@
             "id": "abcc6b01-099e-42b4-84cc-24fb6daa7a15",
             "savedPayload": {
                 "position": {
-                    "x": 37427.64571353076,
+                    "x": 33260.97904686409,
                     "y": 19349.585369022054
                 },
                 "targetPosition": {
-                    "x": 37350,
+                    "x": 33183.333333333336,
                     "y": 19059.807621135333
                 },
                 "floatingObject": {
@@ -17252,11 +17252,11 @@
                         "id": "5dea7a2d-a534-4391-a801-a3bef25dacfa",
                         "savedPayload": {
                             "position": {
-                                "x": 36900,
+                                "x": 32733.333333333336,
                                 "y": 19839.23048454133
                             },
                             "targetPosition": {
-                                "x": 37050,
+                                "x": 32883.333333333336,
                                 "y": 19579.422863406
                             },
                             "floatingObject": {
@@ -17275,11 +17275,11 @@
                     "id": "42843263-b1f3-4e4e-885a-5d8b9d7b647a",
                     "savedPayload": {
                         "position": {
-                            "x": 37050,
+                            "x": 32883.333333333336,
                             "y": 19579.422863406
                         },
                         "targetPosition": {
-                            "x": 37200,
+                            "x": 33033.333333333336,
                             "y": 19319.615242270665
                         },
                         "floatingObject": {
@@ -17299,11 +17299,11 @@
             "id": "de1b0ac7-1bcf-4412-af43-4597443c0ec3",
             "savedPayload": {
                 "position": {
-                    "x": 37200,
+                    "x": 33033.333333333336,
                     "y": 19319.615242270665
                 },
                 "targetPosition": {
-                    "x": 37350,
+                    "x": 33183.333333333336,
                     "y": 19059.807621135333
                 },
                 "floatingObject": {
@@ -17338,11 +17338,11 @@
                         "id": "6285c67f-f669-44bf-8cfe-46309e6da4e2",
                         "savedPayload": {
                             "position": {
-                                "x": 36480.66675633984,
+                                "x": 32314.000089673173,
                                 "y": 19292.744761727605
                             },
                             "targetPosition": {
-                                "x": 36770.44450422656,
+                                "x": 32603.777837559894,
                                 "y": 19215.099048196847
                             },
                             "floatingObject": {
@@ -17361,11 +17361,11 @@
                     "id": "0216b143-0e46-4da6-b2cb-e95556fc1bfd",
                     "savedPayload": {
                         "position": {
-                            "x": 36770.44450422656,
+                            "x": 32603.777837559894,
                             "y": 19215.099048196847
                         },
                         "targetPosition": {
-                            "x": 37060.22225211328,
+                            "x": 32893.555585446615,
                             "y": 19137.45333466609
                         },
                         "floatingObject": {
@@ -17385,11 +17385,11 @@
             "id": "b0db0d19-5529-4b96-ab4f-ac7d54e1e6db",
             "savedPayload": {
                 "position": {
-                    "x": 37060.22225211328,
+                    "x": 32893.555585446615,
                     "y": 19137.45333466609
                 },
                 "targetPosition": {
-                    "x": 37350,
+                    "x": 33183.333333333336,
                     "y": 19059.807621135333
                 },
                 "floatingObject": {
@@ -17408,17 +17408,17 @@
         "id": "c57bd931-a0e1-4cf2-9270-b33f08839484",
         "savedPayload": {
             "position": {
-                "x": 37350,
+                "x": 33183.333333333336,
                 "y": 19059.807621135333
             },
             "targetPosition": {
-                "x": 37500,
+                "x": 33333.333333333336,
                 "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -17458,11 +17458,11 @@
                                 "id": "a9484759-a37e-4c5f-a11a-964bc88371ba",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 36567.838092395425,
+                                        "x": 32401.17142572876,
                                         "y": 19499.585369022054
                                     },
                                     "targetPosition": {
-                                        "x": 36490.19237886467,
+                                        "x": 32323.525712198003,
                                         "y": 19209.807621135333
                                     },
                                     "floatingObject": {
@@ -17486,11 +17486,11 @@
                                 "id": "a8bf7c62-5df7-475b-a43d-77c47cf1af5d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 36340.19237886467,
+                                        "x": 32173.525712198003,
                                         "y": 19469.615242270665
                                     },
                                     "targetPosition": {
-                                        "x": 36490.19237886467,
+                                        "x": 32323.525712198003,
                                         "y": 19209.807621135333
                                     },
                                     "floatingObject": {
@@ -17514,11 +17514,11 @@
                                 "id": "30d456e2-e263-4e12-a486-9f1aa5cc2bf1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 36200.414630977946,
+                                        "x": 32033.747964311282,
                                         "y": 19287.45333466609
                                     },
                                     "targetPosition": {
-                                        "x": 36490.19237886467,
+                                        "x": 32323.525712198003,
                                         "y": 19209.807621135333
                                     },
                                     "floatingObject": {
@@ -17569,17 +17569,17 @@
                         "id": "e42dfedc-6906-4833-8737-44d5f45ab82e",
                         "savedPayload": {
                             "position": {
-                                "x": 36490.19237886467,
-                                "y": 19209.807621135333
+                                "x": 32395.879998667246,
+                                "y": 19239.77774788672
                             },
                             "targetPosition": {
-                                "x": 36640.19237886467,
+                                "x": 32473.525712198003,
                                 "y": 18950
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -17597,11 +17597,916 @@
                         "id": "363574ea-edf4-4cab-8b52-c04ce8f037c6",
                         "savedPayload": {
                             "position": {
-                                "x": 36560.19237886467,
-                                "y": 19002
+                                "x": 32213.71809106267,
+                                "y": 19100
                             },
                             "targetPosition": {
-                                "x": 36640.19237886467,
+                                "x": 32473.525712198003,
+                                "y": 18950
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "availableSignals": {
+                        "type": "Available Signals",
+                        "name": "New Available Signals",
+                        "config": "{}",
+                        "project": "Trading-Signals",
+                        "triggerStageSignals": {
+                            "type": "Trigger Stage Signals",
+                            "name": "New Trigger Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "triggerOnSignal": {
+                                "type": "Trigger On Signal",
+                                "name": "Trigger On Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "6cfcae4f-d155-4d51-b912-7248fee0ed37",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31919.245636893895,
+                                        "y": 19359.506972394676
+                                    },
+                                    "targetPosition": {
+                                        "x": 31950.604175874192,
+                                        "y": 19061.150403784195
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "triggerOffSignal": {
+                                "type": "Trigger Off Signal",
+                                "name": "Trigger Off Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "5a66ab0c-a5ae-420e-9d35-ee9a35c47400",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31717.460387437102,
+                                        "y": 19249.946521099148
+                                    },
+                                    "targetPosition": {
+                                        "x": 31950.604175874192,
+                                        "y": 19061.150403784195
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "takePositionSignal": {
+                                "type": "Take Position Signal",
+                                "name": "Take Position Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "e056b027-4b86-49c3-80cc-94b5d2bb582d",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31652.24760726371,
+                                        "y": 19029.791864803898
+                                    },
+                                    "targetPosition": {
+                                        "x": 31950.604175874192,
+                                        "y": 19061.150403784195
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "211939a7-a174-440d-8fc3-4218b2a38226",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 31950.604175874192,
+                                    "y": 19061.150403784195
+                                },
+                                "targetPosition": {
+                                    "x": 32183.747964311282,
+                                    "y": 18872.354286469243
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "openStageSignals": {
+                            "type": "Open Stage Signals",
+                            "name": "New Open Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "limitBuyOrderSignals": [],
+                            "limitSellOrderSignals": [
+                                {
+                                    "type": "Limit Sell Order Signals",
+                                    "name": "New Limit Sell Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "Open-Stage Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "3efbbfc2-3271-4faf-abac-6d49d03cbdaa",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31299.253288569995,
+                                                "y": 18996.460958527492
+                                            },
+                                            "targetPosition": {
+                                                "x": 31584.57024345854,
+                                                "y": 18903.75586021501
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "Open-Stage Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "660a0340-94ae-416e-8a66-a4c4a37d89ab",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31291.1259632384,
+                                                "y": 18841.382352969682
+                                            },
+                                            "targetPosition": {
+                                                "x": 31584.57024345854,
+                                                "y": 18903.75586021501
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "5b2945dd-bdbe-4d3e-95d7-4b3033ee43c5",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 31584.57024345854,
+                                            "y": 18903.75586021501
+                                        },
+                                        "targetPosition": {
+                                            "x": 31884.15910388491,
+                                            "y": 18888.055073342126
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "marketBuyOrderSignals": [],
+                            "marketSellOrderSignals": [],
+                            "id": "eef0e49a-4901-450e-89cf-61647315aff4",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 31884.15910388491,
+                                    "y": 18888.055073342126
+                                },
+                                "targetPosition": {
+                                    "x": 32183.747964311282,
+                                    "y": 18872.354286469243
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "manageStageSignals": {
+                            "type": "Manage Stage Signals",
+                            "name": "New Manage Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "id": "6319c0ae-81ac-457c-9ff1-213c99c432f2",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 31932.146793927655,
+                                    "y": 18708.962575964735
+                                },
+                                "targetPosition": {
+                                    "x": 32183.747964311282,
+                                    "y": 18872.354286469243
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "closeStageSignals": {
+                            "type": "Close Stage Signals",
+                            "name": "New Close Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "limitBuyOrderSignals": [
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "f3376a61-476e-4dba-a52d-09841e1071b3",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31484.62940583572,
+                                                "y": 18654.460683184494
+                                            },
+                                            "targetPosition": {
+                                                "x": 31776.340381955022,
+                                                "y": 18584.42707402772
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "667c4488-a9f2-49e6-bf38-1fbf46716a62",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31488.694461494564,
+                                                "y": 18499.222470616543
+                                            },
+                                            "targetPosition": {
+                                                "x": 31776.340381955022,
+                                                "y": 18584.42707402772
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "a98a5852-7957-4ec9-9c19-10b1cdf9584c",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 31776.340381955022,
+                                            "y": 18584.42707402772
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "875aafc1-3d0d-469b-8e01-c873e253fd87",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31505.86743997637,
+                                                "y": 18423.328826085275
+                                            },
+                                            "targetPosition": {
+                                                "x": 31802.17394215491,
+                                                "y": 18470.259165597345
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "1f93ec2d-8399-42e3-8608-97cc7580e228",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31569.03015371782,
+                                                "y": 18281.463048282392
+                                            },
+                                            "targetPosition": {
+                                                "x": 31802.17394215491,
+                                                "y": 18470.259165597345
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "4698af2d-06bc-4f99-a53b-c4e414200769",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 31802.17394215491,
+                                            "y": 18470.259165597345
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "046631c9-395b-4aa5-9f68-1e7abd0dc611",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31613.93915743334,
+                                                "y": 18217.918277801615
+                                            },
+                                            "targetPosition": {
+                                                "x": 31869.731206739565,
+                                                "y": 18374.6678472164
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "5d9643e9-7ce4-43f0-98b3-1bd27999025b",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31726.58357866168,
+                                                "y": 18111.02271341781
+                                            },
+                                            "targetPosition": {
+                                                "x": 31869.731206739565,
+                                                "y": 18374.6678472164
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "5f175ec9-4487-4c70-8e92-16ce52fa3fcd",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 31869.731206739565,
+                                            "y": 18374.6678472164
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "2a641114-dccb-4844-8a05-ca1ab845bd95",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31792.391618896356,
+                                                "y": 18069.50093225844
+                                            },
+                                            "targetPosition": {
+                                                "x": 31968.7271945841,
+                                                "y": 18312.206030570924
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "b9550eac-e566-4ab2-8d4d-87220ad47e3f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 31937.3686556038,
+                                                "y": 18013.849461960443
+                                            },
+                                            "targetPosition": {
+                                                "x": 31968.7271945841,
+                                                "y": 18312.206030570924
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "9a859667-5fe2-44fb-82b3-27d03522c0d0",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 31968.7271945841,
+                                            "y": 18312.206030570924
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "1e207109-e042-4d84-b2a4-2e557ad45820",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32014.05705478328,
+                                                "y": 18000.671984908113
+                                            },
+                                            "targetPosition": {
+                                                "x": 32084.090663940053,
+                                                "y": 18292.382961027415
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "be358431-9808-4373-adec-8878b1506c5f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32169.29526735123,
+                                                "y": 18004.737040566957
+                                            },
+                                            "targetPosition": {
+                                                "x": 32084.090663940053,
+                                                "y": 18292.382961027415
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "4d2889b7-668d-4909-a9a7-35980825267d",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 32084.090663940053,
+                                            "y": 18292.382961027415
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "45363865-4fb4-4c0c-9f35-8b030b5f1462",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32245.1889118825,
+                                                "y": 18021.910019048762
+                                            },
+                                            "targetPosition": {
+                                                "x": 32198.25857237043,
+                                                "y": 18318.216521227303
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "ee7ac49a-11d9-460a-87f4-dbe238bb8634",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32387.05468968538,
+                                                "y": 18085.072732790213
+                                            },
+                                            "targetPosition": {
+                                                "x": 32198.25857237043,
+                                                "y": 18318.216521227303
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "dbcaf86b-a484-4582-8306-65902b940956",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 32198.25857237043,
+                                            "y": 18318.216521227303
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Limit Buy Order Signals",
+                                    "name": "New Limit Buy Order Signals",
+                                    "config": "{}",
+                                    "project": "Trading-Signals",
+                                    "createOrderSignal": {
+                                        "type": "Create Order Signal",
+                                        "name": "New Create Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "a6f08b50-1a9b-4bf2-aa1b-8926196699e6",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32450.59946016616,
+                                                "y": 18129.98173650573
+                                            },
+                                            "targetPosition": {
+                                                "x": 32293.849890751375,
+                                                "y": 18385.773785811958
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "cancelOrderSignal": {
+                                        "type": "Cancel Order Signal",
+                                        "name": "New Cancel Order Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "be260c77-1346-40c2-88a6-6597ebcca5ed",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32557.495024549964,
+                                                "y": 18242.626157734074
+                                            },
+                                            "targetPosition": {
+                                                "x": 32293.849890751375,
+                                                "y": 18385.773785811958
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "e6de88e4-11e4-4f6b-bb4b-f5a5e828d1e3",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 32293.849890751375,
+                                            "y": 18385.773785811958
+                                        },
+                                        "targetPosition": {
+                                            "x": 32076.23757944769,
+                                            "y": 18592.280158520083
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "limitSellOrderSignals": [],
+                            "marketBuyOrderSignals": [],
+                            "id": "232af7b2-e244-4829-939f-f6469a54655a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 32076.23757944769,
+                                    "y": 18592.280158520083
+                                },
+                                "targetPosition": {
+                                    "x": 32183.747964311282,
+                                    "y": 18872.354286469243
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "3699bf51-a7c1-4174-ac81-8cfeb400af54",
+                        "savedPayload": {
+                            "position": {
+                                "x": 32183.747964311282,
+                                "y": 18872.354286469243
+                            },
+                            "targetPosition": {
+                                "x": 32473.525712198003,
                                 "y": 18950
                             },
                             "floatingObject": {
@@ -17620,11 +18525,11 @@
                     "id": "5167a23f-1e17-4cd5-85a7-3c7f2a3019ac",
                     "savedPayload": {
                         "position": {
-                            "x": 36640.19237886467,
+                            "x": 32473.525712198003,
                             "y": 18950
                         },
                         "targetPosition": {
-                            "x": 36900,
+                            "x": 32733.333333333336,
                             "y": 18800
                         },
                         "floatingObject": {
@@ -17653,11 +18558,242 @@
                         "id": "dc038dd9-ce63-4d0d-89ac-d8c97191bafa",
                         "savedPayload": {
                             "position": {
-                                "x": 36723.19237886467,
-                                "y": 18561
+                                "x": 32173.525712198003,
+                                "y": 18650
                             },
                             "targetPosition": {
-                                "x": 36640.19237886467,
+                                "x": 32473.525712198003,
+                                "y": 18650
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "availableSignals": {
+                        "type": "Available Signals",
+                        "name": "New Available Signals",
+                        "config": "{}",
+                        "project": "Trading-Signals",
+                        "triggerStageSignals": {
+                            "type": "Trigger Stage Signals",
+                            "name": "New Trigger Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "triggerOnSignal": {
+                                "type": "Trigger On Signal",
+                                "name": "New Trigger On Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "98ccebaa-42a6-4c7b-8c59-035bf61f8b49",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31792.025355150432,
+                                        "y": 18547.629957199322
+                                    },
+                                    "targetPosition": {
+                                        "x": 32025.169143587522,
+                                        "y": 18358.83383988437
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "triggerOffSignal": {
+                                "type": "Trigger Off Signal",
+                                "name": "New Trigger Off Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "9a7bbf9b-f094-40b4-a227-ed6551712b44",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31726.81257497704,
+                                        "y": 18327.475300904072
+                                    },
+                                    "targetPosition": {
+                                        "x": 32025.169143587522,
+                                        "y": 18358.83383988437
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "takePositionSignal": {
+                                "type": "Take Position Signal",
+                                "name": "New Take Position Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "e81927a1-ae63-4827-b045-e7809a31ea1c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31836.37302627257,
+                                        "y": 18125.69005144728
+                                    },
+                                    "targetPosition": {
+                                        "x": 32025.169143587522,
+                                        "y": 18358.83383988437
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "061ac24e-0724-487e-aa28-24d34421815f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 32025.169143587522,
+                                    "y": 18358.83383988437
+                                },
+                                "targetPosition": {
+                                    "x": 32323.525712198003,
+                                    "y": 18390.192378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "openStageSignals": {
+                            "type": "Open Stage Signals",
+                            "name": "New Open Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "limitBuyOrderSignals": [],
+                            "limitSellOrderSignals": [],
+                            "marketBuyOrderSignals": [],
+                            "marketSellOrderSignals": [],
+                            "id": "201be5f9-2875-4e0b-8f4b-216fe5c57012",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 32100.582264554785,
+                                    "y": 18189.45319695701
+                                },
+                                "targetPosition": {
+                                    "x": 32323.525712198003,
+                                    "y": 18390.192378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "manageStageSignals": {
+                            "type": "Manage Stage Signals",
+                            "name": "New Manage Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "id": "c84f08d4-32b4-47c7-8fa4-6f99f033c28d",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 32261.152204952676,
+                                    "y": 18096.748098644526
+                                },
+                                "targetPosition": {
+                                    "x": 32323.525712198003,
+                                    "y": 18390.192378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "closeStageSignals": {
+                            "type": "Close Stage Signals",
+                            "name": "New Close Stage Signals",
+                            "config": "{}",
+                            "project": "Trading-Signals",
+                            "limitBuyOrderSignals": [],
+                            "limitSellOrderSignals": [],
+                            "marketBuyOrderSignals": [],
+                            "id": "a919a37a-e526-401b-a96f-15f6a45d2f3a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 32445.54670512074,
+                                    "y": 18116.128741571887
+                                },
+                                "targetPosition": {
+                                    "x": 32323.525712198003,
+                                    "y": 18390.192378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "68c9510d-b0bc-4412-aff0-ad214e7ddafc",
+                        "savedPayload": {
+                            "position": {
+                                "x": 32323.525712198003,
+                                "y": 18390.192378864667
+                            },
+                            "targetPosition": {
+                                "x": 32473.525712198003,
                                 "y": 18650
                             },
                             "floatingObject": {
@@ -17676,17 +18812,17 @@
                     "id": "c27748af-db60-44fc-a095-530401057beb",
                     "savedPayload": {
                         "position": {
-                            "x": 36640.19237886467,
+                            "x": 32473.525712198003,
                             "y": 18650
                         },
                         "targetPosition": {
-                            "x": 36900,
+                            "x": 32733.333333333336,
                             "y": 18800
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -17700,11 +18836,11 @@
             "id": "4809934c-d45d-4565-a686-5d96bd695b4f",
             "savedPayload": {
                 "position": {
-                    "x": 36900,
+                    "x": 32733.333333333336,
                     "y": 18800
                 },
                 "targetPosition": {
-                    "x": 37200,
+                    "x": 33033.333333333336,
                     "y": 18800
                 },
                 "floatingObject": {
@@ -17723,17 +18859,17 @@
         "id": "54ced611-b518-435f-a284-935666ef47db",
         "savedPayload": {
             "position": {
-                "x": 37200,
+                "x": 33033.333333333336,
                 "y": 18800
             },
             "targetPosition": {
-                "x": 37500,
+                "x": 33333.333333333336,
                 "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -18001,11 +19137,11 @@
         "id": "e453990c-57e2-4886-9dc1-060cd2750467",
         "savedPayload": {
             "position": {
-                "x": 37350,
+                "x": 33183.333333333336,
                 "y": 18540.192378864667
             },
             "targetPosition": {
-                "x": 37500,
+                "x": 33333.333333333336,
                 "y": 18800
             },
             "floatingObject": {
@@ -18040,11 +19176,11 @@
                     "id": "f8feca97-5cf6-4731-a774-155fb8f8222a",
                     "savedPayload": {
                         "position": {
-                            "x": 37650,
+                            "x": 33483.333333333336,
                             "y": 17940.192378864667
                         },
                         "targetPosition": {
-                            "x": 37650,
+                            "x": 33483.333333333336,
                             "y": 18240.192378864667
                         },
                         "floatingObject": {
@@ -18063,11 +19199,11 @@
                 "id": "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3",
                 "savedPayload": {
                     "position": {
-                        "x": 37650,
+                        "x": 33483.333333333336,
                         "y": 18240.192378864667
                     },
                     "targetPosition": {
-                        "x": 37650,
+                        "x": 33483.333333333336,
                         "y": 18540.192378864667
                     },
                     "floatingObject": {
@@ -18096,11 +19232,11 @@
                     "id": "0d4c4724-3c0a-4fdf-aaeb-4a282ae0787f",
                     "savedPayload": {
                         "position": {
-                            "x": 38169.615242270665,
+                            "x": 34002.948575604,
                             "y": 18240.192378864667
                         },
                         "targetPosition": {
-                            "x": 37909.80762113533,
+                            "x": 33743.14095446867,
                             "y": 18390.192378864667
                         },
                         "floatingObject": {
@@ -18119,11 +19255,11 @@
                 "id": "352cd906-c36c-48c7-8f01-728ff78b78e9",
                 "savedPayload": {
                     "position": {
-                        "x": 37909.80762113533,
+                        "x": 33743.14095446867,
                         "y": 18390.192378864667
                     },
                     "targetPosition": {
-                        "x": 37650,
+                        "x": 33483.333333333336,
                         "y": 18540.192378864667
                     },
                     "floatingObject": {
@@ -18143,11 +19279,11 @@
         "id": "da779e56-cb36-4825-bcd5-06692175a982",
         "savedPayload": {
             "position": {
-                "x": 37650,
+                "x": 33483.333333333336,
                 "y": 18540.192378864667
             },
             "targetPosition": {
-                "x": 37500,
+                "x": 33333.333333333336,
                 "y": 18800
             },
             "floatingObject": {
@@ -18176,7 +19312,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

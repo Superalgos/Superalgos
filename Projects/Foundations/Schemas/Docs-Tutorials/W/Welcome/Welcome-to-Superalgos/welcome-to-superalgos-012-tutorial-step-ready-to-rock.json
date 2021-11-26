@@ -35,8 +35,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der Knoten Data Tasks steuert alle für diesen Netzwerkknoten definierten Data-Mining-Aufgaben.",
-                "updated": 1634162078401,
+                "text": "Die Data Tasks node steuert alle für diese LAN-Netzwerk node definierten Data-Mining-Aufgaben (Data Mining Tasks).",
+                "updated": 1637873413099,
                 "style": "Definition"
             },
             {

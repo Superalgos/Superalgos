@@ -4,77 +4,189 @@
     "type": "Trading Farms - Set Up a Network of Nodes",
     "definition": {
         "text": "Install Superalgos on each machine, to then create and set up a network node for each machine. ",
-        "updated": 1614352888183
+        "updated": 1614352888183,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Installieren Sie Superalgos auf jedem Rechner, um dann für jeden Rechner eine Netzwerknode (Netzwerk Knoten) zu erstellen und einzurichten.\nIns deutsche Übersetzt von gitforkgit.",
+                "updated": 1637876698345
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "There are essentially two approaches from here. ",
-            "updated": 1614354810094
+            "updated": 1614354810094,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Von hier aus gibt es im Wesentlichen zwei Ansätze.",
+                    "updated": 1637875828713
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Install All in One Node: The first one and probably the easiest one is to first install the markets at one Network Node and later move the branches you want to move to other Network Nodes.",
-            "updated": 1614354841546
+            "updated": 1614354841546,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "All in One Node installieren: Die erste und wahrscheinlich einfachste Möglichkeit besteht darin, die Markets zunächst an einer Netzwerk node zu installieren und später die branches (Zweigstellen), die Sie verschieben möchten, zu anderen Netzwerk nodes zu verschieben.",
+                    "updated": 1637875895046
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Install All in All Nodes: In this approach, you first create all Network Nodes and the install the markets you wish to work with, the install procedure will install each market at all nodes, so then you will need to delete all the duplicate stuff by hand."
+            "text": "Install All in All Nodes: In this approach, you first create all Network Nodes and the install the markets you wish to work with, the install procedure will install each market at all nodes, so then you will need to delete all the duplicate stuff by hand.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "All in All Node installieren: Bei diesem Ansatz erstellen Sie zunächst alle Network Nodes und installieren dann die markets, mit denen Sie arbeiten möchten. Die Installationsprozedur installiert jeden Markt auf allen Knoten, so dass Sie anschließend alle doppelten Daten (Duplikate) von Hand löschen müssen.",
+                    "updated": 1637875971847
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Install Market"
+            "text": "Install Market",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Market installieren",
+                    "updated": 1637875998237
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The procedure to setup a Network Node is by executing the Install Market menu option of a certain Market node. This is a complex procedure that will connect all the dots for you from A to Z. You can do by hand what this procedure does, but it will take you a lot of time, and you will need to know all the details of how to connect everything together.",
-            "updated": 1617263888269
+            "updated": 1617263888269,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Verfahren zur Einrichtung einer Network node besteht darin, die Market menu option einer bestimmten Market node zu installieren. Dies ist ein komplexes Verfahren, das alle Punkte für Sie von A bis Z verbindet. Sie können dieses Verfahren auch von Hand ausführen, aber es wird Sie viel Zeit kosten, und Sie müssen alle Details kennen, um alles miteinander zu verbinden.",
+                    "updated": 1637876433613
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "One of the most important things to understand of this procedure is that it takes into account the things you have at the workspace at the moment you run this command. "
+            "text": "One of the most important things to understand of this procedure is that it takes into account the things you have at the workspace at the moment you run this command. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eines der wichtigsten Dinge, die Sie bei diesem Verfahren verstehen müssen, ist, dass es die Dinge berücksichtigt, die Sie zum Zeitpunkt der Ausführung dieses Befehls im Workspace haben.",
+                    "updated": 1637876525803
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example: if you have 2 trading systems, it will automatically create backtesting and live trading tasks for both of them.",
-            "updated": 1617263908126
+            "updated": 1617263908126,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Beispiel: Wenn Sie 2 trading systems haben, werden automatisch Backtesting und Live-Trading tasks für beide erstellt.",
+                    "updated": 1637876565042
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The procedure will also be applied to each Network Node found at the workspace, assuming that you will later delete the Tasks or other branches you don't need. But in order to do so, you need to know what is being added as a result of this execution.",
-            "updated": 1617263931507
+            "updated": 1617263931507,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Verfahren wird auch auf jede Network Node im Workspace angewandt, vorausgesetzt, Sie löschen später die tasks oder andere nicht benötigte branches. Dazu müssen Sie aber wissen, was als Ergebnis dieser Ausführung hinzugefügt wird.",
+                    "updated": 1637876635609
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "At the LAN Network Hierarchy"
+            "text": "At the LAN Network Hierarchy",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der LAN Network Hierarchy (LAN-Netzwerkhierarchie)",
+                    "updated": 1637876677554
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Here this procedure will essentially add 2 things:",
-            "updated": 1617263943061
+            "updated": 1617263943061,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier wird dieses Verfahren im Wesentlichen 2 Dinge hinzufügen:",
+                    "updated": 1637876719719
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Tasks: This includes Backtesting, Live Trading, Learning or any other supported type of Task."
+            "text": "Tasks: This includes Backtesting, Live Trading, Learning or any other supported type of Task.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tasks: Dazu gehören Backtesting, Live Trading, Learning oder jede andere unterstützte Art von Task.",
+                    "updated": 1637876758941
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Data Products: You can think of this as references to the physical data. These definitions are what tells the system in general where the data is physically located.",
-            "updated": 1617263962570
+            "updated": 1617263962570,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Data Products: Sie können sich dies als Verweise auf die physischen Daten vorstellen. Diese Definitionen sagen dem System im Allgemeinen, wo sich die Daten physisch befinden.",
+                    "updated": 1637876822591
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "At the Charting Space Hierarchy"
+            "text": "At the Charting Space Hierarchy",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der Charting Space Hierarchie",
+                    "updated": 1637876836807
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Here this procedure will add Time Machine s with Timeline Chart s inside of them. Deeper inside this branch, you will find Layer s node, which references the Data Products at the LAN Network Hierarchy. That reference is crucial for the system to know when you turn on a Layer at the charts, where the data needs to be fetched from (which Client).",
-            "updated": 1617263990004
+            "updated": 1617263990004,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier wird dieses Verfahren Time Machine s mit Timeline Chart s in ihnen hinzufügen. Tiefer in dieser Branch finden Sie die Node Layer s, welche auf die Data products (Datenprodukte) in der LAN Network Hierarchy verweist. Diese reference (Referenz) ist wichtig, damit das System weiß, woher die Daten geholt werden müssen (von welchem Client), wenn Sie eine Layer in den Charts (Diagrammen) einschalten.",
+                    "updated": 1637877101462
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you understand all the previous relationships, you can go ahead and install a market in all Network Node s at the same time, and then try to delete all the duplicated definitions. If you don't have all that clear, it is recommended that you install all your markets at one single Network Node and then move the branches you want from one Network Node to the other.",
-            "updated": 1617264010597
+            "updated": 1617264010597,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie alle vorherigen Beziehungen verstehen, können Sie einen Markt in allen Network Node s gleichzeitig installieren und dann versuchen, alle duplizierten Definitionen zu löschen. Wenn Ihnen das nicht klar ist, empfiehlt es sich, alle markets in einer einzigen Network Node zu installieren und dann die gewünschten branches von einer Networknode zur anderen zu verschieben.",
+                    "updated": 1637877260476
+                }
+            ]
         },
         {
             "style": "Title",

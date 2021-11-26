@@ -1315,8 +1315,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                 case 'createGithubFork': {
 
                                     let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
-                                        params.repository,
-                                        params.username,
                                         params.token
                                     )
 
@@ -1355,7 +1353,20 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         let error
 
+                                        await checkFork()
                                         await updateUser()
+
+                                        async function checkFork() {
+                                            let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
+                                                params.token
+                                            )
+        
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                            
+                                            if(error != undefined) {
+                                                console.log('[ERROR] httpInterface -> Gov -> createFork -> You already have a fork. Good for you!')
+                                            }
+                                        }
 
                                         async function updateUser() {
 

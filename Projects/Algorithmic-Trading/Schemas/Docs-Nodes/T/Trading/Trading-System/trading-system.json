@@ -27,23 +27,58 @@
         },
         {
             "style": "Text",
-            "text": "In practical terms, a trading system is a hierarchical arrangement organizing the actionable aspects of your investment plan. The hierarchy contains definitions regarding any number of trading strategies, all operating on the same market and sharing the same initial capital allocation."
+            "text": "In practical terms, a trading system is a hierarchical arrangement organizing the actionable aspects of your investment plan. The hierarchy contains definitions regarding any number of trading strategies, all operating on the same market and sharing the same initial capital allocation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En términos prácticos, un Trading System es una disposición jerárquica que organiza los aspectos procesables de su plan de inversión. Esta jerarquía contiene definiciones respecto a un sinnúmero de estrategias de trading, todas operando en el mismo mercado y compartiendo la misma asignación de capital inicial.",
+                    "updated": 1637880963165
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You use a trading system to define strategies following the Superalgos Protocol, splitting strategies into four stages: trigger, open, manage, and close."
+            "text": "You use a trading system to define strategies following the Superalgos Protocol, splitting strategies into four stages: trigger, open, manage, and close.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se utiliza un Trading System para definir estrategias acorde al protocolo de Superalgos, dividiendo a éstas en cuatro etapas: activación, apertura, gestión y cierre.",
+                    "updated": 1637880976135
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The concept of describing strategies in stages is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the same framework, which contributes to developing scalable trading systems that may grow to any number of strategies."
+            "text": "The concept of describing strategies in stages is fundamental to the methodical aspect of the trading system, as it provides a framework to run every strategy with the same framework, which contributes to developing scalable trading systems that may grow to any number of strategies.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El concepto de describir estrategias en etapas es fundamental para el aspecto metódico del Trading System, ya que provee la infraestructura necesaria para ejecutar cualquier estrategia con la misma infraestructura. Esto contribuye a desarrollar Trading Systems escalables, que pueden alcanzar innumerable cantidad de estrategias.",
+                    "updated": 1637880986625
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When a trading system features more than one strategy, the first strategy has precedence over the second, the second over the third, and so on. This means that strategies are evaluated in a sequence. When a given strategy is triggered-on, the remaining strategies in the queue are no longer evaluated until the strategy triggers off. In other words, when multiple strategies are deployed within a single trading system, only one strategy may trade at any given moment, and precedence is given by the order around the trading system node."
+            "text": "When a trading system features more than one strategy, the first strategy has precedence over the second, the second over the third, and so on. This means that strategies are evaluated in a sequence. When a given strategy is triggered-on, the remaining strategies in the queue are no longer evaluated until the strategy triggers off. In other words, when multiple strategies are deployed within a single trading system, only one strategy may trade at any given moment, and precedence is given by the order around the trading system node.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando un Trading System ofrece más de una estrategia, la primera estrategia tiene prioridad sobre la segunda, la segunda sobre la tercera, y así sucesivamente. Esto significa que las estrategias son analizadas de manera secuencial. Cuando una estrategia dada es activada, las estrategias restantes no serán analizadas hasta que ésta se desactive. En otras palabras, cuando se implementan múltiples estrategias bajo un único Trading System, solo una estrategia puede operar en un momento dado, y la prioridad está dada por el orden especificado en el Nodo del Trading System.",
+                    "updated": 1637881003253
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a corollary to the above, if you wish strategies to operate in different markets, or you wish strategies to be able to take positions simultaneously, then you must set up those strategies in different trading systems."
+            "text": "As a corollary to the above, if you wish strategies to operate in different markets, or you wish strategies to be able to take positions simultaneously, then you must set up those strategies in different trading systems.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como complemento a lo anterior, si se desea configurar estrategias que operen sobre diferentes mercados, o estrategias que tengan la posibilidad de abrir posiciones de forma simultánea, entonces se las deberá configurar bajo Trading Systems distintos.",
+                    "updated": 1637881023208
+                }
+            ]
         }
     ]
 }

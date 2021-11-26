@@ -163,17 +163,14 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
-    async function createGithubFork(repository, username, token) {
+    async function createGithubFork(token) {
         try {
-            username = unescape(username)
             token = unescape(token)
 
             await doGithub()
 
             async function doGithub() {
                 try {
-                    //const repo = 'Superalgos'
-                    //const owner = username
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
                         auth: token,

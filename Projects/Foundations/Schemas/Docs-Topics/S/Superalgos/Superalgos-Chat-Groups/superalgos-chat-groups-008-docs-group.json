@@ -4,7 +4,14 @@
     "type": "Docs Group",
     "definition": {
         "text": "Want to help with the Docs and translations? Join this group to coordinate works!",
-        "updated": 1618846228888
+        "updated": 1618846228888,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Хотите помочь с документами и переводами? Присоединяйтесь к этой группе для координации работ!",
+                "updated": 1637942178721
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -18,6 +18,26 @@
             "actionProject": "Visual-Scripting"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "sendSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Send Signals",
+            "relatedUiObject": "Send Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "receiveSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Receive Signals",
+            "relatedUiObject": "Receive Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },        
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -45,6 +65,18 @@
             "type": "array",
             "childType": "Announcement",
             "project": "Social-Bots"
+        },
+        {
+            "name": "sendSignals",
+            "type": "node",
+            "childType": "Send Signals",
+            "project": "Trading-Signals"
+        },
+        {
+            "name": "receiveSignals",
+            "type": "node",
+            "childType": "Receive Signals",
+            "project": "Trading-Signals"
         }
     ],
     "propertyNameAtParent": "triggerOn"

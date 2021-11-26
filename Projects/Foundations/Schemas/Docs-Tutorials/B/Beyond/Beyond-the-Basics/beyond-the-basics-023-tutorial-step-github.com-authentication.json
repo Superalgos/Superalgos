@@ -3,12 +3,12 @@
     "pageNumber": 23,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
-        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",
+        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GitHub.com first!\n",
         "icon": {
             "name": "github-api",
             "project": "Foundations"
         },
-        "updated": 1610799914806,
+        "updated": 1637938782016,
         "translations": [
             {
                 "language": "IT",

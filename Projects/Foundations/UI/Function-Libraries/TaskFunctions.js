@@ -116,11 +116,13 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
 
         let taskLightingPath = '->Task->' +
+            'Task Server App Reference->Task Server App->Signing Account->' +
             'Sensor Bot Instance->' +
             'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
+            'Social Trading Bot Reference->Signing Account->' + 
             'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Learning Process Instance->' +
             'Social Trading Bot Reference->Social Trading Bot->Signing Account->' +
             'Execution Started Event->' +

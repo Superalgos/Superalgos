@@ -1,5 +1,5 @@
 {
-    "type": "Receive Signals",
+    "type": "Outgoing Signals",
     "menuItems": [
         {
             "action": "Add UI Object",
@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trigger Off Event->"
+        "compatibleTypes": "->Trigger On Event->"
     },
     "childrenNodesProperties": [
         {
@@ -33,5 +33,5 @@
             "autoAdd": false
         }
     ],
-    "propertyNameAtParent": "receiveSignals"
+    "propertyNameAtParent": "outgoingSignals"
 }

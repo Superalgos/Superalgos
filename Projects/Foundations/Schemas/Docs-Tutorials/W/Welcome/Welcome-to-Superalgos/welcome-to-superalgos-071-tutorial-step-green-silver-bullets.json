@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Ortasında \"L\" olan yeşil mermileri görüyor musunuz? Bahsettiğim limit alış emirleri bunlar.",
                 "updated": 1636203165068
+            },
+            {
+                "language": "RU",
+                "text": "Вы видите зеленые круги с буквой L в центре? Это те лимитные ордера на покупку, о которых я упоминал.",
+                "updated": 1637594382201
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Her dakika bir siparişin nasıl verildiğine ve yeni bir sipariş verilmeden önce iptal edildiğine dikkat edin. Sipariş iptali sembolünü tanıyor musunuz? Ortasında beyaz yatay şerit bulunan daha küçük, daha koyu mermi!",
                     "updated": 1636203192290
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание как ордер размещается каждую минуту и отменяется перед размещением нового ордера. Вы узнаете символ отмены заказа? Это меньший, более темный круг с белой горизонтальной полосой по середине!",
+                    "updated": 1637594519493
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Fiyatın 00:21'de düştüğüne dikkat edin! Fiyat, limit emrinin oranının çok altına düştü, bu nedenle emir yerine getirildi! Daha büyük, dolu yeşil mermi bunu gösteriyor!",
                     "updated": 1636203809456
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на нож, падающий в 00:21 утра! Цена упала значительно ниже ставки лимитного ордера, следовательно, заказ был выполнен! Это обозначено на большом закрашенном зеленом круге.",
+                    "updated": 1637594840545
                 }
             ]
         },
@@ -111,6 +126,11 @@
                     "language": "DE",
                     "text": "Und... was passiert danach?",
                     "updated": 1634224328125
+                },
+                {
+                    "language": "RU",
+                    "text": "Итак... Что происходит после?",
+                    "updated": 1637594867407
                 }
             ]
         }

@@ -1,7 +1,14 @@
 {
     "type": "Exchange Id",
     "definition": {
-        "text": "Exchange ID is a unique identifier the exchange assigns to the order, so that it may be unequivocally identified."
+        "text": "Exchange ID is a unique identifier the exchange assigns to the order, so that it may be unequivocally identified.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Exchange ID es un identificador único que el exchange asigna al pedido, de modo que pueda identificarse de manera inequívoca.",
+                "updated": 1637231542788
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "By default, it is the rate at the close of the last candle at the moment the order is placed. All market orders have the default rate value."
+            "text": "By default, it is the rate at the close of the last candle at the moment the order is placed. All market orders have the default rate value.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por defecto, es la tasa al cierre de la última vela en el momento en que se realiza la orden. Todas las órdenes de mercado tienen el valor de la tasa predeterminada.",
+                    "updated": 1637231569099
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the case of limit orders, it is the rate as specified by the formula under the order rate node. If no such definition exists, then limit orders use the default value as well."
+            "text": "In the case of limit orders, it is the rate as specified by the formula under the order rate node. If no such definition exists, then limit orders use the default value as well.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En el caso de las órdenes limitadas, es la tarifa especificada por la fórmula en el nodo de tarifa de la orden. Si no existe tal definición, las órdenes limitadas también utilizan el valor predeterminado.",
+                    "updated": 1637231597892
+                }
+            ]
         },
         {
             "style": "Block",
@@ -31,7 +52,14 @@
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "initialValue permite resetear el estado incial del nodo a un valor arbitrario.",
+                    "updated": 1637231635132
+                }
+            ]
         }
     ]
 }

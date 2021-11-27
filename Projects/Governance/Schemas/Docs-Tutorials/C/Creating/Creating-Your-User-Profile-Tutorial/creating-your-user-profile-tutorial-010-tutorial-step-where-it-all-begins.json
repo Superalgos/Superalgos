@@ -15,6 +15,16 @@
                 "text": "Aquí estamos a la cabeza de la jerarquía Governance Project. ¡Vamos a crear ese perfil!",
                 "updated": 1630879023647,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Burada, Yönetişim Projesi ( Governance Project ) hiyerarşisinin başındayız. Hadi o profili oluşturalım!",
+                "updated": 1637159854108
+            },
+            {
+                "language": "DE",
+                "text": "Hier befinden wir uns an der Spitze der Governance Project hierarchy. Lassen Sie uns das Profil erstellen!",
+                "updated": 1637873509200
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "text": "Haz clic en el botón Add Profile Constructor.",
                     "updated": 1630879075072,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profil Oluşturucu Ekle ( Profile Constructor ) düğmesini tıklayın.",
+                    "updated": 1637159899288
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Schaltfläche Add Profile Constructor.",
+                    "updated": 1637873524931
                 }
             ]
         },
@@ -42,6 +62,16 @@
                     "text": "Ahora coloque el resultante nodo Profile Constructor donde es fácil de ver y trabajar.",
                     "updated": 1630879137256,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi ortaya çıkan Profil Oluşturucu düğümünü ( Profile Constructor ), görülmesi ve üzerinde çalışılması kolay bir yere konumlandırın.",
+                    "updated": 1637159941130
+                },
+                {
+                    "language": "DE",
+                    "text": "Positionieren Sie nun die resultierende Profile Constructor Node an einer Stelle, an der sie leicht zu sehen und zu bearbeiten ist.",
+                    "updated": 1637873567603
                 }
             ]
         },
@@ -54,6 +84,16 @@
                     "language": "ES",
                     "text": "Usaremos este nodo para construir tu User Profile. Más adelante, eliminarás este nodo para borrar toda la información sensible que pueda ingresar junto con la información que generará el constructor. ¡Pero no hay necesidad de preocuparse en este momento! ¡Te avisaré cuándo eliminarlo!",
                     "updated": 1632011343101
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Kullanıcı Profilinizi oluşturmak için bu düğümü kullanacağız. Daha sonra, kurucunun üreteceği bilgilerle birlikte girdiğiniz tüm hassas bilgileri silmek için bu düğümü sileceksiniz. Bu noktada endişelenmenize gerek yok! Ne zaman sileceğinizi size bildireceğim!",
+                    "updated": 1637160020895
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden diese Node verwenden, um Ihr Benutzerprofil (User Profile) zu erstellen. Später werden Sie diese Node löschen, um alle sensiblen Informationen, die Sie zusammen mit den vom Konstruktor generierten Informationen eingeben, zu löschen. Aber das ist im Moment kein Grund zur Sorge! Ich lasse Sie wissen, wann Sie sie löschen müssen!",
+                    "updated": 1637873720461
                 }
             ]
         }

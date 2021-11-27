@@ -4,7 +4,14 @@
     "type": "Probit Global Listing Requirements",
     "definition": {
         "text": "The exchange is ready to list Superalgos. Listing fee is $25k, plus 1 BTC in project tokens.",
-        "updated": 1628512539086
+        "updated": 1628512539086,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El exchange está listo para listar Superalgos. El precio de listarlo es $25k, ás 1 BTC en tokens del proyecto.",
+                "updated": 1637587687073
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -74,7 +81,14 @@
         {
             "style": "List",
             "text": "Market-making requirements: Included for 1 month in all plans; not required afterwards.",
-            "updated": 1628510894252
+            "updated": 1628510894252,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Market-making requirements: Incluido por 1 mes en todos los planes; no es necesario después.",
+                    "updated": 1637227553704
+                }
+            ]
         },
         {
             "style": "List",
@@ -89,17 +103,38 @@
         {
             "style": "List",
             "text": "Waiting period: 2 weeks.",
-            "updated": 1628510983346
+            "updated": 1628510983346,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Waiting period: 2 semanas.",
+                    "updated": 1637227564214
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Legal entity: A corporation is usually required.",
-            "updated": 1628511032973
+            "updated": 1628511032973,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Legal entity: Por lo general, se requiere una corporación.",
+                    "updated": 1637227523325
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Legal opinion: Usually required.",
-            "updated": 1628511045422
+            "updated": 1628511045422,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Legal opinion: Normalmente se requiere.",
+                    "updated": 1637227581748
+                }
+            ]
         },
         {
             "style": "List",
@@ -109,7 +144,14 @@
         {
             "style": "List",
             "text": "Researcher's comments: I have an open channel with the listing team and have clarified some issues, as explained under the Negotiation title below.",
-            "updated": 1628512314800
+            "updated": 1628512314800,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Researcher's comments: Tengo un canal abierto con el equipo de listado y he aclarado algunos problemas, como se explica en el título Negociación a continuación.",
+                    "updated": 1637227613748
+                }
+            ]
         },
         {
             "style": "Png",
@@ -143,36 +185,85 @@
         {
             "style": "List",
             "text": "they accept Superalgos for listing;",
-            "updated": 1628511554947
+            "updated": 1628511554947,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "aceptan listar Superalgosr;",
+                    "updated": 1637227650048
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "we can coordinate the listing date to suit PR & Marketing campaigns."
+            "text": "we can coordinate the listing date to suit PR & Marketing campaigns.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Podemos coordinar la fecha de listar para adaptarla a las campañas de marketing y PR .",
+                    "updated": 1637227720787
+                }
+            ]
         },
         {
             "style": "List",
             "text": "they can wave the legal opinion requirement if it's clear the token is not a security;",
-            "updated": 1628533059002
+            "updated": 1628533059002,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "pueden dejar de ado el requisito de opinión legal si está claro que el token no es un valor;",
+                    "updated": 1637227765029
+                }
+            ]
         },
         {
             "style": "List",
             "text": "they don't need a corporation to sign the listing agreement; a KYCed executive (project leadership) works too;",
-            "updated": 1628533074328
+            "updated": 1628533074328,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "nonecesitan una corporation para firmar el acuerdo de listado, una KYCed Ejecutivo (liderazgo de proyecto) también va;",
+                    "updated": 1637227846675
+                }
+            ]
         },
         {
             "style": "List",
             "text": "we can propose new or improved language in the listing agreement for a more balanced protection of both parties;",
-            "updated": 1628511650104
+            "updated": 1628511650104,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "podemos proponer un lenguaje nuevo o mejorado en el acuerdo de listado para una mejor protección de ambas partes;",
+                    "updated": 1637227893387
+                }
+            ]
         },
         {
             "style": "List",
             "text": "we can have additional zero-fee accounts for market making at $5k each;",
-            "updated": 1628533110459
+            "updated": 1628533110459,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "podemos tener cuentas extras a comisión cero para market making a $5k cada una;",
+                    "updated": 1637227951411
+                }
+            ]
         },
         {
             "style": "List",
             "text": "they wouldn't de-list due to low volume for at least 6 months.",
-            "updated": 1628533123086
+            "updated": 1628533123086,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "no  retirarían del listado, debido al bajo volumen, durante al menos 6 meses.",
+                    "updated": 1637228004484
+                }
+            ]
         },
         {
             "style": "Title",
@@ -228,7 +319,14 @@
         {
             "style": "List",
             "text": "Observations: Poor. There is little clarity on the website as of where and how the company operates.",
-            "updated": 1628530441154
+            "updated": 1628530441154,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Observations: Poor. Hay poca claridad en el website de dónde y cómo opera la empresa.",
+                    "updated": 1637228069760
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -275,7 +373,14 @@
         {
             "style": "Text",
             "text": "(*) We search Google (UK region, no personalization) for the keyphrase \"crypto exchange\". The domain is either listed within the top X SERP or not.",
-            "updated": 1628527204901
+            "updated": 1628527204901,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "(*) Buscamos en  Google (UK región, sin personalización) para la palabra clave \"crypto exchange\". El dominio está incluido en el top X SERP o no.",
+                    "updated": 1637228154312
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -294,7 +399,14 @@
         {
             "style": "List",
             "text": "Observations: A quick glance on August 9th, 2021. Users complain about deposits not clearing and other issues. There is some response from admins announcing an issue with wallet upgrades. Conversation seems reasonable.",
-            "updated": 1628532175405
+            "updated": 1628532175405,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Observaciones: Un vistazo rápido el 9 de agosto de 2021. Los usuarios se quejan de que los depósitos no se compensan y otros problemas. Hay alguna respuesta de los administradores que anuncian un problema con las actualizaciones de billetera. La conversación parece razonable.",
+                    "updated": 1637228202457
+                }
+            ]
         },
         {
             "style": "Subtitle",

@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Seguí adelante e instalé algunos bloques de construcción básicos dentro de este Workspace para que podamos empezar a crear gráficos personalizados rápidamente.",
                 "updated": 1628639251718
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe einige grundlegende building blocks (Bausteine) in diesem Arbeitsbereich installiert, damit wir schnell mit der Erstellung benutzerdefinierter charts beginnen können.",
+                "updated": 1637612559440
+            },
+            {
+                "language": "RU",
+                "text": "Я установил несколько основных строительных блоков в этом рабочем пространстве (Workspace) чтобы мы могли быстро перейти к созданию пользовательских графиков.",
+                "updated": 1637914880463
             }
         ]
     },
@@ -27,20 +37,51 @@
                     "language": "ES",
                     "text": "Los bloques de construcción que instalé son:",
                     "updated": 1628639290050
+                },
+                {
+                    "language": "DE",
+                    "text": "Die von mir installierten building blocks sind:",
+                    "updated": 1637612546766
+                },
+                {
+                    "language": "RU",
+                    "text": "Строительные блоки, которые я установил, следующие:",
+                    "updated": 1637914914956
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Data Mine"
+            "text": "Data Mine",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Data Mine (Шахта данных)",
+                    "updated": 1637914966428
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading System "
+            "text": "Trading System ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Trading System (Торговая система)",
+                    "updated": 1637914984112
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market "
+            "text": "Market ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Market (Рынок)",
+                    "updated": 1637914999664
+                }
+            ]
         },
         {
             "style": "Text",
@@ -51,6 +92,16 @@
                     "language": "ES",
                     "text": "Todo lo que hagamos hoy se construirá sobre esta configuración básica. Te guiaré a través de lo que instalé para darte una idea de lo que construiremos hoy.",
                     "updated": 1628639317378
+                },
+                {
+                    "language": "DE",
+                    "text": "Alles, was wir heute tun, wird auf diesem Basic setup aufbauen. Ich werde Ihnen zeigen, was ich installiert habe, um Ihnen eine Vorstellung davon zu geben, worauf wir heute aufbauen werden.",
+                    "updated": 1637612647749
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что мы будем делать сегодня, будет построено на основе этой базовой установки. Я расскажу вам о том, что я установил, чтобы дать вам представление о том, на чем мы будем строить сегодня.",
+                    "updated": 1637915029388
                 }
             ]
         }

@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Bu adım her dakika verilen ve iptal edilen Limitli Alış Emrinin (Limit Buy Order ) tanımıdır.",
                 "updated": 1636208410014
+            },
+            {
+                "language": "RU",
+                "text": "То, что Вы только что прошли - это определение Limit Buy Order, который размещается и отменяется каждую минуту, пока не будет заполнен. ",
+                "updated": 1637756921540
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "Bu, limit emrinin oranını belirleyen düğümdür. Dördüncü destek seviyesi oranında sipariş vermekle ilgili daha önce tartıştığımız şeyi hatırlıyor musunuz?",
                     "updated": 1636207410235
+                },
+                {
+                    "language": "RU",
+                    "text": "Это узел, который определяет скорость лимитного ордера. Помните, что мы обсуждали ранее о размещении заказа по ставке четвертого уровня поддержки?",
+                    "updated": 1637757006124
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Sipariş Oranı ( Order Rate ) düğümünnün altındaki formüle ( Formula ) düğümüne gidin ve menüden Düzenle'ye (Edit) tıklayın.",
                     "updated": 1636207530541
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к Formula, прикрепленной к узлу Order Rate и нажмите Edit в меню.",
+                    "updated": 1637757201102
                 }
             ]
         },
@@ -116,6 +131,11 @@
                     "language": "TR",
                     "text": "İşte... böyle yapılır! Gördüğünüz gibi, sözdizimi neredeyse kendi kendini açıklayıcıdır! Zaman çerçevesini (chart.at01min), göstergeyi ( Suport ) ve ilgili gösterge özelliğini ( support4rate ) tanımlamayı içerir.",
                     "updated": 1636207760464
+                },
+                {
+                    "language": "RU",
+                    "text": "Итак... как это происходит? Как Вы можете видеть, синтаксис практически не требует пояснений. Это включает в себя определение временных рамок, индикатор и соответствующее свойство индикатора.",
+                    "updated": 1637757425980
                 }
             ]
         }

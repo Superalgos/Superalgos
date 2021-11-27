@@ -27,7 +27,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.vars.outputs.tag }}.${{ steps.date.outputs.date }}
+          tag_name: ${{ steps.vars.outputs.tag }}-${{ steps.date.outputs.date }}
           release_name: Superalgos-Beta-v${{ steps.vars.outputs.tag }} Snapshot ${{ steps.date.outputs.date }}
           keep_num: 5
           keep_tags: false
@@ -64,7 +64,7 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
-          args: "-c.extraMetadata.version=${{ steps.vars.outputs.tag }}.${{ steps.date.outputs.date }} -c build/electron-builder.json -p onTagOrDraft"
+          args: "-c.extraMetadata.version=${{ steps.vars.outputs.tag }}-${{ steps.date.outputs.date }} -c build/electron-builder.json -p onTagOrDraft"
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building

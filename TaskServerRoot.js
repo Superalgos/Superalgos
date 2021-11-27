@@ -55,6 +55,17 @@ SA.nodeModules = {
     lookpath: require('lookpath'),
     twitter: require('twitter')
 }
+/*
+Setting up Secrets.
+*/
+SA.secrets = {
+    array: require('./My-Secrets/Secrets.json').secrets,
+    map: new Map()
+}
+for (let i = 0; i < SA.secrets.array.length; i++) {
+    let secret = SA.secrets.array[i]
+    SA.secrets.map.set(secret.nodeCodeName, secret)
+}
 
 run()
 

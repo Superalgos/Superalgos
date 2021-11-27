@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El  trigger stage se ocupa del seguimiento del mercado en busca de oportunidades de trading con la estrategia correspondiente.",
                 "updated": 1624459676185
+            },
+            {
+                "language": "RU",
+                "text": "Стадия запуска занимается мониторингом рынка в поисках торговых возможностей с соответствующей стратегией.",
+                "updated": 1637756311221
             }
         ]
     },

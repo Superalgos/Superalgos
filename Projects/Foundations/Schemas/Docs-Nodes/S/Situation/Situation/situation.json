@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un situation se refiere a un estado específico del mercado en el que debe tener lugar un determinado evento, definido por una serie de condiciones.",
                 "updated": 1624496155342
+            },
+            {
+                "language": "RU",
+                "text": "Ситуация относится к определенному состоянию, в котором должно произойти определенное событие, поределяемое любым количеством условий.",
+                "updated": 1637756401865
             }
         ]
     },

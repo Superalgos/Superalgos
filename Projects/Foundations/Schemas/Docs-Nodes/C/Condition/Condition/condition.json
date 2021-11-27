@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Conditions son reglas dentro de una situación. Cuando todas las condiciones de una situación se validan como verdaderas, la situación también se valida y se activa el evento asociado.",
                 "updated": 1624459710047
+            },
+            {
+                "language": "RU",
+                "text": "Условия - это правила внутри ситуации. Когда все условия в ситуации проверяются на истинность, ситуация также проверяется, и запускается соответствующее событие.\n",
+                "updated": 1637756827569
             }
         ]
     },

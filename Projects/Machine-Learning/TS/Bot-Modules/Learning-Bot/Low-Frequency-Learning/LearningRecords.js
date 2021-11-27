@@ -37,7 +37,7 @@ exports.newMachineLearningBotModulesLearningRecords = function (processIndex) {
             we have a pointer to the node that have the information we need to extract.
             Later, based on the product record definition we will extract each individual value.
        */
-        let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]

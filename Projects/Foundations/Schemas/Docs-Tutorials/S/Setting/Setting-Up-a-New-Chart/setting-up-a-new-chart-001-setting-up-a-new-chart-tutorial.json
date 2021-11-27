@@ -4,13 +4,37 @@
     "type": "Setting Up a New Chart Tutorial",
     "definition": {
         "text": "This Tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
-        "updated": 1617371694835
+        "updated": 1617371694835,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial führt Sie durch die grundlegenden Funktionen des Charting Space, damit Sie lernen, wie Sie Ihre eigenen benutzerdefinierten Charts erstellen können.",
+                "updated": 1637608066574
+            },
+            {
+                "language": "RU",
+                "text": "В этом Tutorial рассматриваются основные внутренние механизмы работы с Charting Space чтобы помочь вам научиться создавать собственные пользовательские графики.",
+                "updated": 1637912833054
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1621986758641
+            "updated": 1621986758641,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Über dieses Tutorial:",
+                    "updated": 1637608082763
+                },
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1637912854224
+                }
+            ]
         },
         {
             "style": "List",
@@ -20,7 +44,14 @@
         {
             "style": "List",
             "text": "Maintainer: @harrellbm (Telegram, and Discord).",
-            "updated": 1621986769553
+            "updated": 1621986769553,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Betreuer: @harrellbm (Telegram, and Discord).",
+                    "updated": 1637608124979
+                }
+            ]
         }
     ]
 }

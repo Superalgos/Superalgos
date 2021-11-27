@@ -1,8 +1,15 @@
 {
     "type": "Technical term overview",
     "definition": {
-        "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node.\n",
-        "updated": 1638052164737
+        "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node. Created and maintained by gitforkgit.",
+        "updated": 1638052921801,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node. Created and maintained by gitforkgit ",
+                "updated": 1638052964966
+            }
+        ]
     },
     "paragraphs": [
         {

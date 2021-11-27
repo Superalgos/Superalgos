@@ -5,9 +5,9 @@
         "updated": 1630399040101,
         "translations": [
             {
-                "language": "ES",
-                "text": "El programa de staking program le permite a la comunidad de Superalgos compensar a los token holders por mantener sus tokens. Mantener los tokens puede ser una contribución muy valiosa que  la comunidad  puede decidir incentivar en  cualquier momento.",
-                "updated": 1637849563660
+                "language": "DE",
+                "text": "Das Staking Programm ermöglicht es der Superalgos Community, Token Inhaber für das Halten von Token zu entschädigen. Das Halten von Token kann ein wertvoller Beitrag sein, den die Gemeinschaft zu einem beliebigen Zeitpunkt belohnen kann.",
+                "updated": 1638041015317
             }
         ]
     },
@@ -22,9 +22,9 @@
             "text": "This is a very simple program, as it doesn't involve smart contracts or transferring funds out of your Governance Address.",
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "Este es un programa muy simple, ya que no implica contratos inteligentes o transferencia de fondos fuera de su Governance Address.",
-                    "updated": 1637849587765
+                    "language": "DE",
+                    "text": "Dies ist ein sehr einfaches Programm, da es keine intelligenten Verträge oder Überweisungen von Ihrer Governance Adress beinhaltet.",
+                    "updated": 1638041041171
                 }
             ]
         },
@@ -34,9 +34,9 @@
             "updated": 1630399445299,
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "Puede participar en el Staking Program con el Token Power que no haya usado para otras propuestas. Todo lo que necesita hacer es deplegar el programa dentro del nodo de  Financial Programs y permitir que algo de Token Power fluya en él.",
-                    "updated": 1637849740621
+                    "language": "DE",
+                    "text": "Sie können mit der Token Power, die Sie nicht für andere Zwecke verwendet haben, am Staking Programm teilnehmen. Alles, was Sie tun müssen, ist, das Programm innerhalb der Node \"Financial Programs\" zu starten und etwas Token Power in das Programm fließen zu lassen.",
+                    "updated": 1638041139025
                 }
             ]
         },
@@ -45,9 +45,9 @@
             "text": "You will get tokens from the Staking Rewards Pool defined in the Superalgos Pools hierarchy under the Governance Programs node, proportional to the Staking Power you direct to the program.",
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "Recibirá tokens desde Staking Rewards Pool definido en la jerarquía  de Superalgos Pools debajo del nodo de Governance Programs, proporcional al Staking Power que haya dirigido al programa.",
-                    "updated": 1637849858949
+                    "language": "DE",
+                    "text": "Sie erhalten Token aus dem Staking Rewards Pool, der in der Superalgos Pools hierarchy unter der Node \"Governance Programs\" definiert ist, proportional zu der Einsatzstärke (Staking Power), die Sie dem Programm zuweisen.",
+                    "updated": 1638041260331
                 }
             ]
         },
@@ -57,9 +57,9 @@
             "updated": 1630409043816,
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "El cálculo de Tokens Awarded por este programa es similar a cómo el Tokens Bonus es calculado en otros programas: como una regla de tres directa.",
-                    "updated": 1637849947801
+                    "language": "DE",
+                    "text": "Die Berechnung der Tokens, die für dieses Programm vergeben werden, ist ähnlich wie die Berechnung des Token Bonus bei anderen Programmen: als direkter Dreisatz (Rule of Three).",
+                    "updated": 1638041317916
                 }
             ]
         },
@@ -74,9 +74,9 @@
             "updated": 1630399853495,
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "Tenga en cuenta que stakingpuede no ser la mejor manera de acumular más tokens. Algunos otros programas, como los Community Building Programs, puede ofrecer una mejor oportunidad financiera a través de su Tokens Bonus! Es posible que desee comprobar cuán grandes son las Bonus Pool que incentiva en otros programas and compare esos con la Staking Rewards Pool!",
-                    "updated": 1637850123572
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der Einsatz nicht unbedingt der beste Weg ist, um mehr Token zu sammeln. Einige andere Programme, wie z. B. die  Community Building Programs, bieten durch ihren Token Bonus möglicherweise eine bessere finanzielle Möglichkeit! Prüfen Sie, wie groß die Bonus Pool incentives (Bonus Pool Anreize) in anderen Programmen sind und vergleichen Sie diese mit dem Staking Rewards Pool!",
+                    "updated": 1638041410705
                 }
             ]
         },
@@ -86,7 +86,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfiguration",
+                    "updated": 1638041422200
+                }
+            ]
         }
     ]
 }

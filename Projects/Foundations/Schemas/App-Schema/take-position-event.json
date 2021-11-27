@@ -21,20 +21,20 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "sendSignals",
+            "propertyToCheckFor": "outgoingSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Send Signals",
-            "relatedUiObject": "Send Signals",
+            "label": "Add Outgoing Signals",
+            "relatedUiObject": "Outgoing Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "receiveSignals",
+            "propertyToCheckFor": "incomingSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Receive Signals",
-            "relatedUiObject": "Receive Signals",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },  
         {
@@ -67,15 +67,15 @@
             "project": "Social-Bots"
         },
         {
-            "name": "sendSignals",
+            "name": "outgoingSignals",
             "type": "node",
-            "childType": "Send Signals",
+            "childType": "Outgoing Signals",
             "project": "Trading-Signals"
         },
         {
-            "name": "receiveSignals",
+            "name": "incomingSignals",
             "type": "node",
-            "childType": "Receive Signals",
+            "childType": "Incoming Signals",
             "project": "Trading-Signals"
         }
     ],

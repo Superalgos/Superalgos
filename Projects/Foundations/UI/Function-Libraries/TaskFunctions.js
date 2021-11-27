@@ -116,7 +116,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         }
 
         let taskLightingPath = '->Task->' +
-            'Task Server App Reference->Signing Account->'
+            'Task Server App Reference->Task Server App->Signing Account->' +
             'Sensor Bot Instance->' +
             'API Data Fetcher Bot Instance->' +
             'Indicator Bot Instance->' +

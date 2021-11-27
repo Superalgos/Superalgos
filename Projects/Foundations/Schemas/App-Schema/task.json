@@ -88,6 +88,16 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "taskServerAppReference",
+            "label": "Add Task Server App Reference",
+            "relatedUiObject": "Task Server App Reference",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -134,6 +144,12 @@
             "name": "keyReference",
             "type": "node",
             "childType": "Key Reference"
+        },
+        {
+            "name": "taskServerAppReference",
+            "type": "node",
+            "childType": "Task Server App Reference",
+            "project": "Governance"
         }
     ],
     "propertyNameAtParent": "tasks"

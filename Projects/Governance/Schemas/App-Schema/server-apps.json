@@ -12,6 +12,14 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
+            "label": "Add Task Server App",
+            "relatedUiObject": "Task Server App",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Server App",
             "relatedUiObject": "Social Trading Server App",
             "relatedUiObjectProject": "Governance"
@@ -40,6 +48,12 @@
     },
     "propertyNameAtParent": "serverApps",
     "childrenNodesProperties": [
+        {
+            "name": "taskServerApps",
+            "type": "array",
+            "childType": "Task Server App",
+            "autoAdd": false
+        },
         {
             "name": "socialTradingServerApps",
             "type": "array",

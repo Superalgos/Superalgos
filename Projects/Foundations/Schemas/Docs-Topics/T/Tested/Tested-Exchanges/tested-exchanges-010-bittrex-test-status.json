@@ -3,8 +3,8 @@
     "pageNumber": 10,
     "type": "Bittrex Test Status",
     "definition": {
-        "text": "Bittrex is tested for data mining BUT not for live trading.",
-        "updated": 1634135329154
+        "text": "Bittrex passed all tests.",
+        "updated": 1637964636009
     },
     "paragraphs": [
         {
@@ -24,13 +24,13 @@
         },
         {
             "style": "List",
-            "text": "Trading Capability [**]: Unknown. The ability to run strategies in live-trading mode has not been verified.",
-            "updated": 1616005641922
+            "text": "Trading Capability [**]: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1637964666144
         },
         {
             "style": "List",
-            "text": "Comments: Raw Data mining it's extremely slow due to API restriction",
-            "updated": 1615450349464
+            "text": "Comments: KYC needed before using the platform. Google Authenticator needed to create API keys",
+            "updated": 1637964814435
         },
         {
             "style": "Title",
@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"bittrex\",\n    \"API\": [\n        {\n            \"method\": \"fetchOHLCV\",\n            \"limit\": 1500\n        }\n    ]\n}",
-            "updated": 1634135616222
+            "text": "{ \n\"codeName\": \"bittrex\",\n \n\"sandBox\": \"false\"\n}",
+            "updated": 1637964874756
         },
         {
             "style": "Text",

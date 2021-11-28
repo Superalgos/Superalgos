@@ -70,8 +70,12 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.webSocketsInterface.initialize()
             console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webSocketsPort)
 
-            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
-            thisObject.httpInterface.initialize()
+
+            /* TODO refactor this into something better */
+            let react = require('./scripts/start');
+            react.start(JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort);
+/*            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+            thisObject.httpInterface.initialize()*/
             console.log('Desktop Client Http Interface ................................................ Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort)
         }
     }

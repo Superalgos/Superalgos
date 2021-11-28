@@ -62,7 +62,38 @@ You will notice the difference as soon as you join the [Telegram Community Group
 
 ## Getting Started Guide
 
-All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
+Superalgos is an ever growing ecosystem of tools and applications.  This guide will walk you through the main ways to install the Superalgos Platform (which is the flagship application of the ecosystem).  Other applications, such as a mobile app, and a p2p networking app, are currently under development.  
+
+There are a variety of methods to install the Superalgos Platform ranging from docker installations and packaged application installations, to fine grained technical installations.  The following instructions will present each type of installation from easiest to most technical.  
+
+## Packaged Application Installation
+
+This is by far the easiest way to get started with Superalgos! 
+
+These packages contain the source code for the Superalgos platform wrapped together in one convinent file.  To find these files you can go to Superalgos' [releases](https://github.com/Superalgos/Superalgos/releases) page. The releases are organized using two main types.  First are the stable releases that comes out roughly once a month and are the most tested and bug free.  Second are the nightly development snapshots that offer the most up to date code, but have not under gone as much testing. If you are just getting started it is recommended to begin with installing the most recent stable release before trying out one of the development snapshots.
+
+Once you have chosen which type of release you would like to install, you can then find the proper package for your operating system. Each operating system has it's own packaged application to work natively within your operating system.  The following list highlights the currently available packages:  
+
+### Windows portable application
+This package requires zero installation! Simply download the package (Superalgos-win-{version}.exe) and you’re good to go. All the exchange data that is downloaded and the workspaces you save are stored in your default documents folder (My Documents on Windows) under the Superalgos_Data folder.
+
+### Windows setup package
+Also on windows there is a more traditional installer that installs the application and sets up the correct icons and shortcuts for you. This way you have a nice entry on the programs list. The downloaded data is stored in your documents folder under the Superalgos_Data folder.
+
+> **IMPORTANT:**
+> These windows installers are not code signed (this costs money and Superalgos is completely free for everyone). Therefore, windows users will need to deal with some permissions settings to allow the packages to run.  A more detailed explination of this can be found in this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102).
+under the Windows section.
+
+### MacOS image
+Users of MacOS have the options of downloading the DMG package to install. Here you have the x64 variant (for Intel based Mac only) as well as the ARM64 variant for the newer Apple Silicon (M1) based machines. 
+
+> **IMPORTANT:**
+> Please note that the ARM64 release is currently an alpha release (not fully tested). If you have one of these machines, do join us to help on testing.
+
+For a more detailed walk through of the ins and outs of Superalgos packaged installations see this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102).
+
+## Technical Installation
+For those interested in installing the Superalgos Platform from source code, you can follow these instructions. All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
 > **IMPORTANT:**
 > 

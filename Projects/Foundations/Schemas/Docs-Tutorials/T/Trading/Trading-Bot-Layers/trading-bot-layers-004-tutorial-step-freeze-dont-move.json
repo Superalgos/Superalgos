@@ -20,7 +20,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It's not like you may break something or anything... nothing to fear at all... it's just that... I rely on the fresh state of the workspace to predict what you will see when I take you places. I may comment on what you will experience along the journey, and use my predictions to make the tour juicier and interesting! So...",
+            "text": "It's not like you may break something or anything... nothing to fear at all... it's just that... I rely on the fresh state of the workspace to predict what you will see when I take your places. I may comment on what you will experience along the journey, and use my predictions to make the tour juicier and interesting! So...",
             "translations": [
                 {
                     "language": "DE",
@@ -28,7 +28,8 @@
                     "updated": 1622985357489,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1638114022181
         },
         {
             "style": "Callout",

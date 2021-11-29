@@ -15,6 +15,11 @@
                 "text": "¡El programa está implementado! ¡Ahora tienes que declarar tu referente para cumplir con el segundo requisito!",
                 "updated": 1630895782489,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Program dağıtıldı! Şimdi ikinci şartı yerine getirmek için yönlendireninizi beyan etmeniz gerekiyor!",
+                "updated": 1637445630785
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "¡Tal vez aprendiste sobre Superalgos a través de un artículo, un video, un comentario en Reddit, un tweet, el sitio web oficial o alguien que te contó sobre nosotros!",
                     "updated": 1630895800095,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Belki Superalgos'u bir makaleden, bir videodan, Reddit'teki bir yorumdan, bir tweet'ten, resmi web sitesinden veya size bizden bahseden birinden öğrendiniz!",
+                    "updated": 1637445669747
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Declarar tus referencias es la mejor manera de agradecer a las personas que pueden haber escrito ese artículo o tweet, producido ese video, mantenido el sitio web etc....",
                     "updated": 1632024727440,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönlendirenlerinizi bildirmek, o makaleyi veya tweet'i yazan, o videoyu hazırlayan, web sitesinin bakımını yapan veya size Superalgos'tan bahseden kişilere teşekkür etmenin en iyi yoludur!",
+                    "updated": 1637445703299
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Para declarar una referencia, debes establecerla desde el nodo User Referrer al User Profile de tu referencia. ¡El nombre del User Profile también es un código de referencia!",
                     "updated": 1632025274614,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Yönlendiren beyan etmek için, öncelikle Yönlendiren kişinin Kullanıcı Profiline kendi Kullanıcı düğümünüzden bir başvuru oluşturmalısınız! Bunun için Referral Prragram düğümünden \"Add User Referrer\" butonuna tıklayın. Oluşan yeni düğümü sizi yönlendiren kişinin profilinin üerine getriin Düğümü farenizin sağ tuluna tıklayarak referans olan kişinin profiline sürkleyinve bırakın. Profil sarı bir daire içinde görünecektir. İşte referansınızı oluşturdunuz. Bu, bir Kullanıcı Profili adının aynı zamanda bir tavsiye kodu olduğu aanlamına gelir!",
+                    "updated": 1637446427949
                 }
             ]
         }

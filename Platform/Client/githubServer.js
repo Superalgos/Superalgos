@@ -4,6 +4,7 @@ exports.newGithubServer = function newGithubServer() {
         getGithubStars: getGithubStars,
         getGithubWatchers: getGithubWatchers,
         getGithubForks: getGithubForks,
+        createGithubFork: createGithubFork,
         mergePullRequests: mergePullRequests,
         initialize: initialize,
         finalize: finalize,
@@ -152,6 +153,46 @@ exports.newGithubServer = function newGithubServer() {
             console.log('[ERROR] Github Server -> getRepoInfo -> username = ' + username)
             console.log('[ERROR] Github Server -> getRepoInfo -> token starts with = ' + token.substring(0, 10) + '...')
             console.log('[ERROR] Github Server -> getRepoInfo -> token ends with = ' + '...' + token.substring(token.length - 10))
+
+            let error = {
+                result: 'Fail Because',
+                message: err.message,
+                stack: err.stack
+            }
+            return error
+        }
+    }
+
+    async function createGithubFork(token) {
+        try {
+            token = unescape(token)
+
+            await doGithub()
+
+            async function doGithub() {
+                try {
+                    const { Octokit } = SA.nodeModules.octokit
+                    const octokit = new Octokit({
+                        auth: token,
+                        userAgent: 'Superalgos ' + SA.version
+                    })
+
+                    await octokit.repos.createFork({
+                        owner: 'Superalgos',
+                        repo: 'Superalgos'
+                    })
+                } catch (err) {
+                    if (err === undefined) { return }
+                    console.log('[ERROR] Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                }
+            }
+        } catch (err) {
+            console.log('[ERROR] Github Server -> createGithubFork -> Method call produced an error.')
+            console.log('[ERROR] Github Server -> createGithubFork -> err.stack = ' + err.stack)
+            console.log('[ERROR] Github Server -> createGithubFork -> repository = ' + repository)
+            console.log('[ERROR] Github Server -> createGithubFork -> username = ' + username)
+            console.log('[ERROR] Github Server -> createGithubFork -> token starts with = ' + token.substring(0, 10) + '...')
+            console.log('[ERROR] Github Server -> createGithubFork -> token ends with = ' + '...' + token.substring(token.length - 10))
 
             let error = {
                 result: 'Fail Because',
@@ -322,6 +363,11 @@ exports.newGithubServer = function newGithubServer() {
                             if (await validateUserProfileIdDoesNotBelongtoAnotherUserProfile() === false) { continue }
                             if (await validateUserProfileBlockchainAccountDoesNotBelongtoAnotherUserProfile() === false) { continue }
                             if (await validateUserProfileSigningAccountsDoesNotBelongtoAnotherUserProfile() === false) { continue }
+
+                            /*
+                                TODO: We need to check before merging a User Profile that none of id of the node of the profile hierearchy exists at any other
+                                User Profile already at the repository, to avoid atacts of users highjacking references of other user profiles. 
+                            */
 
                             if (await mergePullRequest() === false) {
                                 console.log('[WARN] Github Server -> mergeGithubPullRequests -> Merge Failed -> Pull Request "' + pullRequest.title + '" not merged because Github could not merge it. -> mergeResponse.message = ' + mergeResponse.data.message)

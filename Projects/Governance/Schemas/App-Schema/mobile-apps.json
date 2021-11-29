@@ -1,0 +1,50 @@
+{
+    "type": "Mobile Apps",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Social Trading Mobile App",
+            "relatedUiObject": "Social Trading Mobile App",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Apps->"
+    },
+    "propertyNameAtParent": "mobileApps",
+    "childrenNodesProperties": [
+        {
+            "name": "socialTradingMobileApps",
+            "type": "array",
+            "childType": "Social Trading Mobile App",
+            "autoAdd": false
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "type": "Social Persona",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tradingBotsFollowing",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Social Personas Following",
+            "relatedUiObject": "Social Personas Following",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"socialHandle\": \"\",\"bio\": \"\"}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Social Personas->"
+    },
+    "propertyNameAtParent": "socialPersonas",
+    "childrenNodesProperties": [
+        {
+            "name": "socialPersonasFollowing",
+            "type": "node",
+            "childType": "Social Personas Following",
+            "autoAdd": false
+        },
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        }
+    ]
+}

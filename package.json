@@ -17,27 +17,26 @@
     "startDesktop": "node desktop"
   },
   "dependencies": {
-    "@octokit/rest": "^18.11.4",
-    "ccxt": "^1.57.36",
+    "@octokit/rest": "^18.12.0",
+    "ccxt": "^1.61.93",
     "child_process": "^1.0.2",
-    "electron-updater": "^4.3.9",
+    "electron-updater": "^4.6.1",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
-    "ethers": "^5.4.7",
+    "ethers": "^5.5.1",
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "ip": "^1.1.5",
     "lookpath": "^1.2.2",
-    "node-fetch": "^2.6.5",
-    "open": "^8.2.1",
+    "node-fetch": "^2.6.6",
+    "open": "^8.4.0",
     "path": "^0.12.7",
-    "simple-git": "^2.46.0",
+    "simple-git": "^2.47.0",
     "telegraf": "^4.4.2",
     "twitter": "^1.7.1",
     "util": "^0.12.4",
-    "web3": "^1.6.0",
+    "web3": "^1.6.1",
     "ws": "^8.2.3",
-    "@tensorflow/tfjs-node": "^2.8.6",
     "@babel/core": "7.12.3",
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
@@ -108,9 +107,12 @@
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4"
   },
+  "optionalDependencies": {
+    "@tensorflow/tfjs-node": "^2.8.6"
+  },
   "devDependencies": {
     "electron": "^15.1.0",
-    "electron-builder": "^22.11.7"
+    "electron-builder": "^22.14.5"
   },
   "browserslist": {
     "production": [

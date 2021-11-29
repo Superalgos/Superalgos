@@ -112,7 +112,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
         destinationNode.value = originNode.value
 
         /* Now we go down through all the children  of the origin node, assuming the destination node has the same children structure*/
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(originNode.project + '-' + originNode.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(originNode.project + '-' + originNode.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -151,7 +151,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
         nodesMap.set(node.id, node)
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -194,7 +194,7 @@ exports.newAlgorithmicTradingBotModulesTradingEngine = function (processIndex) {
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {

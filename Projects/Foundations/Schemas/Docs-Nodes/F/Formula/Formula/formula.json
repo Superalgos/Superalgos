@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Una fórmula es una expresión matemática destinada a determinar un valor numérico que se aplicará dinámicamente a una determinada propiedad.",
                 "updated": 1624460095928
+            },
+            {
+                "language": "RU",
+                "text": "Формула - это математическое выражение, предназначенное для определения числового значения, которое будет динамически применяться к определенному свойству.",
+                "updated": 1637757255574
             }
         ]
     },

@@ -11,6 +11,11 @@
                 "text": "Este comando te permite contribuir con trabajo al proyecto. El aporte va al repositorio de Superalgos a través de un Pull Request de tu fork de Superalgos.",
                 "updated": 1628205171216,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Mit diesem Befehl können Sie einen Beitrag zum Projekt leisten. Der Beitrag geht an das Superalgos-Repository über einen Pull Request von Ihrer Superalgos fork.",
+                "updated": 1636810389931
             }
         ]
     },
@@ -24,6 +29,11 @@
                     "language": "ES",
                     "text": "Este comando envia todos los cambios que hayas hecho en las paginas de documentos pero también de but also en cualquier archivo  de la carpeta de Superalgos (a excepción de  My-Workspaces, Data-Storage, (Archivo de datos de mi espacio de trabajo) y My-Logs folders (mis carpetas de registros) a tu bifurcación en Github.com. También serán enviados desde tu bifurcación al  repositorio principal de Superalgos  Lo hará específicamente  desde la rama actual a la rama de las contribuciones mencionados al final de ésta página.",
                     "updated": 1633175695567
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Befehl sendet alle Änderungen, die Sie an den Docs-Seiten, aber auch an allen Dateien innerhalb des Superalgos-Ordners (außer den Ordnern My-Workspaces, Data-Storage und My-Logs) vorgenommen haben, an Ihren Fork auf Github.com. Es wird sie auch von Ihrem Fork an das Main Superalgos Repository senden. Und zwar vom Current Branch zum Contributions Branch, der in der Fußzeile dieser Seite erwähnt wird.",
+                    "updated": 1636810799062
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Nunca utilice su carpeta de Superalgos para almacenar archivos personales, ya que toda la carpeta, salvo las pocas excepciones mencionadas arriba, están sujetas a ser enviadas a través de internet a un sitio público.",
                     "updated": 1633175880707
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie niemals Ihren Superalgos-Ordner, um persönliche Dateien zu speichern, da der gesamte Ordner, mit Ausnahme der wenigen oben erwähnten Ausnahmen, über das Internet an eine öffentliche Website gesendet werden kann.",
+                    "updated": 1636810844509
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "ES",
                     "text": "En la mayoría de los casos,, las contribuciones deben ir desde la rama de desarrollo a la rama de desarrollo, o desde la rama de plugins-docs (documentos complementarios) a la rama de plugins-docs, salvo que previamente haya acordado con los miembros del equipo que enviará una contribución de master a master.",
                     "updated": 1633176160361
+                },
+                {
+                    "language": "DE",
+                    "text": "In den meisten Fällen müssen Beiträge(contributions) vom develop branch zum develop branch oder vom plugins-docs branch zum plugins-docs branch gehen, es sei denn, Sie haben vorher mit den Teammitgliedern vereinbart, dass Sie einen Beitrag von master zu master schicken.",
+                    "updated": 1636811150520
                 }
             ]
         },
@@ -60,6 +80,11 @@
                     "language": "ES",
                     "text": "Master ( Maestra) es una rama estable y es muy poco porbable que vayamos a emerger contribuciones allí. En cambio todas las contribuciones se espera que vayan a as ramas de desarrollo o de documentos complementarios, donde muchos usuarios están chequeando esa rama cada día. Las contribuciones de enchufes o documentos puede alcanzar a maenudo la rama maestra. Contribuciones a la rama de desarrollo llegará a la rama maestra en la siguiente liberación.",
                     "updated": 1633176639433
+                },
+                {
+                    "language": "DE",
+                    "text": "Master ist unser stable branch und es ist sehr unwahrscheinlich, dass wir contributions dorthin mergen werden. Stattdessen wird erwartet, dass alle contributions in den Zweigen develop oder plugins-docs landen, wo viele Benutzer diese branches jeden Tag testen. Beiträge zu Plugins und Docs werden oft den Master-branch erreichen. Contributions zum develop branch werden den master branch bei der nächsten Veröffentlichung erreichen.",
+                    "updated": 1636811857881
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "ES",
                     "text": "Es también muy poco probable que las contribuciones  provenientes de la rama maestra será traída en la rama de desarrollo, ya que ello puede provocar que emergan conflictos.",
                     "updated": 1633176834093
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist auch sehr unwahrscheinlich, dass Beiträge aus dem master branch in den develop branch gemerged werden, da dies normalerweise zu Konflikten beim mergen führen kann.",
+                    "updated": 1636811942836
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "ES",
                     "text": "Chequear el pie de los documentos par qverificar que en que ramas está operando antes de enviar su contribución",
                     "updated": 1633176955159
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie in der Fußzeile der Dokumente, mit welchen Zweigen Sie arbeiten, bevor Sie Ihre contributions einreichen!",
+                    "updated": 1636812025309
                 }
             ]
         },
@@ -102,12 +137,26 @@
         {
             "style": "List",
             "text": "Message: Enter a brief description of what your contribution is about. It is optional but appreciated.",
-            "updated": 1610909386562
+            "updated": 1610909386562,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Message: Geben Sie eine kurze Beschreibung, worum es in Ihrer contribution geht. Die Angabe ist freiwillig, wird aber geschätzt.",
+                    "updated": 1636812085622
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Example",
-            "updated": 1609943733276
+            "updated": 1609943733276,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel (dieser Befehl reicht für Übersetzungen vollkommen aus. Denken sie daran vor dem app.contribute command den docs.save command auszuführen um änderungen zu speichern)",
+                    "updated": 1636812385303
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -117,29 +166,71 @@
         {
             "style": "Title",
             "text": "For Devs",
-            "updated": 1609944102567
+            "updated": 1609944102567,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für Entwickler:",
+                    "updated": 1636812168426
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is what the command does:",
-            "updated": 1610909409653
+            "updated": 1610909409653,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist die Funktion des Befehls:",
+                    "updated": 1636812191434
+                }
+            ]
         },
         {
             "style": "List",
             "text": "git.add: adds the changes you've made to contributable files to a git commit.",
-            "updated": 1610909452789
+            "updated": 1610909452789,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "git.add: fügt die Änderungen, die Sie an beitragsfähigen Dateien vorgenommen haben, einem Git-Commit hinzu.",
+                    "updated": 1636812217041
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "git.commit: commits all the changes."
+            "text": "git.commit: commits all the changes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "git.commit: überträgt alle Änderungen.",
+                    "updated": 1636812231989
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "git.push: pushes the changes to your fork."
+            "text": "git.push: pushes the changes to your fork.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "git.push: überträgt die Änderungen auf Ihren Fork.",
+                    "updated": 1636812247666
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "github.createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request."
+            "text": "github.createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "github.createPullRequest: erstellt einen Pull Request im Superalgos Repository, oder fügt Commits zu einem bestehenden Pull Request hinzu.",
+                    "updated": 1636812305579
+                }
+            ]
         },
         {
             "style": "Block",
@@ -153,12 +244,26 @@
         {
             "style": "Text",
             "text": "For the App Contribute Command to run properly, two different authentications are required:",
-            "updated": 1610909501561
+            "updated": 1610909501561,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Damit der App Contribute-Befehl ordnungsgemäß ausgeführt werden kann, sind zwei verschiedene Authentifizierungen erforderlich:",
+                    "updated": 1636812413275
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Git Authentication: The first time you run this command, Git will open a pop up window that will ask you for your Github.com credentials. This happens only once. Git will use these credentials to push the commit to your Superalgos fork at Github.com.",
-            "updated": 1610909551187
+            "updated": 1610909551187,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Git Authentication: Wenn Sie diesen Befehl zum ersten Mal ausführen, öffnet Git ein Popup-Fenster, in dem Sie nach Ihren Github.com-Anmeldedaten gefragt werden. Dies geschieht nur einmal. Git verwendet diese Anmeldedaten, um den commit an Ihren Superalgos-Fork auf Github.com zu übertragen.",
+                    "updated": 1636812477503
+                }
+            ]
         },
         {
             "style": "List",
@@ -172,7 +277,14 @@
         {
             "style": "List",
             "text": "Create the token by following this link:",
-            "updated": 1610909635250
+            "updated": 1610909635250,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie den Token, indem Sie diesem Link folgen:",
+                    "updated": 1636812794679
+                }
+            ]
         },
         {
             "style": "Link",
@@ -186,7 +298,14 @@
         {
             "style": "Text",
             "text": "Once you have your token, find the GitHub API node (you may search for it in the Documentation). The configuration looks like this:",
-            "updated": 1610909728136
+            "updated": 1610909728136,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie Ihr Token haben, suchen Sie die GitHub-API-Node (Sie können in der Documentation danach suchen). Die Konfiguration sieht wie folgt aus:",
+                    "updated": 1636812850344
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -195,8 +314,15 @@
         },
         {
             "style": "Text",
-            "text": "If you can't find the node by using the search box, it may not exist in the active workspace. The APIs hierarchy is included by default in the Getting Started workspace only. You may spawn a new APIs hierarchy from the Other Hierarchies node in the Superalgos Project hierarchy.",
-            "updated": 1610909893231
+            "text": "If you can't find the node by using the search box, it may not exist in the active workspace. The APIs hierarchy is included by default in the Getting Started workspace only. You may spawn a new APIs hierarchy from the Other Hierarchies node in the Foundations Project hierarchy.",
+            "updated": 1610909893231,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die node nicht über das Suchfeld finden können, ist er möglicherweise nicht im aktiven Arbeitsbereich vorhanden. Die APIs-Hierarchie ist standardmäßig nur im Arbeitsbereich \"Erste Schritte\" enthalten. Sie können eine neue APIs-Hierarchie über den Node \"Other Hierarchies\" in der Foundations Project hierarchy erstellen.",
+                    "updated": 1636813227032
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -205,31 +331,73 @@
         {
             "style": "List",
             "text": "username: Type your GitHub.com username.",
-            "updated": 1610909927500
+            "updated": 1610909927500,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "username: Geben Sie Ihren GitHub.com-Benutzernamen ein.",
+                    "updated": 1636813245695
+                }
+            ]
         },
         {
             "style": "List",
             "text": "token: Paste the token you created.",
-            "updated": 1610909948426
+            "updated": 1610909948426,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "token: Fügen Sie das von Ihnen erstellte Token ein.",
+                    "updated": 1636813265485
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You may run the command any time after you made and saved changes.",
-            "updated": 1610910009790
+            "updated": 1610910009790,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können den Befehl jederzeit ausführen, nachdem Sie Änderungen vorgenommen und gespeichert haben.",
+                    "updated": 1636813300417
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Troubleshooting Authentication Issues",
-            "updated": 1610909171028
+            "updated": 1610909171028,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fehlerbehebung bei Authentifizierungsproblemen",
+                    "updated": 1636813315620
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Some issues may arrise when you have more than one Git installation active in your OS.",
-            "updated": 1610910061699
+            "updated": 1610910061699,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einige Probleme können auftreten, wenn Sie mehr als eine Git-Installation in Ihrem Betriebssystem aktiv haben.",
+                    "updated": 1636813483077
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, if you see the following authentication screen, it means an older version of Git is trying to deal with the authentication:"
+            "text": "For example, if you see the following authentication screen, it means an older version of Git is trying to deal with the authentication:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie zum Beispiel den folgenden Authentifizierungsbildschirm sehen, bedeutet dies, dass eine ältere Version von Git versucht, die Authentifizierung durchzuführen:",
+                    "updated": 1636813517718
+                }
+            ]
         },
         {
             "style": "Png",
@@ -239,7 +407,14 @@
         {
             "style": "Text",
             "text": "The current authentication screen is similar to this one instead:",
-            "updated": 1610910533633
+            "updated": 1610910533633,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der derzeitige Authentifizierungsbildschirm sieht stattdessen ähnlich aus wie dieser:",
+                    "updated": 1636813625546
+                }
+            ]
         },
         {
             "style": "Png",
@@ -249,27 +424,62 @@
         {
             "style": "Important",
             "text": "If you didn't install the latest version of Git before installing Superalgos, then that is likely the reason the authentication is not working. The latest version of Git is required.",
-            "updated": 1610910817057
+            "updated": 1610910817057,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie vor der Installation von Superalgos nicht die neueste Version von Git installiert haben, dann ist das wahrscheinlich der Grund, warum die Authentifizierung nicht funktioniert. Die neueste Version von Git ist erforderlich.",
+                    "updated": 1636813687527
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you did install Git and you are experiencing the issue described above, restarting your PC may help things sort themselves out.",
-            "updated": 1610910739376
+            "updated": 1610910739376,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Git installiert haben und das oben beschriebene Problem auftritt, kann ein Neustart des PCs helfen, das Problem zu beheben.",
+                    "updated": 1636813720650
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Linux and iOS",
-            "updated": 1621085154588
+            "text": "Linux and macOS",
+            "updated": 1637872934184,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Linux und macOS",
+                    "updated": 1637873000919
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Input your personal authentication token (PAT) in place of your password and hit enter.  ",
-            "updated": 1621085095513
+            "updated": 1621085095513,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Geben Sie Ihr persönliches Authentifizierungs-Token (PAT) anstelle Ihres Passworts ein und drücken Sie die Eingabetaste (Enter).",
+                    "updated": 1636813892055
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you don't want to keep entering in your token then you can have git cach your credentials:",
-            "updated": 1621085196186
+            "updated": 1621085196186,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Ihr Token nicht ständig eingeben wollen, können Sie Ihre Anmeldedaten von Git zwischenspeichern lassen:",
+                    "updated": 1636813912653
+                }
+            ]
         },
         {
             "style": "Link",

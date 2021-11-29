@@ -123,7 +123,7 @@ exports.newFoundationsFunctionLibrariesProcessFilesFunctions = function () {
     async function writeProcessFiles(processIndex, contextVariables, currentTimeFrame, processDate, statusDependencies) {
 
         let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
-        let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
 
         await writeTimeFramesFiles()
         await writeDataRanges()

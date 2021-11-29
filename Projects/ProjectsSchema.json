@@ -329,7 +329,7 @@
                 }
             ]
         },
-        "TS": {
+        "SA": {
             "utilities": [
                 {
                     "name": "Node Functions",
@@ -795,6 +795,12 @@
                     "propertyName": "timeConstants",
                     "functionName": "newFoundationsGlobalsTimeConstants",
                     "fileName": "TimeConstants.js"
+                },
+                {
+                    "name": "Schemas",
+                    "propertyName": "schemas",
+                    "functionName": "newFoundationsGlobalsSchemas",
+                    "fileName": "Schemas.js"
                 }
             ],
             "utilities": [
@@ -1730,6 +1736,31 @@
                     "propertyName": "twitterBot",
                     "functionName": "newSocialBotsBotModulesTwitterBot",
                     "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Signals Functions",
+                    "propertyName": "tradingSignalsFunctions",
+                    "functionName": "newSocialBotsFunctionLibraryTradingSignalsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Trading Signals",
+                    "propertyName": "tradingSignals",
+                    "functionName": "newTradingSignalsBotModulesTradingSignals",
+                    "fileName": "TradingSignals.js",
                     "folderName": ""
                 }
             ]

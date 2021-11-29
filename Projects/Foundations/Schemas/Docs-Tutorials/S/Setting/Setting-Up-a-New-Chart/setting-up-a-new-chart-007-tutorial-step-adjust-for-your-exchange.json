@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Puedes recordar esta pregunta del tutorial de bienvenida. ¿Estás operando en binance.com o binance.us?",
                 "updated": 1628639559252
+            },
+            {
+                "language": "DE",
+                "text": "Vielleicht erinnern Sie sich an diese Frage aus dem Willkommenstutorial. Handeln Sie bei binance.com oder binance.us?",
+                "updated": 1637613425795
+            },
+            {
+                "language": "RU",
+                "text": "Возможно, вы помните этот вопрос из приветственного урока. Вы торгуете на binance.com или binance.us?",
+                "updated": 1637915646125
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Este espacio de trabajo fue construido usando binance.com. Si ese es su intercambio, continúe y omita este paso. Sin embargo, si sus datos están almacenados en binance.us, deberá realizar un ajuste rápido.",
                     "updated": 1628639619761
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser workspace wurde mit binance.com erstellt. Wenn dies Ihr exchange ist, können Sie diesen Schritt überspringen. Wenn Ihre Daten jedoch auf binance.us gespeichert sind, müssen Sie eine kurze Anpassung vornehmen.",
+                    "updated": 1637613649493
+                },
+                {
+                    "language": "RU",
+                    "text": "Это рабочее пространство было построено с использованием binance.com. Если это ваш обмен, продолжайте и пропустите этот шаг. Однако, если ваши данные хранятся на binance.us вам нужно будет сделать одну быструю настройку.",
+                    "updated": 1637915731066
                 }
             ]
         },
@@ -39,18 +59,38 @@
                     "language": "ES",
                     "text": "Configure el nodo Binance a tu izquierda.",
                     "updated": 1628639643918
+                },
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren Sie die Binance Node zu Ihrer Linken.",
+                    "updated": 1637613673124
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройте узел Binance слева от вас.",
+                    "updated": 1637915753924
                 }
             ]
         },
         {
             "style": "List",
             "text": "Open the configuration and change the codeName to binanceus. Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
-            "updated": 1628362245139,
+            "updated": 1637613950322,
             "translations": [
                 {
                     "language": "ES",
                     "text": "Open la configuración y cambiar la codeName a binanceus. Mueva el puntero del mouse fuera de la burbuja de configuración y se cerrará y guardará automáticamente.",
                     "updated": 1628639735404
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie die configuration und ändern Sie den CodeName in binance.us. Bewegen Sie den Mauszeiger aus der Konfigurationsblase und sie wird automatisch geschlossen und gespeichert",
+                    "updated": 1637614015199
+                },
+                {
+                    "language": "RU",
+                    "text": "Откройте конфигурацию и измените CodeName на binanceus. Выведите указатель мыши из пузырька конфигурации, и он автоматически закроется и сохранится.",
+                    "updated": 1637915859838
                 }
             ]
         },
@@ -63,6 +103,16 @@
                     "language": "ES",
                     "text": "Clic en Edit de la etiqueta del nodo a leer Binanceus.",
                     "updated": 1628639820319
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie die Bezeichnung der Node so, dass sie Binanceus lautet.",
+                    "updated": 1637614035479
+                },
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте метку узла так, чтобы она читалась как Binanceus.",
+                    "updated": 1637915855217
                 }
             ]
         }

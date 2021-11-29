@@ -40,6 +40,13 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add Specified Workspace Project",
+            "label": "Add Specified Workspace Project",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Check For Missing References",
             "label": "Check For Missing References",
             "relatedUiObject": "Workspace",
@@ -58,7 +65,8 @@
         "config": "{\"docsLanguage\": \"EN\"}"
     },
     "editors": {
-        "config": true
+        "config": true,
+        "list": true
     },
     "isTitleAllwaysVisible": true,
     "addLeftIcons": false,

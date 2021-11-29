@@ -15,6 +15,11 @@
                 "text": "¡Github.com aumenta la clasificación de búsqueda de proyectos cuando tienen muchas estrellas, bifurcaciones y personas observando el repositorio!",
                 "updated": 1630892401029,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Github.com, izleyen çok kişi olduğunda, çok sayıda yıldız verildiğinde ve çok çatallandığında projelerin arama sıralamasını yükseltir!",
+                "updated": 1637441112883
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "¡Por eso les pedimos que ayuden de esta manera! Al completar esas tres tareas, está ayudando de manera efectiva a más desarrolladores a encontrar Superalgos.",
                     "updated": 1632016358401,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu yüzden sizden bu şekilde yardım etmenizi rica ediyoruz! Bu üç görevi tamamlayarak, daha fazla geliştiricinin Superalgos'u bulmasına etkili bir şekilde yardımcı olursunuz.",
+                    "updated": 1637441142172
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Ahora, así es como funciona del lado de Superalgos:",
                     "updated": 1630892460301,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yaptığınızda Superalgos tarafında ise işler şöyle yürüyor:",
+                    "updated": 1637441187044
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Se verifica el repositorio y si tu cuenta de Github tiene una estrella, una bifurcación y/o un reloj.",
                     "updated": 1630892612043,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem depoyu kontrol eder ve Github hesabınızda projeye yıldız verip vermediğinizi, çatallayıp çatallamadığınızı ve izleme listenize alıp almadığınızıkontrol ederek doğrular.",
+                    "updated": 1637441329067
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "Hay un límite de 1.000 SA para cada uno de estos incentivos. Puedes obtener hasta SA 3.000.",
                     "updated": 1630892707618,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlemlerin her biri için 1.000 SA'lık bir üst sınır vardır. Bu, katılımınızı en üst düzeye çıkarırsanız, ( her 3 görevide tamamlarsanız ) 3.000' SA'lık bir ödül alacağınız anlamına gelir.",
+                    "updated": 1637441420349
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "language": "ES",
                     "text": "Es posible que no se refleje de inmediato. Github limita la cantidad de consultas que realiza el sistema. Obtendrás tus tokens de todos modos.",
                     "updated": 1632024032825
+                },
+                {
+                    "language": "TR",
+                    "text": "Github, sistemin yaptığı sorgu sayısını sınırladığı için bu, sisteme hemen yansımayabilir. Endişelenme, yine de Token'larını alacaksın.",
+                    "updated": 1637441467662
                 }
             ]
         }

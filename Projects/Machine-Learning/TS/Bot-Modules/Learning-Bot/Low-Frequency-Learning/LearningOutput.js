@@ -31,7 +31,7 @@ exports.newMachineLearningBotModulesLearningOutput = function (processIndex) {
             /* Preparing everything for the Simulation */
             let learningSimulationModuleObject = TS.projects.machineLearning.botModules.learningSimulation.newMachineLearningBotModulesLearningSimulation(processIndex)
 
-            let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+            let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
             let outputDatasetsMap = new Map()
 
             await TS.projects.foundations.functionLibraries.outputManagementFunctions.readFiles(

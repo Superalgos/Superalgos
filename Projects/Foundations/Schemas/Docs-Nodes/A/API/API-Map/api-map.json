@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Un API Map representa el mapeo de una API para que pueda ser consumida por bots dentro de Superalgos. API Maps Son creados por los usuarios y compartidos como Plugins para que cualquier otro miembro de la comunidad pueda usarlos con sus bots.",
                 "updated": 1628046227514
+            },
+            {
+                "language": "DE",
+                "text": "Eine API-Map stellt das Mapping einer API dar, so dass sie von Bots innerhalb von Superalgos genutzt werden kann. API Maps werden von Nutzern erstellt und als Plugins geteilt, so dass jedes andere Community-Mitglied sie mit seinen Bots nutzen kann.",
+                "updated": 1637407347172
             }
         ]
     },
@@ -15,40 +20,96 @@
         {
             "style": "Text",
             "text": "The way to create an API Map is to read the API's documentation for each endpoint as well as the Data Mining Topic. These sources will provide you with all the information you need to make a successful API Map.",
-            "updated": 1622847308932
+            "updated": 1622847308932,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um eine API-Map zu erstellen, sollten Sie die API-Dokumentation für jeden Endpunkt sowie das  Data Mining Topic lesen. Diese Quellen liefern Ihnen alle Informationen, die Sie für die Erstellung einer erfolgreichen API-Map benötigen.",
+                    "updated": 1637407413755
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The basic way you can think about an API Map is as a representation of the URL link needed to request information from the API as well as the layout of the data returned by the API. This means that an API Map hold all the information needed to request data and decipher the data once it is returned.",
-            "updated": 1622847337343
+            "updated": 1622847337343,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Grundsätzlich kann man sich eine API-Map als eine Darstellung des URL-Links vorstellen, der für die Anforderung (request) von Informationen von der API benötigt wird, sowie als das Layout der von der API zurückgegebenen Daten. Das bedeutet, dass eine API-Map alle Informationen enthält, die zum Anfordern von Daten und zum Entschlüsseln der zurückgegebenen Daten erforderlich sind.",
+                    "updated": 1637407595202
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "How are API Maps used?",
-            "updated": 1622847013897
+            "updated": 1622847013897,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie werden API Maps verwendet?",
+                    "updated": 1637407620683
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "API Maps are used by API Data Fetcher Bots to request and save the data from an API. In order to do this a user needs to set up a task to run the bot. This set up is done automatically as part of the Install Market procedure if both an API Map and its data mine is detected within the Worksapce. From within that Task, a reference to the API Map is established.",
-            "updated": 1622847596702
+            "updated": 1622847596702,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Maps werden von API Data Fetcher Bots verwendet, um Daten von einer API anzufordern und zu speichern. Dazu muss der Benutzer eine Task zur Ausführung des Bots einrichten. Diese Einrichtung erfolgt automatisch als Teil des Install Market-Verfahrens, wenn sowohl eine API Map als auch die zugehörige Datamine im Workspace erkannt werden. In dieser Task wird ein Verweis (reference) auf die API-Map eingerichtet.",
+                    "updated": 1637407784736
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When the Task is run, the UI will send to the Task Server all the definitions inside the API Map so that the API Data Fetcher Bot can use them to connect to the API Server, fetch data from it, and correctly interpret the responses."
+            "text": "When the Task is run, the UI will send to the Task Server all the definitions inside the API Map so that the API Data Fetcher Bot can use them to connect to the API Server, fetch data from it, and correctly interpret the responses.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "When the Task is run, the UI will send to the Task Server all the definitions inside the API Map so that the API Data Fetcher Bot can use them to connect to the API Server, fetch data from it, and correctly interpret the responses. Wenn die Task ausgeführt wird, sendet die UI (Benutzeroberfläche) alle Definitionen in der API Map an den Task Server, damit der API Data Fetcher Bot sie verwenden kann, um eine Verbindung zum API Server herzustellen, Daten von ihm abzurufen und die Antworten korrekt zu interpretieren.",
+                    "updated": 1637407893809
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "How to Read an API Request URL",
-            "updated": 1622847733042
+            "updated": 1622847733042,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie man eine \"API Request URL\" liest:",
+                    "updated": 1637407947758
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The API you are trying to map should have it's API Endpoints documented. If not, check any examples they may provide for how to request the data and see if there are inner folders below the main folder of the API Enpoint. Each one of these folders are an API Path Parameter that needs to be defined.",
-            "updated": 1622847657548
+            "updated": 1622847657548,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die API, die Sie abbilden (mappen) möchten, sollte über eine Dokumentation ihrer API Endpoints verfügen. Wenn dies nicht der Fall ist, prüfen Sie alle Beispiele, die sie für die Abfrage der Daten bereitstellen, und sehen Sie nach, ob es innere Ordner unterhalb des Hauptordners des API Endpoints gibt. Jeder dieser Ordner ist ein API Path Parameter, der definiert werden muss.",
+                    "updated": 1637408139914
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here are some examples of API request URLs:"
+            "text": "Here are some examples of API request URLs:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier sind einige Beispiele für API request URLs:",
+                    "updated": 1637408182777
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -61,15 +122,37 @@
         },
         {
             "style": "Subtitle",
-            "text": "Sections of an API Request URL"
+            "text": "Sections of an API Request URL",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Abschnitte einer API Request URL:",
+                    "updated": 1637408214715
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let's break down one of these URLs and identify each part of it."
+            "text": "Let's break down one of these URLs and identify each part of it.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns eine dieser URLs aufschlüsseln und jeden Teil davon identifizieren.",
+                    "updated": 1637408255353
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Internet Protocol: This is the section on the very front of almost any internet link you will see."
+            "text": "Internet Protocol: This is the section at the beginning of almost any internet link you will see.",
+            "updated": 1637408357293,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Internet Protocol: Dieser Teil steht am Anfang fast jedes Internet-Links, den Sie sehen werden.",
+                    "updated": 1637408455485
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -78,11 +161,25 @@
         {
             "style": "Note",
             "text": "You define this using the protocol config property in the main API Map node.",
-            "updated": 1622847750228
+            "updated": 1622847750228,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie definieren dies über die Eigenschaft protocol config in der main API Map node.",
+                    "updated": 1637408526085
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Root Domain Name: This is the section of the URL that is before the first backslash:"
+            "text": "Root Domain Name: This is the section of the URL that is before the first backslash:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Root Domain Name: Dies ist der Teil der URL, der vor dem ersten Backslash steht:",
+                    "updated": 1637408573940
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -91,11 +188,25 @@
         {
             "style": "Note",
             "text": "You define this using the hostName config property in the main API Map node.",
-            "updated": 1622847770913
+            "updated": 1622847770913,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie definieren dies über die hostName config property in der main API Map node.",
+                    "updated": 1637408669762
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "API Path: This is the section that defines the main path to the API:"
+            "text": "API Path: This is the section that defines the main path to the API:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Path: Dies ist der Abschnitt, der den Hauptpfad zur API definiert:",
+                    "updated": 1637408725011
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -104,25 +215,60 @@
         {
             "style": "Note",
             "text": "You define this using the path config property in the main API Map node.",
-            "updated": 1622847800732
+            "updated": 1622847800732,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie definieren dies über die path config property in der main API Map node.",
+                    "updated": 1637408876286
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "API Version Number: This is the section that defines the API version to which you are making requests."
+            "text": "API Version Number: This is the section that defines the API version to which you are making requests.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Version Number:  In diesem Abschnitt wird die API-Version definiert, an die Sie Anfragen stellen.",
+                    "updated": 1637408824379
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": " v1"
+            "text": " v1",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "v1",
+                    "updated": 1637408808732
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You define this using the codeName config property in the API Version node.",
-            "updated": 1622847982153
+            "updated": 1622847982153,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hinweis: Sie definieren dies über die  codeName config property in der API Version node.",
+                    "updated": 1637408939849
+                }
+            ]
         },
         {
             "style": "List",
             "text": "API Endpoint: This is the section that tells the API what kind of data you wish to request.",
-            "updated": 1622847877226
+            "updated": 1622847877226,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Endpoint: In diesem Abschnitt wird der API mitgeteilt, welche Art von Daten Sie anfordern möchten.",
+                    "updated": 1637414433995
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -131,12 +277,26 @@
         {
             "style": "Note",
             "text": "You define this using the config codeName property of the API Endpoint node.",
-            "updated": 1622847959761
+            "updated": 1622847959761,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie definieren dies über die  config codeName property des API-Endpoint node.",
+                    "updated": 1637414475525
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Path Parameters: These are the remaning sections of the path before the question mark they further narrow down what data you wish to request from the API.  In this case we want to receive data about bitcoin:",
-            "updated": 1622848189591
+            "updated": 1622848189591,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Path Parameters: Dies sind die verbleibenden Abschnitte des Pfads vor dem Fragezeichen. Sie grenzen die Daten, die Sie von der API anfordern möchten, weiter ein. In diesem Fall möchten wir Daten über Bitcoin erhalten:",
+                    "updated": 1637414552491
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -145,12 +305,26 @@
         {
             "style": "Note",
             "text": "You define each of these using the codeName config property in the API Path Parameter node.",
-            "updated": 1622848212517
+            "updated": 1622848212517,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie definieren jedes dieser Elemente über die codeName config property in der API Path Parameter node.",
+                    "updated": 1637414615962
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Query Parameters: These are all the sections after the question mark. They are often used to pair down the amount of data returned by the API so that you only receive what you are interested in:",
-            "updated": 1622848284105
+            "updated": 1622848284105,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Query Parameters: Dies sind alle Abschnitte nach dem Fragezeichen. Sie werden häufig verwendet, um die von der API zurückgegebene Datenmenge zu reduzieren, damit Sie nur die Daten erhalten, an denen Sie interessiert sind:",
+                    "updated": 1637414650342
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -158,7 +332,14 @@
         },
         {
             "style": "Note",
-            "text": "You define these using the codeName and value config properties of the API Query Parameter node."
+            "text": "You define these using the codeName and value config properties of the API Query Parameter node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie definieren diese über die codeName und value config property der API Query Parameter node.",
+                    "updated": 1637414687252
+                }
+            ]
         },
         {
             "style": "Include",
@@ -173,7 +354,14 @@
         {
             "style": "Title",
             "text": "API Map Configuration",
-            "updated": 1622895474056
+            "updated": 1622895474056,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "API Map Konfiguration:",
+                    "updated": 1637414725997
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -182,36 +370,85 @@
         {
             "style": "List",
             "text": "codeName: this must be the same codename as the Data Mine codename in order for the Install New Market procedure to link them properly at the API Map Reference node.",
-            "updated": 1622895563618
+            "updated": 1622895563618,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies muss derselbe Codename sein wie der Codename der Data Mine, damit die Prozedur Install New Market sie ordnungsgemäß mit der API Map Reference node verknüpfen kann.",
+                    "updated": 1637414868207
+                }
+            ]
         },
         {
             "style": "List",
             "text": "protocol: the protocol to be used to access the API. For now either http or https.",
-            "updated": 1622895574503
+            "updated": 1622895574503,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "protocol: das Protokoll, das für den Zugriff auf die API verwendet werden soll. Im Moment entweder http oder https.",
+                    "updated": 1637415023731
+                }
+            ]
         },
         {
             "style": "List",
             "text": "portNumber: the port at which the API server is listening.",
-            "updated": 1622895581034
+            "updated": 1622895581034,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "portNumber: der Port, an dem der API-Server lauscht.",
+                    "updated": 1637415047128
+                }
+            ]
         },
         {
             "style": "List",
             "text": "hostName: the domain name or IP address of the API server.",
-            "updated": 1622895586641
+            "updated": 1622895586641,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "hostName: der Domain Name oder die IP-Adresse des API Servers.",
+                    "updated": 1637415198987
+                }
+            ]
         },
         {
             "style": "List",
             "text": "path: the URL path to where the API is located within the remote server.",
-            "updated": 1622895592146
+            "updated": 1622895592146,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "path: der URL Pfad zu dem Ort, an dem sich die API auf dem entfernten Server befindet.",
+                    "updated": 1637415193838
+                }
+            ]
         },
         {
             "style": "List",
             "text": "millisecondsBetweenCalls: [Optional] the number of milliseconds to wait before calling the remote host. This is particuary useful if there is pagination, so that there is a delay before requesting each page.",
-            "updated": 1622863477228
+            "updated": 1622863477228,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "millisecondsBetweenCalls: [Optional] Die Anzahl der Millisekunden, die vor dem Aufruf des entfernten Hosts gewartet wird. Dies ist besonders nützlich, wenn es eine Paginierung gibt, so dass es eine Verzögerung gibt, bevor jede Seite angefordert wird.",
+                    "updated": 1637415663997
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here is an example API Map config:"
+            "text": "Here is an example API Map config:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier ein Beispiel für eine API Map config:",
+                    "updated": 1637415687389
+                }
+            ]
         },
         {
             "style": "Json",

@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Next Phase Portfolio Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "nextPhasePMEvent",
+            "relatedUiObject": "Next Phase PM Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -39,6 +49,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "nextPhasePMEvent",
+            "type": "node",
+            "childType": "Next Phase PM Event"
         },
         {
             "name": "announcements",

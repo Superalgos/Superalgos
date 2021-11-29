@@ -31,7 +31,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Bot->Learning Bot->Product Definition Folder->"
+        "compatibleTypes": "->Trading Bot->Portfolio Bot->Learning Bot->Product Definition Folder->"
     },
     "childrenNodesProperties": [
         {

@@ -1,0 +1,37 @@
+{
+    "type": "Portfolio Bot Instance",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Process Instance",
+            "relatedUiObject": "Portfolio Process Instance",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Task->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "processes",
+            "type": "array",
+            "childType": "Portfolio Process Instance",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "bot"
+}

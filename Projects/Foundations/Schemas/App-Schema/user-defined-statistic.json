@@ -62,7 +62,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode Statistics->Learning Episode Statistics->Position Statistics->"
+        "compatibleTypes": "->Trading Episode Statistics->Portfolio Episode Statistics->Position Statistics->Learning Episode Statistics->Position Statistics->"
     },
     "propertyNameAtParent": "userDefinedStatistics",
     "childrenNodesProperties": [

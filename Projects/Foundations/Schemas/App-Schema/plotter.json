@@ -38,7 +38,7 @@
     },
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Data Mine->"
+        "compatibleTypes": "->Data Mine->Trading Mine->Portfolio Mine->"
     },
     "childrenNodesProperties": [
         {

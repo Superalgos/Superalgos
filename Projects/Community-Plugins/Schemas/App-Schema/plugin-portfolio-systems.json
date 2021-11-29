@@ -1,0 +1,41 @@
+{
+    "type": "Plugin Portfolio Systems",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin Portfolio Systems",
+            "label": "Add Missing Portfolio Systems",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "iconPathOn": "portfolio-system",
+            "iconPathOff": "portfolio-system",
+            "iconProject": "Portfolio-Management",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "pluginPortfolioSystems",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFiles",
+            "type": "array",
+            "childType": "Plugin File",
+            "autoAdd": false
+        }
+    ]
+}

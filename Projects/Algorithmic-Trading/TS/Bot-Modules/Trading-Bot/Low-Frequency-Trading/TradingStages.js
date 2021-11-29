@@ -107,7 +107,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         checkTriggerOff()
         checkTakePosition()
 
-        function checkTriggerOn() {
+        async function checkTriggerOn() {
             if (
                 tradingEngine.tradingCurrent.strategy.index.value === tradingEngine.tradingCurrent.strategy.index.config.initialValue
             ) {
@@ -140,7 +140,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingSystem.values.push([situation.id, passed])
 
-                                portfolioManagerClient.askPortfolioEventManager(triggerStage.triggerOn, { status: passed })
+                                let response = await portfolioManagerClient.askPortfolioEventsManager(triggerStage.triggerOn, passed)
+                                passed = response.raiseEvent
 
                                 if (passed) {
 
@@ -172,7 +173,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             }
         }
 
-        function checkTriggerOff() {
+        async function checkTriggerOff() {
             if (tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open') {
                 checkUserDefinedCode('Trigger Stage', 'Running', 'first');
 
@@ -193,6 +194,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                             passed = tradingSystem.checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
+
+                            let response = await portfolioManagerClient.askPortfolioEventsManager(triggerStage.triggerOff, passed)
+                            passed = response.raiseEvent
+
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
                                 tradingSystem.highlights.push(triggerStage.triggerOff.id)
@@ -211,7 +216,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             }
         }
 
-        function checkTakePosition() {
+        async function checkTakePosition() {
             if (
                 tradingEngine.tradingCurrent.strategyTriggerStage.status.value === 'Open'
             ) {
@@ -233,6 +238,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                             passed = tradingSystem.checkConditions(situation, passed)
 
                             tradingSystem.values.push([situation.id, passed])
+
+                            let response = await portfolioManagerClient.askPortfolioEventsManager(triggerStage.takePosition, passed)
+                            passed = response.raiseEvent
+
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
                                 tradingSystem.highlights.push(triggerStage.takePosition.id)

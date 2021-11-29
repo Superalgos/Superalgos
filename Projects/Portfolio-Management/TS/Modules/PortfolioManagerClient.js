@@ -4,8 +4,8 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     questions to the Event and Formula Managers and receive their answers.
     */
     let thisObject = {
-        askPortfolioEventManager: askPortfolioEventManager,
-        askPortfolioFormulaManager: askPortfolioFormulaManager, 
+        askPortfolioEventsManager: askPortfolioEventsManager,
+        askPortfolioFormulaManager: askPortfolioFormulaManager,
         initialize: initialize,
         finalize: finalize
     }
@@ -20,8 +20,42 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
 
     }
 
-    async function askPortfolioEventManager(eventNode, conectInfo) {
-        console.log('here')
+    async function askPortfolioEventsManager(eventNode, eventStatus) {
+        let reponse = {
+            raiseEvent: eventStatus,
+            reason: "No need to ask Portfolio Manager"
+        }
+
+        if (eventNode.askPortfolioEventsManager === undefined) {
+            return reponse
+        }
+
+        if (eventStatus === true) {
+            /*
+            First we will check if the Portfolio Manager confirms this event
+            can be raised.
+            */
+            if (eventNode.askPortfolioEventsManager.confirmEvent !== undefined) {
+                let message = {
+                    question: "Confirm This Event Can Be Raised",
+                    event: eventNode.type
+                }
+                reponse = await portfolioManagerEventsClient.sendMessage(message)
+            }
+        } else {
+            /*
+            In this case, we will check if the Porfolio Manager would like to 
+            raise this event anyways.
+            */
+            if (eventNode.askPortfolioEventsManager.raiseEvent !== undefined) {
+                let message = {
+                    question: "Must This Event Be Raised",
+                    event: eventNode.type
+                }
+                reponse = await portfolioManagerEventsClient.sendMessage(message)
+            }
+        }
+        return response
     }
 
     async function askPortfolioFormulaManager() {

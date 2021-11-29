@@ -102,9 +102,7 @@ The main draw back for this type of installation comes with limitations on the a
 
 > **Important Development Notes:**
 > 
-> - Please note that the ARM64 release is currently an alpha release (not fully tested). If you have one of these machines, do join us on our [developer channel](https://t.me/superalgosdevelop) to help us fully test this release!
-> - The single executable and the installers do not have Tensorflow active yet.
-> - There's a known issue where the screen stays white. In this case, go to "View/Reload" and it should work. 
+> - Please note that the ARM64 release is currently an alpha release (not fully tested). If you have one of these machines, do join us on our [developer channel](https://t.me/superalgosdevelop) to help us fully test this release! 
 
 ### Docker Installations
 

@@ -25,6 +25,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     let tradingPositionModuleObject = TS.projects.algorithmicTrading.botModules.tradingPosition.newAlgorithmicTradingBotModulesTradingPosition(processIndex)
     let tradingExecutionModuleObject = TS.projects.algorithmicTrading.botModules.tradingExecution.newAlgorithmicTradingBotModulesTradingExecution(processIndex)
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
+    let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+    let portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
     let snapshotsModuleObject = TS.projects.algorithmicTrading.botModules.snapshots.newAlgorithmicTradingBotModulesSnapshots(processIndex)
     let tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
 
@@ -137,7 +139,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 passed = tradingSystem.checkConditions(situation, passed)
 
                                 tradingSystem.values.push([situation.id, passed])
+
+                                portfolioManagerClient.askPortfolioEventManager(triggerStage.triggerOn, { status: passed })
+
                                 if (passed) {
+
                                     tradingSystem.highlights.push(situation.id)
                                     tradingSystem.highlights.push(triggerStage.triggerOn.id)
                                     tradingSystem.highlights.push(triggerStage.id)
@@ -147,6 +153,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     /* Initialize this */
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value = 1
 
+                                    outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOn)
                                     announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
 
                                     if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
@@ -156,9 +163,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                             }
                                         }
                                     }
-
                                     changeStageStatus('Trigger Stage', 'Open')
-                                    
                                 }
                             }
                         }
@@ -194,6 +199,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 tradingSystem.highlights.push(triggerStage.id)
 
                                 tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value = 1
+
+                                outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOff)
                                 announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
@@ -233,6 +240,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingPositionModuleObject.openPosition(situation.name)
 
+                                outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.takePosition)
                                 announcementsModuleObject.makeAnnouncements(triggerStage.takePosition)
 
                                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
@@ -266,7 +274,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         function checkIfWeNeedToAbortTheStage() {
             /* Abort Open Stage Check */
             if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open' &&
-                (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening' || tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') ){
+                (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening' || tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open')) {
                 /* 
                 if the Close stage is opened while the open stage is still open that means that
                 we need to stop placing orders, check what happened to the orders already placed,
@@ -331,7 +339,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 /* User Defined Code if runWhileAtStage==true */
                 if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
-                  checkUserDefinedCode('Open Stage', 'Running', 'last');
+                    checkUserDefinedCode('Open Stage', 'Running', 'last');
                 }
             }
         }
@@ -464,7 +472,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 /* If User Defined Code exists check for runWhileAtStage */
                 if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
-                  checkUserDefinedCode('Manage Stage', 'Running', 'last');
+                    checkUserDefinedCode('Manage Stage', 'Running', 'last');
                 }
             }
 
@@ -696,6 +704,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingPositionModuleObject.updateTakeProfit(tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value + 1)
 
+                                outgoingTradingSignalsModuleObject.broadcastSignal(nextPhaseEvent)
                                 announcementsModuleObject.makeAnnouncements(nextPhaseEvent)
 
                                 /* Reset this counter */
@@ -747,6 +756,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                         continue
                                     }
 
+                                    outgoingTradingSignalsModuleObject.broadcastSignal(moveToPhaseEvent)
                                     announcementsModuleObject.makeAnnouncements(moveToPhaseEvent)
 
                                     /* Reset this counter */
@@ -876,7 +886,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
                 /* If User Defined Code exists check for runWhileAtStage */
                 if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
-                  checkUserDefinedCode('Close Stage', 'Running', 'last');
+                    checkUserDefinedCode('Close Stage', 'Running', 'last');
                 }
             }
         }
@@ -1108,6 +1118,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     tradingSystem.highlights.push(closeStageEvent.id)
                     tradingSystem.highlights.push(stage.id)
 
+                    outgoingTradingSignalsModuleObject.broadcastSignal(closeStageEvent)
                     announcementsModuleObject.makeAnnouncements(closeStageEvent)
                     return true
                 }
@@ -1172,7 +1183,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             /* Recording the closing at the Trading Engine Data Structure */
             stage.end.value = tradingEngine.tradingCurrent.tradingEpisode.cycle.lastEnd.value
             stage.endRate.value = tradingEngine.tradingCurrent.tradingEpisode.candle.close.value
-            
+
             if (stageName === 'Open Stage') {
                 if (tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyCloseStage.status.value !== 'Open' &&
                     tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Opening' && tradingEngine.tradingCurrent.strategyManageStage.status.value !== 'Open') {
@@ -1272,20 +1283,20 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             tradingSystemStage.userDefinedCode !== undefined) {
             if (status === 'Running' && when !== tradingSystemStage.userDefinedCode.config.whileAtStageWhenToRun) { return; }
 
-            switch(status) {
-                case 'Open' : {
+            switch (status) {
+                case 'Open': {
                     if (tradingSystemStage.userDefinedCode.config.runWhenEnteringStage) {
                         tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
                     }
                     break;
                 }
-                case 'Running' : {
+                case 'Running': {
                     if (tradingSystemStage.userDefinedCode.config.runWhileAtStage) {
                         tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
                     }
                     break;
                 }
-                case 'Closed' : {
+                case 'Closed': {
                     if (tradingSystemStage.userDefinedCode.config.runWhenExitingStage) {
                         tradingSystem.evalUserCode(tradingSystemStage, 'User Defined Code');
                     }
@@ -1305,23 +1316,23 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
     /* getTradingSystemStage(): takes stage name returns stage object. */
     function getTradingSystemStage(stage) {
-      switch(stage) {
-        case 'Trigger Stage' : {
-          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].triggerStage;
-          break;
+        switch (stage) {
+            case 'Trigger Stage': {
+                return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].triggerStage;
+                break;
+            }
+            case 'Open Stage': {
+                return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage;
+                break;
+            }
+            case 'Manage Stage': {
+                return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage;
+                break
+            }
+            case 'Close Stage': {
+                return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage;
+                break;
+            }
         }
-        case 'Open Stage' : {
-          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].openStage;
-          break;
-        }
-        case 'Manage Stage' : {
-          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].manageStage;
-          break
-        }
-        case 'Close Stage' : {
-          return tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage;
-          break;
-        }
-      }
     }
 }

@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Ahora que tenemos algo para guardar nuestros gráficos, ¡sigamos adelante y agreguemos uno!",
                 "updated": 1628646604795
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда у нас есть, где хранить графики, давайте добавим их!",
+                "updated": 1638175613264
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Coloca el cursor sobre tu Time Machine y has clic Add Timeline Chart.",
                     "updated": 1628646628639
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор на машину времени (Time Machine) и нажмите Add Timeline Chart.",
+                    "updated": 1638175724101
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Dar un nombre útil a un Timeline Chart es importante. Una buena práctica de nomenclatura es hacer referencia a la Data Mine o Data Product con el que se conectará. Ahora mismo estaremos agregando Candles Data Mine datos a este gráfico de línea de tiempo. Un nombre útil sería:",
                     "updated": 1628646729893
+                },
+                {
+                    "language": "RU",
+                    "text": "Дать полезное название временной диаграмме (Timeline Chart) очень важно. Хорошей практикой именования является ссылка на Шахту данных (Data Mine) или Продукт данных (Data Product) с которым он будет связан. Сейчас мы будем добавлять данные Candles (Data Mine) на этот график временной шкалы. Полезное название:",
+                    "updated": 1638175906721
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "ES",
                     "text": "¡Asegúrate de que tu título sea corto! ",
                     "updated": 1628646807108
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что ваш заголовок короткий! Скоро вы поймете, почему.",
+                    "updated": 1638175920414
                 }
             ]
         },

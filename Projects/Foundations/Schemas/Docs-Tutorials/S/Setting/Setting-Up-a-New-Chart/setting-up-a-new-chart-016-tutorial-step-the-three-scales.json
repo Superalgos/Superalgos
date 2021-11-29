@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¿Notaste que los tres nodos se agregaron automáticamente a su Time Machine?",
                 "updated": 1628646024325
+            },
+            {
+                "language": "RU",
+                "text": "Вы заметили, что три узла автоматически добавляются в вашу Машину Времени ?",
+                "updated": 1637939216157
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "¡Estas son las escalas! Siempre que agregues un time machine, vendrá equipado con tres escalas (Rate Scale, Time Scale, and Time Frame Scale). Estas son las mismas escalas que ha utilizado para interactuar con gráficos en el Charting Space.",
                     "updated": 1628646097018
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот шкалы! Каждый раз, когда вы добавляете машину времени, она оснащается тремя шкалами (Rate Scale, Time Scale, and Time Frame Scale). Это те же шкалы, которые вы использовали для взаимодействия с графиками в Charting Space.",
+                    "updated": 1637940137857
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "En otro tutorial, cubriremos la personalización de estas escalas para lograr configuraciones de gráficos más complejas. Pero por ahora es importante que sepas que su máquina del tiempo necesita los tres para funcionar correctamente.",
                     "updated": 1628646139121
+                },
+                {
+                    "language": "RU",
+                    "text": "В другом уроке мы рассмотрим настройку этих шкал для достижения более сложных настроек диаграмм. Но сейчас вам важно знать, что ваша машина времени нуждается во всех трех, чтобы работать правильно.",
+                    "updated": 1637939243076
                 }
             ]
         },

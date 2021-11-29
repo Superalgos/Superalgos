@@ -1,29 +1,21 @@
-﻿
+﻿loadSuperalgos();
+
 function loadSuperalgos() {
 
-    let browser = checkBrowserVersion()
-    if ((browser.name !== "Chrome" && browser.name !== "Safari") || (browser.name === "Chrome" && parseInt(browser.version) < 85) || (browser.name === "Safari" && parseInt(browser.version) < 13)) {
-        alert("Superalgos is officially supported on Google Chrome 85 or Safari 13.1 and above. Your browser version has been detected as potentially beneath this. If you continue you may experience some functionaility issues.\n\nDetected Browser: " + browser.name + "\nVersion: " + browser.version)
-    }
+    /*
+        let browser = checkBrowserVersion()
+        if ((browser.name !== "Chrome" && browser.name !== "Safari") || (browser.name === "Chrome" && parseInt(browser.version) < 85) || (browser.name === "Safari" && parseInt(browser.version) < 13)) {
+            alert("Superalgos is officially supported on Google Chrome 85 or Safari 13.1 and above. Your browser version has been detected as potentially beneath this. If you continue you may experience some functionality issues.\n\nDetected Browser: " + browser.name + "\nVersion: " + browser.version)
+        }
+    */
 
     loadGlobals()
 
     function loadGlobals() {
-        let path = "Globals.js"
-        REQUIREJS([path], onRequired)
 
-        function onRequired(pModule) {
-            setupEnvironment()
-        }
-    }
-
-    function setupEnvironment() {
-        httpRequest(undefined, 'Environment', onResponse)
-
-        function onResponse(err, file) {
-            UI.environment = JSON.parse(file)
-            setupClientNode()
-        }
+        let globals = require('./Globals');
+        globals.UI.environment = require('../../Environment')
+        setupClientNode()
     }
 
     function setupClientNode() {

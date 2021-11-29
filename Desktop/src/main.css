@@ -1,3 +1,5 @@
+/* TODO migrate to react components*/
+
 /* latin */
 @font-face {
     font-family: 'Saira';
@@ -20,11 +22,6 @@
     src: url(Fonts/segoeui.woff) format('woff');
     font-weight: normal;
     font-style: normal;
-  }
-  
-  .body{
-    overflow-y: hidden;
-    overflow-x: hidden;
   }
 
   .scroll-div {

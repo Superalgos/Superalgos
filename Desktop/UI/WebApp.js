@@ -1,12 +1,3 @@
-const reactReqs = {
-
-    a: REQUIREJS([], () => {}),
-    React: require('react'),
-    ReactDOM: require('react-dom'),
-    ReactBase: require("../components/ReactBase")
-}
-
-
 function newWebApp() {
     /*
     In it's current state of development, the Web App only has one module. 
@@ -30,10 +21,10 @@ function newWebApp() {
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
             await UI.projects.socialTrading.modules.webSocketsWebAppClient.initialize()
-            loadReactDom();
-            // loadWUserProfileTimeline()
-            // loadWhoToFollow()
-            // setupEventHandlers()
+            // loadReactDom();
+            loadWUserProfileTimeline()
+            loadWhoToFollow()
+            setupEventHandlers()
         } catch (err) {
             console.log('[ERROR] initialize -> err.stack = ' + err.stack)
         }

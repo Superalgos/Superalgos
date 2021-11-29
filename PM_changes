@@ -1,0 +1,105 @@
+----- Changes made outside of /Projects/Portfolio-Management/ -----
+
+Projects/ProjectsSchema.json:
+	cp Algorithmic-Trading Portfolio-Management - Some stuff definitely unneded here
+
+Projects/Community-Plugins/UI/Function-Libraries/
+	ActionSwitch.js:
+		cp case 'Add Missing Plugin Trading Mines'	case 'Add Missing Plugin Portfolio Mines'
+		cp case 'Add Missing Plugin Trading Systems'	case 'Add Missing Plugin Portfolio Systems'
+		cp case 'Add Missing Plugin Trading Engines'	case 'Add Missing Plugin Portfolio Engines'
+
+	PluginsFunctions.js:
+		cp addMissingPluginTradingMines		addMissingPluginPortfolioMines
+		cp addMissingPluginTradingSystems	addMissingPluginPortfolioSystems
+		cp addMissingPluginTradingEngines	addMissingPluginPortfolioEngines
+
+	../Utilities/Plugins.js:
+		function getPluginFolderNamesByNodeType(nodeType):
+			 add case 'Portfolio Engine'
+			 add case 'Portfolio Mine'
+			 add case 'Portfolio System'
+
+Projects/Data-Mining/UI/Function-Libraries/
+	MineFunctions.js:
+		cp scanBotArray(dataMine.tradingBots) scanBotArray(dataMine.portfolioBots)
+
+Skipping:
+	Projects/Foundations/TS/Function-Libraries/OutputManagementFunctions.js:
+		tradingProcessDate, VARS...INDEX_MAP->TRADING_PROCESSING_DAILY_FILES, ...
+
+
+Projects/Foundations/TS/Function-Libraries/
+	SingleMarketFunctions.js:
+		cp findNodeInNodeMesh(outputDatasetNode, 'Trading Bot') ...'Portfolio Bot')
+		Line 117 if...else add portfolioMineNode
+
+Projects/Foundations/TS/Process-Modules/
+	Dataset.js:
+		cp startingNode.type === 'Market Trading Products'
+	ProcessOutput.js:
+		cp line 27-29, 124-126
+	StatusReport.js:
+		Lines 102, 116, cp 172-222 dealing with finding process definitions the report depends on has been cloned from Trading -> Portfolio
+
+Projects/Foundations/UI/Function-Libraries/
+	ActionSwitch.js:
+		cp case statements run-all, stop-all, add-missing, references, products, etc.
+		Line 506 && 512 may not need to have been cloned but I did for now - regarding live and paper trading.
+	ChartingSpaceFunctions.js: Needs Completion to include Portfolio at Charting Space.
+				   'Market Trading|Portfolio Tasks' -> 'nodeType' as param.  <= If error arises note that it was not configured this way by Luis when adding the Learning Mine.   This is a File that could be heavily re-factored && optimized.
+	ProductFunctions.js:
+
+Skipping:
+	Projects/Foundations/UI/Function-Libraries/ChartingSpaceFunctions.js: Needs Completion
+	Projects/Foundations/UI/Function-Libraries/CryptoEcosystemFunctions.js
+
+Projects/Foundations/UI/Function-Libraries/
+	DataStorageFunctions.js:
+		Many things cloned.  But on line 156 only did 'addMissingSession(livePortfolioSessionArray) not back|forward|paper
+	TaskFunctions.js:
+		run/stop | addMissing - Portfolio Tasks. Project|Exchange|Market|Mine
+		Line 148 - Only cloned 'Live Portfolio Session->'
+		Line 198 - Only cloned 'Production Portfolio Tasks->'
+
+Skipping:
+	Projects/Foundations/UI/Function-Libraries/DependenciesFilter.js:
+		Appears 'tradingSystem' var here is just a parameter so no need change.
+
+Projects/Foundations/UI/Spaces/
+	/Charting-Space/PlottersManager.js:
+	/Plotting/RecordValues.js:
+	/Design-Space/Workspace.js:
+	/Floating-Space/FloatingSpace.js:
+	/Panel-Space/Layer.js: Line 173 Only 'Live Portfolio Session'
+
+Projects/Visual-Scripting/UI/Function-Libraries/
+<<<<<<< Updated upstream
+	ActionsSwitch.js:  *** NOTE: Not sure how to handle line 14 at the current moment. ***
+	UiObjectsFromNodes.js: only if(uiObjectType === 'Live Portfolio Session')
+=======
+	ActionsSwitch.js:
+	NodePath.js*** NOTE: Not sure how to handle line 14 at the current moment. ***
+	UIObjectsFromNodes.js: Line 977 'Live Portfolio Session' only.
+>>>>>>> Stashed changes
+
+Skipping:
+	Projects/Foundations/UI/Spaces/Floating-Space/ConditionEditor.js
+
+Skipping:
+	Projects/Governance/UI/Function-Libraries/ActionSwitch.js:
+	Projects/Machine-Learning/TS/Bot-Modules/Learning-Bot/LearningSession.js:
+	Projects/Machine-Learning/TS/Bot-Modules/Learning-Bot/Low-Frequency-Learning/LearningOutput.js:
+	Projects/Machine-Learning/*
+	Projects/Network/*
+	node_modules, */My-Workspaces, */My-Log-Files, *.json, .gitignore, desktop.js, Environment.js, README.md, run.js, setup.js, Tested-Exchanges, CODEOWNERS, DesktopApp.js, WebApp.js, Projects/Social-Bots/*, Projects/Social-Trading/*, Projects/Governance/*
+	
+
+
+----- Changes made inside Portfolio-Management (Clone of Algorithmic-Trading) -----
+References to trading changed to portfolio regardless of capitalization:
+	   Examples:
+		find ./ -type f -exec sed -i 's/trading/portfolio/g' {} \;
+		find ./ -type f -exec sed -i 's/Trading/Portfolio/g' {} \;
+		find ./ -type f -exec sed -i 's/TRADING/PORTFOLIO/g' {} \;
+

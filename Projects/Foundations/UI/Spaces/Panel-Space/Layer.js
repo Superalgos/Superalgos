@@ -160,25 +160,28 @@ function newLayer() {
                 '->Layer->' +
                 'Data Product->' +
                 'Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->Data Product Folder->' +
-                'Bot Products->Data Mine Products->Trading Mine Products->Learning Mine Products->' +
+                'Bot Products->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->' +
                 'Market Data Products->Exchange Data Products->' +
-                'Trading Session Reference->Learning Session Reference->' +
+                'Trading Session Reference->Portfolio Session Reference->Learning Session Reference->' +
                 'Market Trading Products->Exchange Trading Products->' +
+                'Market Portfolio Products->Exchange Portfolio Products->' +
                 'Market Learning Products->Exchange Learning Products->' +
-                'Project Data Products->Project Learning Products->Project Trading Products->' +
-                'Data Mines Data->Trading Mines Data->Learning Mines Data->Data Storage->LAN Network Node->' +
+                'Project Data Products->Project Learning Products->Project Portfolio Products->Project Trading Products->' +
+                'Data Mines Data->Trading Mines Data->Portfolio Mines Data->Learning Mines Data->Data Storage->LAN Network Node->' +
                 'Data Storage->LAN Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
+                'Live Portfolio Session->' +
                 'Back Learning Session->Live Learning Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
+                'Portfolio System Reference->Portfolio Engine Reference->Portfolio System->Portfolio Engine->' +
                 'Learning System Reference->Learning Engine Reference->Learning System->Learning Engine->' +
                 'Market->Market Base Asset->Asset->' +
                 'Market Quoted Asset->Asset->' +
                 'Exchange Markets->Crypto Exchange->' +
                 'Product Definition->' +
                 'Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->Product Definition Folder->' +
-                'Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Learning Bot->' +
-                'Data Mine->Trading Mine->Learning Mine->' +
+                'Sensor Bot->API Data Fetcher Bot->Indicator Bot->Trading Bot->Portfolio Bot->Learning Bot->' +
+                'Data Mine->Trading Mine->Portfolio Mine->Learning Mine->' +
                 'Dataset Definition->' +
                 'Record Definition->Record Property->Record Formula->' +
                 'Data Building Procedure->Procedure Loop->Procedure Javascript Code->Procedure Initialization->Procedure Javascript Code->' +
@@ -236,6 +239,9 @@ function newLayer() {
                 thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Trading Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
+                thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Portfolio Bot', undefined, false, true, true, true)
+            }
+            if (thisObject.bot === undefined) {
                 thisObject.bot = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Bot', undefined, false, true, true, true)
             }
             if (thisObject.bot === undefined) {
@@ -249,8 +255,11 @@ function newLayer() {
                 if (thisObject.mine === undefined) {
                     thisObject.mine = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Learning Mine', undefined, false, true, true, true)
                     if (thisObject.mine === undefined) {
-                        thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Learning Mine not Found')
-                        return
+                        thisObject.mine = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(thisObject.definition, 'Portfolio Mine', undefined, false, true, true, true)
+                        if (thisObject.mine === undefined) {
+                            thisObject.payload.uiObject.setErrorMessage('Data Mine or Trading Mine or Portfolio Mine or Learning Mine not Found')
+                            return
+                        }
                     }
                 }
             }
@@ -714,4 +723,3 @@ function newLayer() {
         UI.projects.foundations.utilities.drawPrint.drawIcon(thisObject.quotedAssetIcon, 4.6 / 8, 2 / 10, 0, 0, 14, thisObject.container)
     }
 }
-

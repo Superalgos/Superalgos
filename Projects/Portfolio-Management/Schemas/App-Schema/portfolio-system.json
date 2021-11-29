@@ -1,0 +1,52 @@
+{
+    "type": "Portfolio System",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio Strategy",
+            "relatedUiObject": "Portfolio Strategy",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dynamicIndicators",
+            "label": "Add Dynamic Indicators",
+            "relatedUiObject": "Dynamic Indicators",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioStrategies",
+            "type": "array",
+            "childType": "Portfolio Strategy",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "dynamicIndicators",
+            "type": "node",
+            "childType": "Dynamic Indicators",
+            "autoAdd": true,
+            "project": "Foundations"
+        }
+    ]
+}

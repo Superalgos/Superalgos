@@ -1,0 +1,49 @@
+{
+    "type": "Portfolio Engine",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Engine",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Portfolio-Management"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioCurrent",
+            "type": "node",
+            "childType": "Portfolio Current",
+            "autoAdd": false,
+            "project": "Foundations"
+        },
+        {
+            "name": "portfolioLast",
+            "type": "node",
+            "childType": "Portfolio Last",
+            "autoAdd": false,
+            "project": "Foundations"
+        },
+        {
+            "name": "exchangeOrders",
+            "type": "node",
+            "childType": "Exchange Orders",
+            "autoAdd": false,
+            "project": "Foundations"
+        }
+    ]
+}

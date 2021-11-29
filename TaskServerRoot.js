@@ -58,10 +58,18 @@ SA.nodeModules = {
 /*
 Setting up Secrets.
 */
-SA.secrets = {
-    array: require('./My-Secrets/Secrets.json').secrets,
-    map: new Map()
+try {
+    SA.secrets = {
+        array: require('./My-Secrets/Secrets.json').secrets,
+        map: new Map()
+    }
+} catch(err) {
+    SA.secrets = {
+        array: [],
+        map: new Map()
+    }
 }
+
 for (let i = 0; i < SA.secrets.array.length; i++) {
     let secret = SA.secrets.array[i]
     SA.secrets.map.set(secret.nodeCodeName, secret)

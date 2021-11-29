@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Trigger Off Portfolio Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "triggerOffPMEvent",
+            "relatedUiObject": "Trigger Off PM Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -39,6 +49,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "triggerOffPMEvent",
+            "type": "node",
+            "childType": "Trigger Off PM Event"
         },
         {
             "name": "announcements",

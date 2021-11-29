@@ -3,7 +3,7 @@
     "pageNumber": "18",
     "type": "Problems With Computer Time",
     "definition": {
-        "text": "Some exchanges force the computer that is running your bot to be highly synchronized with their servers, and to achieve that you need that machine's time to keep itself syncronized with an Internet Time Server.",
+        "text": "Some exchanges force the computer that is running your bot to be highly synchronized with their servers, and to achieve that you need that machine's time to keep itself synchronized with an Internet Time Server.",
         "updated": 1622140103759
     },
     "paragraphs": [

@@ -40,7 +40,6 @@ ipcMain.on("toMain", (event, args) => {
   }
 })
 
-
 function openMain () {
   let bw_options = {
     width: WINDOW_WIDTH,
@@ -50,6 +49,7 @@ function openMain () {
       nodeIntegration: false, // is default value after Electron v5
       contextIsolation: true, // protect against prototype pollution
       enableRemoteModule: false, // turn off remote
+      preload: path.join(__dirname, "preload.js") // use a preload script
     }
   }
 
@@ -90,6 +90,10 @@ function openMain () {
   mainWindow.on('activate', function () {
     mainWindow.show()
   })
+
+  mainWindow.on('focus', function () {
+    createMainMenus()
+  })
 }
 
 function openConsoleWindow() {
@@ -115,7 +119,6 @@ function openConsoleWindow() {
 
   consoleWindow.setBackgroundColor('#000000')
   consoleWindow.loadFile('./console.html')
-
 
   consoleWindow.on('close', function (e) {
     if (mainWindow.isVisible()) {
@@ -144,13 +147,13 @@ function openConsoleWindow() {
     }    
   })
 
-  consoleWindow.on('show', function () {
+  consoleWindow.on('focus', function () {
     createConsoleMenus()
   })
 }
 
 app.on('ready', function () {
-  autoUpdater.checkForUpdatesAndNotify();
+  autoUpdater.checkForUpdatesAndNotify()
   createMainMenus()
 })
 
@@ -226,6 +229,40 @@ function createMainMenus() {
           openConsoleWindow()
         }
       }
+    },
+    {
+      label: 'Profile',
+      submenu: [
+        {
+          label: 'New/Update',
+          click: async() => {
+            data = {newUser: ["Governance", "Plugin → Token-Distribution-Superalgos"]}
+            mainWindow.webContents.send("fromMaster", data)
+            data
+            //mainWindow.loadURL('http://localhost:34248/LoadPlugin/Governance/Workspaces/Token-Distribution-Superalgos.json')
+          }
+        },
+        {
+          label: 'Save',
+          click: async() => {
+            let modifiers = []
+            modifiers.push('shift')
+            modifiers.push('control')
+            mainWindow.webContents.sendInputEvent({type: 'keyDown', modifiers, keyCode: "s"})
+            mainWindow.webContents.sendInputEvent({type: 'char', modifiers, keyCode: "s"})
+            mainWindow.webContents.sendInputEvent({type: 'keyUp', modifiers, keyCode: "s"})
+          }
+        },
+        {
+          label: 'Submit',
+          click: async() => {
+            data = {submit: ["gov.userProfile"]}
+            mainWindow.webContents.send("fromMaster", data)
+            mainWindow.webContents.sendInputEvent({type: 'keyDown', modifiers, keyCode: "Enter"})
+            mainWindow.webContents.sendInputEvent({type: 'keyUp', modifiers, keyCode: "Enter"})
+          }
+        }
+      ]
     }
   ]
 

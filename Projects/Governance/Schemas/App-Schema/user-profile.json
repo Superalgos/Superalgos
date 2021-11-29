@@ -29,6 +29,46 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userApps",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Apps",
+            "relatedUiObject": "User Apps",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userBots",
+            "actionFunction": "payload.executeAction",
+            "label": "Add User Bots",
+            "relatedUiObject": "User Bots",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "socialPersonas",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Social Personas",
+            "relatedUiObject": "Social Personas",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkNodes",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Nodes",
+            "relatedUiObject": "P2P Network Nodes",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Install as Plugin",
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
@@ -73,9 +113,27 @@
             "autoAdd": true
         },
         {
-            "name": "signingAccounts",
+            "name": "userApps",
             "type": "node",
-            "childType": "Signing Accounts",
+            "childType": "User Apps",
+            "autoAdd": false
+        },        
+        {
+            "name": "userBots",
+            "type": "node",
+            "childType": "User Bots",
+            "autoAdd": false
+        },
+        {
+            "name": "socialPersonas",
+            "type": "node",
+            "childType": "Social Personas",
+            "autoAdd": false
+        },
+        {
+            "name": "p2pNetworkNodes",
+            "type": "node",
+            "childType": "P2P Network Nodes",
             "autoAdd": false
         }
     ],

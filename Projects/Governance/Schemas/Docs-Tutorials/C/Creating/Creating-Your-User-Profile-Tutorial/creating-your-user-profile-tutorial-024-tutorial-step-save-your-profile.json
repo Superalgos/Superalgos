@@ -15,6 +15,11 @@
                 "text": " ¡Hemos cubierto los conceptos básicos! ¡Ahora tiene un perfil de usuario en funcionamiento y ya está participando en los dos primeros programas de gobernanza!",
                 "updated": 1630892778890,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Güzel! Temelleri tamamladık! Artık çalışan bir Kullanıcı Profiliniz ( User Profile ) var ve ilk iki Yönetim Programına katılmış vaziyettesiniz!",
+                "updated": 1637441576231
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Es hora de salvar tu User Profile!",
                     "updated": 1630892799650,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi Kullanıcı Profilinizi kaydetme zamanı!",
+                    "updated": 1637441605026
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Clic Ctrl + Shift + Alt + Key-S para salvar el Current Workspace.",
                     "updated": 1630892824874,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Geçerli Çalışma Alanını kaydetmek için Ctrl + Shift + Alt + Key-S 'e tıklayın.",
+                    "updated": 1637441684311
                 }
             ]
         },
@@ -54,6 +69,11 @@
                     "text": "¡Configuramos tu perfil para que se guarde como un complemento cada vez que guardes el espacio de trabajo! Entonces eso debería salvar tu User Profile también!",
                     "updated": 1630892880261,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanını her kaydettiğinizde profilinizi Eklenti olarak kaydedecek şekilde ayarladık! Plugins düğümünü genişleterek Governance Plugin Project düğümünü bulun.Bu düğümün altında Plugin User Profiles düğümünü de genişletrek kullanıcı profilinize erişin ve \"Save Plugin\" butonuna tıklayarak profilinizi kaydedin.",
+                    "updated": 1637442025686
                 }
             ]
         }

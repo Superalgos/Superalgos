@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "NAmorim",
-    "config": "{\n    \"signature\": {\n        \"message\": \"NAmorim\",\n        \"messageHash\": \"0xd7fc194bfd83696ca9404e75ac4958a23e7b9204e9cefefd6b6a9d29953ebbaa\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x91266021e1be8deaf8cfe2ac7893d6ce2bddad47459e7ba71b584ac29d25e449\",\n        \"s\": \"0x2e06590f5eb90ad96683508cbad5349963621ce2babc394accd880c4530c0968\",\n        \"signature\": \"0x91266021e1be8deaf8cfe2ac7893d6ce2bddad47459e7ba71b584ac29d25e4492e06590f5eb90ad96683508cbad5349963621ce2babc394accd880c4530c09681b\"\n    },\n    \"codeName\": \"NAmorim\"\n}",
+    "config": "{\"signature\":{\"message\":\"NAmorim\",\"messageHash\":\"0xd7fc194bfd83696ca9404e75ac4958a23e7b9204e9cefefd6b6a9d29953ebbaa\",\"v\":\"0x1b\",\"r\":\"0x91266021e1be8deaf8cfe2ac7893d6ce2bddad47459e7ba71b584ac29d25e449\",\"s\":\"0x2e06590f5eb90ad96683508cbad5349963621ce2babc394accd880c4530c0968\",\"signature\":\"0x91266021e1be8deaf8cfe2ac7893d6ce2bddad47459e7ba71b584ac29d25e4492e06590f5eb90ad96683508cbad5349963621ce2babc394accd880c4530c09681b\"},\"codeName\":\"NAmorim\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -1373,7 +1373,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 90\n}",
+            "config": "{\n    \"percentage\": 78\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",

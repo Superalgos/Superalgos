@@ -91,15 +91,15 @@
                 return
             }
 
-            let botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
+            let botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Indicator Bot')
             if (botNode === undefined) {
-                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Bot')
             }
             if (botNode === undefined) {
-                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Portfolio Bot')
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Portfolio Bot')
             }
             if (botNode === undefined) {
-                botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
+                botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Bot')
             }
             if (botNode === undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Product Definition not attached to a Bot. ");
@@ -113,13 +113,13 @@
                 return
             }
 
-            let dataMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
+            let dataMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Data Mine')
             if (dataMineNode === undefined) {
-                let tradingMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Mine')
+                let tradingMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Trading Mine')
                 if (tradingMineNode === undefined) {
-                    let portfolioMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Portfolio Mine');
+                    let portfolioMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Portfolio Mine');
                     if (portfolioMineNode === undefined) {
-                        let learningMineNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Mine')
+                        let learningMineNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDatasetNode, 'Learning Mine')
                         if (learningMineNode === undefined) {
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] start -> Bot not attached to a Data Mine, Trading Mine or Learning Mine.");
                             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
@@ -224,7 +224,7 @@
 
     function calculationsProcedure(processIndex, jsonArray, recordDefinition, calculationsProcedure, variableName, timeFrame) {
 
-        /* 
+        /*
             This function has as an input an array of JSON objects, and it adds calculated properties to
             complete the set of properties that will be available for Formulas.
         */
@@ -313,7 +313,7 @@
         parametersDefinition
     ) {
 
-        /* 
+        /*
             This function has as an input the products object, with all the information
             of all products calculated so far by the process. Based on that information
             the function will evaluate user supplied code and formulas in order to build
@@ -332,7 +332,7 @@
 
         /*
             We are going to build a map structure so that users can easily get the current object of
-            each data dependency based on the current element of the main data dependency. 
+            each data dependency based on the current element of the main data dependency.
             We will use as key for these maps the begin and end property, meaning only elements with exactly
             the same begin and end property will be matched.
         */
@@ -361,7 +361,7 @@
             }
         }
         /*
-        This function allows users to locate an object at a dataset based on the begins and end properties 
+        This function allows users to locate an object at a dataset based on the begins and end properties
         of another object provided to the function as a parameter. For example, users can locate the
         bollinger band object that has the same begin and end than a candle object.
         */
@@ -522,7 +522,7 @@
                             Here we have an special problem that occurs when an object spans several time periods. If not taken care of
                             it can happen that the object gets splitted between 2 days, which we dont want since it would loose some of
                             its properties.
- 
+
                             To solve this issue, we wont save objects which ends at the last candle of the day, because we will save it
                             at the next day, in whole, even if it starts in the previous day.
                         */
@@ -615,8 +615,8 @@
     }
 
     function checkUpstreamOfTaskNode(processIndex) {
-        /* 
-        Here we check that the Task Node received, comes with all the upstream nodes that will be 
+        /*
+        Here we check that the Task Node received, comes with all the upstream nodes that will be
         needed to run this task in the context of a Single Market Bot.
         */
         /* Validate that the minimum amount of input required are defined. */
@@ -644,7 +644,7 @@
             return false
         }
         /*
-        Checking the Market that is referenced. 
+        Checking the Market that is referenced.
         */
         if (TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent === undefined) {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -694,7 +694,7 @@
 
     function initializeFilePathRoot(processIndex) {
         /*
-        For Single Market Files, the Root Path for files takes an specific structure 
+        For Single Market Files, the Root Path for files takes an specific structure
         which includes the exchange and market. Here that structure is defined.
         */
         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).FILE_PATH_ROOT =

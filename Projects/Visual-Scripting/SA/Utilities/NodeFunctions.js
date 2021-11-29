@@ -5,18 +5,23 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         findNodeInNodeMesh: findNodeInNodeMesh,
         nodeMeshToPathArray: nodeMeshToPathArray,
         findNodeInNodeArray: findNodeInNodeArray,
-        filterOutNodeWihtoutReferenceParentFromNodeArray: filterOutNodeWihtoutReferenceParentFromNodeArray
+        filterOutNodeWihtoutReferenceParentFromNodeArray: filterOutNodeWihtoutReferenceParentFromNodeArray,
+        getManagedSessions: getManagedSessions
     }
 
     return thisObject
 
     function nodeBranchToArray(node, nodeType) {
         let resultArray = []
-        scanNodeBranch(node, nodeType)
+        scanNodeBranch(node)
         return resultArray
 
         function scanNodeBranch(startingNode) {
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            if (startingNode === undefined) {
+                return
+            }
+
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.type === nodeType) {
@@ -47,20 +52,61 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         }
     }
 
+    /* findManagedSessions(startingNode) :
+     *  recursively searches startingNode branches to documents managed sessions at ~/taskConstants.MANAGED_SESSIONS_MAP
+     *  Session Key naming convention: name + type + id
+     */
+    function getManagedSessions(startingNode) {
+        if (startingNode == undefined) { return ; }
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type);
+        
+        // Base Cases:
+        if (schemaDocument == undefined) { return; }
+        if (startingNode.type === 'Session Reference' &&
+            startingNode.referenceParent != undefined) {
+                let key = startingNode.referenceParent.name + '-' +
+                            startingNode.referenceParent.type + '-' + startingNode.referenceParent.id;
+                let communicationModule = TS.projects.portfolioManagement.botModules.PMCommunicationModule_Portfolio.newPMCommunicationModule_Portfolio(key);
+                TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.set(key, communicationModule);
+                return;
+            }
+        
+        if (schemaDocument.childrenNodesProperties == undefined) { return; }
+        for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
+            let child = schemaDocument.childrenNodesProperties[i];
+
+            switch (child.type) {
+                case 'node':
+                    getManagedSessions(startingNode[child.name]);
+                    break;
+                case 'array':
+                    let startingNodePropertyArray = startingNode[child.name];
+                    if (startingNodePropertyArray != undefined) {
+                        for (let j = 0; j < startingNodePropertyArray.length; j++) {
+                            getManagedSessions(startingNodePropertyArray[j]);
+                        }
+                    }
+                    break;
+                default:
+                    return;
+            }
+        }
+    }
+
     function findNodeInNodeMesh (node, nodeType) {
         /*
         This function scans a node mesh for a certain node type and 
         returns the first instance found. 
         */
         let nodeFound
-        scanNodeMesh(node, nodeType)
+        scanNodeMesh(node)
         return nodeFound
 
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
             if (nodeFound !== undefined) { return }
 
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.type === nodeType) {
@@ -114,7 +160,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
 
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.id === nodeId) {

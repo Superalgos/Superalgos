@@ -1024,7 +1024,7 @@ exports.newPortfolioManagementBotModulesPortfolioStages = function (processIndex
         The Target Size is defined by the end user either in Base Asset or Quoted Asset.
         Whatever the user chooses defines also the way we check if the Target was met.
         Why? Because the counterparty target is estimated with the Target Rate and it 
-        is not syncronized with the reality we later learn when the exchange tell us the
+        is not synchronized with the reality we later learn when the exchange tell us the
         actual rate each of the orders where executed at. 
  
         For the same reason that the user does not know exactly which is the rate the orders

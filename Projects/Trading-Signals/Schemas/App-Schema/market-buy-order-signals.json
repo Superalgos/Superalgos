@@ -1,0 +1,68 @@
+{
+    "type": "Market Buy Order Signals",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "createOrderSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Create Order Signal",
+            "relatedUiObject": "Create Order Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "cancelOrderSignal",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Cancel Order Signal",
+            "relatedUiObject": "Cancel Order Signal",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Open Stage Signals->Close Stage Signals->"
+    },
+    "propertyNameAtParent": "marketBuyOrderSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "createOrderSignal",
+            "type": "node",
+            "childType": "Create Order Signal",
+            "autoAdd": false
+        },
+        {
+            "name": "cancelOrderSignal",
+            "type": "node",
+            "childType": "Cancel Order Signal",
+            "autoAdd": false
+        }
+    ]
+}

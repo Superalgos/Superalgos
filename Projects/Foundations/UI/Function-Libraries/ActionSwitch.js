@@ -53,6 +53,18 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
                 }
                 break
+
+            case 'Run All Portfolio Task Managers':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllTaskManagers(action.node)
+                }
+                break
+            case 'Stop All Portfolio Task Managers':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
+                }
+                break
+
             case 'Run All Managed Tasks':
                 {   /* Portfolio Task References */
                     UI.projects.foundations.functionLibraries.taskFunctions.runAllManagedTasks(action.node);
@@ -501,6 +513,11 @@ function newFoundationsActionSwitch() {
                 {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
                 }
+                break
+            case 'Add Specified Workspace Project':
+            {
+                UI.projects.foundations.functionLibraries.workspaceFunctions.addSpecifiedWorkspaceProject(action.node, action.rootNodes)
+            }
                 break
             case 'Check For Missing References':
                 {

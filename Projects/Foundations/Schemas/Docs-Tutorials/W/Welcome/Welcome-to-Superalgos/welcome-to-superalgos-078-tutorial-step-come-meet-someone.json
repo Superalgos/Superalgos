@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Sizi grafiklerden uzaklaştırdığım için özür dilerim ama sizi biriyle tanıştırmak istedim: satın alma siparişlerini veren kişi sağdaki adam!",
                 "updated": 1636206465488
+            },
+            {
+                "language": "RU",
+                "text": "Извините, что оторвал Вас от графиков, но я хотел представить Вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
+                "updated": 1637755743535
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Lightning Strike Trading Sisteminin ( Trading System ), Open Stage tanımları içerisindeyiz. Bu aşamada, Tetik Aşamasında pozisyon alma kararı verildikten sonra Yürütme Algoritması ( Execution Algorithm ) devreye girer. Hala bir Durum ( Situation ) veya Koşulun ( Condition ) ne olduğunu bilmediğini biliyorum, ama yine de bir şeyler yapmanı istiyorum...",
                     "updated": 1636207188259
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы находимся внутри Trading System - Lightning Strike - в рамках определений Open Stage. На этом этапе Execution Algorithm вступает в силу после того, как решение занять позицию уже было приянто на Trigger Stage. Я знаю, что Вы еще не знаете, что такое Situation или Condition, но я все равно бы хотел, чтобы Вы что-нибудь сделали...",
+                    "updated": 1637756027374
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Yürütme algoritmasının altındaki düğümleri keşfetmek için birkaç dakikanızı ayırın, formülleri ve koşulları kontrol edin ve bunlardan neler yapabileceğinizi görün!",
                     "updated": 1636207209256
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте несколько минут на изучение узлов под алгоритмом выполнения, проверьте формулы и условия и посмотрите, что Вы можете из них сделать!",
+                    "updated": 1637756059992
                 }
             ]
         }

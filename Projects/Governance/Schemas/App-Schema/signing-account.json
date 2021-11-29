@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Signing Accounts->"
+        "compatibleTypes": "->P2P Network Node->Algo Traders Platform->Social Trading Mobile App->Social Trading Desktop App->Social Trading Server App->Social Trading Bot->Social Persona->"
     },
     "editors": {
         "config": true
@@ -31,37 +31,6 @@
     "initialValues": {
         "config": "{}"
     },
-    "propertyNameAtParent": "signingAccounts",
-    "childrenNodesProperties": [
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "P2P Network Node",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Algo Traders Platform",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Social Trading Mobile App",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Social Trading Desktop App",
-            "autoAdd": false
-        },
-        {
-            "name": "signingAccountChild",
-            "type": "node",
-            "childType": "Social Trading Server App",
-            "autoAdd": false
-        }
-    ]
+    "propertyNameAtParent": "signingAccount",
+    "childrenNodesProperties": []
 }

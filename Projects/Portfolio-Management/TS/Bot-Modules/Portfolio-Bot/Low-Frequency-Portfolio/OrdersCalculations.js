@@ -1,6 +1,6 @@
 exports.newPortfolioManagementBotModulesOrdersCalculations = function (processIndex) {
     /*
-    When we are live portfolio, we need to syncronize with the exchange.
+    When we are live portfolio, we need to synchronize with the exchange.
     */
 
     let thisObject = {
@@ -48,7 +48,7 @@ exports.newPortfolioManagementBotModulesOrdersCalculations = function (processIn
 
         If it happens that the size accepted  (Actual Size) is different than the 
         size requested (Size), we need to make several adjustments so that the 
-        accounting syncronizes with reality.
+        accounting synchronizes with reality.
         */
 
         /* This calculation needs to happen only once, the first time the order is checked. */
@@ -146,7 +146,7 @@ exports.newPortfolioManagementBotModulesOrdersCalculations = function (processIn
         function recalculateActualSize() {
             /*
             Now we know the Actual Rate at which the order was filled. Since the actual rate
-            is not the same as the Rate we defined for the order, we need to syncronize 
+            is not the same as the Rate we defined for the order, we need to synchronize 
             the Actual Order Size for Quoted Asset since it was calculated with the Order Size that we 
             now know it is not the one really used at the exchange. We will recalculate the
             Actual Size in Quoted Asset and not in Base Asset, since the Actual Size in Base Asset 

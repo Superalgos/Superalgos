@@ -50,7 +50,7 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
                 /*
                 First we will get all the data dependencies of the bot, as defined at the Trading|Portfolio Mine.
                 */
-                thisObject.curatedDependencyNodeArray = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+                thisObject.curatedDependencyNodeArray = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                 if (thisObject.curatedDependencyNodeArray.length === 0) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.")
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
@@ -61,7 +61,7 @@ exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
                 This will allow the user to have less Data Mines loaded at the workspace
                 that the ones that a Trading|Portfolio Mine depends on.
                 */
-                thisObject.curatedDependencyNodeArray = TS.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.curatedDependencyNodeArray)
+                thisObject.curatedDependencyNodeArray = SA.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.curatedDependencyNodeArray)
 
             } else {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible not to have process dependencies, which means not data dependencies.")

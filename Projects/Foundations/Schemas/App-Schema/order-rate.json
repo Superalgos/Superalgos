@@ -12,6 +12,16 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Order Rate Portfolio Formula",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "orderRatePMFormula",
+            "relatedUiObject": "Order Rate PM Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -33,6 +43,11 @@
             "type": "node",
             "childType": "Formula",
             "autoAdd": true
+        },
+        {
+            "name": "orderRatePMFormula",
+            "type": "node",
+            "childType": "Order Rate PM Formula"
         }
     ],
     "propertyNameAtParent": "orderRate"

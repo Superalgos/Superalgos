@@ -1,0 +1,50 @@
+{
+    "type": "P2P Network Nodes",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Node",
+            "relatedUiObject": "P2P Network Node",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "p2pNetworkNodes",
+    "childrenNodesProperties": [
+        {
+            "name": "p2pNetworkNodes",
+            "type": "array",
+            "childType": "P2P Network Node",
+            "autoAdd": false
+        }
+    ]
+}

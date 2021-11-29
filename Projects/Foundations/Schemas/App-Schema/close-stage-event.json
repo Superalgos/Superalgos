@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Close Stage Portfolio Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "closeStagePMEvent",
+            "relatedUiObject": "Close Stage PM Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -39,6 +49,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "closeStagePMEvent",
+            "type": "node",
+            "childType": "Close Stage PM Event"
         },
         {
             "name": "announcements",

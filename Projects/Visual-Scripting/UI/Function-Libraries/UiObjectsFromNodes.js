@@ -1,9 +1,9 @@
 function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let thisObject = {
-        syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
-        syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
-        syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd: syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd,
-        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
+        synchronizeTasksFoundAtWorkspaceWithBackEnd: synchronizeTasksFoundAtWorkspaceWithBackEnd,
+        synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd: synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
+        synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd: synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd,
+        synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd: synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -277,34 +277,34 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         }
     }
 
-    function syncronizeTasksFoundAtWorkspaceWithBackEnd() {
+    function synchronizeTasksFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tasksFoundAtWorkspace.length; i++) {
             let node = tasksFoundAtWorkspace[i]
-            UI.projects.foundations.functionLibraries.taskFunctions.syncronizeTaskWithBackEnd(node)
+            UI.projects.foundations.functionLibraries.taskFunctions.synchronizeTaskWithBackEnd(node)
         }
         tasksFoundAtWorkspace = undefined
     }
 
-    function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
+    function synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tradingSessionsFoundAtWorkspace.length; i++) {
             let node = tradingSessionsFoundAtWorkspace[i]
-            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.synchronizeSessionWithBackEnd(node)
         }
         tradingSessionsFoundAtWorkspace = undefined
     }
 
-    function syncronizePortfolioSessionsFoundAtWorkspaceWithBackEnd() {
+    function synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < portfolioSessionsFoundAtWorkspace.length; i++) {
             let node = portfolioSessionsFoundAtWorkspace[i]
-            UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.synchronizeSessionWithBackEnd(node)
         }
         portfolioSessionsFoundAtWorkspace = undefined
     }
 
-    function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
+    function synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
-            UI.projects.machineLearning.functionLibraries.learningSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.machineLearning.functionLibraries.learningSessionFunctions.synchronizeSessionWithBackEnd(node)
         }
         learningSessionsFoundAtWorkspace = undefined
     }

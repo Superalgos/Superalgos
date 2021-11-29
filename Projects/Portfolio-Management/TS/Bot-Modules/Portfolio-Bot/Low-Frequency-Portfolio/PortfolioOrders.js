@@ -1148,7 +1148,7 @@ exports.newPortfolioManagementBotModulesPortfolioOrders = function (processIndex
 
             /* 
             Close this Order. Note that we are not closing the order until we have the exchange 
-            response with the order details that we can use to syncronize with our accoounting.
+            response with the order details that we can use to synchronize with our accoounting.
             Otherwise if the connection to the exchange fails, we would have a closed order not 
             accounted in any way. 
             */

@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Artık göstergenin nasıl çalıştığını bildiğinize göre, satın alma siparişleri ile destek seviyeleri arasındaki ilişkiyi bulabilir misiniz?",
                 "updated": 1636205670836
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда Вы знаете, как работает индикатор, можете ли Вы найти взаимосвязь между ордерами на покупку и уровнями поддержки?",
+                "updated": 1637754997019
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Destek seviyelerinin Limitli Alış Emri oranını nasıl belirlediğine dair ipuçlarını aramak ve test edilen süreyi keşfetmek için biraz zaman ayırın!",
                     "updated": 1636206011307
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте некоторое время на изучение проверенного периода времени в поисках подсказок о том, как уровни поддержки определяют скорость Limit Buy Order!",
+                    "updated": 1637755087157
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Fiyat yön değiştirdiğinde yeni seviyelerin nasıl oluştuğunu ve fiyat sıçradığında yerleşik bir seviyenin nasıl renk değiştirdiğini fark etmek eğlencelidir.",
                     "updated": 1636206057671
+                },
+                {
+                    "language": "RU",
+                    "text": "Забавно наблюдать, как формируются новые уровни, когда цена меняет направление и как установленный уровень меняет цвет, когда цена отскакивает от него.",
+                    "updated": 1637755157171
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Ancak işin püf noktası, sıranın üzerindeki seviyeleri saymakta yatar!",
                     "updated": 1636206075760
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако хитрость заключается в подсчете уровней выше порядка!",
+                    "updated": 1637755186829
                 }
             ]
         }

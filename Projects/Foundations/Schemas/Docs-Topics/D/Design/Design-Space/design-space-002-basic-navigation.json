@@ -100,6 +100,11 @@
             "updated": 1634912309430
         },
         {
+            "style": "Block",
+            "text": "Moving Node Shortcuts",
+            "updated": 1637690456615
+        },
+        {
             "style": "Title",
             "text": "Moving Nodes"
         },
@@ -130,6 +135,23 @@
             "style": "Text",
             "text": "There are also keyboard shortcuts to accomplish node snapping. See Keyboard Shortcut Quick Guide page for more details.",
             "updated": 1634915239339
+        },
+        {
+            "style": "Success",
+            "text": "These UI tricks may also make your life easier:",
+            "updated": 1637691123266
+        },
+        {
+            "style": "List",
+            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other."
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+        },
+        {
+            "style": "Block",
+            "text": "Keyboard Shortcuts Reference"
         },
         {
             "style": "Title",

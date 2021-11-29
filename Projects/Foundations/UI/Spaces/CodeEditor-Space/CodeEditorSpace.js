@@ -123,7 +123,7 @@ function newFoundationsCodeEditorSpace() {
     }
 
     function resize() {
-        thisObject.container.frame.width = 1000
+        thisObject.container.frame.width = 900
         thisObject.container.frame.height = browserCanvas.height // - TOP_SPACE_HEIGHT
         thisObject.container.frame.position.x = browserCanvas.width
         thisObject.container.frame.position.y = 0 // TOP_SPACE_HEIGHT

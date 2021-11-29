@@ -1,7 +1,7 @@
 {
     "type": "Data Mine",
     "name": "Enhanced_Bollinger_Stochastic",
-    "config": "{ \n\"codeName\": \"Enhanced_Bollinger_Stochastic\"\n}",
+    "config": "{\"codeName\":\"Enhanced_Bollinger_Stochastic\"}",
     "project": "Data-Mining",
     "sensorBots": [],
     "apiDataFetcherBots": [],
@@ -57,25 +57,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Enhanced_Bollinger",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                            "5ec009e8-13ab-43ea-886b-1247ffb54195"
                                         ],
                                         [
                                             "Enhanced_Bollinger",
                                             "Product Definition",
                                             "Foundations",
-                                            "93127c24-a605-47eb-a102-e5bbb9b55cfb"
+                                            "282e820f-b3e3-4300-8d15-b0c60c596daa"
                                         ],
                                         [
                                             "Multi-Time-Frame-Market",
                                             "Dataset Definition",
                                             "Foundations",
-                                            "b70c789d-99d8-4405-8f1d-9eabd6356a45"
+                                            "883e89bf-1667-4fce-b30a-86bf7fe44d15"
                                         ]
                                     ]
                                 }
@@ -146,25 +146,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Enhanced_Bollinger",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                            "5ec009e8-13ab-43ea-886b-1247ffb54195"
                                         ],
                                         [
                                             "Multi-Time-Frame-Market",
                                             "Process Definition",
                                             "Foundations",
-                                            "1331ab19-efdf-4f3f-9d52-6c20f3273168"
+                                            "0eea04c5-6f45-4482-8920-61691c889903"
                                         ],
                                         [
                                             "Bollinger",
                                             "Status Report",
                                             "Foundations",
-                                            "bfc87f08-19a7-4058-a56e-9bc429c08bda"
+                                            "ff11b59f-cded-4cdc-9cc8-aba29f87c854"
                                         ]
                                     ]
                                 }
@@ -551,25 +551,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Enhanced_Bollinger",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                            "5ec009e8-13ab-43ea-886b-1247ffb54195"
                                         ],
                                         [
                                             "Enhanced_Bollinger",
                                             "Product Definition",
                                             "Foundations",
-                                            "93127c24-a605-47eb-a102-e5bbb9b55cfb"
+                                            "282e820f-b3e3-4300-8d15-b0c60c596daa"
                                         ],
                                         [
                                             "Multi-Time-Frame-Daily",
                                             "Dataset Definition",
                                             "Foundations",
-                                            "330ad58d-aea3-4a8e-b473-4b96fb4fb5c8"
+                                            "52fca9be-3870-484e-a515-ccedbd695af9"
                                         ]
                                     ]
                                 }
@@ -640,25 +640,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Enhanced_Bollinger",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                            "5ec009e8-13ab-43ea-886b-1247ffb54195"
                                         ],
                                         [
                                             "Multi-Time-Frame-Daily",
                                             "Process Definition",
                                             "Foundations",
-                                            "656f0745-21ea-4c33-a430-5aa5f00a882a"
+                                            "a43aa1dd-f3d8-40c5-8f9c-69ac60c1ce80"
                                         ],
                                         [
                                             "WEMA",
                                             "Status Report",
                                             "Foundations",
-                                            "76d2700f-c98e-4c41-ab01-7ec447a4f9d6"
+                                            "9743644e-2fb5-4ef4-9ae3-e5a217aafa07"
                                         ]
                                     ]
                                 }
@@ -1601,19 +1601,19 @@
                                 "Enhanced_Bollinger_Stochastic",
                                 "Data Mine",
                                 "Data-Mining",
-                                "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                "016761ba-9c82-4c1a-88d0-146911d12787"
                             ],
                             [
                                 "Enhenced_Bollinger",
                                 "Plotter",
                                 "Foundations",
-                                "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                "ac605d46-b705-4034-8d74-46dbe9fc093a"
                             ],
                             [
                                 "Enhenced_Bollinger",
                                 "Plotter Module",
                                 "Foundations",
-                                "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                             ]
                         ]
                     }
@@ -1693,25 +1693,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Stochastic",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "185a17b4-6d12-4335-b3fb-5e4e53558734"
+                                            "7f23a02d-94a5-455b-9f4d-1a41906cf2b9"
                                         ],
                                         [
                                             "Stochastic",
                                             "Product Definition",
                                             "Foundations",
-                                            "4d634bc4-ca74-4c56-9e8d-198502b1879c"
+                                            "be275fe7-906f-4187-a76f-6ce97f22f61a"
                                         ],
                                         [
                                             "Multi-Time-Frame-Market",
                                             "Dataset Definition",
                                             "Foundations",
-                                            "da6447ca-ac50-4ab3-a71f-279097e7fca7"
+                                            "7fe0e0ff-8d64-420c-9647-12a63c707f86"
                                         ]
                                     ]
                                 }
@@ -1782,25 +1782,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Stochastic",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "185a17b4-6d12-4335-b3fb-5e4e53558734"
+                                            "7f23a02d-94a5-455b-9f4d-1a41906cf2b9"
                                         ],
                                         [
                                             "Multi-Time-Frame-Market",
                                             "Process Definition",
                                             "Foundations",
-                                            "d7ea5433-8387-40da-828f-b6c86dfd0258"
+                                            "dcecba3a-2ddb-4c68-a3e4-4c84fdd22699"
                                         ],
                                         [
                                             "Stochastic",
                                             "Status Report",
                                             "Foundations",
-                                            "ed63c9f6-a67f-418b-b376-545e64d4a358"
+                                            "3f37c095-4ff8-49c2-b2fe-2322390c7dad"
                                         ]
                                     ]
                                 }
@@ -2187,25 +2187,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Stochastic",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "185a17b4-6d12-4335-b3fb-5e4e53558734"
+                                            "7f23a02d-94a5-455b-9f4d-1a41906cf2b9"
                                         ],
                                         [
                                             "Stochastic",
                                             "Product Definition",
                                             "Foundations",
-                                            "4d634bc4-ca74-4c56-9e8d-198502b1879c"
+                                            "be275fe7-906f-4187-a76f-6ce97f22f61a"
                                         ],
                                         [
                                             "Multi-Time-Frame-Daily",
                                             "Dataset Definition",
                                             "Foundations",
-                                            "9a0725fe-33eb-4cc5-b944-57d193d68bbc"
+                                            "309c58ea-36d1-4d72-84f2-10cd046e67b6"
                                         ]
                                     ]
                                 }
@@ -2276,25 +2276,25 @@
                                             "Enhanced_Bollinger_Stochastic",
                                             "Data Mine",
                                             "Data-Mining",
-                                            "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
                                         ],
                                         [
                                             "Stochastic",
                                             "Indicator Bot",
                                             "Data-Mining",
-                                            "185a17b4-6d12-4335-b3fb-5e4e53558734"
+                                            "7f23a02d-94a5-455b-9f4d-1a41906cf2b9"
                                         ],
                                         [
                                             "Multi-Time-Frame-Daily",
                                             "Process Definition",
                                             "Foundations",
-                                            "82b6d289-c650-4e4f-8674-933f27062f35"
+                                            "ea9a83ed-efa8-4e68-9050-98323861d1d0"
                                         ],
                                         [
                                             "Stochastic",
                                             "Status Report",
                                             "Foundations",
-                                            "938ff460-89cc-49ab-a16c-089a2eb55c2b"
+                                            "3494a680-b8ab-4d2a-aa4c-71648c023bfa"
                                         ]
                                     ]
                                 }
@@ -3125,19 +3125,19 @@
                                 "Enhanced_Bollinger_Stochastic",
                                 "Data Mine",
                                 "Data-Mining",
-                                "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                "016761ba-9c82-4c1a-88d0-146911d12787"
                             ],
                             [
                                 "Stochastic",
                                 "Plotter",
                                 "Foundations",
-                                "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                "47a29722-5a0f-46c2-8166-b24798eb1c50"
                             ],
                             [
                                 "Stochastic",
                                 "Plotter Module",
                                 "Foundations",
-                                "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                             ]
                         ]
                     }
@@ -3146,8 +3146,8 @@
             "id": "7f23a02d-94a5-455b-9f4d-1a41906cf2b9",
             "savedPayload": {
                 "position": {
-                    "x": 5219.708333333332,
-                    "y": 19655.940660474716
+                    "x": 5369.708333333332,
+                    "y": 19315.74828161005
                 },
                 "targetPosition": {
                     "x": 5219.708333333332,
@@ -3158,7 +3158,1531 @@
                     "isFrozen": false,
                     "isCollapsed": true,
                     "angleToParent": 1,
-                    "distanceToParent": 5,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Indicator Bot",
+            "name": "ATR",
+            "config": "{\n    \"codeName\": \"ATR\"\n}",
+            "project": "Data-Mining",
+            "processes": [
+                {
+                    "type": "Process Definition",
+                    "name": "Multi-Time-Frame-Market",
+                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Time-Frame-Market\"\n    }\n}",
+                    "project": "Foundations",
+                    "processOutput": {
+                        "type": "Process Output",
+                        "name": "New Process Output",
+                        "project": "Foundations",
+                        "outputDatasets": [
+                            {
+                                "type": "Output Dataset",
+                                "name": "Multi-Time-Frame-Market ATR",
+                                "project": "Foundations",
+                                "id": "3d281992-4a64-40b7-9bc4-682012495d0a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5272.757382691154,
+                                        "y": 20371.08179366732
+                                    },
+                                    "targetPosition": {
+                                        "x": 5039.613594254062,
+                                        "y": 20182.28567635237
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Market",
+                                        "id": "b70c789d-99d8-4405-8f1d-9eabd6356a45"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Enhanced_Bollinger_Stochastic",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Product Definition",
+                                            "Foundations",
+                                            "93127c24-a605-47eb-a102-e5bbb9b55cfb"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Market",
+                                            "Dataset Definition",
+                                            "Foundations",
+                                            "b70c789d-99d8-4405-8f1d-9eabd6356a45"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "outputDatasetFolders": [],
+                        "id": "953d9b77-e4fa-4bf2-a12d-39edac2c6a03",
+                        "savedPayload": {
+                            "position": {
+                                "x": 5169.015954468664,
+                                "y": 19682.44066047472
+                            },
+                            "targetPosition": {
+                                "x": 4909.208333333332,
+                                "y": 19532.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 2,
+                                "distanceToParent": 5,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "processDependencies": {
+                        "type": "Process Dependencies",
+                        "name": "New Process Dependencies",
+                        "project": "Foundations",
+                        "statusDependencies": [
+                            {
+                                "type": "Status Dependency",
+                                "name": "ATR Multi-Time-Frame-Market",
+                                "config": "{\n    \"mainUtility\": \"Self Reference\"\n}",
+                                "project": "Foundations",
+                                "id": "02765bd0-5ae3-48f7-9352-67917affa7de",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5133.386617638573,
+                                        "y": 19678.023740532535
+                                    },
+                                    "targetPosition": {
+                                        "x": 4984.208333333332,
+                                        "y": 19662.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "ATR",
+                                        "id": "bfc87f08-19a7-4058-a56e-9bc429c08bda"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Enhanced_Bollinger_Stochastic",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Market",
+                                            "Process Definition",
+                                            "Foundations",
+                                            "1331ab19-efdf-4f3f-9d52-6c20f3273168"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Status Report",
+                                            "Foundations",
+                                            "bfc87f08-19a7-4058-a56e-9bc429c08bda"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "Candles Volumes Multi-Time-Frame-Market",
+                                "config": "{\n    \"mainUtility\": \"Market Ending Point\"\n}",
+                                "project": "Foundations",
+                                "id": "c2d06fd2-f89f-44a1-a3ee-5246bc07d6be",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5095.680057154941,
+                                        "y": 19762.714061996216
+                                    },
+                                    "targetPosition": {
+                                        "x": 4984.208333333332,
+                                        "y": 19662.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Candles Volumes Multi-Time-Frame-Market Status Report",
+                                        "id": "a0a61ba9-91cb-4ec7-92fe-134ff079de2d"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Candles Volumes",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Market",
+                                            "Process Definition",
+                                            "Foundations",
+                                            "9f683143-a33f-42c1-9fa8-c601f01ee4e1"
+                                        ],
+                                        [
+                                            "Candles Volumes Multi-Time-Frame-Market Status Report",
+                                            "Status Report",
+                                            "Foundations",
+                                            "a0a61ba9-91cb-4ec7-92fe-134ff079de2d"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "dataDependencies": [
+                            {
+                                "type": "Data Dependency",
+                                "name": "Candles Multi-Time-Frame-Market",
+                                "project": "Foundations",
+                                "id": "c81a13c6-456a-48ed-9d2c-e027709a1f08",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5015.395086955996,
+                                        "y": 19809.06661115246
+                                    },
+                                    "targetPosition": {
+                                        "x": 4984.208333333332,
+                                        "y": 19662.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Market",
+                                        "id": "2b03494a-67d6-47f1-89b6-53fc4c9116a8"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Candles Volumes",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                        ],
+                                        [
+                                            "Candles",
+                                            "Product Definition",
+                                            "Foundations",
+                                            "fe6065ec-4d2d-47a0-bae0-8647f0e195d7"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Market",
+                                            "Dataset Definition",
+                                            "Foundations",
+                                            "2b03494a-67d6-47f1-89b6-53fc4c9116a8"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Data Dependency",
+                                "name": "Volumes Multi-Time-Frame-Market",
+                                "project": "Foundations",
+                                "id": "1b836792-63f6-455a-a6ed-7a1a3449f1fa",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4923.197836871962,
+                                        "y": 19799.37628968878
+                                    },
+                                    "targetPosition": {
+                                        "x": 4984.208333333332,
+                                        "y": 19662.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Market",
+                                        "id": "9bf0483c-4825-4a46-9cf4-1b5262579fc1"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Candles Volumes",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                        ],
+                                        [
+                                            "Volumes",
+                                            "Product Definition",
+                                            "Foundations",
+                                            "1a366aef-efef-470e-88e0-2a6fbe4dd91f"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Market",
+                                            "Dataset Definition",
+                                            "Foundations",
+                                            "9bf0483c-4825-4a46-9cf4-1b5262579fc1"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "dataMineDataDependencies": [],
+                        "id": "c535d2c5-fe02-4c98-aa81-94d93e739427",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4984.208333333332,
+                                "y": 19662.344471042386
+                            },
+                            "targetPosition": {
+                                "x": 4909.208333333332,
+                                "y": 19532.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "statusReport": {
+                        "type": "Status Report",
+                        "name": "ATR",
+                        "project": "Foundations",
+                        "id": "bfc87f08-19a7-4058-a56e-9bc429c08bda",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4909.208333333332,
+                                "y": 19682.44066047472
+                            },
+                            "targetPosition": {
+                                "x": 4909.208333333332,
+                                "y": 19532.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "executionStartedEvent": {
+                        "type": "Execution Started Event",
+                        "name": "",
+                        "project": "Foundations",
+                        "id": "0d5708b5-959a-4a90-9141-1b1220b9f191",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4834.208333333332,
+                                "y": 19662.344471042386
+                            },
+                            "targetPosition": {
+                                "x": 4909.208333333332,
+                                "y": 19532.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Execution Finished Event",
+                                "name": "New Execution Finished Event",
+                                "id": "1824fa00-dd30-4cdc-acc0-01c2f29056c5"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Candles",
+                                    "Data Mine",
+                                    "Data-Mining",
+                                    "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                ],
+                                [
+                                    "Candles Volumes",
+                                    "Indicator Bot",
+                                    "Data-Mining",
+                                    "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                ],
+                                [
+                                    "Multi-Time-Frame-Market",
+                                    "Process Definition",
+                                    "Foundations",
+                                    "9f683143-a33f-42c1-9fa8-c601f01ee4e1"
+                                ],
+                                [
+                                    "New Execution Finished Event",
+                                    "Execution Finished Event",
+                                    "Foundations",
+                                    "1824fa00-dd30-4cdc-acc0-01c2f29056c5"
+                                ]
+                            ]
+                        }
+                    },
+                    "executionFinishedEvent": {
+                        "type": "Execution Finished Event",
+                        "name": "New Execution Finished Event",
+                        "project": "Foundations",
+                        "id": "bc3273f1-fa56-4564-978e-48352fe2594e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4779.304522765667,
+                                "y": 19607.44066047472
+                            },
+                            "targetPosition": {
+                                "x": 4909.208333333332,
+                                "y": 19532.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "1331ab19-efdf-4f3f-9d52-6c20f3273168",
+                    "savedPayload": {
+                        "position": {
+                            "x": 5108.53119009871,
+                            "y": 19460.63715555341
+                        },
+                        "targetPosition": {
+                            "x": 5069.708333333332,
+                            "y": 19315.74828161005
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Process Definition",
+                    "name": "Multi-Time-Frame-Daily",
+                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"framework\": {\n        \"name\": \"Multi-Time-Frame-Daily\"\n    }\n}",
+                    "project": "Foundations",
+                    "processOutput": {
+                        "type": "Process Output",
+                        "name": "New Process Output",
+                        "project": "Foundations",
+                        "outputDatasets": [
+                            {
+                                "type": "Output Dataset",
+                                "name": "Multi-Time-Frame-Daily ATR",
+                                "project": "Foundations",
+                                "id": "68eae05d-5599-41dd-827b-e7c4c0ccbaea",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4981.332289674429,
+                                        "y": 20483.588835066716
+                                    },
+                                    "targetPosition": {
+                                        "x": 4981.332289674429,
+                                        "y": 20333.588835066716
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Daily",
+                                        "id": "330ad58d-aea3-4a8e-b473-4b96fb4fb5c8"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Enhanced_Bollinger_Stochastic",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Product Definition",
+                                            "Foundations",
+                                            "93127c24-a605-47eb-a102-e5bbb9b55cfb"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Daily",
+                                            "Dataset Definition",
+                                            "Foundations",
+                                            "330ad58d-aea3-4a8e-b473-4b96fb4fb5c8"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "outputDatasetFolders": [],
+                        "id": "696672b3-44b9-4cbd-affd-dfc75943aec2",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4981.332289674429,
+                                "y": 20333.588835066716
+                            },
+                            "targetPosition": {
+                                "x": 4779.304522765667,
+                                "y": 19457.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": true,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "processDependencies": {
+                        "type": "Process Dependencies",
+                        "name": "New Process Dependencies",
+                        "project": "Foundations",
+                        "statusDependencies": [
+                            {
+                                "type": "Status Dependency",
+                                "name": "ATR Multi-Time-Frame-Daily",
+                                "config": "{\n    \"mainUtility\": \"Self Reference\"\n}",
+                                "project": "Foundations",
+                                "id": "48bd8f61-9d7f-44ae-9be1-52f8fef0191c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4704.304522765667,
+                                        "y": 19737.344471042386
+                                    },
+                                    "targetPosition": {
+                                        "x": 4704.304522765667,
+                                        "y": 19587.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "WEMA",
+                                        "id": "76d2700f-c98e-4c41-ab01-7ec447a4f9d6"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Enhanced_Bollinger_Stochastic",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "016761ba-9c82-4c1a-88d0-146911d12787"
+                                        ],
+                                        [
+                                            "ATR",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "72efe0e3-1897-425f-9b0d-f12c200d3599"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Daily",
+                                            "Process Definition",
+                                            "Foundations",
+                                            "656f0745-21ea-4c33-a430-5aa5f00a882a"
+                                        ],
+                                        [
+                                            "WEMA",
+                                            "Status Report",
+                                            "Foundations",
+                                            "76d2700f-c98e-4c41-ab01-7ec447a4f9d6"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "",
+                                "config": "{\n    \"mainUtility\": \"Market Ending Point\"\n}",
+                                "project": "Foundations",
+                                "id": "2e4abcb0-e30d-4ecf-9d10-f43ff7a4bb3c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4665.481666000289,
+                                        "y": 19732.233344985747
+                                    },
+                                    "targetPosition": {
+                                        "x": 4704.304522765667,
+                                        "y": 19587.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "New Status Report",
+                                        "id": "2a021da8-9feb-475e-90ab-1586968c17c7"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Candles Volumes",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Daily",
+                                            "Process Definition",
+                                            "Foundations",
+                                            "980ceb1d-7be6-454f-90d9-01ba1fd4a65d"
+                                        ],
+                                        [
+                                            "New Status Report",
+                                            "Status Report",
+                                            "Foundations",
+                                            "2a021da8-9feb-475e-90ab-1586968c17c7"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Status Dependency",
+                                "name": "Exchange Raw Data Historic-OHLCVs",
+                                "config": "{\n    \"mainUtility\": \"Market Starting Point\"\n}",
+                                "project": "Foundations",
+                                "id": "ffebf61f-a383-4e2f-a8ee-a9ebac9bf090",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4629.304522765667,
+                                        "y": 19717.248281610053
+                                    },
+                                    "targetPosition": {
+                                        "x": 4704.304522765667,
+                                        "y": 19587.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Status Report",
+                                        "name": "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                        "id": "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Exchange Raw Data",
+                                            "Sensor Bot",
+                                            "Data-Mining",
+                                            "af924204-66a2-47d4-9910-66ab78acb06f"
+                                        ],
+                                        [
+                                            "Historic-OHLCVs",
+                                            "Process Definition",
+                                            "Foundations",
+                                            "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
+                                        ],
+                                        [
+                                            "Exchange-Raw-Data Historic-OHLCVs Status Report",
+                                            "Status Report",
+                                            "Foundations",
+                                            "181c7c34-7243-497a-9ddb-1b0067c6d66e"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "dataDependencies": [
+                            {
+                                "type": "Data Dependency",
+                                "name": "Candles Multi-Time-Frame-Daily",
+                                "project": "Foundations",
+                                "id": "d94e7fa8-8de7-4123-a815-5cf6ffb60f16",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4598.238505587685,
+                                        "y": 19693.41048822037
+                                    },
+                                    "targetPosition": {
+                                        "x": 4704.304522765667,
+                                        "y": 19587.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Daily",
+                                        "id": "678a567c-f08d-49b9-813b-4e54fd6afadb"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Candles Volumes",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                        ],
+                                        [
+                                            "Candles",
+                                            "Product Definition",
+                                            "Foundations",
+                                            "fe6065ec-4d2d-47a0-bae0-8647f0e195d7"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Daily",
+                                            "Dataset Definition",
+                                            "Foundations",
+                                            "678a567c-f08d-49b9-813b-4e54fd6afadb"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Data Dependency",
+                                "name": "Volumes Multi-Time-Frame-Daily",
+                                "project": "Foundations",
+                                "id": "98147ce2-0f7c-4404-8629-c1b793062083",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4574.400712198001,
+                                        "y": 19662.344471042386
+                                    },
+                                    "targetPosition": {
+                                        "x": 4704.304522765667,
+                                        "y": 19587.344471042386
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Dataset Definition",
+                                        "name": "Multi-Time-Frame-Daily",
+                                        "id": "2e683057-f911-4105-bc77-16f2706d1915"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Candles",
+                                            "Data Mine",
+                                            "Data-Mining",
+                                            "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                        ],
+                                        [
+                                            "Candles Volumes",
+                                            "Indicator Bot",
+                                            "Data-Mining",
+                                            "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                        ],
+                                        [
+                                            "Volumes",
+                                            "Product Definition",
+                                            "Foundations",
+                                            "1a366aef-efef-470e-88e0-2a6fbe4dd91f"
+                                        ],
+                                        [
+                                            "Multi-Time-Frame-Daily",
+                                            "Dataset Definition",
+                                            "Foundations",
+                                            "2e683057-f911-4105-bc77-16f2706d1915"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "dataMineDataDependencies": [],
+                        "id": "31587acc-cb2a-44ca-ba9c-02d4818a87a2",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4704.304522765667,
+                                "y": 19587.344471042386
+                            },
+                            "targetPosition": {
+                                "x": 4779.304522765667,
+                                "y": 19457.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "statusReport": {
+                        "type": "Status Report",
+                        "name": "WEMA",
+                        "project": "Foundations",
+                        "id": "76d2700f-c98e-4c41-ab01-7ec447a4f9d6",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4692.701982387222,
+                                "y": 19507.44066047472
+                            },
+                            "targetPosition": {
+                                "x": 4779.304522765667,
+                                "y": 19457.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "executionStartedEvent": {
+                        "type": "Execution Started Event",
+                        "name": "",
+                        "project": "Foundations",
+                        "id": "cf250510-331c-4b9c-bd15-0525f5f4c494",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4679.304522765667,
+                                "y": 19457.44066047472
+                            },
+                            "targetPosition": {
+                                "x": 4779.304522765667,
+                                "y": 19457.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Execution Finished Event",
+                                "name": "New Execution Finished Event",
+                                "id": "f29d08f9-e7c8-490c-8fca-14851a0d3dc3"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Candles",
+                                    "Data Mine",
+                                    "Data-Mining",
+                                    "70c7eea3-a786-4dda-b526-0514e2cb14cc"
+                                ],
+                                [
+                                    "Candles Volumes",
+                                    "Indicator Bot",
+                                    "Data-Mining",
+                                    "285a4618-0423-4ac9-9df9-7a78be6fd915"
+                                ],
+                                [
+                                    "Multi-Time-Frame-Daily",
+                                    "Process Definition",
+                                    "Foundations",
+                                    "980ceb1d-7be6-454f-90d9-01ba1fd4a65d"
+                                ],
+                                [
+                                    "New Execution Finished Event",
+                                    "Execution Finished Event",
+                                    "Foundations",
+                                    "f29d08f9-e7c8-490c-8fca-14851a0d3dc3"
+                                ]
+                            ]
+                        }
+                    },
+                    "executionFinishedEvent": {
+                        "type": "Execution Finished Event",
+                        "name": "New Execution Finished Event",
+                        "project": "Foundations",
+                        "id": "bf7511e6-03b3-43bc-abd9-882419409a12",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4692.701982387222,
+                                "y": 19407.44066047472
+                            },
+                            "targetPosition": {
+                                "x": 4779.304522765667,
+                                "y": 19457.44066047472
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "656f0745-21ea-4c33-a430-5aa5f00a882a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 4994.708333333332,
+                            "y": 19445.652092177716
+                        },
+                        "targetPosition": {
+                            "x": 5069.708333333332,
+                            "y": 19315.74828161005
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "products": [
+                {
+                    "type": "Product Definition",
+                    "name": "ATR",
+                    "config": "{\n    \"codeName\": \"ATR\",\n    \"singularVariableName\": \"ATR\",\n    \"pluralVariableName\": \"ATRs\"\n}",
+                    "project": "Foundations",
+                    "datasets": [
+                        {
+                            "type": "Dataset Definition",
+                            "name": "Multi-Time-Frame-Market",
+                            "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"type\": \"Market Files\",\n    \"validTimeFrames\": [\n        \"24-hs\",\n        \"12-hs\",\n        \"08-hs\",\n        \"06-hs\",\n        \"04-hs\",\n        \"03-hs\",\n        \"02-hs\",\n        \"01-hs\"\n    ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame\",\n    \"fileName\": \"Data.json\"\n}",
+                            "project": "Foundations",
+                            "id": "b70c789d-99d8-4405-8f1d-9eabd6356a45",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 4871.064266958177,
+                                    "y": 19494.60820235001
+                                },
+                                "targetPosition": {
+                                    "x": 4924.819459389972,
+                                    "y": 19354.571138375428
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Dataset Definition",
+                            "name": "Multi-Time-Frame-Daily",
+                            "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"type\": \"Daily Files\",\n    \"validTimeFrames\": [\n        \"45-min\",\n        \"40-min\",\n        \"30-min\",\n        \"20-min\",\n        \"15-min\",\n        \"10-min\",\n        \"05-min\",\n        \"04-min\",\n        \"03-min\",\n        \"02-min\",\n        \"01-min\"\n    ],\n    \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset/@TimeFrame/@Year/@Month/@Day\",\n    \"fileName\": \"Data.json\",\n    \"dataRange\": {\n        \"filePath\": \"Project/@Project/@MineType/@Mine/@Bot/@Exchange/@BaseAsset-@QuotedAsset/Output/@Product/@Dataset\",\n        \"fileName\": \"Data.Range.json\"\n    }\n}",
+                            "project": "Foundations",
+                            "id": "330ad58d-aea3-4a8e-b473-4b96fb4fb5c8",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 4799.018874198158,
+                                    "y": 19436.266993627683
+                                },
+                                "targetPosition": {
+                                    "x": 4924.819459389972,
+                                    "y": 19354.571138375428
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "record": {
+                        "type": "Record Definition",
+                        "name": "New Record Definition",
+                        "project": "Foundations",
+                        "properties": [
+                            {
+                                "type": "Record Property",
+                                "name": "Begin",
+                                "config": "{\n    \"codeName\": \"begin\",\n    \"isString\": false,\n    \"isCalculated\": false\n}",
+                                "project": "Foundations",
+                                "recordFormula": {
+                                    "type": "Record Formula",
+                                    "name": "New Formula",
+                                    "code": "record.current.begin",
+                                    "project": "Foundations",
+                                    "id": "43f3d1f6-6644-44c6-b0f9-a15ad79ed8df",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 4439.444392594251,
+                                            "y": 19506.15300309226
+                                        },
+                                        "targetPosition": {
+                                            "x": 4513.758875141991,
+                                            "y": 19439.239942456374
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "9d4ac26d-5a98-4838-bc77-8258e1a5fb94",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4513.758875141991,
+                                        "y": 19439.239942456374
+                                    },
+                                    "targetPosition": {
+                                        "x": 4625.2305989636,
+                                        "y": 19338.870351502545
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "End",
+                                "config": "{\n    \"codeName\": \"end\",\n    \"isString\": false,\n    \"isCalculated\": false\n}",
+                                "project": "Foundations",
+                                "recordFormula": {
+                                    "type": "Record Formula",
+                                    "name": "New Formula",
+                                    "code": "record.current.end",
+                                    "project": "Foundations",
+                                    "id": "e224ec8a-cf50-4efe-8723-636225cf92ce",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 4375.573215274956,
+                                            "y": 19325.78636244181
+                                        },
+                                        "targetPosition": {
+                                            "x": 4475.436168750413,
+                                            "y": 19331.019958066103
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "a7719452-460c-432a-99c5-1ea612e56133",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4475.436168750413,
+                                        "y": 19331.019958066103
+                                    },
+                                    "targetPosition": {
+                                        "x": 4625.2305989636,
+                                        "y": 19338.870351502545
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "Record Property",
+                                "name": "ATR",
+                                "config": "{\n    \"codeName\": \"atr\",\n    \"isString\": false,\n    \"isCalculated\": false\n}",
+                                "project": "Foundations",
+                                "recordFormula": {
+                                    "type": "Record Formula",
+                                    "name": "New Record Formula",
+                                    "code": "variable.ATR",
+                                    "project": "Foundations",
+                                    "id": "b9dacf88-89a3-4c89-8e60-0d2d6ebd0204",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 4457.947947373886,
+                                            "y": 19153.084145133194
+                                        },
+                                        "targetPosition": {
+                                            "x": 4524.8610080097715,
+                                            "y": 19227.398627680934
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "id": "c0e4ac5a-96dd-4bc6-b858-39174433248a",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4524.8610080097715,
+                                        "y": 19227.398627680934
+                                    },
+                                    "targetPosition": {
+                                        "x": 4625.2305989636,
+                                        "y": 19338.870351502545
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "id": "a9db6c70-d4b6-4ed3-8851-3e6593da5139",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4625.2305989636,
+                                "y": 19338.870351502545
+                            },
+                            "targetPosition": {
+                                "x": 4924.819459389972,
+                                "y": 19354.571138375428
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 5,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "dataBuilding": {
+                        "type": "Data Building Procedure",
+                        "name": "New Data Building Procedure",
+                        "project": "Foundations",
+                        "loop": {
+                            "type": "Procedure Loop",
+                            "name": "New Procedure Loop",
+                            "project": "Foundations",
+                            "procedureJavascriptCode": {
+                                "type": "Procedure Javascript Code",
+                                "name": "New Procedure Javascript Code",
+                                "code": "//ATR\nlet candle = record.current\nlet P = 5 //periods for ATR\n\nif(variable.prevClose === undefined){\n\tvariable.prevClose = candle.close\n}\n\nvariable.TR.push(Math.max((candle.max - candle.min), Math.abs(candle.max - variable.prevClose), Math.abs(candle.min - variable.prevClose)))\nif(variable.TR.length > P){\n\tvariable.TR.splice(0,1)\n}\n\nvariable.sTR = 0\nif(variable.TR.length === P){\n\tfor(var i = 0; i < P; i++){\n\t\tvariable.sTR += variable.TR[i]\n\t}\n\tvariable.ATR = variable.sTR / P\n}else{\n\tvariable.ATR = candle.max - candle.min\n}\n\nvariable.prevClose = candle.close\n",
+                                "project": "Foundations",
+                                "id": "6221a3a1-1b9d-438b-a192-3e0c16a149cb",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4280.58021501371,
+                                        "y": 18982.743531676366
+                                    },
+                                    "targetPosition": {
+                                        "x": 4417.6120336601,
+                                        "y": 19043.754028137737
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "c5a3ff02-6e68-4d09-a476-8d04a7279b12",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 4417.6120336601,
+                                    "y": 19043.754028137737
+                                },
+                                "targetPosition": {
+                                    "x": 4691.67567095288,
+                                    "y": 19165.775021060475
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "initialization": {
+                            "type": "Procedure Initialization",
+                            "name": "New Procedure Initialization",
+                            "project": "Foundations",
+                            "procedureJavascriptCode": {
+                                "type": "Procedure Javascript Code",
+                                "name": "New Procedure Javascript Code",
+                                "code": "variable.TR = []",
+                                "project": "Foundations",
+                                "id": "2916f112-8fd4-4d5d-8119-d1f44354d204",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4427.172307421267,
+                                        "y": 18801.71737359175
+                                    },
+                                    "targetPosition": {
+                                        "x": 4515.340095265138,
+                                        "y": 18923.069922747993
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "id": "bf1b008f-532d-447b-9f10-25b9a02dc9b7",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 4515.340095265138,
+                                    "y": 18923.069922747993
+                                },
+                                "targetPosition": {
+                                    "x": 4691.67567095288,
+                                    "y": 19165.775021060475
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 3,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "73829cf5-5dfd-4568-9d77-44653a7f0524",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4691.67567095288,
+                                "y": 19165.775021060475
+                            },
+                            "targetPosition": {
+                                "x": 4924.819459389972,
+                                "y": 19354.571138375428
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 5,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "93127c24-a605-47eb-a102-e5bbb9b55cfb",
+                    "savedPayload": {
+                        "position": {
+                            "x": 4924.819459389972,
+                            "y": 19354.571138375428
+                        },
+                        "targetPosition": {
+                            "x": 5069.708333333332,
+                            "y": 19315.74828161005
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 2,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "Plotter Module",
+                            "name": "ATR",
+                            "id": "ef660209-a859-447a-b15c-585228aa1ada"
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Enhanced_Bollinger_Stochastic",
+                                "Data Mine",
+                                "Data-Mining",
+                                "016761ba-9c82-4c1a-88d0-146911d12787"
+                            ],
+                            [
+                                "ATR",
+                                "Plotter",
+                                "Foundations",
+                                "8273f65a-5d7b-49ab-986f-4bcdd8dc3335"
+                            ],
+                            [
+                                "ATR",
+                                "Plotter Module",
+                                "Foundations",
+                                "ef660209-a859-447a-b15c-585228aa1ada"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "id": "72efe0e3-1897-425f-9b0d-f12c200d3599",
+            "savedPayload": {
+                "position": {
+                    "x": 5069.708333333332,
+                    "y": 19315.74828161005
+                },
+                "targetPosition": {
+                    "x": 5219.708333333332,
+                    "y": 19055.940660474716
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
                 "uiObject": {
@@ -3641,37 +5165,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                                    "ac605d46-b705-4034-8d74-46dbe9fc093a"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                                    "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "29baf4f2-927d-4b12-8a3e-d0f17187bfe1"
+                                                    "7e7e3cb1-077a-4571-83f5-f8c2b4f827dd"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "017d7edd-2289-4a93-beca-56a10d94520b"
+                                                    "2799b16e-d517-41ac-965d-346e5cbfe7ea"
                                                 ],
                                                 [
                                                     "ema Begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "02b6d145-3db1-4b74-b35d-d212a13edf52"
+                                                    "bbb20e3a-7617-40ad-934a-3b2ec6b5a10a"
                                                 ]
                                             ]
                                         }
@@ -3711,37 +5235,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                                    "ac605d46-b705-4034-8d74-46dbe9fc093a"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                                    "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "29baf4f2-927d-4b12-8a3e-d0f17187bfe1"
+                                                    "7e7e3cb1-077a-4571-83f5-f8c2b4f827dd"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "017d7edd-2289-4a93-beca-56a10d94520b"
+                                                    "2799b16e-d517-41ac-965d-346e5cbfe7ea"
                                                 ],
                                                 [
                                                     "ema End",
                                                     "Point",
                                                     "Foundations",
-                                                    "c95d70c4-921b-4b3b-a9d7-7fd53b1bc2f5"
+                                                    "2c998e51-a5e6-4f64-9165-484a5385668b"
                                                 ]
                                             ]
                                         }
@@ -3866,37 +5390,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                                    "ac605d46-b705-4034-8d74-46dbe9fc093a"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                                    "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "29baf4f2-927d-4b12-8a3e-d0f17187bfe1"
+                                                    "7e7e3cb1-077a-4571-83f5-f8c2b4f827dd"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "017d7edd-2289-4a93-beca-56a10d94520b"
+                                                    "2799b16e-d517-41ac-965d-346e5cbfe7ea"
                                                 ],
                                                 [
                                                     "Lower begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "5509bbc9-65aa-4a9a-a702-818516a66667"
+                                                    "ff14127e-0563-47b5-8ac6-81393748e143"
                                                 ]
                                             ]
                                         }
@@ -3936,37 +5460,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                                    "ac605d46-b705-4034-8d74-46dbe9fc093a"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                                    "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "29baf4f2-927d-4b12-8a3e-d0f17187bfe1"
+                                                    "7e7e3cb1-077a-4571-83f5-f8c2b4f827dd"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "017d7edd-2289-4a93-beca-56a10d94520b"
+                                                    "2799b16e-d517-41ac-965d-346e5cbfe7ea"
                                                 ],
                                                 [
                                                     "Lower End",
                                                     "Point",
                                                     "Foundations",
-                                                    "b087da37-07ca-4a25-a09a-386ba4fe381c"
+                                                    "69c937ad-7b51-43d3-bb0d-97d30fad240a"
                                                 ]
                                             ]
                                         }
@@ -4091,37 +5615,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                                    "ac605d46-b705-4034-8d74-46dbe9fc093a"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                                    "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "29baf4f2-927d-4b12-8a3e-d0f17187bfe1"
+                                                    "7e7e3cb1-077a-4571-83f5-f8c2b4f827dd"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "017d7edd-2289-4a93-beca-56a10d94520b"
+                                                    "2799b16e-d517-41ac-965d-346e5cbfe7ea"
                                                 ],
                                                 [
                                                     "Upper Begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "59d066ff-9bfb-48c5-9f1e-ac0f818ad5ed"
+                                                    "d6df6001-ff98-47ef-bccd-da0bf43f4037"
                                                 ]
                                             ]
                                         }
@@ -4161,37 +5685,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "c3b3e31b-ee03-444e-83f5-944624f075e6"
+                                                    "ac605d46-b705-4034-8d74-46dbe9fc093a"
                                                 ],
                                                 [
                                                     "Enhenced_Bollinger",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "d22a6654-447e-43a0-9b84-f70e0b8c753e"
+                                                    "13a52f0c-41f7-4ffe-ae95-006a70ffa67e"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "29baf4f2-927d-4b12-8a3e-d0f17187bfe1"
+                                                    "7e7e3cb1-077a-4571-83f5-f8c2b4f827dd"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "017d7edd-2289-4a93-beca-56a10d94520b"
+                                                    "2799b16e-d517-41ac-965d-346e5cbfe7ea"
                                                 ],
                                                 [
                                                     "Upper End",
                                                     "Point",
                                                     "Foundations",
-                                                    "425536fd-e683-4382-be6c-cc678767693b"
+                                                    "cb2f1915-f592-497f-aec8-58d8358b59cb"
                                                 ]
                                             ]
                                         }
@@ -5160,37 +6684,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "K Begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "0f44f0b6-a4d8-4d9b-b622-f4da1c57e085"
+                                                    "00ee4a82-a950-4440-ac71-f0091065afc5"
                                                 ]
                                             ]
                                         }
@@ -5230,37 +6754,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "k End",
                                                     "Point",
                                                     "Foundations",
-                                                    "1fd1c9fd-2aaf-4a01-be14-36d55d6d042f"
+                                                    "8959d931-434d-4d1b-9db6-68c2799cf204"
                                                 ]
                                             ]
                                         }
@@ -5385,37 +6909,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "Fifty begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "31a943f2-66e7-43f9-b596-cb0caf37e316"
+                                                    "83563217-3b0f-4fd6-b11e-bf83db2aaf44"
                                                 ]
                                             ]
                                         }
@@ -5455,37 +6979,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "Fifty End",
                                                     "Point",
                                                     "Foundations",
-                                                    "5a93d58e-927b-4953-8ce5-ce02d0865260"
+                                                    "3054bc44-e735-497e-a0c3-409910fd8164"
                                                 ]
                                             ]
                                         }
@@ -5610,37 +7134,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "25 Begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "bebac9a6-a0b4-499f-be15-2ec4ba377206"
+                                                    "e40a7d27-b919-459b-b11b-8b459c27f9df"
                                                 ]
                                             ]
                                         }
@@ -5680,37 +7204,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "25 End",
                                                     "Point",
                                                     "Foundations",
-                                                    "44d983a0-860f-49dc-a4e4-927f77721083"
+                                                    "fcc23adb-df78-49e8-b1e8-4ebcb5ed1ac7"
                                                 ]
                                             ]
                                         }
@@ -5835,37 +7359,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "75 Begin",
                                                     "Point",
                                                     "Foundations",
-                                                    "0b19ecc3-d944-4cad-b0c8-00225923ad6a"
+                                                    "dc08bec5-ace0-434f-aeab-b8f4d5ac387f"
                                                 ]
                                             ]
                                         }
@@ -5905,37 +7429,37 @@
                                                     "Enhanced_Bollinger_Stochastic",
                                                     "Data Mine",
                                                     "Data-Mining",
-                                                    "1a1d0c54-67c6-4a72-96c3-4168aa3ad553"
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter",
                                                     "Foundations",
-                                                    "2655f473-8582-4a1e-97ab-e424c0a6a594"
+                                                    "47a29722-5a0f-46c2-8166-b24798eb1c50"
                                                 ],
                                                 [
                                                     "Stochastic",
                                                     "Plotter Module",
                                                     "Foundations",
-                                                    "b46ae740-4cdf-46c9-9ac6-a5c3ff7c4ec0"
+                                                    "f1676963-44d8-4b80-b412-eddeb7e08d4c"
                                                 ],
                                                 [
                                                     "New Shapes",
                                                     "Shapes",
                                                     "Foundations",
-                                                    "0f5c66f7-a353-4b93-8d1b-0e789682f491"
+                                                    "ef80ba17-b3ba-46a1-9388-04a462a13f0f"
                                                 ],
                                                 [
                                                     "New Chart Points",
                                                     "Chart Points",
                                                     "Foundations",
-                                                    "58141887-5468-45e8-b35e-67f0945735a9"
+                                                    "54454154-66bf-4bd9-8d2b-50fcb870a7fe"
                                                 ],
                                                 [
                                                     "75 End",
                                                     "Point",
                                                     "Foundations",
-                                                    "4cfdc8be-9a36-4e32-a499-b7c04bc3c85e"
+                                                    "153c24fb-62b8-40f7-bfa4-7c6eb5784b3d"
                                                 ]
                                             ]
                                         }
@@ -5970,12 +7494,12 @@
                         "id": "ef80ba17-b3ba-46a1-9388-04a462a13f0f",
                         "savedPayload": {
                             "position": {
-                                "x": 4959.900712198,
-                                "y": 18305.940660474716
+                                "x": 5204.379348050644,
+                                "y": 18262.363303054408
                             },
                             "targetPosition": {
-                                "x": 5219.708333333332,
-                                "y": 18455.940660474716
+                                "x": 5405.118529958301,
+                                "y": 18485.306750697626
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6085,12 +7609,12 @@
                             "id": "f48488d1-0c86-48bf-8dc5-cb09d558b7af",
                             "savedPayload": {
                                 "position": {
-                                    "x": 5479.515954468664,
-                                    "y": 18305.940660474716
+                                    "x": 5698.562810178443,
+                                    "y": 18422.9332434523
                                 },
                                 "targetPosition": {
-                                    "x": 5219.708333333332,
-                                    "y": 18455.940660474716
+                                    "x": 5405.118529958301,
+                                    "y": 18485.306750697626
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -6109,12 +7633,12 @@
                     "id": "f1676963-44d8-4b80-b412-eddeb7e08d4c",
                     "savedPayload": {
                         "position": {
-                            "x": 5219.708333333332,
-                            "y": 18455.940660474716
+                            "x": 5405.118529958301,
+                            "y": 18485.306750697626
                         },
                         "targetPosition": {
-                            "x": 5219.708333333332,
-                            "y": 18755.940660474716
+                            "x": 5312.413431645817,
+                            "y": 18770.62370558617
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -6133,8 +7657,8 @@
             "id": "47a29722-5a0f-46c2-8166-b24798eb1c50",
             "savedPayload": {
                 "position": {
-                    "x": 5219.708333333332,
-                    "y": 18755.940660474716
+                    "x": 5069.708333333332,
+                    "y": 18796.133039339384
                 },
                 "targetPosition": {
                     "x": 5219.708333333332,
@@ -6143,7 +7667,578 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Plotter",
+            "name": "ATR",
+            "config": "{\n  \"codeName\": \"ATR\"\n}",
+            "project": "Foundations",
+            "modules": [
+                {
+                    "type": "Plotter Module",
+                    "name": "ATR",
+                    "config": "{\n  \"codeName\": \"ATR\",\n  \"icon\": \"oscillator\"\n}",
+                    "project": "Foundations",
+                    "shapes": {
+                        "type": "Shapes",
+                        "name": "New Shapes",
+                        "project": "Foundations",
+                        "chartPoints": [
+                            {
+                                "type": "Chart Points",
+                                "name": "New Chart Points",
+                                "project": "Foundations",
+                                "points": [
+                                    {
+                                        "type": "Point",
+                                        "name": "ATR Begin",
+                                        "project": "Foundations",
+                                        "pointFormula": {
+                                            "type": "Point Formula",
+                                            "name": "New Point Formula",
+                                            "code": "x = record.begin\ny = record.previous.atr",
+                                            "project": "Foundations",
+                                            "id": "94e01243-1783-4de8-bb18-678b9459b68d",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 4769.708333333332,
+                                                    "y": 18796.133039339384
+                                                },
+                                                "targetPosition": {
+                                                    "x": 4919.708333333332,
+                                                    "y": 18536.32541820405
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 1,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "id": "2a355ab9-f0e4-4f4b-9654-d303bd3eed64",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 4919.708333333332,
+                                                "y": 18536.32541820405
+                                            },
+                                            "targetPosition": {
+                                                "x": 5069.708333333332,
+                                                "y": 18276.51779706872
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Point",
+                                        "name": "ATR End",
+                                        "project": "Foundations",
+                                        "pointFormula": {
+                                            "type": "Point Formula",
+                                            "name": "New Point Formula",
+                                            "code": "x = record.end\ny = record.atr",
+                                            "project": "Foundations",
+                                            "id": "6e782dd8-b8a1-40ee-899f-9028798facef",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 4769.708333333332,
+                                                    "y": 17756.902554798053
+                                                },
+                                                "targetPosition": {
+                                                    "x": 4919.708333333332,
+                                                    "y": 18016.710175933385
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 1,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "id": "9d208fc3-530d-463a-8e1a-2f34d4439530",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 4919.708333333332,
+                                                "y": 18016.710175933385
+                                            },
+                                            "targetPosition": {
+                                                "x": 5069.708333333332,
+                                                "y": 18276.51779706872
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "ce3aaee4-43ec-4cf8-911e-a219e9dd4dd8",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5069.708333333332,
+                                        "y": 18276.51779706872
+                                    },
+                                    "targetPosition": {
+                                        "x": 5369.708333333332,
+                                        "y": 18276.51779706872
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "polygons": [
+                            {
+                                "type": "Polygon",
+                                "name": "ATR",
+                                "project": "Foundations",
+                                "polygonBorder": {
+                                    "type": "Polygon Border",
+                                    "name": "New Polygon Border",
+                                    "project": "Foundations",
+                                    "style": {
+                                        "type": "Style",
+                                        "name": "New Style",
+                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 0.2,\r\n        \"lineWidth\": 1,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_BLUE\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
+                                        "project": "Foundations",
+                                        "id": "7f8f5def-af8b-40d8-a4c6-c32cdb3c18e5",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 5000.0930910626685,
+                                                "y": 17716.710175933385
+                                            },
+                                            "targetPosition": {
+                                                "x": 5259.900712198,
+                                                "y": 17866.710175933385
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "styleConditions": [],
+                                    "id": "fbd87482-dabe-46f9-b007-e3ee2237cd53",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 5259.900712198,
+                                            "y": 17866.710175933385
+                                        },
+                                        "targetPosition": {
+                                            "x": 5519.708333333332,
+                                            "y": 18016.710175933385
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                "polygonVertexes": [
+                                    {
+                                        "type": "Polygon Vertex",
+                                        "name": " ATR Begin",
+                                        "project": "Foundations",
+                                        "id": "b3737d41-55dc-4397-8ed0-042ce3fd8132",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 5669.708333333332,
+                                                "y": 17756.902554798053
+                                            },
+                                            "targetPosition": {
+                                                "x": 5519.708333333332,
+                                                "y": 18016.710175933385
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Point",
+                                                "name": "ATR Begin",
+                                                "id": "2a355ab9-f0e4-4f4b-9654-d303bd3eed64"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Enhanced_Bollinger_Stochastic",
+                                                    "Data Mine",
+                                                    "Data-Mining",
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
+                                                ],
+                                                [
+                                                    "ATR",
+                                                    "Plotter",
+                                                    "Foundations",
+                                                    "8273f65a-5d7b-49ab-986f-4bcdd8dc3335"
+                                                ],
+                                                [
+                                                    "ATR",
+                                                    "Plotter Module",
+                                                    "Foundations",
+                                                    "ef660209-a859-447a-b15c-585228aa1ada"
+                                                ],
+                                                [
+                                                    "New Shapes",
+                                                    "Shapes",
+                                                    "Foundations",
+                                                    "b8030c53-413d-43e2-9d80-cdaeef01eba5"
+                                                ],
+                                                [
+                                                    "New Chart Points",
+                                                    "Chart Points",
+                                                    "Foundations",
+                                                    "ce3aaee4-43ec-4cf8-911e-a219e9dd4dd8"
+                                                ],
+                                                [
+                                                    "ATR Begin",
+                                                    "Point",
+                                                    "Foundations",
+                                                    "2a355ab9-f0e4-4f4b-9654-d303bd3eed64"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Polygon Vertex",
+                                        "name": " ATR End",
+                                        "project": "Foundations",
+                                        "id": "3bdc2439-5a0b-47c2-b2f5-51d63a21a726",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 5779.515954468664,
+                                                "y": 18166.710175933385
+                                            },
+                                            "targetPosition": {
+                                                "x": 5519.708333333332,
+                                                "y": 18016.710175933385
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Point",
+                                                "name": "ATR End",
+                                                "id": "9d208fc3-530d-463a-8e1a-2f34d4439530"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Enhanced_Bollinger_Stochastic",
+                                                    "Data Mine",
+                                                    "Data-Mining",
+                                                    "016761ba-9c82-4c1a-88d0-146911d12787"
+                                                ],
+                                                [
+                                                    "ATR",
+                                                    "Plotter",
+                                                    "Foundations",
+                                                    "8273f65a-5d7b-49ab-986f-4bcdd8dc3335"
+                                                ],
+                                                [
+                                                    "ATR",
+                                                    "Plotter Module",
+                                                    "Foundations",
+                                                    "ef660209-a859-447a-b15c-585228aa1ada"
+                                                ],
+                                                [
+                                                    "New Shapes",
+                                                    "Shapes",
+                                                    "Foundations",
+                                                    "b8030c53-413d-43e2-9d80-cdaeef01eba5"
+                                                ],
+                                                [
+                                                    "New Chart Points",
+                                                    "Chart Points",
+                                                    "Foundations",
+                                                    "ce3aaee4-43ec-4cf8-911e-a219e9dd4dd8"
+                                                ],
+                                                [
+                                                    "ATR End",
+                                                    "Point",
+                                                    "Foundations",
+                                                    "9d208fc3-530d-463a-8e1a-2f34d4439530"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "fb0655b3-1fd6-41a4-af7e-ae1b266e9ac9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 5519.708333333332,
+                                        "y": 18016.710175933385
+                                    },
+                                    "targetPosition": {
+                                        "x": 5369.708333333332,
+                                        "y": 18276.51779706872
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "images": [],
+                        "texts": [],
+                        "id": "b8030c53-413d-43e2-9d80-cdaeef01eba5",
+                        "savedPayload": {
+                            "position": {
+                                "x": 5369.708333333332,
+                                "y": 18276.51779706872
+                            },
+                            "targetPosition": {
+                                "x": 5519.708333333332,
+                                "y": 18536.32541820405
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "panels": [
+                        {
+                            "type": "Plotter Panel",
+                            "name": "ATR",
+                            "config": "{\n    \"codeName\": \"ATR\",\n    \"isLegacy\": false\n}",
+                            "project": "Foundations",
+                            "panelData": [
+                                {
+                                    "type": "Panel Data",
+                                    "name": "ATR",
+                                    "config": "{\n  \"valueDecimals\": 2\n}",
+                                    "project": "Foundations",
+                                    "dataFormula": {
+                                        "type": "Data Formula",
+                                        "name": "New Data Formula",
+                                        "code": "record.atr",
+                                        "project": "Foundations",
+                                        "id": "8ac5b35c-e2f7-41ce-9bbf-54201181c43e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 6269.708333333332,
+                                                "y": 18276.51779706872
+                                            },
+                                            "targetPosition": {
+                                                "x": 6119.708333333332,
+                                                "y": 18536.32541820405
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "textStyle": {
+                                        "type": "Text Style",
+                                        "name": "New Text Style",
+                                        "config": "{ \n\"configuration\": \"Get the appropriate configuration from the documentation\"\n}",
+                                        "project": "Foundations",
+                                        "id": "88f3415d-87c9-450a-a084-3484f6fbed3e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 6269.708333333332,
+                                                "y": 18796.133039339384
+                                            },
+                                            "targetPosition": {
+                                                "x": 6119.708333333332,
+                                                "y": 18536.32541820405
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "00bce74f-fbfd-49d2-a734-a1e76486094f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 6119.708333333332,
+                                            "y": 18536.32541820405
+                                        },
+                                        "targetPosition": {
+                                            "x": 5819.708333333332,
+                                            "y": 18536.32541820405
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "cea1493b-111b-400c-a465-4a0eed3e722a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 5819.708333333332,
+                                    "y": 18536.32541820405
+                                },
+                                "targetPosition": {
+                                    "x": 5519.708333333332,
+                                    "y": 18536.32541820405
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "ef660209-a859-447a-b15c-585228aa1ada",
+                    "savedPayload": {
+                        "position": {
+                            "x": 5519.708333333332,
+                            "y": 18536.32541820405
+                        },
+                        "targetPosition": {
+                            "x": 5369.708333333332,
+                            "y": 18796.133039339384
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "8273f65a-5d7b-49ab-986f-4bcdd8dc3335",
+            "savedPayload": {
+                "position": {
+                    "x": 5369.708333333332,
+                    "y": 18796.133039339384
+                },
+                "targetPosition": {
+                    "x": 5219.708333333332,
+                    "y": 19055.940660474716
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -6167,7 +8262,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

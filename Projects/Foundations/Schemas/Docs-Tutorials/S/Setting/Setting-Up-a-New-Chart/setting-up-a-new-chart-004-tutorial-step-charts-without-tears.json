@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Es ist frustrierend, auf eine leere chart zu schauen. Ich bin hier, um dafür zu sorgen, dass Sie nicht das Gefühl haben, die charts Ihrer Träume nicht erstellen zu können.",
                 "updated": 1637612228833
+            },
+            {
+                "language": "RU",
+                "text": "Обидно смотреть на пустой график. Я здесь, чтобы убедиться, что вы не застрянете в настройке графиков вашей мечты.",
+                "updated": 1637914550680
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "Wenn Sie gerade erst in Superalgos anfangen, könnte all diese Freiheit ein wenig überwältigend sein. Superalgos erlaubt es Ihnen, fast alles zu tun, was Sie sich ausdenken können, aber es gibt einige wichtige Puzzlestücke, die an ihrem Platz sein müssen.",
                     "updated": 1637612271526
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы только начинаете работать в Superalgos, вся эта свобода может показаться вам немного подавляющей. Superalgos позволяет вам делать практически все, что вы можете придумать, но есть несколько ключевых частей головоломки, которые должны быть на месте.",
+                    "updated": 1637914687650
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "DE",
                     "text": "Genau da komme ich ins Spiel! Meine Freunde und ich werden Ihnen zeigen, wie Sie charts (Diagramme) von Anfang bis Ende anpassen können! Wenn wir fertig sind, werden Sie die Werkzeuge haben, um charts zu erstellen, die nur durch Ihre Fantasie begrenzt sind.",
                     "updated": 1637612350300
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот тут-то я и прихожу на помощь! Я и мои друзья расскажем вам, как настроить диаграммы от начала до конца! К тому времени, когда мы закончим, у вас будут инструменты для создания диаграмм, ограниченные только вашим воображением.",
+                    "updated": 1637914717905
                 }
             ]
         }

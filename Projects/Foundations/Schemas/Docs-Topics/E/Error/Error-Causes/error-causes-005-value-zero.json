@@ -4,12 +4,26 @@
     "type": "Value Zero",
     "definition": {
         "text": "At runtime some nodes might acquire a value, and when it is expected not to be zero this type of error will pop up. To avoid this type of error, Make sure that the Node where the error popped up never get a zero value.",
-        "updated": 1611652416098
+        "updated": 1611652416098,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zur Laufzeit (runtime) können einige nodes einen Wert erhalten, und wenn erwartet wird, dass er nicht Null sein wird, wird diese Art von Fehler angezeigt. Um diese Art von Error zu vermeiden, stellen Sie sicher, dass die Node, bei dem der Fehler auftrat, niemals einen Nullwert erhält (zero value).",
+                "updated": 1637874566068
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1637874594189
+                }
+            ]
         }
     ]
 }

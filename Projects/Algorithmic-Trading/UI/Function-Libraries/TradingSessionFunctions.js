@@ -105,6 +105,9 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
             'Situation->Condition->Javascript Code->' +
+            'Outgoing Signals->Incoming Signals->Signal Reference->' +
+            'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
+            'Create Order Signal->Cancel Order Signal->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
             'Open Execution->Close Execution->' +

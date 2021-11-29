@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Warten Sie, während die Änderungen auf GitHub.com hochgeladen werden und ein Pull Request erstellt wird. Sie werden eine neue Nachricht erhalten, wenn der Vorgang abgeschlossen ist.",
                 "updated": 1634163736599
+            },
+            {
+                "language": "ES",
+                "text": "Espere mientras se cargan los cambios en GitHub.com y una Pull Request es creada. Recibirá un nuevo mensaje cuando se complete la operación.",
+                "updated": 1637852411598
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "language": "DE",
                     "text": "Es ist keine weitere Aktion von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Thema auf Github.com weiterverfolgen.",
                     "updated": 1634163822210
+                },
+                {
+                    "language": "ES",
+                    "text": "No es necesario que realice ninguna otra acción. Alguien revisará su Pull Request ay fusionarlo con la última versión del software si todo está en orden. Si sus cambios son rechazados por cualquier motivo, deberá hacer un seguimiento del problema en Github.com.",
+                    "updated": 1637852466417
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "DE",
                     "text": "Sollten Sie weitere Beiträge einreichen, während der Pull Request geprüft wird, werden diese automatisch an den offenen Pull Request angehängt.",
                     "updated": 1634163831841
+                },
+                {
+                    "language": "ES",
+                    "text": "Si envía más contribuciones mientras la Pull Request está en revisión, se agregarán automáticamente a la Pull Request abierta.",
+                    "updated": 1637852529296
                 }
             ]
         },
@@ -89,6 +104,11 @@
                     "language": "DE",
                     "text": "Sie sollten eine E-Mail von Github.com erhalten, wenn Änderungen zusammengeführt werden, oder wenn der Prüfer Kommentare abgibt oder die Änderungen ablehnt. Sie können Ihre E-Mail-Einstellungen auf GitHub.com verwalten.",
                     "updated": 1634163842377
+                },
+                {
+                    "language": "ES",
+                    "text": "Debería recibir un correo electrónico de Github.com cuando se fusionen los cambios, o si el revisor hace comentarios o rechaza los cambios. Puede administrar la configuración de su suscripción de correo electrónico en GitHub.com.",
+                    "updated": 1637852558644
                 }
             ]
         }

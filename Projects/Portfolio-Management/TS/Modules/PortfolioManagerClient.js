@@ -58,7 +58,44 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         return response
     }
 
-    async function askPortfolioFormulaManager() {
+    async function askPortfolioFormulaManager(formulaParentNode, formulaValue) {
+        let reponse = {
+            value: formulaValue,
+            reason: "No need to ask Portfolio Manager"
+        }
 
+        if (formulaParentNode === undefined) {
+            return reponse
+        }
+        if (formulaParentNode.askPortfolioFormulaManager === undefined) {
+            return reponse
+        }
+
+        if (formulaValue === true) {
+            /*
+            First we will check if the Portfolio Manager confirms this formula
+            value.
+            */
+            if (formulaParentNode.askPortfolioEventsManager.confirmFormula !== undefined) {
+                let message = {
+                    question: "Confirm This Formula Value",
+                    formula: formulaParentNode.type
+                }
+                reponse = await portfolioManagerEventsClient.sendMessage(message)
+            }
+        } else {
+            /*
+            In this case, we will check if the Porfolio Manager would like to 
+            replace this formula value for something else.
+            */
+            if (formulaParentNode.askPortfolioEventsManager.raiseEvent !== undefined) {
+                let message = {
+                    question: "Give me a Value for this Formula",
+                    formula: formulaParentNode.type
+                }
+                reponse = await portfolioManagerEventsClient.sendMessage(message)
+            }
+        }
+        return response
     }
 }

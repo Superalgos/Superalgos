@@ -99,13 +99,13 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         tradingPositionModuleObject.cycleBasedStatistics()
     }
 
-    function runTriggerStage() {
+    async function runTriggerStage() {
         /*
         We check if we will be triggering on, off or taking position.
         */
-        checkTriggerOn()
-        checkTriggerOff()
-        checkTakePosition()
+        await checkTriggerOn()
+        await checkTriggerOff()
+        await checkTakePosition()
 
         async function checkTriggerOn() {
             if (
@@ -224,7 +224,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let triggerStage = strategy.triggerStage
 
                 tradingSystem.evalConditions(strategy, 'Take Position Event')
-                tradingSystem.evalFormulas(strategy, 'Take Position Event')
+                await tradingSystem.evalFormulas(strategy, 'Take Position Event')
 
                 if (triggerStage !== undefined) {
                     if (triggerStage.takePosition !== undefined) {
@@ -276,7 +276,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     async function runOpenStage() {
 
         checkIfWeNeedToAbortTheStage()
-        runWhenStatusIsOpening()
+        await runWhenStatusIsOpening()
         await runWhenStatusIsOpen()
         await runWhenStatusIsClosing()
 
@@ -293,7 +293,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             }
         }
 
-        function runWhenStatusIsOpening() {
+        async function runWhenStatusIsOpening() {
             /* Opening Status Procedure */
             if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Opening') {
                 /*
@@ -315,7 +315,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.exchangeOrders)
 
                 /* Entry Position size and rate */
-                tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
+                await tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
                 tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngineStage)
                 initializeStageTargetSize()
 
@@ -338,7 +338,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 /* Evaluate conditions and formulas so they are ready during the execution run */
                 tradingSystem.evalConditions(executionNode, 'Open Execution')
-                tradingSystem.evalFormulas(executionNode, 'Open Execution')
+                await tradingSystem.evalFormulas(executionNode, 'Open Execution')
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,
@@ -368,7 +368,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 and cancel the ones that were not. 
                 */
                 tradingSystem.evalConditions(tradingSystemStage, 'Open Execution')
-                tradingSystem.evalFormulas(tradingSystemStage, 'Open Execution')
+                await tradingSystem.evalFormulas(tradingSystemStage, 'Open Execution')
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,
@@ -424,12 +424,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         }
     }
 
-    function runManageStage() {
+    async function runManageStage() {
 
         if (tradingEngine.tradingCurrent.tradingEpisode.cycle.value !== 'First') { return }
 
         runWhenStatusIsOpening()
-        runWhenStatusIsOpen()
+        await runWhenStatusIsOpen()
 
         function runWhenStatusIsOpening() {
             /* Opening Status Procedure */
@@ -455,7 +455,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             }
         }
 
-        function runWhenStatusIsOpen() {
+        async function runWhenStatusIsOpen() {
             /* Open Status Procedure */
             if (tradingEngine.tradingCurrent.strategyManageStage.status.value === 'Open') {
                 checkUserDefinedCode('Manage Stage', 'Running', 'first');
@@ -464,7 +464,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 /* Evaluate all the stage conditions and formulas to have them ready */
                 tradingSystem.evalConditions(manageStage, 'Manage Stage')
-                tradingSystem.evalFormulas(manageStage, 'Manage Stage')
+                await tradingSystem.evalFormulas(manageStage, 'Manage Stage')
 
                 /* Stop Loss Management */
                 checkStopPhasesEvents()
@@ -829,11 +829,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
     async function runCloseStage() {
 
-        runWhenStatusIsOpening()
+        await runWhenStatusIsOpening()
         await runWhenStatusIsOpen()
         await runWhenStatusIsClosing()
 
-        function runWhenStatusIsOpening() {
+        async function runWhenStatusIsOpening() {
 
             /* Opening Status Procedure */
             if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Opening') {
@@ -853,7 +853,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let tradingSystemStage = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value].closeStage
 
                 /* Exit Position size and rate */
-                tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
+                await tradingSystem.evalFormulas(tradingSystemStage, 'Initial Targets')
                 if (tradingPositionModuleObject.initialTargets(tradingSystemStage, tradingEngine.tradingCurrent.strategyCloseStage, 'Close Stage') === false) {
                     //console.log("No Close-Stage Target Asset to Trade: Strategy Closing.");
                 }
@@ -885,7 +885,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let executionNode = tradingSystemStage.closeExecution
 
                 tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
-                tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
+                await tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,
@@ -915,7 +915,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 and cancel the ones that were not.
                 */
                 tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
-                tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
+                await tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,

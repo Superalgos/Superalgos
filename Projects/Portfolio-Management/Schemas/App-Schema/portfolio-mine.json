@@ -1,0 +1,65 @@
+{
+    "type": "Portfolio Mine",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "iconProject": "Foundations",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio Bot",
+            "relatedUiObject": "Portfolio Bot",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Plotter",
+            "relatedUiObject": "Plotter",
+            "relatedUiObjectProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 0,
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioBots",
+            "type": "array",
+            "childType": "Portfolio Bot",
+            "project": "Portfolio-Management"
+        },
+        {
+            "name": "plotters",
+            "type": "array",
+            "childType": "Plotter",
+            "project": "Foundations"
+        }
+    ]
+}

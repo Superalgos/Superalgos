@@ -12,6 +12,16 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add Target Base Size Portfolio Formula",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "targetSizeInBaseAssetPMFormula",
+            "relatedUiObject": "Target Size In Base Asset PM Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -33,6 +43,11 @@
             "type": "node",
             "childType": "Formula",
             "autoAdd": true
+        },
+        {
+            "name": "targetSizeInBaseAssetPMFormula",
+            "type": "node",
+            "childType": "Target Size In Base Asset PM Formula"
         }
     ],
     "propertyNameAtParent": "targetSizeInBaseAsset"

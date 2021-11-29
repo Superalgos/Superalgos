@@ -73,6 +73,15 @@ function newPluginsUtilitiesPlugins() {
             case 'Trading System': {
                 return 'Trading-Systems'
             }
+            case 'Portfolio Engine': {
+                return 'Portfolio-Engines'
+            }
+            case 'Portfolio Mine': {
+                return 'Portfolio-Mines'
+            }
+            case 'Portfolio System': {
+                return 'Portfolio-Systems'
+            }
             case 'Assets': {
                 return 'Assets'
             }

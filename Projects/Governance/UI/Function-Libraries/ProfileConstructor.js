@@ -124,6 +124,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
+
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
                 /*
                 Set up a basic profile to start receiving benefits
                 */
@@ -142,62 +144,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
-
-                /*
-                Check if the user already has the SA fork. If not, do it for them.
-                */
-
-                const hasFork = UI.projects.governance.spaces.userProfileSpace.githubForks.get(githubUsername)
-                if (hasFork === undefined) {
-                    // New user! Probably doesn't have a fork, so let's create it.
-                    let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
-                    if (apisNode === undefined) {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-                    if (apisNode.githubAPI === undefined) {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-
-                    let config = JSON.parse(apisNode.githubAPI.config)
-                    if (config.username === undefined || config.username === "") {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-                    if (config.token === undefined || config.token === "") {
-                        UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
-                        return
-                    }
-
-                    let params = {
-                        method: 'createGithubFork',
-                        username: config.username,
-                        token: config.token,
-                    }
-
-                    let url = 'GOV' // We will access the default Client GOV endpoint.
-
-                    httpRequest(JSON.stringify(params), url, onResponse)
-
-                    function onResponse(err, data) {
-
-                        data = JSON.parse(data)
-                        if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result && data.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Message - Automated User Profile Contribute Done')
-                        } else {
-                            if (data.docs === undefined) { return }
-                            UI.projects.education.spaces.docsSpace.navigateTo(
-                                data.docs.project,
-                                data.docs.category,
-                                data.docs.type,
-                                data.docs.anchor,
-                                undefined,
-                                data.docs.placeholder
-                            )
-                        }
-                    }
-                }
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
@@ -217,10 +163,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 Delete the mnemonic from the Profile Constructor config.
                 */
                 node.config = "{}"
-                /*
-                TODO: Let's create a nice basic profile to start with liquidity and community
-                */
-
                 /*
                 Show nice message.
                 */
@@ -275,6 +217,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         let socialTradingDesktopApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Desktop App')
         let socialTradingMobileApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Mobile App')
         let socialTradingServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Server App')
+        let taskServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Task Server App')
         let socialTradingBots = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userBots, 'Social Trading Bot')
         let socialPersonas = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.socialPersonas, 'Social Persona')
         let p2pNetworkNodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.p2pNetworkNodes, 'P2P Network Node')
@@ -283,6 +226,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         addSigningAccounts(socialTradingDesktopApp, 'Social Trading Desktop App')
         addSigningAccounts(socialTradingMobileApp, 'Social Trading Mobile App')
         addSigningAccounts(socialTradingServerApp, 'Social Trading Server App')
+        addSigningAccounts(taskServerApp, 'Task Server App')
         addSigningAccounts(socialTradingBots, 'Social Trading Bot')
         addSigningAccounts(socialPersonas, 'Social Persona')
         addSigningAccounts(p2pNetworkNodes, 'P2P Network Node')

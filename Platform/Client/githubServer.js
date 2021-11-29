@@ -163,17 +163,14 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
-    async function createGithubFork(repository, username, token) {
+    async function createGithubFork(token) {
         try {
-            username = unescape(username)
             token = unescape(token)
 
             await doGithub()
 
             async function doGithub() {
                 try {
-                    //const repo = 'Superalgos'
-                    //const owner = username
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
                         auth: token,
@@ -334,6 +331,7 @@ exports.newGithubServer = function newGithubServer() {
                             let lastPage = false
 
                             while (lastPage === false) {
+                                page++
                                 await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 let listResponse = await octokit.rest.pulls.listFiles({
                                     owner: owner,

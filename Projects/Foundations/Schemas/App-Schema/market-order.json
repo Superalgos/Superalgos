@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Trading Last->"
+        "compatibleTypes": "->Market Buy Orders->Market Sell Orders->Trading Last->Portfolio Last->"
     },
     "propertyNameAtParent": "marketOrders",
     "childrenNodesProperties": [

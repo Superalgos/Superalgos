@@ -8,24 +8,59 @@
         },
         {
             "style": "Text",
-            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria."
+            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Las pruebas exhaustivas de las estrategias son la base de un Trading exitoso. Superalgos se esfuerza por dejarlo en control de todo el proceso de pruebas proveyéndole de herramientas flexibles que se adecuen a sus requerimientos.",
+                    "updated": 1638229451221
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Depending on how you use the system, how many markets and exchanges you work with, the number of trading systems you use, or the way you choose to test your strategies, you may find yourself with a large number of testing sessions. As explained in the sorting of tasks page, the testing environment helps you organize large numbers of tasks sorting them by exchange, market, and trading mine."
+            "text": "Depending on how you use the system, how many markets and exchanges you work with, the number of trading systems you use, or the way you choose to test your strategies, you may find yourself with a large number of testing sessions. As explained in the sorting of tasks page, the testing environment helps you organize large numbers of tasks sorting them by exchange, market, and trading mine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Dependiendo de cómo utilice el sistema, de con cuántos Markets y Exchanges trabaje, del número de Trading Systems que utilice, o de la forma en que elija probar sus estrategias, puede encontrarse con un gran numero de sesiones de prueba. Como se explica en la página de clasificación de Tasks, el entorno de pruebas le ayuda a organizar numerosas tareas, organizándolas por Exchange, Market y Trading Mine.",
+                    "updated": 1638229700548
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos handles two types of simulated tests: backtesting and paper trading. Backtesting involves testing over historic data, while paper trading is about testing on a live data stream, but without placing orders at the exchange."
+            "text": "Superalgos handles two types of simulated tests: backtesting and paper trading. Backtesting involves testing over historic data, while paper trading is about testing on a live data stream, but without placing orders at the exchange.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos realiza dos tipos de pruebas simuladas: Backtesting y Paper Trading. El Backtesting consiste en realizar pruebas sobre datos históricos, mientras que el Paper Trading consiste en realizar pruebas sobre un flujo de datos en vivo, pero sin colocar ordenes en le Exchange.",
+                    "updated": 1638229850413
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trading sessions are controlled by a number of parameters that determine how the session is run. The built-in parameters provide great control and flexibility as to how to handle data sets and how to produce the resulting simulations."
+            "text": "Trading sessions are controlled by a number of parameters that determine how the session is run. The built-in parameters provide great control and flexibility as to how to handle data sets and how to produce the resulting simulations.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Las sesiones de Trading se controlan mediante una serie de parámetros que determinan cómo se ejecuta la sesión. Los parámetros incorporados proporcionan un gran control y flexibilidad en cuanto a cómo manejar los conjuntos de datos y cómo producir las simulaciones resultantes.",
+                    "updated": 1638230113436
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Please, read on and study the workings of the chain of nodes under the testing environment node. The investment of time is well worth it, as you will learn how to make the most out of the strategy-testing features built-in Superalgos.",
-            "updated": 1609666617978
+            "updated": 1609666617978,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Nota: Por favor, siga leyendo y estudie el funcionamiento de la cadena de nodos bajo el nodo del entorno de pruebas. La inversión de tiempo merece la pena, ya que aprenderá a sacar el máximo partido a las funciones de prueba de estrategias que incorpora Superalgos. ",
+                    "updated": 1638230130805
+                }
+            ]
         },
         {
             "style": "Include",

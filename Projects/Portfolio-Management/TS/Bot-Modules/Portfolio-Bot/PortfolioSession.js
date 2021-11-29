@@ -40,6 +40,7 @@
             } else {
                 VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
             }
+
             /* 
             We will store all session keys on a map so as to be able to send an event to all 
             of them when the task stops. 
@@ -117,12 +118,12 @@
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING = false
                     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP = true
 
-                    setUpSessionFolderName()
+                    setUpSessionFolderName();
 
                     /* We validate all parameters received and complete some that might be missing if needed. */
                     if (checkParemeters() === false) { return }
 
-                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.initialize()
+                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.initialize();
 
                     let allGood
                     switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
@@ -580,6 +581,9 @@
             }
 
             function startLivePortfolio() {
+                for (let key of TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.keys()) {
+                    TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.get(key).beginListening();
+                }
                 return checkKey()
             }
 

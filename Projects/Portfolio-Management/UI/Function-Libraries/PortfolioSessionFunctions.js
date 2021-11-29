@@ -1,6 +1,6 @@
 function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
     let thisObject = {
-        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
+        synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession,
         runManagedSessions: runManagedSessions,
@@ -9,7 +9,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
 
     return thisObject
 
-    function syncronizeSessionWithBackEnd(node) {
+    function synchronizeSessionWithBackEnd(node) {
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -63,11 +63,6 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             /* This means that the validations failed. */
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
-        }
-
-        // Check for Managed-Sessions and run them:
-        if (node.managedSessions !== undefined) {
-            runManagedSessions(node.managedSessions);
         }
 
         let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
@@ -207,6 +202,11 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         if (node.payload.parentNode.payload.parentNode.payload.parentNode.payload.parentNode === undefined) {
             callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             return
+        } else {
+            // Check for Managed-Sessions and run them:
+            if (node.managedSessions !== undefined) {
+                runManagedSessions(node.managedSessions);
+            }
         }
     }
 
@@ -249,7 +249,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         for (let i = 0; i < managedSessions.sessionReference.length; i++) {
             let refParent = managedSessions.sessionReference[i].payload.referenceParent;
             let sessionType = refParent.type;
-            
+
             if (sessionType === 'Live Trading Session'      ||
                 sessionType === 'Backtesting Session'       ||
                 sessionType === 'Forward Testing Session'   ||

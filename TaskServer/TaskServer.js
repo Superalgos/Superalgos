@@ -27,7 +27,8 @@ exports.newTaskServer = function newTaskServer() {
             if (taskId !== undefined) {
                 /* 
                 The Task Manager sent the info via a process argument. In this case we listen to 
-                an event with the Task Info that should be emitted at the UI 
+                an event with the Task Info that should be emitted at the UI;
+                Also here is where any managedTasks will initially be recorded.
                 */
                 try {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server - ' + taskId, 'Run Task', undefined, 'Task Server - ' + taskId, undefined, eventReceived)
@@ -35,9 +36,11 @@ exports.newTaskServer = function newTaskServer() {
                     function eventReceived(message) {
                         try {
                             setUpAppSchema(JSON.parse(message.event.projectSchemas))
-                            TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
-                            TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
-                            bootingProcess()
+                            TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
+                            TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
+                            TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
+                            SA.projects.visualScripting.utilities.nodeFunctions.getManagedSessions(TS.projects.foundations.globals.taskConstants.MANAGED_TASKS);
+                            bootingProcess();
                         } catch (err) {
                             console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
                         }

@@ -29,6 +29,13 @@
                     "folderName": "Trading-Bot"
                 },
                 {
+                    "name": "PM Communication Module - Trading",
+                    "propertyName": "PMCommunicationModule_Trading",
+                    "functionName": "newPMCommunicationModule_Trading",
+                    "fileName": "PMCommunicationModule_Trading.js",
+                    "folderName": "Trading-Bot"
+                },
+                {
                     "name": "Trading Process",
                     "propertyName": "tradingProcess",
                     "functionName": "newAlgorithmicTradingBotModulesTradingProcess",
@@ -165,6 +172,13 @@
         },
         "TS": {
             "botModules": [
+                {
+                    "name": "PM Communication Module - Portfolio",
+                    "propertyName": "PMCommunicationModule_Portfolio",
+                    "functionName": "newPMCommunicationModule_Portfolio",
+                    "fileName": "PMCommunicationModule_Portfolio.js",
+                    "folderName": "Portfolio-Bot"
+                },
                 {
                     "name": "Single Market Portfolio Bot",
                     "propertyName": "singleMarketPortfolioBot",
@@ -1697,7 +1711,7 @@
                     "propertyName": "signal",
                     "functionName": "newSocialTradingModulesSignal",
                     "fileName": "Signal.js"
-                },                
+                },
                 {
                     "name": "Client Interface",
                     "propertyName": "clientInterface",

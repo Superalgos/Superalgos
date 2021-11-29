@@ -961,8 +961,10 @@
                         },
                         "referenceParentCombinedNodePath": [
                             [
-                                "Superalgos",
-                                "Positions"
+                                "Teams of Contributors",
+                                "Positions",
+                                "Governance",
+                                "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                             ]
                         ]
                     }
@@ -1006,7 +1008,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -171,6 +171,26 @@
             ]
         },
         "TS": {
+            "modules": [
+                {
+                    "name": "Portfolio Manager Client",
+                    "propertyName": "portfolioManagerClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerClient",
+                    "fileName": "PortfolioManagerClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Client",
+                    "propertyName": "portfolioManagerEventsClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsClient",
+                    "fileName": "PortfolioManagerEventsClient.js" 
+                },
+                {
+                    "name": "Portfolio Manager Events Interface",
+                    "propertyName": "portfolioManagerEventsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
+                    "fileName": "PortfolioManagerEventsInterface.js" 
+                }
+            ],
             "botModules": [
                 {
                     "name": "PM Communication Module - Portfolio",
@@ -1921,12 +1941,12 @@
             "utilities": []
         },
         "TS": {
-            "botModules": [
+            "modules": [
                 {
-                    "name": "Trading Signals",
-                    "propertyName": "tradingSignals",
-                    "functionName": "newTradingSignalsBotModulesTradingSignals",
-                    "fileName": "TradingSignals.js",
+                    "name": "Outgoing Trading Signals",
+                    "propertyName": "outgoingTradingSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingTradingSignals",
+                    "fileName": "OutgoingTradingSignals.js",
                     "folderName": ""
                 }
             ]

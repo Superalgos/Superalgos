@@ -331,6 +331,7 @@ exports.newGithubServer = function newGithubServer() {
                             let lastPage = false
 
                             while (lastPage === false) {
+                                page++
                                 await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 let listResponse = await octokit.rest.pulls.listFiles({
                                     owner: owner,

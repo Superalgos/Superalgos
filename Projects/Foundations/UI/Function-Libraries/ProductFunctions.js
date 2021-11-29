@@ -41,6 +41,13 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
             for (let i = 0; i < rootNodes.length; i++) {
                 let rootNode = rootNodes[i]
+                if (rootNode.type === 'Portfolio Mine') {
+                    installInPortfolioMine(rootNode)
+                }
+            }
+
+            for (let i = 0; i < rootNodes.length; i++) {
+                let rootNode = rootNodes[i]
                 if (rootNode.type === 'LAN Network') {
                     installInNetworkNodes(rootNode)
                 }
@@ -245,6 +252,72 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
                             for (let j = 0; j < tradingMinePlugin.pluginFiles.length; j++) {
                                 let pluginFile = tradingMinePlugin.pluginFiles[j]
+
+                                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(pluginFile)
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+            function installInPortfolioMine(portfolioMine) {
+                let savePlugin = false
+                for (let j = 0; j < portfolioMine.portfolioBots.length; j++) {
+                    let portfolioBotNode = portfolioMine.portfolioBots[j]
+
+                    for (let k = 0; k < portfolioBotNode.processes.length; k++) {
+                        let process = portfolioBotNode.processes[k]
+
+                        /**
+                         * In case the data mine is not referenced at all, we must add it
+                         */
+
+                        let dataMineDependency = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(process.processDependencies, 'Data Mine Data Dependencies', productDataMineParent)
+
+                        let botDataDependencies = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(dataMineDependency, undefined, productIndicatorBot.name, false, true, false, false)
+
+                        /**
+                         * If Bot Data Dependency exists add Data Dependencies
+                         * Otherwise create the Bot Data Dependency and add Data Dependencies to newly created Bot Data
+                         */
+                        if (botDataDependencies !== undefined) {
+                            addAllDataDependenciesIfNotExists(botDataDependencies)
+                        } else {
+                            let newBotDataDependencies = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataMineDependency, 'Bot Data Dependencies')
+                            newBotDataDependencies.name = productIndicatorBot.name
+                            addAllDataDependenciesIfNotExists(newBotDataDependencies)
+                        }
+
+
+                        function addAllDataDependenciesIfNotExists(botDataDependencies) {
+                            for (let l = 0; l < product.datasets.length; l++) {
+                                let dataset = product.datasets[l]
+
+                                // Explicit check is needed so we know if we have to save the plugin or not
+                                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(botDataDependencies, dataset, true) === true) {
+                                    savePlugin = true
+                                    let dataDependency = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botDataDependencies, 'Data Dependency')
+                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataDependency, dataset)
+                                }
+                            }
+                        }
+                    }
+                }
+                /**
+                 * There is no reason to save the plugin if no modifications have been made to the hierarchy
+                 * We will save the plugin only if we get to the point were we have to add the data dependencies
+                 *
+                 */
+                if (savePlugin) {
+                    for (let i = 0; i < rootNodes.length; i++) {
+                        let rootNode = rootNodes[i]
+                        if (rootNode.type === 'Plugins') {
+                            let portfolioMinePlugin = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(rootNode, 'Plugin Portfolio Mines', undefined, false, true, false, false)
+
+                            for (let j = 0; j < portfolioMinePlugin.pluginFiles.length; j++) {
+                                let pluginFile = portfolioMinePlugin.pluginFiles[j]
 
                                 UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(pluginFile)
                             }

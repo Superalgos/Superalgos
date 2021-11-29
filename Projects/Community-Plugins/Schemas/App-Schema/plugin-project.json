@@ -54,6 +54,12 @@
             "autoAdd": false
         },
         {
+            "name": "pluginPortfolioMines",
+            "type": "node",
+            "childType": "Plugin Portfolio Mines",
+            "autoAdd": false
+        },
+        {
             "name": "pluginLearningMines",
             "type": "node",
             "childType": "Plugin Learning Mines",
@@ -66,6 +72,12 @@
             "autoAdd": false
         },
         {
+            "name": "pluginPortfolioSystems",
+            "type": "node",
+            "childType": "Plugin Portfolio Systems",
+            "autoAdd": false
+        },
+        {
             "name": "pluginLearningSystems",
             "type": "node",
             "childType": "Plugin Learning Systems",
@@ -75,6 +87,12 @@
             "name": "pluginTradingEngines",
             "type": "node",
             "childType": "Plugin Trading Engines",
+            "autoAdd": false
+        },
+        {
+            "name": "pluginPortfolioEngines",
+            "type": "node",
+            "childType": "Plugin Portfolio Engines",
             "autoAdd": false
         },
         {

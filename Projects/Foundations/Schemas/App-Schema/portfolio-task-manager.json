@@ -1,0 +1,58 @@
+{
+    "type": "Portfolio Task Manager",
+    "menuItems": [
+        {
+            "action": "Run All Tasks",
+            "label": "Run All Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Tasks",
+            "label": "Stop All Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio Task",
+            "relatedUiObject": "Portfolio Task",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "Portfolio Mine Tasks->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioTasks",
+            "type": "array",
+            "childType": "Portfolio Task",
+            "autoAdd": false,
+            "monitorChildrenRunning": true
+        }
+    ],
+    "propertyNameAtParent": "portfolioTaskManagers"
+}

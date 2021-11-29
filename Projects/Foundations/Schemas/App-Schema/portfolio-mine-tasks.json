@@ -1,0 +1,75 @@
+{
+    "type": "Portfolio Mine Tasks",
+    "menuItems": [
+        {
+            "action": "Run All Task Managers",
+            "label": "Run All Task Managers",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Task Managers",
+            "label": "Stop All Task Managers",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Task Manager",
+            "relatedUiObject": "Portfolio Task Manager",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add All Tasks",
+            "label": "Add All Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Portfolio Task",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Portfolio Mine->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market Portfolio Tasks->"
+    },
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "propertyNameAtParent": "portfolioMineTasks",
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioTaskManagers",
+            "type": "array",
+            "childType": "Portfolio Task Manager",
+            "monitorChildrenRunning": true
+        }
+    ]
+}

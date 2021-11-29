@@ -1,0 +1,139 @@
+{
+    "type": "Portfolio Episode",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Current->"
+    },
+    "propertyNameAtParent": "portfolioEpisode",
+    "childrenNodesProperties": [
+        {
+            "name": "serialNumber",
+            "type": "node",
+            "childType": "Serial Number",
+            "autoAdd": true
+        },
+        {
+            "name": "identifier",
+            "type": "node",
+            "childType": "Identifier",
+            "autoAdd": true
+        },
+        {
+            "name": "begin",
+            "type": "node",
+            "childType": "Begin",
+            "autoAdd": true
+        },
+        {
+            "name": "end",
+            "type": "node",
+            "childType": "End",
+            "autoAdd": true
+        },
+        {
+            "name": "beginRate",
+            "type": "node",
+            "childType": "Begin Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "endRate",
+            "type": "node",
+            "childType": "End Rate",
+            "autoAdd": true
+        },
+        {
+            "name": "status",
+            "type": "node",
+            "childType": "Status",
+            "autoAdd": true
+        },
+        {
+            "name": "exitType",
+            "type": "node",
+            "childType": "Exit Type",
+            "autoAdd": true
+        },
+        {
+            "name": "headOfTheMarket",
+            "type": "node",
+            "childType": "Head Of The Market",
+            "autoAdd": true
+        },
+        {
+            "name": "processDate",
+            "type": "node",
+            "childType": "Process Date",
+            "autoAdd": true
+        },
+        {
+            "name": "episodeBaseAsset",
+            "type": "node",
+            "childType": "Episode Base Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "episodeQuotedAsset",
+            "type": "node",
+            "childType": "Episode Quoted Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "portfolioEpisodeCounters",
+            "type": "node",
+            "childType": "Portfolio Episode Counters",
+            "autoAdd": true
+        },
+        {
+            "name": "portfolioEpisodeStatistics",
+            "type": "node",
+            "childType": "Portfolio Episode Statistics",
+            "autoAdd": true
+        },
+        {
+            "name": "distanceToPortfolioEvent",
+            "type": "node",
+            "childType": "Distance To Portfolio Event",
+            "autoAdd": true
+        },
+        {
+            "name": "candle",
+            "type": "node",
+            "childType": "Candle",
+            "autoAdd": true
+        },
+        {
+            "name": "cycle",
+            "type": "node",
+            "childType": "Cycle",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedVariables",
+            "type": "node",
+            "childType": "User Defined Variables",
+            "autoAdd": false
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "type": "Portfolio Episode Statistics",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add User Defined Statistic",
+            "relatedUiObject": "User Defined Statistic",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Episode->"
+    },
+    "propertyNameAtParent": "portfolioEpisodeStatistics",
+    "childrenNodesProperties": [
+        {
+            "name": "profitLoss",
+            "type": "node",
+            "childType": "Profit Loss",
+            "autoAdd": true
+        },
+        {
+            "name": "ROI",
+            "type": "node",
+            "childType": "ROI",
+            "autoAdd": true
+        },
+        {
+            "name": "hitFail",
+            "type": "node",
+            "childType": "Hit Fail",
+            "autoAdd": true
+        },
+        {
+            "name": "days",
+            "type": "node",
+            "childType": "Days",
+            "autoAdd": true
+        },
+        {
+            "name": "annualizedRateOfReturn",
+            "type": "node",
+            "childType": "Annualized Rate Of Return",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedStatistics",
+            "type": "array",
+            "childType": "User Defined Statistic",
+            "autoAdd": true
+        }
+    ]
+}

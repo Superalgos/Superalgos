@@ -21,13 +21,13 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     }
 
     async function askPortfolioEventsManager(eventNode, eventStatus) {
-        let reponse = {
+        let response = {
             raiseEvent: eventStatus,
             reason: "No need to ask Portfolio Manager"
         }
 
         if (eventNode.askPortfolioEventsManager === undefined) {
-            return reponse
+            return response
         }
 
         if (eventStatus === true) {
@@ -40,7 +40,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
                     question: "Confirm This Event Can Be Raised",
                     event: eventNode.type
                 }
-                reponse = await portfolioManagerEventsClient.sendMessage(message)
+                response = await portfolioManagerEventsClient.sendMessage(message)
             }
         } else {
             /*
@@ -52,23 +52,23 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
                     question: "Must This Event Be Raised",
                     event: eventNode.type
                 }
-                reponse = await portfolioManagerEventsClient.sendMessage(message)
+                response = await portfolioManagerEventsClient.sendMessage(message)
             }
         }
         return response
     }
 
     async function askPortfolioFormulaManager(formulaParentNode, formulaValue) {
-        let reponse = {
+        let response = {
             value: formulaValue,
             reason: "No need to ask Portfolio Manager"
         }
 
         if (formulaParentNode === undefined) {
-            return reponse
+            return response
         }
         if (formulaParentNode.askPortfolioFormulaManager === undefined) {
-            return reponse
+            return response
         }
 
         if (formulaValue === true) {
@@ -81,7 +81,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
                     question: "Confirm This Formula Value",
                     formula: formulaParentNode.type
                 }
-                reponse = await portfolioManagerEventsClient.sendMessage(message)
+                response = await portfolioManagerEventsClient.sendMessage(message)
             }
         } else {
             /*
@@ -93,7 +93,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
                     question: "Give me a Value for this Formula",
                     formula: formulaParentNode.type
                 }
-                reponse = await portfolioManagerEventsClient.sendMessage(message)
+                response = await portfolioManagerEventsClient.sendMessage(message)
             }
         }
         return response

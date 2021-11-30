@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Der Aktualisierungsprozess wurde erfolgreich durchgeführt, aber es wurden keine Änderungen vorgenommen, da Ihre Installation mit dem aktuellen Zweig auf dem neuesten Stand ist. Es sind keine weiteren Maßnahmen erforderlich.",
                 "updated": 1634485256076
+            },
+            {
+                "language": "RU",
+                "text": "Процесс обновления выполняется успешно, но никаких изменений внесено не было, поскольку ваша установка обновлена ​​до последней версии текущей ветки. Никаких дополнительных действий не требуется.",
+                "updated": 1638164055897
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Sie sind auf dem neuesten Stand. Sie müssen den Client nicht neu starten oder die UI-Website aktualisieren.",
                     "updated": 1634485290648
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы в курсе. Нет необходимости перезагружать Client или обновлять страницу пользовательского интерфейса UI.",
+                    "updated": 1638164108426
                 }
             ]
         }

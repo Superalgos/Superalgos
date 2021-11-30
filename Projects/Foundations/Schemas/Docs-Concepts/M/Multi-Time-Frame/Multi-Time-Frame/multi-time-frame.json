@@ -2,7 +2,14 @@
     "type": "Multi-Time-Frame",
     "definition": {
         "text": "This is a way to refer to all the Dataset Types that contain files for each Time Frame, from 1 minute up to 24hs.",
-        "updated": 1622052585046
+        "updated": 1622052585046,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это способ ссылаться на все типы наборов данных Dataset Types, которые содержат файлы для каждого Time Frame, от 1 минуты до 24 часов.",
+                "updated": 1638285931082
+            }
+        ]
     },
     "paragraphs": [
         {

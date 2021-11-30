@@ -2,12 +2,26 @@
     "type": "Current Workspace",
     "definition": {
         "text": "The Current Workspace is the Workspace currently loaded in the UI. It may be either a User Workspace or a Plugin Workspace.",
-        "updated": 1629993045840
+        "updated": 1629993045840,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Current Workspace - это рабочая область Workspace, загруженная в данный момент в пользовательский интерфейс UI. Это может быть рабочая область пользователя или рабочая область плагина Plugin Workspace.",
+                "updated": 1638281407653
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638281450230
+                }
+            ]
         }
     ]
 }

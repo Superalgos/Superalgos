@@ -2,12 +2,26 @@
     "type": "Superalgos Project",
     "definition": {
         "text": "The Superalgos Project is the open Community, together with its body of work.",
-        "updated": 1637684804458
+        "updated": 1637684804458,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos Project - это открытое сообщество (Community), вместе с его основной деятельностью.",
+                "updated": 1638298647232
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638298676197
+                }
+            ]
         }
     ]
 }

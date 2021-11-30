@@ -8,29 +8,71 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox."
+            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El objetivo de Superalgos es proporcionar una caja de herramientas flexible y robusta para el despliegue de Bots de Trading.",
+                    "updated": 1638231089789
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "With Superalgos, you may deploy as many trading bots as you wish and have them running on a single computer or in as many machines as you wish, in a Trading Farm type of setup. To help with the management of large numbers of live trading sessions, the system helps you with sorting tasks by exchange, market, and trading mine.",
-            "updated": 1609666769136
+            "updated": 1609666769136,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Con Superalgos, puede desplegar tantos Bots de Trading como desee y tenerlos funcionando en un solo ordenador o en tantas máquinas como desee, en configuración tipo Trading Farm. Para facilitar la gestión de un gran número de sesiones de Live Trading, el sistema le ayuda clasificando los Tasks por Exchange, Market y Trading Mine.",
+                    "updated": 1638232121992
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The production environment works pretty much in the same way as the testing environment, save for two important differences:"
+            "text": "The production environment works pretty much in the same way as the testing environment, save for two important differences:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El entorno de producción funciona prácticamente igual que el entorno de pruebas, salvo dos importantes diferencias:",
+                    "updated": 1638231864491
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The production environment runs forward testing and live trading sessions, instead of backtesting and paper trading sessions."
+            "text": "The production environment runs forward testing and live trading sessions, instead of backtesting and paper trading sessions.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El entorno de producción ejecuta sesiones de Forward Testing y Live Trading, en lugar de sesiones de Backtesting y Paper Trading.",
+                    "updated": 1638231872129
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "These two types of sessions involve monetary transactions at the exchange, thus require the set up of a key reference to authenticate your account with the exchange."
+            "text": "These two types of sessions involve monetary transactions at the exchange, thus require the set up of a key reference to authenticate your account with the exchange.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos dos tipos de sesiones implican transacciones monetarias en el Exchange, por lo que requieren la configuración de una clave de referencia para autenticar su cuenta con el Exchange.",
+                    "updated": 1638231889246
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If you are familiar with Testing Trading Tasks, there isn’t much more to learn to understand Production Trading Tasks. If you are not familiar with either, please refer to the Testing Trading Tasks Section page for the details.",
-            "updated": 1610111338574
+            "updated": 1610111338574,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si está familiarizado con los Testing Trading Tasks, no hay mucho más que aprender para entender los Production Trading Tasks. Si no está familiarizado con ninguno de los dos, consulte la sección Testing Trading Tasks para conocer los detalles.",
+                    "updated": 1638232027145
+                }
+            ]
         },
         {
             "style": "Include",

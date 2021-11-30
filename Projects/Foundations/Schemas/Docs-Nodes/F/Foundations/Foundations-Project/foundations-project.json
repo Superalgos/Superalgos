@@ -1,7 +1,14 @@
 {
     "type": "Foundations Project",
     "definition": {
-        "text": "The Foundations Project hierarchy governs the assets that relate to Superalgos. In its current state, it serves the purpose of spawning hierarchies."
+        "text": "The Foundations Project hierarchy governs the assets that relate to Superalgos. In its current state, it serves the purpose of spawning hierarchies.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия Foundations Project управляет ресурсами, относящимися к Superalgos. В своем нынешнем состоянии он служит для создания иерархий.",
+                "updated": 1638276594051
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos is a multi-project platform meaning that other crypto-projects may be integrated. It is in this context that project-specific hierarchies exist."
+            "text": "Superalgos is a multi-project platform meaning that other crypto-projects may be integrated. It is in this context that project-specific hierarchies exist.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это многопроектная платформа, что означает, что другие криптопроекты могут быть интегрированы. Именно в этом контексте существуют иерархии для конкретных проектов.",
+                    "updated": 1638276710567
+                }
+            ]
         },
         {
             "style": "Text",

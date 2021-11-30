@@ -10,6 +10,11 @@
                 "text": "Tunggu Sebentar!. Aplikasi ini sedang memeriksa cabang repositori Superalgos saat ini untuk versi terbaru.",
                 "updated": 1613891554016,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Приложение проверяет выбранную вами текущую ветку репозитория Superalgos на наличие новой версии. Подождите!",
+                "updated": 1638270909634
             }
         ]
     },

@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Un hierarchyes una estructura de datos que representa un concepto general de nivel superior, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico.",
                 "updated": 1628044685355
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия - это структура данных, представляющая всеобъемлющую концепцию верхнего уровня, приводящую к длинной цепочке узлов, обычно с множеством ответвлений. Система управляет разными типами иерархий, каждая из которых имеет определенную направленность.",
+                "updated": 1638271428517
             }
         ]
     },
@@ -17,17 +22,38 @@
         {
             "style": "Text",
             "text": " In the design space, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace.",
-            "updated": 1609944331184
+            "updated": 1609944331184,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В пространстве дизайна головной или родительский узел каждой иерархии представлен соответствующим значком, окруженным вездесущим белым кольцом, чтобы их было легче найти в рабочей области.",
+                    "updated": 1638271513449
+                }
+            ]
         },
         {
             "style": "Important",
             "text": " Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609945802943
+            "updated": 1609945802943,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархии, включенные в рабочую область как плагины, не сохраняются на уровне рабочей области. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
+                    "updated": 1638271545874
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Foundations Project",
-            "updated": 1609945005370
+            "updated": 1609945005370,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основание проекта",
+                    "updated": 1638271640164
+                }
+            ]
         },
         {
             "style": "Include",
@@ -42,7 +68,14 @@
         {
             "style": "Title",
             "text": "Design Space",
-            "updated": 1609945819410
+            "updated": 1609945819410,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пространство дизайна",
+                    "updated": 1638271684951
+                }
+            ]
         },
         {
             "style": "Include",
@@ -56,7 +89,14 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Ecosystem"
+            "text": "Crypto Ecosystem",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Крипто-экосистема",
+                    "updated": 1638271776307
+                }
+            ]
         },
         {
             "style": "Include",
@@ -71,7 +111,14 @@
         {
             "style": "Title",
             "text": "LAN Network",
-            "updated": 1609945037649
+            "updated": 1609945037649,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сеть LAN",
+                    "updated": 1638271804445
+                }
+            ]
         },
         {
             "style": "Include",
@@ -86,7 +133,14 @@
         {
             "style": "Title",
             "text": "Charting Space",
-            "updated": 1609945048562
+            "updated": 1609945048562,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пространство графиков",
+                    "updated": 1638271838107
+                }
+            ]
         },
         {
             "style": "Include",
@@ -101,7 +155,14 @@
         {
             "style": "Title",
             "text": "Trading System",
-            "updated": 1609945101604
+            "updated": 1609945101604,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговая система",
+                    "updated": 1638271851609
+                }
+            ]
         },
         {
             "style": "Include",
@@ -115,7 +176,14 @@
         },
         {
             "style": "Title",
-            "text": "Trading Mine"
+            "text": "Trading Mine",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговая шахта",
+                    "updated": 1638272155709
+                }
+            ]
         },
         {
             "style": "Include",
@@ -130,7 +198,14 @@
         {
             "style": "Title",
             "text": "Trading Engine",
-            "updated": 1609945113032
+            "updated": 1609945113032,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый движок",
+                    "updated": 1638272006167
+                }
+            ]
         },
         {
             "style": "Include",
@@ -145,7 +220,14 @@
         {
             "style": "Title",
             "text": "Data Mine",
-            "updated": 1609945134789
+            "updated": 1609945134789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шахта данных",
+                    "updated": 1638272244746
+                }
+            ]
         },
         {
             "style": "Include",
@@ -160,7 +242,14 @@
         {
             "style": "Title",
             "text": "Plugins",
-            "updated": 1609945527199
+            "updated": 1609945527199,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плагины",
+                    "updated": 1638272272298
+                }
+            ]
         },
         {
             "style": "Include",
@@ -175,7 +264,14 @@
         {
             "style": "Title",
             "text": "Tutorial",
-            "updated": 1609946064589
+            "updated": 1609946064589,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебное пособие",
+                    "updated": 1638272344887
+                }
+            ]
         },
         {
             "style": "Include",
@@ -190,7 +286,14 @@
         {
             "style": "Title",
             "text": "Super Scripts",
-            "updated": 1609945544452
+            "updated": 1609945544452,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Супер скрипты",
+                    "updated": 1638272376658
+                }
+            ]
         },
         {
             "style": "Include",

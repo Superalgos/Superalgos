@@ -73,11 +73,13 @@ exports.newDesktopApp = function newDesktopApp() {
 
             /* TODO refactor this into something better */
 
-            require('./UI/WebAppPreLoader').loadSuperalgos();
+            /*
+                        require('./src/UI/WebAppPreLoader').loadSuperalgos();
+            */
 
-            /*            let react = require('./scripts/start');
-            react.start(JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort);*/
-
+ /*           let react = require('./scripts/start');
+            react.start(JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort);
+*/
 
             /*            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
                         thisObject.httpInterface.initialize()*/

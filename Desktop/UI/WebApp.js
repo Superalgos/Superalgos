@@ -5,7 +5,7 @@ function newWebApp() {
     Everything is being coded here until some structure emerges. 
     */
     let thisObject = {
-        messageReceived: messageReceived,
+        messageReceived: messageReceived, 
         initialize: initialize,
         finalize: finalize
     }
@@ -21,7 +21,6 @@ function newWebApp() {
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
             await UI.projects.socialTrading.modules.webSocketsWebAppClient.initialize()
-            // loadReactDom();
             loadWUserProfileTimeline()
             loadWhoToFollow()
             setupEventHandlers()
@@ -101,15 +100,6 @@ function newWebApp() {
         }
     }
 
-    async function loadReactDom() {
-
-        reactReqs.ReactDOM.render(
-            reactReqs.ReactBase,
-            document.getElementById('root')
-        );
-
-    }
-
     async function loadWUserProfileTimeline() {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
@@ -173,7 +163,8 @@ function newWebApp() {
                     postDiv.appendChild(textNode)
                     contentDiv.appendChild(postDiv)
                 }
-            } catch (err) {
+            }
+            catch (err) {
                 console.log('[ERROR] err.stack = ' + err.stack)
             }
         }
@@ -294,7 +285,6 @@ function newWebApp() {
                         function updateTextArea() {
                             textArea.value = ""
                         }
-
                         break
                     }
                     case 'Follow Profile': {
@@ -312,7 +302,6 @@ function newWebApp() {
                             button.setAttribute("class", "profile-to-unfollow-button")
                             button.name = 'Unfollow Profile'
                         }
-
                         break
                     }
                     case 'Unfollow Profile': {
@@ -330,7 +319,6 @@ function newWebApp() {
                             button.setAttribute("class", "profile-to-follow-button")
                             button.name = 'Follow Profile'
                         }
-
                         break
                     }
                 }

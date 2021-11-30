@@ -1,29 +1,34 @@
 
-exports.newWebAppLoader = (UI) => {
+function newWebAppLoader() {
 
-    try {
-        let modulesArray = [
-            'WebDebugLog.js',
-            'WebApp.js'
-        ]
+    let thisObject = {
+        loadModules: loadModules
+    }
 
-        for (let i = 0; i < UI.schemas.projectSchema.length; i++) {
-            let project = UI.schemas.projectSchema[i]
+    return thisObject
 
-            if (project.UI !== undefined) {
-                if (project.UI.functionLibraries !== undefined) {
-                    for (let j = 0; j < project.UI.functionLibraries.length; j++) {
-                        let fileName = project.UI.functionLibraries[j].fileName
-                        if (fileName === undefined) {
-                            fileName = project.UI.functionLibraries[j].name.replaceAll(' ', '') + '.js'
+    async function loadModules() {
+        try {
+            let modulesArray = [
+                'WebDebugLog.js',
+                'WebApp.js'
+            ]
+
+            for (let i = 0; i < UI.schemas.projectSchema.length; i++) {
+                let project = UI.schemas.projectSchema[i]
+
+                if (project.UI !== undefined) {
+                    if (project.UI.functionLibraries !== undefined) {
+                        for (let j = 0; j < project.UI.functionLibraries.length; j++) {
+                            let fileName = project.UI.functionLibraries[j].fileName   
+                            if (fileName === undefined) {fileName = project.UI.functionLibraries[j].name.replaceAll(' ', '') + '.js'}                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
                         }
-                        modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
                     }
-                }
-                if (project.UI.utilities !== undefined) {
-                    for (let j = 0; j < project.UI.utilities.length; j++) {
-                        let fileName = project.UI.utilities[j].fileName
-                        if (fileName === undefined) {fileName = project.UI.utilities[j].name.replaceAll(' ', '') + '.js'}
+                    if (project.UI.utilities !== undefined) {
+                        for (let j = 0; j < project.UI.utilities.length; j++) {
+                            let fileName = project.UI.utilities[j].fileName        
+                            if (fileName === undefined) {fileName = project.UI.utilities[j].name.replaceAll(' ', '') + '.js'}                                     
                             modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Utilities' + '/' + fileName)
                         }
                     }
@@ -104,9 +109,10 @@ exports.newWebAppLoader = (UI) => {
                     }
                 }
             }
-    } catch (err) {
-        console.log('[ERROR] loadModules -> err = ' + err.stack)
-    }
 
+        } catch (err) {
+            console.log('[ERROR] loadModules -> err = ' + err.stack)
+        }
+    }
 }
 

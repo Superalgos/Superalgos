@@ -1,6 +1,6 @@
 /* Root object*/
 /* Root objects*/
-exports.UI = {
+let UI = {
     projects: {},
     schemas: { projectSchema: undefined },
     environment: undefined,
@@ -8,7 +8,10 @@ exports.UI = {
     webApp: undefined
 }
 
-exports.SA = { projects: {} }
-
+let SA = { projects: {} }
+/*
+We will use this to load functions originally intended for Nodejs
+*/
+let exports = {}
 
 

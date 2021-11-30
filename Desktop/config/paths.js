@@ -62,12 +62,11 @@ module.exports = {
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('Desktop/src'),
     appNodeModules: resolveApp('node_modules'),
-    globals: resolveApp('Desktop/UI/Globals'),
-    projects: resolveApp('Projects'),
-    environment: resolveApp('Environments'),
-    schema: resolveApp('Projects/ProjectsSchema'),
     publicUrlOrPath,
 };
-
+/*    globals: resolveApp('Desktop/UI/Globals'),
+    projects: resolveApp('Projects'),
+    environment: resolveApp('Environments'),
+    schema: resolveApp('Projects/ProjectsSchema'),*/
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

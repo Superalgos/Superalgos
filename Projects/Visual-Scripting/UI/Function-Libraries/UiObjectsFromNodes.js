@@ -1,8 +1,9 @@
 function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let thisObject = {
-        syncronizeTasksFoundAtWorkspaceWithBackEnd: syncronizeTasksFoundAtWorkspaceWithBackEnd,
-        syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd: syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
-        syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd: syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
+        synchronizeTasksFoundAtWorkspaceWithBackEnd: synchronizeTasksFoundAtWorkspaceWithBackEnd,
+        synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd: synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd,
+        synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd: synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd,
+        synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd: synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd,
         playTutorials: playTutorials,
         recreateWorkspace: recreateWorkspace,
         getNodeById: getNodeById,
@@ -16,6 +17,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let mapOfNodes
     let tasksFoundAtWorkspace
     let tradingSessionsFoundAtWorkspace
+    let portfolioSessionsFoundAtWorkspace
     let learningSessionsFoundAtWorkspace
     let tutorialsToPlay
 
@@ -29,6 +31,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         mapOfNodes = new Map()
         tasksFoundAtWorkspace = []
         tradingSessionsFoundAtWorkspace = []
+        portfolioSessionsFoundAtWorkspace = []
         learningSessionsFoundAtWorkspace = []
         tutorialsToPlay = []
 
@@ -83,6 +86,18 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                         if (project.pluginTradingEngines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginTradingEngines.pluginFiles.length
                             pluginAllTheseFiles(project.pluginTradingEngines.pluginFiles, 'Trading-Engines')
+                        }
+                        if (project.pluginPortfolioMines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPortfolioMines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPortfolioMines.pluginFiles, 'Portfolio-Mines')
+                        }
+                        if (project.pluginPortfolioSystems !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPortfolioSystems.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPortfolioSystems.pluginFiles, 'Portfolio-Systems')
+                        }
+                        if (project.pluginPortfolioEngines !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginPortfolioEngines.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginPortfolioEngines.pluginFiles, 'Portfolio-Engines')
                         }
                         if (project.pluginLearningMines !== undefined) {
                             totalPlugin = totalPlugin + project.pluginLearningMines.pluginFiles.length
@@ -179,7 +194,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                 return
                             }
 
-                            /* 
+                            /*
                             If the workspace already contains a root node with the id of the head of the hierarchy
                             we are loading, we remove it because the plugin file has precedence.
                             */
@@ -193,7 +208,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             }
                             receivedNode.isPlugin = true
                             /*
-                            We will force the Plugin codeName to the same to the fileName.                             
+                            We will force the Plugin codeName to the same to the fileName.
                             */
                             let config
                             try {
@@ -262,26 +277,34 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         }
     }
 
-    function syncronizeTasksFoundAtWorkspaceWithBackEnd() {
+    function synchronizeTasksFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tasksFoundAtWorkspace.length; i++) {
             let node = tasksFoundAtWorkspace[i]
-            UI.projects.foundations.functionLibraries.taskFunctions.syncronizeTaskWithBackEnd(node)
+            UI.projects.foundations.functionLibraries.taskFunctions.synchronizeTaskWithBackEnd(node)
         }
         tasksFoundAtWorkspace = undefined
     }
 
-    function syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
+    function synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < tradingSessionsFoundAtWorkspace.length; i++) {
             let node = tradingSessionsFoundAtWorkspace[i]
-            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.algorithmicTrading.functionLibraries.tradingSessionFunctions.synchronizeSessionWithBackEnd(node)
         }
         tradingSessionsFoundAtWorkspace = undefined
     }
 
-    function syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
+    function synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd() {
+        for (let i = 0; i < portfolioSessionsFoundAtWorkspace.length; i++) {
+            let node = portfolioSessionsFoundAtWorkspace[i]
+            UI.projects.portfolioManagement.functionLibraries.portfolioSessionFunctions.synchronizeSessionWithBackEnd(node)
+        }
+        portfolioSessionsFoundAtWorkspace = undefined
+    }
+
+    function synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd() {
         for (let i = 0; i < learningSessionsFoundAtWorkspace.length; i++) {
             let node = learningSessionsFoundAtWorkspace[i]
-            UI.projects.machineLearning.functionLibraries.learningSessionFunctions.syncronizeSessionWithBackEnd(node)
+            UI.projects.machineLearning.functionLibraries.learningSessionFunctions.synchronizeSessionWithBackEnd(node)
         }
         learningSessionsFoundAtWorkspace = undefined
     }
@@ -376,7 +399,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                             }
                                             break
                                         }
-                                        // If child node is in an array look for it 
+                                        // If child node is in an array look for it
                                         case 'array': {
                                             if (node[property.name] !== undefined) {
                                                 let nodePropertyArray = node[property.name]
@@ -466,6 +489,15 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         }
 
         if (
+            node.type === 'Portfolio Engine' ||
+            node.type === 'Portfolio Mine' ||
+            node.type === 'Portfolio System' ||
+            node.type === 'Portfolio Bot'
+        ) {
+            node.project = "Portfolio-Management"
+        }
+
+        if (
             node.type === 'Learning Engine' ||
             node.type === 'Learning Mine' ||
             node.type === 'Learning System' ||
@@ -477,9 +509,12 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         if (
             node.type === 'Plugins' ||
             node.type === 'Plugin Tutorials' ||
-            node.type === 'Plugin Trading Systems' ||
-            node.type === 'Plugin Trading Mines' ||
-            node.type === 'Plugin Trading Engines' ||
+            node.type === 'Plugin Trading Systems'  ||
+            node.type === 'Plugin Trading Mines'    ||
+            node.type === 'Plugin Trading Engines'  ||
+            node.type === 'Plugin Portfolio Systems' ||
+            node.type === 'Plugin Portfolio Mines'  ||
+            node.type === 'Plugin Portfolio Engines' ||
             node.type === 'Plugin Project' ||
             node.type === 'Plugin Learning Systems' ||
             node.type === 'Plugin Learning Mines' ||
@@ -492,9 +527,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
             node.project = "Community-Plugins"
         }
 
-        /* 
+        /*
         This function can be called with a positionOffset to change the node
-        saved position and all of its descendants positions as well with an 
+        saved position and all of its descendants positions as well with an
         offset. It can also happen that the positionOffset is defined as a property
         of the node, in which case it will produce exactly the same effect.
         */
@@ -937,6 +972,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
             if (uiObjectType === 'Live Trading Session' || uiObjectType === 'Forward Testing Session' || uiObjectType === 'Backtesting Session' || uiObjectType === 'Paper Trading Session') {
                 if (tradingSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
                     tradingSessionsFoundAtWorkspace.push(node)
+                }
+            }
+            if (uiObjectType === 'Live Portfolio Session') {
+                if (portfolioSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
+                    portfolioSessionsFoundAtWorkspace.push(node)
                 }
             }
             if (uiObjectType === 'Learning Session') {

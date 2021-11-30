@@ -1,0 +1,34 @@
+{
+    "type": "Current projects",
+    "definition": {
+        "text": "The table below contains all current projects to which you can add new docs-articles. Feel free to add projects if they are missing.",
+        "updated": 1638112235073
+    },
+    "paragraphs": [
+        {
+            "style": "Table",
+            "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
+            "updated": 1638116155258,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "|Project|Project Explanation|\n|Algorithmic-Trading|Project Explanation|\n|Community-Plugins|Project Explanation|\n|Data-Mining|Project Explanation|\n|Education|This Project is about building up and maintaining the Docs (-Articles)|\n|Ethereum|Project Explanation|\n|Foundations|Project Explanation|\n|Governance|Manages and organizes the Superalgos Project (All of us, the community)|\n|Machine-Learning|Project Explanation|\n|Network|Project Explanation|\n|Social-Bots|Project Explanation|\n|Social-Trading|Project Explanation|\n|TensorFlow|Project Explanation|\n|Visual-Scripting|Project Explanation|",
+                    "updated": 1638115499301
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Created and maintained by gitforkgit.",
+            "updated": 1638112659687
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

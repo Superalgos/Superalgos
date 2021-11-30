@@ -44,7 +44,7 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Trading Strategy->"
+        "compatibleTypes": "->Trading Strategy->Portfolio Strategy->"
     },
     "childrenNodesProperties": [
         {

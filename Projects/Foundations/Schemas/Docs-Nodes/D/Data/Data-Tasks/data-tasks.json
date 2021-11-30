@@ -4,21 +4,49 @@
         {
             "style": "Text",
             "text": "Having access to quality information is a crucial element of trading. For that reason, Superalgos strives to give users full control over how, where, and when data is processed. You will use this section of the network hierarchy to exert that control.",
-            "updated": 1609613582225
+            "updated": 1609613582225,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tener acceso a información de calidad es un elemento crucial en el trading. Por esta razón, Superalgos se esfuerza en dar a los usuarios total control sobre cómo, dónde, y cuándo se procesan los datos. Utilizarás esta sección de la jerarquía del nodo Network para ejercer este control.",
+                    "updated": 1638156495599
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Data mining is done through tasks running instances of sensor and indicator bots. The data structure under this node allows organizing the data mining operation by project, exchange, market, and data mine.",
-            "updated": 1609618336656
+            "updated": 1609618336656,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Data mining se realiza a través de tareas que ejecutan instancias de Sensor Bots e Indicator Bots. La estructura de datos bajo este nodo permite organizar las operaciones de Data mining por Projecto, Exchange, Market y Data Mine.",
+                    "updated": 1638156512510
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The setup of the data mining operation may be done using the Install Market function of the market you wish to install as defined in the Crypto Ecosystem hierarchy under the exchange markets node.",
-            "updated": 1609618361260
+            "updated": 1609618361260,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La configuración de la operación de Data mining se puede realizar usando la función Install Market del Market que se desea instalar definido en la jerarquía del Crypto Ecosystem, bajo el nodo de mercado del exchange.",
+                    "updated": 1638156525730
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also set up data mining tasks by using the different functions in this section of the hierarchy, starting with the options in the menu of this node. This route offers finer control over what tasks you set up, and how."
+            "text": "You may also set up data mining tasks by using the different functions in this section of the hierarchy, starting with the options in the menu of this node. This route offers finer control over what tasks you set up, and how.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Se pueden establecer tareas de Data mining a través de las diferentes funciones en esta sección de la jerarquía, comenzando con las opciones del menú de este nodo. Esta ruta ofrece un control más preciso sobre qué tareas se configuran y cómo.",
+                    "updated": 1638156530776
+                }
+            ]
         },
         {
             "style": "Include",

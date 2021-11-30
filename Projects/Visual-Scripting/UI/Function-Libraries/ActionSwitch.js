@@ -43,15 +43,19 @@ function newVisualScriptingActionSwitch() {
             }
 
             case 'Syncronize Tasks': {
-                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeTasksFoundAtWorkspaceWithBackEnd()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.synchronizeTasksFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Syncronize Trading Sessions': {
-                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.synchronizeTradingSessionsFoundAtWorkspaceWithBackEnd()
+            }
+                break
+            case 'Syncronize Portfolio Sessions': {
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.synchronizePortfolioSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Syncronize Learning Sessions': {
-                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.syncronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
+                UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.synchronizeLearningSessionsFoundAtWorkspaceWithBackEnd()
             }
                 break
             case 'Play Tutorials': {

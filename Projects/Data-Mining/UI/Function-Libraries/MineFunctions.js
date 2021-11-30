@@ -68,6 +68,7 @@ function newDataMiningFunctionLibraryMineFunctions() {
         scanBotArray(dataMine.apiDataFetcherBots)
         scanBotArray(dataMine.indicatorBots)
         scanBotArray(dataMine.tradingBots)
+        scanBotArray(dataMine.portfolioBots)
         scanBotArray(dataMine.learningBots)
 
         function scanBotArray(botArray) {

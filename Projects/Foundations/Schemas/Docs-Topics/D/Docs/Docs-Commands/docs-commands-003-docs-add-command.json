@@ -30,6 +30,16 @@
             "updated": 1637182337124
         },
         {
+            "style": "Callout",
+            "text": "From these projects they have to choose one",
+            "updated": 1638115759331
+        },
+        {
+            "style": "Include",
+            "text": "Education->Concept->Current projects->CurrentProjects",
+            "updated": 1638116210454
+        },
+        {
             "style": "List",
             "text": "Topic, Tutorial, or Review Title: Collections of pages are gathered under topic titles. These titles act as unique keys that make the collection of pages browsable as a unit. This option allows you to choose which topic to create or add your page to.",
             "updated": 1637182170914

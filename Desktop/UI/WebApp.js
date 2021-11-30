@@ -117,7 +117,7 @@ function newWebApp() {
         await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
-            .then(addToContentDiv)
+            .then(console.log)
             .catch(onError)
 
         function onError(errorMessage) {

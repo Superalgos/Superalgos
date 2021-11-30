@@ -24,7 +24,8 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
         } else {
-            SA.nodeModules.open('http://localhost:' + port)
+            // no ui needed
+            // SA.nodeModules.open('http://localhost:' + port)
         }
     }
 

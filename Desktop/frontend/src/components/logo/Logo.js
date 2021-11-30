@@ -1,7 +1,7 @@
 import './Logo.css';
 import React from 'react';
 import {Avatar, Stack} from "@mui/material";
-import pic from "./../../images/superalgos.png"
+import pic from "../../images/superalgos.png"
 
 
 const Logo = props => {

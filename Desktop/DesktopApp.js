@@ -53,23 +53,23 @@ exports.newDesktopApp = function newDesktopApp() {
             /*
             This is where we will process all the messages comming from our web app.
             */
-            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
+            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface() // this sends events to the p2p network
             /*
             This is where we will process all the events comming from the p2p network.
             */
-            thisObject.p2pNetworkInterface = DK.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
+            thisObject.p2pNetworkInterface = DK.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface() // this receives events from p2p network
             /*
             This is the Personal Social Graph for the user running this App.
             */
-            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
+            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph() //
             await thisObject.socialGraph.initialize()
-            /* 
+   /*         /!*
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
-            */
+            *!/
             thisObject.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
             console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webSocketsPort)
-
+*/
 
             /* TODO refactor this into something better */
 
@@ -77,13 +77,21 @@ exports.newDesktopApp = function newDesktopApp() {
                         require('./src/UI/WebAppPreLoader').loadSuperalgos();
             */
 
- /*           let react = require('./scripts/start');
-            react.start(JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort);
+
+
+/*
+
+            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+            thisObject.httpInterface.initialize()
+
+            let react = require('./frontend/scripts/start');
+            react.start(JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort+1);
 */
 
-            /*            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
-                        thisObject.httpInterface.initialize()*/
-            console.log('Desktop Client Http Interface ................................................ Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort)
+            let express = require("./UI/WebAppPreLoader")
+            express.loadSuperalgos(+JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort + +2);
+
+           console.log('Desktop Client Http Interface ................................................ Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort)
         }
     }
 }

@@ -2,7 +2,7 @@ import "./Post.css"
 import React, {useState} from 'react';
 import {Avatar, Card, IconButton, Stack, Typography} from "@mui/material";
 import {Autorenew, ThumbDown, ThumbUp} from "@mui/icons-material";
-import pic from "./../../images/superalgos.png"
+import pic from "../../images/superalgos.png"
 
 const Post = () => {
 

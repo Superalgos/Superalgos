@@ -1,7 +1,7 @@
 import "./PostPlaceholder.css"
 import React from 'react';
 import {Avatar, Button, Card, Stack, TextField, Typography} from "@mui/material";
-import pic from "./../../images/superalgos.png"
+import pic from "../../images/superalgos.png"
 
 const PostPlaceholder = () => {
 

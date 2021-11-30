@@ -1,5 +1,5 @@
 
-function newWebAppLoader() {
+exports.newWebAppLoader = ({port, SA, UI}) => {
 
     let thisObject = {
         loadModules: loadModules
@@ -89,7 +89,7 @@ function newWebAppLoader() {
                 for (let i = 0; i < modulesArray.length; i++) {
                     let path = modulesArray[i]
 
-                    REQUIREJS([path], onRequired)
+                    UI.projects = require(path);
 
                     function onRequired(pModule) {
                         try {
@@ -98,8 +98,8 @@ function newWebAppLoader() {
 
                             if (downloadedCounter === modulesArray.length) {
                                 setTimeout(() => {
-                                    UI.webApp = newWebApp()
-                                    UI.webApp.initialize()
+                                    UI.webApp = require("../backend/src/index");
+                                    UI.webApp.startExpress();
                                 }, 500)
 
                             }

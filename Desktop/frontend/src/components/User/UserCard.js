@@ -1,7 +1,7 @@
 import "./UserCard.css"
 import React, {useEffect} from 'react';
 import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
-import pic from "./../../images/superalgos.png"
+import pic from "../../images/superalgos.png"
 
 const UserCard = ({name, id,followCallback}) => {
 

@@ -1,0 +1,55 @@
+{
+    "type": "Exchange Portfolio Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Market Portfolio Products",
+            "relatedUiObject": "Market Portfolio Products",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Market Portfolio Products",
+            "label": "Add Missing Markets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market Portfolio Products",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 3,
+    "referencingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Project Portfolio Products->"
+    },
+    "propertyNameAtParent": "exchangePortfolioProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "marketPortfolioProducts",
+            "type": "array",
+            "childType": "Market Portfolio Products",
+            "autoAdd": false
+        }
+    ]
+}

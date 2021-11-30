@@ -47,6 +47,9 @@
             TS.projects.foundations.globals.taskVariables.SESSION_MAP.set(
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY,
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY)
+            
+            /* We will store the PMCommunicationModule Object: */
+            TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE = TS.projects.algorithmicTrading.botModules.PMCommunicationModule_Trading.newPMCommunicationModule_Trading(VARIABLES_BY_PROCESS_INDEX.SESSION_KEY);
 
             /* Listen to event to start or stop the session. */
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
@@ -512,6 +515,7 @@
             }
 
             function startBackTesting(message) {
+                
                 return true
             }
 
@@ -580,6 +584,9 @@
             }
 
             function startLiveTrading() {
+                // Testing:
+                TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE.beginListening();
+                TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE.getQuoteAssetBalance();
                 return checkKey()
             }
 

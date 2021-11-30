@@ -58,6 +58,21 @@ function newCommunityPluginsActionSwitch() {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Plugin Portfolio Mines':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginPortfolioMines(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Portfolio Systems':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginPortfolioSystems(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Portfolio Engines':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginPortfolioEngines(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Plugin Learning Mines':
                 {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginLearningMines(action.node, action.rootNodes)

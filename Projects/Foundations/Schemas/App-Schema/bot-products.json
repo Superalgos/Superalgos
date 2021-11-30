@@ -31,7 +31,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Learning Mine Products->"
+        "compatibleTypes": "->Data Mine Products->Trading Mine Products->Portfolio Mine Products->Learning Mine Products->"
     },
     "propertyNameAtParent": "botProducts",
     "childrenNodesProperties": [

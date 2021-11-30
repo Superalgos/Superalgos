@@ -216,7 +216,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         node,
         rootNodes
     ) {
-
         let market = node
         let cryptoExchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {
@@ -256,15 +255,18 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 function installInNetworkNode(lanNetworkNode) {
 
                     let tradingSessionsCreatedArray = []
+                    let portfolioSessionsCreatedArray = []
                     let learningSessionsCreatedArray = []
 
                     installDataTasksTasks()
                     installLearningTasksTasks()
-                    isntallTradingTasksTasks()
+                    installTradingTasksTasks()
+                    installPortfolioTasksTasks()
 
                     installDataMinesData()
                     installLearningMinesData()
                     installTradingMineData()
+                    installPortfolioMineData()
 
                     function installDataTasksTasks() {
                         /*
@@ -343,7 +345,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         }
                     }
 
-                    function isntallTradingTasksTasks() {
+                    function installTradingTasksTasks() {
                         /*
                         Next we complete the missing stuff at Testing Trading Tasks
                         */
@@ -396,6 +398,64 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 tradingSessionsCreatedArray = tradingSessionsCreatedArray.concat(allSessionsArray)
 
                                 dashboardsArray.push({ environmentNode: tradingTasks, lanNetworkNode: lanNetworkNode, sessionsArray: allSessionsArray })
+                            }
+                        }
+                    }
+
+                    function installPortfolioTasksTasks() {
+                        /*
+                        Next we complete the missing stuff at Testing Portfolio Tasks
+                        */
+                        //installEnvironment('Testing Portfolio Tasks')
+                        /*
+                        Next we complete the missing stuff at Production Portfolio Tasks
+                        */
+                        installEnvironment('Production Portfolio Tasks')
+
+                        function installEnvironment(environmentType) {
+                            /*
+                            Now we install the environment at the current Network Node
+                            */
+                            let portfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
+                            if (portfolioTasks === undefined) {
+                                portfolioTasks = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
+                            }
+                            /*
+                             We will make ourselves sure that the Project Portfolio Tasks nodes are there.
+                             */
+                            portfolioTasks.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Tasks')
+                            portfolioTasks.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Tasks')
+
+                            for (let i = 0; i < portfolioTasks.projectPortfolioTasks.length; i++) {
+                                let projectPortfolioTasks = portfolioTasks.projectPortfolioTasks[i]
+                                projectPortfolioTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+
+                                if (projectPortfolioTasks.project === "Foundations") {
+                                    installTheRestOfTheBranch(projectPortfolioTasks)
+                                }
+                            }
+
+                            function installTheRestOfTheBranch(projectPortfolioTasks) {
+                                let exchangePortfolioTasks = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectPortfolioTasks, 'Exchange Portfolio Tasks', cryptoExchange)
+                                exchangePortfolioTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                                let marketPortfolioTask = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangePortfolioTasks, 'Market Portfolio Tasks', market, rootNodes)
+
+                                UI.projects.foundations.utilities.menu.menuClick(marketPortfolioTask, 'Add Missing Portfolio Mine Tasks', true)
+                                UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketPortfolioTask.portfolioMineTasks, 'Add All Tasks', true)
+
+                                /* This will be needed at the charting space, for creating Dashboards */
+                                //let backtestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Backtesting Session')
+                                let livePortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Live Portfolio Session')
+                                //let paperPortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Paper Portfolio Session')
+                                //let forwardSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Forward Testing Session')
+                                let allSessionsArray = livePortfolioSessionsArray;
+                                    /*backtestingSessionsArray
+                                    .concat(livePortfolioSessionsArray)
+                                    .concat(paperPortfolioSessionsArray)
+                                    .concat(forwardSessionsArray)*/
+                                portfolioSessionsCreatedArray = portfolioSessionsCreatedArray.concat(allSessionsArray)
+
+                                dashboardsArray.push({ environmentNode: portfolioTasks, lanNetworkNode: lanNetworkNode, sessionsArray: allSessionsArray })
                             }
                         }
                     }
@@ -548,6 +608,61 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             }
                         }
                     }
+
+                    function installPortfolioMineData() {
+                        /*
+                        Here we complete the missing stuff at Data Mines Data
+                        */
+                        let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
+                        if (dataStorage === undefined) {
+                            dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
+                        }
+                        let portfolioMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Portfolio Mines Data', node, true)
+                        if (portfolioMinesData === undefined) {
+                            portfolioMinesData = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(dataStorage, 'Portfolio Mines Data')
+                        }
+                        portfolioMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
+                        /*
+                        We will make ourselves sure that the Project Portfolio Products nodes are there.
+                        */
+                        portfolioMinesData.payload.uiObject.menu.internalClick('Add UI Object')
+                        portfolioMinesData.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Products')
+
+                        for (let i = 0; i < portfolioMinesData.projectPortfolioProducts.length; i++) {
+                            let projectPortfolioProducts = portfolioMinesData.projectPortfolioProducts[i]
+                            projectPortfolioProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
+
+                            if (projectPortfolioProducts.project === "Foundations") {
+                                installTheRestOfTheBranch(projectPortfolioProducts)
+                            }
+                        }
+
+                        function installTheRestOfTheBranch(projectPortfolioProducts) {
+
+                            let exchangePortfolioProducts = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectPortfolioProducts, 'Exchange Portfolio Products', cryptoExchange)
+                            exchangePortfolioProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                            let marketPortfolioProducts = UI.projects.visualScripting.utilities.nodeChildren.findAndRecreateChildWithReference(exchangePortfolioProducts, 'Market Portfolio Products', market, rootNodes)
+                            marketPortfolioProducts.payload.floatingObject.collapseToggle()
+                            /*
+                            Create the new session references.
+                            */
+                            for (let i = 0; i < portfolioSessionsCreatedArray.length; i++) {
+                                let session = portfolioSessionsCreatedArray[i]
+                                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(marketPortfolioProducts, session, true) === true) {
+                                    UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketPortfolioProducts, session, 'Portfolio Session Reference')
+                                }
+                            }
+                            /*
+                            Create everything inside the session references.
+                            */
+                            for (let j = 0; j < marketPortfolioProducts.portfolioSessionReferences.length; j++) {
+                                let sessionReference = marketPortfolioProducts.portfolioSessionReferences[j]
+                                UI.projects.foundations.utilities.menu.menuClick(sessionReference, 'Add All Portfolio Mine Products', true)
+                                UI.projects.foundations.utilities.menu.menuClickOfNodeArray(sessionReference.portfolioMineProducts, 'Add All Data Products', true)
+                                sessionReference.payload.floatingObject.collapseToggle()
+                            }
+                        }
+                    }
                 }
             }
 
@@ -605,6 +720,14 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             if (marketTradingTasks.payload.referenceParent.id === market.id) {
                                 UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                             }
+
+                            let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
+                            if (marketPortfolioTasks === undefined) { continue }
+                            if (marketPortfolioTasks.payload === undefined) { continue }
+                            if (marketPortfolioTasks.payload.referenceParent === undefined) { continue }
+                            if (marketPortfolioTasks.payload.referenceParent.id === market.id) {
+                                UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                            }
                         }
                         /*
                         We create a time machine for each session added during the previous processing. 
@@ -651,6 +774,14 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     if (marketTradingTasks.payload.referenceParent.id === market.id) {
                         UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
                     }
+
+                    let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
+                    if (marketPortfolioTasks === undefined) { continue }
+                    if (marketPortfolioTasks.payload === undefined) { continue }
+                    if (marketPortfolioTasks.payload.referenceParent === undefined) { continue }
+                    if (marketPortfolioTasks.payload.referenceParent.id === market.id) {
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                    }
                 }
 
                 /* Delete all Dashboards that does not have time machines inside. */
@@ -688,16 +819,20 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                 let marketDataTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Data Tasks')
                 let marketTradingTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Trading Tasks')
+                let marketPortfolioTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Portfolio Tasks')
                 let marketLearningTasksArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Learning Tasks')
                 let marketDataProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Data Products')
                 let marketTradingProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Trading Products')
+                let marketPortfolioProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Portfolio Products')
                 let marketLearningProductsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(network, 'Market Learning Products')
 
                 uninstalMarketArray(marketDataTasksArray)
                 uninstalMarketArray(marketTradingTasksArray)
+                uninstalMarketArray(marketPortfolioTasksArray)
                 uninstalMarketArray(marketLearningTasksArray)
                 uninstalMarketArray(marketDataProductsArray)
                 uninstalMarketArray(marketTradingProductsArray)
+                uninstalMarketArray(marketPortfolioProductsArray)
                 uninstalMarketArray(marketLearningProductsArray)
 
                 function uninstalMarketArray(marketArray) {

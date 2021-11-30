@@ -53,6 +53,28 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
                 }
                 break
+
+            case 'Run All Portfolio Task Managers':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllTaskManagers(action.node)
+                }
+                break
+            case 'Stop All Portfolio Task Managers':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
+                }
+                break
+
+            case 'Run All Managed Tasks':
+                {   /* Portfolio Task References */
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllManagedTasks(action.node);
+                }
+                break;
+            case 'Stop All Managed Tasks':
+                {   /* Portfolio Task References */
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllManagedTasks(action.node);
+                }
+                break;
             case 'Run All Exchange Data Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.runAllExchangeDataTasks(action.node)
@@ -71,6 +93,16 @@ function newFoundationsActionSwitch() {
             case 'Stop All Exchange Trading Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllExchangeTradingTasks(action.node)
+                }
+                break
+            case 'Run All Exchange Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllExchangePortfolioTasks(action.node)
+                }
+                break
+            case 'Stop All Exchange Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllExchangePortfolioTasks(action.node)
                 }
                 break
             case 'Run All Exchange Learning Tasks':
@@ -103,6 +135,16 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllProjectTradingTasks(action.node)
                 }
                 break
+            case 'Run All Project Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllProjectPortfolioTasks(action.node)
+                }
+                break
+            case 'Stop All Project Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllProjectPortfolioTasks(action.node)
+                }
+                break
             case 'Run All Project Learning Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.runAllProjectLearningTasks(action.node)
@@ -133,6 +175,16 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllMarketTradingTasks(action.node)
                 }
                 break
+            case 'Run All Market Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllMarketPortfolioTasks(action.node)
+                }
+                break
+            case 'Stop All Market Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllMarketPortfolioTasks(action.node)
+                }
+                break
             case 'Run All Market Learning Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.runAllMarketLearningTasks(action.node)
@@ -161,6 +213,16 @@ function newFoundationsActionSwitch() {
             case 'Stop All Trading Mine Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllTradingMineTasks(action.node)
+                }
+                break
+            case 'Run All Portfolio Mine Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.runAllPortfolioMineTasks(action.node)
+                }
+                break
+            case 'Stop All Portfolio Mine Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllPortfolioMineTasks(action.node)
                 }
                 break
             case 'Run All Learning Mine Tasks':
@@ -211,6 +273,26 @@ function newFoundationsActionSwitch() {
             case 'Add Missing Trading Mine Tasks':
                 {
                     UI.projects.foundations.functionLibraries.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Project Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.addMissingProjectPortfolioTasks(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Exchange Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.addMissingExchangePortfolioTasks(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Market Portfolio Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.addMissingMarketPortfolioTasks(action.node)
+                }
+                break
+            case 'Add Missing Portfolio Mine Tasks':
+                {
+                    UI.projects.foundations.functionLibraries.taskFunctions.addMissingPortfolioMineTasks(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Project Learning Tasks':
@@ -288,6 +370,16 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes)
                 }
                 break
+            case 'Add All Portfolio Mine Products':
+                {
+                    UI.projects.foundations.functionLibraries.dataStorageFunctions.addAllPortfolioMineProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Portfolio Session References':
+                {
+                    UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingPortfolioSessionReferences(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Learning Session References':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes)
@@ -301,6 +393,11 @@ function newFoundationsActionSwitch() {
             case 'Add Missing Market Trading Products':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Market Portfolio Products':
+                {
+                    UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingMarketPortfolioProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Market Learning Products':
@@ -318,6 +415,11 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Exchange Portfolio Products':
+                {
+                    UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingExchangePortfolioProducts(action.node, action.rootNodes)
+                }
+                break
             case 'Add Missing Exchange Data Products':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes)
@@ -331,6 +433,11 @@ function newFoundationsActionSwitch() {
             case 'Add Missing Project Trading Products':
                 {
                     UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingProjectTradingProducts(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Project Portfolio Products':
+                {
+                    UI.projects.foundations.functionLibraries.dataStorageFunctions.addMissingProjectPortfolioProducts(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Project Data Products':
@@ -437,6 +544,18 @@ function newFoundationsActionSwitch() {
             case 'Switch To Paper Trading':
                 {
                     action.node.type = "Paper Trading Session"
+                    UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Switch To Live Portfolio':
+                {
+                    action.node.type = "Live Portfolio Session"
+                    UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Switch To Paper Portfolio':
+                {
+                    action.node.type = "Paper Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break

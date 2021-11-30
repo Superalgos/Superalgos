@@ -47,7 +47,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
             fs: require('fs'),
             path: require('path'),
             util: require('util'),
-            http: require('http'),            
+            http: require('http'),
             nodeFetch: require('node-fetch'),
             web3: require('web3'),
             ws: require('ws'),
@@ -56,10 +56,18 @@ exports.newNetworkRoot = function newNetworkRoot() {
         /*
         Setting up Secrets.
         */
-        SA.secrets = {
-            array: require('./My-Secrets/Secrets.json').secrets,
-            map: new Map()
+        try {
+            SA.secrets = {
+                array: require('./My-Secrets/Secrets.json').secrets,
+                map: new Map()
+            }
+        } catch (err) {
+            SA.secrets = {
+                array: [],
+                map: new Map()
+            }
         }
+
         for (let i = 0; i < SA.secrets.array.length; i++) {
             let secret = SA.secrets.array[i]
             SA.secrets.map.set(secret.nodeCodeName, secret)

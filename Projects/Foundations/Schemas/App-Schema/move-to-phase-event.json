@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Move Phase Portfolio Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "moveToPhasePMEvent",
+            "relatedUiObject": "Move To Phase PM Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -42,6 +52,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "moveToPhasePMEvent",
+            "type": "node",
+            "childType": "Move To Phase PM Event"
         },
         {
             "name": "announcements",

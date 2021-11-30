@@ -18,7 +18,7 @@
     "addLeftIcons": true,
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Task->"
+        "compatibleTypes": "->Task->Portfolio Task->"
     },
     "referencingRules": {
         "compatibleTypes": "->Exchange Account Key->"

@@ -20,7 +20,7 @@
         "compatibleTypes": "->Template Script->"
     },
     "referencingRules": {
-        "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->"
+        "compatibleTypes": "->Dashboard->Data Mines Data->Trading Mines Data->Data Tasks->Testing Trading Tasks->Production Trading Tasks->Portfolio Mines Data->Production Portfolio Tasks->"
     },
     "childrenNodesProperties": []
 }

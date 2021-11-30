@@ -1,13 +1,13 @@
 function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     let thisObject = {
-        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
+        synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession
     }
 
     return thisObject
 
-    function syncronizeSessionWithBackEnd(node) {
+    function synchronizeSessionWithBackEnd(node) {
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */

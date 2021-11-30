@@ -1,0 +1,54 @@
+{
+    "type": "Market Portfolio Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio Session Reference",
+            "relatedUiObject": "Portfolio Session Reference",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Portfolio Session References",
+            "label": "Add Missing Sessions",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Portfolio Session Reference",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent Parent",
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Market->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Portfolio Products->"
+    },
+    "propertyNameAtParent": "marketPortfolioProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioSessionReferences",
+            "type": "array",
+            "childType": "Portfolio Session Reference"
+        }
+    ]
+}

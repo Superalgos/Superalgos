@@ -124,7 +124,7 @@ Being aimed at production, this means that standard docker installations are not
 
 The development compatible docker installation is for special use cases. For example, using a local NAS to host the platform while still being able to add contributions. This is a nonstandard way of installing Superalgos and is only recommended for users who are comfortable using docker and dealing with potential pitfalls of installing using his method. 
 
-### Technical Installation
+### Contributors Installation
 
 It is also possible to install the Superalgos Platfrom from source code. This is the most pure (albeit more techincal) way of installing Superalgos. There are no limitations to contributing (highly appreciated and rewarded with SA tokens) and gives the user the most freedom for custom configurations.
 

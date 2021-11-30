@@ -56,17 +56,13 @@ module.exports = {
     dotenv: resolveApp('.env'),
     appPath: resolveApp('.'),
     appBuild: resolveApp(buildPath),
-    appPublic: resolveApp('Desktop/public'),
-    appHtml: resolveApp('Desktop/public/index.html'),
-    appIndexJs: resolveModule(resolveApp, 'Desktop/src/index'),
+    appPublic: resolveApp('Desktop/frontend/public'),
+    appHtml: resolveApp('Desktop/frontend/public/index.html'),
+    appIndexJs: resolveModule(resolveApp, 'Desktop/frontend/src/index'),
     appPackageJson: resolveApp('package.json'),
-    appSrc: resolveApp('Desktop/src'),
+    appSrc: resolveApp('Desktop/frontend/src'),
     appNodeModules: resolveApp('node_modules'),
     publicUrlOrPath,
 };
-/*    globals: resolveApp('Desktop/UI/Globals'),
-    projects: resolveApp('Projects'),
-    environment: resolveApp('Environments'),
-    schema: resolveApp('Projects/ProjectsSchema'),*/
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

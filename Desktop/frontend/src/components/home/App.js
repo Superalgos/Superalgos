@@ -3,7 +3,7 @@ import Sidebar from "../sidebar/Sidebar";
 import UsersSidebar from "../UsersSidebar/UsersSidebar";
 import {Stack} from "@mui/material";
 import {Outlet} from "react-router-dom";
-import {getProfiles} from '../../../api/service'
+import {getProfiles} from '../../api/service'
 
 function App() {
     getProfiles().then( response => {

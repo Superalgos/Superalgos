@@ -1,3 +1,4 @@
+const express = require("./backend/src/index");
 exports.newDesktopApp = function newDesktopApp() {
 
     let thisObject = {
@@ -63,35 +64,18 @@ exports.newDesktopApp = function newDesktopApp() {
             */
             thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph() //
             await thisObject.socialGraph.initialize()
-   /*         /!*
-            These are the Network Interfaces by which the Web App interacts with this Desktop Client.
-            *!/
-            thisObject.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
-            thisObject.webSocketsInterface.initialize()
-            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webSocketsPort)
-*/
-
-            /* TODO refactor this into something better */
-
-            /*
-                        require('./src/UI/WebAppPreLoader').loadSuperalgos();
-            */
 
 
+            let express = require('./backend/src/index')
+            let expressPort = JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort;
+            express.startExpress(expressPort,SA);
+            console.log('express Interface ................................................ Listening at port ' + expressPort);
 
-/*
-
-            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
-            thisObject.httpInterface.initialize()
-
-            let react = require('./frontend/scripts/start');
-            react.start(JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort+1);
-*/
-
-            let express = require("./UI/WebAppPreLoader")
-            express.loadSuperalgos(+JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort + +2);
-
-           console.log('Desktop Client Http Interface ................................................ Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort)
+            /*TODO change this to have a definite port number*/
+            let react = require('./frontend/scripts/start')
+            let reactPort = (+JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort + 1);
+            react.start(reactPort);
+            console.log('react Interface ................................................ Listening at port ' + reactPort);
         }
     }
 }

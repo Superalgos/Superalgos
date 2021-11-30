@@ -1638,18 +1638,6 @@
             "globals": [],
             "modules": [
                 {
-                    "name": "Http Interface",
-                    "propertyName": "httpInterface",
-                    "functionName": "newDesktopModulesHttpInterface",
-                    "fileName": "HttpInterface.js"
-                },
-                {
-                    "name": "Web Sockets Interface",
-                    "propertyName": "webSocketsInterface",
-                    "functionName": "newDesktopModulesWebSocketsInterface",
-                    "fileName": "WebSocketsInterface.js"
-                },
-                {
                     "name": "Web App Interface",
                     "propertyName": "webAppInterface",
                     "functionName": "newSocialTradingModulesWebAppInterface",

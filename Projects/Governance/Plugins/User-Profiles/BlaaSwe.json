@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "BlaaSwe",
-    "config": "{\n    \"signature\": {\n        \"message\": \"BlaaSwe\",\n        \"messageHash\": \"0x7f8ab5cefa1b5b879269f9bb360844ddcec53564a80da7d42231bf35bb28ff33\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a\",\n        \"s\": \"0x1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef53662\",\n        \"signature\": \"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef536621b\"\n    }\n}",
+    "config": "{\r\n    \"signature\": {\r\n        \"message\": \"BlaaSwe\",\r\n        \"messageHash\": \"0x7f8ab5cefa1b5b879269f9bb360844ddcec53564a80da7d42231bf35bb28ff33\",\r\n        \"v\": \"0x1b\",\r\n        \"r\": \"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a\",\r\n        \"s\": \"0x1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef53662\",\r\n        \"signature\": \"0x6c03af58967d84aec33e50ff1f3346874db217abc8f7ed822b5d607926240c5a1dd91f0da32a683541ec8a34031beb0af6527d4f17e4cedc166629b90ef536621b\"\r\n    },\r\n    \"codeName\": \"BlaaSwe\"\r\n}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -127,12 +127,12 @@
             "id": "db6f3ec3-3f92-4f1f-a626-d67128406292",
             "savedPayload": {
                 "position": {
-                    "x": 12983.294901687517,
-                    "y": 5882.741352644994
+                    "x": 10494.827586206897,
+                    "y": 37740.19237886467
                 },
                 "targetPosition": {
-                    "x": 13076.000000000002,
-                    "y": 6168.05830753354
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
                                 ]
                             ]
                         }
@@ -255,12 +257,12 @@
                 "id": "b0e0c92f-601a-49fb-9f7e-edce128e2e69",
                 "savedPayload": {
                     "position": {
-                        "x": 13287.34655933219,
-                        "y": 5693.366163235316
+                        "x": 10644.827586206897,
+                        "y": 37480.384757729335
                     },
                     "targetPosition": {
-                        "x": 13318.705098312486,
-                        "y": 5991.722731845798
+                        "x": 10794.827586206897,
+                        "y": 37740.19237886467
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -315,7 +317,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "cozed-gh",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                 ]
                             ]
                         }
@@ -378,12 +382,12 @@
                 "id": "ddf9d4bf-b1e0-4c2d-b84a-520aa5835325",
                 "savedPayload": {
                     "position": {
-                        "x": 13592.768735605267,
-                        "y": 6113.743724768538
+                        "x": 11094.827586206897,
+                        "y": 37740.19237886467
                     },
                     "targetPosition": {
-                        "x": 13318.705098312486,
-                        "y": 5991.722731845798
+                        "x": 10794.827586206897,
+                        "y": 37740.19237886467
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -401,12 +405,189 @@
             "id": "d6a3e5b4-66d7-4b70-a273-6a7253518a30",
             "savedPayload": {
                 "position": {
-                    "x": 13318.705098312486,
-                    "y": 5991.722731845798
+                    "x": 10794.827586206897,
+                    "y": 37740.19237886467
                 },
                 "targetPosition": {
-                    "x": 13076.000000000002,
-                    "y": 6168.05830753354
+                    "x": 10644.827586206897,
+                    "y": 38000
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Team Members Data Mining Project",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "08e1d8af-478d-435f-9ebb-d2c4ed4fbdd1",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 11544.827586206897,
+                                        "y": 37480.384757729335
+                                    },
+                                    "targetPosition": {
+                                        "x": 11394.827586206897,
+                                        "y": 37740.19237886467
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Team Members",
+                                        "id": "5b8525df-666d-4c76-899c-85a7a897d9b6"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ V.1.0",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Software Projects Teams",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Active Projects",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Data Mining Project",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Team Members",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "ccdb53e1-2c66-4a9d-b298-7487315a275d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 11394.827586206897,
+                                "y": 37740.19237886467
+                            },
+                            "targetPosition": {
+                                "x": 11244.827586206897,
+                                "y": 38000
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "4512c996-9c65-4c82-a2f0-ec4efac9dafd",
+                    "savedPayload": {
+                        "position": {
+                            "x": 11394.827586206897,
+                            "y": 38259.80762113533
+                        },
+                        "targetPosition": {
+                            "x": 11244.827586206897,
+                            "y": 38000
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "0f702650-9f1b-4b0f-8c62-b3f4696abd05",
+                "savedPayload": {
+                    "position": {
+                        "x": 11244.827586206897,
+                        "y": 38000
+                    },
+                    "targetPosition": {
+                        "x": 10944.827586206897,
+                        "y": 38000
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "2f27e396-51d3-4b0f-88ee-6f1ff9773fb7",
+            "savedPayload": {
+                "position": {
+                    "x": 10944.827586206897,
+                    "y": 38000
+                },
+                "targetPosition": {
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -484,12 +665,12 @@
             "id": "96326e6d-9fd7-4843-8b05-140655239403",
             "savedPayload": {
                 "position": {
-                    "x": 13318.705098312486,
-                    "y": 6344.393883221282
+                    "x": 10794.827586206897,
+                    "y": 38259.80762113533
                 },
                 "targetPosition": {
-                    "x": 13076.000000000002,
-                    "y": 6168.05830753354
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -569,12 +750,12 @@
             "id": "9d602745-dd5e-496b-9710-76b93adfbea7",
             "savedPayload": {
                 "position": {
-                    "x": 12983.294901687517,
-                    "y": 6453.375262422086
+                    "x": 10494.827586206897,
+                    "y": 38259.80762113533
                 },
                 "targetPosition": {
-                    "x": 13076.000000000002,
-                    "y": 6168.05830753354
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -592,12 +773,12 @@
         "id": "c2f1ade6-77cf-4fdb-8755-edace3f18df5",
         "savedPayload": {
             "position": {
-                "x": 13076.000000000002,
-                "y": 6168.05830753354
+                "x": 10644.827586206897,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 12776.000000000002,
-                "y": 6168.05830753354
+                "x": 10344.827586206897,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -619,12 +800,12 @@
         "id": "d971b9ed-64c7-4314-bb4a-44ea9f767374",
         "savedPayload": {
             "position": {
-                "x": 12476.000000000002,
-                "y": 6168.05830753354
+                "x": 10044.827586206897,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 12776.000000000002,
-                "y": 6168.05830753354
+                "x": 10344.827586206897,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -642,12 +823,12 @@
     "id": "7655ab03-2c5f-4eae-a667-14cee65f79c8",
     "savedPayload": {
         "position": {
-            "x": 12776.000000000002,
-            "y": 6168.05830753354
+            "x": 10344.827586206897,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 12776.000000000002,
-            "y": 6168.05830753354
+            "x": 10344.827586206897,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": false,

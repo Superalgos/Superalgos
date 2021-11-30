@@ -10,38 +10,35 @@
   "scripts": {
     "start": "node platform minMemo noBrowser",
     "presetup": "git checkout develop && git pull upstream develop",
-    "setup": "node setup noShortcuts && node tf_setup.js",
+    "setup": "node setup noShortcuts",
     "postsetup": "npm start",
     "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
-    "@octokit/rest": "^18.12.0",
-    "ccxt": "^1.61.93",
+    "@octokit/rest": "^18.11.4",
+    "ccxt": "^1.57.36",
     "child_process": "^1.0.2",
-    "electron-updater": "^4.6.1",
+    "electron-updater": "^4.3.9",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
-    "ethers": "^5.5.1",
+    "ethers": "^5.4.7",
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "ip": "^1.1.5",
     "lookpath": "^1.2.2",
-    "node-fetch": "^2.6.6",
-    "open": "^8.4.0",
+    "node-fetch": "^2.6.5",
+    "open": "^8.2.1",
     "path": "^0.12.7",
-    "simple-git": "^2.47.0",
+    "simple-git": "^2.46.0",
     "telegraf": "^4.4.2",
-    "twitter": "^1.7.1",
+    "twitter": "^1.3.0",
     "util": "^0.12.4",
-    "web3": "^1.6.1",
+    "web3": "^0.20.7",
     "ws": "^8.2.3"
-  },
-  "optionalDependencies": {
-    "@tensorflow/tfjs-node": "^2.8.6"
   },
   "devDependencies": {
     "electron": "^15.1.0",
-    "electron-builder": "^22.14.5"
+    "electron-builder": "^22.11.7"
   }
 }

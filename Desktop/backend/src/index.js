@@ -17,16 +17,15 @@ exports.startExpress = (port, SA) => {
     });
 
     app.post("/follow", async (req, res) => {
-        let follow = followProfile(req.body.userProfileId, req.body.eventType);
-
-
+        let follow = followProfile(req.body.userProfileId, SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE);
+        res.send("Followed")
     });
 
     app.post("/unFollow", async (req, res) => {
-        let unFollow = asda;
-
-
+        let follow = followProfile(req.body.userProfileId, SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE);
+        res.send("UnFollow")
     });
+
 
     app.post("/post", async (req, res) => {
         console.log(req)
@@ -61,7 +60,7 @@ exports.startExpress = (port, SA) => {
             );
         } catch (e) {
             console.log(e);
-            return undefined;
+            return {};
         }
     }
 
@@ -86,7 +85,7 @@ exports.startExpress = (port, SA) => {
             );
         } catch (e) {
             console.log(e);
-            return undefined;
+            return [];
         }
     }
 
@@ -111,7 +110,7 @@ exports.startExpress = (port, SA) => {
             );
         } catch (e) {
             console.log(e);
-            return undefined;
+            return {};
         }
     }
 }

@@ -1,0 +1,85 @@
+{
+    "type": "Portfolio Parameters",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Parameters",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Live Portfolio Session->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "sessionBaseAsset",
+            "type": "node",
+            "childType": "Session Base Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "sessionQuotedAsset",
+            "type": "node",
+            "childType": "Session Quoted Asset",
+            "autoAdd": true
+        },
+        {
+            "name": "timeRange",
+            "type": "node",
+            "childType": "Time Range",
+            "autoAdd": true
+        },
+        {
+            "name": "timeFrame",
+            "type": "node",
+            "childType": "Time Frame",
+            "autoAdd": true
+        },
+        {
+            "name": "slippage",
+            "type": "node",
+            "childType": "Slippage",
+            "autoAdd": true
+        },
+        {
+            "name": "feeStructure",
+            "type": "node",
+            "childType": "Fee Structure",
+            "autoAdd": true
+        },
+        {
+            "name": "snapshots",
+            "type": "node",
+            "childType": "Snapshots",
+            "autoAdd": true
+        },
+        {
+            "name": "heartbeats",
+            "type": "node",
+            "childType": "Heartbeats",
+            "autoAdd": true
+        },
+        {
+            "name": "userDefinedParameters",
+            "type": "node",
+            "childType": "User Defined Parameters",
+            "autoAdd": true
+        }
+    ],
+    "propertyNameAtParent": "portfolioParameters"
+}

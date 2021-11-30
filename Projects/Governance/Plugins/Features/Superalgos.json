@@ -11,15 +11,15 @@
             "project": "Governance",
             "featureClasses": [],
             "features": [],
-            "id": "791d4a3d-f4a5-495a-9d9b-be157c24c14a",
+            "id": "8b71e340-2bd2-421b-932a-1eff7031f56e",
             "savedPayload": {
                 "position": {
-                    "x": 26712.625,
-                    "y": 45116.344169246644
+                    "x": 26405.625,
+                    "y": 45105.344169246644
                 },
                 "targetPosition": {
-                    "x": 26712.625,
-                    "y": 44816.344169246644
+                    "x": 26405.625,
+                    "y": 44805.344169246644
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -36,15 +36,15 @@
         }
     ],
     "features": [],
-    "id": "7c27de79-0ac7-4d48-81f0-5d7b6a4d93c6",
+    "id": "b8bcd102-7ae5-4407-ae00-784158e98b4e",
     "savedPayload": {
         "position": {
-            "x": 26712.625,
-            "y": 44816.344169246644
+            "x": 26702.625,
+            "y": 44810.344169246644
         },
         "targetPosition": {
-            "x": 26712.625,
-            "y": 44816.344169246644
+            "x": 26702.625,
+            "y": 44810.344169246644
         },
         "floatingObject": {
             "isPinned": false,

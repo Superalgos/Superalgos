@@ -1,0 +1,85 @@
+{
+    "type": "Distance To Portfolio Event",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Episode->"
+    },
+    "propertyNameAtParent": "distanceToPortfolioEvent",
+    "childrenNodesProperties": [
+        {
+            "name": "triggerOn",
+            "type": "node",
+            "childType": "Trigger On",
+            "autoAdd": true
+        },
+        {
+            "name": "triggerOff",
+            "type": "node",
+            "childType": "Trigger Off",
+            "autoAdd": true
+        },
+        {
+            "name": "takePosition",
+            "type": "node",
+            "childType": "Take Position",
+            "autoAdd": true
+        },
+        {
+            "name": "closePosition",
+            "type": "node",
+            "childType": "Close Position",
+            "autoAdd": true
+        },
+        {
+            "name": "nextPhase",
+            "type": "node",
+            "childType": "Next Phase",
+            "autoAdd": true
+        },
+        {
+            "name": "moveToPhase",
+            "type": "node",
+            "childType": "Move To Phase",
+            "autoAdd": true
+        },
+        {
+            "name": "createOrder",
+            "type": "node",
+            "childType": "Create Order",
+            "autoAdd": true
+        },
+        {
+            "name": "cancelOrder",
+            "type": "node",
+            "childType": "Cancel Order",
+            "autoAdd": true
+        },
+        {
+            "name": "closeOrder",
+            "type": "node",
+            "childType": "Close Order",
+            "autoAdd": true
+        }
+    ]
+}

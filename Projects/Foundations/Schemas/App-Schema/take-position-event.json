@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Take Position Portfolio Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "takePositionPMEvent",
+            "relatedUiObject": "Take Position PM Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -59,6 +69,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "takePositionPMEvent",
+            "type": "node",
+            "childType": "Take Position PM Event"
         },
         {
             "name": "announcements",

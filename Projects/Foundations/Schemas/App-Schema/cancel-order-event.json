@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Cancel Order Portfolio Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "cancelOrderPMEvent",
+            "relatedUiObject": "Cancel Order PM Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -39,6 +49,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "cancelOrderPMEvent",
+            "type": "node",
+            "childType": "Cancel Order PM Event"
         },
         {
             "name": "announcements",

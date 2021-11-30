@@ -114,6 +114,10 @@
         },
         {
             "style": "List",
+            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to save the data more often allowing for the data mining to move forward."
+        },
+        {
+            "style": "List",
             "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library."
         }
     ]

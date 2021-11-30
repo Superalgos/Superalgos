@@ -33,13 +33,18 @@
             "updated": 1632650423168
         },
         {
+            "style": "List",
+            "text": "Possible Issues: Kucoin is have an issue where is will randomly kick out the data-mine with error \"rateLimitExceeded\". When this occurs use maxRate in the configuration as shown below. If this error does not happen for you then you can leave out maxRate .",
+            "updated": 1638135088748
+        },
+        {
             "style": "Title",
             "text": "Configuration"
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"kucoin\"\n}",
-            "updated": 1615211313657
+            "text": "{\n    \"codeName\": \"kucoin\"\n    \"maxRate\": 20000\n}",
+            "updated": 1638135113701
         },
         {
             "style": "Text",

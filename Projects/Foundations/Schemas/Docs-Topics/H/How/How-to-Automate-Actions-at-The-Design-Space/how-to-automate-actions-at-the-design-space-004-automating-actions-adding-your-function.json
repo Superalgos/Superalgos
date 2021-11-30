@@ -4,22 +4,50 @@
     "type": "Automating Actions - Adding your Function",
     "definition": {
         "text": "Take a look at how other functions are implemented in the Function Library and try to follow the same format.",
-        "updated": 1628257476029
+        "updated": 1628257476029,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Schauen Sie sich an, wie andere functions in der Function Library implementiert sind, und versuchen Sie, demselben Format zu folgen.",
+                "updated": 1638038590617
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The basic procedure is quite straight forward. First add the function name to the thisObject and then write your function at the most appropriate place at the Function Library.",
-            "updated": 1628257461177
+            "updated": 1628257461177,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das grundlegende Verfahren ist recht einfach. Fügen Sie zunächst den Funktionsnamen (function name) zum thisObject hinzu und schreiben Sie dann Ihre Funktion an die am besten geeignete Stelle in der Function Library (Funktionsbibliothek).",
+                    "updated": 1638038673577
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Please document your function the best you can, even if you see other functions implemented at the same library poorly documented. See if you can make your function the best documented in the whole library.",
-            "updated": 1628257493687
+            "updated": 1628257493687,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte dokumentieren Sie Ihre function so gut Sie können, auch wenn Sie sehen, dass andere functions, die in derselben Bibliothek implementiert sind, schlecht dokumentiert sind. Versuchen Sie, Ihre Funktion zur am besten dokumentierten in der gesamten Bibliothek (library) zu machen.",
+                    "updated": 1638038723508
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example of thisObject"
+            "text": "Example of thisObject",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel für: thisObject",
+                    "updated": 1638038740760
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -28,21 +56,49 @@
         },
         {
             "style": "Title",
-            "text": "Function Parameters"
+            "text": "Function Parameters",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Funktionsparameter (Function Parameters):",
+                    "updated": 1638038773277
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Your function will receive some parameters, including the Node object that hosted the Menu Item that triggered your Action. The exact list of parameters will be defined by yourself later at the step Automating Actions - Adding an Action Switch Case. Here is a short list of the most common parameters you might later include:",
-            "updated": 1614931548904
+            "updated": 1614931548904,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ihre Funktion erhält einige Parameter, darunter das Node object, das den Menüpunkt enthielt, der Ihre Aktion ausgelöst hat. Die genaue Liste der Parameter (parameters) wird später im Schritt step Automating Actions - Adding an Action Switch Case von Ihnen selbst festgelegt. Hier ist eine kurze Liste der häufigsten Parameter, die Sie später einbeziehen können:",
+                    "updated": 1638038885181
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "node: the node object that hosted the Menu Item that triggered your Action"
+            "text": "node: the node object that hosted the Menu Item that triggered your Action",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "node: das node object, das den Menüpunkt enthielt, der Ihre Aktion ausgelöst hat",
+                    "updated": 1638038915063
+                }
+            ]
         },
         {
             "style": "List",
             "text": "rootNodes: An array of nodes that are floating at the Design Space without parents. This includes all hierarchy heads.",
-            "updated": 1614931639516
+            "updated": 1614931639516,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "rootNodes: Ein Array von Nodes, die sich im Design Space ohne Eltern-Nodes befinden. Dazu gehören alle hierarchy heads.",
+                    "updated": 1638038950861
+                }
+            ]
         },
         {
             "style": "Text",

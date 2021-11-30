@@ -190,35 +190,84 @@
         },
         {
             "style": "Title",
-            "text": "Moving Tasks"
+            "text": "Moving Tasks",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Task`s verschieben (Moving Tasks)",
+                    "updated": 1638026929422
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Assuming you will go with the strategy of installing one Network Node first, this is what you need to know on how to move Task s to other Network Nodes.",
-            "updated": 1614357184981
+            "updated": 1614357184981,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Angenommen, Sie installieren zunächst eine Network Node, dann sollten Sie wissen, wie Sie Tasks zu anderen Network Nodes verschieben können.",
+                    "updated": 1638026974664
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are different types of Tasks and each one needs to be moved together with their corresponding Data Products definitions in order for the system to being able to track dependencies. The Data Products definitions are the ones under the Data Storage node of a Network Node. They are subdivided in different branches depending of the Type of Data, Project, Exchange, Market and many other stuff, but in the end you will find Data Product nodes which reference Product Definitions inside Mines. When you move Tasks from one Network Node to other you also need to move the related branch at Data Storage to the same Network Node.",
-            "updated": 1617264118423
+            "updated": 1617264118423,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt verschiedene Arten von Tasks (Aufgaben), die alle zusammen mit den entsprechenden Data Products definitions verschoben werden müssen, damit das System die dependencies (Abhängigkeiten) verfolgen kann. Die Data Products definitions befinden sich unter der  \"Data Storage\" Node einer Network Nodes. Sie sind in verschiedene Zweige (branches) unterteilt, je nach Art der Data, Project, Exchange, Market und vielem mehr, aber am Ende finden Sie Data Product nodes, die auf Product Definitions innerhalb von Mines (Minen) verweisen. Wenn Sie Tasks von einer Network Node zu einer anderen verschieben, müssen Sie auch den zugehörigen branch (Zweig) in der Datenablage (Data Storage) zu derselben Network Node verschieben.",
+                    "updated": 1638027548415
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Always remember that the system just needs you to define where you want the Tasks to run and the Data to be Hosted, but there is an implicit relationship between Tasks and Data because a Task produces certain Data, and those definition needs to be consistent and be found at the same Network Node."
+            "text": "Always remember that the system just needs you to define where you want the Tasks to run and the Data to be Hosted, but there is an implicit relationship between Tasks and Data because a Task produces certain Data, and those definition needs to be consistent and be found at the same Network Node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie immer daran, dass Sie im System lediglich festlegen müssen, wo die Tasks ausgeführt und die Daten gehostet werden sollen. Es besteht jedoch eine implizite Beziehung zwischen Tasks und Daten, da eine Task bestimmte Daten erzeugt, und diese Definitionen müssen konsistent sein und sich an derselben Network Node befinden.",
+                    "updated": 1638027682358
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "If you only move a Task and do not move the related Data Products definitions most likely things will stop working right there."
+            "text": "If you only move a Task and do not move the related Data Products definitions most likely things will stop working right there.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie nur eine Task verschieben, ohne die zugehörigen Data Products definitions zu verschieben, werden die Dinge höchstwahrscheinlich genau dort aufhören zu funktionieren.",
+                    "updated": 1638027771925
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The definitions at the Charting System hierarchy do not need to be changed at all. They will continue pointing to the Data Products they were pointed to no matter where you moved those Data Products definitions. If you changed them from one Network Node to another, the Plotter will simply fetch the data from the Network Node where you left those Data Product s definitions.",
-            "updated": 1617264173906
+            "updated": 1617264173906,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Definitionen in der Charting System hierarchy müssen nicht geändert werden. Sie verweisen weiterhin auf die Data products, auf die sie zuvor verweisen, unabhängig davon, wohin Sie diese Data Products definitions verschieben. Wenn Sie sie von einer Network Node zu einer anderen geändert haben, holt der Plotter die Daten einfach von der Network Node ab, bei dem Sie diese Data Product definitionen hinterlassen haben.",
+                    "updated": 1638028163201
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "When we say moving, what we are saying is detaching a Node branch and re-attaching that same branch somewhere else. Note that if you, for example, make a backup of a branch, restore that somewhere else without deleting the original branch first, you will inadvertently be creating new ids for each Node at this branch and messing up the incoming references, which will cause things to not work anymore.",
-            "updated": 1617264249424
+            "updated": 1617264249424,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn wir von Verschieben sprechen, meinen wir damit, dass eine Node branch (Zweig) abgetrennt und dieselbe branch an einer anderen Stelle wieder angefügt wird. Beachten Sie, dass Sie, wenn Sie z.B. ein Backup einer branch erstellen und diese an einem anderen Ort wiederherstellen, ohne die ursprüngliche branch vorher zu löschen, versehentlich neue IDs für jeden Node in dieser branch erstellen und die eingehenden Referenzen durcheinander bringen, was dazu führt, dass die Dinge nicht mehr funktionieren.",
+                    "updated": 1638028769523
+                }
+            ]
         },
         {
             "style": "Text",
@@ -226,77 +275,203 @@
         },
         {
             "style": "Title",
-            "text": "Before You Begin"
+            "text": "Before You Begin",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie beginnen",
+                    "updated": 1638028780622
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Make a quick list with the name you wish to give to each node and the corresponding IP address on the network. You will need those to configure each network node."
+            "text": "Make a quick list with the name you wish to give to each node and the corresponding IP address on the network. You will need those to configure each network node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine kurze Liste mit dem Namen, den Sie jeder Node geben möchten, und der entsprechenden IP-Adresse im Netzwerk. Diese benötigen Sie für die Konfiguration der einzelnen Network Nodes.",
+                    "updated": 1638028817241
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also, you may want to plan what your operation should look like."
+            "text": "Also, you may want to plan what your operation should look like.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Vielleicht möchten Sie auch planen, wie Ihr Betrieb aussehen soll.",
+                    "updated": 1638028843062
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "First and foremost, you may want to decide on which node you will keep the workspace on which the network of nodes shall be configured. We call this, the home node."
+            "text": "First and foremost, you may want to decide on which node you will keep the workspace on which the network of nodes shall be configured. We call this, the home node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zuallererst sollten Sie entscheiden, auf welcher Node Sie den Workspace aufbewahren wollen, auf dem das Netzwerk von Nodes konfiguriert werden soll. Wir nennen dies den home node (Heimatknoten).",
+                    "updated": 1638028934865
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is not a requirement, as you may keep different workspaces in different nodes, and even set up different networks on different workspaces, but it’s the most usual setup."
+            "text": "This is not a requirement, as you may keep different workspaces in different nodes, and even set up different networks on different workspaces, but it’s the most usual setup.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist keine Voraussetzung, da Sie verschiedene Workspaces in verschiedenen Nodes halten und sogar verschiedene Netzwerke auf verschiedenen Workspaces einrichten können, aber es ist die übliche Konfiguration.",
+                    "updated": 1638029006555
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also, you may want to plan which nodes in the network should run which data-mining tasks, which nodes should run which trading sessions, and so on. As hinted in the fundamental concepts page, possibilities are endless, so we are not going to cover alternatives here. If you know exactly what you want to do, it should be easy to implement. That said, you are free to explore and experiment as well."
+            "text": "Also, you may want to plan which nodes in the network should run which data-mining tasks, which nodes should run which trading sessions, and so on. As hinted in the fundamental concepts page, possibilities are endless, so we are not going to cover alternatives here. If you know exactly what you want to do, it should be easy to implement. That said, you are free to explore and experiment as well.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Außerdem möchten Sie vielleicht planen, welche Nodes im Netzwerk welche Data Mining Tasks ausführen sollen, welche Nodes welche trading sessions durchführen sollen usw. Wie auf der Seite mit den grundlegenden Konzepten (fundamental concepts page) angedeutet, sind die Möglichkeiten endlos, so dass wir hier nicht auf Alternativen eingehen werden. Wenn Sie genau wissen, was Sie tun wollen, sollte es einfach zu implementieren sein. Es steht Ihnen jedoch frei, auch zu experimentieren.",
+                    "updated": 1638029310544
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Start Here"
+            "text": "Start Here",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beginnen sie hier:",
+                    "updated": 1638029348510
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "1. Set up Superalgos on each machine. Once Superalgos is installed, run the system for the first time using the node run noBrowser command. The noBrowser parameter runs the Client without firing up the UI."
+            "text": "1. Set up Superalgos on each machine. Once Superalgos is installed, run the system for the first time using the node run noBrowser command. The noBrowser parameter runs the Client without firing up the UI.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "1. Richten Sie Superalgos den Rechnern die sie dafür nutzen möchten. Sobald Superalgos installiert ist, starten Sie das System zum ersten Mal mit dem \" node run noBrowser \" Befehl. Der Parameter noBrowser führt den Client aus, ohne die Benutzeroberfläche (UI) zu starten.",
+                    "updated": 1638029478889
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "2. Run the UI to access the home node."
+            "text": "2. Run the UI to access the home node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "2. Starten Sie die Benutzeroberfläche, um auf die home node zuzugreifen.",
+                    "updated": 1638029554999
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may access the home node locally, that is, running the browser on the machine where the home node is running, or you may run the browser on any other machine in the physical network—even one not running Superalgos—by navigating to the home node’s IP address."
+            "text": "You may access the home node locally, that is, running the browser on the machine where the home node is running, or you may run the browser on any other machine in the physical network—even one not running Superalgos—by navigating to the home node’s IP address.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können auf die home node lokal zugreifen, d. h. den Browser auf dem Rechner ausführen, auf dem die home node läuft, oder Sie können den Browser auf einem beliebigen anderen Rechner im physischen Netzwerk ausführen - auch auf einem, auf dem Superalgos nicht läuft , indem Sie zur IP-Adresse der home node navigieren.",
+                    "updated": 1638029674761
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If you are accessing the home node remotely, you need to configure the My Computer network node to use the machine’s IP address instead of localhost in the host parameter. This enables the web sockets connection.",
-            "updated": 1611343511090
+            "updated": 1611343511090,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie aus der Ferne auf die home node zugreifen, müssen Sie die My Computer network node so konfigurieren, dass die IP-Adresse des Rechners anstelle von localhost im Parameter host verwendet wird. Dadurch wird die Web Sockets Verbindung aktiviert.",
+                    "updated": 1638029885556
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "For organizational purposes and to avoid confusion later on, it is recommended to clean up the home node’s workspace, uninstalling the markets that you don’t need.",
-            "updated": 1617264320991
+            "updated": 1617264320991,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aus organisatorischen Gründen und um spätere Verwechslungen/Verwirrungen zu vermeiden, empfiehlt es sich, den Workspace der home node aufzuräumen und die nicht benötigten markets zu deinstallieren.",
+                    "updated": 1638030016950
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Click to learn how to uninstall an existing market"
+            "text": "Click to learn how to uninstall an existing market",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie hier, um zu erfahren, wie Sie einen bestehenden market deinstallieren können",
+                    "updated": 1638030047887
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "3. Add and configure a network node for each machine."
+            "text": "3. Add and configure a network node for each machine.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "3. Fügen Sie für jeden Rechner eine Network Node hinzu und konfigurieren Sie diese.",
+                    "updated": 1638030080581
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Adding a Network Node"
+            "text": "Adding a Network Node",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hinzufügen einer Network Node",
+                    "updated": 1638030106718
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To add a network node, select Add LAN Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node."
+            "text": "To add a network node, select Add LAN Network Node on the Superalgos Network node menu. A network node is added along with the basic structure of nodes to set up a node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um eine Network Node hinzuzufügen, wählen Sie die Add LAN Network Node im Superalgos Network Node Menü. Eine Network Node wird zusammen mit der Grundstruktur der Nodes zum Einrichten einer Node hinzugefügt.",
+                    "updated": 1638030176456
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Configuring the Network Node"
+            "text": "Configuring the Network Node",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren der Network Node",
+                    "updated": 1638030220405
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü Configure, um auf die Konfiguration zuzugreifen.",
+                    "updated": 1638030237147
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -306,19 +481,47 @@
         {
             "style": "List",
             "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the Client services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1.  Use the dotted IP address rather than a host name, since this reduces host name lookups.",
-            "updated": 1617264451129
+            "updated": 1617264451129,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Host ist die Maschine oder Hardware, die durch die Network Node repräsentiert wird. Der Standardparameter ist localhost. Wenn Sie jedoch von einem entfernten Computer aus auf die Client-Dienste dieser Node zugreifen möchten, müssen Sie localhost in die IP-Adresse des Rechners ändern, auf dem die Node läuft, z. B. in 147.0.0.1. Verwenden Sie die gepunktete IP-Adresse anstelle eines Hostnamens, da dies die Suche nach dem Hostnamen reduziert.",
+                    "updated": 1638030334611
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "webPort is the port used by the Web Server, at this stage 34248."
+            "text": "webPort is the port used by the Web Server, at this stage 34248.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "webPort ist der vom Webserver verwendete Port, in diesem Fall 34248.",
+                    "updated": 1638030864316
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "webSocketsPort ist der port, der vom System für die Kommunikation über das lokale Netzwerk verwendet wird und standardmäßig auf 18041 eingestellt ist.",
+                    "updated": 1638030922690
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Configure the first node and hit F5 to refresh the page. Once the page reloads, a notice indicating the system is connecting with the new network node will show on the top of the screen. Repeat the process for each machine."
+            "text": "Configure the first node and hit F5 to refresh the page. Once the page reloads, a notice indicating the system is connecting with the new network node will show on the top of the screen. Repeat the process for each machine.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfigurieren Sie die erste Node und drücken Sie F5, um die Seite zu aktualisieren. Sobald die Seite neu geladen ist, wird oben auf dem Bildschirm ein Hinweis angezeigt, dass das System eine Verbindung mit der neuen Network Node herstellt. Wiederholen Sie den Vorgang für jeden Rechner.",
+                    "updated": 1638031013262
+                }
+            ]
         }
     ]
 }

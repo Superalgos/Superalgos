@@ -12,7 +12,7 @@
 - [Getting Started Guide](#getting-started-guide)
   - [Packaged Application Installation](#packaged-application-installation)
   - [Docker Installations](#docker-installations)
-  - [Technical Installation](#technical-installation)
+  - [Contributors Installation](#contributors-installation)
     - [Installation Notes](#installation-notes)
   - [Uninstall](#uninstall)
 - [Usage](#usage)

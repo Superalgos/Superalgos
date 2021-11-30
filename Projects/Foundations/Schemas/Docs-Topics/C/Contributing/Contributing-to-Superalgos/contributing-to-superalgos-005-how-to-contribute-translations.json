@@ -7,7 +7,7 @@
         "updated": 1613822257340,
         "translations": [
             {
-              "language": "DE",
+                "language": "DE",
                 "text": "Die Docs sind ursprünglich in Englisch geschrieben. Superalgos zugänglicher zu machen ist ein wichtiges Ziel, um die Gemeinschaft und die Community zu vergrößern. Die Übersetzung von Tutorials und Software-Dokumentation in andere Sprachen als Englisch ist von großem Wert! Ins deutsche übersetzt von gitforkgit.",
                 "updated": 1634133734053,
                 "style": "Definition"
@@ -17,6 +17,11 @@
                 "text": "Los Docs (documentos) son originalmente escritos en Ingles. Hacer a Superalgos más accesible es un esfuerzo clave para el crecimiento de la comunidad y la base de usuarios. Traducir tutoriales y documentación del software a otros idiomas que no sean el Inglés es un aporte muy valioso!",
                 "updated": 1633170996967,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Документация изначально написана на английском языке. Сделать Superalgos более доступным - это ключевая задача по развитию сообщества и пользовательской базы. Перевод учебных пособий и документации по программному обеспечению на другие языки, кроме английского, имеет огромное значение!",
+                "updated": 1637925514224
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Read About Contributing to the Docs  (Leer sobre como contribuir a los Docs)",
                     "updated": 1633171160951,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочтите о внесении вклада в документацию",
+                    "updated": 1637925850525
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "text": "Las traducciones son un caso particular de contribuir con los documentos. Por favor leer primero la página de como contribuir con los documentos, y regresar aqui para los detalles de como nosotros nos manejamos particularmente con las traducciones.",
                     "updated": 1633171406067,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Переводы - это частный случай участия в развитии документации. Пожалуйста, прочтите сначала страницу How to Contribute to the Docs и вернитесь сюда, чтобы получить подробную информацию о том, как мы работаем с переводами, в частности.",
+                    "updated": 1637925714099
                 }
             ]
         },
@@ -75,13 +90,25 @@
                     "text": "About Translations    ( Acerca de las traducciones)",
                     "updated": 1633171444432,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "О переводе на другие языки",
+                    "updated": 1637925777545
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Docs In English->Content",
-            "updated": 1616762047762
+            "updated": 1616762047762,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Английский считается языком по умолчанию. Когда вы переключаетесь на другой язык, система пытается показать контент на новом языке. Однако, если перевод еще не доступен, вместо него отображается английская версия.",
+                    "updated": 1637926039878
+                }
+            ]
         },
         {
             "style": "Text",
@@ -509,7 +536,7 @@
                     "language": "ES",
                     "text": "De todos modos, este no es siempre el caso. Algunos pasos de los tutoriales están configurados para cerrar  los dcumentos o el editor, y cuando abre los documentos manualmente, la página del paso del tutorial no se carga automáticamente. En estos casos, deberá buscar la pagina por su nombre  — la cual debería coincidir con el titulo del paso en el tutorial — podrá acceder a la página en forma manual.",
                     "updated": 1633279497908,
-                    "style": "Important" 
+                    "style": "Important"
                 }
             ]
         }

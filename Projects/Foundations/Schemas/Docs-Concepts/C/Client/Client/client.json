@@ -21,7 +21,14 @@
         {
             "style": "Success",
             "text": "The Client is what users run.",
-            "updated": 1610912048355
+            "updated": 1610912048355,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Client - это то, что запускают пользователи.",
+                    "updated": 1637927442517
+                }
+            ]
         }
     ]
 }

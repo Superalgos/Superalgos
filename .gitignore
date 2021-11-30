@@ -20,3 +20,4 @@ launch.json
 package-lock.json
 .idea
 dist
+/nbproject/private/

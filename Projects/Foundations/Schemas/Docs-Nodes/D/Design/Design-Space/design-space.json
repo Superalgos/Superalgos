@@ -24,7 +24,14 @@
         },
         {
             "style": "Text",
-            "text": "Think of the design space as your desktop, or the control room of the system."
+            "text": "Think of the design space as your desktop, or the control room of the system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Считайте, дизайнерское пространство - это ваш рабочий стол или диспетчерская системы.",
+                    "updated": 1637929330722
+                }
+            ]
         }
     ]
 }

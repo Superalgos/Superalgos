@@ -22,7 +22,7 @@ const publicUrlOrPath = getPublicUrlOrPath(
     process.env.PUBLIC_URL
 );
 
-const buildPath = process.env.BUILD_PATH || 'build';
+const buildPath = process.env.BUILD_PATH || 'Desktop/build';
 
 const moduleFileExtensions = [
     'web.mjs',
@@ -52,7 +52,6 @@ const resolveModule = (resolveFn, filePath) => {
 };
 
 // config after eject: we're in ./config/
-/* TODO check which is the correct path*/
 module.exports = {
     dotenv: resolveApp('.env'),
     appPath: resolveApp('.'),
@@ -62,13 +61,11 @@ module.exports = {
     appIndexJs: resolveModule(resolveApp, 'Desktop/src/index'),
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('Desktop/src'),
-    appTsConfig: resolveApp('tsconfig.json'),
-    appJsConfig: resolveApp('jsconfig.json'),
-    yarnLockFile: resolveApp('yarn.lock'),
-    testsSetup: resolveModule(resolveApp, 'Desktop/src/setupTests'),
-    proxySetup: resolveApp('Desktop/src/setupProxy.js'),
     appNodeModules: resolveApp('node_modules'),
-    swSrc: resolveModule(resolveApp, 'Desktop/src/service-worker'),
+    globals: resolveApp('Desktop/UI/Globals'),
+    projects: resolveApp('Projects'),
+    environment: resolveApp('Environments'),
+    schema: resolveApp('Projects/ProjectsSchema'),
     publicUrlOrPath,
 };
 

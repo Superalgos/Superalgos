@@ -1,19 +1,21 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
-// import {SA, UI} from '../UI/Globals';
-// import {loadSuperalgos} from '../UI/WebAppPreLoader'
 import {Provider} from "react-redux";
 import reducers from "./store";
 import Root from "./components/Root";
 
-// const store = createStore(reducers); 
-
-
-// loadSuperalgos();
-// console.log(UI);
-// console.log(SA);
+/*
+ TODO save
+exports.UI = {
+    projects: {},
+    schemas: { projectSchema: undefined },
+    environment: undefined,
+    clientNode: undefined,
+    webApp: undefined
+}
+exports.SA = { projects: {} }
+*/
 
 ReactDOM.render(
     <React.StrictMode>
@@ -23,8 +25,3 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

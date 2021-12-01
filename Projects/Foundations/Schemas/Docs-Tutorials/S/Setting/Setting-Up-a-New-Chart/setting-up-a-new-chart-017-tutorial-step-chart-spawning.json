@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Una cosa a tener en cuenta al agregar Time Machines es que pueden aparecer en la parte superior de otros gráficos dentro del Charting Space.",
                 "updated": 1628646293826
+            },
+            {
+                "language": "RU",
+                "text": "При добавлении машин времени следует помнить, что они могут появляться поверх других графиков в пространстве графиков (Charting Space).",
+                "updated": 1637940239089
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Echemos un vistazo alrededor del Charting Space y encuentra la máquina del tiempo que agregaste.",
                     "updated": 1628646330822
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте осмотримся в Charting Space и найдем машину времени, которую вы добавили!",
+                    "updated": 1637940276541
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Si es necesario, mueva las máquinas del tiempo y busque el título que agregó a su máquina del tiempo en el Design Space.",
                     "updated": 1628646350166
+                },
+                {
+                    "language": "RU",
+                    "text": "При необходимости переместите машины времени и найдите название, которое вы добавили к машине времени в Design Space.",
+                    "updated": 1637940311613
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "language": "ES",
                     "text": "Recuerde, para mover un gráfico, mantenga Shift y arrastre con un clic izquierdo.",
                     "updated": 1628646377242
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что для перемещения графика удерживайте Shift и перетаскивайте его левой кнопкой мыши.",
+                    "updated": 1637940361014
                 }
             ]
         },

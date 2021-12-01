@@ -197,7 +197,7 @@ exports.newPortfolioManagementBotModulesOrdersSimulations = function (processInd
             Until here we have got the Actual Rate based on the formula definition or based on session parameters slippage.
             The last check is about watching what happened in the market. Let's remember that the exchange will
             fill the order with the best possible matches at it's order book. That means that if the rate
-            we set for the order was too low (for a sale order) or too hight (for a buy order), the actual rate 
+            we set for the order was too low (for a sale order) or too high (for a buy order), the actual rate 
             should be better than expected. 
 
             We don't know what it is at the order book, but whe know that the last candle includes trades that bounced between
@@ -208,7 +208,7 @@ exports.newPortfolioManagementBotModulesOrdersSimulations = function (processInd
                 case portfolioSystemOrder.type === 'Market Buy Order' || portfolioSystemOrder.type === 'Limit Buy Order': {
                     if (portfolioEngineOrder.orderStatistics.actualRate.value > portfolioEngine.portfolioCurrent.portfolioEpisode.candle.max.value) {
                         
-                        const message = 'Simulating - Actual Rate Too Hight'
+                        const message = 'Simulating - Actual Rate Too High'
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',

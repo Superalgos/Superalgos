@@ -338,7 +338,9 @@ function newCircularMenuItem() {
                 text = text + ' -> [Existing Reference] Type : [' + thisObject.payload.uiObject.payload.referenceParent.type + '] , Name : [' + thisObject.payload.uiObject.payload.referenceParent.name + ']'
             }
 
-            thisObject.payload.uiObject.setInfoMessage(text)
+            if (thisObject.label === undefined) {
+                thisObject.payload.uiObject.setInfoMessage(text)
+            }
             isMouseOver = true
         } else {
             isMouseOver = false

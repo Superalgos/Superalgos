@@ -197,7 +197,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
             }
 
             function installInTradingMine(tradingMine) {
-                let savePlugin = false
+                let savePluginFile = false
                 for (let j = 0; j < tradingMine.tradingBots.length; j++) {
                     let tradingBotNode = tradingMine.tradingBots[j]
 
@@ -231,7 +231,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
                                 // Explicit check is needed so we know if we have to save the plugin or not
                                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(botDataDependencies, dataset, true) === true) {
-                                    savePlugin = true
+                                    savePluginFile = true
                                     let dataDependency = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botDataDependencies, 'Data Dependency')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataDependency, dataset)
                                 }
@@ -244,7 +244,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                  * We will save the plugin only if we get to the point were we have to add the data dependencies
                  *
                  */
-                if (savePlugin) {
+                if (savePluginFile) {
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode.type === 'Plugins') {
@@ -253,7 +253,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                             for (let j = 0; j < tradingMinePlugin.pluginFiles.length; j++) {
                                 let pluginFile = tradingMinePlugin.pluginFiles[j]
 
-                                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(pluginFile)
+                                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginFile(pluginFile)
                             }
                         }
                     }
@@ -263,7 +263,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
             }
 
             function installInPortfolioMine(portfolioMine) {
-                let savePlugin = false
+                let savePluginFile = false
                 for (let j = 0; j < portfolioMine.portfolioBots.length; j++) {
                     let portfolioBotNode = portfolioMine.portfolioBots[j]
 
@@ -297,7 +297,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
 
                                 // Explicit check is needed so we know if we have to save the plugin or not
                                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(botDataDependencies, dataset, true) === true) {
-                                    savePlugin = true
+                                    savePluginFile = true
                                     let dataDependency = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(botDataDependencies, 'Data Dependency')
                                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dataDependency, dataset)
                                 }
@@ -310,7 +310,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                  * We will save the plugin only if we get to the point were we have to add the data dependencies
                  *
                  */
-                if (savePlugin) {
+                if (savePluginFile) {
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
                         if (rootNode.type === 'Plugins') {
@@ -319,7 +319,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                             for (let j = 0; j < portfolioMinePlugin.pluginFiles.length; j++) {
                                 let pluginFile = portfolioMinePlugin.pluginFiles[j]
 
-                                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(pluginFile)
+                                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginFile(pluginFile)
                             }
                         }
                     }

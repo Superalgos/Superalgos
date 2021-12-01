@@ -1,0 +1,10 @@
+/*noinspection CssInvalidPropertyValue*/
+.logo {
+    display: inline-flex;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+}
+.icon {
+    margin: 0 0.5rem;
+}

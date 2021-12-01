@@ -1,0 +1,21 @@
+
+.sidebarItem {
+    /*TODO add on hover*/
+    /*TODO add breakpoints*/
+    width: 15vw;
+}
+
+
+.sidebarText {
+    /*TODO hide when too small*/
+
+    width: auto;
+    text-align: center;
+}
+
+.sidebarIcon {
+    width: auto;
+    padding: 0 1rem;
+
+}
+

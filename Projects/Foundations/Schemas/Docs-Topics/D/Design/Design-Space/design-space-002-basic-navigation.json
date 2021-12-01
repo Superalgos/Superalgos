@@ -4,22 +4,50 @@
     "type": "Basic Navigation",
     "definition": {
         "text": "You may use your mouse and keyboard to navigate the interface.",
-        "updated": 1610039680742
+        "updated": 1610039680742,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете использовать мышь и клавиатуру для навигации по интерфейсу.",
+                "updated": 1638348896707
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Accessing the Design Space",
-            "updated": 1610039830808
+            "updated": 1610039830808,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступ к Design Space",
+                    "updated": 1638348916419
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Using the mouse"
+            "text": "Using the mouse",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С помощью мыши",
+                    "updated": 1638348928917
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Click and drag to pull the slider up and down, making more room for the Charting Space on top, or the Design Space in the bottom.",
-            "updated": 1610040136240
+            "updated": 1610040136240,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните и перетащите ползунок вверх и вниз, чтобы освободить место для области Charting Space вверху или области Design Space внизу.",
+                    "updated": 1638349016667
+                }
+            ]
         },
         {
             "style": "Title",
@@ -33,32 +61,74 @@
         {
             "style": "Subtitle",
             "text": "Using the keyboard",
-            "updated": 1610040168590
+            "updated": 1610040168590,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С помощью клавиатуры",
+                    "updated": 1638349057068
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Use the following key combinations for the same purpose:",
-            "updated": 1610040210636
+            "updated": 1610040210636,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этой же цели используйте следующие комбинации клавиш:",
+                    "updated": 1638349072744
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Ctrl or <kbd>⌘</kbd> + Shift + ↑ to close the charting space and open the design space.",
-            "updated": 1634912063838
+            "updated": 1634912063838,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + ↑ чтобы закрыть Charting Space и открыть Design Space",
+                    "updated": 1638352115688
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>↓</kbd> to close the design space and open the charting space.",
-            "updated": 1610040360113
+            "updated": 1610040360113,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + ↓ чтобы закрыть Design Space и открыть Charting Space",
+                    "updated": 1638352170351
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd> to incrementally lower the slider.",
-            "updated": 1610040384881
+            "updated": 1610040384881,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + → для постепенного опускания ползунка.",
+                    "updated": 1638352222166
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd> to incrementally raise the slider.",
-            "updated": 1610040400821
+            "updated": 1610040400821,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + ← для постепенного поднятия ползунка.",
+                    "updated": 1638352270603
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -68,36 +138,85 @@
         {
             "style": "Title",
             "text": "Navigation",
-            "updated": 1610040536263
+            "updated": 1610040536263,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Навигация",
+                    "updated": 1638352291847
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Left-click on the black background and drag to move around the workspace.",
-            "updated": 1610040578937
+            "updated": 1610040578937,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните левой кнопкой мыши на черном фоне и перетащите, чтобы перемещаться по рабочему пространству.",
+                    "updated": 1638352311452
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also use the following key combinations on your keyboard:"
+            "text": "You may also use the following key combinations on your keyboard:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете использовать на клавиатуре следующие комбинации клавиш:",
+                    "updated": 1638352327198
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>←</kbd> to pan to the left.",
-            "updated": 1610040692407
+            "updated": 1610040692407,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + ← для панорамирования влево.",
+                    "updated": 1638349186250
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>→</kbd> to pan to the right.",
-            "updated": 1610040706743
+            "updated": 1610040706743,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + → для панорамирования влево.",
+                    "updated": 1638349206289
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>↑</kbd> to pan upwards.",
-            "updated": 1610040720472
+            "updated": 1610040720472,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + ↑ панорамировать вверх.",
+                    "updated": 1638349224866
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Ctrl or <kbd>⌘</kbd> + ↓ to pan downwards.",
-            "updated": 1634912309430
+            "updated": 1634912309430,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + ↓ панорамировать вверх.",
+                    "updated": 1638349237968
+                }
+            ]
         },
         {
             "style": "Block",
@@ -222,8 +341,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Горячие клавиши",
-                    "updated": 1638347729027
+                    "text": "Сочетание клавиш",
+                    "updated": 1638349283955
                 }
             ]
         },
@@ -234,8 +353,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Superalgos также предлагает ряд горячих клавиш, которые упрощают работу с платформой. Вы можете найти список всех текущих горячих клавиш на странице Keyboard Shortcut Quick Guide.",
-                    "updated": 1638347790873
+                    "text": "Superalgos также предлагает ряд сочетаний клавиш, которые упрощают работу с платформой. Вы можете найти список всех текущих сочетаний клавиш на странице Keyboard Shortcut Quick Guide.",
+                    "updated": 1638349310337
                 }
             ]
         },

@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Sé que estoy listo para personalizar algunos gráficos. ¿Y tú? Veamos cómo agregar los nodos fundamentales que necesitamos para comenzar nuestro gráfico.",
                 "updated": 1628645553111
+            },
+            {
+                "language": "RU",
+                "text": "Я знаю, что готов настроить некоторые графики. А вы? Давайте проследим, как добавить фундаментальные узлы, которые нам нужны для начала нашей диаграммы.",
+                "updated": 1637938801829
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Lo primero que debemos hacer es agregar un nuevo dashboard.",
                     "updated": 1628645614150
+                },
+                {
+                    "language": "RU",
+                    "text": "Первое, что нам нужно сделать, это добавить свежую панель приборов.",
+                    "updated": 1637938814690
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Coloca el cursor sobre el nodo Project Dashboardsy has clic en Add Dashboard.",
                     "updated": 1628645660586
+                },
+                {
+                    "language": "RU",
+                    "text": "Переместитесь по узлу Project Dashboards node и нажмите кнопку Add Dashboard.",
+                    "updated": 1637938884068
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "ES",
                     "text": "Asegúrate de nombrar tu nuevo Dashboard con algo que reconocerás. Una buena práctica de nomenclatura es hacer referencia al tipo de entorno (ive trading, backtesting, etc.) y algo distintivo sobre los gráficos que planeas agregar. Para nosotros eso sería:",
                     "updated": 1628645744284
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно назовите новую приборную панель (Dashboard) так, чтобы ее можно было узнать. Хорошей практикой именования является ссылка на тип среды (живая торговля, бэктестинг и т.д.) и что-то отличительное о графиках, которые вы планируете добавить. Для нас это было бы так:",
+                    "updated": 1637939089832
                 }
             ]
         },

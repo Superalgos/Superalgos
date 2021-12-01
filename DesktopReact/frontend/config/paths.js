@@ -22,7 +22,7 @@ const publicUrlOrPath = getPublicUrlOrPath(
     process.env.PUBLIC_URL
 );
 
-const buildPath = process.env.BUILD_PATH || 'Desktop/build';
+const buildPath = process.env.BUILD_PATH || 'DesktopReact/build';
 
 const moduleFileExtensions = [
     'web.mjs',
@@ -56,11 +56,11 @@ module.exports = {
     dotenv: resolveApp('.env'),
     appPath: resolveApp('.'),
     appBuild: resolveApp(buildPath),
-    appPublic: resolveApp('Desktop/frontend/public'),
-    appHtml: resolveApp('Desktop/frontend/public/index.html'),
-    appIndexJs: resolveModule(resolveApp, 'Desktop/frontend/src/index'),
+    appPublic: resolveApp('DesktopReact/frontend/public'),
+    appHtml: resolveApp('DesktopReact/frontend/public/index.html'),
+    appIndexJs: resolveModule(resolveApp, 'DesktopReact/frontend/src/index'),
     appPackageJson: resolveApp('package.json'),
-    appSrc: resolveApp('Desktop/frontend/src'),
+    appSrc: resolveApp('DesktopReact/frontend/src'),
     appNodeModules: resolveApp('node_modules'),
     publicUrlOrPath,
 };

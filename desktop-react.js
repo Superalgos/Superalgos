@@ -11,6 +11,6 @@ This module represents the Nodejs command that users have to start the Desktop A
 
 */
 
-let APP_ROOT = require('./DesktopRoot.js')
+let APP_ROOT = require('./DesktopRootReact')
 let APP_ROOT_MODULE = APP_ROOT.newDesktopRoot()
 APP_ROOT_MODULE.run()

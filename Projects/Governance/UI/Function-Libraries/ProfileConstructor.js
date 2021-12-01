@@ -273,10 +273,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                signSigningAccountData(response.privateKey)
+                signSigningAccountData(response.address, response.privateKey)
             }
 
-            function signSigningAccountData(privateKey) {
+            function signSigningAccountData(blockchainAccount, privateKey) {
 
                 let request = {
                     url: 'WEB3',
@@ -340,7 +340,13 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
-
+                    /*
+                    Save User Profile Plugin
+                    */
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginHierarchy(userProfile)
+                    /*
+                    Deal with secrets
+                    */
                     let secrets = secretsFile.secrets
 
                     let secret = {
@@ -349,6 +355,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         nodeType: targetNodeType,
                         nodeCodeName: codeName,
                         signingAccountNodeId: signingAccount.id,
+                        blockchainAccount: blockchainAccount, 
                         privateKey: privateKey,
                         userProfileHandle: userProfileHandle,
                         userProfileId: userProfile.id

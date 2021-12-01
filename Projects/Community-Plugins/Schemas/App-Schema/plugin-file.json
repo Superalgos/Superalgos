@@ -36,9 +36,9 @@
             "relatedUiObjectProject": "Community-Plugins"
         },
         {
-            "action": "Save Plugin",
+            "action": "Save Plugin File",
             "actionFunction": "payload.executeAction",
-            "label": "Save Plugin",
+            "label": "Save Plugin File",
             "relatedUiObject": "Plugin File",
             "actionProject": "Community-Plugins",
             "relatedUiObjectProject": "Community-Plugins"

@@ -3707,7 +3707,7 @@
             {
                 "type": "P2P Network Node",
                 "name": "P2P Network Node #2",
-                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31248\",\n    \"webSocketsPort\": \"18042\"\n}",
+                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31249\",\n    \"webSocketsPort\": \"18043\"\n}",
                 "project": "Governance",
                 "signingAccount": {
                     "type": "Signing Account",
@@ -3774,7 +3774,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

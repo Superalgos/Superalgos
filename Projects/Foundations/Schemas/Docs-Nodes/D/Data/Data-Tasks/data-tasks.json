@@ -10,6 +10,11 @@
                     "language": "ES",
                     "text": "Tener acceso a información de calidad es un elemento crucial en el trading. Por esta razón, Superalgos se esfuerza en dar a los usuarios total control sobre cómo, dónde, y cuándo se procesan los datos. Utilizarás esta sección de la jerarquía del nodo Network para ejercer este control.",
                     "updated": 1638156495599
+                },
+                {
+                    "language": "RU",
+                    "text": "Доступ к качественной информации - важный элемент торговли. По этой причине Superalgos стремится предоставить пользователям полный контроль над тем, как, где и когда обрабатываются данные. Вы будете использовать этот раздел сетевой иерархии для осуществления этого контроля.",
+                    "updated": 1638355167748
                 }
             ]
         },
@@ -22,6 +27,11 @@
                     "language": "ES",
                     "text": "El Data mining se realiza a través de tareas que ejecutan instancias de Sensor Bots e Indicator Bots. La estructura de datos bajo este nodo permite organizar las operaciones de Data mining por Projecto, Exchange, Market y Data Mine.",
                     "updated": 1638156512510
+                },
+                {
+                    "language": "RU",
+                    "text": "Интеллектуальный анализ данных выполняется с помощью задач, запускающих экземпляры сенсорных и индикаторных ботов. Структура данных под этим узлом позволяет организовать операцию интеллектуального анализа данных по проектам, биржам, рынкам и добыче данных.",
+                    "updated": 1638355196622
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "La configuración de la operación de Data mining se puede realizar usando la función Install Market del Market que se desea instalar definido en la jerarquía del Crypto Ecosystem, bajo el nodo de mercado del exchange.",
                     "updated": 1638156525730
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройка операции интеллектуального анализа данных может быть выполнена с помощью функции «Install Market» для рынка, который вы хотите установить, как определено в иерархии Crypto Ecosystem в узле биржевых рынков.",
+                    "updated": 1638355283215
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "ES",
                     "text": "Se pueden establecer tareas de Data mining a través de las diferentes funciones en esta sección de la jerarquía, comenzando con las opciones del menú de este nodo. Esta ruta ofrece un control más preciso sobre qué tareas se configuran y cómo.",
                     "updated": 1638156530776
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также можете настроить задачи интеллектуального анализа данных, используя различные функции в этом разделе иерархии, начиная с параметров в меню этого узла. Этот маршрут предлагает более точный контроль над тем, какие задачи вы настраиваете и как.",
+                    "updated": 1638355323726
                 }
             ]
         },
@@ -66,8 +86,8 @@
             },
             {
                 "language": "RU",
-                "text": "Задачи обработки данных относятся к интеллектуальному анализу данных, т.е. к деятельности по обработке данных. Вам необходимо обрабатывать данные для подачи графиков, чтобы Ваши торговые системы могли принимать решения на основе качественной информации.",
-                "updated": 1635516654645
+                "text": "Data Tasks относятся к интеллектуальному анализу данных, т.е. к деятельности по обработке данных. Вам необходимо обрабатывать данные для подачи графиков, чтобы Ваши торговые системы могли принимать решения на основе качественной информации.",
+                "updated": 1638356535434
             }
         ]
     }

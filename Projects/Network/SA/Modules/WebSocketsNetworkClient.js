@@ -8,7 +8,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         port: undefined,
         callerRole: undefined,
         p2pNetworkNode: undefined,
-        p2pNetworkIdentity: undefined,
+        p2pNetworkClientIdentity: undefined,
+        p2pNetworkClientCodeName: undefined,
         onConnectionClosedCallBack: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
@@ -30,7 +31,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.port = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
-        thisObject.p2pNetworkIdentity = undefined
+        thisObject.p2pNetworkClientIdentity = undefined
         thisObject.onConnectionClosedCallBack = undefined
 
         web3 = undefined
@@ -38,10 +39,11 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkIdentity, p2pNetworkNode, onConnectionClosedCallBack) {
+    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode, onConnectionClosedCallBack) {
 
         thisObject.callerRole = callerRole
-        thisObject.p2pNetworkIdentity = p2pNetworkIdentity
+        thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
+        thisObject.p2pNetworkClientCodeName = JSON.parse(thisObject.p2pNetworkClientIdentity.node.config).codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
         thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
@@ -100,9 +102,9 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: thisObject.callerRole,
-                                callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
+                                callerProfileHandle: SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
-                                callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node),
+                                callerNode: JSON.stringify(thisObject.p2pNetworkClientIdentity.node),
                                 step: 'One'
                             }
                             thisObject.socket.send(JSON.stringify(message))
@@ -162,7 +164,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attacks.
                             */
-                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -192,7 +194,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             */
                             thisObject.socket.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).privateKey)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
 
                             let message = {
                                 messageType: 'Handshake',

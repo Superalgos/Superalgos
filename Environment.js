@@ -38,8 +38,8 @@ exports.newEnvironment = function () {
         PLATFORM_APP_SIGNING_ACCOUNT: 'Algo-Traders-Platform-1',
         P2P_NETWORK_NODE_SIGNING_ACCOUNT: 'P2P-Network-Node-1',
         P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS: 1,
-        P2P_NETWORK_NODE_MAX_INCOMING_PEERS: 2,
-        P2P_NETWORK_NODE_MAX_OUTGOING_PEERS: 2
+        P2P_NETWORK_NODE_MAX_INCOMING_PEERS: 0,
+        P2P_NETWORK_NODE_MAX_OUTGOING_PEERS: 0
     }
 
     if (process.env.DATA_PATH) {

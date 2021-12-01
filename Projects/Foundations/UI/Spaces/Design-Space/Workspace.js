@@ -280,7 +280,7 @@ function newWorkspace() {
 
                                 let saveWithWorkspace = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
                                 if (saveWithWorkspace === true) {
-                                    UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
+                                    UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
                                 }
                             }
                         }

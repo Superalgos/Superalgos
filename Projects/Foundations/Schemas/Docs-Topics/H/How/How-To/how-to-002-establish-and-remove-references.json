@@ -11,6 +11,11 @@
                 "text": "Para establecer la referencia, click derecho en el primer nodo y arrástrelo cerca del nodo de destino. Entonces remueva la referencia, use el boton delink en el menú.",
                 "updated": 1633296472626,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы установить ссылку, щелкните правой кнопкой мыши первый узел и перетащите его ближе к целевому узлу. Чтобы удалить ссылку, используйте кнопку удаления ссылки в меню.",
+                "updated": 1638346810573
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Cuando esté estableciendo una referencia, anilsos grises muestran con cuales nodos puede establecer la referencia. En caso de que haya muchos nodos que aceptarían la referencia, el nodo que esté más cerca de donde se origina la referencia está destacado con un anillo dorado. Liberando el botón del mouse establece a referencia con el nodo destacado.",
                     "updated": 1633521217701,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "При установлении ссылки серые кольца показывают, с какими узлами вы можете установить ссылку. В случае, если есть несколько узлов, которые принимают ссылку, тот, который находится ближе к узлу, откуда эта ссылка берет начало, выделяется золотым кольцом. Отпускание кнопки мыши устанавливает ссылку с выделенным узлом.",
+                    "updated": 1638346833498
                 }
             ]
         },
@@ -46,13 +56,25 @@
                     "text": "La referencia es visualmente representada por una leve linea de puntos grises. Esta linea es visible solo cuando ambos extremos de la referencia son visibles.",
                     "updated": 1633521251780,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Ссылка визуально представлена ​​слабой серой пунктирной линией.",
+                    "updated": 1638346850624
                 }
             ],
             "updated": 1637691076887
         },
         {
             "style": "Success",
-            "text": "You may toggle these grey lines on and off using: Ctrl + Shift + Alt + Key-R"
+            "text": "You may toggle these grey lines on and off using: Ctrl + Shift + Alt + Key-R",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете включать и выключать эти серые линии, используя: Ctrl + Shift + Alt + Клавиша-R",
+                    "updated": 1638346885836
+                }
+            ]
         },
         {
             "style": "Text",
@@ -64,6 +86,11 @@
                     "text": "Para remover una referencia o deslinkear dos nodos, use el botón delink button del nodo donde la referencia se origina.",
                     "updated": 1633521278527,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы удалить ссылку или разъединить два узла, используйте кнопку отмены связи на узле, откуда возникает ссылка.",
+                    "updated": 1638346905258
                 }
             ]
         },
@@ -74,7 +101,14 @@
         },
         {
             "style": "Title",
-            "text": "What If the Nodes Are Far Away or in Different Hierarchies?"
+            "text": "What If the Nodes Are Far Away or in Different Hierarchies?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что делать, если узлы находятся далеко или в разных иерархиях?",
+                    "updated": 1638346918146
+                }
+            ]
         },
         {
             "style": "Title",
@@ -90,6 +124,11 @@
                     "text": "El proceso es exactamente el mismo. Todo lo que necesita es manejar unos pocos trucos  para que pueda arrastrar uno de los nodos todo el recorrido hasta donde el segundo nodo está.",
                     "updated": 1633295934654,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Процесс точно такой же. Все, что вам нужно сделать, это освоить несколько трюков, чтобы вы могли полностью переместить один из узлов туда, где находится второй узел.",
+                    "updated": 1638346936610
                 }
             ]
         },

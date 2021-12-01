@@ -46,14 +46,7 @@
         {
             "style": "Title",
             "text": "Foundations Project",
-            "updated": 1609945005370,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Основание проекта",
-                    "updated": 1638271640164
-                }
-            ]
+            "updated": 1609945005370
         },
         {
             "style": "Include",
@@ -68,14 +61,7 @@
         {
             "style": "Title",
             "text": "Design Space",
-            "updated": 1609945819410,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Пространство дизайна",
-                    "updated": 1638271684951
-                }
-            ]
+            "updated": 1609945819410
         },
         {
             "style": "Include",
@@ -89,14 +75,7 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Ecosystem",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Крипто-экосистема",
-                    "updated": 1638271776307
-                }
-            ]
+            "text": "Crypto Ecosystem"
         },
         {
             "style": "Include",
@@ -111,14 +90,7 @@
         {
             "style": "Title",
             "text": "LAN Network",
-            "updated": 1609945037649,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Сеть LAN",
-                    "updated": 1638271804445
-                }
-            ]
+            "updated": 1609945037649
         },
         {
             "style": "Include",
@@ -133,14 +105,7 @@
         {
             "style": "Title",
             "text": "Charting Space",
-            "updated": 1609945048562,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Пространство графиков",
-                    "updated": 1638271838107
-                }
-            ]
+            "updated": 1609945048562
         },
         {
             "style": "Include",
@@ -155,14 +120,7 @@
         {
             "style": "Title",
             "text": "Trading System",
-            "updated": 1609945101604,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Торговая система",
-                    "updated": 1638271851609
-                }
-            ]
+            "updated": 1609945101604
         },
         {
             "style": "Include",
@@ -176,14 +134,7 @@
         },
         {
             "style": "Title",
-            "text": "Trading Mine",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Торговая шахта",
-                    "updated": 1638272155709
-                }
-            ]
+            "text": "Trading Mine"
         },
         {
             "style": "Include",
@@ -198,14 +149,7 @@
         {
             "style": "Title",
             "text": "Trading Engine",
-            "updated": 1609945113032,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Торговый движок",
-                    "updated": 1638272006167
-                }
-            ]
+            "updated": 1609945113032
         },
         {
             "style": "Include",
@@ -220,14 +164,7 @@
         {
             "style": "Title",
             "text": "Data Mine",
-            "updated": 1609945134789,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Шахта данных",
-                    "updated": 1638272244746
-                }
-            ]
+            "updated": 1609945134789
         },
         {
             "style": "Include",
@@ -242,14 +179,7 @@
         {
             "style": "Title",
             "text": "Plugins",
-            "updated": 1609945527199,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Плагины",
-                    "updated": 1638272272298
-                }
-            ]
+            "updated": 1609945527199
         },
         {
             "style": "Include",
@@ -264,14 +194,7 @@
         {
             "style": "Title",
             "text": "Tutorial",
-            "updated": 1609946064589,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Учебное пособие",
-                    "updated": 1638272344887
-                }
-            ]
+            "updated": 1609946064589
         },
         {
             "style": "Include",
@@ -286,14 +209,7 @@
         {
             "style": "Title",
             "text": "Super Scripts",
-            "updated": 1609945544452,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Супер скрипты",
-                    "updated": 1638272376658
-                }
-            ]
+            "updated": 1609945544452
         },
         {
             "style": "Include",

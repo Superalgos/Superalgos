@@ -106,25 +106,60 @@
         },
         {
             "style": "Title",
-            "text": "Moving Nodes"
+            "text": "Moving Nodes",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перемещение узлов",
+                    "updated": 1638347091105
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are two main ways to move a node:"
+            "text": "There are two main ways to move a node:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть два основных способа переместить узел:",
+                    "updated": 1638347074563
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "No matter what method you use, make sure the node is Pinned. Otherwise it will snap back to its original position.",
-            "updated": 1634914254508
+            "updated": 1634914254508,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Независимо от того, какой метод вы используете, убедитесь, что узел закреплен. В противном случае он вернется в исходное положение.",
+                    "updated": 1638347057737
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Click on a node while holding Ctrl. Then use the arrow keys ← → ↑ ↓ to drag the node to your desired location."
+            "text": "Click on a node while holding Ctrl. Then use the arrow keys ← → ↑ ↓ to drag the node to your desired location.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните узел, удерживая Ctrl. Затем с помощью клавиш со стрелками ← → ↑ ↓ перетащите узел в желаемое место.",
+                    "updated": 1638347109682
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The second method copies the node you wish to move and then snaps it to the new position. In order to do this, first find the Save Node to Move menu option on the node you wish to move and click it. Then move to a different node near where you would like the current node and click the Snap Saved Node to Position button.",
-            "updated": 1634914182709
+            "updated": 1634914182709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Второй метод копирует узел, который вы хотите переместить, а затем привязывает его к новой позиции. Для этого сначала найдите пункт меню Save Node to Move на узле, который вы хотите переместить, и нажмите на него. Затем перейдите к другому узлу рядом с тем местом, где вы хотели бы видеть текущий узел, и нажмите кнопку Snap Saved Node to Position.",
+                    "updated": 1638347546423
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -134,20 +169,48 @@
         {
             "style": "Text",
             "text": "There are also keyboard shortcuts to accomplish node snapping. See Keyboard Shortcut Quick Guide page for more details.",
-            "updated": 1634915239339
+            "updated": 1634915239339,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть также сочетания клавиш для выполнения привязки узлов. Дополнительные сведения см. На странице Keyboard Shortcut Quick Guide.",
+                    "updated": 1638347595300
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "These UI tricks may also make your life easier:",
-            "updated": 1637691123266
+            "updated": 1637691123266,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти уловки UI также могут облегчить вашу жизнь:",
+                    "updated": 1638347624958
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other."
+            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте карту Design Space столько раз, сколько потребуется, чтобы найти путь от одной иерархии к другой.",
+                    "updated": 1638347662493
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт, как только ссылка будет установлена, чтобы узел вернулся на свое место.",
+                    "updated": 1638347700591
+                }
+            ]
         },
         {
             "style": "Block",
@@ -155,12 +218,26 @@
         },
         {
             "style": "Title",
-            "text": "Keyboard Shortcuts"
+            "text": "Keyboard Shortcuts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Горячие клавиши",
+                    "updated": 1638347729027
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Superalgos also offers a range of keyboard shortcuts to help make working with the platform easier. You can find a list of all current shortcuts at the Keyboard Shortcut Quick Guide page.",
-            "updated": 1634915308602
+            "updated": 1634915308602,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos также предлагает ряд горячих клавиш, которые упрощают работу с платформой. Вы можете найти список всех текущих горячих клавиш на странице Keyboard Shortcut Quick Guide.",
+                    "updated": 1638347790873
+                }
+            ]
         },
         {
             "style": "Text",

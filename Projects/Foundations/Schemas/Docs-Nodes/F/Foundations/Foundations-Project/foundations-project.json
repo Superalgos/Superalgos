@@ -28,7 +28,14 @@
         },
         {
             "style": "Text",
-            "text": "A crypto-project integration means that Superalgos users will able to connect to blockchain nodes from within Superalgos, exposing the blockchain data to the rest of the Superalgos infrastructure. Users will be able to mine the node's data, build indicators, use them from within trading systems, and visualize blockchain information on the charts&mdash;among other things."
+            "text": "A crypto-project integration means that Superalgos users will able to connect to blockchain nodes from within Superalgos, exposing the blockchain data to the rest of the Superalgos infrastructure. Users will be able to mine the node's data, build indicators, use them from within trading systems, and visualize blockchain information on the charts&mdash;among other things.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Интеграция криптопроекта означает, что пользователи Superalgos смогут подключаться к узлам блокчейна изнутри Superalgos, предоставляя данные блокчейна остальной части инфраструктуры Superalgos. Пользователи смогут добывать данные узла, создавать индикаторы, использовать их из торговых систем, и визуализировать информацию о блокчейне на диаграммах.",
+                    "updated": 1638337972321
+                }
+            ]
         }
     ]
 }

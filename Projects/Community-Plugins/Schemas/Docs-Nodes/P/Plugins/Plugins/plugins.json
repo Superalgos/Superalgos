@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Иерархия плагинов определяет, какие плагины должны быть включены в текущую рабочую область. В контексте этой иерархии плагины представляют собой файлы JSON, содержащие описание иерархии, такой как шахта данных, торговая шахта, торговый механизм или торговая система.",
-                "updated": 1636194488881
+                "text": "Иерархия Plugins определяет, какие плагины должны быть включены в текущую рабочую область Workspace. В контексте этой иерархии плагины - это файлы JSON, содержащие описание иерархии, такой как Data Mine, Trading Mine, Trading Engine или Trading System.",
+                "updated": 1638340280833
             }
         ]
     },
@@ -22,12 +22,26 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a community-driven project, a plugin is a device that serves to distribute community-generated intelligence. The project distributes several plugins contributed by the community."
+            "text": "In the context of a community-driven project, a plugin is a device that serves to distribute community-generated intelligence. The project distributes several plugins contributed by the community.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте проекта, управляемого сообществом, плагин - это устройство, которое служит для распространения информации, созданной сообществом. Проект распространяет несколько плагинов, предоставленных сообществом.",
+                    "updated": 1638340321953
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609866745275
+            "updated": 1609866745275,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархии (Hierarchies), включенные в рабочую область как плагины, не сохраняются на уровне рабочей области. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
+                    "updated": 1638340382678
+                }
+            ]
         }
     ]
 }

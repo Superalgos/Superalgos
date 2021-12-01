@@ -1,5 +1,5 @@
 /*  PMCommunicationModule - Trading Bot's Version.
- *  Fascilitates communications between the Portfolio Manager and its managed sessions.
+ *  Facilitates communications between the Portfolio Manager and its managed sessions.
  *  Session Key naming convention: name + type + id
  */
 

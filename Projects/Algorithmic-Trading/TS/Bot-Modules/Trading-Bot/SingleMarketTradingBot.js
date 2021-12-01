@@ -95,7 +95,7 @@
                         return
                     }
 
-                    /* We will prepare first the infrastructure needed for the bot to run. There are 3 modules we need to sucessfullly initialize first. */
+                    /* We will prepare first the infrastructure needed for the bot to run. There are 3 modules we need to successfully initialize first. */
 
                     let processExecutionEvents
                     let userBot;
@@ -522,7 +522,7 @@
                                                 waitTime = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
                                                 break
                                             }
-                                            case 'Fordward Tessting Session': {
+                                            case 'Forward Testing Session': {
                                                 waitTime = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters.timeFrame.config.value
                                                 break
                                             }

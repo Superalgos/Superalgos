@@ -1588,7 +1588,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             } catch (err) {
-                                // we just try to reponnd to the web app, but maybe the response has already been sent.
+                                // we just try to respond to the web app, but maybe the response has already been sent.
                             }
                         }
                     }

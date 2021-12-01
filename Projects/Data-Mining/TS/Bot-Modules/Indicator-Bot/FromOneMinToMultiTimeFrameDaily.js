@@ -1,12 +1,12 @@
 exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (processIndex) {
     /*
-        This module is about converting a One-Min Daily typeo of data set into a Multi Time Frame Daily type.
+        This module is about converting a One-Min Daily type of data set into a Multi Time Frame Daily type.
 
         The process to do so involves:
     
-        Reading the elements (elements, volumens, bolllinger bands, news, asset metrics, etc.) from a
+        Reading the elements (elements, volumes, bollinger bands, news, asset metrics, etc.) from a
         One-Min Dataset (a dataset that is organized with elements spanning one min, like one min begin-end-elements,
-        or elements with a timestamp captured approximatelly one minute from each other)
+        or elements with a timestamp captured approximately one minute from each other)
         organized in Daily Files.
         
         It is going to output a Daily Files dataset for every Daily Time Frame, aggregating the 
@@ -27,7 +27,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
 
     let statusDependenciesModule
     let dataDependenciesModule
-    let node = {}               // Usefull nodes for this module will be stored here.
+    let node = {}               // Useful nodes for this module will be stored here.
 
     return thisObject;
 
@@ -100,7 +100,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
 
                     function timeframesLoop() {
                         /*
-                        We will iterate through all posible time frames.
+                        We will iterate through all possible time frames.
                         */
                         let timeFrameArrayIndex = 0   // loop Variable representing each possible period as defined at the Time Frame Array.
 
@@ -127,7 +127,7 @@ exports.newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily = function (proce
                             function aggregateAndWriteOutputFile(dependencyDailyFile) {
                                 /*
                                 Here we call the function that will aggregate all the information 
-                                at the dependency file into standarized begin-end-elements. 
+                                at the dependency file into standardized begin-end-elements. 
                                 */
                                 TS.projects.foundations.functionLibraries.fromOneMinToMultiTimeFrameFunctions.aggregateFileContent(
                                     node,

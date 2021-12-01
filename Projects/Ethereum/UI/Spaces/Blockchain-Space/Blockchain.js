@@ -106,7 +106,7 @@ function newEthereumBlockchainSpace() {
                                 return
                             }
 
-                            /* If it is not syncing, then we have the current block and the highets block too */
+                            /* If it is not syncing, then we have the current block and the highest block too */
                             let percentage = (status.isSyncing.currentBlock * 100 / status.isSyncing.highestBlock).toFixed(4)
                             let extraStatus = ''
                             if (status.isSyncing.highestBlock - status.isSyncing.currentBlock < 300) {

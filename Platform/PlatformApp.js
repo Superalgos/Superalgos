@@ -10,7 +10,7 @@ exports.newPlatformApp = function newPlatformApp() {
 
         process.on('uncaughtException', function (err) {
             if (err.message && err.message.indexOf("EADDRINUSE") > 0) {
-                console.log("The Superalgos Platform Client cannot be started. Reason: the port configured migth be being used by another application, or Superalgos Platform Client might be already running.")
+                console.log("The Superalgos Platform Client cannot be started. Reason: the port configured might be being used by another application, or Superalgos Platform Client might be already running.")
                 return
             }
             console.log('[ERROR] Platform App -> uncaughtException -> err.message = ' + err.message)
@@ -154,7 +154,7 @@ exports.newPlatformApp = function newPlatformApp() {
             console.log('Superalgos P2P Network ...................................... Will allow algo-traders to share trading signals with Superalgos users consuming these signals via a mobile app.')
             console.log('Real-time Trading Signals ................................... Will allow users to emit trading signals and be rewarded with SA Tokens.')
             console.log('Superalgos Mobile ........................................... Will allow users to consume trading signals for free and autonomously execute trades from their mobile phones.')
-            console.log('Portfolio Manager ........................................... Will allow a Portfolio Manager bot to supervize Trading Bots deciding where and when to increase or decrease their position sizes.]')
+            console.log('Portfolio Manager ........................................... Will allow a Portfolio Manager bot to supervise Trading Bots deciding where and when to increase or decrease their position sizes.]')
 
             console.log('')
 

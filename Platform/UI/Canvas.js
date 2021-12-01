@@ -801,7 +801,7 @@ function newCanvas() {
                     if (spaceInstance === undefined) { continue }
 
                     /*
-                    Here we manage a few exceptional behaviours. Specifically with the
+                    Here we manage a few exceptional behaviors. Specifically with the
                     charting space and the floating space, since they have a non standard
                     way of handling this event.
                     */
@@ -850,7 +850,7 @@ function newCanvas() {
                         continue
                     }
 
-                    /* Next is what happens to all non exceptional behaviour */
+                    /* Next is what happens to all non exceptional behavior */
                     if (spaceInstance.getContainer === undefined) { continue }
                     container = spaceInstance.getContainer(point)
 

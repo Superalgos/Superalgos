@@ -242,7 +242,7 @@
                     "situations": [
                         {
                             "type": "Situation",
-                            "name": "Inmediate Take Position",
+                            "name": "Immediate Take Position",
                             "project": "Foundations",
                             "conditions": [
                                 {

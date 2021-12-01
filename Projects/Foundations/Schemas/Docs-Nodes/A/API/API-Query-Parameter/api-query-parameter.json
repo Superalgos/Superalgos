@@ -57,7 +57,7 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"localization\",\n    \"isString\": false,\n    \"isOptional\": true,\n    \"description\": \"Trim down responce object\",\n    \"value\": false\n}",
+            "text": "{\n    \"codeName\": \"localization\",\n    \"isString\": false,\n    \"isOptional\": true,\n    \"description\": \"Trim down response object\",\n    \"value\": false\n}",
             "updated": 1622764527431
         },
         {

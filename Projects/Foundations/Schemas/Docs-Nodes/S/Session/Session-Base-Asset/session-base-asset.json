@@ -39,7 +39,7 @@
         },
         {
             "style": "List",
-            "text": "minimumBalance is the threshold of accummulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the minimumBalance as a general safety switch."
+            "text": "minimumBalance is the threshold of accumulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the minimumBalance as a general safety switch."
         },
         {
             "style": "List",

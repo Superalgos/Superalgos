@@ -2,7 +2,7 @@
     "type": "Crypto Exchange",
     "menuItems": [
         {
-            "action": "Configure Thise",
+            "action": "Configure This",
             "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",

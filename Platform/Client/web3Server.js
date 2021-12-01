@@ -353,7 +353,7 @@ exports.newWeb3Server = function newWeb3Server() {
                     var amountBigNumber = web3.utils.toBN(tokenAmount)
 
                     //const amount = web3.utils.toHex(tokenAmount)
-                    if (privateKey === undefined) { privateKey = 'No Privete Key - Just Testing' }
+                    if (privateKey === undefined) { privateKey = 'No Private Key - Just Testing' }
                     privateKey = privateKey.replace('0x', '')
                     const privateKeyBuffer = Buffer.from(privateKey, 'hex')
                     const contractAbiObject = JSON.parse(contractAbi)

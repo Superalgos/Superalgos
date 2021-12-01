@@ -67,7 +67,7 @@
             Trading Engine data structure. This date has to remain the same during the whole execution
             of the Trading Process until the end, including the writing of Data Ranges and Status Reports.
             The processDate of the Trading Engine data structure on the other hand can be changed during
-            the simulation loop, once we discover that all candles from a certain date have benn processed.
+            the simulation loop, once we discover that all candles from a certain date have been processed.
             Here is the point where we sync one and the other.
             */
             let tradingProcessDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.tradingEpisode.processDate.value)

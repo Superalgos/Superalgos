@@ -21,7 +21,7 @@
                 return;
             }
             /* 
-            We will store here the session key, which we will need everytime
+            We will store here the session key, which we will need every time
             we need to emit an event related to the session itself.
             */
             let VARIABLES_BY_PROCESS_INDEX = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex)
@@ -137,8 +137,8 @@
                             allGood = startLiveTrading(message)
                             break
                         }
-                        case 'Fordward Testing Session': {
-                            allGood = startFordwardTesting(message)
+                        case 'Forward Testing Session': {
+                            allGood = startForwardTesting(message)
                             break
                         }
                         case 'Paper Trading Session': {
@@ -590,7 +590,7 @@
                 return checkKey()
             }
 
-            function startFordwardTesting(message) {
+            function startForwardTesting(message) {
                 if (checkKey() === false) { return false }
 
                 /* Reduce the balance */

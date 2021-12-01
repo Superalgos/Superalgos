@@ -322,7 +322,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
         }
 
         if (result.market.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Exchange Markets neeed to be a child of Crypto Exchange.')
+            node.payload.uiObject.setErrorMessage('Exchange Markets need to be a child of Crypto Exchange.')
             return
         }
 

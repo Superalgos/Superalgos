@@ -367,7 +367,7 @@ exports.newGithubServer = function newGithubServer() {
 
                             /*
                                 TODO: We need to check before merging a User Profile that none of id of the node of the profile hierearchy exists at any other
-                                User Profile already at the repository, to avoid atacts of users highjacking references of other user profiles. 
+                                User Profile already at the repository, to avoid attacks of users hijacking references of other user profiles. 
                             */
 
                             if (await mergePullRequest() === false) {

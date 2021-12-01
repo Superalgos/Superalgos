@@ -838,7 +838,7 @@
                             /*
                             If the minute of the record item received from the exchange is
                             less than the minute of the current minute in our loop, 
-                            that means that we need to reposition the inded at the rawDataArray 
+                            that means that we need to reposition the index at the rawDataArray 
                             array, moving it one record forward, and that is what we are
                             doing here. 
                             */

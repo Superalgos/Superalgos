@@ -604,7 +604,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                 case 'Live Trading Session': {
                     break
                 }
-                case 'Fordward Testing Session': {
+                case 'Forward Testing Session': {
                     break
                 }
                 case 'Paper Trading Session': {
@@ -631,7 +631,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             case 'Live Trading Session': {
                 break
             }
-            case 'Fordward Testing Session': {
+            case 'Forward Testing Session': {
                 break
             }
             case 'Paper Trading Session': {
@@ -793,7 +793,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             case 'Live Trading Session': {
                 return
             }
-            case 'Fordward Testing Session': {
+            case 'Forward Testing Session': {
                 return
             }
             case 'Paper Trading Session': {
@@ -1030,7 +1030,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             case 'Live Trading Session': {
                 return
             }
-            case 'Fordward Testing Session': {
+            case 'Forward Testing Session': {
                 return
             }
             case 'Paper Trading Session': {
@@ -1074,7 +1074,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             case 'Live Trading Session': {
                 break
             }
-            case 'Fordward Testing Session': {
+            case 'Forward Testing Session': {
                 break
             }
             case 'Paper Trading Session': {
@@ -1136,7 +1136,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     ]
                 )
                 /*
-                We must be carefully here not to overide an already defined exitType. It can happen
+                We must be carefully here not to override an already defined exitType. It can happen
                 for instance that the order was cancelled from the but verifying the cancellation
                 was not possible because of a connection to the exchange problem. In that case
                 the exit type was defined but the order was kept open until the verification could be done.

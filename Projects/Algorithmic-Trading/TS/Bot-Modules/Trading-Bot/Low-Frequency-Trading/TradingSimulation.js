@@ -236,7 +236,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 function checkIfWeNeedToStopBetweenCycles() {
                     if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
+                            '[INFO] runSimulation -> controlLoop -> We are going to stop here because we were requested to stop processing this session.')
                         updateEpisode('Session Stopped')
                         breakLoop = true
                         return
@@ -244,7 +244,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                     if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
+                            '[INFO] runSimulation -> controlLoop -> We are going to stop here because we were requested to stop processing this task.')
                         updateEpisode('Task Stopped')
                         breakLoop = true
                         return

@@ -71,7 +71,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ")
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -123,7 +123,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because dependecy Status Report is corrupt. ")
+                            "[ERROR] start -> getContextVariables -> Can not continue because dependency Status Report is corrupt. ")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
                         return
                     }
@@ -158,7 +158,7 @@
 
                     if (statusReport.status === "Status Report is corrupt.") {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            "[ERROR] start -> getContextVariables -> Can not continue because self dependecy Status Report is corrupt. Aborting Process.")
+                            "[ERROR] start -> getContextVariables -> Can not continue because self dependency Status Report is corrupt. Aborting Process.")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                         return
                     }
@@ -171,10 +171,10 @@
 
                         if (beginingOfMarket.valueOf() !== contextVariables.dateBeginOfMarket.valueOf()) { // Reset Mechanism for Beginning of the Market
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                                "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated.")
+                                "[INFO] start -> getContextVariables -> Reset Mechanism for Beginning of the Market Activated.")
 
                             beginingOfMarket = new Date(contextVariables.dateBeginOfMarket.valueOf())
-                            startFromBegining()
+                            startFromBeginning()
                             return
                         }
 
@@ -190,10 +190,10 @@
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined.")
                         beginingOfMarket = new Date(contextVariables.dateBeginOfMarket.valueOf())
-                        startFromBegining()
+                        startFromBeginning()
                     }
 
-                    function startFromBegining() {
+                    function startFromBeginning() {
                         contextVariables.lastFile = new Date(
                             contextVariables.dateBeginOfMarket.getUTCFullYear() + "-" +
                             (contextVariables.dateBeginOfMarket.getUTCMonth() + 1) + "-" +

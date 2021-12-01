@@ -73,7 +73,7 @@
         },
         {
             "style": "List",
-            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Possible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
         },
         {
             "style": "List",

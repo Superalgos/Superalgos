@@ -21,7 +21,7 @@
         },
         {
             "style": "Text",
-            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only."
+            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spanning those periods only."
         },
         {
             "style": "Text",

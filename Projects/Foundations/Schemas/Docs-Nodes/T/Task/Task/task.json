@@ -22,7 +22,7 @@
         },
         {
             "style": "Text",
-            "text": "Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots."
+            "text": "Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors occurring on those other bots."
         },
         {
             "style": "Text",

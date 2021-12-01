@@ -91,7 +91,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                 if (product.config.nodePathType === 'array') {
                     /* 
                     This means that the configured nodePath is not pointing to a node, but to a node property that is an array.
-                    For that reason we will assume that each element of the array is a record to be outputed
+                    For that reason we will assume that each element of the array is a record to be outputted
                     */
                     for (let index = 0; index < productRoot.length; index++) {
                         /*
@@ -275,7 +275,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                         }
                         else {
                             /*
-                            For Market Files we will add a record everytime that property value does not match this
+                            For Market Files we will add a record every time that property value does not match this
                             */
                             if (propertyValue !== product.config.propertyValueThatPreventsSavingObject) {
                                 outputDatasetArray.push(record)

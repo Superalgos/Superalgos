@@ -1,7 +1,7 @@
 {
     "type": "Main Loop",
     "definition": {
-        "text": "Most Bots in Superalgos are not awake all the time. As a strategy to preserve hardware resourses, they run and go to sleep for a configurable amount of time, or until they are woken up by the finishing of some other task they are waiting for. Each cycle of running and sleeping is a loop at the Main Loop of a Bot.",
+        "text": "Most Bots in Superalgos are not awake all the time. As a strategy to preserve hardware resources, they run and go to sleep for a configurable amount of time, or until they are woken up by the finishing of some other task they are waiting for. Each cycle of running and sleeping is a loop at the Main Loop of a Bot.",
         "updated": 1621955130672
     },
     "paragraphs": [

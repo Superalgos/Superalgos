@@ -17,7 +17,7 @@
                     "situations": [
                         {
                             "type": "Situation",
-                            "name": "Inmediate Trigger On",
+                            "name": "Immediate Trigger On",
                             "project": "Foundations",
                             "conditions": [
                                 {
@@ -242,7 +242,7 @@
                     "situations": [
                         {
                             "type": "Situation",
-                            "name": "Inmediate Take Position",
+                            "name": "Immediate Take Position",
                             "project": "Foundations",
                             "conditions": [
                                 {

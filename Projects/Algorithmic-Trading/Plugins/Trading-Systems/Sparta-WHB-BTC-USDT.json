@@ -334,7 +334,7 @@
                                 },
                                 {
                                     "type": "Condition",
-                                    "name": "Not Completly Oversold",
+                                    "name": "Not Completely Oversold",
                                     "project": "Foundations",
                                     "javascriptCode": {
                                         "type": "Javascript Code",
@@ -5261,7 +5261,7 @@
                                 },
                                 {
                                     "type": "Condition",
-                                    "name": "Not Completly Oversold",
+                                    "name": "Not Completely Oversold",
                                     "project": "Foundations",
                                     "javascriptCode": {
                                         "type": "Javascript Code",
@@ -5950,7 +5950,7 @@
                                 },
                                 {
                                     "type": "Condition",
-                                    "name": "Not Completly Oversold",
+                                    "name": "Not Completely Oversold",
                                     "project": "Foundations",
                                     "javascriptCode": {
                                         "type": "Javascript Code",

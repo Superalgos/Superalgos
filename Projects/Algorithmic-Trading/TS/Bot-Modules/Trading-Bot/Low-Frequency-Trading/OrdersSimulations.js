@@ -305,7 +305,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
             Since the Actual Rate might have changed, we need to recalculate the Size Placed, where we accumulate all the Size Placed of
             all orders of a Stage. For Base Asset there is nothing to do, since the Actual Rate does not have an impact on it.
 
-            For Quoted Asset, we need to first unaccount what this same orded added before to Size Placed (with the precious Actual Size) and
+            For Quoted Asset, we need to first unaccount what this same ordered added before to Size Placed (with the precious Actual Size) and
             account with the new Actual Size. 
             */
             let previousStageQuotedAssetSizePlaced = tradingEngineStage.stageQuotedAsset.sizePlaced.value

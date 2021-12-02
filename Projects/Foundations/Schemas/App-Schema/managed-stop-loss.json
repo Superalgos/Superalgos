@@ -11,12 +11,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Manged SL Portfolio Formula",
+            "label": "Add Ask Portfolio Formula Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedStopLossPMFormula",
-            "relatedUiObject": "Managed Stop Loss PM Formula",
+            "propertyToCheckFor": "askPortfolioFormulaManager",
+            "relatedUiObject": "Ask Portfolio Formula Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -43,9 +43,9 @@
             "autoAdd": true
         },
         {
-            "name": "managedStopLossPMFormula",
+            "name": "askPortfolioFormulaManager",
             "type": "node",
-            "childType": "Managed Stop Loss PM Formula"
+            "childType": "Ask Portfolio Formula Manager"
         }
     ],
     "propertyNameAtParent": "managedStopLoss"

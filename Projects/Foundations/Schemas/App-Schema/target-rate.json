@@ -13,12 +13,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Target Rate Portfolio Formula",
+            "label": "Add Ask Portfolio Formula Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "targetRatePMFormula",
-            "relatedUiObject": "Target Rate PM Formula",
+            "propertyToCheckFor": "askPortfolioFormulaManager",
+            "relatedUiObject": "Ask Portfolio Formula Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -45,9 +45,9 @@
             "autoAdd": true
         },
         {
-            "name": "targetRatePMFormula",
+            "name": "askPortfolioFormulaManager",
             "type": "node",
-            "childType": "Target Rate PM Formula"
+            "childType": "Ask Portfolio Formula Manager"
         }
     ],
     "propertyNameAtParent": "targetRate"

@@ -13,12 +13,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Target Base Size Portfolio Formula",
+            "label": "Add Ask Portfolio Formula Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "targetSizeInBaseAssetPMFormula",
-            "relatedUiObject": "Target Size In Base Asset PM Formula",
+            "propertyToCheckFor": "askPortfolioFormulaManager",
+            "relatedUiObject": "Ask Portfolio Formula Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -45,9 +45,9 @@
             "autoAdd": true
         },
         {
-            "name": "targetSizeInBaseAssetPMFormula",
+            "name": "askPortfolioFormulaManager",
             "type": "node",
-            "childType": "Target Size In Base Asset PM Formula"
+            "childType": "Ask Portfolio Formula Manager"
         }
     ],
     "propertyNameAtParent": "targetSizeInBaseAsset"

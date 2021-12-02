@@ -11,12 +11,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Create Order Portfolio Event",
+            "label": "Add Ask Portfolio Events Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "createOrderPMEvent",
-            "relatedUiObject": "Create Order PM Event",
+            "propertyToCheckFor": "askPortfolioEventsManager",
+            "relatedUiObject": "Ask Portfolio Events Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -51,9 +51,9 @@
             "autoAdd": true
         },
         {
-            "name": "createOrderPMEvent",
+            "name": "askPortfolioEventsManager",
             "type": "node",
-            "childType": "Create Order PM Event"
+            "childType": "Ask Portfolio Events Manager"
         },
         {
             "name": "announcements",

@@ -1,0 +1,49 @@
+.post {
+    min-width: 5rem; /* todo needs to set a minimum width, but overriding from parent*/
+    max-width: 100%;
+    min-height: 5rem; /* todo needs tbd. needed actually? */
+    max-height: 100%; /* todo need to be 8rem, but is collapsing without scroll. need fix*/
+    padding: 0.5rem;
+}
+
+.postAvatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+.postBody {
+    max-width: 100%;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    padding-left: 2.8rem;
+    overflow: auto;
+}
+
+.postUserName {
+    padding: 0.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.postFooterContainer {
+    justify-content: flex-start;
+    display: flex;
+    width: 100%;
+    padding-top: 0.50rem;
+    padding-bottom: 0.50rem;
+}
+
+.postFooterLikeDislike {
+    justify-content: space-evenly;
+    display: flex;
+    width: 30%;
+    padding-left: 0.50rem;
+}
+
+.postFooterRepost {
+    justify-content: flex-end;
+    display: flex;
+    width: 65%;
+}

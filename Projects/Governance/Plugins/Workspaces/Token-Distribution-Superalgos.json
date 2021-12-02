@@ -99,12 +99,12 @@
             "id": "db380c52-cf90-475b-87df-c005dd51cdf6",
             "savedPayload": {
                 "position": {
-                    "x": 13705.000000000002,
-                    "y": 6103.05830753354
+                    "x": 14014.000000000002,
+                    "y": 6057.05830753354
                 },
                 "targetPosition": {
-                    "x": 13705.000000000002,
-                    "y": 6103.05830753354
+                    "x": 14014.000000000002,
+                    "y": 6057.05830753354
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -2914,7 +2914,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 5,
                                 "arrangementStyle": 0
@@ -5059,6 +5059,7 @@
                     "arrangementStyle": 1
                 },
                 "uiObject": {
+                    "isPlaying": true,
                     "isRunning": false
                 },
                 "tutorial": {

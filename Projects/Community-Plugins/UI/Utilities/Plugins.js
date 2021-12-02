@@ -5,7 +5,7 @@ function newPluginsUtilitiesPlugins() {
         addMissingPluginFiles: addMissingPluginFiles,
         addMissingPluginFile: addMissingPluginFile,
         getProjectName: getProjectName,
-        savePluginFile: savePluginFile
+        savePluginFileAtClient: savePluginFileAtClient
     }
 
     return thisObject
@@ -119,7 +119,7 @@ function newPluginsUtilitiesPlugins() {
         return config.codeName
     }
 
-    function savePluginFile(pluginFile) {
+    function savePluginFileAtClient(pluginFile) {
         let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
         let fileName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
         let folderName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')

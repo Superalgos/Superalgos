@@ -2650,7 +2650,7 @@
                                                             {
                                                                 "type": "Pool Weight Vote",
                                                                 "name": "Liquidity Rewards BUSD Pool",
-                                                                "config": "{\r\n    \"percentage\": 2.5\r\n}",
+                                                                "config": "{\r\n    \"percentage\": 2.9\r\n}",
                                                                 "project": "Governance",
                                                                 "id": "c94cbc11-2d17-40a3-ad49-db5ce64ce0da",
                                                                 "savedPayload": {
@@ -2794,7 +2794,7 @@
                                                             "floatingObject": {
                                                                 "isPinned": false,
                                                                 "isFrozen": false,
-                                                                "isCollapsed": true,
+                                                                "isCollapsed": false,
                                                                 "angleToParent": 2,
                                                                 "distanceToParent": 3,
                                                                 "arrangementStyle": 0
@@ -2853,7 +2853,7 @@
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": true,
+                                                        "isCollapsed": false,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -3225,7 +3225,7 @@
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -3378,7 +3378,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -4711,7 +4711,7 @@
                                                             {
                                                                 "type": "Pool Weight Vote",
                                                                 "name": "Liquidity Rewards BUSD Pool",
-                                                                "config": "{\r\n    \"percentage\": 2.5\r\n}",
+                                                                "config": "{\r\n    \"percentage\": 2.9\r\n}",
                                                                 "project": "Governance",
                                                                 "id": "14b3aa84-faa3-4d9a-ac89-55e7ad677479",
                                                                 "savedPayload": {
@@ -4914,7 +4914,7 @@
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": true,
+                                                        "isCollapsed": false,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -5286,7 +5286,7 @@
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -5439,7 +5439,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0

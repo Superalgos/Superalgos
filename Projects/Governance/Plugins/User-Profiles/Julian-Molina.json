@@ -119,12 +119,12 @@
                 "id": "6e472694-9fff-42f5-8cec-41044d033044",
                 "savedPayload": {
                     "position": {
-                        "x": 30974.47570305169,
-                        "y": 37578.48589518959
+                        "x": 24077.92397891376,
+                        "y": 32778.48589518959
                     },
                     "targetPosition": {
-                        "x": 31241.7776603082,
-                        "y": 37714.68304511145
+                        "x": 24345.22593617027,
+                        "y": 32914.68304511145
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -153,12 +153,12 @@
                         "id": "c84af7b3-b580-41df-bd9a-d873a126b486",
                         "savedPayload": {
                             "position": {
-                                "x": 30460.526389510273,
-                                "y": 37214.571573809066
+                                "x": 23563.974665372345,
+                                "y": 32414.571573809062
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -194,12 +194,12 @@
                         "id": "326139c1-d5bf-4353-9d5c-4277bd670699",
                         "savedPayload": {
                             "position": {
-                                "x": 30458.217063443353,
-                                "y": 37096.97367789765
+                                "x": 23561.665339305426,
+                                "y": 32296.973677897655
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -235,12 +235,12 @@
                         "id": "456319d1-ae7f-4bae-9764-5bba2200a7c9",
                         "savedPayload": {
                             "position": {
-                                "x": 30478.89432181104,
-                                "y": 36981.184865415315
+                                "x": 23582.342597673112,
+                                "y": 32181.184865415315
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -276,12 +276,12 @@
                         "id": "3c1b332e-80e5-45a3-b381-8f988ba7cb54",
                         "savedPayload": {
                             "position": {
-                                "x": 30521.76354917021,
-                                "y": 36871.65483549063
+                                "x": 23625.211825032282,
+                                "y": 32071.654835490634
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -312,17 +312,17 @@
                     {
                         "type": "User Supporter",
                         "name": "cozed-gh",
-                        "config": "{\n    \"percentage\": 20\n}",
+                        "config": "{\n    \"percentage\": 25\n}",
                         "project": "Governance",
                         "id": "8e626e39-c496-42f9-979c-ee94da1ca13e",
                         "savedPayload": {
                             "position": {
-                                "x": 30585.177305154783,
-                                "y": 36772.59276574846
+                                "x": 23688.625581016855,
+                                "y": 31972.59276574846
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -358,12 +358,12 @@
                         "id": "739e3adf-372a-41c9-9102-cc8587f7cd28",
                         "savedPayload": {
                             "position": {
-                                "x": 30666.69863468512,
-                                "y": 36687.805555974344
+                                "x": 23770.14691054719,
+                                "y": 31887.80555597434
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -399,12 +399,12 @@
                         "id": "b3e59ae5-fd35-43eb-b4fd-dfcac7ccf7d5",
                         "savedPayload": {
                             "position": {
-                                "x": 30763.194718785056,
-                                "y": 36620.551531090685
+                                "x": 23866.64299464713,
+                                "y": 31820.55153109068
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -440,12 +440,12 @@
                         "id": "7d9b8b4d-9708-4793-9542-3ac88c33c0e9",
                         "savedPayload": {
                             "position": {
-                                "x": 30870.95726705826,
-                                "y": 36573.41522555727
+                                "x": 23974.405542920333,
+                                "y": 31773.41522555727
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -476,17 +476,17 @@
                     {
                         "type": "User Supporter",
                         "name": "prepheadrus",
-                        "config": "{}",
+                        "config": "{\r\n    \"percentage\": 10\r\n}",
                         "project": "Governance",
                         "id": "89f94153-1b90-4b51-aed6-4e2004466bf8",
                         "savedPayload": {
                             "position": {
-                                "x": 30985.845025208528,
-                                "y": 36548.20806116141
+                                "x": 24089.2933010706,
+                                "y": 31748.208061161404
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -517,17 +517,17 @@
                     {
                         "type": "User Supporter",
                         "name": "piyanthak",
-                        "config": "{\n    \"percentage\": 10\n}",
+                        "config": "{\n    \"percentage\": 5\n}",
                         "project": "Governance",
                         "id": "d3d4de7e-7e31-44bc-b219-d3ed114c3a47",
                         "savedPayload": {
                             "position": {
-                                "x": 31103.442921119935,
-                                "y": 36545.89873509448
+                                "x": 24206.891196982007,
+                                "y": 31745.898735094484
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -558,17 +558,17 @@
                     {
                         "type": "User Supporter",
                         "name": "NAmorim",
-                        "config": "{\r\n    \"percentage\": 10\r\n}",
+                        "config": "{\r\n    \"percentage\": 5\r\n}",
                         "project": "Governance",
                         "id": "32a1a75e-fe90-4acb-b006-000bd89b3403",
                         "savedPayload": {
                             "position": {
-                                "x": 31219.231733602275,
-                                "y": 36566.575993462175
+                                "x": 24322.680009464348,
+                                "y": 31766.57599346217
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -604,12 +604,12 @@
                         "id": "3c1f9bde-6414-46f2-bf92-f6bbe4d9e43d",
                         "savedPayload": {
                             "position": {
-                                "x": 31328.761763526956,
-                                "y": 36609.44522082134
+                                "x": 24432.21003938903,
+                                "y": 31809.44522082134
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -640,17 +640,17 @@
                     {
                         "type": "User Supporter",
                         "name": "alexandrustefan",
-                        "config": "{\r\n    \"percentage\": 10\r\n}",
+                        "config": "{\r\n    \"percentage\": 5\r\n}",
                         "project": "Governance",
                         "id": "de2b607f-25e8-41b4-8d6a-0c95869c12e4",
                         "savedPayload": {
                             "position": {
-                                "x": 31427.82383326913,
-                                "y": 36672.85897680591
+                                "x": 24531.2721091312,
+                                "y": 31872.858976805914
                             },
                             "targetPosition": {
-                                "x": 31056.36746368323,
-                                "y": 37144.04913533436
+                                "x": 24159.8157395453,
+                                "y": 32344.04913533436
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -686,12 +686,12 @@
                     "id": "476c3118-677c-4dff-a117-18d5ef2b75fd",
                     "savedPayload": {
                         "position": {
-                            "x": 31512.61104304325,
-                            "y": 36754.38030633625
+                            "x": 24616.05931890532,
+                            "y": 31954.38030633625
                         },
                         "targetPosition": {
-                            "x": 31056.36746368323,
-                            "y": 37144.04913533436
+                            "x": 24159.8157395453,
+                            "y": 32344.04913533436
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -713,12 +713,12 @@
                     "id": "73a5b457-3e8b-4364-a375-0c35a9802ebc",
                     "savedPayload": {
                         "position": {
-                            "x": 31579.86506792691,
-                            "y": 36850.876390436184
+                            "x": 24683.31334378898,
+                            "y": 32050.876390436188
                         },
                         "targetPosition": {
-                            "x": 31056.36746368323,
-                            "y": 37144.04913533436
+                            "x": 24159.8157395453,
+                            "y": 32344.04913533436
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -736,17 +736,17 @@
                 "id": "22fce0f5-15bf-461e-9574-d43b0dc5ea18",
                 "savedPayload": {
                     "position": {
-                        "x": 31056.36746368323,
-                        "y": 37144.04913533436
+                        "x": 24159.8157395453,
+                        "y": 32344.04913533436
                     },
                     "targetPosition": {
-                        "x": 31241.7776603082,
-                        "y": 37714.68304511145
+                        "x": 24345.22593617027,
+                        "y": 32914.68304511145
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 5,
                         "arrangementStyle": 0
@@ -861,12 +861,12 @@
                 "id": "675f06c7-289e-49c5-bf9a-40c525338c37",
                 "savedPayload": {
                     "position": {
-                        "x": 31377.974810230062,
-                        "y": 37447.38108785494
+                        "x": 24481.423086092134,
+                        "y": 32647.38108785494
                     },
                     "targetPosition": {
-                        "x": 31241.7776603082,
-                        "y": 37714.68304511145
+                        "x": 24345.22593617027,
+                        "y": 32914.68304511145
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -884,12 +884,12 @@
             "id": "2bbf0b19-08fd-4673-a016-f4cd85d90c2f",
             "savedPayload": {
                 "position": {
-                    "x": 31241.7776603082,
-                    "y": 37714.68304511145
+                    "x": 24345.22593617027,
+                    "y": 32914.68304511145
                 },
                 "targetPosition": {
-                    "x": 31334.48275862068,
-                    "y": 38000
+                    "x": 24437.931034482754,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -934,12 +934,12 @@
                                 "id": "b35f5bf2-a5d7-4cae-b46c-ff91e2f98249",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31555.39062782826,
-                                        "y": 37160.17616269908
+                                        "x": 24658.83890369033,
+                                        "y": 32360.17616269908
                                     },
                                     "targetPosition": {
-                                        "x": 31788.53441626535,
-                                        "y": 37348.97228001403
+                                        "x": 24891.98269212742,
+                                        "y": 32548.972280014033
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -989,12 +989,12 @@
                                                                 "id": "a44be0c3-68c6-4162-a1e1-5d7e25e94662",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31046.757276159806,
-                                                                        "y": 37368.71944268699
+                                                                        "x": 24150.20555202188,
+                                                                        "y": 32568.719442686997
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31093.687615671875,
-                                                                        "y": 37072.412940508446
+                                                                        "x": 24197.135891533948,
+                                                                        "y": 32272.412940508457
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1015,23 +1015,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                         ],
                                                                         [
                                                                             "Referrals Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "f546235b-fa31-4410-9e01-a3a36b33c218"
                                                                         ],
                                                                         [
                                                                             "Referrals Rewards",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "c8b8a87e-c689-488a-acdf-08c57d8e1c41"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1039,17 +1049,17 @@
                                                             {
                                                                 "type": "Pool Weight Vote",
                                                                 "name": "Referrals Bonus Pool",
-                                                                "config": "{\r\n    \"percentage\": 5\r\n}",
+                                                                "config": "{\r\n    \"percentage\": 0\r\n}",
                                                                 "project": "Governance",
                                                                 "id": "f5cabf90-04f5-4c9a-b20d-46b8ae756fa0",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 30813.613487722716,
-                                                                        "y": 37179.92332537204
+                                                                        "x": 23917.06176358479,
+                                                                        "y": 32379.92332537205
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31093.687615671875,
-                                                                        "y": 37072.412940508446
+                                                                        "x": 24197.135891533948,
+                                                                        "y": 32272.412940508457
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1070,23 +1080,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                         ],
                                                                         [
                                                                             "Referrals Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "f546235b-fa31-4410-9e01-a3a36b33c218"
                                                                         ],
                                                                         [
                                                                             "Referrals Bonus",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "8d8696a1-0f83-4f82-bf9e-7a26bfc4298c"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1098,12 +1118,12 @@
                                                         "id": "7b763e3d-8ad3-46de-ab26-83f283775449",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 31093.687615671875,
-                                                                "y": 37072.412940508446
+                                                                "x": 24197.135891533948,
+                                                                "y": 32272.412940508457
                                                             },
                                                             "targetPosition": {
-                                                                "x": 31282.483732986828,
-                                                                "y": 36839.269152071356
+                                                                "x": 24385.9320088489,
+                                                                "y": 32039.269152071367
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1124,19 +1144,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Community Building Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                 ],
                                                                 [
                                                                     "Referrals Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "f546235b-fa31-4410-9e01-a3a36b33c218"
                                                                 ]
                                                             ]
                                                         }
@@ -1156,12 +1184,12 @@
                                                                 "id": "1de4f604-12d8-4fc7-8dee-9453f3cf96c9",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 30741.422066063864,
-                                                                        "y": 37046.963266739396
+                                                                        "x": 23844.870341925936,
+                                                                        "y": 32246.963266739407
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30984.127164376347,
-                                                                        "y": 36870.62769105165
+                                                                        "x": 24087.57544023842,
+                                                                        "y": 32070.627691051664
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1182,23 +1210,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                         ],
                                                                         [
                                                                             "Support Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "81983d96-e6a0-42f8-96e9-a862539015d1"
                                                                         ],
                                                                         [
                                                                             "Support Rewards",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "b6a45b2b-4a0c-4cde-9f12-3572b628cd05"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1206,17 +1244,17 @@
                                                             {
                                                                 "type": "Pool Weight Vote",
                                                                 "name": "Support Bonus Pool",
-                                                                "config": "{\r\n    \"percentage\": 5\r\n}",
+                                                                "config": "{\r\n    \"percentage\": -5\r\n}",
                                                                 "project": "Governance",
                                                                 "id": "48eee72c-7831-4038-8f2d-1136640d084f",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 30710.063527083566,
-                                                                        "y": 36748.60669812891
+                                                                        "x": 23813.51180294564,
+                                                                        "y": 31948.606698128926
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 30984.127164376347,
-                                                                        "y": 36870.62769105165
+                                                                        "x": 24087.57544023842,
+                                                                        "y": 32070.627691051664
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1237,23 +1275,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                         ],
                                                                         [
                                                                             "Support Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "81983d96-e6a0-42f8-96e9-a862539015d1"
                                                                         ],
                                                                         [
                                                                             "Support Bonus",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "0472f38b-b5a6-41da-af06-5577c1dec66e"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1265,12 +1313,12 @@
                                                         "id": "93b15441-b8a7-4215-b43e-fee55b2b91e0",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 30984.127164376347,
-                                                                "y": 36870.62769105165
+                                                                "x": 24087.57544023842,
+                                                                "y": 32070.627691051664
                                                             },
                                                             "targetPosition": {
-                                                                "x": 31282.483732986828,
-                                                                "y": 36839.269152071356
+                                                                "x": 24385.9320088489,
+                                                                "y": 32039.269152071367
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1291,19 +1339,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Community Building Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                 ],
                                                                 [
                                                                     "Support Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "81983d96-e6a0-42f8-96e9-a862539015d1"
                                                                 ]
                                                             ]
                                                         }
@@ -1323,12 +1379,12 @@
                                                                 "id": "225c9174-1346-4eb6-970e-bcd5aae1cfb4",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 30753.033442371197,
-                                                                        "y": 36603.54269524434
+                                                                        "x": 23856.48171823327,
+                                                                        "y": 31803.542695244345
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31049.339944549738,
-                                                                        "y": 36650.473034756404
+                                                                        "x": 24152.78822041181,
+                                                                        "y": 31850.473034756415
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1349,23 +1405,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                         ],
                                                                         [
                                                                             "Mentorship Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "34ca58d9-0a55-4e60-9135-17d6a3c2155f"
                                                                         ],
                                                                         [
                                                                             "Mentorship Rewards",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "dcdc490e-b18c-4220-9550-feeaca598f20"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1373,17 +1439,17 @@
                                                             {
                                                                 "type": "Pool Weight Vote",
                                                                 "name": "Mentorship Bonus Pool",
-                                                                "config": "{\r\n    \"percentage\": 5\r\n}",
+                                                                "config": "{\r\n    \"percentage\": 0\r\n}",
                                                                 "project": "Governance",
                                                                 "id": "cae60c31-e7f8-4481-a091-5ef53f7b1205",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 30941.829559686146,
-                                                                        "y": 36370.39890680724
+                                                                        "x": 24045.27783554822,
+                                                                        "y": 31570.398906807255
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31049.339944549738,
-                                                                        "y": 36650.473034756404
+                                                                        "x": 24152.78822041181,
+                                                                        "y": 31850.473034756415
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1404,23 +1470,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Community Building Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                         ],
                                                                         [
                                                                             "Mentorship Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "34ca58d9-0a55-4e60-9135-17d6a3c2155f"
                                                                         ],
                                                                         [
                                                                             "Mentorship Bonus",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "e9c5bfc1-ed3c-40dc-a8f9-bcc59796cd05"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1432,12 +1508,12 @@
                                                         "id": "61f3b5ed-1c20-4a15-a97f-e84ce43b036c",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 31049.339944549738,
-                                                                "y": 36650.473034756404
+                                                                "x": 24152.78822041181,
+                                                                "y": 31850.473034756415
                                                             },
                                                             "targetPosition": {
-                                                                "x": 31282.483732986828,
-                                                                "y": 36839.269152071356
+                                                                "x": 24385.9320088489,
+                                                                "y": 32039.269152071367
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1458,19 +1534,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Community Building Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                                 ],
                                                                 [
                                                                     "Mentorship Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "34ca58d9-0a55-4e60-9135-17d6a3c2155f"
                                                                 ]
                                                             ]
                                                         }
@@ -1483,17 +1567,17 @@
                                                 "id": "b4b61b82-c4e8-4c86-ae2b-ce1542876310",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31282.483732986828,
-                                                        "y": 36839.269152071356
+                                                        "x": 24385.9320088489,
+                                                        "y": 32039.269152071367
                                                     },
                                                     "targetPosition": {
-                                                        "x": 31580.84030159731,
-                                                        "y": 36807.91061309106
+                                                        "x": 24684.28857745938,
+                                                        "y": 32007.91061309107
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": true,
+                                                        "isCollapsed": false,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -1509,15 +1593,21 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                         ],
                                                         [
                                                             "Community Building Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "75628cc8-91ce-4bda-8b5c-2a3d761286cc"
                                                         ]
                                                     ]
                                                 }
@@ -1569,23 +1659,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Onboarding Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "365fc8e3-e2f0-47ae-b892-56bb70cee6c3"
                                                                         ],
                                                                         [
                                                                             "Airdrop Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "8b951a2c-ad25-4e2c-9412-01f12019668e"
                                                                         ],
                                                                         [
                                                                             "Airdrop Rewards",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "317f86c9-4df7-45e5-9b8d-7331752a2af5"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1623,19 +1723,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Onboarding Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "365fc8e3-e2f0-47ae-b892-56bb70cee6c3"
                                                                 ],
                                                                 [
                                                                     "Airdrop Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "8b951a2c-ad25-4e2c-9412-01f12019668e"
                                                                 ]
                                                             ]
                                                         }
@@ -1681,23 +1789,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Onboarding Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "365fc8e3-e2f0-47ae-b892-56bb70cee6c3"
                                                                         ],
                                                                         [
                                                                             "Github Prgoram",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "4a5f4457-e3a6-4265-be45-b1510753390b"
                                                                         ],
                                                                         [
                                                                             "Github Rewards",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "d2e1b806-d14d-4811-a1e0-47665828cf99"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1735,19 +1853,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Onboarding Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "365fc8e3-e2f0-47ae-b892-56bb70cee6c3"
                                                                 ],
                                                                 [
                                                                     "Github Prgoram",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "4a5f4457-e3a6-4265-be45-b1510753390b"
                                                                 ]
                                                             ]
                                                         }
@@ -1760,12 +1886,12 @@
                                                 "id": "a0b2de87-ebdb-4b64-8411-c95dcf25fc6f",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31306.77666430453,
-                                                        "y": 36685.88962016832
+                                                        "x": 24410.2249401666,
+                                                        "y": 31885.88962016833
                                                     },
                                                     "targetPosition": {
-                                                        "x": 31580.84030159731,
-                                                        "y": 36807.91061309106
+                                                        "x": 24684.28857745938,
+                                                        "y": 32007.91061309107
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1786,15 +1912,21 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                         ],
                                                         [
                                                             "Onboarding Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "365fc8e3-e2f0-47ae-b892-56bb70cee6c3"
                                                         ]
                                                     ]
                                                 }
@@ -1802,7 +1934,7 @@
                                             {
                                                 "type": "Weight Votes Switch",
                                                 "name": "Incentives for Voting",
-                                                "config": "{\r\n    \"percentage\": 5\r\n}",
+                                                "config": "{\r\n    \"percentage\": -5\r\n}",
                                                 "project": "Governance",
                                                 "weightVotesSwitch": [
                                                     {
@@ -1846,23 +1978,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Voting",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "224fa384-c1ce-440a-af59-0fe3c15b1a9e"
                                                                         ],
                                                                         [
                                                                             "Voting Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "50f460b0-5b32-4e07-a596-37d5054a84df"
                                                                         ],
                                                                         [
                                                                             "Voting Bonus",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "0d1d364e-7305-4fd7-9963-ac67ade427b9"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1900,19 +2042,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Incentives for Voting",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "224fa384-c1ce-440a-af59-0fe3c15b1a9e"
                                                                 ],
                                                                 [
                                                                     "Voting Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "50f460b0-5b32-4e07-a596-37d5054a84df"
                                                                 ]
                                                             ]
                                                         }
@@ -1925,12 +2075,12 @@
                                                 "id": "9bf22529-6ea1-46c2-b437-3644422595ee",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31404.504725909566,
-                                                        "y": 36565.20551477857
+                                                        "x": 24507.95300177164,
+                                                        "y": 31765.205514778587
                                                     },
                                                     "targetPosition": {
-                                                        "x": 31580.84030159731,
-                                                        "y": 36807.91061309106
+                                                        "x": 24684.28857745938,
+                                                        "y": 32007.91061309107
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1951,15 +2101,21 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                         ],
                                                         [
                                                             "Incentives for Voting",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "224fa384-c1ce-440a-af59-0fe3c15b1a9e"
                                                         ]
                                                     ]
                                                 }
@@ -1985,12 +2141,12 @@
                                                                 "id": "2c5cca62-6247-4e65-a678-c85c0c4eccec",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31258.31560250138,
-                                                                        "y": 36061.19747587009
+                                                                        "x": 24361.763878363454,
+                                                                        "y": 31261.197475870107
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31518.123223636714,
-                                                                        "y": 36211.19747587009
+                                                                        "x": 24621.571499498787,
+                                                                        "y": 31411.197475870107
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -2011,23 +2167,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "5797f4b8-c1d3-4b50-9a01-3ecdfe3de03e"
                                                                         ],
                                                                         [
                                                                             "Liquidity Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "04fc3ae5-db3b-414a-bfbd-5118232b09fa"
                                                                         ],
                                                                         [
                                                                             "Liquidity Rewards BTCB",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "52b41f1b-7b7f-4bdb-bc8f-96f23288b5fe"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2040,12 +2206,12 @@
                                                                 "id": "06e6303c-8b55-4f4e-b639-98d856034c28",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31396.102230713976,
-                                                                        "y": 35937.133838577305
+                                                                        "x": 24499.550506576048,
+                                                                        "y": 31137.133838577327
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31518.123223636714,
-                                                                        "y": 36211.19747587009
+                                                                        "x": 24621.571499498787,
+                                                                        "y": 31411.197475870107
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -2066,23 +2232,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "5797f4b8-c1d3-4b50-9a01-3ecdfe3de03e"
                                                                         ],
                                                                         [
                                                                             "Liquidity Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "04fc3ae5-db3b-414a-bfbd-5118232b09fa"
                                                                         ],
                                                                         [
                                                                             "Liquidity Rewards BNB",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "052ca867-1093-4d24-9a18-738cadfc11af"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2095,12 +2271,12 @@
                                                                 "id": "e404c3b1-256a-4c43-8fb4-5203e43d1ff6",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31580.49673088204,
-                                                                        "y": 35917.753195649944
+                                                                        "x": 24683.945006744114,
+                                                                        "y": 31117.753195649966
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31518.123223636714,
-                                                                        "y": 36211.19747587009
+                                                                        "x": 24621.571499498787,
+                                                                        "y": 31411.197475870107
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -2121,23 +2297,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "5797f4b8-c1d3-4b50-9a01-3ecdfe3de03e"
                                                                         ],
                                                                         [
                                                                             "Liquidity Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "04fc3ae5-db3b-414a-bfbd-5118232b09fa"
                                                                         ],
                                                                         [
                                                                             "Liquidity Rewards BUSD",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "ee095642-5357-4c59-bd85-76058005f93f"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2145,17 +2331,17 @@
                                                             {
                                                                 "type": "Pool Weight Vote",
                                                                 "name": "Liquidity Rewards ETH Pool",
-                                                                "config": "{\r\n    \"percentage\": 0.1\r\n}",
+                                                                "config": "{\r\n    \"percentage\": -13\r\n}",
                                                                 "project": "Governance",
                                                                 "id": "4b2868f6-32a7-470d-8499-8936c7a988f1",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 31741.066671279932,
-                                                                        "y": 36010.45829396243
+                                                                        "x": 24844.514947142005,
+                                                                        "y": 31210.45829396245
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 31518.123223636714,
-                                                                        "y": 36211.19747587009
+                                                                        "x": 24621.571499498787,
+                                                                        "y": 31411.197475870107
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -2176,23 +2362,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "5797f4b8-c1d3-4b50-9a01-3ecdfe3de03e"
                                                                         ],
                                                                         [
                                                                             "Liquidity Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "04fc3ae5-db3b-414a-bfbd-5118232b09fa"
                                                                         ],
                                                                         [
                                                                             "Liquidity Rewards ETH",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "cb2bc139-0a02-46a6-b660-89726c7bcb63"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2204,12 +2400,12 @@
                                                         "id": "02a765ac-4e58-45cf-a527-946158a86730",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 31518.123223636714,
-                                                                "y": 36211.19747587009
+                                                                "x": 24621.571499498787,
+                                                                "y": 31411.197475870107
                                                             },
                                                             "targetPosition": {
-                                                                "x": 31549.48176261701,
-                                                                "y": 36509.554044480574
+                                                                "x": 24652.930038479084,
+                                                                "y": 31709.55404448059
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2230,19 +2426,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "5797f4b8-c1d3-4b50-9a01-3ecdfe3de03e"
                                                                 ],
                                                                 [
                                                                     "Liquidity Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "04fc3ae5-db3b-414a-bfbd-5118232b09fa"
                                                                 ]
                                                             ]
                                                         }
@@ -2255,17 +2459,17 @@
                                                 "id": "784bbf08-4cc5-4e34-bcf6-1cc9d6152364",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31549.48176261701,
-                                                        "y": 36509.554044480574
+                                                        "x": 24652.930038479084,
+                                                        "y": 31709.55404448059
                                                     },
                                                     "targetPosition": {
-                                                        "x": 31580.84030159731,
-                                                        "y": 36807.91061309106
+                                                        "x": 24684.28857745938,
+                                                        "y": 32007.91061309107
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": false,
+                                                        "isCollapsed": true,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -2281,15 +2485,21 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                         ],
                                                         [
                                                             "Incentives for Providing Liquidity to SA Markets",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "5797f4b8-c1d3-4b50-9a01-3ecdfe3de03e"
                                                         ]
                                                     ]
                                                 }
@@ -2341,23 +2551,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Staking & Delegating SA Tokens",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "82d634ed-9b82-42be-bf00-aa58e68915ee"
                                                                         ],
                                                                         [
                                                                             "Staking Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "954cf3cf-2fb7-4826-ae05-d2f9f702d67f"
                                                                         ],
                                                                         [
                                                                             "Staking Rewards",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "4b9e363e-61e6-43a9-bd9a-412629b168fa"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2395,19 +2615,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Incentives for Staking & Delegating SA Tokens",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "82d634ed-9b82-42be-bf00-aa58e68915ee"
                                                                 ],
                                                                 [
                                                                     "Staking Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "954cf3cf-2fb7-4826-ae05-d2f9f702d67f"
                                                                 ]
                                                             ]
                                                         }
@@ -2453,23 +2681,33 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Superalgos",
-                                                                            "Pools"
+                                                                            "Pools",
+                                                                            "Governance",
+                                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                         ],
                                                                         [
                                                                             "Governance Programs",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                         ],
                                                                         [
                                                                             "Incentives for Staking & Delegating SA Tokens",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "82d634ed-9b82-42be-bf00-aa58e68915ee"
                                                                         ],
                                                                         [
                                                                             "Delegation Program",
-                                                                            "Pool Class"
+                                                                            "Pool Class",
+                                                                            "Governance",
+                                                                            "ee3da355-5778-43d0-bef2-5855496cdbf3"
                                                                         ],
                                                                         [
                                                                             "Delegation Bonus",
-                                                                            "Pool"
+                                                                            "Pool",
+                                                                            "Governance",
+                                                                            "68558864-3057-4729-a9c0-91ef0ab458f7"
                                                                         ]
                                                                     ]
                                                                 }
@@ -2507,19 +2745,27 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Superalgos",
-                                                                    "Pools"
+                                                                    "Pools",
+                                                                    "Governance",
+                                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                                 ],
                                                                 [
                                                                     "Governance Programs",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                                 ],
                                                                 [
                                                                     "Incentives for Staking & Delegating SA Tokens",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "82d634ed-9b82-42be-bf00-aa58e68915ee"
                                                                 ],
                                                                 [
                                                                     "Delegation Program",
-                                                                    "Pool Class"
+                                                                    "Pool Class",
+                                                                    "Governance",
+                                                                    "ee3da355-5778-43d0-bef2-5855496cdbf3"
                                                                 ]
                                                             ]
                                                         }
@@ -2532,12 +2778,12 @@
                                                 "id": "a9f8c5fa-47e7-4c0a-b060-82ee9e71f18a",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31702.861294520048,
-                                                        "y": 36533.846975798275
+                                                        "x": 24806.30957038212,
+                                                        "y": 31733.84697579829
                                                     },
                                                     "targetPosition": {
-                                                        "x": 31580.84030159731,
-                                                        "y": 36807.91061309106
+                                                        "x": 24684.28857745938,
+                                                        "y": 32007.91061309107
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2558,15 +2804,21 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                         ],
                                                         [
                                                             "Governance Programs",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                         ],
                                                         [
                                                             "Incentives for Staking & Delegating SA Tokens",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "82d634ed-9b82-42be-bf00-aa58e68915ee"
                                                         ]
                                                     ]
                                                 }
@@ -2579,12 +2831,12 @@
                                         "id": "15ffccea-04af-4328-8d23-86240473917a",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31580.84030159731,
-                                                "y": 36807.91061309106
+                                                "x": 24684.28857745938,
+                                                "y": 32007.91061309107
                                             },
                                             "targetPosition": {
-                                                "x": 31757.17587728505,
-                                                "y": 37050.615711403545
+                                                "x": 24860.624153147124,
+                                                "y": 32250.615711403552
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -2605,11 +2857,15 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Pools"
+                                                    "Pools",
+                                                    "Governance",
+                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                 ],
                                                 [
                                                     "Governance Programs",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "fc425875-5e19-4316-b3f8-27bfc85a4c35"
                                                 ]
                                             ]
                                         }
@@ -2655,15 +2911,21 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Superalgos",
-                                                            "Pools"
+                                                            "Pools",
+                                                            "Governance",
+                                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                         ],
                                                         [
                                                             "Teams Work",
-                                                            "Pool Class"
+                                                            "Pool Class",
+                                                            "Governance",
+                                                            "5abec474-0d0f-4153-b0d6-78d631f3c229"
                                                         ],
                                                         [
                                                             "Team Positions",
-                                                            "Pool"
+                                                            "Pool",
+                                                            "Governance",
+                                                            "ce776fe6-19d6-4e42-b56d-964012c6159b"
                                                         ]
                                                     ]
                                                 }
@@ -2675,12 +2937,12 @@
                                         "id": "506f6df9-123d-442a-8339-63e2515b2b34",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31879.19687020779,
-                                                "y": 36776.55207411076
+                                                "x": 24982.645146069863,
+                                                "y": 31976.552074110772
                                             },
                                             "targetPosition": {
-                                                "x": 31757.17587728505,
-                                                "y": 37050.615711403545
+                                                "x": 24860.624153147124,
+                                                "y": 32250.615711403552
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -2701,11 +2963,15 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Pools"
+                                                    "Pools",
+                                                    "Governance",
+                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                 ],
                                                 [
                                                     "Teams Work",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "5abec474-0d0f-4153-b0d6-78d631f3c229"
                                                 ]
                                             ]
                                         }
@@ -2718,12 +2984,12 @@
                                 "id": "99a64273-a587-4c5b-8f41-9b49231ba21e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31757.17587728505,
-                                        "y": 37050.615711403545
+                                        "x": 24860.624153147124,
+                                        "y": 32250.615711403552
                                     },
                                     "targetPosition": {
-                                        "x": 31788.53441626535,
-                                        "y": 37348.97228001403
+                                        "x": 24891.98269212742,
+                                        "y": 32548.972280014033
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2744,7 +3010,9 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Superalgos",
-                                            "Pools"
+                                            "Pools",
+                                            "Governance",
+                                            "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                         ]
                                     ]
                                 }
@@ -2762,12 +3030,12 @@
                                 "id": "f58565f2-9796-4b81-a0fb-66a7280c8c2d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31977.3305335803,
-                                        "y": 37115.82849157694
+                                        "x": 25080.778809442374,
+                                        "y": 32315.828491576944
                                     },
                                     "targetPosition": {
-                                        "x": 31788.53441626535,
-                                        "y": 37348.97228001403
+                                        "x": 24891.98269212742,
+                                        "y": 32548.972280014033
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2787,12 +3055,12 @@
                         "id": "45f36bb5-106a-4e2e-b666-20081b1d6a11",
                         "savedPayload": {
                             "position": {
-                                "x": 31788.53441626535,
-                                "y": 37348.97228001403
+                                "x": 24891.98269212742,
+                                "y": 32548.972280014033
                             },
                             "targetPosition": {
-                                "x": 31819.892955245647,
-                                "y": 37647.328848624515
+                                "x": 24923.34123110772,
+                                "y": 32847.328848624515
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -2815,12 +3083,12 @@
                     "id": "28124e40-52e0-4038-a578-eabb40cd63f5",
                     "savedPayload": {
                         "position": {
-                            "x": 32093.956592538427,
-                            "y": 37769.34984154726
+                            "x": 25197.4048684005,
+                            "y": 32969.34984154726
                         },
                         "targetPosition": {
-                            "x": 31819.892955245647,
-                            "y": 37647.328848624515
+                            "x": 24923.34123110772,
+                            "y": 32847.328848624515
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2838,12 +3106,12 @@
                 "id": "c1b504e2-fc15-4252-beb2-79a8a02ebe83",
                 "savedPayload": {
                     "position": {
-                        "x": 31819.892955245647,
-                        "y": 37647.328848624515
+                        "x": 24923.34123110772,
+                        "y": 32847.328848624515
                     },
                     "targetPosition": {
-                        "x": 31577.187856933164,
-                        "y": 37823.66442431226
+                        "x": 24680.636132795236,
+                        "y": 33023.66442431226
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2861,17 +3129,17 @@
             "id": "23632f93-e9a2-4565-a8db-ce3e3c22f11e",
             "savedPayload": {
                 "position": {
-                    "x": 31577.187856933164,
-                    "y": 37823.66442431226
+                    "x": 24680.636132795236,
+                    "y": 33023.66442431226
                 },
                 "targetPosition": {
-                    "x": 31334.48275862068,
-                    "y": 38000
+                    "x": 24437.931034482754,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -2945,12 +3213,12 @@
             "id": "2517e71b-501f-4e6d-94b8-2fece5440f9d",
             "savedPayload": {
                 "position": {
-                    "x": 31577.187856933164,
-                    "y": 38176.33557568774
+                    "x": 24680.636132795236,
+                    "y": 33376.33557568774
                 },
                 "targetPosition": {
-                    "x": 31334.48275862068,
-                    "y": 38000
+                    "x": 24437.931034482754,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -3085,12 +3353,12 @@
             "id": "399fef3b-214c-4187-9a90-215b20b7eeb7",
             "savedPayload": {
                 "position": {
-                    "x": 31241.7776603082,
-                    "y": 38285.31695488855
+                    "x": 24345.22593617027,
+                    "y": 33485.31695488855
                 },
                 "targetPosition": {
-                    "x": 31334.48275862068,
-                    "y": 38000
+                    "x": 24437.931034482754,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -3108,12 +3376,12 @@
         "id": "257fd3d6-7c0a-439b-ba1d-b98b2786432d",
         "savedPayload": {
             "position": {
-                "x": 31334.48275862068,
-                "y": 38000
+                "x": 24437.931034482754,
+                "y": 33200
             },
             "targetPosition": {
-                "x": 31034.48275862068,
-                "y": 38000
+                "x": 24137.931034482754,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -3135,12 +3403,12 @@
         "id": "eeee45f2-6419-4653-8615-37c27cdce6d2",
         "savedPayload": {
             "position": {
-                "x": 30734.48275862068,
-                "y": 38000
+                "x": 23837.931034482754,
+                "y": 33200
             },
             "targetPosition": {
-                "x": 31034.48275862068,
-                "y": 38000
+                "x": 24137.931034482754,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -3158,12 +3426,12 @@
     "id": "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9",
     "savedPayload": {
         "position": {
-            "x": 31034.48275862068,
-            "y": 38000
+            "x": 24137.931034482754,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 31034.48275862068,
-            "y": 38000
+            "x": 24137.931034482754,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,

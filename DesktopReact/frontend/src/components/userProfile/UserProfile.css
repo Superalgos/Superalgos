@@ -1,0 +1,41 @@
+.userSection {
+    margin-top: 50px;
+}
+
+.banner {
+    height: 10rem;
+}
+
+.profileAvatar {
+    height: 7rem !important;
+    width: 7rem !important;
+    border-radius: 50%;
+}
+
+.profilePicBG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none no-repeat scroll 0 0 #fff;
+    position: relative;
+    height: 8rem !important;
+    width: 8rem !important;
+    border-radius: 50%;
+}
+
+.profileCard {
+    margin-top: -50px;
+    display: flex;
+    flex-direction: row;
+    height: 8rem;
+}
+
+.profileSection {
+    width: 100%;
+    overflow: initial !important; /* TODO check this is needed */
+    height: 15rem;
+}
+
+.middleSection {
+    width: 39rem;
+}

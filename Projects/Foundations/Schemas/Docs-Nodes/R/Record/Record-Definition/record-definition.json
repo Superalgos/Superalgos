@@ -38,7 +38,8 @@
         },
         {
             "style": "Text",
-            "text": "When properties don't have a Formula, they define the format of the file that stores this data on disk. These record properties defines, the data type (string, number, etc), and in which order the data is saved. At the file there are no headers, just the data, because the header information is available here, for any process writing or reading the data from disk."
+            "text": "When properties don't have a Formula, they define the format of the file that stores this data on disk. These record properties define, the data type (string, number, etc), and in which order the data is saved. At the file there are no headers, just the data, because the header information is available here, for any process writing or reading the data from disk.",
+            "updated": 1638404061024
         },
         {
             "style": "Text",

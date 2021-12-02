@@ -13,50 +13,48 @@
         },
         {
             "style": "List",
-            "text": "Exchange name: Use the official, most common name of the exchange; the same you used in the name of the page."
+            "text": "Exchange name: Bittrex Global",
+            "updated": 1638247413956
         },
         {
             "style": "List",
-            "text": "CMC ranking: The position of the exchange in the ranking as of the day of the research."
+            "text": "CMC ranking: 22",
+            "updated": 1638247359468
         },
         {
             "style": "List",
-            "text": "Exchange home page: Edit the string below with the name of the exchange and the URL (without the protocol). Test the link and make sure it works.",
-            "updated": 1628513218161
+            "text": "Exchange home page: ",
+            "updated": 1638247592952
         },
         {
             "style": "Link",
-            "text": "Exchange URL->exchangeURL.com"
-        },
-        {
-            "style": "List",
-            "text": "Listing requirements page: Edit the string below with the URL (without the protocol) of the page where you got the core of the information in this report. Test the link and make sure it works.",
-            "updated": 1628513207300
+            "text": "Exchange URL->global.bittrex.com",
+            "updated": 1638256419764
         },
         {
             "style": "Link",
-            "text": "Listing requirements->pageURL.com"
-        },
-        {
-            "style": "List",
-            "text": "Listing request form page: Edit the string below with the URL (without the protocol) of the page (or online form) the project should use to request the listing of the token. Test the link and make sure it works.",
-            "updated": 1628513198400
+            "text": "Listing requirements->bittrex.zendesk.com/hc/en-us/articles/360000475411-How-do-I-submit-a-token-to-Bittrex-for-listing-",
+            "updated": 1638256481325
         },
         {
             "style": "Link",
-            "text": "Listing request form->pageURL.com"
+            "text": "Listing request form->bittrex.zendesk.com/hc/en-us/requests/new?ticket_form_id=114093958872",
+            "updated": 1638256549477
         },
         {
             "style": "List",
-            "text": "Can list BEP 20 BSC tokens: Some exchanges may not be able to list tokens in the Binance Smart Chain. Make sure you find out if listing the token is technically possible."
+            "text": "Can list BEP 20 BSC tokens: No. Bittrex does not provide support for Binance Coin(BNB), and the tokens on Binance Chain(BEP-20)",
+            "updated": 1638257738584
         },
         {
             "style": "List",
-            "text": "Listing fee: Exchanges usually charge for listing new coins. Enter the fee and include any comments, exceptions, or details that may be relevant to our particular case."
+            "text": "Listing fee: No fees. Bitrrex doesn't charge any listing fees",
+            "updated": 1638258406928
         },
         {
             "style": "List",
-            "text": "Security deposit: Some exchanges require a security deposit to be returned to the project after the listing is completed. Describe the details of such requirements if they exist."
+            "text": "Security deposit: None",
+            "updated": 1638258584529
         },
         {
             "style": "List",
@@ -72,7 +70,8 @@
         },
         {
             "style": "List",
-            "text": "Pairs available for first listing: Some exchanges limit the number of pairs or even the precise quote assets that may be used for first listings. Describe whatever the exchange requires or offers in this regard."
+            "text": "Pairs available for first listing: BTC,  USDT, ETH, USD,EUR",
+            "updated": 1638259437816
         },
         {
             "style": "List",
@@ -96,11 +95,13 @@
         },
         {
             "style": "List",
-            "text": "Researcher's Github.com Username: This helps track the author of each research contribution."
+            "text": "Researcher's Github.com Username: end-debug",
+            "updated": 1638258845963
         },
         {
             "style": "List",
-            "text": "Researcher's Telegram Username: Same as above."
+            "text": "Researcher's Telegram Username: Sifiso Khumalo",
+            "updated": 1638258927224
         },
         {
             "style": "List",

@@ -14,7 +14,7 @@
     "postsetup": "npm start",
     "dist": "electron-builder -c build/electron-builder.json",
     "postinstall": "electron-builder install-app-deps",
-    "startNetwork" : "node network",
+    "startNetwork": "node network",
     "startDesktop": "node desktop",
     "startDesktopReact": "node desktop-react"
   },

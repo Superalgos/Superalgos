@@ -185,7 +185,7 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
         }
     }
 
-    function sendTwitterTestMessage(node, callBackFunction) {
+    async function sendTwitterTestMessage(node) {
         // http api request to backend platform
         let endpoint = "Social-Bots/Twitter-Test-Message"
         let consumer_key = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'consumer_key')
@@ -200,16 +200,13 @@ function newSocialBotsFunctionLibrarySocialBotsFunctions() {
             text: "Test message from Superalgos!"
         })
 
-        httpRequest(body, endpoint, onResponse)
-
-        function onResponse(err) {
-            if (err.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                node.payload.uiObject.setInfoMessage('Test message sent successfully.')
-                callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
-            } else {
-                node.payload.uiObject.resetErrorMessage('Error sending test message.')
-                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
-            }
+        let response = await httpRequestAsync(body, endpoint)
+        if (response.result === GLOBAL.DEFAULT_OK_RESPONSE.result) {
+            node.payload.uiObject.setInfoMessage(`Test message sent to the Client. Response: ${response.message}`)
+            return Promise.resolve(response)
+        } else {
+            node.payload.uiObject.resetErrorMessage(`Could not send test message to the Client. Response: ${response.message}`)
+            return Promise.reject(response)
         }
     }
 }

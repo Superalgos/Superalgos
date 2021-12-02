@@ -243,31 +243,25 @@ exports.newHttpInterface = function newHttpInterface() {
                 case 'Social-Bots': {
                     switch (requestPath[2]) { // switch by command
                         case 'Twitter-Test-Message': {
-                            SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
-                            function processRequest(body) {
-                                if (body === undefined) {
-                                    return
-                                }
-                                body = JSON.parse(body)
-                                let config = {
-                                    consumer_key: body.consumer_key,
-                                    consumer_secret: body.consumer_secret,
-                                    access_token_key: body.access_token_key,
-                                    access_token_secret: body.access_token_secret,
-                                }
-                                let message = body.text
-                                let socialBot = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(0)
-                                socialBot.initialize(config)
-                                socialBot.sendMessage(message)
-                                    .then((response) => {
-                                        console.log('[INFO] httpInterface -> Social-Bots -> Test-Twitter-Message -> response:', response)
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                                    })
-                                    .catch((err) => {
-                                        console.log(err)
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
-                                    })
-                            }
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    config = JSON.parse(body)
+                                    let message = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(0)
+                                    socialBot.initialize(config)
+                                    socialBot.sendMessage(message)
+                                        .then(response => {
+                                            console.log('[INFO] twitter test message sent. response: ', response)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        })
+                                        .catch(err => {
+                                            console.error('[ERROR] twitter test message error: ', err)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
                             break
                         }
                     }

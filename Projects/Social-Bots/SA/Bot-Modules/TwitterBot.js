@@ -72,7 +72,7 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
                 thisObject.format = config.format
             }
         } catch (err) {
-            logError("initialize -> err = " + err.stack);
+            logError(`initialize -> err = ${err.stack}`);
         }
     }
 
@@ -82,15 +82,17 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         try {
             message = {text: formatMessage(message)}
         } catch (err) {
-            logError('sendMessage -> Twitter message formatting error -> err:', err)
+            logError(`sendMessage -> Twitter message formatting error -> err: ${err}`)
         }
         let urlParams = {}
-        await thisObject.twitterClient.post('tweets', message, urlParams)
-            .then((response) => { 
-                logInfo('sendMessage -> Twitter bot post tweet -> response ->', response)
-                return response
-            })
-            .catch((err) => { logError('sendMessage -> Twitter bot post tweet ->', err) })
+        try {
+            let response = await thisObject.twitterClient.post('tweets', message, urlParams)
+            logInfo(`sendMessage -> Twitter bot post tweet -> response -> ${response}`)
+            return response
+        } catch (err) {
+            logError(`sendMessage -> Twitter bot post tweet -> ${err}`)
+            return err
+        }
     }
 
     function formatMessage(message) {
@@ -106,10 +108,10 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
     }
     
     function logWarn(message) {
-        console.log('[WARN]', message)
+        console.warn('[WARN]', message)
     }
 
     function logError(message) {
-        console.log('[ERROR]', message)
+        console.error('[ERROR]', message)
     }
 }

@@ -3,12 +3,12 @@
     "pageNumber": 48,
     "type": "Tutorial Step - Let's Talk Exchanges",
     "definition": {
-        "text": "We all have our preferred exchanges... let's talk a bit about how Superalgos deals with them and which ones you may use...",
+        "text": "We all have our preferred exchanges... Let's talk a bit about how Superalgos deals with them and which ones you may use...",
         "icon": {
             "name": "crypto-exchange",
             "project": "Foundations"
         },
-        "updated": 1615999626738,
+        "updated": 1638404581018,
         "translations": [
             {
                 "language": "IT",

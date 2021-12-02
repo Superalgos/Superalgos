@@ -9,8 +9,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Almost instantaneously you will see that VS Code stops at the breakpoint you set. From there you can go step by step checking any of the variable values. If you let the code to run, you will notice that a single execution will try to fetch all the missing objects since the last time it ran until present time. ",
-            "updated": 1614592493363
+            "text": "Almost instantaneously you will see that VS Code stops at the breakpoint you set. From there you can go step by step checking any of the variable values. If you let the code run, you will notice that a single execution will try to fetch all the missing objects since the last time it ran until present time.",
+            "updated": 1638404521029
         },
         {
             "style": "Text",

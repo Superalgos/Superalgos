@@ -13,12 +13,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Order Rate Portfolio Formula",
+            "label": "Add Ask Portfolio Formula Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "orderRatePMFormula",
-            "relatedUiObject": "Order Rate PM Formula",
+            "propertyToCheckFor": "askPortfolioFormulaManager",
+            "relatedUiObject": "Ask Portfolio Formula Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -45,9 +45,9 @@
             "autoAdd": true
         },
         {
-            "name": "orderRatePMFormula",
+            "name": "askPortfolioFormulaManager",
             "type": "node",
-            "childType": "Order Rate PM Formula"
+            "childType": "Ask Portfolio Formula Manager"
         }
     ],
     "propertyNameAtParent": "orderRate"

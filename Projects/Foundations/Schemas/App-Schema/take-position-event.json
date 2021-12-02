@@ -11,12 +11,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Take Position Portfolio Event",
+            "label": "Add Ask Portfolio Events Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "takePositionPMEvent",
-            "relatedUiObject": "Take Position PM Event",
+            "propertyToCheckFor": "askPortfolioEventsManager",
+            "relatedUiObject": "Ask Portfolio Events Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -46,7 +46,7 @@
             "label": "Add Incoming Signals",
             "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
-        },  
+        },
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -71,9 +71,9 @@
             "autoAdd": true
         },
         {
-            "name": "takePositionPMEvent",
+            "name": "askPortfolioEventsManager",
             "type": "node",
-            "childType": "Take Position PM Event"
+            "childType": "Ask Portfolio Events Manager"
         },
         {
             "name": "announcements",

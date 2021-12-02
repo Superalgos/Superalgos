@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Задача - это устройство, используемое для управления экземплярами ботов, то есть для запуска и остановки ботов, включая датчики, индикаторы и торгового бота.\n",
-                "updated": 1636193239036
+                "text": "Task - это устройство, используемое для управления экземплярами ботов, то есть для запуска и остановки ботов, включая датчики, индикаторы и торгового бота.",
+                "updated": 1638359758562
             }
         ]
     },
@@ -22,12 +22,26 @@
         },
         {
             "style": "Text",
-            "text": "Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots."
+            "text": "Each task controls a single bot. A bot instance running on its own task is independent from other bots at the operating system level, thus, may not be affected by errors ocurring on those other bots.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждая задача управляет одним ботом. Экземпляр бота, выполняющий свою собственную задачу, не зависит от других ботов на уровне операционной системы, поэтому на него могут не повлиять ошибки, возникающие в этих других ботах.",
+                    "updated": 1638359782668
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When a task is started, the process instance of the bot instance attached to the task is started. Also, a visual indication that both the task and the process instance are running appear surrounding the corresponding nodes, in the form of a progress ring.",
-            "updated": 1609613913124
+            "updated": 1609613913124,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При запуске задачи запускается экземпляр процесса экземпляра бота, прикрепленного к задаче. Кроме того, вокруг соответствующих узлов отображается визуальная индикация того, что и задача, и экземпляр процесса выполняются, в виде кольца выполнения.",
+                    "updated": 1638359913347
+                }
+            ]
         },
         {
             "style": "Block",

@@ -4,7 +4,14 @@
         {
             "style": "Note",
             "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
-            "updated": 1609667592082
+            "updated": 1609667592082,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos организует структуры данных в сети по проектам Project для обеспечения масштабируемости.",
+                    "updated": 1638358432089
+                }
+            ]
         }
     ],
     "definition": {
@@ -15,6 +22,11 @@
                 "language": "ES",
                 "text": "El nodo Project Data Tasks es un dispositivo organizativo que agrupa a todos los Data Tasks correspondientes al mismo Project.",
                 "updated": 1624282845536
+            },
+            {
+                "language": "RU",
+                "text": "Узел Project Data Tasks - это организационное устройство, объединяющее все Data Tasks, соответствующие одному и тому же проекту.",
+                "updated": 1638358378928
             }
         ]
     }

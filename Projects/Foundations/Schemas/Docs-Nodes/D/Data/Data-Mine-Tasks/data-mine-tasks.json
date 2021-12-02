@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El nodo data mine tasks es un dispositivo organizativo que agrupa las tareas correspondientes a la mina de datos referenciada.",
                 "updated": 1629581022406
+            },
+            {
+                "language": "RU",
+                "text": "Узел Data Mine Tasks - это организационное устройство, которое группирует задачи, соответствующие указанной Data Mine.",
+                "updated": 1638359470772
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "The data mine tasks node must reference the definition of a data mine. The node may spawn tasks for each bot in the data mine."
+            "text": "The data mine tasks node must reference the definition of a data mine. The node may spawn tasks for each bot in the data mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел задач добычи данных должен ссылаться на определение добычи данных. Узел может порождать задачи для каждого бота Data Mine.",
+                    "updated": 1638359458140
+                }
+            ]
         },
         {
             "style": "Block",

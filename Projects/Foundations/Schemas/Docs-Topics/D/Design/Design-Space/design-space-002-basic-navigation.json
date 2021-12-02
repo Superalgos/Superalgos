@@ -4,22 +4,50 @@
     "type": "Basic Navigation",
     "definition": {
         "text": "You may use your mouse and keyboard to navigate the interface.",
-        "updated": 1610039680742
+        "updated": 1610039680742,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете использовать мышь и клавиатуру для навигации по интерфейсу.",
+                "updated": 1638348896707
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Accessing the Design Space",
-            "updated": 1610039830808
+            "updated": 1610039830808,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступ к Design Space",
+                    "updated": 1638348916419
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Using the mouse"
+            "text": "Using the mouse",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С помощью мыши",
+                    "updated": 1638348928917
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Click and drag to pull the slider up and down, making more room for the Charting Space on top, or the Design Space in the bottom.",
-            "updated": 1610040136240
+            "updated": 1610040136240,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните и перетащите ползунок вверх и вниз, чтобы освободить место для области Charting Space вверху или области Design Space внизу.",
+                    "updated": 1638349016667
+                }
+            ]
         },
         {
             "style": "Title",
@@ -33,32 +61,74 @@
         {
             "style": "Subtitle",
             "text": "Using the keyboard",
-            "updated": 1610040168590
+            "updated": 1610040168590,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С помощью клавиатуры",
+                    "updated": 1638349057068
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Use the following key combinations for the same purpose:",
-            "updated": 1610040210636
+            "updated": 1610040210636,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этой же цели используйте следующие комбинации клавиш:",
+                    "updated": 1638349072744
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Ctrl or <kbd>⌘</kbd> + Shift + ↑ to close the charting space and open the design space.",
-            "updated": 1634912063838
+            "updated": 1634912063838,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + ↑ чтобы закрыть Charting Space и открыть Design Space",
+                    "updated": 1638352115688
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>↓</kbd> to close the design space and open the charting space.",
-            "updated": 1610040360113
+            "updated": 1610040360113,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + ↓ чтобы закрыть Design Space и открыть Charting Space",
+                    "updated": 1638352170351
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>→</kbd> to incrementally lower the slider.",
-            "updated": 1610040384881
+            "updated": 1610040384881,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + → для постепенного опускания ползунка.",
+                    "updated": 1638352222166
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd> to incrementally raise the slider.",
-            "updated": 1610040400821
+            "updated": 1610040400821,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + Shift + ← для постепенного поднятия ползунка.",
+                    "updated": 1638352270603
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -68,36 +138,85 @@
         {
             "style": "Title",
             "text": "Navigation",
-            "updated": 1610040536263
+            "updated": 1610040536263,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Навигация",
+                    "updated": 1638352291847
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Left-click on the black background and drag to move around the workspace.",
-            "updated": 1610040578937
+            "updated": 1610040578937,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните левой кнопкой мыши на черном фоне и перетащите, чтобы перемещаться по рабочему пространству.",
+                    "updated": 1638352311452
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also use the following key combinations on your keyboard:"
+            "text": "You may also use the following key combinations on your keyboard:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете использовать на клавиатуре следующие комбинации клавиш:",
+                    "updated": 1638352327198
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>←</kbd> to pan to the left.",
-            "updated": 1610040692407
+            "updated": 1610040692407,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + ← для панорамирования влево.",
+                    "updated": 1638349186250
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>→</kbd> to pan to the right.",
-            "updated": 1610040706743
+            "updated": 1610040706743,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + → для панорамирования влево.",
+                    "updated": 1638349206289
+                }
+            ]
         },
         {
             "style": "List",
             "text": "<kbd>Ctrl</kbd> or <kbd>⌘</kbd> + <kbd>↑</kbd> to pan upwards.",
-            "updated": 1610040720472
+            "updated": 1610040720472,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + ↑ панорамировать вверх.",
+                    "updated": 1638349224866
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Ctrl or <kbd>⌘</kbd> + ↓ to pan downwards.",
-            "updated": 1634912309430
+            "updated": 1634912309430,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ctrl или ⌘ + ↓ панорамировать вверх.",
+                    "updated": 1638349237968
+                }
+            ]
         },
         {
             "style": "Block",
@@ -106,25 +225,60 @@
         },
         {
             "style": "Title",
-            "text": "Moving Nodes"
+            "text": "Moving Nodes",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перемещение узлов",
+                    "updated": 1638347091105
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are two main ways to move a node:"
+            "text": "There are two main ways to move a node:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть два основных способа переместить узел:",
+                    "updated": 1638347074563
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "No matter what method you use, make sure the node is Pinned. Otherwise it will snap back to its original position.",
-            "updated": 1634914254508
+            "updated": 1634914254508,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Независимо от того, какой метод вы используете, убедитесь, что узел закреплен. В противном случае он вернется в исходное положение.",
+                    "updated": 1638347057737
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Click on a node while holding Ctrl. Then use the arrow keys ← → ↑ ↓ to drag the node to your desired location."
+            "text": "Click on a node while holding Ctrl. Then use the arrow keys ← → ↑ ↓ to drag the node to your desired location.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните узел, удерживая Ctrl. Затем с помощью клавиш со стрелками ← → ↑ ↓ перетащите узел в желаемое место.",
+                    "updated": 1638347109682
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The second method copies the node you wish to move and then snaps it to the new position. In order to do this, first find the Save Node to Move menu option on the node you wish to move and click it. Then move to a different node near where you would like the current node and click the Snap Saved Node to Position button.",
-            "updated": 1634914182709
+            "updated": 1634914182709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Второй метод копирует узел, который вы хотите переместить, а затем привязывает его к новой позиции. Для этого сначала найдите пункт меню Save Node to Move на узле, который вы хотите переместить, и нажмите на него. Затем перейдите к другому узлу рядом с тем местом, где вы хотели бы видеть текущий узел, и нажмите кнопку Snap Saved Node to Position.",
+                    "updated": 1638347546423
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -134,20 +288,48 @@
         {
             "style": "Text",
             "text": "There are also keyboard shortcuts to accomplish node snapping. See Keyboard Shortcut Quick Guide page for more details.",
-            "updated": 1634915239339
+            "updated": 1634915239339,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть также сочетания клавиш для выполнения привязки узлов. Дополнительные сведения см. На странице Keyboard Shortcut Quick Guide.",
+                    "updated": 1638347595300
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "These UI tricks may also make your life easier:",
-            "updated": 1637691123266
+            "updated": 1637691123266,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти уловки UI также могут облегчить вашу жизнь:",
+                    "updated": 1638347624958
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other."
+            "text": "Use the design space map as many times as required to find your way from one hierarchy to the other.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте карту Design Space столько раз, сколько потребуется, чтобы найти путь от одной иерархии к другой.",
+                    "updated": 1638347662493
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт, как только ссылка будет установлена, чтобы узел вернулся на свое место.",
+                    "updated": 1638347700591
+                }
+            ]
         },
         {
             "style": "Block",
@@ -155,12 +337,26 @@
         },
         {
             "style": "Title",
-            "text": "Keyboard Shortcuts"
+            "text": "Keyboard Shortcuts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сочетание клавиш",
+                    "updated": 1638349283955
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Superalgos also offers a range of keyboard shortcuts to help make working with the platform easier. You can find a list of all current shortcuts at the Keyboard Shortcut Quick Guide page.",
-            "updated": 1634915308602
+            "updated": 1634915308602,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos также предлагает ряд сочетаний клавиш, которые упрощают работу с платформой. Вы можете найти список всех текущих сочетаний клавиш на странице Keyboard Shortcut Quick Guide.",
+                    "updated": 1638349310337
+                }
+            ]
         },
         {
             "style": "Text",

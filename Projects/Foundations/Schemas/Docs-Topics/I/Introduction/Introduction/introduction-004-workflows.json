@@ -4,52 +4,136 @@
     "type": "Workflows",
     "definition": {
         "text": "Your preferred workflow will emerge from the understanding of how Superalgos administers the complexity of multiple concepts that make up trading intelligence.",
-        "updated": 1609946305313
+        "updated": 1609946305313,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ваш предпочтительный рабочий процесс будет зависеть от понимания того, как Superalgos управляет сложностью множества концепций, составляющих торговый интеллект.",
+                "updated": 1638272441881
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos features multiple intertwining workflows, each with multiple ramifications and variations. Use cases for a trading automation platform like Superalgos abound and are probably impossible to extricate from one another:"
+            "text": "Superalgos features multiple intertwining workflows, each with multiple ramifications and variations. Use cases for a trading automation platform like Superalgos abound and are probably impossible to extricate from one another:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos имеет несколько взаимосвязанных рабочих процессов, каждый из которых имеет множество ответвлений и вариаций. Вариантов использования платформы автоматизации торговли, такой как Superalgos, предостаточно, и, вероятно, их невозможно отделить друг от друга:",
+                    "updated": 1638272479740
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Users may download data from multiple exchanges and multiple markets."
+            "text": "Users may download data from multiple exchanges and multiple markets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи могут загружать данные с нескольких бирж и рынков.",
+                    "updated": 1638272504879
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "They may process data using existing indicators, modify those indicators, or create their own technical studies with varying degrees of complexity."
+            "text": "They may process data using existing indicators, modify those indicators, or create their own technical studies with varying degrees of complexity.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Они могут обрабатывать данные с использованием существующих индикаторов, изменять эти индикаторы или создавать собственные технические исследования различной степени сложности.",
+                    "updated": 1638272523925
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "They may use simple charts or may configure complex charts superimposing information from different markets and different exchanges."
+            "text": "They may use simple charts or may configure complex charts superimposing information from different markets and different exchanges.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Они могут использовать простые графики или могут настраивать сложные графики, накладывая информацию с разных рынков и разных бирж.",
+                    "updated": 1638272592441
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "They may use and modify existing trading systems or create their own, both with or without coding."
+            "text": "They may use and modify existing trading systems or create their own, both with or without coding.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Они могут использовать и изменять существующие торговые системы или создавать свои собственные, как программированием, так и без него.",
+                    "updated": 1638272729853
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "They may trade in a fully automated fashion, use the system for backtesting, or for generating signals from paper trading sessions."
+            "text": "They may trade in a fully automated fashion, use the system for backtesting, or for generating signals from paper trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Они могут торговать полностью автоматически, использовать систему для тестирования на истории или для генерации сигналов от бумажных торговых сессий.",
+                    "updated": 1638272775194
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "They may run minimalistic, home-sized trading operations or deploy industrial-grade trading farms."
+            "text": "They may run minimalistic, home-sized trading operations or deploy industrial-grade trading farms.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Они могут проводить минималистичные торговые операции домашнего размера или размещать торговые фермы промышленного уровня.",
+                    "updated": 1638272815913
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "They may operate in a single market or leverage multiple exchanges and markets with a complex web of trading systems."
+            "text": "They may operate in a single market or leverage multiple exchanges and markets with a complex web of trading systems.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Они могут работать на одном рынке или использовать несколько бирж и рынков со сложной сетью торговых систем.",
+                    "updated": 1638272839334
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "All of these use cases and the infinite permutations that may result from combining each dimension of use in varying measures may as well produce infinite workflows."
+            "text": "All of these use cases and the infinite permutations that may result from combining each dimension of use in varying measures may as well produce infinite workflows.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все эти варианты использования и бесконечные перестановки, которые могут возникнуть в результате объединения, также могут привести к бесконечным рабочим процессам.",
+                    "updated": 1638273916650
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The best approach to start developing your workflow is to build up your understanding of how the system is structured, and—in particular—how information is made available to each of the components of the system."
+            "text": "The best approach to start developing your workflow is to build up your understanding of how the system is structured, and—in particular—how information is made available to each of the components of the system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Лучший подход к разработке рабочего процесса - это углубить понимание того, как устроена система, и, в частности, как информация становится доступной для каждого компонента системы.",
+                    "updated": 1638273970181
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a rule of thumb, one of the foremost system design criteria for Superalgos is flexibility. The system should impose no constraints and let your imagination and hardware resources set the limits of what you may or may not do."
+            "text": "As a rule of thumb, one of the foremost system design criteria for Superalgos is flexibility. The system should impose no constraints and let your imagination and hardware resources set the limits of what you may or may not do.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как показывает практика, одним из важнейших критериев проектирования системы для Superalgos является гибкость. Система не должна накладывать никаких ограничений и позволять вашему воображению и аппаратным ресурсам устанавливать пределы того, что вы можете или не можете делать.",
+                    "updated": 1638274012521
+                }
+            ]
         }
     ]
 }

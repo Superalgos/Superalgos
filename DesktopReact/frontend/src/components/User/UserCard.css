@@ -1,0 +1,17 @@
+.followButton {
+    margin: 0.5rem;
+    width: 3rem;
+    max-height: 1.5rem;
+}
+
+.userCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.25rem 1rem;
+}
+
+.avatar {
+    height: 3rem;
+    width: 3rem;
+}

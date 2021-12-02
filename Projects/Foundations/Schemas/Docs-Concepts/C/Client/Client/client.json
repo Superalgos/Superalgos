@@ -12,8 +12,8 @@
             },
             {
                 "language": "RU",
-                "text": "Клиент вместе с TS и UI является одним из трех основных компонентов программного обеспечения Superalgos.\n",
-                "updated": 1635511193244
+                "text": "Client вместе с TS и UI является одним из трех основных компонентов программного обеспечения Superalgos.",
+                "updated": 1638276853370
             }
         ]
     },
@@ -21,7 +21,14 @@
         {
             "style": "Success",
             "text": "The Client is what users run.",
-            "updated": 1610912048355
+            "updated": 1610912048355,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Client - это то, что запускают пользователи.",
+                    "updated": 1637927442517
+                }
+            ]
         }
     ]
 }

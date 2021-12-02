@@ -11,8 +11,8 @@
             },
             {
                 "language": "RU",
-                "text": "Шахта данных - это иерархия, содержащая определения датчиков и ботов-индикаторов, а также их плоттеров. Эти определения взяты из фактического кода таких ботов.\n",
-                "updated": 1636192911774
+                "text": "Data Mine - это иерархия, содержащая определения датчиков и ботов-индикаторов, а также их плоттеров. Эти определения взяты из фактического кода таких ботов.",
+                "updated": 1638275063658
             }
         ]
     },
@@ -29,6 +29,11 @@
                     "language": "ES",
                     "text": "En cierto modo, los Data Mines son listas de bots que pueden ser creados por cualquier usuario. Esta jerarquía provee todas las herramientas necesarias para crear sensores, indicadores y gráficos, con un mínimo requerimiento de código.",
                     "updated": 1638150280351
+                },
+                {
+                    "language": "RU",
+                    "text": "В каком-то смысле Data Mine - это каталоги ботов, которые может создать каждый. Эта иерархия предоставляет все инструменты, необходимые для создания датчиков, индикаторов и плоттеров с минимальным кодированием.",
+                    "updated": 1638339932741
                 }
             ]
         },
@@ -40,6 +45,11 @@
                     "language": "ES",
                     "text": "Debido a que la jerarquía solo proporciona definiciones, no interfiere en la ejecución de Bots. Sino que las definiciones en los Data Mines son instanciados desde la jerarquía Network por las instancias de los Bots. Las instancias de los Bots y las instancias de procesos son las encargadas de ejecutar el código acorde a las definiciones del Data Mine correspondiente.",
                     "updated": 1638150294294
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку иерархия предоставляет определения, она не вмешивается в выполнение ботов. Вместо этого определения в Data Mine создаются экземплярами ботов из сетевой иерархии. Экземпляры ботов и экземпляры процессов - это те, которые запускают код в соответствии с определениями в соответствующем хранилище данных.",
+                    "updated": 1638339974635
                 }
             ]
         },
@@ -50,16 +60,37 @@
         {
             "style": "Title",
             "text": "Data Mine Configuration",
-            "updated": 1609789108763
+            "updated": 1609789108763,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурирование Data Mine",
+                    "updated": 1638340008131
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609789116514
+            "updated": 1609789116514,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638340048023
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the data mine as used within the code of the system."
+            "text": "codeName is the name of the data mine as used within the code of the system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя хранилища данных, используемое в коде системы.",
+                    "updated": 1638340067608
+                }
+            ]
         }
     ]
 }

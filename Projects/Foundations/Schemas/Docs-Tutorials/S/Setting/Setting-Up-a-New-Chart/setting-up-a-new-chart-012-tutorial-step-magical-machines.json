@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Has visto estos portales a otra dimensión antes! Ahora echemos un vistazo más de cerca a la magia de los Time Machine.",
                 "updated": 1628645012003
+            },
+            {
+                "language": "RU",
+                "text": "Вы уже видели эти порталы в другое измерение! Теперь давайте подробнее рассмотрим волшебную Машину времени (Time Machine).",
+                "updated": 1637937803910
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Es posible que hayas notado que cada panel tiene una Time Machine adjunto a. Ya te has encontrado con máquinas del tiempo en tutoriales anteriores. Pero hoy vamos a trabajar mucho más con ellas.",
                     "updated": 1628645255596
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы могли заметить, что к каждой приборной панели подключена машина времени (Time Machine). Вы уже сталкивались с машинами времени в предыдущих уроках. Но сегодня мы будем работать с ними гораздо более тесно.",
+                    "updated": 1637937896002
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Tómate un minuto y lea su página de documentación para tener una mejor idea de lo que hacen.",
                     "updated": 1628645275989
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте минуту и прочитайте страницу их документации, чтобы получить лучшее представление о том, что они делают.",
+                    "updated": 1637937914380
                 }
             ]
         }

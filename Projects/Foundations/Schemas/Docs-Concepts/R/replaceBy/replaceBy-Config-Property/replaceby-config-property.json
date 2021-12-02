@@ -2,7 +2,14 @@
     "type": "replaceBy Config Property",
     "definition": {
         "text": "This property is used within API Path Parameter and API Query Parameter configs.  It allows you to instruct the API Fetcher Bot to set a value for this parameter based on contextual information that cannot be predefined at the Data Mine or the API Map. For example, this contextual information could be the current Base Asset being used or the current Time.",
-        "updated": 1622684765167
+        "updated": 1622684765167,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это свойство используется в конфигурациях API Path Parameter и API Query Parameter. Это позволяет вам дать команду API Fetcher Bot установить значение для этого параметра на основе контекстной информации, которая не может быть предопределена в Data Mine или на API Map. Например,\nэта контекстная информация может быть текущим используемым базовым активом Asset или текущим временем current Time.",
+                "updated": 1638289110366
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,12 +19,26 @@
         },
         {
             "style": "Title",
-            "text": "replaceBy Config Property Usage"
+            "text": "replaceBy Config Property Usage",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование replaceBy Config Property",
+                    "updated": 1638289184828
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This property is optional, meaning that the Bot will use the default value when it is not present. The default value for both API Query Parameter and API Path Parameter is the codeName config property. An example of how this would look in a config is as follows:",
-            "updated": 1622685164654
+            "updated": 1622685164654,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство является необязательным, что означает, что бот будет использовать значение по умолчанию, когда оно отсутствует. Значение по умолчанию для API Query Parameter и  API Path Parameter - это свойство конфигурации codeName. Пример того, как это будет выглядеть в конфигурации, выглядит следующим образом:",
+                    "updated": 1638289278885
+                }
+            ]
         },
         {
             "style": "Json",
@@ -27,15 +48,36 @@
         {
             "style": "Text",
             "text": "The following list lays out all the possible values you can use within the replaceBy property. ",
-            "updated": 1622685176762
+            "updated": 1622685176762,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующем списке перечислены все возможные значения, которые вы можете использовать в свойстве replaceBy.",
+                    "updated": 1638289306389
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "For Base Asset"
+            "text": "For Base Asset",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для Base Asset",
+                    "updated": 1638289343847
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "@BaseAsset: This will force the Bot to use the current Base Asset."
+            "text": "@BaseAsset: This will force the Bot to use the current Base Asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@BaseAsset: Это заставит бота использовать текущий базовый актив Base asset.",
+                    "updated": 1638289382754
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -45,7 +87,14 @@
         {
             "style": "List",
             "text": "@BaseAssetNameUppercase: This will force the Bot to use the current name of the Base Asset beginning with an uppercase letter.",
-            "updated": 1622683262892
+            "updated": 1622683262892,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@BaseAssetNameUppercase: Это заставит бота использовать текущее имя базового актива Base asset, начинающееся с заглавной буквы.",
+                    "updated": 1638289415971
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -55,7 +104,14 @@
         {
             "style": "List",
             "text": "@BaseAssetNameLowercase: This will force the Bot to use the name of the current Base Asset beginning with a lowercase letter.",
-            "updated": 1622683250737
+            "updated": 1622683250737,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@BaseAssetNameLowercase: Это заставит бота использовать имя текущего базового актива Base Asset, начинающееся со строчной буквы.",
+                    "updated": 1638289441227
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -65,11 +121,25 @@
         {
             "style": "Subtitle",
             "text": "For Quoted Asset",
-            "updated": 1622684096573
+            "updated": 1622684096573,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для Quoted Asset",
+                    "updated": 1638289450122
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "@QuotedAsset: This will force the Bot to use the current Quoted Asset."
+            "text": "@QuotedAsset: This will force the Bot to use the current Quoted Asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@QuotedAsset: Это заставит бота использовать текущий котируемый актив Quoted Asset.",
+                    "updated": 1638289476733
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -79,7 +149,14 @@
         {
             "style": "List",
             "text": "@QuotedAssetNameUppercase: This will force the Bot to use the name of the current Base Asset beginning with an uppercase letter.",
-            "updated": 1622683649444
+            "updated": 1622683649444,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@QuotedAssetNameUppercase: Это заставит бота использовать имя текущего базового актива Base Asset, начинающееся с заглавной буквы.",
+                    "updated": 1638289509603
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -89,7 +166,14 @@
         {
             "style": "List",
             "text": "@QuotedAssetNameLowercase: This will force the Bot to use the name of the current Base Asset beginning with a lowercase letter.",
-            "updated": 1622683656687
+            "updated": 1622683656687,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@QuotedAssetNameLowercase: Это заставит бота использовать имя текущего базового актива Base Asset, начинающееся со строчной буквы.",
+                    "updated": 1638289532913
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -99,11 +183,25 @@
         {
             "style": "Subtitle",
             "text": "For Exchange",
-            "updated": 1622684422398
+            "updated": 1622684422398,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для Exchange",
+                    "updated": 1638289543787
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "@Exchange: This will force the Bot to use the current Exchange."
+            "text": "@Exchange: This will force the Bot to use the current Exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@Exchange: Это заставит бота использовать текущую биржу current Exchange.",
+                    "updated": 1638289613398
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -113,7 +211,14 @@
         {
             "style": "List",
             "text": "@ExchangeNameUppercase: This will force the Bot to use the name of the current Exchange beginning with an uppercase letter.",
-            "updated": 1622684044204
+            "updated": 1622684044204,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@ExchangeNameUppercase: Это заставит бота использовать название текущей биржи currentExchange, начинающееся с заглавной буквы.",
+                    "updated": 1638289732975
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -123,7 +228,14 @@
         {
             "style": "List",
             "text": "@ExchangeNameLowercase: This will force the Bot to use the name of the current Exchange beginning with a lowercase letter.",
-            "updated": 1622684016700
+            "updated": 1622684016700,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@ExchangeNameLowercase: Это заставит бота использовать название текущей биржи current Exchange, начинающееся со строчной буквы.",
+                    "updated": 1638289717842
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -133,11 +245,25 @@
         {
             "style": "Subtitle",
             "text": "For Timestamp",
-            "updated": 1622684458481
+            "updated": 1622684458481,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для Timestamp",
+                    "updated": 1638289705527
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the beginning of the current minute."
+            "text": "@BeginCurrentMinute: This will instruct the Bot to use a timestamp at the beginning of the current minute.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@BeginCurrentMinute: Это проинструктирует бота использовать метку времени в начале текущей минуты.",
+                    "updated": 1638289783999
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -147,7 +273,14 @@
         {
             "style": "List",
             "text": "@EndCurrentMinute: This will instruct the Bot to use a timestamp at the ending of the current minute.",
-            "updated": 1622476926765
+            "updated": 1622476926765,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "@EndCurrentMinute: Это проинструктирует бота использовать метку времени в конце текущей минуты.",
+                    "updated": 1638289798649
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -157,12 +290,26 @@
         {
             "style": "Note",
             "text": "If users access a value that is not listed above, the property will be ignored and the default value will be used.",
-            "updated": 1622682302500
+            "updated": 1622682302500,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если пользователи получают доступ к значению, которого нет в списке выше, свойство будет проигнорировано и будет использоваться значение по умолчанию.",
+                    "updated": 1638289815391
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Name values are drawn from the asset labels held within the Exchange Assets node.",
-            "updated": 1622684251888
+            "updated": 1622684251888,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значения имен берутся из меток активов, хранящихся в узле Exchange Assets.",
+                    "updated": 1638289855629
+                }
+            ]
         },
         {
             "style": "Text",

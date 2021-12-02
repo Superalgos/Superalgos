@@ -3,7 +3,7 @@
     "menuItems": [
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -18,7 +18,7 @@
     "addLeftIcons": true,
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Task->Portfolio Task->"
+        "compatibleTypes": "->Task->"
     },
     "referencingRules": {
         "compatibleTypes": "->Exchange Account Key->"

@@ -127,12 +127,12 @@
             "id": "f4d39b02-4324-438d-9f74-2bea2b7272ef",
             "savedPayload": {
                 "position": {
-                    "x": 37950,
-                    "y": 18540.192378864667
+                    "x": 14623.33333333333,
+                    "y": 45533.540676078286
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 14473.33333333333,
+                    "y": 45793.34829721362
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -516,12 +516,12 @@
             "id": "b6e3c87d-a11b-4b2a-b6a6-edc96375f5da",
             "savedPayload": {
                 "position": {
-                    "x": 38059.80762113533,
-                    "y": 18650
+                    "x": 14733.140954468661,
+                    "y": 45643.34829721362
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 14473.33333333333,
+                    "y": 45793.34829721362
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -565,12 +565,12 @@
                                 "id": "2571cea1-2b6d-40f5-9331-8786bf57c184",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38727.23108255281,
-                                        "y": 18282.57653858252
+                                        "x": 15400.564415886138,
+                                        "y": 45275.92483579614
                                     },
                                     "targetPosition": {
-                                        "x": 38649.585369022054,
-                                        "y": 18572.354286469243
+                                        "x": 15322.918702355382,
+                                        "y": 45565.70258368286
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -599,12 +599,12 @@
                                 "id": "75487f1d-1ec0-4431-8693-ce9653018e81",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38909.39299015739,
-                                        "y": 18422.354286469243
+                                        "x": 15582.726323490713,
+                                        "y": 45415.70258368286
                                     },
                                     "targetPosition": {
-                                        "x": 38649.585369022054,
-                                        "y": 18572.354286469243
+                                        "x": 15322.918702355382,
+                                        "y": 45565.70258368286
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -626,7 +626,472 @@
                                 "name": "New Weight Votes Switch",
                                 "config": "{\n    \"percentage\": 10\n}",
                                 "project": "Governance",
-                                "weightVotesSwitch": [],
+                                "weightVotesSwitch": [
+                                    {
+                                        "type": "Weight Votes Switch",
+                                        "name": "Pool Weight Votes",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "weightVotesSwitch": [
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Liquidity Program",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [
+                                                    {
+                                                        "type": "Pool Weight Vote",
+                                                        "name": "Liquidity Rewards BTCB Pool",
+                                                        "config": "{\r\n    \"percentage\": 80\r\n}",
+                                                        "project": "Governance",
+                                                        "id": "2e6f62b7-74ed-4005-bd23-0c6b0e8e7d86",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16239.92753279491,
+                                                                "y": 45281.216262857655
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16162.281819264155,
+                                                                "y": 45570.994010744376
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Pool",
+                                                                "name": "Liquidity Rewards BTCB",
+                                                                "id": "52b41f1b-7b7f-4bdb-bc8f-96f23288b5fe"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Pools"
+                                                                ],
+                                                                [
+                                                                    "Governance Programs",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Incentives for Providing Liquidity to SA Markets",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Liquidity Program",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Liquidity Rewards BTCB",
+                                                                    "Pool"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Pool Weight Vote",
+                                                        "name": "Liquidity Rewards BNB Pool",
+                                                        "config": "{\r\n    \"percentage\": 15\r\n}",
+                                                        "project": "Governance",
+                                                        "id": "0a9e7ec8-69a6-4de9-8972-931c492fa33e",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16422.089440399486,
+                                                                "y": 45420.994010744376
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16162.281819264155,
+                                                                "y": 45570.994010744376
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Pool",
+                                                                "name": "Liquidity Rewards BNB",
+                                                                "id": "052ca867-1093-4d24-9a18-738cadfc11af"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Pools"
+                                                                ],
+                                                                [
+                                                                    "Governance Programs",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Incentives for Providing Liquidity to SA Markets",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Liquidity Program",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Liquidity Rewards BNB",
+                                                                    "Pool"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Pool Weight Vote",
+                                                        "name": "Liquidity Rewards BUSD Pool",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "cfc1692a-0461-4bde-a4e6-ffb1b7620bf8",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16452.059567150874,
+                                                                "y": 45648.63972427513
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16162.281819264155,
+                                                                "y": 45570.994010744376
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Pool",
+                                                                "name": "Liquidity Rewards BUSD",
+                                                                "id": "ee095642-5357-4c59-bd85-76058005f93f"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Pools"
+                                                                ],
+                                                                [
+                                                                    "Governance Programs",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Incentives for Providing Liquidity to SA Markets",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Liquidity Program",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Liquidity Rewards BUSD",
+                                                                    "Pool"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "9387b669-f321-4d22-be6f-b3aad6a357d1",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16162.281819264155,
+                                                        "y": 45570.994010744376
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 15902.474198128824,
+                                                        "y": 45720.994010744376
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool Class",
+                                                        "name": "Liquidity Program",
+                                                        "id": "04fc3ae5-db3b-414a-bfbd-5118232b09fa"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Incentives for Providing Liquidity to SA Markets",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Liquidity Program",
+                                                            "Pool Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Teams Work",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [
+                                                    {
+                                                        "type": "Pool Weight Vote",
+                                                        "name": "Team Positions Pool",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "89ee5b51-976d-4eaf-abc2-445c3a1dec2b",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16482.029693902266,
+                                                                "y": 45876.28543780589
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16192.251946015545,
+                                                                "y": 45798.63972427513
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Pool",
+                                                                "name": "Team Positions",
+                                                                "id": "ce776fe6-19d6-4e42-b56d-964012c6159b"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Pools"
+                                                                ],
+                                                                [
+                                                                    "Teams Work",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Team Positions",
+                                                                    "Pool"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "145c8e8d-870b-4c90-86e2-5620be1782e2",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16192.251946015545,
+                                                        "y": 45798.63972427513
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 15902.474198128824,
+                                                        "y": 45720.994010744376
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool Class",
+                                                        "name": "Teams Work",
+                                                        "id": "5abec474-0d0f-4153-b0d6-78d631f3c229"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Teams Work",
+                                                            "Pool Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Weight Votes Switch",
+                                                "name": "Support Program",
+                                                "config": "{\r\n    \"percentage\": 10\r\n}",
+                                                "project": "Governance",
+                                                "weightVotesSwitch": [],
+                                                "poolWeightVotes": [
+                                                    {
+                                                        "type": "Pool Weight Vote",
+                                                        "name": "Support Rewards Pool",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "id": "1c002437-998f-49d8-9a48-c4effe4ee7df",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 16202.474198128824,
+                                                                "y": 46240.60925301504
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 16052.474198128824,
+                                                                "y": 45980.80163187971
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Pool",
+                                                                "name": "Support Rewards",
+                                                                "id": "b6a45b2b-4a0c-4cde-9f12-3572b628cd05"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "Superalgos",
+                                                                    "Pools"
+                                                                ],
+                                                                [
+                                                                    "Governance Programs",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Community Building Programs",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Support Program",
+                                                                    "Pool Class"
+                                                                ],
+                                                                [
+                                                                    "Support Rewards",
+                                                                    "Pool"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "assetWeightVotes": [],
+                                                "featureWeightVotes": [],
+                                                "positionWeightVotes": [],
+                                                "id": "26682384-fee2-4a01-8464-b45291fad7c4",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 16052.474198128824,
+                                                        "y": 45980.80163187971
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 15902.474198128824,
+                                                        "y": 45720.994010744376
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Pool Class",
+                                                        "name": "Support Program",
+                                                        "id": "81983d96-e6a0-42f8-96e9-a862539015d1"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Superalgos",
+                                                            "Pools"
+                                                        ],
+                                                        [
+                                                            "Governance Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Community Building Programs",
+                                                            "Pool Class"
+                                                        ],
+                                                        [
+                                                            "Support Program",
+                                                            "Pool Class"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "poolWeightVotes": [],
+                                        "assetWeightVotes": [],
+                                        "featureWeightVotes": [],
+                                        "positionWeightVotes": [],
+                                        "id": "be49c5f0-b670-4343-b235-3bcf7cb04396",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 15902.474198128824,
+                                                "y": 45720.994010744376
+                                            },
+                                            "targetPosition": {
+                                                "x": 15612.696450242103,
+                                                "y": 45643.34829721362
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
                                 "poolWeightVotes": [],
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
@@ -634,12 +1099,12 @@
                                 "id": "1d398124-3f36-40a1-8b3b-6c77ad489b92",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38939.363116908775,
-                                        "y": 18650
+                                        "x": 15612.696450242103,
+                                        "y": 45643.34829721362
                                     },
                                     "targetPosition": {
-                                        "x": 38649.585369022054,
-                                        "y": 18572.354286469243
+                                        "x": 15322.918702355382,
+                                        "y": 45565.70258368286
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -660,12 +1125,12 @@
                         "id": "2b8d3ce7-515c-44ad-8d80-3c2be6d7736f",
                         "savedPayload": {
                             "position": {
-                                "x": 38649.585369022054,
-                                "y": 18572.354286469243
+                                "x": 15322.918702355382,
+                                "y": 45565.70258368286
                             },
                             "targetPosition": {
-                                "x": 38389.77774788672,
-                                "y": 18722.354286469243
+                                "x": 15063.111081220051,
+                                "y": 45715.70258368286
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -688,12 +1153,12 @@
                     "id": "e9c0e495-7985-4381-bf75-865d87289038",
                     "savedPayload": {
                         "position": {
-                            "x": 38689.77774788672,
-                            "y": 18722.354286469243
+                            "x": 15363.111081220051,
+                            "y": 45715.70258368286
                         },
                         "targetPosition": {
-                            "x": 38389.77774788672,
-                            "y": 18722.354286469243
+                            "x": 15063.111081220051,
+                            "y": 45715.70258368286
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -711,12 +1176,12 @@
                 "id": "d5ed432e-78bf-432e-be3b-8649932f7a65",
                 "savedPayload": {
                     "position": {
-                        "x": 38389.77774788672,
-                        "y": 18722.354286469243
+                        "x": 15063.111081220051,
+                        "y": 45715.70258368286
                     },
                     "targetPosition": {
-                        "x": 38100,
-                        "y": 18800
+                        "x": 14773.33333333333,
+                        "y": 45793.34829721362
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -749,12 +1214,12 @@
                         "id": "b09bc246-6593-4061-ac8a-b52670694e8e",
                         "savedPayload": {
                             "position": {
-                                "x": 38689.77774788672,
-                                "y": 18877.645713530757
+                                "x": 15363.111081220051,
+                                "y": 45870.994010744376
                             },
                             "targetPosition": {
-                                "x": 38389.77774788672,
-                                "y": 18877.645713530757
+                                "x": 15063.111081220051,
+                                "y": 45870.994010744376
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -777,12 +1242,12 @@
                     "id": "5011109c-3f87-471a-b786-5fd371f53853",
                     "savedPayload": {
                         "position": {
-                            "x": 38649.585369022054,
-                            "y": 19027.645713530757
+                            "x": 15322.918702355382,
+                            "y": 46020.994010744376
                         },
                         "targetPosition": {
-                            "x": 38389.77774788672,
-                            "y": 18877.645713530757
+                            "x": 15063.111081220051,
+                            "y": 45870.994010744376
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -800,12 +1265,12 @@
                 "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
                 "savedPayload": {
                     "position": {
-                        "x": 38389.77774788672,
-                        "y": 18877.645713530757
+                        "x": 15063.111081220051,
+                        "y": 45870.994010744376
                     },
                     "targetPosition": {
-                        "x": 38100,
-                        "y": 18800
+                        "x": 14773.33333333333,
+                        "y": 45793.34829721362
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -823,12 +1288,12 @@
             "id": "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf",
             "savedPayload": {
                 "position": {
-                    "x": 38100,
-                    "y": 18800
+                    "x": 14773.33333333333,
+                    "y": 45793.34829721362
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 14473.33333333333,
+                    "y": 45793.34829721362
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -857,65 +1322,24 @@
                     {
                         "type": "Delegate Power Switch",
                         "name": "Devs with too little SA for Claims",
-                        "config": "{\n    \"percentage\": 60\n}",
+                        "config": "{\n    \"percentage\": 70\n}",
                         "project": "Governance",
                         "delegatePowerSwitch": [],
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "7afae430-9aae-4321-949c-0faf68b156f6",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 5818.59115445188,
-                                        "y": 33461.51214413526
-                                    },
-                                    "targetPosition": {
-                                        "x": 5528.81340656516,
-                                        "y": 33539.15785766602
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 3,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "User Profile",
-                                        "name": "Tentacule23",
-                                        "id": "7af21baa-ebc0-436f-94a7-a1746209418e"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Tentacule23",
-                                            "User Profile",
-                                            "Governance",
-                                            "7af21baa-ebc0-436f-94a7-a1746209418e"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "User Delegate",
-                                "name": "",
-                                "config": "{}",
+                                "name": "alexandrustefan",
+                                "config": "{\r\n    \"percentage\": 70\r\n}",
                                 "project": "Governance",
                                 "id": "da1969ba-e1fc-40f6-a246-41b0102b8e22",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5826.246864977304,
-                                        "y": 33578.315715332035
+                                        "x": 15718.533944626044,
+                                        "y": 45427.70258368286
                                     },
                                     "targetPosition": {
-                                        "x": 5528.81340656516,
-                                        "y": 33539.15785766602
+                                        "x": 15458.726323490713,
+                                        "y": 45577.70258368286
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -945,18 +1369,18 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "",
-                                "config": "{\n    \"percentage\": 50\n}",
+                                "name": "NAmorim",
+                                "config": "{\n    \"percentage\": 30\n}",
                                 "project": "Governance",
                                 "id": "d8d3a46a-bcc6-4fdc-88e0-f9a37a5ebaef",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5788.621027700492,
-                                        "y": 33689.15785766602
+                                        "x": 15758.726323490713,
+                                        "y": 45577.70258368286
                                     },
                                     "targetPosition": {
-                                        "x": 5528.81340656516,
-                                        "y": 33539.15785766602
+                                        "x": 15458.726323490713,
+                                        "y": 45577.70258368286
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -988,18 +1412,18 @@
                         "id": "f30a00a6-652f-4739-b618-c9ee92a8d4e8",
                         "savedPayload": {
                             "position": {
-                                "x": 5528.81340656516,
-                                "y": 33539.15785766602
+                                "x": 15458.726323490713,
+                                "y": 45577.70258368286
                             },
                             "targetPosition": {
-                                "x": 5231.379948153017,
-                                "y": 33500
+                                "x": 15168.948575603992,
+                                "y": 45655.34829721362
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 3,
+                                "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
@@ -1017,18 +1441,18 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "harrellbm",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "af0bdf1a-acf9-4621-ba01-8cbf7e1be56d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 5750.9951904236805,
-                                        "y": 33800
+                                        "x": 15688.563817874654,
+                                        "y": 45955.34829721362
                                     },
                                     "targetPosition": {
-                                        "x": 5491.187569288349,
-                                        "y": 33650
+                                        "x": 15428.756196739323,
+                                        "y": 45805.34829721362
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1060,18 +1484,18 @@
                         "id": "780725f6-8f8c-4e79-964e-f7dba7fc088c",
                         "savedPayload": {
                             "position": {
-                                "x": 5491.187569288349,
-                                "y": 33650
+                                "x": 15428.756196739323,
+                                "y": 45805.34829721362
                             },
                             "targetPosition": {
-                                "x": 5231.379948153017,
-                                "y": 33500
+                                "x": 15168.948575603992,
+                                "y": 45655.34829721362
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 3,
+                                "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
@@ -1088,18 +1512,18 @@
                     "id": "1edd215f-5e05-4af4-a284-eff09bcc2915",
                     "savedPayload": {
                         "position": {
-                            "x": 5414.008376855633,
-                            "y": 33738.00600208737
+                            "x": 15246.594289134748,
+                            "y": 45945.12604510034
                         },
                         "targetPosition": {
-                            "x": 5231.379948153017,
-                            "y": 33500
+                            "x": 15168.948575603992,
+                            "y": 45655.34829721362
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 3,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -1111,12 +1535,12 @@
                 "id": "4246052a-0eab-43a6-bdc4-d9a42a9bd694",
                 "savedPayload": {
                     "position": {
-                        "x": 38319.615242270665,
-                        "y": 19100
+                        "x": 15168.948575603992,
+                        "y": 45655.34829721362
                     },
                     "targetPosition": {
-                        "x": 38059.80762113533,
-                        "y": 18950
+                        "x": 14909.140954468661,
+                        "y": 45505.34829721362
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1134,12 +1558,12 @@
             "id": "ed112539-01ea-4937-85cf-69612ee6115d",
             "savedPayload": {
                 "position": {
-                    "x": 38059.80762113533,
-                    "y": 18950
+                    "x": 14733.140954468661,
+                    "y": 45943.34829721362
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 14473.33333333333,
+                    "y": 45793.34829721362
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1329,12 +1753,12 @@
             "id": "ba3bc469-3c94-444d-a5d0-8ed851aa3778",
             "savedPayload": {
                 "position": {
-                    "x": 37950,
-                    "y": 19059.807621135333
+                    "x": 14623.33333333333,
+                    "y": 46053.15591834895
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 14473.33333333333,
+                    "y": 45793.34829721362
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1352,12 +1776,12 @@
         "id": "f8182a9c-f830-4ec1-a238-ac3a5efd69e6",
         "savedPayload": {
             "position": {
-                "x": 37800,
-                "y": 18800
+                "x": 14473.33333333333,
+                "y": 45793.34829721362
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 14173.33333333333,
+                "y": 45793.34829721362
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1379,12 +1803,12 @@
         "id": "9870ca2a-cefc-484b-b7fc-206d62782ebc",
         "savedPayload": {
             "position": {
-                "x": 37650,
-                "y": 19059.807621135333
+                "x": 14323.33333333333,
+                "y": 46053.15591834895
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 14173.33333333333,
+                "y": 45793.34829721362
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1402,7 +1826,7 @@
     "userApps": {
         "type": "User Apps",
         "name": "New User Apps",
-        "config": "{}",
+        "config": "{\r\n    \"percentage\": 0\r\n}",
         "project": "Governance",
         "desktopApps": {
             "type": "Desktop Apps",
@@ -1418,13 +1842,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x898b2153520afe468c285dc7432b52f2e61e5572215917a3761e1ebffbd55bcd\",\n        \"s\": \"0x3fdd357a3bde3776062cbfb29ed6b82fa4b071fe0e2339a2b42b9ec47ada851f\",\n        \"signature\": \"0x898b2153520afe468c285dc7432b52f2e61e5572215917a3761e1ebffbd55bcd3fdd357a3bde3776062cbfb29ed6b82fa4b071fe0e2339a2b42b9ec47ada851f1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xb7856f6e87c3a2808f7ad16a0bfbc33594edf7fdda4147281753caa04b828cb1\",\n        \"s\": \"0x32239a2a5d29887a37d70a377a8d2d234d915036c12622b45feca6a070c0c932\",\n        \"signature\": \"0xb7856f6e87c3a2808f7ad16a0bfbc33594edf7fdda4147281753caa04b828cb132239a2a5d29887a37d70a377a8d2d234d915036c12622b45feca6a070c0c9321b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "71e01eca-2d04-43fa-8cb2-144b64507402",
+                        "id": "5bbf87b3-0c88-4762-8963-dcc013778923",
                         "savedPayload": {
                             "position": {
-                                "x": 37947.26095580142,
-                                "y": 19649.585369022054
+                                "x": 37688.45333466609,
+                                "y": 19598.585369022054
                             },
                             "targetPosition": {
                                 "x": 37687.45333466609,
@@ -1474,13 +1898,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xf6cd2df3ab15cd9652bd018ee571b120faa2003a91f61d7b7836220d9a712355\",\n        \"s\": \"0x5c8f89f5eabd9e43a0e24383d475c1b56ea760fe1190a67a43dc139b1567d64c\",\n        \"signature\": \"0xf6cd2df3ab15cd9652bd018ee571b120faa2003a91f61d7b7836220d9a7123555c8f89f5eabd9e43a0e24383d475c1b56ea760fe1190a67a43dc139b1567d64c1b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xb3caae868f8d2f39d2c8d005e52864fb89446fa46e9b3b7d1246aa5882e04206\",\n        \"s\": \"0x36f9db32a86b7416906f54b478af814963e75e16c36ab2fea11b16d90a6f4869\",\n        \"signature\": \"0xb3caae868f8d2f39d2c8d005e52864fb89446fa46e9b3b7d1246aa5882e0420636f9db32a86b7416906f54b478af814963e75e16c36ab2fea11b16d90a6f48691b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "95b48c78-cfba-4457-aab0-270225a4d2f7",
+                        "id": "ef671e4a-85ca-44a2-aaff-46986537af62",
                         "savedPayload": {
                             "position": {
-                                "x": 37582.93714059227,
-                                "y": 19929.140864795496
+                                "x": 37558.291427061515,
+                                "y": 19577.363116908775
                             },
                             "targetPosition": {
                                 "x": 37505.291427061515,
@@ -1532,13 +1956,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x49610638d20ae306ccfb31e65bde5fdbf47203a97ad01d9f4378e7321084a727\",\n        \"s\": \"0x2be4f2d5072fb88475d2f07beacf09295e46f246785e976e58794923f00d002b\",\n        \"signature\": \"0x49610638d20ae306ccfb31e65bde5fdbf47203a97ad01d9f4378e7321084a7272be4f2d5072fb88475d2f07beacf09295e46f246785e976e58794923f00d002b1b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xa452ff2bc00af08db7ec00f485eabb777b688a121bec31aeb39adb2449b20e49\",\n        \"s\": \"0x2ba6fb158373c827fc6d46083011e2bc6b6d0a91d122ac6a85625c32fc2e1e36\",\n        \"signature\": \"0xa452ff2bc00af08db7ec00f485eabb777b688a121bec31aeb39adb2449b20e492ba6fb158373c827fc6d46083011e2bc6b6d0a91d122ac6a85625c32fc2e1e361c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "aa0a9beb-3498-4184-97a2-5f85181199fa",
+                        "id": "616fc2e6-2286-49ce-b037-9da2b153a8f5",
                         "savedPayload": {
                             "position": {
-                                "x": 37127.64571353076,
-                                "y": 19869.20061129272
+                                "x": 37345.64571353076,
+                                "y": 19667.392990157387
                             },
                             "targetPosition": {
                                 "x": 37277.64571353076,
@@ -1618,13 +2042,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x79f3cfdf758eeaeadcfca9163d9b8d58fe10ad0b4e8f2c7ce1da90e262058a1a\",\n        \"s\": \"0x41ed971b2a304885eac9101f6d0e70964ef707b8589f2ce0dd4058737ab87611\",\n        \"signature\": \"0x79f3cfdf758eeaeadcfca9163d9b8d58fe10ad0b4e8f2c7ce1da90e262058a1a41ed971b2a304885eac9101f6d0e70964ef707b8589f2ce0dd4058737ab876111b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xc61a99e7e06f91a85feb75e1ffb602f40c58d9746f46d507f3d450582ef18fd9\",\n        \"s\": \"0x29ac7352f6bd02c6779637a3dd3e68ba06ec02acfa9b79f576587a732f0cc7b4\",\n        \"signature\": \"0xc61a99e7e06f91a85feb75e1ffb602f40c58d9746f46d507f3d450582ef18fd929ac7352f6bd02c6779637a3dd3e68ba06ec02acfa9b79f576587a732f0cc7b41c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "53d1e709-d520-44a9-9321-43cd5f1df872",
+                        "id": "c958d032-f21f-4e60-9d93-410ca3f650f8",
                         "savedPayload": {
                             "position": {
-                                "x": 36900,
-                                "y": 19839.23048454133
+                                "x": 37066,
+                                "y": 19626.422863406
                             },
                             "targetPosition": {
                                 "x": 37050,
@@ -1704,13 +2128,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xe631e24d501ccb6de25efdffedeb36e75d678d426d269aca7fa29116886ca6cd\",\n        \"s\": \"0x3c16d8e0cf5220b5bf2078cab8d8aa48f1e0ef777228c19a5cf3d0ce7ac5340d\",\n        \"signature\": \"0xe631e24d501ccb6de25efdffedeb36e75d678d426d269aca7fa29116886ca6cd3c16d8e0cf5220b5bf2078cab8d8aa48f1e0ef777228c19a5cf3d0ce7ac5340d1b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xe69562f3d6fce7a56692c7d000ddf95bc313dc513f1aabdde1f9ee4a09a3a1c8\",\n        \"s\": \"0x5da50897902dce98a44b1f94dc498037baa93fe51ca5e08064f0785a00092ee1\",\n        \"signature\": \"0xe69562f3d6fce7a56692c7d000ddf95bc313dc513f1aabdde1f9ee4a09a3a1c85da50897902dce98a44b1f94dc498037baa93fe51ca5e08064f0785a00092ee11b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "faa2d0ea-4e8d-4e79-9e21-e0006cce48c6",
+                        "id": "90f0eaeb-99a4-4e19-ae05-c19567059dba",
                         "savedPayload": {
                             "position": {
-                                "x": 36760.22225211328,
-                                "y": 19657.068576936756
+                                "x": 36832.22225211328,
+                                "y": 19368.260955801423
                             },
                             "targetPosition": {
                                 "x": 36910.22225211328,
@@ -1760,13 +2184,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x3e8698a5bf00f3b5d13eda57ce6dc77a0670915b6277b160e8c23df30553a3cb\",\n        \"s\": \"0x2e7d7ac3fb1100a55886a30ae9a62484040dfbf64995695a4de3ef9f2c9cef9e\",\n        \"signature\": \"0x3e8698a5bf00f3b5d13eda57ce6dc77a0670915b6277b160e8c23df30553a3cb2e7d7ac3fb1100a55886a30ae9a62484040dfbf64995695a4de3ef9f2c9cef9e1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xee23a1f8bae29ecb2ceb8ea501e3f75b3e4969cda04dd1c4d4009e84d260409d\",\n        \"s\": \"0x1bba5e0ef908751361f0137cc8b93d834010447589ea7c28682c44db71e06081\",\n        \"signature\": \"0xee23a1f8bae29ecb2ceb8ea501e3f75b3e4969cda04dd1c4d4009e84d260409d1bba5e0ef908751361f0137cc8b93d834010447589ea7c28682c44db71e060811b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "e85e08cc-a688-4ff5-b515-fb3ca67708ee",
+                        "id": "358e8b10-6a2b-4711-b842-42ff37c8b9a0",
                         "savedPayload": {
                             "position": {
-                                "x": 36480.66675633984,
-                                "y": 19292.744761727605
+                                "x": 36684.44450422656,
+                                "y": 19186.099048196847
                             },
                             "targetPosition": {
                                 "x": 36770.44450422656,
@@ -1818,13 +2242,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x944f1d46c6e725609e832f380de33e9871a28606a604d74c9fd9be33dbb6cec2\",\n        \"s\": \"0x75ce5a3316bdefebfd28f7ea1d462a1751d1ab76d5997ae4c9cf14fe9a3467f4\",\n        \"signature\": \"0x944f1d46c6e725609e832f380de33e9871a28606a604d74c9fd9be33dbb6cec275ce5a3316bdefebfd28f7ea1d462a1751d1ab76d5997ae4c9cf14fe9a3467f41c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x7c60590c40a658cf32166197a19aecd6d3ce790e34e7bcd26417ce28b414f810\",\n        \"s\": \"0x53f1b2191fd5dbc94ef8acb711ba2362a3fb8f114bf206a26f8119a4611dde2b\",\n        \"signature\": \"0x7c60590c40a658cf32166197a19aecd6d3ce790e34e7bcd26417ce28b414f81053f1b2191fd5dbc94ef8acb711ba2362a3fb8f114bf206a26f8119a4611dde2b1c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "553eb437-f487-4cd0-95b0-8ba6bb3d5f51",
+                        "id": "3c08805f-d53a-4091-b671-4dfab46af594",
                         "savedPayload": {
                             "position": {
-                                "x": 36540.60700984261,
-                                "y": 18837.45333466609
+                                "x": 36877.414630977946,
+                                "y": 19025.45333466609
                             },
                             "targetPosition": {
                                 "x": 36800.414630977946,
@@ -1893,12 +2317,12 @@
         "id": "c57bd931-a0e1-4cf2-9270-b33f08839484",
         "savedPayload": {
             "position": {
-                "x": 37350,
-                "y": 19059.807621135333
+                "x": 14023.33333333333,
+                "y": 46053.15591834895
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 14173.33333333333,
+                "y": 45793.34829721362
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1916,7 +2340,7 @@
     "userBots": {
         "type": "User Bots",
         "name": "New User Bots",
-        "config": "{}",
+        "config": "{\r\n    \"percentage\": 0\r\n}",
         "project": "Governance",
         "socialTradingBots": {
             "type": "Social Trading Bots",
@@ -2077,13 +2501,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xf60f00a96558f3fc94e71d59460c3bdd43e62f0c5706bb68805280817b840ac6\",\n        \"s\": \"0x63b83b8d1629709d9ccca81efee72d9950e224078a9e396f1ffdb5cc2fcd6d51\",\n        \"signature\": \"0xf60f00a96558f3fc94e71d59460c3bdd43e62f0c5706bb68805280817b840ac663b83b8d1629709d9ccca81efee72d9950e224078a9e396f1ffdb5cc2fcd6d511c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xf20489ce6a3ce04e64b7830049fe1178167e68343153d4a6ffa627269951f133\",\n        \"s\": \"0x45ec9473ae6ec521d73dbe01756da5b7cd4aba51ddb1ca244cf8c146fca86ef8\",\n        \"signature\": \"0xf20489ce6a3ce04e64b7830049fe1178167e68343153d4a6ffa627269951f13345ec9473ae6ec521d73dbe01756da5b7cd4aba51ddb1ca244cf8c146fca86ef81c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "ca84c500-2c93-441e-be41-0d5dadfa62be",
+                        "id": "c16d25bb-6e53-4229-acd1-6384d8765a0b",
                         "savedPayload": {
                             "position": {
-                                "x": 32452.525712198003,
-                                "y": 19030
+                                "x": 32554.525712198003,
+                                "y": 18873
                             },
                             "targetPosition": {
                                 "x": 32473.525712198003,
@@ -3038,13 +3462,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xddeff57782baa1f4650b7bcaf293102a9d5b2260db3176e2e9ab4d046d4339a5\",\n        \"s\": \"0x3640cbc79138edab416ea73b89eccbce87c9fe04628bb3e8964c4650fb82dec3\",\n        \"signature\": \"0xddeff57782baa1f4650b7bcaf293102a9d5b2260db3176e2e9ab4d046d4339a53640cbc79138edab416ea73b89eccbce87c9fe04628bb3e8964c4650fb82dec31c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x7fd30d009b5a44db7499e502c45b1440a116a4d75b867c87930ae288f91a338f\",\n        \"s\": \"0x693cda2392a47563bceb9806483ae267629dcda78176ae9624e931b9d4ea462e\",\n        \"signature\": \"0x7fd30d009b5a44db7499e502c45b1440a116a4d75b867c87930ae288f91a338f693cda2392a47563bceb9806483ae267629dcda78176ae9624e931b9d4ea462e1b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "5f1fdb9a-c7ae-4760-a188-80ee15eff0ae",
+                        "id": "ff1ea43f-4160-43c1-8ee1-6bf5943686e5",
                         "savedPayload": {
                             "position": {
-                                "x": 32451.525712198003,
-                                "y": 18562
+                                "x": 32518.525712198003,
+                                "y": 18581
                             },
                             "targetPosition": {
                                 "x": 32473.525712198003,
@@ -3344,12 +3768,12 @@
         "id": "54ced611-b518-435f-a284-935666ef47db",
         "savedPayload": {
             "position": {
-                "x": 37200,
-                "y": 18800
+                "x": 13873.33333333333,
+                "y": 45793.34829721362
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 14173.33333333333,
+                "y": 45793.34829721362
             },
             "floatingObject": {
                 "isPinned": false,
@@ -3367,7 +3791,7 @@
     "socialPersonas": {
         "type": "Social Personas",
         "name": "New Social Personas",
-        "config": "{}",
+        "config": "{\r\n    \"percentage\": 0\r\n}",
         "project": "Governance",
         "socialPersonas": [
             {
@@ -3514,13 +3938,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xaabe9a8f34b22d058200320e218af3bd58f77ba26127903f72f4b39b4fec9199\",\n        \"s\": \"0x5e8d7ebe876a3712611196205aa664b96d20ce547b04d50420fb27baa4b7e721\",\n        \"signature\": \"0xaabe9a8f34b22d058200320e218af3bd58f77ba26127903f72f4b39b4fec91995e8d7ebe876a3712611196205aa664b96d20ce547b04d50420fb27baa4b7e7211c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xe39747b8f0cf55261bf82a3139a41e1581b79789e82430c49fd8ad5fbc6a8460\",\n        \"s\": \"0x27f0fa30bed4af002887b8d77e7e389097e11ba886ea44ea942839ee7ac5959a\",\n        \"signature\": \"0xe39747b8f0cf55261bf82a3139a41e1581b79789e82430c49fd8ad5fbc6a846027f0fa30bed4af002887b8d77e7e389097e11ba886ea44ea942839ee7ac5959a1c\"\n    }\n}",
                     "project": "Governance",
-                    "id": "e4f9d4a6-c9d1-4d7a-a2e0-dc7d4105768e",
+                    "id": "2087a41a-a76c-4d1f-a71c-29dfdb886a5d",
                     "savedPayload": {
                         "position": {
-                            "x": 37249.19189848183,
-                            "y": 18241.606064796506
+                            "x": 37322.19189848183,
+                            "y": 18289.606064796506
                         },
                         "targetPosition": {
                             "x": 37229.19189848183,
@@ -3570,13 +3994,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x71413077e5544c24a616c565fb761f45454233e18b2b29bc13b9aca5e249b5ac\",\n        \"s\": \"0x2d25d9101c4dde0d1ab9e2ebcfc79e156a051350741f41083b7d6162ce220436\",\n        \"signature\": \"0x71413077e5544c24a616c565fb761f45454233e18b2b29bc13b9aca5e249b5ac2d25d9101c4dde0d1ab9e2ebcfc79e156a051350741f41083b7d6162ce2204361b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x791a6cfb6af87cb37e3c98766c829fe7adfae9c5d64aa03aae824d19ec5ecc38\",\n        \"s\": \"0x05ff43ad3b73f1c05aafcbe5deb89d05bbefd3f9bec426c6a93bb7f7d2c684ab\",\n        \"signature\": \"0x791a6cfb6af87cb37e3c98766c829fe7adfae9c5d64aa03aae824d19ec5ecc3805ff43ad3b73f1c05aafcbe5deb89d05bbefd3f9bec426c6a93bb7f7d2c684ab1b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "bd27765f-4612-4b57-befe-3d76d764d668",
+                    "id": "e679fa5a-4e7b-4550-9be9-6f5c65d0a7ea",
                     "savedPayload": {
                         "position": {
-                            "x": 37569.670272136376,
-                            "y": 18187.84978460961
+                            "x": 37586.670272136376,
+                            "y": 18150.84978460961
                         },
                         "targetPosition": {
                             "x": 37521.670272136376,
@@ -3622,12 +4046,12 @@
         "id": "e453990c-57e2-4886-9dc1-060cd2750467",
         "savedPayload": {
             "position": {
-                "x": 37350,
-                "y": 18540.192378864667
+                "x": 14023.33333333333,
+                "y": 45533.540676078286
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 14173.33333333333,
+                "y": 45793.34829721362
             },
             "floatingObject": {
                 "isPinned": false,
@@ -3645,7 +4069,7 @@
     "p2pNetworkNodes": {
         "type": "P2P Network Nodes",
         "name": "New P2P Network Nodes",
-        "config": "{}",
+        "config": "{\r\n    \"percentage\": 0\r\n}",
         "project": "Governance",
         "p2pNetworkNodes": [
             {
@@ -3656,17 +4080,17 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xa519983fd30d4340dde3aed5d8eaa99befeb611ddc08c99e8eaa629491b6faf5\",\n        \"s\": \"0x3083736197c5d4f0d071168f9becdb113cb93f054e2370ed11b555a047d70eb3\",\n        \"signature\": \"0xa519983fd30d4340dde3aed5d8eaa99befeb611ddc08c99e8eaa629491b6faf53083736197c5d4f0d071168f9becdb113cb93f054e2370ed11b555a047d70eb31c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xbdf8238593b801dc6969d275052c0a95c6d8e041ba9b197ea039a6782c3b1686\",\n        \"s\": \"0x2546945aeec87f977a934bb8ef153de38c9824c4d538f2dc8b9482c2b3966d9e\",\n        \"signature\": \"0xbdf8238593b801dc6969d275052c0a95c6d8e041ba9b197ea039a6782c3b16862546945aeec87f977a934bb8ef153de38c9824c4d538f2dc8b9482c2b3966d9e1b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "99c27360-3dbf-44c6-ba6c-eea9da1711ce",
+                    "id": "c22841c9-fe97-44c8-850b-b297c61d5071",
                     "savedPayload": {
                         "position": {
-                            "x": 37650,
-                            "y": 17940.192378864667
+                            "x": 14499.33333333333,
+                            "y": 44495.540676078286
                         },
                         "targetPosition": {
-                            "x": 37650,
-                            "y": 18240.192378864667
+                            "x": 14499.33333333333,
+                            "y": 44795.540676078286
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -3684,12 +4108,12 @@
                 "id": "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3",
                 "savedPayload": {
                     "position": {
-                        "x": 37650,
-                        "y": 18240.192378864667
+                        "x": 14499.33333333333,
+                        "y": 44795.540676078286
                     },
                     "targetPosition": {
-                        "x": 37650,
-                        "y": 18540.192378864667
+                        "x": 14499.33333333333,
+                        "y": 45095.540676078286
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -3707,22 +4131,22 @@
             {
                 "type": "P2P Network Node",
                 "name": "P2P Network Node #2",
-                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31248\",\n    \"webSocketsPort\": \"18042\"\n}",
+                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31249\",\n    \"webSocketsPort\": \"18043\"\n}",
                 "project": "Governance",
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x82de669c37cc4d376aad3369d00db371ffdd2dbe06a21393cb736c0be5d71116\",\n        \"s\": \"0x510d1f631ad66b71613e9ef6ad64c4b5510d494b74cc29462cc2e26ac64f5736\",\n        \"signature\": \"0x82de669c37cc4d376aad3369d00db371ffdd2dbe06a21393cb736c0be5d71116510d1f631ad66b71613e9ef6ad64c4b5510d494b74cc29462cc2e26ac64f57361c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x114b5ecd16068e194613344da55f9649164e303030b311a80c1c89b8d3f3640a\",\n        \"s\": \"0x72497582c2122f8185c581a1365aa7881e602a82588cc67ef0a64e88139e11ea\",\n        \"signature\": \"0x114b5ecd16068e194613344da55f9649164e303030b311a80c1c89b8d3f3640a72497582c2122f8185c581a1365aa7881e602a82588cc67ef0a64e88139e11ea1b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "afa8b24a-6618-4811-8d42-49321b95f4ac",
+                    "id": "229d11eb-449d-4fb1-8841-b2bc3f1c06a4",
                     "savedPayload": {
                         "position": {
-                            "x": 38169.615242270665,
-                            "y": 18240.192378864667
+                            "x": 15018.948575603992,
+                            "y": 44795.540676078286
                         },
                         "targetPosition": {
-                            "x": 37909.80762113533,
-                            "y": 18390.192378864667
+                            "x": 14759.140954468661,
+                            "y": 44945.540676078286
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -3740,12 +4164,12 @@
                 "id": "352cd906-c36c-48c7-8f01-728ff78b78e9",
                 "savedPayload": {
                     "position": {
-                        "x": 37909.80762113533,
-                        "y": 18390.192378864667
+                        "x": 14759.140954468661,
+                        "y": 44945.540676078286
                     },
                     "targetPosition": {
-                        "x": 37650,
-                        "y": 18540.192378864667
+                        "x": 14499.33333333333,
+                        "y": 45095.540676078286
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -3764,12 +4188,12 @@
         "id": "da779e56-cb36-4825-bcd5-06692175a982",
         "savedPayload": {
             "position": {
-                "x": 37650,
-                "y": 18540.192378864667
+                "x": 14323.33333333333,
+                "y": 45533.540676078286
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 14173.33333333333,
+                "y": 45793.34829721362
             },
             "floatingObject": {
                 "isPinned": false,
@@ -3787,12 +4211,12 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 37500,
-            "y": 18800
+            "x": 14173.33333333333,
+            "y": 45793.34829721362
         },
         "targetPosition": {
-            "x": 37500,
-            "y": 18800
+            "x": 14173.33333333333,
+            "y": 45793.34829721362
         },
         "floatingObject": {
             "isPinned": false,

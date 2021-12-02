@@ -4,7 +4,14 @@
     "type": "Keyboard Shortcuts to Nodes",
     "definition": {
         "text": "Defining shortcuts to particular nodes may be useful when interacting with the said node regularly.",
-        "updated": 1610043042775
+        "updated": 1610043042775,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Определение горячих клавиш для конкретных узлов может быть полезно при регулярном взаимодействии с указанным узлом.",
+                "updated": 1638352965093
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -15,25 +22,60 @@
         {
             "style": "Text",
             "text": "It is also possible to set a custom shortcut to any node you would like. This is useful for accessing frequenty used nodes.",
-            "updated": 1637691354831
+            "updated": 1637691354831,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Также можно установить собственную горячую клавишу для любого узла, который вам нужен. Это полезно для доступа к часто используемым узлам.",
+                    "updated": 1638353006334
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may define this type of shortcut using the following procedure:",
-            "updated": 1637691378647
+            "updated": 1637691378647,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете определить эту горячую клавишу, используя следующую процедуру:",
+                    "updated": 1638353033399
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hover the mouse pointer over the target node until the menu opens up. This puts the node in focus."
+            "text": "Hover the mouse pointer over the target node until the menu opens up. This puts the node in focus.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наведите указатель мыши на целевой узел, пока не откроется меню. Это ставит узел в фокус.",
+                    "updated": 1638353055250
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Click Ctrl or Cmd + Alt + your preferred key to assign the shortcut.",
-            "updated": 1634909858587
+            "updated": 1634909858587,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните Ctrl или Cmd + Alt + желаемая клавиша, чтобы назначить горячую клавишу.",
+                    "updated": 1638353089142
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A sign will appear below the node confirming the assignation of the shortcut."
+            "text": "A sign will appear below the node confirming the assignation of the shortcut.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Под узлом появится значок, подтверждающий назначение горячей клавишы.",
+                    "updated": 1638353150621
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -42,12 +84,26 @@
         },
         {
             "style": "Text",
-            "text": "Repeat the same procedure to remove a shortcut."
+            "text": "Repeat the same procedure to remove a shortcut.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Повторите ту же процедуру, чтобы удалить горячую клавишу.",
+                    "updated": 1638353191630
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "When attempting to assign a shortcut with a keyboard combination that is already in use, the system will notify of the issue. If you insist by hitting the same keyboard combination two more times, the system will assign the shortcut as expected.",
-            "updated": 1610043248085
+            "updated": 1610043248085,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При попытке назначить сочетание клавиш с комбинацией клавиш, которая уже используется, система уведомит о проблеме. Если вы настаиваете, нажимая ту же комбинацию клавиш еще два раза, система назначит сочетание клавиш, как и ожидалось.",
+                    "updated": 1638353213307
+                }
+            ]
         }
     ]
 }

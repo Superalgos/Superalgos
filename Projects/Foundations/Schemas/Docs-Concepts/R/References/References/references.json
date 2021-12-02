@@ -1,12 +1,26 @@
 {
     "type": "References",
     "definition": {
-        "text": "Write the definition for this Concept."
+        "text": "Write the definition for this Concept.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ссылка на объект (официального определения этого термина пока нет).",
+                "updated": 1638288734992
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку карандаша, чтобы войти в режим редактирования.",
+                    "updated": 1638288537471
+                }
+            ]
         }
     ]
 }

@@ -2,12 +2,26 @@
     "type": "Default Market",
     "definition": {
         "text": "The Default Market is the one referenced by the Market Data Tasks, Market Trading Tasks, Market Learning Tasks nodes of which a certain Task descends from. The Trading Bot running inside that Task will considered that reference market to be it's Default Market.",
-        "updated": 1612352846165
+        "updated": 1612352846165,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Default Market - это рынок, на который ссылаются узлы Market Data Tasks, Market Trading Tasks, Market Learning Tasks, из которых происходит определенная задача Task. Trading Bot, работающий внутри этой задачи Task, будет считать этот рынок своим рынком по умолчанию.",
+                "updated": 1638282676171
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638282694875
+                }
+            ]
         }
     ]
 }

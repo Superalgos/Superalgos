@@ -11,6 +11,16 @@
         },
         {
             "action": "Add UI Object",
+            "label": "Add Ask Portfolio Events Manager",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "askPortfolioEventsManager",
+            "relatedUiObject": "Ask Portfolio Events Manager",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -36,7 +46,7 @@
             "label": "Add Incoming Signals",
             "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
-        },  
+        },
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -59,6 +69,11 @@
             "type": "array",
             "childType": "Situation",
             "autoAdd": true
+        },
+        {
+            "name": "askPortfolioEventsManager",
+            "type": "node",
+            "childType": "Ask Portfolio Events Manager"
         },
         {
             "name": "announcements",

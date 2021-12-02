@@ -2,12 +2,26 @@
     "type": "Unfreeze Structure of Nodes",
     "definition": {
         "text": "Clicking the unfreeze option unfreezes connections. If you click the option to unfreeze a node and the node does not change its status, it may be because a higher node in the hierarchy is still frozen.",
-        "updated": 1610028960421
+        "updated": 1610028960421,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "При выборе параметра «Размораживание» соединения размораживаются. Если вы щелкнете по опции разморозить узел и этот узел не изменит своего статуса, это может быть связано с тем, что более высокий узел в иерархии все еще заморожен.",
+                "updated": 1638299985769
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638299998130
+                }
+            ]
         }
     ]
 }

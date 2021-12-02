@@ -70,7 +70,7 @@
         "compatibleTypes": "->Plotter Module->"
     },
     "attachingRules": {
-        "compatibleTypes": "->Data-Mining|Sensor Bot->Data-Mining|API Data Fetcher Bot->Data-Mining|Indicator Bot->Trading Bot->Learning Bot->Product Definition Folder->"
+        "compatibleTypes": "->Sensor Bot->API Data Fetcher Bot->Indicator Bot->Portfolio Bot->Trading Bot->Learning Bot->Product Definition Folder->"
     },
     "childrenNodesProperties": [
         {

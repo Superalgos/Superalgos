@@ -2,12 +2,26 @@
     "type": "Superalgos Marketplace",
     "definition": {
         "text": "The Superalgos Marketplace is a yet to be implemented set of features that will allow users to offer products and services to each other in a p2p way, enabling their bots to consume data and services from other user's bots across the internet.",
-        "updated": 1621955605794
+        "updated": 1621955605794,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos Marketplace - это еще не реализованный набор функций, которые позволят пользователям предлагать продукты и услуги друг другу в формате p2p, позволяя их ботам потреблять данные и услуги от ботов других пользователей через Интернет.",
+                "updated": 1638298093079
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638298104802
+                }
+            ]
         }
     ]
 }

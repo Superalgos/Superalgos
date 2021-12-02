@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Un hierarchyes una estructura de datos que representa un concepto general de nivel superior, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico.",
                 "updated": 1628044685355
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия - это структура данных, представляющая всеобъемлющую концепцию верхнего уровня, приводящую к длинной цепочке узлов, обычно с множеством ответвлений. Система управляет разными типами иерархий, каждая из которых имеет определенную направленность.",
+                "updated": 1638271428517
             }
         ]
     },
@@ -17,12 +22,26 @@
         {
             "style": "Text",
             "text": " In the design space, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace.",
-            "updated": 1609944331184
+            "updated": 1609944331184,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В пространстве дизайна головной или родительский узел каждой иерархии представлен соответствующим значком, окруженным вездесущим белым кольцом, чтобы их было легче найти в рабочей области.",
+                    "updated": 1638271513449
+                }
+            ]
         },
         {
             "style": "Important",
             "text": " Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609945802943
+            "updated": 1609945802943,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархии, включенные в рабочую область как плагины, не сохраняются на уровне рабочей области. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
+                    "updated": 1638271545874
+                }
+            ]
         },
         {
             "style": "Title",

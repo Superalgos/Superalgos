@@ -36,6 +36,11 @@
             "childType": "Trading Session Reference"
         },
         {
+            "name": "portfolioSessionReferences",
+            "type": "node",
+            "childType": "Portfolio Session Reference"
+        },
+        {
             "name": "timeMachines",
             "type": "node",
             "childType": "Time Machine"

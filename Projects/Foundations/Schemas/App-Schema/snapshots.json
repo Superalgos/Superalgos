@@ -28,7 +28,7 @@
     },
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Parameters->"
+        "compatibleTypes": "->Trading Parameters->Portfolio Parameters->"
     },
     "propertyNameAtParent": "snapshots"
 }

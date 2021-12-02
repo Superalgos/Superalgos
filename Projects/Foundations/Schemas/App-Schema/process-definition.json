@@ -38,7 +38,7 @@
     },
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Data-Mining|Sensor Bot->Data-Mining|API Data Fetcher Bot->Data-Mining|Indicator Bot->Trading Bot->Learning Bot->"
+        "compatibleTypes": "->Data-Mining|Sensor Bot->Data-Mining|API Data Fetcher Bot->Data-Mining|Indicator Bot->Trading Bot->Portfolio Bot->Learning Bot->"
     },
     "childrenNodesProperties": [
         {

@@ -1,0 +1,50 @@
+{
+    "type": "Technical term overview",
+    "definition": {
+        "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node. Created and maintained by gitforkgit.",
+        "updated": 1638052921801,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "This article was created to show you which terms you should not translate because they are a fixed term. An example is the word Node. Created and maintained by gitforkgit ",
+                "updated": 1638052964966
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "One of our goals is to make Superalgos available for everyone for free and open source forever. For this, translations are extremely important and essential. However, there are some technical terms that should not be translated. Because otherwise it could be difficult when describing problems to others, start contributing, understanding superalgos...",
+            "updated": 1638052177612
+        },
+        {
+            "style": "Text",
+            "text": "\"Below here is a table in which the terms are listed. Here the translators can orient themselves and each Superalgos user add terms of which he thinks that they should not be translated. If you translate articles please look here from time to time to see which terms you should leave as they are in the original. Translations in brackets behind the terms themselves are of course legitimate and welcome by readers of the articles.",
+            "updated": 1638052195441
+        },
+        {
+            "style": "Success",
+            "text": "Feel free to add Terms in the table!",
+            "updated": 1638052209974
+        },
+        {
+            "style": "Note",
+            "text": "Terms that should remain original in the translations of articles:",
+            "updated": 1638052228369
+        },
+        {
+            "style": "Table",
+            "text": "|Workspace Terms|Node Terms|Other Technical Terms|Workspace Terms translation|Node Terms translation|Other Technical Terms translation|\n|Pin/Unpin|Node|add terms here|add Term translation here|add Term translation here|add Term translation here|\n|add terms here|Parent Node|add terms here|add Term translation here|add Term translation here|add Term translation here|\n|add terms here|Child Node|add terms here|add Term translation here|add Term translation here|add Term translation here|\n|add terms here|add terms here|add terms here|add Term translation here|add Term translation here|add Term translation here|",
+            "updated": 1638052333924
+        },
+        {
+            "style": "Note",
+            "text": "In the columns with translation as their header you can add the translation into your language, if your language is selected in the footer, otherwise the translations would be globally in the table what isn`t the Goal.",
+            "updated": 1638052343422
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

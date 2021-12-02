@@ -24,6 +24,16 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "portfolioMinesData",
+            "label": "Add Portfolio Mines Data",
+            "relatedUiObject": "Portfolio Mines Data",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "learningMinesData",
             "label": "Add Learning Mines Data",
             "relatedUiObject": "Learning Mines Data",
@@ -59,6 +69,12 @@
             "name": "tradingMinesData",
             "type": "node",
             "childType": "Trading Mines Data",
+            "autoAdd": true
+        },
+        {
+            "name": "portfolioMinesData",
+            "type": "node",
+            "childType": "Portfolio Mines Data",
             "autoAdd": true
         },
         {

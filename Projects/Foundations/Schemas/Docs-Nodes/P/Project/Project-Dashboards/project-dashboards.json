@@ -3,11 +3,25 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите \"Редактировать\", чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1637938947366
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Project Dashboards node groups dashboards by project, acting as an organizational device.",
-        "updated": 1610135408616
+        "updated": 1610135408616,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Project Dashboards группирует панели управления по проекту, выступая в качестве организационного устройства.",
+                "updated": 1637938915161
+            }
+        ]
     }
 }

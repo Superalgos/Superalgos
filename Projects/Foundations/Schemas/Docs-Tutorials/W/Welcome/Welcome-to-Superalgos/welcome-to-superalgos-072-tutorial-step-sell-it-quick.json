@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Sipariş doldurulduktan sonra artık limit satın alma emri olmadığını fark etmişsinizdir. Bunun yerine, satış emirleri ortaya çıkmaya başlar!",
                 "updated": 1636203864365
+            },
+            {
+                "language": "RU",
+                "text": "Я уверен, Вы заметили, что после того, как заказ был размещен, не осталось лимитных ордеров на покупку. Вместо этого начинают появляться заказы на продажу!",
+                "updated": 1637595913971
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 AM'de nasıl verildiğine dikkat edin!",
                     "updated": 1636203947395
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что первый Limit Sell Order выставляется в 00:21 утра - через минуту после выполнения ордера на покупку.",
+                    "updated": 1637596009712
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Superalgos'un borsadan siparişin doldurulduğuna dair bildirim almasıyla aynı dakika. Trading Bot, borsa ile bağlantı kurar ve iki farklı döngüden geçer.",
                     "updated": 1636203973992
+                },
+                {
+                    "language": "RU",
+                    "text": "В ту же минуту Superalgos получил бы уведомление от биржи о том, что заказ был выполнен. Trading Bot соединяется с биржей и проходит два определенных цикла.",
+                    "updated": 1637596461485
                 }
             ]
         },
@@ -116,6 +131,11 @@
                     "language": "TR",
                     "text": "İlk Döngüde mevcut siparişlerin durumunu öğrenir. İkincisinde yeni talimatlar verir.",
                     "updated": 1636203996665
+                },
+                {
+                    "language": "RU",
+                    "text": "В первом Cycle он выясняет статус существующих ордеров. Во втором - дает новые инструкции.",
+                    "updated": 1637655276008
                 }
             ]
         }

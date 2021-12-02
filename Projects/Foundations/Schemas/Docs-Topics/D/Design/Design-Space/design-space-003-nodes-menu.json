@@ -4,27 +4,62 @@
     "type": "Nodes Menu",
     "definition": {
         "text": "Each node has a menu featuring several arrangement, relationship, and productivity features.",
-        "updated": 1610040906717
+        "updated": 1610040906717,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Каждый узел имеет меню с несколькими функциями расположения, взаимосвязи и производительности.",
+                "updated": 1638352367756
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Hovering the mouse pointer over nodes causes a menu to pop up. In this situation, the node is in focus.",
-            "updated": 1610040966447
+            "updated": 1610040966447,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При наведении указателя мыши на узлы появляется всплывающее меню. В этой ситуации узел находится в фокусе.",
+                    "updated": 1638352382647
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Arrangement Features"
+            "text": "Arrangement Features",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Особенности компоновки",
+                    "updated": 1638352398140
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The design space functions under the paradigm of a self-organizing workspace in which nodes tend to find their place guided by certain arrangement properties that you may control from the node's menu.",
-            "updated": 1615313209746
+            "updated": 1615313209746,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пространство дизайна Design Space функционирует в соответствии с парадигмой самоорганизующейся рабочей области, в которой узлы стремятся найти свое место, руководствуясь определенными свойствами компоновки, которыми вы можете управлять из меню узла.",
+                    "updated": 1638352439644
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Level of Freedom",
-            "updated": 1610041172693
+            "updated": 1610041172693,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Степень свободы",
+                    "updated": 1638352465906
+                }
+            ]
         },
         {
             "style": "Include",
@@ -49,7 +84,14 @@
         {
             "style": "Subtitle",
             "text": "Visibility",
-            "updated": 1610041357172
+            "updated": 1610041357172,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Видимость",
+                    "updated": 1638352488263
+                }
+            ]
         },
         {
             "style": "Include",
@@ -64,7 +106,14 @@
         {
             "style": "Subtitle",
             "text": "Angle to Parent Node",
-            "updated": 1610041616280
+            "updated": 1610041616280,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Угол к родительскому узлу",
+                    "updated": 1638352502246
+                }
+            ]
         },
         {
             "style": "Include",
@@ -94,7 +143,14 @@
         {
             "style": "Subtitle",
             "text": "Distance to Parent Node",
-            "updated": 1610041878075
+            "updated": 1610041878075,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расстояние до родительского узла",
+                    "updated": 1638352515633
+                }
+            ]
         },
         {
             "style": "Include",
@@ -134,17 +190,38 @@
         {
             "style": "Subtitle",
             "text": "Arrangement Style",
-            "updated": 1615491355364
+            "updated": 1615491355364,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стиль аранжировки",
+                    "updated": 1638352536497
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following options affect how a node is arranged around or in relation to its parent.",
-            "updated": 1615491622552
+            "updated": 1615491622552,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующие параметры влияют на то, как узел расположен вокруг своего родителя или по отношению к нему.",
+                    "updated": 1638352550577
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "The current implementation of this feature is not optimal, and the behavior of some of these options is hard to predict. If you are a developer, this may be a good opportunity to iterate on the existing code and take this feature to a more usable state.",
-            "updated": 1615491609266
+            "updated": 1615491609266,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущая реализация этой функции не оптимальна, и поведение некоторых из этих параметров трудно предсказать. Если вы разработчик, это может быть хорошей возможностью повторить существующий код и перевести эту функцию в более удобное состояние.",
+                    "updated": 1638352573393
+                }
+            ]
         },
         {
             "style": "Include",
@@ -179,12 +256,26 @@
         {
             "style": "Title",
             "text": "Relationships and References",
-            "updated": 1610042149939
+            "updated": 1610042149939,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Связи и ссылки",
+                    "updated": 1638352597922
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Detach Node",
-            "updated": 1610042625172
+            "updated": 1610042625172,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсоединить узел",
+                    "updated": 1638352629210
+                }
+            ]
         },
         {
             "style": "Include",
@@ -194,7 +285,14 @@
         {
             "style": "Subtitle",
             "text": "Delink Node",
-            "updated": 1610042618278
+            "updated": 1610042618278,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убрать ссылочную связь",
+                    "updated": 1638352744558
+                }
+            ]
         },
         {
             "style": "Include",
@@ -203,11 +301,25 @@
         {
             "style": "Title",
             "text": "Productivity Features",
-            "updated": 1610042253763
+            "updated": 1610042253763,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Особенности производительности",
+                    "updated": 1638352762208
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Backup Entity"
+            "text": "Backup Entity",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Резервный объект",
+                    "updated": 1638352777555
+                }
+            ]
         },
         {
             "style": "Include",
@@ -217,7 +329,14 @@
         {
             "style": "Subtitle",
             "text": "Clone Entity",
-            "updated": 1610042551177
+            "updated": 1610042551177,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Клонировать объект",
+                    "updated": 1638352839162
+                }
+            ]
         },
         {
             "style": "Include",
@@ -226,7 +345,14 @@
         {
             "style": "Subtitle",
             "text": "Share Entity",
-            "updated": 1610042564664
+            "updated": 1610042564664,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поделиться объектом",
+                    "updated": 1638352902248
+                }
+            ]
         },
         {
             "style": "Include",
@@ -235,7 +361,14 @@
         {
             "style": "Subtitle",
             "text": "Delete Entity",
-            "updated": 1610042582474
+            "updated": 1610042582474,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удалить объект",
+                    "updated": 1638352917910
+                }
+            ]
         },
         {
             "style": "Include",

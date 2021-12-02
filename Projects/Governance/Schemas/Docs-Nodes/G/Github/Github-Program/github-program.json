@@ -2,7 +2,14 @@
     "type": "Github Program",
     "definition": {
         "text": "This program incentivizes users to fork the Superalgos repository, a necessary step to contribute. It also incentivizes users to give a star and watch the repository, which helps developers find the project when searching on Github.com.",
-        "updated": 1630221291041
+        "updated": 1630221291041,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este programa incentiva a los usuarios a bifurcar el repositorio de Superalgos, un paso necesario para contribuir. También incentiva a los usuarios a dar una estrella y ver el repositorio, lo que ayuda a los desarrolladores a encontrar el proyecto cuando buscan en Github.com.",
+                "updated": 1637844555204
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,20 +20,48 @@
         {
             "style": "Text",
             "text": "The Github Program distributes the Rewards Pool defined under the Governance Programs > Onboarding Programs section of the Superalgos Pools hierarchy.",
-            "updated": 1630221340561
+            "updated": 1630221340561,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "The Github Program distribuye los Rewards Pool definidos debajo de los Governance Programs > Onboarding Programssección de la jerarquía de Superalgos Pools.",
+                    "updated": 1637844639051
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Spawning the Github Program and submitting your User Profile is all you need to do to participate in the program. To maximize your Tokens Awarded, make sure you have a fork, a star, and are watching the repository! The system does automatic checks on Github.com and verifies their existence in real-time."
+            "text": "Spawning the Github Program and submitting your User Profile is all you need to do to participate in the program. To maximize your Tokens Awarded, make sure you have a fork, a star, and are watching the repository! The system does automatic checks on Github.com and verifies their existence in real-time.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Generando el programa Github y enviando su User Profile ies todo lo que necesita hacer para participar en el programa. Para maximizar sus Tokens Awarded, ¡asegúrese de tener una bifurcación, una estrella y esté mirando el repositorio! El sistema realiza comprobaciones automáticas en Github.com y verifica su existencia en tiempo real.",
+                    "updated": 1637844741335
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There is a cap of SA 1,000 for each of these incentives. This means that you may get up to SA 3,000 in Tokens Awarded if you maximize your participation. ",
-            "updated": 1630228105213
+            "updated": 1630228105213,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay un límite de 1.000 SA para cada uno de estos incentivos. Esto significa que puede obtener hasta 3000 SA en Tokens Awarded si maximiza su participación.",
+                    "updated": 1637844797302
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In case there aren't enough tokens in the Rewards Pool to cover each incentive up to the defined cap for all User Profiles, then each profile gets an equal proportion for each of the applicable incentives."
+            "text": "In case there aren't enough tokens in the Rewards Pool to cover each incentive up to the defined cap for all User Profiles, then each profile gets an equal proportion for each of the applicable incentives.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En caso de que no haya suficientes tokens en el Rewards Pool para cubrir cada incentivo hasta el límite definido para todos los User Profiles,luego, cada perfil obtiene una proporción igual para cada uno de los incentivos aplicables.",
+                    "updated": 1637844863885
+                }
+            ]
         },
         {
             "style": "Text",

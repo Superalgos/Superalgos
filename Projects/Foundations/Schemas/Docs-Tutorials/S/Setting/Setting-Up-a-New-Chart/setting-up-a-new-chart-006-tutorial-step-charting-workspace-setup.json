@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Antes de que podamos ver los gráficos, ¡necesitamos datos! He instalado algunos Data Mines y un Trading System.",
                 "updated": 1628639352007
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir uns Charts ansehen können, brauchen wir Daten! Ich habe ein paar Data Mines und ein Trading System installiert.",
+                "updated": 1637612731757
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем рассматривать графики, нам нужны данные! Я установил несколько шахт данных (Data Mines) и торговую систему (Trading System).",
+                "updated": 1637915147584
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "You should see the Candles, Masters, y Sparta data mine plugins. Estos nos dan acceso a una serie de indicadores interesantes. Para este tutorial solo usaremos el Candles Data Mine. Mis amigos te enseñarán cómo crear gráficos usando el otro data mines. También instalé el plugin Lighting Strike Trading System.",
                     "updated": 1628639477988
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten die Candles, Masters und Sparta data mine plugins ansehen. Diese ermöglichen uns den Zugang zu einer Reihe interessanter Indikatoren. In diesem Tutorial werden wir nur die Candles Data Mine verwenden. Meine Freunde werden Ihnen später zeigen, wie Sie charts mit den anderen data mines erstellen können. Ich habe auch das Lighting Strike Trading System Plugin installiert.",
+                    "updated": 1637613044410
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны увидеть плагины Candles, Masters и Sparta data mine. Они дают нам доступ к ряду интересных индикаторов. Для этого учебника мы будем использовать только шахты данных свечей (Data Mine). Мои друзья научат вас создавать графики с использованием других шахт данных позже. Я также установил плагин торговой системы Lighting Strike (Trading System).",
+                    "updated": 1637915564262
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Este es el mismo sistema comercial con el que interactuó durante los tutoriales de bienvenida.",
                     "updated": 1628639517053
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist dasselbe trading system, mit dem Sie während der Willkommens-Tutorials interagiert haben.",
+                    "updated": 1637613102882
+                },
+                {
+                    "language": "RU",
+                    "text": "Это та же самая торговая система, с которой вы взаимодействовали во время приветственных уроков.",
+                    "updated": 1637915579748
                 }
             ]
         }

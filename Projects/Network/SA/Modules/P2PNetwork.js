@@ -31,7 +31,7 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
             case 'Network Peer': {
                 thisObject.p2pNodesToConnect = []
 
-                let thisP2PNodeId = SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).signingAccountChildId
+                let thisP2PNodeId = SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).nodeId
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
                     if (thisP2PNodeId !== p2pNetworkNode.node.id) {

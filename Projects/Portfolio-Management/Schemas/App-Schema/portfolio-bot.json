@@ -1,0 +1,84 @@
+{
+    "type": "Portfolio Bot",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Process Definition",
+            "relatedUiObject": "Process Definition",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Product Definition",
+            "relatedUiObject": "Product Definition",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Product Definition Folder",
+            "relatedUiObject": "Product Definition Folder",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n  \"codeName\": \"\"\n}"
+    },
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Mine->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "processes",
+            "type": "array",
+            "childType": "Process Definition",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "products",
+            "type": "array",
+            "childType": "Product Definition",
+            "autoAdd": true,
+            "project": "Foundations"
+        },
+        {
+            "name": "productDefinitionFolders",
+            "type": "array",
+            "childType": "Product Definition Folder",
+            "autoAdd": true,
+            "project": "Foundations"
+        }
+    ],
+    "propertyNameAtParent": "portfolioBots"
+}

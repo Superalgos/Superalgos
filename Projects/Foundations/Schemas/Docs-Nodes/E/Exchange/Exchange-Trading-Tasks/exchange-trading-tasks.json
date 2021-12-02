@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El exchange trading tasks node ( nodo de tareas de trading del exchange) organiza tareas de trading por exchange. Esto es, cada exchange instalado en el sistema tiene un nodo de tareas de trading del exchange agrupando todas las tareas de trading del mercado correspondientes a dicho exchange.",
                 "updated": 1637232524756
+            },
+            {
+                "language": "RU",
+                "text": "Узел Exchange Trading Tasks организует торговые задачи по биржам. То есть каждая биржа, установленная в системе, имеет узел торговых задач биржи, группирующий все рыночные торговые задачи, соответствующие указанной бирже.",
+                "updated": 1638375279162
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "El nodo de tareas de trading del exchange debe referenciar al exchange de elección. Esta referencia limita el resto de las definiciones al contexto de dicho exchange.",
                     "updated": 1637232575029
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел торговых задач биржи должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом упомянутой биржи.",
+                    "updated": 1638375333269
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "Al representar un exchange aparece en la biblioteca de iconos del sistema, el estándar ícono de tareas de trading del exchangees reemplazado por el logo del exchange.",
                     "updated": 1637232710352
+                },
+                {
+                    "language": "RU",
+                    "text": "При использовании биржи, представленной в библиотеке значков системы, значок стандартной биржевой торговой задачи заменяется логотипом биржи.",
+                    "updated": 1638375379205
                 }
             ]
         },

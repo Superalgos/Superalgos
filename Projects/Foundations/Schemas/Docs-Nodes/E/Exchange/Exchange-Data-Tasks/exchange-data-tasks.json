@@ -11,8 +11,8 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Задачи обмена данными организует задачи интеллектуального анализа данных по обмену. Т.е. каждая биржа, установленная в системе, умеет узел Задач обмена данными, объединяющий все задачи рыночных данных, соответствующие указанной бирже.",
-                "updated": 1635591907050
+                "text": "Узел Exchange Data Tasks организует задачи интеллектуального анализа данных по бирже. Т.е. каждая биржа, установленная в системе, умеет узел Exchange Data Tasks, объединяющий все задачи рыночных данных, соответствующие указанной бирже.",
+                "updated": 1638358984303
             }
         ]
     },
@@ -23,11 +23,25 @@
         },
         {
             "style": "Text",
-            "text": "The exchange data tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+            "text": "The exchange data tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Exchange Data Tasks должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом упомянутой биржи.",
+                    "updated": 1638359117939
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo."
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При использовнии биржи, представленной в библиотеке значков системы, стандартный значок задач обмена данными заменяется логотипом биржи.",
+                    "updated": 1638358906400
+                }
+            ]
         },
         {
             "style": "Block",

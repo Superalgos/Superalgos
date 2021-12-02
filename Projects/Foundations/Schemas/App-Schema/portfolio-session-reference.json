@@ -1,0 +1,71 @@
+{
+    "type": "Portfolio Session Reference",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Product",
+            "relatedUiObject": "Data Product",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Portfolio Mine Products",
+            "relatedUiObject": "Portfolio Mine Products",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add All Portfolio Mine Products",
+            "label": "Add All Portfolio Mine Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Portfolio Mine Products",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent",
+        "Use Reference Parent Type",
+        "Use Child @marketDataProducts"
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "alternativeIcons": "Use Reference Parent",
+    "referencingRules": {
+        "compatibleTypes": "->Live Portfolio Session->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Market Portfolio Products->"
+    },
+    "propertyNameAtParent": "portfolioSessionReferences",
+    "childrenNodesProperties": [
+        {
+            "name": "dataProducts",
+            "type": "array",
+            "childType": "Data Product",
+            "autoAdd": false
+        },
+        {
+            "name": "portfolioMineProducts",
+            "type": "array",
+            "childType": "Portfolio Mine Products",
+            "autoAdd": false
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "type": "Plugin Portfolio Engines",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin Portfolio Engines",
+            "label": "Add Missing Portfolio Engines",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "iconPathOn": "portfolio-engine",
+            "iconPathOff": "portfolio-engine",
+            "iconProject": "Portfolio-Management",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "pluginPortfolioEngines",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFiles",
+            "type": "array",
+            "childType": "Plugin File",
+            "autoAdd": false
+        }
+    ]
+}

@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Es frustrante mirar un gráfico vacío. Estoy aquí para asegurarme de que no te sientas atrapado configurando los gráficos de tus sueños.",
                 "updated": 1628639062880
+            },
+            {
+                "language": "DE",
+                "text": "Es ist frustrierend, auf eine leere chart zu schauen. Ich bin hier, um dafür zu sorgen, dass Sie nicht das Gefühl haben, die charts Ihrer Träume nicht erstellen zu können.",
+                "updated": 1637612228833
+            },
+            {
+                "language": "RU",
+                "text": "Обидно смотреть на пустой график. Я здесь, чтобы убедиться, что вы не застрянете в настройке графиков вашей мечты.",
+                "updated": 1637914550680
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Si recién está comenzando aquí en Superalgos, toda esta libertad puede ser un poco abrumadora. Superalgos te permite hacer casi cualquier cosa que se te ocurra, pero hay algunas piezas clave del rompecabezas que deben estar en su lugar.",
                     "updated": 1628639135840
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie gerade erst in Superalgos anfangen, könnte all diese Freiheit ein wenig überwältigend sein. Superalgos erlaubt es Ihnen, fast alles zu tun, was Sie sich ausdenken können, aber es gibt einige wichtige Puzzlestücke, die an ihrem Platz sein müssen.",
+                    "updated": 1637612271526
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы только начинаете работать в Superalgos, вся эта свобода может показаться вам немного подавляющей. Superalgos позволяет вам делать практически все, что вы можете придумать, но есть несколько ключевых частей головоломки, которые должны быть на месте.",
+                    "updated": 1637914687650
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "¡Ahí es donde entro yo! ¡Mis amigos y yo les explicaremos cómo personalizar gráficos de principio a fin! Cuando terminemos, tendrás las herramientas para crear gráficos limitados solo por su imaginación.",
                     "updated": 1628639172038
+                },
+                {
+                    "language": "DE",
+                    "text": "Genau da komme ich ins Spiel! Meine Freunde und ich werden Ihnen zeigen, wie Sie charts (Diagramme) von Anfang bis Ende anpassen können! Wenn wir fertig sind, werden Sie die Werkzeuge haben, um charts zu erstellen, die nur durch Ihre Fantasie begrenzt sind.",
+                    "updated": 1637612350300
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот тут-то я и прихожу на помощь! Я и мои друзья расскажем вам, как настроить диаграммы от начала до конца! К тому времени, когда мы закончим, у вас будут инструменты для создания диаграмм, ограниченные только вашим воображением.",
+                    "updated": 1637914717905
                 }
             ]
         }

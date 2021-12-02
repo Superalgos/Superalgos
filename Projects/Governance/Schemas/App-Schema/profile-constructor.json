@@ -20,53 +20,9 @@
             "relatedUiObjectProject": "Governance"
         },
         {
-            "action": "Add Social Trading Desktop App",
+            "action": "Install Signing Accounts",
             "actionProject": "Governance",
-            "label": "Add Social Trading Desktop App",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Proceed",
-            "workDoneLabel": "Done",
-            "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add Social Trading Server App",
-            "actionProject": "Governance",
-            "label": "Add Social Trading Server App",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Proceed",
-            "workDoneLabel": "Done",
-            "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add Social Trading Mobile App",
-            "actionProject": "Governance",
-            "label": "Add Social Trading Mobile App",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Proceed",
-            "workDoneLabel": "Done",
-            "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add Algo Traders Platform",
-            "actionProject": "Governance",
-            "label": "Add Algo Traders Platform",
-            "askConfirmation": true,
-            "confirmationLabel": "Confirm to Proceed",
-            "workDoneLabel": "Done",
-            "relatedUiObject": "Profile Constructor",
-            "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add P2P Network Node",
-            "actionProject": "Governance",
-            "label": "Add P2P Network Node",
+            "label": "Install Signing Accounts",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",

@@ -15,6 +15,11 @@
                 "text": "The Referral Program incentiva la promoción del proyecto, ya sea de boca en boca o \"en masa\" a través de artículos, publicaciones en redes sociales, videos y otras formas de marketing de influencia.",
                 "updated": 1630895504666,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Referans Programı ( Referral Program ), makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla ağızdan ağza veya “topluca” projenin tanıtımını teşvik eder!",
+                "updated": 1637444132208
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Ve a el nodo Community Building Programs y has clic Add Referral Program.",
                     "updated": 1630895549783,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları ( Community Building Programs ) düğümüne gidin ve Referans Programı Ekle'yi ( Add Referral Program ) tıklayın.",
+                    "updated": 1637444420032
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Primero, aclaremos qué reglas debe cumplir para ganar su Tokens Bonus",
                     "updated": 1630895569223,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Öncelikle, Token Bonusunuzu ( Tokens  Bonus ) kazanmak için hangi kuralları yerine getirmeniz gerektiğini açıklayalım!",
+                    "updated": 1637445298630
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "You must deploy the program: ¡Hecho!",
                     "updated": 1630895585097,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Programı dağıtmalısınız: Bitti!",
+                    "updated": 1637445330084
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "You must declare your referrer: A continuación.",
                     "updated": 1630895663229,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni Superalgos'ayönlendireni beyan etmelisin: Onu sonra yapacağız!",
+                    "updated": 1637445418801
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "text": "You must drive Token Power to the program: Wooh .. Token Power... ¿suena genial? ¡Apuesta!",
                     "updated": 1630895638750,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünü ( Token Power ) programa yönlendirmelisiniz: Wayy... jeton gücü...Kulağa hoş geliyor...",
+                    "updated": 1637445579392
                 }
             ]
         }

@@ -11,6 +11,8 @@ function newRecordValues() {
 
     let tradingSystem
     let tradingEngine
+    let portfolioSystem
+    let portfolioEngine
     let learningSystem
     let learningEngine
     let productDefinition
@@ -20,24 +22,32 @@ function newRecordValues() {
     function finalize() {
         tradingSystem = undefined
         tradingEngine = undefined
+        portfolioSystem = undefined
+        portfolioEngine = undefined
         learningSystem = undefined
         learningEngine = undefined
         productDefinition = undefined
         propertyTargetNodeMap = undefined
     }
 
-    function initialize(pTradingOrLearningSystem, pTradingOrLearningEngine, pProductDefinition) {
-        if (pTradingOrLearningSystem.type === 'Trading System') {
-            tradingSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningSystem.id)
+    function initialize(pTradingOrLearningOrPortfolioSystem, pTradingOrLearningOrPortfolioEngine, pProductDefinition) {
+        if (pTradingOrLearningOrPortfolioSystem.type === 'Trading System') {
+            tradingSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
         }
-        if (pTradingOrLearningSystem.type === 'Learning System') {
-            learningSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningSystem.id)
+        if (pTradingOrLearningOrPortfolioSystem.type === 'Portfolio System') {
+            portfolioSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
         }
-        if (pTradingOrLearningEngine.type === 'Trading Engine') {
-            tradingEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningEngine.id)
+        if (pTradingOrLearningOrPortfolioSystem.type === 'Learning System') {
+            learningSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
         }
-        if (pTradingOrLearningEngine.type === 'Learning Engine') {
-            learningEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningEngine.id)
+        if (pTradingOrLearningOrPortfolioEngine.type === 'Trading Engine') {
+            tradingEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
+        }
+        if (pTradingOrLearningOrPortfolioEngine.type === 'Portfolio Engine') {
+            portfolioEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
+        }
+        if (pTradingOrLearningOrPortfolioEngine.type === 'Learning Engine') {
+            learningEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
         }
         productDefinition = pProductDefinition
 

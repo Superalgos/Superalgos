@@ -1,0 +1,73 @@
+{
+    "type": "Portfolio Current",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Engine->"
+    },
+    "propertyNameAtParent": "portfolioCurrent",
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioEpisode",
+            "type": "node",
+            "childType": "Portfolio Episode",
+            "autoAdd": true
+        },
+        {
+            "name": "strategy",
+            "type": "node",
+            "childType": "Strategy",
+            "autoAdd": true
+        },
+        {
+            "name": "position",
+            "type": "node",
+            "childType": "Position",
+            "autoAdd": true
+        },
+        {
+            "name": "strategyTriggerStage",
+            "type": "node",
+            "childType": "Strategy Trigger Stage",
+            "autoAdd": true
+        },
+        {
+            "name": "strategyOpenStage",
+            "type": "node",
+            "childType": "Strategy Open Stage",
+            "autoAdd": true
+        },
+        {
+            "name": "strategyManageStage",
+            "type": "node",
+            "childType": "Strategy Manage Stage",
+            "autoAdd": true
+        },
+        {
+            "name": "strategyCloseStage",
+            "type": "node",
+            "childType": "Strategy Close Stage",
+            "autoAdd": true
+        }
+    ]
+}

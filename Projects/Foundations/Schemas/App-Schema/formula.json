@@ -29,7 +29,7 @@
     },
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->Social Bot Command->"
+        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->Social Bot Command->Ask Portfolio Formula Manager->"
     },
     "propertyNameAtParent": "formula"
 }

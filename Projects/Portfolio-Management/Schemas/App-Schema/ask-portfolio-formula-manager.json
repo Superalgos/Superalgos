@@ -1,0 +1,53 @@
+{
+    "type": "Ask Portfolio Formula Manager",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Confirm Formula",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "confirmFormula",
+            "relatedUiObject": "Confirm Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Set Formula",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "setFormula",
+            "relatedUiObject": "Set Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->Managed Stop Loss->Managed Take Profit->Order Rate->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "confirmFormula",
+            "type": "node",
+            "childType": "Confirm Formula"
+        },
+        {
+            "name": "setFormula",
+            "type": "node",
+            "childType": "Set Formula"
+        }
+    ],
+    "propertyNameAtParent": "askPortfolioFormulaManager"
+}

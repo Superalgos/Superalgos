@@ -2,7 +2,14 @@
     "type": "Superalgos Medium Blog",
     "definition": {
         "text": "The Superalgos Medium Blog is a Medium Publication where the Superalgos Project makes official announcements and publishes project-related content.",
-        "updated": 1630235403524
+        "updated": 1630235403524,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos Medium Blog - это средняя публикация, в которой проект Superalgos Project делает официальные объявления и публикует материалы, связанные с проектом.",
+                "updated": 1638298206116
+            }
+        ]
     },
     "paragraphs": [
         {

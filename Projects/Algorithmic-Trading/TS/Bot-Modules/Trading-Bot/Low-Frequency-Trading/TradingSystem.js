@@ -27,6 +27,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     let dynamicIndicators
 
     let tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
+    let portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
 
     let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -70,12 +71,12 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             evalNode(startingNode, 'Conditions', descendentOfNodeType)
         }
 
-        tradingSystem.evalFormulas = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'Formulas', descendentOfNodeType)
+        tradingSystem.evalFormulas = async function (startingNode, descendentOfNodeType) {
+            await evalNode(startingNode, 'Formulas', descendentOfNodeType)
         }
 
         tradingSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
-          evalNode(startingNode, 'User Codes', descendentOfNodeType);
+            evalNode(startingNode, 'User Codes', descendentOfNodeType);
         }
 
         tradingSystem.addError = function (errorDataArray) {
@@ -203,13 +204,13 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             buildDynamicIndicators()
 
             /* Run the Trigger Stage */
-            tradingStagesModuleObject.runTriggerStage()
+            await tradingStagesModuleObject.runTriggerStage()
 
             /* Run the Open Stage */
             await tradingStagesModuleObject.runOpenStage()
 
             /* Run the Manage Stage */
-            tradingStagesModuleObject.runManageStage()
+            await tradingStagesModuleObject.runManageStage()
 
             /* Run the Close Stage */
             await tradingStagesModuleObject.runCloseStage()
@@ -234,7 +235,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         }
     }
 
-    function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
+    async function evalNode(node, evaluating, descendentOfNodeType, isDescendent, parentNode) {
         if (node === undefined) { return }
 
         /* Verify if this node is descendent of the specified node type */
@@ -257,22 +258,22 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
-                    evalFormula(node)
+                    await evalFormula(node, parentNode)
                 }
             }
         }
 
         /* Here we check if there is a User Defined-Javascript Code to be evaluated: */
         if (node.type === 'Javascript Code' && evaluating === 'User Codes') {
-          if (node.code !== undefined) {
-            if (isDescendent === true) {
-              evalJSCode(node);
+            if (node.code !== undefined) {
+                if (isDescendent === true) {
+                    evalJSCode(node);
+                }
             }
-          }
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -284,7 +285,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent)
+                                await evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent, node)
                             }
                             previousPropertyName = property.name
                         }
@@ -294,7 +295,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent)
+                                await evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent, node)
                             }
                         }
                         break
@@ -357,7 +358,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
     }
 
-    function evalFormula(node) {
+    async function evalFormula(node, parentNode) {
         let value
         let errorMessage
         let docs
@@ -365,6 +366,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         try {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
             value = eval(node.code)
+
+            let response = await portfolioManagerClient.askPortfolioFormulaManager(parentNode, value)
+            value = response.value
+
         } catch (err) {
             /*
                 One possible error is that the formula references a .previous that is undefined. This
@@ -423,29 +428,29 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     }
 
     function evalJSCode(node) {
-      let value
-      let errorMessage
-      let docs
+        let value
+        let errorMessage
+        let docs
 
-      try {
-        value = eval(node.code);
+        try {
+            value = eval(node.code);
 
-      } catch (err) {
-        value = 0
-        errorMessage = err.message
-        docs = {
-            project: 'Foundations',
-            category: 'Topic',
-            type: 'TS LF Trading Bot Error - Evaluating User Code Error',
-            placeholder: {}
+        } catch (err) {
+            value = 0
+            errorMessage = err.message
+            docs = {
+                project: 'Foundations',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - Evaluating User Code Error',
+                placeholder: {}
+            }
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
-        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
-      }
 
-      if (errorMessage !== undefined) {
-          tradingSystem.addError([node.id, errorMessage, docs])
-          TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
-          return
-      }
+        if (errorMessage !== undefined) {
+            tradingSystem.addError([node.id, errorMessage, docs])
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
+            return
+        }
     }
 }

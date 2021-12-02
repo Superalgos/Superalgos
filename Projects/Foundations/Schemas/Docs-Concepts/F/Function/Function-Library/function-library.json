@@ -2,30 +2,72 @@
     "type": "Function Library",
     "definition": {
         "text": "It is a collection of functions related to a single topic. The topic is usually expressed at the Function Library's name.",
-        "updated": 1614787845534
+        "updated": 1614787845534,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это набор функций, относящихся к одной теме. Тема обычно выражается в имени библиотеки функций.",
+                "updated": 1638283542759
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Each integrated project might have Function Libraries at the 3 different levels possible: Client, TS, and UI. In the case of Superalgos, at the UI it features, for instance, these Function Libraries:",
-            "updated": 1614788012945
+            "updated": 1614788012945,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый интегрированный проект может иметь библиотеки функций на трех возможных уровнях: Client, TS и UI. В случае Superalgos в UI он включает, например, следующие библиотеки функций:",
+                    "updated": 1638283707248
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Charting Space Functions"
+            "text": "Charting Space Functions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "функции Charting Space",
+                    "updated": 1638283736307
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Crypto Ecosystem Functions"
+            "text": "Crypto Ecosystem Functions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "функии Crypto Ecosystem",
+                    "updated": 1638283749367
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Plugins Functions",
-            "updated": 1614788024303
+            "updated": 1614788024303,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "функции Plugins",
+                    "updated": 1638283768451
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Function Libraries are stateless by definition. "
+            "text": "Function Libraries are stateless by definition. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Библиотеки функций по определению не имеют состояния.",
+                    "updated": 1638283788453
+                }
+            ]
         }
     ]
 }

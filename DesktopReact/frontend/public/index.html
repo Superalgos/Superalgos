@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Superalgos Desktop</title>
+    <meta name="description" content="Free and Open Source Crypto Social Trading">
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
+
+    <script type="text/javascript">
+      function loadApp() {
+        // Prevent click-jacking
+        try {
+          if (window === window.top || window.chrome && chrome.app && chrome.app.window) {
+            document.documentElement.style.display = 'block'
+          } else {
+            top.location = self.location
+          }
+        } catch (e) {
+          console.error('CJ protection', e)
+        }
+      }
+    </script>
+  </head>
+  <body id="body" onload="loadApp()">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  </body>
+</html>

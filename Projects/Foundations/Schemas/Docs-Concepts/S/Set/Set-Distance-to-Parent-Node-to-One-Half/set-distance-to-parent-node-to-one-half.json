@@ -2,12 +2,26 @@
     "type": "Set Distance to Parent Node to One Half",
     "definition": {
         "text": "The node is locked to 0.5X of the distance.",
-        "updated": 1610031645722
+        "updated": 1610031645722,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел заблокирован на 0,5X расстояния.",
+                "updated": 1638297416107
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638297429338
+                }
+            ]
         }
     ]
 }

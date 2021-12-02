@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "La jerarquia trading engine es la estructura de datos utilizada por el robot comercial para mantener la información en tiempo de ejecución altamente accesible y expuesta a otros.",
                 "updated": 1624452474129
+            },
+            {
+                "language": "RU",
+                "text": "Trading Engine - это структура данных, используемая торговым ботом для обеспечения высокого доступа к информации во время выполнения и ее доступности для других торговых ботов.",
+                "updated": 1638338951505
             }
         ]
     },
@@ -17,50 +22,127 @@
         },
         {
             "style": "Text",
-            "text": "You will use this hierarchy for two main purposes:"
+            "text": "You will use this hierarchy for two main purposes:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы будете использовать эту иерархию для двух основных целей:",
+                    "updated": 1638338966721
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "To let your trading systems access the information processed by the trading bot. This allows strategies to keep track of and react to current and past events&mdash;including those involving the exchange, such as orders placed or filled&mdash;as the bot is running."
+            "text": "To let your trading systems access the information processed by the trading bot. This allows strategies to keep track of and react to current and past events&mdash;including those involving the exchange, such as orders placed or filled&mdash;as the bot is running.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы позволить вашим торговым системам получить доступ к информации, обрабатываемой торговым ботом. Это позволяет стратегиям отслеживать и реагировать на текущие и прошлые события, в том числе связанные с обменом, такие как размещенные или исполненные заявки, во время работы бота.",
+                    "updated": 1638339042173
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "To keep track of the actions of the trading bot via the design space visual environment and panels over the charts. By analyzing runtime information, you may gain a detailed understanding of what happens, when, and why, throughout a trading session."
+            "text": "To keep track of the actions of the trading bot via the design space visual environment and panels over the charts. By analyzing runtime information, you may gain a detailed understanding of what happens, when, and why, throughout a trading session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для отслеживания действий торгового бота через визуальную среду Design Space и панели над графиками. Анализируя информацию о времени выполнения, вы можете получить подробное представление о том, что происходит, когда и почему в течение торговой сессии.",
+                    "updated": 1638339093835
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Frequently Asked Questions"
+            "text": "Frequently Asked Questions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Часто задаваемые вопросы",
+                    "updated": 1638339158409
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Can a Trading Engine be shared between two Trading Bots?"
+            "text": "Can a Trading Engine be shared between two Trading Bots?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может ли Trading Engine использоваться совместно двумя торговыми ботами?",
+                    "updated": 1638339236191
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The same trading engine can be used from multiple trading sessions, because it is just a node-based representation of a data structure.",
-            "updated": 1621987910896
+            "updated": 1621987910896,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Один и тот же торговый движок можно использовать в нескольких торговых сессиях, потому что это просто представление структуры данных на основе узлов.",
+                    "updated": 1638339266880
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Every time a Task is ran, a snapshot of that data structure, together with a snapshot of the Network and the Bots definitions at their Data Mine is sent from the UI to the Task Server, and from there is consumed by the running Bot. That means that a second Bot can receive the same Trading Engine snapshot and it will never know if other bots were fed with the same information or not.",
-            "updated": 1621987965915
+            "updated": 1621987965915,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый раз, когда запускается задача Task, снимок этой структуры данных вместе со снимком сети и определениями ботов в их Data Mine отправляется из UI на сервер задач Task Server, а оттуда используется запущенным ботом. Это означает, что второй бот может получить тот же снимок состояния Trading Engine, и он никогда не узнает, были ли другие боты загружены той же информацией или нет.",
+                    "updated": 1638339437677
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Do I need to change something at the Trading Engine?"
+            "text": "Do I need to change something at the Trading Engine?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нужно ли мне что-то менять в Trading Engine?",
+                    "updated": 1638339586902
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You don't need to physically change anything inside trading engine via the UI.  The trading engine is a visual representation of the data structure that the trading system uses to store its values, so to speak."
+            "text": "You don't need to physically change anything inside trading engine via the UI.  The trading engine is a visual representation of the data structure that the trading system uses to store its values, so to speak.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вам не нужно ничего физически менять внутри Trading Engine через UI. Trading Engine - это визуальное представление структуры данных, которую торговая система использует, так сказать, для хранения своих значений.",
+                    "updated": 1638339666496
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Can I change the values inside the Trading Engine?"
+            "text": "Can I change the values inside the Trading Engine?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Могу ли я изменить значения в Trading Engine?",
+                    "updated": 1638339692515
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You access the Trading Engine from within your trading system if there is something in there you would like to change. This is the whole purpose of the User Defined Code node.",
-            "updated": 1621988418300
+            "updated": 1621988418300,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы получаете доступ к Trading Engine из своей торговой системы, если в ней есть что-то, что вы хотели бы изменить. В этом вся цель узла User Defined Code.",
+                    "updated": 1638339838848
+                }
+            ]
         }
     ]
 }

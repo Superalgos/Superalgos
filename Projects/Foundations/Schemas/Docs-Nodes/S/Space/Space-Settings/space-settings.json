@@ -1,7 +1,14 @@
 {
     "type": "Space Settings",
     "definition": {
-        "text": "The space settings node features controls over the physics, proportions, and positioning of icons representing node, and their menus."
+        "text": "The space settings node features controls over the physics, proportions, and positioning of icons representing node, and their menus.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Space Settings содержит элементы управления физикой, пропорциями и расположением значков, представляющих узел, и их меню.",
+                "updated": 1638351043130
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,109 +18,263 @@
         {
             "style": "Title",
             "text": "Space Settings Configuration",
-            "updated": 1609863913978
+            "updated": 1609863913978,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Space Settings",
+                    "updated": 1638351072614
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1631554214199
+            "updated": 1631554214199,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638351079381
+                }
+            ]
         },
         {
             "style": "List",
             "text": "\"physics\" determines whether the environment is static (false) or dynamic (true). When physics is set to true, nodes in the design space are affected by th gravitational pull and repulsion of other nodes.",
-            "updated": 1631588883144
+            "updated": 1631588883144,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "physics определяет, является ли среда статической (false) или динамической (true). Когда для физики установлено значение true, на узлы в пространстве дизайна влияют гравитационное притяжение и отталкивание других узлов.",
+                    "updated": 1638351198739
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false)."
+            "text": "detachUsingMouse defines if you can detach nodes from it's parent or reference parents only using the mouse (when true) or if you can not use the mouse for that and can only do it using the detach buttons on the icon's menu (when false).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "detachUsingMouse определяет, можете ли вы отсоединять узлы от его родительского или ссылочного родителя только с помощью мыши (если true) или если вы не можете использовать мышь для этого и можете делать это только с помощью кнопок отсоединения в меню значка (если false).",
+                    "updated": 1638351219937
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Node Properties"
+            "text": "Node Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства Node",
+                    "updated": 1638351257228
+                }
+            ]
         },
         {
             "style": "List",
             "text": "\"node\" here refers to every node in the design space. This collection of properties adjusts the settings of all nodes in the design space.",
-            "updated": 1631588871268
+            "updated": 1631588871268,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "\"node\" здесь относится к каждому узлу в пространстве дизайна. Этот набор свойств регулирует настройки всех узлов в пространстве дизайна.",
+                    "updated": 1638351280868
+                }
+            ]
         },
         {
             "style": "List",
             "text": "distancePercentage adjusts the baseline distance between nodes.",
-            "updated": 1631588124341
+            "updated": 1631588124341,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "distancePercentage регулирует базовое расстояние между узлами.",
+                    "updated": 1638351294160
+                }
+            ]
         },
         {
             "style": "List",
             "text": "radiusPercentage is the radius of the circular nodes' menu applied as a percentage of an arbitrary default radius. A higher value will lead to a larger node menu.",
-            "updated": 1631588202567
+            "updated": 1631588202567,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "radiusPercentage - это радиус меню круговых узлов, применяемый в процентах от произвольного радиуса по умолчанию. Более высокое значение приведет к большему меню узла.",
+                    "updated": 1638351315551
+                }
+            ]
         },
         {
             "style": "List",
             "text": "massPercentage is the reference mass of nodes that affects the attraction and repulsion of the environment's physics when the physics setting is set to true.",
-            "updated": 1631588798797
+            "updated": 1631588798797,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "massPercentage - это эталонная масса узлов, которая влияет на притяжение и отталкивание физики окружающей среды, когда для параметра физики установлено значение true.",
+                    "updated": 1638351333412
+                }
+            ]
         },
         {
             "style": "List",
             "text": "animationSteps adjusts the amount of steps the animation takes to open a node menu upon hovering over it. A higher value leads to smoother transition.",
-            "updated": 1631588728860
+            "updated": 1631588728860,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "animationSteps регулирует количество шагов, которые делает анимация, чтобы открыть меню узла при наведении на него курсора. Более высокое значение приводит к более плавному переходу.",
+                    "updated": 1638351352471
+                }
+            ]
         },
         {
             "style": "List",
             "text": "menuItem refers to the items on the right-hand side of a node's menus and has the following three properties.",
-            "updated": 1631588761551
+            "updated": 1631588761551,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "menuItem menuItem относится к элементам в правой части меню узла и имеет следующие три свойства:",
+                    "updated": 1638351396201
+                }
+            ]
         },
         {
             "style": "List",
             "text": "widthPercentage is the reference width of an item applied as a percentage of an arbitrary default width.",
-            "updated": 1609863995477
+            "updated": 1609863995477,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "widthPercentage - это опорная ширина элемента, применяемая в процентах от произвольной ширины по умолчанию.",
+                    "updated": 1638351500085
+                }
+            ]
         },
         {
             "style": "List",
             "text": "heightPercentage is the reference height of an item applied as a percentage of an arbitrary default height.",
-            "updated": 1609863990453
+            "updated": 1609863990453,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "heightPercentage - это опорная высота элемента, применяемая в процентах от произвольной высоты по умолчанию.",
+                    "updated": 1638351491277
+                }
+            ]
         },
         {
             "style": "List",
             "text": "radiusPercentage is the reference radius of the circular matrix that governs the distribution of items in the circular menu. Larger numbers cause items to spread apart while smaller numbers makes items lie closer to each other.",
-            "updated": 1631554041849
+            "updated": 1631554041849,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "radiusPercentage - это опорный радиус круговой матрицы, которая управляет распределением элементов в круговом меню. Большие числа заставляют предметы расходиться, в то время как меньшие числа заставляют предметы лежать ближе друг к другу.",
+                    "updated": 1638351472523
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Shortcut Properties"
+            "text": "Shortcut Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства Shortcut",
+                    "updated": 1638351517044
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Shortcuts are key stroke combinations that helps users execute certain actions very quickly. To execute a Shortcut users need to simultaneously press CTRL + SHIFT + a pre-defined key.",
-            "updated": 1625419324367
+            "updated": 1625419324367,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Горячие клавиши - это комбинации клавиш, которые помогают пользователям очень быстро выполнять определенные действия. Чтобы использовать, пользователям необходимо одновременно нажать CTRL + SHIFT + заранее заданную клавишу.",
+                    "updated": 1638351793174
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Shortcuts default values can be seen below. You can modify those values by changing the Config Properties listed below.",
-            "updated": 1625419754545
+            "updated": 1625419754545,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значения по умолчанию горячих клавиш можно увидеть ниже. Вы можете изменить эти значения, изменив свойства конфигурации, перечисленные ниже.",
+                    "updated": 1638351611217
+                }
+            ]
         },
         {
             "style": "List",
             "text": "toggleMapMode defines which key will be used as a Shortcut for entering and leaving the Map Mode.",
-            "updated": 1625419803171
+            "updated": 1625419803171,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "toggleMapMode определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для входа и выхода из режима карты.",
+                    "updated": 1638351750312
+                }
+            ]
         },
         {
             "style": "List",
             "text": "toggleDrawRelationshipLines defines which key will be used as a Shortcut for turning on and off the drawing of Reference Lines.",
-            "updated": 1625419810253
+            "updated": 1625419810253,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "toggleDrawRelationshipLines определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для включения и выключения рисования опорных линий.",
+                    "updated": 1638351831208
+                }
+            ]
         },
         {
             "style": "List",
             "text": "toggleDrawParentLines defines which key will be used as a Shortcut for turning on and off the drawing of Parent Lines.",
-            "updated": 1625419816654
+            "updated": 1625419816654,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "toggleDrawParentLines определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для включения и выключения рисования родительских линий.",
+                    "updated": 1638351854481
+                }
+            ]
         },
         {
             "style": "List",
             "text": "saveWorkspace defines which key will be used as a Shortcut for saving the Workspace.",
-            "updated": 1625419822252
+            "updated": 1625419822252,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "saveWorkspace определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для сохранения рабочей области Workspace.",
+                    "updated": 1638351891630
+                }
+            ]
         },
         {
             "style": "List",
             "text": "adjustAspectRation defines which key will be used as a Shortcut for forcing a Time Machine to adjust it's aspect ratio according to the size of the screen a user currently have.",
-            "updated": 1625419830418
+            "updated": 1625419830418,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "adjustAspectRation определяет, какая клавиша будет использоваться в качестве \"горячей клавиши\" для принуждения Time Machine к настройке соотношения сторон экрана в соответствии с размером экрана, который в настоящее время имеет пользователь.",
+                    "updated": 1638351943335
+                }
+            ]
         }
     ]
 }

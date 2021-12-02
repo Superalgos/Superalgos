@@ -2,7 +2,14 @@
     "type": "User Delegate",
     "definition": {
         "text": "Use this node to establish a reference with a colleague's User Profile. With this reference, you are passing on Token Power directly into your colleague's profile, effectively delegating your Token Power. Your colleague may use the power in any of the Governance Programs.",
-        "updated": 1630423548110
+        "updated": 1630423548110,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Utilice este nodo para establecer una referencia con un User Profile de un colega. Con esta referencia, estás transmitiendo Token Power directamente en el profile de su colega, efectivamente delegando su Token Power. Su colega pude usar el power en cualquiera de los Governance Programs.",
+                "updated": 1637850332829
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,29 +19,71 @@
         },
         {
             "style": "Text",
-            "text": "The main use case for delegating Token Power is when mentors wish to help their mentees make their first few Contribution Claims. "
+            "text": "The main use case for delegating Token Power is when mentors wish to help their mentees make their first few Contribution Claims. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El caso de uso principal para delegar Token Power es cuando los mentores desean ayudar a quienes mentorean en sus primeras pocas Contribution Claims.",
+                    "updated": 1637850432761
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Contributors need to drive Claim Power to their claims for them to be effective. However, when they are new to Superalgos, they may not have enough tokens to back their claims.",
-            "updated": 1630423586473
+            "updated": 1630423586473,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los colaboradores necesitan conducir Claim Power a sus  claims para que se hagan efectivas. De todas formas , cuando son nuevos en Superalgos, pueden no tener suficientes tokens para apoyar sus claims.",
+                    "updated": 1637850531307
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Mentors are happy to help their mentees get their first few tokens, and are rewarded for their work and generosity through the Mentorship Program."
+            "text": "Mentors are happy to help their mentees get their first few tokens, and are rewarded for their work and generosity through the Mentorship Program.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Mentores están felices de ayudar a sus mentoreados a obtener sus primeros pocos tokens, y son recompensados por su trabajo y generosidad a través del Mentorship Program.",
+                    "updated": 1637850643331
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This form of Token Power delegation is inspired in the concept of Liquid Democracy, also implemented in the Voting Program."
+            "text": "This form of Token Power delegation is inspired in the concept of Liquid Democracy, also implemented in the Voting Program.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta forma de delegación deToken Power está inspirada en el concepto de Liquid Democracy (democracia líquida), también implentada en el Voting Program.",
+                    "updated": 1637850724160
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The same Token Power may be delegated multiple times with the caveat in the below warning box. The delegation may be withdrawn at any point as well, simply by removing the User Delegate node or its reference."
+            "text": "The same Token Power may be delegated multiple times with the caveat in the below warning box. The delegation may be withdrawn at any point as well, simply by removing the User Delegate node or its reference.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El mismo Token Power puede ser delegado muchas veces con la advertencia en el cuadro de advertencia a continuación.La delegación también puede retirarse en cualquier momento, simplemente eliminando el nodo del User Delegate o su referencia.",
+                    "updated": 1637850830048
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "Only 10% of the Delegate Power you drive into a User Delegate node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes.",
-            "updated": 1630423731772
+            "updated": 1630423731772,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solo el 10% del Delegate Power que conduzca al nodo del User Delegate alcanza el User Profile receptor. Esto es para desincentivar los comportamientos fraudulentos que puedan surgir relacionados con declaraciones circulares, perfiles falsos o intercambio de votos..",
+                    "updated": 1637850937586
+                }
+            ]
         },
         {
             "style": "Block",

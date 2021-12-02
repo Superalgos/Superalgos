@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Para finalizar esta configuración básica, seguí adelante e instalé el BTC/USDT mercado para usted.",
                 "updated": 1628639995753
+            },
+            {
+                "language": "DE",
+                "text": "Um dieses basic setup abzuschließen, habe ich den BTC/USDT-Markt für Sie installiert.",
+                "updated": 1637614250929
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы завершить эту базовую настройку, я установил для вас рынок BTC/USDT.",
+                "updated": 1637916046153
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "El Install a New Market Tutorial le enseñó que instalar un mercado establece todo lo que necesita para un espacio de trabajo básico de Superalgos. Esto incluye configurar automáticamente un Backtesting Session, Live Trading Session, y gráficos para cada Trading System presente en el workspace.",
                     "updated": 1628640053192
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Tutorial \"Install a New Market Tutorial\" haben Sie gelernt, dass die Installation eines Marktes alles einrichtet, was Sie für einen grundlegenden Superalgos Workspace benötigen. Dazu gehört das automatische Einrichten einer Backtesting Session, Live Trading Session, und von Charts für jedes Trading System, das im Workspace vorhanden ist.",
+                    "updated": 1637614488304
+                },
+                {
+                    "language": "RU",
+                    "text": "В руководстве по установке нового рынка (Install a New Market Tutorial) вы узнали, что установка рынка настраивает все необходимое для базового рабочего пространства Superalgos. Это включает в себя автоматическую настройку сеанса бэктестинга (Backtesting Session),торговой сессии в реальном времени (Live Trading Session), и графиков для каждой торговой системы (Trading System)  присутствующей в рабочем пространстве.",
+                    "updated": 1637916802936
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Puede ejecutar esta configuración básica tal como está. De hecho, si estás buscando una forma básica de configurar las cosas, instala un plugin Data Mine, Trading System, y terminando instalando un Market te pondrán en funcionamiento en poco tiempo. ¡Pero ese no es el objetivo de este tutorial! ",
                     "updated": 1628641375531
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können dieses basic setup in ihrer jetzigen Form verwenden. Wenn Sie nach einer einfachen Möglichkeit suchen, die Dinge einzurichten, reicht es aus, eine Plugin Data Mine, ein trading system und schließlich einen Markt zu installieren, damit Sie im Handumdrehen loslegen können.  Aber das ist nicht der Sinn dieses Tutorials! Schauen wir uns ein paar custom charts (Benutzerdefinierte) an!",
+                    "updated": 1637614729947
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать эту базовую установку в ее нынешнем виде. На самом деле, если вы ищете базовый способ настройки, установка плагина Data Mine, Trading System, и, наконец, установка Market позволит вам быстро начать работу. Но это не главное в этом учебнике (Tutorial)! Давайте рассмотрим некоторые пользовательские графики!",
+                    "updated": 1637917553893
                 }
             ]
         }

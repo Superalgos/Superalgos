@@ -8,24 +8,59 @@
         },
         {
             "style": "Text",
-            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria."
+            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В основе успешной торговли лежит тщательное и всестороннее тестирование стратегий. Superalgos стремится предоставить вам контроль над процессом тестирования, предоставляя вам гибкие инструменты, соответствующие вашим критериям.",
+                    "updated": 1638374450030
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Depending on how you use the system, how many markets and exchanges you work with, the number of trading systems you use, or the way you choose to test your strategies, you may find yourself with a large number of testing sessions. As explained in the sorting of tasks page, the testing environment helps you organize large numbers of tasks sorting them by exchange, market, and trading mine."
+            "text": "Depending on how you use the system, how many markets and exchanges you work with, the number of trading systems you use, or the way you choose to test your strategies, you may find yourself with a large number of testing sessions. As explained in the sorting of tasks page, the testing environment helps you organize large numbers of tasks sorting them by exchange, market, and trading mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В зависимости от того, как вы используете систему, со сколькими рынками и биржами вы работаете, с количеством торговых систем, которые вы используете, или от того, как вы решите тестировать свои стратегии, вы можете столкнуться с большим количеством сессий тестирования. Как объясняется на странице сортировки задач, среда тестирования помогает вам организовать большое количество задач, отсортировав их по биржам, рынкам и торговым шахтам.",
+                    "updated": 1638375031916
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos handles two types of simulated tests: backtesting and paper trading. Backtesting involves testing over historic data, while paper trading is about testing on a live data stream, but without placing orders at the exchange."
+            "text": "Superalgos handles two types of simulated tests: backtesting and paper trading. Backtesting involves testing over historic data, while paper trading is about testing on a live data stream, but without placing orders at the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos обрабатывает моделируемые тесты двух типов: бэктестинг и бумажная торговля. Бэктестинг включает в себя тестирование на исторических данных, тогда как торговля на бумаге - это тестирование в реальном потоке данных, но без размещения ордеров на бирже.",
+                    "updated": 1638374603563
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trading sessions are controlled by a number of parameters that determine how the session is run. The built-in parameters provide great control and flexibility as to how to handle data sets and how to produce the resulting simulations."
+            "text": "Trading sessions are controlled by a number of parameters that determine how the session is run. The built-in parameters provide great control and flexibility as to how to handle data sets and how to produce the resulting simulations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые сеансы контролируются рядом параметров, которые определяют способ запуска сеанса. Встроенные параметры обеспечивают отличный контроль и гибкость в отношении того, как обрабатывать наборы данных и как создавать результирующие модели.",
+                    "updated": 1638374644114
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Please, read on and study the workings of the chain of nodes under the testing environment node. The investment of time is well worth it, as you will learn how to make the most out of the strategy-testing features built-in Superalgos.",
-            "updated": 1609666617978
+            "updated": 1609666617978,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочтите и изучите работу цепочки узлов в узле среды тестирования. Затраченное время того стоит, поскольку вы узнаете, как максимально эффективно использовать функции тестирования стратегий, встроенные в Superalgos.",
+                    "updated": 1638374670867
+                }
+            ]
         },
         {
             "style": "Include",
@@ -45,8 +80,8 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Тестирование торговых задач организует торговые сессии, включающие Тестирование торговых систем.",
-                "updated": 1635517242993
+                "text": "Testing Trading Tasks организует торговые сессии, включающие тестирование торговых систем.",
+                "updated": 1638356449582
             }
         ]
     }

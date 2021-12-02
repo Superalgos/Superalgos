@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Der Befehl docs.repaginate hat die Neupaginierung abgeschlossen.",
                 "updated": 1633903500391
+            },
+            {
+                "language": "RU",
+                "text": "Команда docs.repaginate завершила переупакавку страниц.",
+                "updated": 1638461960618
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Um diese Prozedur abzuschließen, müssen Sie alle Dateien des Topics / Tutorial, das Sie gerade repaginiert haben, manuell von der Festplatte löschen, und den Docs Save Command ausführen, um die aktualisierten Seiten im Speicher zu speichern.",
                     "updated": 1633903656690
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы завершить эту процедуру, вам необходимо вручную удалить с диска все файлы, которые вы только что перекомпилировали, и выполнить команду Docs Save Command, чтобы сохранить обновленные страницы в памяти.",
+                    "updated": 1638462262907
                 }
             ]
         }

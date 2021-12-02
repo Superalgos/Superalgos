@@ -581,9 +581,11 @@
             }
 
             function startLivePortfolio() {
-                for (let key of TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.keys()) {
+                /* Testing to be removed:  @PLUV */
+                /*for (let key of TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.keys()) {
                     TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.get(key).beginListening();
-                }
+                }*/
+                /* End Testing */
                 return checkKey()
             }
 

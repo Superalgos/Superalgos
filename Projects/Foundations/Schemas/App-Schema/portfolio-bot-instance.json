@@ -21,9 +21,9 @@
         }
     ],
     "addLeftIcons": true,
-    "level": 3,
+    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio Task->"
+        "compatibleTypes": "->Task->"
     },
     "childrenNodesProperties": [
         {

@@ -24,7 +24,7 @@
         {
             "action": "Add UI Object",
             "label": "Add Task Manager",
-            "relatedUiObject": "Portfolio Task Manager",
+            "relatedUiObject": "Task Manager",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -35,7 +35,7 @@
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",
-            "relatedUiObject": "Portfolio Task",
+            "relatedUiObject": "Task",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
         },
@@ -66,9 +66,9 @@
     "propertyNameAtParent": "portfolioMineTasks",
     "childrenNodesProperties": [
         {
-            "name": "portfolioTaskManagers",
+            "name": "taskManagers",
             "type": "array",
-            "childType": "Portfolio Task Manager",
+            "childType": "Task Manager",
             "monitorChildrenRunning": true
         }
     ]

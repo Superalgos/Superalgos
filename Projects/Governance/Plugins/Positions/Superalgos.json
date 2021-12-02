@@ -6,383 +6,46 @@
     "positionClasss": [
         {
             "type": "Position Class",
-            "name": "Teams @ V.1.0",
+            "name": "Teams @ Nov 2021",
             "config": "{}",
             "project": "Governance",
             "positions": [],
             "positionClasss": [
                 {
                     "type": "Position Class",
-                    "name": "Software Projects Teams",
+                    "name": "Teams With PoW Reports",
                     "config": "{}",
                     "project": "Governance",
                     "positions": [],
                     "positionClasss": [
                         {
                             "type": "Position Class",
-                            "name": "Active Projects",
-                            "config": "{}",
+                            "name": "Data Mining Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/data-mining-team-proof-of-work-november-2021-529efad69c18\"\r\n}",
                             "project": "Governance",
-                            "positions": [],
-                            "positionClasss": [
+                            "positions": [
                                 {
-                                    "type": "Position Class",
-                                    "name": "Governance Project",
+                                    "type": "Position",
+                                    "name": "Data Mining Team Token Pool",
                                     "config": "{}",
                                     "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "ac82923b-9e8e-4312-be33-b2ea724e514d",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21561.15218611881,
-                                                    "y": 44247.11735017426
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21583.571214194737,
-                                                    "y": 44546.278489328615
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
+                                    "positions": [],
                                     "positionClasss": [],
-                                    "id": "778b9351-391a-4ef1-9160-f13a4b914868",
+                                    "id": "e61f97a8-ee3a-4bf3-947d-eba128813dda",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21583.571214194737,
-                                            "y": 44546.278489328615
+                                            "x": 20433.703848624515,
+                                            "y": 45630.84982510794
                                         },
                                         "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 44845.43962848297
+                                            "x": 20610.039424312257,
+                                            "y": 45388.14472679546
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Education Project",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "fcc92fc0-9f2e-497f-af6d-bb523711d386",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21825.194856890506,
-                                                    "y": 44286.91537929645
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21715.592549580586,
-                                                    "y": 44566.17750388971
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "895ead63-c1d1-4130-970a-32052ae210e7",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21715.592549580586,
-                                            "y": 44566.17750388971
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Foundations Project",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "28ade59b-f309-4251-855c-a4c0c610d048",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22045.82136536856,
-                                                    "y": 44437.33598582042
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21825.905803819613,
-                                                    "y": 44641.387807151696
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "e7c3a1dc-f70e-4ad0-83de-fc3e7a99b7a8",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21825.905803819613,
-                                            "y": 44641.387807151696
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Data Mining Project",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "5b8525df-666d-4c76-899c-85a7a897d9b6",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22179.33392574235,
-                                                    "y": 44668.586523836435
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21892.662084006508,
-                                                    "y": 44757.0130761597
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "45d40f22-fab9-4fe2-bb63-9ba69ce372c2",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21892.662084006508,
-                                            "y": 44757.0130761597
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Social Bots Project",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "dbd147d1-b622-45f3-805b-de9abb0b17c6",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22199.288738005744,
-                                                    "y": 44934.86498818868
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21902.639490138205,
-                                                    "y": 44890.152308335826
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "f2df45f6-69c7-4b9d-8120-ee850ee8fda2",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21902.639490138205,
-                                            "y": 44890.152308335826
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Visual Scripting Project",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "d56560b7-2c1e-4891-ad01-5b430c39ff19",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22101.733506860262,
-                                                    "y": 45183.43166332114
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21853.861874565464,
-                                                    "y": 45014.43564590206
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "0cfdc137-8a24-44cb-9bae-204610907a3a",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21853.861874565464,
-                                            "y": 45014.43564590206
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
                                         },
@@ -392,317 +55,12 @@
                                     }
                                 }
                             ],
-                            "id": "3d07a798-ba00-4358-aae8-fe61221956cf",
+                            "positionClasss": [],
+                            "id": "2216c060-c9f7-4417-b41f-1d4f9cb4ca81",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21605.990242270665,
-                                    "y": 44845.43962848297
-                                },
-                                "targetPosition": {
-                                    "x": 21346.182621135333,
-                                    "y": 44995.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "id": "96a5e7ff-4f1b-4859-90b0-7be8e78c3103",
-                    "savedPayload": {
-                        "position": {
-                            "x": 21346.182621135333,
-                            "y": 44995.43962848297
-                        },
-                        "targetPosition": {
-                            "x": 21086.375,
-                            "y": 45145.43962848297
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Position Class",
-                    "name": "Marketing Teams",
-                    "config": "{}",
-                    "project": "Governance",
-                    "positions": [],
-                    "positionClasss": [
-                        {
-                            "type": "Position Class",
-                            "name": "Social Network Teams",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [],
-                            "positionClasss": [
-                                {
-                                    "type": "Position Class",
-                                    "name": "Twitter Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "9485a7dd-ab36-4f8b-975a-f43171351c14",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21850.981138749237,
-                                                    "y": 44657.64565905389
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21743.470753885646,
-                                                    "y": 44937.71978700305
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "6ca00155-5a42-4c42-894c-0f78dcf9b52d",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21743.470753885646,
-                                            "y": 44937.71978700305
-                                        },
-                                        "targetPosition": {
-                                            "x": 21635.960369022054,
-                                            "y": 45217.79391495221
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Facebook Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "583cee1d-d2e2-4876-a881-213df03d6824",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22139.162709789307,
-                                                    "y": 44891.01049394319
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21887.56153940568,
-                                                    "y": 45054.4022044477
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "95207eb2-48a3-4fd8-84b2-71c7256424ce",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21887.56153940568,
-                                            "y": 45054.4022044477
-                                        },
-                                        "targetPosition": {
-                                            "x": 21635.960369022054,
-                                            "y": 45217.79391495221
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Reddit Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "734b979d-5b26-4382-bf0b-f5e39d8bc0bd",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22235.138089874796,
-                                                    "y": 45249.19548869798
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21935.549229448425,
-                                                    "y": 45233.4947018251
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "9d239c98-5261-4b87-80a8-67cf1d078bb3",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21935.549229448425,
-                                            "y": 45233.4947018251
-                                        },
-                                        "targetPosition": {
-                                            "x": 21635.960369022054,
-                                            "y": 45217.79391495221
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Youtube Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "5e58427a-5946-468c-849f-bbc525aa39ed",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22102.247945896233,
-                                                    "y": 45595.38614958212
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21869.104157459144,
-                                                    "y": 45406.590032267166
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "55832fb9-2568-40b4-ae6e-9dfa79e5d007",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21869.104157459144,
-                                            "y": 45406.590032267166
-                                        },
-                                        "targetPosition": {
-                                            "x": 21635.960369022054,
-                                            "y": 45217.79391495221
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "id": "128602e0-9011-4d20-bee6-fc09e0f8f1ac",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 21635.960369022054,
-                                    "y": 45217.79391495221
+                                    "x": 21563.302832566853,
+                                    "y": 45088.41592503834
                                 },
                                 "targetPosition": {
                                     "x": 21346.182621135333,
@@ -723,179 +81,935 @@
                         },
                         {
                             "type": "Position Class",
-                            "name": "Content Creation Teams",
+                            "name": "Education Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/education-team-proof-of-work-november-2021-d03e2439aea1\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Translation Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "80007c46-9f19-4375-bc24-2770b9cf8ab4",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20408.352946798972,
+                                            "y": 45523.461681684006
+                                        },
+                                        "targetPosition": {
+                                            "x": 20501.058045111455,
+                                            "y": 45238.14472679546
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Documentation Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "86dcb14e-8d6b-4a38-8ba3-5402e973399f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20258.352946798972,
+                                            "y": 45414.4803024832
+                                        },
+                                        "targetPosition": {
+                                            "x": 20501.058045111455,
+                                            "y": 45238.14472679546
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Infrastructure Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "8b3b36d9-5bc0-40c0-9773-3e639762fc61",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20201.058045111455,
+                                            "y": 45238.14472679546
+                                        },
+                                        "targetPosition": {
+                                            "x": 20501.058045111455,
+                                            "y": 45238.14472679546
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Honorable Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "91394858-e3cd-4e04-9e69-ec1d97d12032",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20258.352946798972,
+                                            "y": 45061.809151107715
+                                        },
+                                        "targetPosition": {
+                                            "x": 20501.058045111455,
+                                            "y": 45238.14472679546
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "c609da41-373d-46ca-b637-d45e24e9b692",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21612.83325573181,
+                                    "y": 45157.97167196475
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Distribution Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/distribution-team-proof-of-work-november-2021-e4660501c400\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Distribution Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "5a79b95b-d87c-4f56-92da-bbb44ae47c0d",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20215.74109022291,
+                                            "y": 44960.029431858
+                                        },
+                                        "targetPosition": {
+                                            "x": 20501.058045111455,
+                                            "y": 45052.734530170485
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "a8d736f7-f1f6-42ce-b72a-626c2faf4d09",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21640.761230314143,
+                                    "y": 45238.664255174845
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Algorithmic-Trading & Portfolio Management Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/algorithmic-trading-portfolio-management-bot-teams-pow-november-2021-a3b40c1a3166\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "d93681ca-23e4-4503-b76f-d675d4e81732",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20878.7444534699,
+                                            "y": 44358.996848000555
+                                        },
+                                        "targetPosition": {
+                                            "x": 20865.285004364745,
+                                            "y": 44658.69476796295
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "d3592eff-41f3-45af-a534-05750b22a887",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21644.82419790726,
+                                    "y": 45323.95644147423
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "One-Man Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/one-man-team-proof-of-work-november-2021-9c79e916a57\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "One-Man Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "5b589adc-7df5-40bd-bb14-abc1205dd674",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20941.250914965294,
+                                            "y": 44365.09419219028
+                                        },
+                                        "targetPosition": {
+                                            "x": 20896.538235112443,
+                                            "y": 44661.74344005781
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "6d3afe45-2088-4f84-9e52-6c01897d21b1",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21624.693001040156,
+                                    "y": 45406.93836518107
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Marketing Teams PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/marketing-teams-proof-of-work-november-2021-dc0433a1dc6d\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Superalgos.org Website Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "242465e3-7cfc-4d08-a150-7bcf3496e49b",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20673.91357475871,
+                                            "y": 44492.31292541686
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Superalgos Medium Blog Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "396f32ad-352d-48bf-af2e-9e57b38778ec",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20758.972212491884,
+                                            "y": 44411.89705450231
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Social Network Teams Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "f325cd6c-8a8a-407b-9995-1c94be3b1901",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20868.329968455066,
+                                            "y": 44370.15300871533
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Exchange Relationships Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "522fe7af-6343-42f7-9f4d-feb2c51e257c",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20985.33811563338,
+                                            "y": 44373.43594061625
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Telegram Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "4c55b787-154e-4d49-957a-8339595c180a",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21092.18322430043,
+                                            "y": 44421.24605358302
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Public Relations Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "62b14d55-4a13-4f97-b0ec-efff71cd9231",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21172.599095214973,
+                                            "y": 44506.304691316196
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "CoinMonks Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "dd454de1-59fd-470c-98ca-b4fb09917f6d",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21214.34314100196,
+                                            "y": 44615.66244727938
+                                        },
+                                        "targetPosition": {
+                                            "x": 20918.581835446486,
+                                            "y": 44665.9143142708
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "454ef86c-c1c6-40c5-aaca-d6725e1e3584",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21581.998549558168,
+                                    "y": 45480.887324349154
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Luis’ Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/luis-team-proof-of-work-215a39345970\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Luis’ Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "3445c383-fa0d-414e-a04f-11ebc4d8961e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21017.9268621145,
+                                            "y": 44381.842294758295
+                                        },
+                                        "targetPosition": {
+                                            "x": 20934.876208687045,
+                                            "y": 44670.11749134182
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "5b43ce7d-2d37-456a-a80a-dca64ae5c95d",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21520.199694006693,
+                                    "y": 45539.81241409807
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Brett’s Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/bretts-team-proof-of-work-november-2021-789199b99cac\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Brett’s Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "bb67fd84-7283-4110-b838-dcdecbb7b4ca",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21042.917545410604,
+                                            "y": 44389.63628022507
+                                        },
+                                        "targetPosition": {
+                                            "x": 20947.371550335098,
+                                            "y": 44674.01448407521
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "d97c8d9f-401d-4e48-aede-6c91f5b730fd",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21444.30301013056,
+                                    "y": 45578.93987409737
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Smidy’s Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/smidys-team-proof-of-work-november-2021-3dac3ccab32c\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Smidy’s Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "6e27ccd8-f4a9-4d72-a21e-deb58f2ca66c",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20912.91934728189,
+                                            "y": 44361.51116821115
+                                        },
+                                        "targetPosition": {
+                                            "x": 20882.37245127074,
+                                            "y": 44659.95192806825
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "7bdf079a-7ede-476e-b402-0461c2c312ee",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21360.457195882456,
+                                    "y": 45595.09983023787
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Desktop Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/desktop-team-proof-of-work-november-2021-b98451868a5e\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Desktop Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "fb021c3d-23e1-4450-9a57-2d810c598a54",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21078.605576116937,
+                                            "y": 44402.90117391281
+                                        },
+                                        "targetPosition": {
+                                            "x": 20965.215565688264,
+                                            "y": 44680.64693091908
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "8ccd7d97-a70d-452a-86e3-009ed9576ca4",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 21275.454940482505,
+                                    "y": 45586.98309898003
+                                },
+                                "targetPosition": {
+                                    "x": 21346.182621135333,
+                                    "y": 45295.43962848297
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "id": "90e3eeda-0a84-4338-ae03-c1b0199660ad",
+                    "savedPayload": {
+                        "position": {
+                            "x": 21346.182621135333,
+                            "y": 45295.43962848297
+                        },
+                        "targetPosition": {
+                            "x": 21086.375,
+                            "y": 45145.43962848297
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Position Class",
+                    "name": "Team Without PoW Reports",
+                    "config": "{}",
+                    "project": "Governance",
+                    "positions": [],
+                    "positionClasss": [
+                        {
+                            "type": "Position Class",
+                            "name": "Non-Tech-Users Community Team",
                             "config": "{}",
                             "project": "Governance",
-                            "positions": [],
-                            "positionClasss": [
+                            "positions": [
                                 {
-                                    "type": "Position Class",
-                                    "name": "Superalgos.org Team",
+                                    "type": "Position",
+                                    "name": "Team Creator EvaMaria70 Token Pool",
                                     "config": "{}",
                                     "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "ab9eaf17-bdc3-4c1e-b415-efeaf3dd4c99",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22185.545738044108,
-                                                    "y": 45290.148201421456
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21895.767990157387,
-                                                    "y": 45367.79391495221
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
+                                    "positions": [],
                                     "positionClasss": [],
-                                    "id": "f5c38844-461f-466f-ac85-a10b209004d5",
+                                    "id": "8bfad32e-ec6e-4fc7-97a5-8edaf4146076",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21895.767990157387,
-                                            "y": 45367.79391495221
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 45445.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Superalgos Blog Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "54b162bf-645a-4409-9d67-4283b2ff67b1",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 22125.60548454133,
-                                                    "y": 45745.43962848297
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21865.797863406,
-                                                    "y": 45595.43962848297
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "2b2da3ae-9225-41a5-acc9-aa03c924157f",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21865.797863406,
-                                            "y": 45595.43962848297
-                                        },
-                                        "targetPosition": {
-                                            "x": 21605.990242270665,
-                                            "y": 45445.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Brett Live Streaming and Videos Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "33e4bba0-08da-4740-88f4-9797c9112624",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21761.28166933218,
-                                                    "y": 46024.99512425641
-                                                },
-                                                "targetPosition": {
-                                                    "x": 21683.635955801423,
-                                                    "y": 45735.21737636969
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "e7238382-b3c4-4422-a1e2-0e347598f7fd",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21683.635955801423,
+                                            "x": 20489.114044198577,
                                             "y": 45735.21737636969
                                         },
                                         "targetPosition": {
-                                            "x": 21605.990242270665,
+                                            "x": 20566.759757729335,
+                                            "y": 45445.43962848297
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Team Leader @gustavohcorradi Token Pool ",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "9f231aa9-c04a-424a-b94f-20bcffe5d860",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20306.952136594,
+                                            "y": 45595.43962848297
+                                        },
+                                        "targetPosition": {
+                                            "x": 20566.759757729335,
+                                            "y": 45445.43962848297
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Team Members Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "26c8c98f-17ae-467f-9153-ce3d9813a9d1",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20276.982009842613,
+                                            "y": 45367.79391495221
+                                        },
+                                        "targetPosition": {
+                                            "x": 20566.759757729335,
                                             "y": 45445.43962848297
                                         },
                                         "floatingObject": {
@@ -912,557 +1026,8 @@
                                     }
                                 }
                             ],
-                            "id": "0beaaebd-e735-49d4-8b24-282452c69a9a",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 21605.990242270665,
-                                    "y": 45445.43962848297
-                                },
-                                "targetPosition": {
-                                    "x": 21346.182621135333,
-                                    "y": 45295.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Exchange Relationships Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "2621796b-2691-4b3e-804a-b909977a8d05",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21501.474048196847,
-                                            "y": 45874.99512425641
-                                        },
-                                        "targetPosition": {
-                                            "x": 21423.82833466609,
-                                            "y": 45585.21737636969
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
                             "positionClasss": [],
-                            "id": "8803c91c-0a3e-4797-ba08-dce8b7f81fba",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 21423.82833466609,
-                                    "y": 45585.21737636969
-                                },
-                                "targetPosition": {
-                                    "x": 21346.182621135333,
-                                    "y": 45295.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "id": "247db4d7-ff6c-42fa-a94a-20b04e4cdb9d",
-                    "savedPayload": {
-                        "position": {
-                            "x": 21346.182621135333,
-                            "y": 45295.43962848297
-                        },
-                        "targetPosition": {
-                            "x": 21086.375,
-                            "y": 45145.43962848297
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Position Class",
-                    "name": "Education Teams",
-                    "config": "{}",
-                    "project": "Governance",
-                    "positions": [],
-                    "positionClasss": [
-                        {
-                            "type": "Position Class",
-                            "name": "Docs Teams",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "b27eed50-3c53-49dd-95ae-2756eef99e3c",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21571.785196624965,
-                                            "y": 45798.110779858456
-                                        },
-                                        "targetPosition": {
-                                            "x": 21329.080098312483,
-                                            "y": 45621.77520417071
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "762c5969-3af9-42d8-8bb4-37cc5c9ff686",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 21329.080098312483,
-                                    "y": 45621.77520417071
-                                },
-                                "targetPosition": {
-                                    "x": 21086.375,
-                                    "y": 45445.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Tutorials Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "a7f549af-653d-435a-b3f4-8757847c5c51",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 21271.785196624965,
-                                            "y": 46016.07353826007
-                                        },
-                                        "targetPosition": {
-                                            "x": 21179.080098312483,
-                                            "y": 45730.75658337152
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "a26723a2-efaa-4753-a597-61ad00d4ebb3",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 21179.080098312483,
-                                    "y": 45730.75658337152
-                                },
-                                "targetPosition": {
-                                    "x": 21086.375,
-                                    "y": 45445.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Translations Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "5760eb89-e8e3-4544-ba60-094b6b1e70be",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20900.964803375035,
-                                            "y": 46016.07353826007
-                                        },
-                                        "targetPosition": {
-                                            "x": 20993.669901687517,
-                                            "y": 45730.75658337152
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "870a6998-6b52-41c0-ab4f-f62910bf45ce",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20993.669901687517,
-                                    "y": 45730.75658337152
-                                },
-                                "targetPosition": {
-                                    "x": 21086.375,
-                                    "y": 45445.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Workspaces Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "acb643d4-b352-485d-b8ee-5882227d3dd8",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20600.964803375035,
-                                            "y": 45798.110779858456
-                                        },
-                                        "targetPosition": {
-                                            "x": 20843.669901687517,
-                                            "y": 45621.77520417071
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "c3fe7d64-1c90-4622-a1ac-05b6f7f2fbca",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20843.669901687517,
-                                    "y": 45621.77520417071
-                                },
-                                "targetPosition": {
-                                    "x": 21086.375,
-                                    "y": 45445.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "id": "6d85523c-2beb-4f38-a3fe-805da611eb32",
-                    "savedPayload": {
-                        "position": {
-                            "x": 21086.375,
-                            "y": 45445.43962848297
-                        },
-                        "targetPosition": {
-                            "x": 21086.375,
-                            "y": 45145.43962848297
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Position Class",
-                    "name": "Tech Teams",
-                    "config": "{}",
-                    "project": "Governance",
-                    "positions": [],
-                    "positionClasss": [
-                        {
-                            "type": "Position Class",
-                            "name": "Sys Admins Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "eefb9f2c-e331-4750-8479-12015ba1bbd4",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20826.567378864667,
-                                            "y": 45895.43962848297
-                                        },
-                                        "targetPosition": {
-                                            "x": 20826.567378864667,
-                                            "y": 45595.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "cc27c4ee-a25c-4ff7-964c-3dc4820d02b9",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20826.567378864667,
-                                    "y": 45595.43962848297
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 45295.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Docker Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "717469f9-988a-43c1-8374-20f34af9500a",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20526.567378864667,
-                                            "y": 45815.054870753636
-                                        },
-                                        "targetPosition": {
-                                            "x": 20676.567378864667,
-                                            "y": 45555.2472496183
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "a4e0df2c-1cbd-4d4b-9ae5-6e15e039e3b3",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20676.567378864667,
-                                    "y": 45555.2472496183
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 45295.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Distribution Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "ebedb87c-8da6-4c0c-a26c-6ab3dc3f4185",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20306.952136594,
-                                            "y": 45595.43962848297
-                                        },
-                                        "targetPosition": {
-                                            "x": 20566.759757729335,
-                                            "y": 45445.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "2ffda176-f094-46a9-b4e8-f7a258ec6bef",
+                            "id": "16dca1fb-10a0-4ff3-9d29-efca11ad421d",
                             "savedPayload": {
                                 "position": {
                                     "x": 20566.759757729335,
@@ -1475,130 +1040,8 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Github Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "fe201395-0d92-4515-aaf1-cf64d7f41a55",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20226.567378864667,
-                                            "y": 45295.43962848297
-                                        },
-                                        "targetPosition": {
-                                            "x": 20526.567378864667,
-                                            "y": 45295.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "d6e4615d-dd28-4023-9388-15397521d422",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20526.567378864667,
-                                    "y": 45295.43962848297
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 45295.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Setup Team",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "a3c2382b-894d-43ee-b81b-316385aaa302",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20306.952136594,
-                                            "y": 44995.43962848297
-                                        },
-                                        "targetPosition": {
-                                            "x": 20566.759757729335,
-                                            "y": 45145.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 3,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "positionClasss": [],
-                            "id": "80e40c40-1be1-465f-892b-52b83096fd9d",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20566.759757729335,
-                                    "y": 45145.43962848297
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 45295.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
+                                    "isCollapsed": true,
+                                    "angleToParent": 1,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
                                 },
@@ -1608,7 +1051,7 @@
                             }
                         }
                     ],
-                    "id": "772440df-3167-4503-ac0b-62778d89ca5e",
+                    "id": "340347e2-52c6-4dc5-ac41-694da023f727",
                     "savedPayload": {
                         "position": {
                             "x": 20826.567378864667,
@@ -1621,680 +1064,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                {
-                    "type": "Position Class",
-                    "name": "Other Teams",
-                    "config": "{}",
-                    "project": "Governance",
-                    "positions": [],
-                    "positionClasss": [
-                        {
-                            "type": "Position Class",
-                            "name": "Chat Platforms Teams",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [],
-                            "positionClasss": [
-                                {
-                                    "type": "Position Class",
-                                    "name": "Telegram Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "4f90524a-b619-480f-8911-b346dd7c6a6b",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20236.789630977946,
-                                                    "y": 45592.700584284394
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20386.789630977946,
-                                                    "y": 45332.89296314906
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "fbcf50c5-8b5e-4cc5-8889-0fb340747d5c",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20386.789630977946,
-                                            "y": 45332.89296314906
-                                        },
-                                        "targetPosition": {
-                                            "x": 20536.789630977946,
-                                            "y": 45073.08534201373
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Discord Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "ac86ca72-2190-42c0-87f1-08094cc6fea3",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 19957.234135204504,
-                                                    "y": 45228.37676907524
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20247.011883091225,
-                                                    "y": 45150.731055544486
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "96c2e290-2ac9-4e2f-9618-77d7f6522609",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20247.011883091225,
-                                            "y": 45150.731055544486
-                                        },
-                                        "targetPosition": {
-                                            "x": 20536.789630977946,
-                                            "y": 45073.08534201373
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Forum Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "022ef346-8219-4e60-8385-8d8fdc81d26a",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20017.17438870728,
-                                                    "y": 44773.08534201373
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20276.982009842613,
-                                                    "y": 44923.08534201373
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "a9c8a3c9-75a7-49e5-8e01-e10883ad3893",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20276.982009842613,
-                                            "y": 44923.08534201373
-                                        },
-                                        "targetPosition": {
-                                            "x": 20536.789630977946,
-                                            "y": 45073.08534201373
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "id": "611de4df-d8f5-4557-bf14-75f366765d7f",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20536.789630977946,
-                                    "y": 45073.08534201373
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 44995.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "User Experience Teams",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [],
-                            "positionClasss": [
-                                {
-                                    "type": "Position Class",
-                                    "name": "Icons Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "cf270340-8597-4ab4-af88-563ae3eefff6",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 19987.204261955892,
-                                                    "y": 45000.731055544486
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20276.982009842613,
-                                                    "y": 44923.08534201373
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "e8f80197-3210-4984-afc1-8d3b1a5224dd",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20276.982009842613,
-                                            "y": 44923.08534201373
-                                        },
-                                        "targetPosition": {
-                                            "x": 20566.759757729335,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "UX Improvemnts by Coding",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "129f4cbc-105f-40b9-bc87-0086a979b56c",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20047.14451545867,
-                                                    "y": 44545.43962848297
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20306.952136594,
-                                                    "y": 44695.43962848297
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "abf1b56f-96a6-4c35-96e9-f190d86371f5",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20306.952136594,
-                                            "y": 44695.43962848297
-                                        },
-                                        "targetPosition": {
-                                            "x": 20566.759757729335,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "UX Improvements for Non Tech Users",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "b72d885c-0bce-4d03-bf1a-eef373d32a7b",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20411.46833066782,
-                                                    "y": 44265.88413270953
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20489.114044198577,
-                                                    "y": 44555.66188059625
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 2,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "34ff6d67-d3ec-4c62-814d-dc1fe795436c",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20489.114044198577,
-                                            "y": 44555.66188059625
-                                        },
-                                        "targetPosition": {
-                                            "x": 20566.759757729335,
-                                            "y": 44845.43962848297
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "id": "11da8cd1-4ef8-480a-b6a0-271253292e52",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20566.759757729335,
-                                    "y": 44845.43962848297
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 44995.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        },
-                        {
-                            "type": "Position Class",
-                            "name": "Community Teams",
-                            "config": "{}",
-                            "project": "Governance",
-                            "positions": [],
-                            "positionClasss": [
-                                {
-                                    "type": "Position Class",
-                                    "name": "Russian Community Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "1c44301f-04a0-4a99-9af8-5272db3dca87",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20229.306423063244,
-                                                    "y": 44405.66188059625
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20489.114044198577,
-                                                    "y": 44555.66188059625
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "b6cfc7b9-b5f2-4e15-a479-cb79c0490787",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20489.114044198577,
-                                            "y": 44555.66188059625
-                                        },
-                                        "targetPosition": {
-                                            "x": 20748.92166533391,
-                                            "y": 44705.66188059625
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Turkish Community Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "17962d57-3461-41d6-bbbb-401ce94a4ff2",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 20593.630238272395,
-                                                    "y": 44126.10638482281
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20671.275951803153,
-                                                    "y": 44415.88413270953
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "5bc43779-8ef7-4585-a981-d2c1ddb3c9d6",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20671.275951803153,
-                                            "y": 44415.88413270953
-                                        },
-                                        "targetPosition": {
-                                            "x": 20748.92166533391,
-                                            "y": 44705.66188059625
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position Class",
-                                    "name": "Non-Tech-Users Community Team",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [
-                                        {
-                                            "type": "Position",
-                                            "name": "Team Members",
-                                            "config": "{}",
-                                            "project": "Governance",
-                                            "positions": [],
-                                            "positionClasss": [],
-                                            "id": "da4e0ea8-1bbe-446f-9219-c95426e7f2d4",
-                                            "savedPayload": {
-                                                "position": {
-                                                    "x": 21048.92166533391,
-                                                    "y": 44186.046638325584
-                                                },
-                                                "targetPosition": {
-                                                    "x": 20898.92166533391,
-                                                    "y": 44445.85425946092
-                                                },
-                                                "floatingObject": {
-                                                    "isPinned": false,
-                                                    "isFrozen": false,
-                                                    "isCollapsed": false,
-                                                    "angleToParent": 3,
-                                                    "distanceToParent": 3,
-                                                    "arrangementStyle": 0
-                                                },
-                                                "uiObject": {
-                                                    "isRunning": false
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "positionClasss": [],
-                                    "id": "5644dc8a-555d-4f98-b64f-04c6d1dae5b7",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20898.92166533391,
-                                            "y": 44445.85425946092
-                                        },
-                                        "targetPosition": {
-                                            "x": 20748.92166533391,
-                                            "y": 44705.66188059625
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                }
-                            ],
-                            "id": "80c5136a-bd71-4448-8952-b16ba512be65",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 20748.92166533391,
-                                    "y": 44705.66188059625
-                                },
-                                "targetPosition": {
-                                    "x": 20826.567378864667,
-                                    "y": 44995.43962848297
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": true,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                }
-                            }
-                        }
-                    ],
-                    "id": "370195fe-3150-425c-b667-0ee74d436baa",
-                    "savedPayload": {
-                        "position": {
-                            "x": 20826.567378864667,
-                            "y": 44995.43962848297
-                        },
-                        "targetPosition": {
-                            "x": 21086.375,
-                            "y": 45145.43962848297
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 1,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -2343,7 +1113,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

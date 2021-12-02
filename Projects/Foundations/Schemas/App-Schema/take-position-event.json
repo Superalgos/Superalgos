@@ -11,12 +11,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Portfolio Event",
+            "label": "Add Ask Portfolio Events Manager",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "askPortfolioEventsManager",
             "relatedUiObject": "Ask Portfolio Events Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {

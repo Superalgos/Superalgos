@@ -1,5 +1,5 @@
 {
-    "type": "Key Reference",
+    "type": "Raise Event",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -12,16 +12,12 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "title": [
-        "Use Reference Parent"
-    ],
     "addLeftIcons": true,
-    "level": 4,
+    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Task->"
+        "compatibleTypes": "->Ask Portfolio Events Manager->"
     },
-    "referencingRules": {
-        "compatibleTypes": "->Exchange Account Key->"
-    },
-    "propertyNameAtParent": "keyReference"
+    "childrenNodesProperties": [
+    ],
+    "propertyNameAtParent": "raiseEvent"
 }

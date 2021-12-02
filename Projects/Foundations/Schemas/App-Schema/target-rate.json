@@ -13,12 +13,12 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Portfolio Formula",
+            "label": "Add Ask Portfolio Formula Manager",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "askPortfolioFormulaManager",
             "relatedUiObject": "Ask Portfolio Formula Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {

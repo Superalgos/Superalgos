@@ -2,11 +2,24 @@
     "type": "Ask Portfolio Events Manager",
     "menuItems": [
         {
-            "action": "Configure",
-            "actionFunction": "uiObject.configEditor.activate",
-            "label": "Configure",
-            "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
+            "action": "Add UI Object",
+            "label": "Add Confirm Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "confirmEvent",
+            "relatedUiObject": "Confirm Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Raise Event",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "raiseEvent",
+            "relatedUiObject": "Raise Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",
@@ -20,17 +33,21 @@
         }
     ],
     "addLeftIcons": true,
-    "initialValues": {
-        "config": "{ \n  \"confirmEvent\": \"true|false\", \n  \"raiseEvent\": \"true|false\" \n}"
-    },
-    "editors": {
-        "config": true
-    },
     "level": 2,
     "attachingRules": {
         "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Create Order Event->Cancel Order Event->Close Stage Event->Next Phase Event->Move To Phase Event->"
     },
     "childrenNodesProperties": [
+        {
+            "name": "confirmEvent",
+            "type": "node",
+            "childType": "Confirm Event"
+        },
+        {
+            "name": "raiseEvent",
+            "type": "node",
+            "childType": "Raise Event"
+        }
     ],
     "propertyNameAtParent": "askPortfolioEventsManager"
 }

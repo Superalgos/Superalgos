@@ -1,7 +1,7 @@
 function newGovernanceFunctionLibraryProfileConstructor() {
     let thisObject = {
         buildProfile: buildProfile,
-        installSecrets: installSecrets
+        installSigningAccounts: installSigningAccounts
     }
 
     return thisObject
@@ -124,6 +124,26 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
+
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
+                /*
+                Set up a basic profile to start receiving benefits
+                */
+                let finServices = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
+                finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                finServices.payload.uiObject.menu.internalClick("Add Financial Program")
+
+                let stakeProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
+                stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
+
+                let liquidProgs = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
+                liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
+
+                let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
+                liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
@@ -147,6 +167,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 Show nice message.
                 */
                 if (mnemonic === undefined || mnemonic === "") {
+                    // TODO link to some wallet and setup the token
                     node.payload.uiObject.setInfoMessage(
                         "Profile Private Key has been successfully created. User Profile installed as a plugin and saved. Use the Private Key at a crypto wallet and delete this node once done.",
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
@@ -161,7 +182,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         }
     }
 
-    function installSecrets(
+    function installSigningAccounts(
         node,
         rootNodes
     ) {
@@ -191,26 +212,12 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             )
             return
         }
-        /*
-        Delete Signing Accounts with all its children, it it exists.
-        */
-        if (userProfile.signingAccounts !== undefined) {
-            let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-            UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(userProfile.signingAccounts, rootNodes)
-        }
-        /*
-        Create Signing Accounts.
-        */
-        let signingAccounts = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-            userProfile,
-            'Signing Accounts',
-            UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
-        )
 
         let algoTradersPlatform = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform')
         let socialTradingDesktopApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Desktop App')
         let socialTradingMobileApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Mobile App')
         let socialTradingServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Server App')
+        let taskServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Task Server App')
         let socialTradingBots = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userBots, 'Social Trading Bot')
         let socialPersonas = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.socialPersonas, 'Social Persona')
         let p2pNetworkNodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.p2pNetworkNodes, 'P2P Network Node')
@@ -219,11 +226,13 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         addSigningAccounts(socialTradingDesktopApp, 'Social Trading Desktop App')
         addSigningAccounts(socialTradingMobileApp, 'Social Trading Mobile App')
         addSigningAccounts(socialTradingServerApp, 'Social Trading Server App')
+        addSigningAccounts(taskServerApp, 'Task Server App')
         addSigningAccounts(socialTradingBots, 'Social Trading Bot')
         addSigningAccounts(socialPersonas, 'Social Persona')
         addSigningAccounts(p2pNetworkNodes, 'P2P Network Node')
 
         function addSigningAccounts(nodeArray, targetNodeType) {
+            if (nodeArray === undefined) return;
             for (let i = 0; i < nodeArray.length; i++) {
                 let currentNode = nodeArray[i]
                 addSigningAccount(currentNode, targetNodeType, i + 1)
@@ -265,10 +274,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                signSigningAccountData(response.privateKey)
+                signSigningAccountData(response.address, response.privateKey)
             }
 
-            function signSigningAccountData(privateKey) {
+            function signSigningAccountData(blockchainAccount, privateKey) {
 
                 let request = {
                     url: 'WEB3',
@@ -308,15 +317,19 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                 function createSigningAccount(signature) {
 
+                    /*
+                    Delete Signing Account if it already exists.
+                    */
+                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    if (targetNode.signingAccount !== undefined) {
+                        UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(targetNode.signingAccount, rootNodes)
+                    }
+
                     let signingAccount = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
-                        signingAccounts,
+                        targetNode,
                         'Signing Account',
-                        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                        rootNodes
                     )
-
-                    signingAccount.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-
-                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(signingAccount, targetNode)
                     /*
                     Let's get a cool name for this node. 
                     */
@@ -328,7 +341,13 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
-
+                    /*
+                    Save User Profile Plugin
+                    */
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginHierarchy(userProfile)
+                    /*
+                    Deal with secrets
+                    */
                     let secrets = secretsFile.secrets
 
                     let secret = {
@@ -337,6 +356,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         nodeType: targetNodeType,
                         nodeCodeName: codeName,
                         signingAccountNodeId: signingAccount.id,
+                        blockchainAccount: blockchainAccount, 
                         privateKey: privateKey,
                         userProfileHandle: userProfileHandle,
                         userProfileId: userProfile.id

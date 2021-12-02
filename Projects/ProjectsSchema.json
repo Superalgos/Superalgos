@@ -29,6 +29,13 @@
                     "folderName": "Trading-Bot"
                 },
                 {
+                    "name": "PM Communication Module - Trading",
+                    "propertyName": "PMCommunicationModule_Trading",
+                    "functionName": "newPMCommunicationModule_Trading",
+                    "fileName": "PMCommunicationModule_Trading.js",
+                    "folderName": "Trading-Bot"
+                },
+                {
                     "name": "Trading Process",
                     "propertyName": "tradingProcess",
                     "functionName": "newAlgorithmicTradingBotModulesTradingProcess",
@@ -149,6 +156,185 @@
         ],
         "tasks": [
             "Trading Tasks"
+        ]
+    },
+    {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Portfolio Session Functions",
+                    "propertyName": "portfolioSessionFunctions",
+                    "functionName": "newPortfolioManagementFunctionLibraryPortfolioSessionFunctions"
+                }
+            ]
+        },
+        "TS": {
+            "modules": [
+                {
+                    "name": "Portfolio Manager Client",
+                    "propertyName": "portfolioManagerClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerClient",
+                    "fileName": "PortfolioManagerClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Client",
+                    "propertyName": "portfolioManagerEventsClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsClient",
+                    "fileName": "PortfolioManagerEventsClient.js" 
+                },
+                {
+                    "name": "Portfolio Manager Events Interface",
+                    "propertyName": "portfolioManagerEventsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
+                    "fileName": "PortfolioManagerEventsInterface.js" 
+                }
+            ],
+            "botModules": [
+                {
+                    "name": "PM Communication Module - Portfolio",
+                    "propertyName": "PMCommunicationModule_Portfolio",
+                    "functionName": "newPMCommunicationModule_Portfolio",
+                    "fileName": "PMCommunicationModule_Portfolio.js",
+                    "folderName": "Portfolio-Bot"
+                },
+                {
+                    "name": "Single Market Portfolio Bot",
+                    "propertyName": "singleMarketPortfolioBot",
+                    "functionName": "newPortfolioManagementBotModulesSingleMarketPortfolioBot",
+                    "fileName": "SingleMarketPortfolioBot.js",
+                    "folderName": "Portfolio-Bot",
+                    "botType": "Portfolio Bot"
+                },
+                {
+                    "name": "Portfolio Session",
+                    "propertyName": "portfolioSession",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSession",
+                    "fileName": "PortfolioSession.js",
+                    "folderName": "Portfolio-Bot"
+                },
+                {
+                    "name": "Portfolio Process",
+                    "propertyName": "portfolioProcess",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioProcess",
+                    "fileName": "PortfolioProcess.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Engine",
+                    "propertyName": "portfolioEngine",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEngine",
+                    "fileName": "PortfolioEngine.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Output",
+                    "propertyName": "portfolioOutput",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioOutput",
+                    "fileName": "PortfolioOutput.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Simulation",
+                    "propertyName": "portfolioSimulation",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSimulation",
+                    "fileName": "PortfolioSimulation.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Episode",
+                    "propertyName": "portfolioEpisode",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEpisode",
+                    "fileName": "PortfolioEpisode.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Records",
+                    "propertyName": "portfolioRecords",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioRecords",
+                    "fileName": "PortfolioRecords.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio System",
+                    "propertyName": "portfolioSystem",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSystem",
+                    "fileName": "PortfolioSystem.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Stages",
+                    "propertyName": "portfolioStages",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioStages",
+                    "fileName": "PortfolioStages.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Strategy",
+                    "propertyName": "portfolioStrategy",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioStrategy",
+                    "fileName": "PortfolioStrategy.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Execution",
+                    "propertyName": "portfolioExecution",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioExecution",
+                    "fileName": "PortfolioExecution.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Position",
+                    "propertyName": "portfolioPosition",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioPosition",
+                    "fileName": "PortfolioPosition.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Snapshots",
+                    "propertyName": "snapshots",
+                    "functionName": "newPortfolioManagementBotModulesSnapshots",
+                    "fileName": "Snapshots.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Orders",
+                    "propertyName": "portfolioOrders",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioOrders",
+                    "fileName": "PortfolioOrders.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Orders Simulations",
+                    "propertyName": "ordersSimulations",
+                    "functionName": "newPortfolioManagementBotModulesOrdersSimulations",
+                    "fileName": "OrdersSimulations.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Orders Calculations",
+                    "propertyName": "ordersCalculations",
+                    "functionName": "newPortfolioManagementBotModulesOrdersCalculations",
+                    "fileName": "OrdersCalculations.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newPortfolioManagementBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio/APIs"
+                }
+            ]
+        },
+        "plugins": [
+            "Portfolio Mines",
+            "Portfolio Systems",
+            "Portfolio Engines"
+        ],
+        "tasks": [
+            "Portfolio Tasks"
         ]
     },
     {
@@ -1545,7 +1731,7 @@
                     "propertyName": "signal",
                     "functionName": "newSocialTradingModulesSignal",
                     "fileName": "Signal.js"
-                },                
+                },
                 {
                     "name": "Client Interface",
                     "propertyName": "clientInterface",
@@ -1736,6 +1922,31 @@
                     "propertyName": "twitterBot",
                     "functionName": "newSocialBotsBotModulesTwitterBot",
                     "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Signals Functions",
+                    "propertyName": "tradingSignalsFunctions",
+                    "functionName": "newSocialBotsFunctionLibraryTradingSignalsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "TS": {
+            "modules": [
+                {
+                    "name": "Outgoing Trading Signals",
+                    "propertyName": "outgoingTradingSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingTradingSignals",
+                    "fileName": "OutgoingTradingSignals.js",
                     "folderName": ""
                 }
             ]

@@ -32,6 +32,13 @@
     "attachingRules": {
         "compatibleTypes": "->P2P Network Nodes->"
     },
-    "childrenNodesProperties": [],
+    "childrenNodesProperties": [
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        }
+    ],
     "propertyNameAtParent": "p2pNetworkNodes"
 }

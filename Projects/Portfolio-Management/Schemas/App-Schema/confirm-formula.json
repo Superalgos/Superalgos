@@ -1,5 +1,5 @@
 {
-    "type": "Signing Accounts",
+    "type": "Confirm Formula",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -15,15 +15,9 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Ask Portfolio Formula Manager->"
     },
-    "propertyNameAtParent": "signingAccounts",
     "childrenNodesProperties": [
-        {
-            "name": "signingAccounts",
-            "type": "array",
-            "childType": "Signing Account",
-            "autoAdd": false
-        }
-    ]
+    ],
+    "propertyNameAtParent": "confirmFormula"
 }

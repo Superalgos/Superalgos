@@ -1,0 +1,53 @@
+{
+    "type": "Project Portfolio Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Exchange Portfolio Products",
+            "relatedUiObject": "Exchange Portfolio Products",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Exchange Portfolio Products",
+            "label": "Add Missing Exchanges",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Exchange Portfolio Products",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "alternativeIcons": "Use Reference Parent Parent",
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Project Definition->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Mines Data->"
+    },
+    "propertyNameAtParent": "projectPortfolioProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "exchangePortfolioProducts",
+            "type": "array",
+            "childType": "Exchange Portfolio Products"
+        }
+    ]
+}

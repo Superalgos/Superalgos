@@ -23,11 +23,25 @@
         },
         {
             "style": "Text",
-            "text": "In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators, and plotters, with minimal coding required."
+            "text": "In a way, data mines are catalogs of bots that anyone may create. This hierarchy provides all the tools required to create sensors, indicators, and plotters, with minimal coding required.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En cierto modo, los Data Mines son listas de bots que pueden ser creados por cualquier usuario. Esta jerarquía provee todas las herramientas necesarias para crear sensores, indicadores y gráficos, con un mínimo requerimiento de código.",
+                    "updated": 1638150280351
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Because the hierarchy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instantiated from the network hierarchy by bot instances. Bot instances and process instances are the ones running the code according to the definitions in the corresponding data mine."
+            "text": "Because the hierarchy provides definitions, it does not intervene in the execution of bots. Instead, the definitions in data mines are instantiated from the network hierarchy by bot instances. Bot instances and process instances are the ones running the code according to the definitions in the corresponding data mine.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Debido a que la jerarquía solo proporciona definiciones, no interfiere en la ejecución de Bots. Sino que las definiciones en los Data Mines son instanciados desde la jerarquía Network por las instancias de los Bots. Las instancias de los Bots y las instancias de procesos son las encargadas de ejecutar el código acorde a las definiciones del Data Mine correspondiente.",
+                    "updated": 1638150294294
+                }
+            ]
         },
         {
             "style": "Block",

@@ -4,6 +4,7 @@ exports.newGithubServer = function newGithubServer() {
         getGithubStars: getGithubStars,
         getGithubWatchers: getGithubWatchers,
         getGithubForks: getGithubForks,
+        createGithubFork: createGithubFork,
         mergePullRequests: mergePullRequests,
         initialize: initialize,
         finalize: finalize,
@@ -162,6 +163,46 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
+    async function createGithubFork(token) {
+        try {
+            token = unescape(token)
+
+            await doGithub()
+
+            async function doGithub() {
+                try {
+                    const { Octokit } = SA.nodeModules.octokit
+                    const octokit = new Octokit({
+                        auth: token,
+                        userAgent: 'Superalgos ' + SA.version
+                    })
+
+                    await octokit.repos.createFork({
+                        owner: 'Superalgos',
+                        repo: 'Superalgos'
+                    })
+                } catch (err) {
+                    if (err === undefined) { return }
+                    console.log('[ERROR] Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                }
+            }
+        } catch (err) {
+            console.log('[ERROR] Github Server -> createGithubFork -> Method call produced an error.')
+            console.log('[ERROR] Github Server -> createGithubFork -> err.stack = ' + err.stack)
+            console.log('[ERROR] Github Server -> createGithubFork -> repository = ' + repository)
+            console.log('[ERROR] Github Server -> createGithubFork -> username = ' + username)
+            console.log('[ERROR] Github Server -> createGithubFork -> token starts with = ' + token.substring(0, 10) + '...')
+            console.log('[ERROR] Github Server -> createGithubFork -> token ends with = ' + '...' + token.substring(token.length - 10))
+
+            let error = {
+                result: 'Fail Because',
+                message: err.message,
+                stack: err.stack
+            }
+            return error
+        }
+    }
+
     async function mergeGithubPullRequests(commitMessage, username, token) {
         try {
             commitMessage = unescape(commitMessage)
@@ -290,6 +331,7 @@ exports.newGithubServer = function newGithubServer() {
                             let lastPage = false
 
                             while (lastPage === false) {
+                                page++
                                 await PL.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 let listResponse = await octokit.rest.pulls.listFiles({
                                     owner: owner,

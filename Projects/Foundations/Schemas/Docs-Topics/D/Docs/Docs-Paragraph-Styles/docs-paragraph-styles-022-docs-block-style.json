@@ -3,8 +3,8 @@
     "pageNumber": 22,
     "type": "Docs Block Style",
     "definition": {
-        "text": "Block paragraphs defines set of paragraphs that can be inclided from other pages. When you include a block by creating a Docs Include Style paragraph, you need to reference a Block paragraph created at the page that have the set of paragraphs to be inclided. A Block contains all the paragraph after itself until the next Block or the end of the page.",
-        "updated": 1609259016289,
+        "text": "Block paragraphs defines set of paragraphs that can be included from other pages. When you include a block by creating a Docs Include Style paragraph, you need to reference a Block paragraph created at the page that have the set of paragraphs to be included. A Block contains all the paragraph after itself until the next Block or the end of the page.",
+        "updated": 1638116268152,
         "translations": [
             {
                 "language": "DE",

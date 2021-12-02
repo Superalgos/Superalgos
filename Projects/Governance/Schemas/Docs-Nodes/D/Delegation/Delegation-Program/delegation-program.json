@@ -2,7 +2,14 @@
     "type": "Delegation Program",
     "definition": {
         "text": "The Delegation Program allows you to delegate Token Power to empower other members of the Community, giving them a louder voice in governance. The Token Power you delegate may be used by the recipient in any Governance Program, with no restrictions.",
-        "updated": 1630408676672
+        "updated": 1630408676672,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "The Delegation Program ( el programa de Delegación) le permite delegar Token Power para empoderar otros miembros de la  Community, dándoles una voz más influeyente en la gobernanza. El Token Power que delega puede ser usado por el receptor de cualquier Governance Program, sin restricciones.",
+                "updated": 1637845810465
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -17,11 +24,25 @@
         {
             "style": "Text",
             "text": "When you delegate Voting Power through the Voting Program, the recipient may only use the delegated power within the Voting Program. Instead, the Delegation Program allows you to delegate Token Power, which may be used by the recipient in any program.",
-            "updated": 1630408794134
+            "updated": 1630408794134,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando delega Voting Power a través del Voting Program, el destinatario solo puede usar el poder delegado dentro del Voting Program. IEn vexz de ello, el  Delegation Program le permite delegar Token Power, que puede ser utilizado por el destinatario en cualquier programa.",
+                    "updated": 1637845952973
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "Only 10% of the Token Power you drive into a User Delegate node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes."
+            "text": "Only 10% of the Token Power you drive into a User Delegate node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Sólo 10% del Token Power que envíe al nodo User Delegate llega al receptor del User Profile. TEl suyo es desincentivar las conductas fraudulentas que puedan surgir en declaraciones circulares, perfiles falsos o intercambio de votos.",
+                    "updated": 1637846057133
+                }
+            ]
         },
         {
             "style": "Block",

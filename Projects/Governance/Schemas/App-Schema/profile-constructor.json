@@ -20,9 +20,9 @@
             "relatedUiObjectProject": "Governance"
         },
         {
-            "action": "Install Secrets",
+            "action": "Install Signing Accounts",
             "actionProject": "Governance",
-            "label": "Install Secrets",
+            "label": "Install Signing Accounts",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
             "workDoneLabel": "Done",

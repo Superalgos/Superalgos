@@ -52,7 +52,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode Counters->Learning Episode Counters->Position Counters->Strategy Counters->Order Counters->"
+        "compatibleTypes": "->Trading Episode Counters->Portfolio Episode Counters->Learning Episode Counters->Position Counters->Strategy Counters->Order Counters->"
     },
     "propertyNameAtParent": "periods"
 }

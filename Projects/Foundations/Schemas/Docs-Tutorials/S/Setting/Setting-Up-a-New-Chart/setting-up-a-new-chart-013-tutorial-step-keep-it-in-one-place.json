@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Configurar un Time Machine le permitirá mantener sus datos sincronizados y accesibles.",
                 "updated": 1628645411356
+            },
+            {
+                "language": "RU",
+                "text": "Настройка (Time Machine) позволит вам сохранить синхронизацию и доступ к данным.",
+                "updated": 1637938690521
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "El Time Machinese trata de sincronizar. Ya sea para hacer coincidir velas con indicadores de volumen o ver exactamente cuándo realizó una orden de compra por el Trading Strategy, la máquina del tiempo es tu mejor amiga en el Charting Space.",
                     "updated": 1628645470396
+                },
+                {
+                    "language": "RU",
+                    "text": "Машина времени (Time Machine) - это все о синхронизации. Будь то сопоставление свечей с индикаторами объема или точное определение времени, когда ордер на покупку был размещен вашей торговой стратегией (Trading Strategy), машина времени - ваш лучший друг в пространстве графиков (Charting Space).",
+                    "updated": 1637938600889
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Un Time Machine en el Design Space aparecerá como un cuadro, o conjunto de gráficos, en el Charting Space",
                     "updated": 1628645498722
+                },
+                {
+                    "language": "RU",
+                    "text": "Одна машина времени (Time Machine) в пространстве дизайна (Design Space) будет отображаться как один блок или набор диаграмм в пространстве диаграмм (Charting Space).",
+                    "updated": 1637938426322
                 }
             ]
         },

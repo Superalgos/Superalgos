@@ -1161,7 +1161,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 try {
                                     console.log('fixSchemas...' + allAppSchemas.length)
                                     let projects = SA.projects.foundations.utilities.filesAndDirectories.getDirectories(global.env.PATH_TO_PROJECTS)
-                                    const fs = SA.nodeModules.fs
+                                    //const fs = SA.nodeModules.fs
                                     let needFixing = 0
                                     for (let i = 0; i < allAppSchemas.length; i++) {
                                         let schemaDocument = allAppSchemas[i]
@@ -1209,13 +1209,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                             }
                                         }
 
-                                        if (wasUpdated === true) {
-                                            let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                            let filePath = allAppSchemasFilePaths[i]
+                                        //if (wasUpdated === true) {
+                                            //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                            //let filePath = allAppSchemasFilePaths[i]
                                             //console.log('Saving File at ' + filePath)
                                             //console.log(fileContent)
                                             //fs.writeFileSync(filePath, fileContent)
-                                        }
+                                        //}
                                     }
                                 } catch (err) {
                                     console.log(err.stack)
@@ -1312,6 +1312,15 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'createGithubFork': {
+
+                                    let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
+                                        params.token
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 case 'mergePullRequests': {
 
                                     let serverResponse = await PL.servers.GITHUB_SERVER.mergePullRequests(
@@ -1344,7 +1353,20 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                         let error
 
+                                        await checkFork()
                                         await updateUser()
+
+                                        async function checkFork() {
+                                            let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
+                                                params.token
+                                            )
+        
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                            
+                                            if(error != undefined) {
+                                                console.log('[ERROR] httpInterface -> Gov -> createFork -> You already have a fork. Good for you!')
+                                            }
+                                        }
 
                                         async function updateUser() {
 

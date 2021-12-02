@@ -10,6 +10,11 @@
                 "text": "Tunggu Sebentar!. Aplikasi ini sedang memeriksa cabang repositori Superalgos saat ini untuk versi terbaru.",
                 "updated": 1613891554016,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die App prüft den von Ihnen ausgewählten current branch des Superalgos Repositorys auf eine neue Version. Warte einen Moment!",
+                "updated": 1638037210492
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "text": "Anda akan segera mendapatkan pemberitahuan yang menginformasikan apakah versi baru telah hadir atau sudah menjalankan versi terbaru dari Superalgos!",
                     "updated": 1613891634145,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden in Kürze eine Meldung erhalten, die Ihnen mitteilt, ob eine neue Version gefunden wurde oder ob es sich bei der von Ihnen verwendeten Version um die letzte verfügbare handelt!",
+                    "updated": 1638037245983
                 }
             ]
         }

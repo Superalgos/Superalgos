@@ -32,7 +32,7 @@
         "compatibleTypes": "->Exchange Account Asset->"
     },
     "attachingRules": {
-        "compatibleTypes": "->Trading Parameters->"
+        "compatibleTypes": "->Trading Parameters->Portfolio Parameters->"
     },
     "alternativeIcons": "Use Reference Grandparent",
     "title": [

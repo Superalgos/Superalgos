@@ -2,7 +2,14 @@
     "type": "User Profile",
     "definition": {
         "text": "The User Profile is the hierarchy that allows you to define how you intend to use the Token Power conferred by your holdings of Superalgos SA Tokens. These definitions are spread across several programs, and your Token Power cascades down to these programs from the head of the hierarchy. Each program is designed to get Contributors involved in different governance needs.",
-        "updated": 1624726047712
+        "updated": 1624726047712,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Token Power fmínimos en cascada desde el nodo Perfil de usuario hasta el nodo  Token Power Switch, a su descendencia, y así sucesivamente, siguiendo la estructura de la jerarquía.",
+                "updated": 1637851334389
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,12 +20,26 @@
         {
             "style": "Text",
             "text": "As explained in the Building Your Profile page, your User Profile is paired with your Governance Address. The tokens you hold in this address confer you Token Power that you may use to influence how Superalgos distributes the tokens allocated to each release.",
-            "updated": 1630091460767
+            "updated": 1630091460767,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como se explica en la página Building Your Profile, su perfil de usuario está emparejado con su Governance Address. Los tokens que tiene en esta dirección le confieren Token Power que puede utilizar para influir en la forma en que Superalgos distribuye los tokens asignados a cada lanzamiento.",
+                    "updated": 1637851209460
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "After building your profile, you should see your Token Power flowing to the Token Power Switch node, the first offspring of the head of the hierarchy. This principle is maintained throughout the hierarchy: Token Power flows down to offspring nodes, through each section of the hierarchy.",
-            "updated": 1630094400877
+            "updated": 1630094400877,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Después de crear su perfil, debería ver su Token Powerfluyendo al nodo de Token Power Switch, tel primer vástago del jefe de la jerarquía. Este principio se mantiene en toda la jerarquía:Token Power fluye hacia los nodos descendientes, a través de cada sección de la jerarquía.",
+                    "updated": 1637851292698
+                }
+            ]
         },
         {
             "style": "Title",

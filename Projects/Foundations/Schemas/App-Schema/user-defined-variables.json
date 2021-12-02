@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode->"
+        "compatibleTypes": "->Trading Episode->Portfolio Episode->"
     },
     "propertyNameAtParent": "userDefinedVariables",
     "childrenNodesProperties": [

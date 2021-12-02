@@ -1,0 +1,47 @@
+.postPlaceholder {
+    width: 39rem;
+    padding: 0.5rem;
+}
+
+.postPlaceholderContainer {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.postPlaceholderInputBoxContainer {
+
+}
+
+.postPlaceholderAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.postPlaceholderTextField {
+    width: 90%;
+    border: 5px;
+}
+
+.postPlaceholderInputBox {
+    width: auto;
+    padding: 0.5rem;
+}
+
+.postFeedAccountCircle {
+
+}
+
+.postPlaceholderButtonStyle {
+    padding: 0.75rem;
+    display: flex;
+    width: auto;
+    justify-content: flex-end;
+}
+
+.postPlaceholderButton {
+    height: 1.5rem;
+    width: 5rem;
+}

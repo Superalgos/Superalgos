@@ -32,6 +32,13 @@
     "attachingRules": {
         "compatibleTypes": "->Desktop Apps->"
     },
-    "childrenNodesProperties": [],
+    "childrenNodesProperties": [
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        }
+    ],
     "propertyNameAtParent": "socialTradingDesktopApps"
 }

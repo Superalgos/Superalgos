@@ -1,0 +1,75 @@
+{
+    "type": "Exchange Portfolio Tasks",
+    "menuItems": [
+        {
+            "action": "Run All Market Portfolio Tasks",
+            "label": "Run All Market Portfolio Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Market Portfolio Tasks",
+            "label": "Stop All Market Portfolio Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Market Portfolio Tasks",
+            "relatedUiObject": "Market Portfolio Tasks",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Market Portfolio Tasks",
+            "label": "Add Missing Markets",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Market Portfolio Tasks",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Crypto Exchange->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Project Portfolio Tasks->"
+    },
+    "alternativeIcons": "Use Reference Parent",
+    "title": [
+        "Use Reference Parent"
+    ],
+    "isTitleAllwaysVisible": true,
+    "propertyNameAtParent": "exchangePortfolioTasks",
+    "childrenNodesProperties": [
+        {
+            "name": "marketPortfolioTasks",
+            "type": "array",
+            "childType": "Market Portfolio Tasks",
+            "monitorChildrenRunning": true
+        }
+    ]
+}

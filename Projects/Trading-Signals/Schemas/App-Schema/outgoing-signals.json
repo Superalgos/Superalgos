@@ -1,0 +1,37 @@
+{
+    "type": "Outgoing Signals",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Signal Reference",
+            "relatedUiObject": "Signal Reference",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Trading-Signals",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trigger On Event->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "signalReferences",
+            "type": "array",
+            "childType": "Signal Reference",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "outgoingSignals"
+}

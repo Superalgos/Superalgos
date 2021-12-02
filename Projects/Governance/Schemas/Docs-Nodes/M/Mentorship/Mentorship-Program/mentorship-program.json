@@ -2,7 +2,14 @@
     "type": "Mentorship Program",
     "definition": {
         "text": "Becoming proficient enough with Superalgos to the point in which you may produce valuable contributions may be a lengthy process. The mentorship program incentivizes deep collaboration, apprenticeship,  and the formation of Contributors.",
-        "updated": 1630232204309
+        "updated": 1630232204309,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Llegar a ser lo suficientemente competente con Superalgos hasta el punto en que pueda producir contribuciones valiosas puede ser un proceso largo. El programa de mentores incentiva la colaboración profunda, el aprendizaje y la formación de Colaboradores.",
+                "updated": 1637848935693
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -17,16 +24,37 @@
         },
         {
             "style": "Text",
-            "text": "With this program, you may earn Superalgos SA Tokens for every user you mentor, and also for the users they mentor!"
+            "text": "With this program, you may earn Superalgos SA Tokens for every user you mentor, and also for the users they mentor!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Con este programa, puede ganar Superalgos SA Tokens por cada usuario que mentoree, ¡y también por los usuarios a los que ellos mentoreen!",
+                    "updated": 1637849011950
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "To participate, you must spawn the Mentorship Program and declare your mentors. To do that, add a User Mentor node and use it to establish a reference to the User Profile of the person that mentored you. If you have more than one mentor, add more User Mentor nodes!",
-            "updated": 1630232305651
+            "updated": 1630232305651,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para participar, debe desplegar el  Mentorship Program ( programa de mentoría) y declarar sus mentores. Para hacer esto, agregue el nodo del User Mentor yuselo para establecer una referencia al User Profile de la persona que le ha mentoreado. Si tiene más de un mentor, agregue más nodos de User Mentor!",
+                    "updated": 1637849198793
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is meant to grow into a massive global collaboration. To do that, the project needs an ever-growing group of Contributors!"
+            "text": "Superalgos is meant to grow into a massive global collaboration. To do that, the project needs an ever-growing group of Contributors!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos está destinado a convertirse en una colaboración global masiva. ¡Para hacer eso, el proyecto necesita un grupo cada vez mayor de Colaboradores!",
+                    "updated": 1637849221755
+                }
+            ]
         },
         {
             "style": "Include",

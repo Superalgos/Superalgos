@@ -11,8 +11,8 @@
             },
             {
                 "language": "RU",
-                "text": "Пространство построения графиков - это иерархия, которая управляет конфигурацией диаграмм и двумерным пространством, в котором создаются диаграммы.",
-                "updated": 1635609547337
+                "text": "Charting Space - это иерархия, которая управляет конфигурацией диаграмм и двумерным пространством, в котором создаются диаграммы.",
+                "updated": 1638336056380
             }
         ]
     },
@@ -23,11 +23,25 @@
         },
         {
             "style": "Text",
-            "text": "Think of the charting space as a huge drawing board. You may have lots of information plotted on different parts of the space and use a viewport to look into that space."
+            "text": "Think of the charting space as a huge drawing board. You may have lots of information plotted on different parts of the space and use a viewport to look into that space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Думайте о пространстве для графиков как о огромной доске для рисования. У вас может быть много информации, нанесенной на разные части пространства, и вы можете использовать окно просмотра, чтобы заглянуть в это пространство.",
+                    "updated": 1638276112302
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes."
+            "text": "There is only one charting space hierarchy, thus all charts are configured here. As is common throughout the system, different concepts and elements of the charts such as scales, data layers and so on, are represented by nodes in the hierarchy. The system allows great flexibility on how to visualize information over the charts by adding, configuring, and arranging these nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует только одна иерархия графического пространства, поэтому здесь настраиваются все диаграммы. Как это часто бывает во всей системе, различные концепции и элементы диаграмм, такие как масштабы, уровни данных и т. Д., Представлены узлами в иерархии. Система обеспечивает большую гибкость в том, как визуализировать информацию на диаграммах, добавляя, конфигурирование и размещение этих узлов.",
+                    "updated": 1638276317967
+                }
+            ]
         }
     ]
 }

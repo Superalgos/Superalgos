@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Торговая система - это структура, управляющая логикой низкого уровня, которая служит для структурирования процессов и методов, используемых для реализации и развертывания торговых стратегий.",
-                "updated": 1636194401995
+                "text": "Trading System - это структура, управляющая логикой низкого уровня, которая служит для структурирования процессов и методов, используемых для реализации и развертывания торговых стратегий.",
+                "updated": 1638338041020
             },
             {
                 "language": "DE",
@@ -33,6 +33,11 @@
                     "language": "ES",
                     "text": "En términos prácticos, un Trading System es una disposición jerárquica que organiza los aspectos procesables de su plan de inversión. Esta jerarquía contiene definiciones respecto a un sinnúmero de estrategias de trading, todas operando en el mismo mercado y compartiendo la misma asignación de capital inicial.",
                     "updated": 1637880963165
+                },
+                {
+                    "language": "RU",
+                    "text": "С практической точки зрения торговая система - это иерархическая структура, организующая практические аспекты вашего инвестиционного плана. Иерархия содержит определения относительно любого количества торговых стратегий, работающих на одном рынке и имеющих одинаковое начальное распределение капитала.",
+                    "updated": 1638338066276
                 }
             ]
         },
@@ -44,6 +49,11 @@
                     "language": "ES",
                     "text": "Se utiliza un Trading System para definir estrategias acorde al protocolo de Superalgos, dividiendo a éstas en cuatro etapas: activación, apertura, gestión y cierre.",
                     "updated": 1637880976135
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы используете торговую систему для определения стратегий в соответствии с протоколом Superalgos, разделяя стратегии на четыре этапа: запуск, открытие, управление и закрытие.",
+                    "updated": 1638338085462
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "ES",
                     "text": "El concepto de describir estrategias en etapas es fundamental para el aspecto metódico del Trading System, ya que provee la infraestructura necesaria para ejecutar cualquier estrategia con la misma infraestructura. Esto contribuye a desarrollar Trading Systems escalables, que pueden alcanzar innumerable cantidad de estrategias.",
                     "updated": 1637880986625
+                },
+                {
+                    "language": "RU",
+                    "text": "Концепция поэтапного описания стратегий является фундаментальной для методического аспекта торговой системы, поскольку она обеспечивает основу для запуска каждой стратегии с одной и той же структурой, что способствует разработке масштабируемых торговых систем, которые могут расширяться до любого количества стратегий.",
+                    "updated": 1638338107057
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "ES",
                     "text": "Cuando un Trading System ofrece más de una estrategia, la primera estrategia tiene prioridad sobre la segunda, la segunda sobre la tercera, y así sucesivamente. Esto significa que las estrategias son analizadas de manera secuencial. Cuando una estrategia dada es activada, las estrategias restantes no serán analizadas hasta que ésta se desactive. En otras palabras, cuando se implementan múltiples estrategias bajo un único Trading System, solo una estrategia puede operar en un momento dado, y la prioridad está dada por el orden especificado en el Nodo del Trading System.",
                     "updated": 1637881003253
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда торговая система использует более одной стратегии, первая стратегия имеет приоритет над второй, вторая над третьей и так далее. Это означает, что стратегии оцениваются последовательно. Когда данная стратегия срабатывает, оставшиеся в очереди стратегии больше не оцениваются, пока стратегия не сработает. Другими словами, когда несколько стратегий развернуты в одной торговой системе, только одна стратегия может торговать в любой момент времени, а приоритет отдается порядку, установленному вокруг узла торговой системы.",
+                    "updated": 1638338139127
                 }
             ]
         },
@@ -77,6 +97,11 @@
                     "language": "ES",
                     "text": "Como complemento a lo anterior, si se desea configurar estrategias que operen sobre diferentes mercados, o estrategias que tengan la posibilidad de abrir posiciones de forma simultánea, entonces se las deberá configurar bajo Trading Systems distintos.",
                     "updated": 1637881023208
+                },
+                {
+                    "language": "RU",
+                    "text": "Как следствие вышесказанного, если вы хотите, чтобы стратегии работали на разных рынках, или вы хотите, чтобы стратегии могли открывать позиции одновременно, вы должны настроить эти стратегии в разных торговых системах.",
+                    "updated": 1638338156830
                 }
             ]
         }

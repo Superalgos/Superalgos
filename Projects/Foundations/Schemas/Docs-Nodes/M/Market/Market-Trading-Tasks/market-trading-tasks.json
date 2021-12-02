@@ -1,7 +1,14 @@
 {
     "type": "Market Trading Tasks",
     "definition": {
-        "text": "A market trading tasks node groups trading tasks operating in a specific market."
+        "text": "A market trading tasks node groups trading tasks operating in a specific market.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Market Trading Tasks группирует торговые задачи, работающие на определенном рынке.",
+                "updated": 1638375441341
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The market trading tasks node must reference a market defined in the Crypto Ecosystem hierarchy."
+            "text": "The market trading tasks node must reference a market defined in the Crypto Ecosystem hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Market Trading Tasks должен ссылаться на рынок, определенный в иерархии Crypto Ecosystem.",
+                    "updated": 1638375522710
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
+            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот узел может порождать отдельные информационные продукты или может массово развертывать информационные продукты, организованные добычей данных и ботами. См. Подробности в узле продуктов данных Data Product.",
+                    "updated": 1638375752498
+                }
+            ]
         },
         {
             "style": "Block",

@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Диспетчер задач - это устройство, используемое для организации и управления любым количеством задач, которые, в свою очередь, управляют экземплярами ботов. Вы используете диспетчер задач для запуска или остановки нескольких задач одновременно.\n",
-                "updated": 1636193320098
+                "text": "Task Manager - это устройство, используемое для организации и управления любым количеством задач, которые, в свою очередь, управляют экземплярами ботов. Вы используете Task Manager для запуска или остановки нескольких задач одновременно.",
+                "updated": 1638359581931
             }
         ]
     },
@@ -22,16 +22,37 @@
         },
         {
             "style": "Text",
-            "text": "Task managers are used both in the context of data mining and trading operations, to facilitate the organization of tasks."
+            "text": "Task managers are used both in the context of data mining and trading operations, to facilitate the organization of tasks.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Диспетчеры задач используются как в контексте интеллектуального анализа данных, так и в торговых операциях, чтобы облегчить организацию задач Task.",
+                    "updated": 1638359627797
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, you may set up a task manager to handle tasks related to a particular set of indicators used with a certain strategy. Or, for example, to organize multiple backtesting sessions."
+            "text": "For example, you may set up a task manager to handle tasks related to a particular set of indicators used with a certain strategy. Or, for example, to organize multiple backtesting sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, вы можете настроить диспетчер задач для обработки задач, связанных с определенным набором индикаторов, используемых с определенной стратегией. Или, например, организовать несколько сеансов тестирования на истории.",
+                    "updated": 1638359653430
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The key aspect of a task manager is that it allows starting and stopping all tasks at once.",
-            "updated": 1609613698128
+            "updated": 1609613698128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ключевым аспектом диспетчера задач является то, что он позволяет запускать и останавливать все задачи сразу.",
+                    "updated": 1638359690144
+                }
+            ]
         },
         {
             "style": "Block",

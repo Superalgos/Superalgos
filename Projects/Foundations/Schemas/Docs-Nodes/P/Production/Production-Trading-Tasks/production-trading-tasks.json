@@ -8,29 +8,71 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox."
+            "text": "Superalgos aims to provide a flexible and robust trading bots deployment toolbox.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos стремится предоставить гибкий и надежный набор инструментов для развертывания торговых ботов.",
+                    "updated": 1638355987722
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "With Superalgos, you may deploy as many trading bots as you wish and have them running on a single computer or in as many machines as you wish, in a Trading Farm type of setup. To help with the management of large numbers of live trading sessions, the system helps you with sorting tasks by exchange, market, and trading mine.",
-            "updated": 1609666769136
+            "updated": 1609666769136,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С помощью Superalgos вы можете развернуть столько торговых ботов, сколько пожелаете, и запустить их на одном компьютере или на стольких машинах, сколько пожелаете, в настройках типа торговой фермы Trading Farm. Чтобы помочь в управлении большим количеством торговых сессий в реальном времени, система помогает вам сортировать задачи по бирже, рынку и Trading Mine.",
+                    "updated": 1638356177516
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The production environment works pretty much in the same way as the testing environment, save for two important differences:"
+            "text": "The production environment works pretty much in the same way as the testing environment, save for two important differences:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Производственная среда работает практически так же, как и среда тестирования, за исключением двух важных отличий:",
+                    "updated": 1638356203184
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The production environment runs forward testing and live trading sessions, instead of backtesting and paper trading sessions."
+            "text": "The production environment runs forward testing and live trading sessions, instead of backtesting and paper trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В производственной среде проводятся форвард-тестирование и торговые сессии в реальном времени, вместо тестирования на истории и бумажных торговых сессий.",
+                    "updated": 1638356217371
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "These two types of sessions involve monetary transactions at the exchange, thus require the set up of a key reference to authenticate your account with the exchange."
+            "text": "These two types of sessions involve monetary transactions at the exchange, thus require the set up of a key reference to authenticate your account with the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти два типа сеансов включают денежные транзакции на бирже, поэтому требуется установка ключевой ссылки для аутентификации вашей учетной записи на бирже.",
+                    "updated": 1638356230957
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If you are familiar with Testing Trading Tasks, there isn’t much more to learn to understand Production Trading Tasks. If you are not familiar with either, please refer to the Testing Trading Tasks Section page for the details.",
-            "updated": 1610111338574
+            "updated": 1610111338574,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы знакомы с Testing Trading Tasks, вам не так уж много нужно научиться понимать Production Trading Tasks. Если вы не знакомы ни с одним из них, за подробностями обратитесь к странице раздела «Testing Trading Tasks».",
+                    "updated": 1638356340537
+                }
+            ]
         },
         {
             "style": "Include",
@@ -50,8 +92,8 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Производственные торговые задачи организует торговые сессии, включающие Торговлю в режиме реального времени.",
-                "updated": 1635517287447
+                "text": "Production Trading Tasks организует торговые сессии, включающие торговлю в режиме реального времени.",
+                "updated": 1638355950987
             }
         ]
     }

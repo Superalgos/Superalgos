@@ -4,7 +4,14 @@
     "type": "Detach and Attach Nodes",
     "definition": {
         "text": "To detach a node, click on the detach button on the node's menu. To attach a node, right-click the node and drag it closer to the node you wish to attach it to. Release the right-click when the target node is highlighted.",
-        "updated": 1615545397469
+        "updated": 1615545397469,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Чтобы отсоединить узел, нажмите кнопку отсоединения в меню узла. Чтобы присоединить узел, щелкните узел правой кнопкой мыши и перетащите его ближе к узлу, к которому вы хотите его присоединить. Отпустите правую кнопку мыши, когда целевой узел будет выделен.",
+                "updated": 1638346583080
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,24 +26,59 @@
         },
         {
             "style": "Text",
-            "text": "Nodes in the workspace may be unchained or detached from its parent, carrying all offspring with it. When a node is left unchained, it is no longer taken into account in the logic of the hierarchy, as it no longer belongs to it. When a node is chained back or reattached to the hierarchy, it goes back to being functional."
+            "text": "Nodes in the workspace may be unchained or detached from its parent, carrying all offspring with it. When a node is left unchained, it is no longer taken into account in the logic of the hierarchy, as it no longer belongs to it. When a node is chained back or reattached to the hierarchy, it goes back to being functional.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы в рабочей области могут быть освобождены или отсоединены от своего родителя, неся с собой все потомки. Когда узел не связан, он больше не учитывается в логике иерархии, поскольку больше не принадлежит ей. Когда узел возвращается в цепочку или повторно присоединяется к иерархии, он снова становится функциональным.",
+                    "updated": 1638346608272
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This feature is useful when testing different configurations, rules or parameters, as it allows to keep alternatives handy in the workspace."
+            "text": "This feature is useful when testing different configurations, rules or parameters, as it allows to keep alternatives handy in the workspace.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта функция полезна при тестировании различных конфигураций, правил или параметров, так как позволяет держать альтернативы под рукой в ​​рабочей области.",
+                    "updated": 1638346623438
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Nodes may be attached only to potential parents. The system limits the way in which nodes may be attached, according to the logic of the information they contain."
+            "text": "Nodes may be attached only to potential parents. The system limits the way in which nodes may be attached, according to the logic of the information they contain.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы могут быть прикреплены только к потенциальным родителям. Система ограничивает способ подключения узлов в соответствии с логикой содержащейся в них информации.",
+                    "updated": 1638346637620
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Nodes may not be detached or attached to frozen nodes. You need to unfreeze them before attaching or detaching.",
-            "updated": 1609948096499
+            "updated": 1609948096499,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы нельзя отсоединять или присоединять к замороженным узлам. Перед установкой или отсоединением их необходимо разморозить.",
+                    "updated": 1638346663411
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The verbs to chain and to attach may be used interchangeably, as synonyms. Similarly, to unchain and to detach are both valid."
+            "text": "The verbs to chain and to attach may be used interchangeably, as synonyms. Similarly, to unchain and to detach are both valid.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Глаголы «связывать» и «прикреплять» могут использоваться как синонимы. Точно так же и \"разъединение\", и \"отсоединение\" допустимы.",
+                    "updated": 1638346757261
+                }
+            ]
         }
     ]
 }

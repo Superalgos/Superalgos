@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Jedem Absatz einer Docs Page wird eine Formatvorlage zugewiesen. Die Standardvorlage und die am häufigsten verwendete Vorlage ist die Textvorlage: Docs Text Style.",
                 "updated": 1633861516844
+            },
+            {
+                "language": "RU",
+                "text": "Каждому абзацу на странице Docs Page назначается стиль. По умолчанию и чаще всего используется стиль Docs Text Style.",
+                "updated": 1638464178400
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Formate werden im Thema Docs Paragraph Styles behandelt.",
                     "updated": 1633861555061
+                },
+                {
+                    "language": "RU",
+                    "text": "Стили описаны в теме Docs Paragraph Styles.",
+                    "updated": 1638464229136
                 }
             ]
         }

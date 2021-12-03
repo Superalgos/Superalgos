@@ -331,7 +331,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
                                 let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) && percentage  > 0 !== true) {
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++
@@ -346,7 +346,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
                                         let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) && percentage  > 0 !== true) {
+                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
                                             totalNodesWithoutPercentage++

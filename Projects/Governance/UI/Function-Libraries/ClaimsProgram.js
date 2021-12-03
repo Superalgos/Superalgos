@@ -326,7 +326,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                         if (childNode.type === "Tokens Awarded") { continue }
 
                         let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                        if (percentage !== undefined && isNaN(percentage) && percentage  > 0 !== true) {
+                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                             totalPercentage = totalPercentage + percentage
                         } else {
                             totalNodesWithoutPercentage++
@@ -342,7 +342,7 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                                 if (childNode.type === "Tokens Awarded") { continue }
 
                                 let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) && percentage  > 0 !== true) {
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++

@@ -15,6 +15,11 @@
                 "language": "ES",
                 "text": "Hace referencia al nombre del tutorial. Las páginas con el mismo nombre del tutorial de Documentos pertenecen al mismo tutorial.",
                 "updated": 1636725449952
+            },
+            {
+                "language": "RU",
+                "text": "Относится к названию учебного пособия. Страницы с одинаковым Docs Tutorial Name принадлежат одному и тому же учебнику.",
+                "updated": 1638463696038
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "ES",
                     "text": "No hay una página que describa un tutorial. Es la jerarquía de los tutoriales la que determina cómo se organizan los tutoriales. Sin embargo, en el contexto de los documentos, el nombre del tutorial de documentos se utiliza para agrupar un conjunto de páginas relacionadas en un determinado tutorial.",
                     "updated": 1636725484991
+                },
+                {
+                    "language": "RU",
+                    "text": "Там нет страницы, описывающей учебник. Именно иерархия учебных пособий определяет, как организованы учебные пособия. Однако в контексте документов Docs Tutorial Name используется для группировки набора связанных страниц в рамках определенного учебника.",
+                    "updated": 1638463813003
                 }
             ]
         }

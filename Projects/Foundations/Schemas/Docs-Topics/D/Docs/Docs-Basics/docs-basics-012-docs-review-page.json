@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Reviews sind von Benutzern erstellte Inhalte, die ihre Erfahrungen mit bestimmten Komponenten von Superalgos oder anderen Projekten beschreiben.",
                 "updated": 1633862878136
+            },
+            {
+                "language": "RU",
+                "text": "Обзоры - это создаваемый пользователями контент, в котором описывается их опыт работы с определенными компонентами Superalgos или других проектов.",
+                "updated": 1638464808245
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Die Seite eines Reviews ist in sich abgeschlossen.",
                     "updated": 1633862945299
+                },
+                {
+                    "language": "RU",
+                    "text": "Страница обзора является самодостаточной.",
+                    "updated": 1638464832321
                 }
             ]
         }

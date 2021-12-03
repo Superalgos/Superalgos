@@ -210,7 +210,7 @@ exports.newGithubServer = function newGithubServer() {
             token = unescape(token)
             const repository = 'Superalgos'
 
-            /* Unsavping # */
+            /* Unsaving # */
             for (let i = 0; i < 10; i++) {
                 commitMessage = commitMessage.replace('_SLASH_', '/')
                 commitMessage = commitMessage.replace('_HASHTAG_', '#')
@@ -366,8 +366,8 @@ exports.newGithubServer = function newGithubServer() {
                             if (await validateUserProfileSigningAccountsDoesNotBelongtoAnotherUserProfile() === false) { continue }
 
                             /*
-                                TODO: We need to check before merging a User Profile that none of id of the node of the profile hierearchy exists at any other
-                                User Profile already at the repository, to avoid atacts of users highjacking references of other user profiles. 
+                                TODO: We need to check before merging a User Profile that none of id of the node of the profile hierarchy exists at any other
+                                User Profile already at the repository, to avoid attacks of users hijacking references of other user profiles. 
                             */
 
                             if (await mergePullRequest() === false) {

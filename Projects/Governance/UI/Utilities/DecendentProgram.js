@@ -283,7 +283,7 @@ function newGovernanceUtilitiesDecendentProgram() {
                             for (let i = 0; i < node[usersArrayPropertyName].length; i++) {
                                 let childNode = node[usersArrayPropertyName][i]
                                 let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage > 0)  && percentage !== true) {
+                                if (percentage !== undefined && isNaN(percentage) && percentage  > 0 !== true) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++

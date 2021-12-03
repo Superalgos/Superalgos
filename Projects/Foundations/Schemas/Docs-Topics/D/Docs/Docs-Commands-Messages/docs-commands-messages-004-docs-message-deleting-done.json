@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Der Befehl docs.delete hat die von Ihnen angeforderte Seite aus dem Speicher gelöscht.",
                 "updated": 1633903299265
+            },
+            {
+                "language": "RU",
+                "text": "Команда docs.delete удалила из памяти запрошенную вами страницу.",
+                "updated": 1638461569361
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Die Seite wurde als zu löschen gekennzeichnet. Sie wird aus der speicherinternen Seitensammlung entfernt, sobald Sie den Befehl Docs Save Command ausführen. Der Docs Save Command weist den Client an, die Datei von der Festplatte zu löschen. Um die Seite aus dem Index zu entfernen, müssen Sie den Befehl Docs Reindex ausführen.",
                     "updated": 1633903396975
+                },
+                {
+                    "language": "RU",
+                    "text": "Страница была отмечена для удаления. Она будет удалена из коллекции страниц после запуска команды Docs Save Command, которая указывает клиенту Client удалить файл с диска. Чтобы удалить страницу из индекса, вы должны запустить команду Docs Reindex Command.",
+                    "updated": 1638461829275
                 }
             ]
         }

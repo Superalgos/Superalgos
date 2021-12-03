@@ -23,6 +23,11 @@
                 "text": "Die Docs enthalten sechs Kategorien von Seiten: Node,Concept,Topic,Tutorial,Review und Book. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
                 "updated": 1633806275183,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Документы содержат шесть категорий страниц: Node, Concept, Topic, Tutorial, Review, and Book. Каждая категория представлена ​​вкладкой в ​​результатах поиска документов.",
+                "updated": 1638458497233
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "text": "Node Seiten-Kategorie",
                     "updated": 1633857256015,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Node",
+                    "updated": 1638458808149
                 }
             ]
         },
@@ -65,6 +75,11 @@
                     "text": "Jede Node, die im Kontext eines Project (Projekts) definiert ist, verfügt über eine Docs Node Page, die erklärt, was die Node ist und wie sie verwendet wird. Diese Seite wird geöffnet, wenn Sie auf die Schaltfläche \"help\" im Menü des Knotens klicken.",
                     "updated": 1633806392260,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый узел Node, определенный в контексте проекта Project, имеет страницу Docs Node Page, объясняющую, что это за узел и как он используется. Это страница, которая открывается при нажатии кнопки справки в меню узла.",
+                    "updated": 1638458755616
                 }
             ]
         },
@@ -83,6 +98,11 @@
                     "text": "Concept Seiten-Kategorie",
                     "updated": 1633857303758,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Concept",
+                    "updated": 1638458826439
                 }
             ]
         },
@@ -101,6 +121,11 @@
                     "text": "Concepts (Konzepte) sind Begriffe oder Ideen, die nicht als Knotenpunkte in einer Hierarchie dargestellt werden. Die Seiten in der Kategorie \"Concept\" behandeln Begriffe oder Ideen, die auf einer einzigen Seite erklärt werden können. Das heißt, Konzepte sind Begriffe, die auf einer einzigen Seite ausreichend behandelt werden können.",
                     "updated": 1633856673559,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Концепции - это понятия или идеи, которые не представлены в виде узлов в иерархии. Страницы в категории Concept охватывают понятия или идеи, которые могут быть объяснены на одной странице. То есть концепции - это понятия, которые могут быть исчерпывающе рассмотрены на одной странице.",
+                    "updated": 1638458973238
                 }
             ]
         },
@@ -119,6 +144,11 @@
                     "text": "Topic Seiten-Kategorie",
                     "updated": 1633860678628,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Topic",
+                    "updated": 1638459020247
                 }
             ]
         },
@@ -137,6 +167,11 @@
                     "text": "Topics (Themen) sind vielschichtige, tiefgreifende Konzepte, die mehr als eine Seite benötigen, um korrekt behandelt zu werden. Topics sind Gruppen von eng miteinander verbundenen Konzepten, die in einer Reihenfolge angeordnet sind. Ein Topic ist jedoch keine Seite an sich. Es handelt sich vielmehr um eine Sammlung von Seiten.",
                     "updated": 1633856641151,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Темы - это многогранные, глубокие концепции, для правильного рассмотрения которых требуется более одной страницы. Темы представляют собой наборы тесно связанных понятий, расположенных в определенной последовательности. Однако это не страница сама по себе. Вместо этого это набор страниц.",
+                    "updated": 1638459065579
                 }
             ]
         },
@@ -155,6 +190,11 @@
                     "text": "Tutorial Seiten-Kategorie",
                     "updated": 1633860764085,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Tutorial",
+                    "updated": 1638459083962
                 }
             ]
         },
@@ -173,6 +213,11 @@
                     "text": "Eine Tutorial-Hierarchie kann verschiedene Arten von nodes beinhalten, einschließlich Tutorial Topic und Tutorial Step nodes. Jede node in der Hierarchie zeigt auf eine „ Tutorial Step “ Seite in den Docs, von der er Informationen bezieht. Im Kontext der Docs sind die Seiten eines Tutorials in einer Reihenfolge angeordnet, wie bei Themen.",
                     "updated": 1633856957281,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархия Tutorial может упорядочивать узлы различных типов, включая узлы Tutorial Topic и Tutorial Step. Каждый узел в иерархии указывает на страницу Tutorial Step Page в документах, из которой он черпает информацию. В контексте документов, страницы в учебнике расположены в последовательности, как и темы.",
+                    "updated": 1638459807647
                 }
             ]
         },
@@ -191,6 +236,11 @@
                     "text": "Reviews Seiten-Kategorie",
                     "updated": 1633860775633,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Reviews",
+                    "updated": 1638459908013
                 }
             ]
         },
@@ -209,6 +259,11 @@
                     "text": "Reviews sind von Benutzern erstellte Inhalte, die ihre Erfahrungen mit bestimmten Komponenten von Superalgos oder anderen Projekten beschreiben.",
                     "updated": 1633857053512,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Reviews - это создаваемый пользователями контент, в котором описывается их опыт работы с определенными компонентами Superalgos или других проектов.",
+                    "updated": 1638459974909
                 }
             ]
         },
@@ -227,6 +282,11 @@
                     "text": "Books Seiten-Kategorie",
                     "updated": 1633860789952,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория Books",
+                    "updated": 1638460137112
                 }
             ]
         },
@@ -245,18 +305,37 @@
                     "text": "Ein \"Book\" ist eine eigenständige Seite. Die Seite enthält eine Liste von Themen, die jeweils ein Kapitel des Buches darstellen.                                                                                                                                                                           ",
                     "updated": 1634053406718,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Books - это страница сама по себе. На странице представлен список тем, каждая из которых составляет главу книги.",
+                    "updated": 1638460105684
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Workspace Page Category",
-            "updated": 1634054845364
+            "updated": 1634054845364,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Категория Workspace",
+                    "updated": 1638460132388
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The \"Workspace\" tab does not actually display a docs page but content from the workspaces. It is a possibility to search trough workspaces with a keyword. It shows all nodes which are related to the keyword. Make a query in the search bar with a keyword you like (e.g. \"market\") and have a look at the Workspace Category.",
-            "updated": 1634055788510
+            "updated": 1634055788510,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На вкладке Workspace фактически отображается не страница документов, а содержимое рабочих пространств. Это возможность поиска в рабочем пространстве по ключевому слову. Он показывает все узлы, связанные с ключевым словом. Сделайте запрос в строке поиска с ключевым словом, которое вам нужен (например, \"market\"), и посмотрите на категорию рабочего пространства.",
+                    "updated": 1638460490413
+                }
+            ]
         },
         {
             "style": "Text",

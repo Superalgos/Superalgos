@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3598.2758620689656,
-                    "y": 23340.192378864667
+                    "y": 37740.19237886467
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 23600
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -406,11 +406,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3898.2758620689656,
-                    "y": 23340.192378864667
+                    "y": 37740.19237886467
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 23600
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -9734,11 +9734,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 4158.083483204297,
-                                "y": 23190.192378864667
+                                "y": 37590.19237886467
                             },
                             "targetPosition": {
                                 "x": 4308.083483204297,
-                                "y": 23450
+                                "y": 37850
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -9943,11 +9943,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 4645.536817870386,
-                                        "y": 23010.22225211328
+                                        "y": 37410.22225211328
                                     },
                                     "targetPosition": {
                                         "x": 4567.891104339629,
-                                        "y": 23300
+                                        "y": 37700
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10072,11 +10072,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 4827.698725474961,
-                                        "y": 23150
+                                        "y": 37550
                                     },
                                     "targetPosition": {
                                         "x": 4567.891104339629,
-                                        "y": 23300
+                                        "y": 37700
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10462,7 +10462,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "Raplh2502 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "782c787d-245b-447b-a814-e12b3fcbe3ad",
@@ -10700,38 +10700,28 @@
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
                                                 "name": "New Position Claims Folder",
-                                                "id": "77dabf80-655f-419b-a4df-db3a9b6f65ad"
+                                                "id": "edbcd16e-5159-4930-a287-1ffb4094dac9"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile",
-                                                    "Governance",
-                                                    "7d63500d-1052-447c-aa8e-768e2633da96"
+                                                    "User Profile"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch",
-                                                    "Governance",
-                                                    "e8692f08-7b1b-4237-94c3-8cc22ea2f7e2"
+                                                    "Token Power Switch"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs",
-                                                    "Governance",
-                                                    "2588129d-2896-418f-8cde-d14320f59256"
+                                                    "Votes And Claims Programs"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program",
-                                                    "Governance",
-                                                    "b1400227-2e4a-4bab-b439-97c3da890e38"
+                                                    "Claims Program"
                                                 ],
                                                 [
                                                     "New Position Claims Folder",
-                                                    "Position Claims Folder",
-                                                    "Governance",
-                                                    "77dabf80-655f-419b-a4df-db3a9b6f65ad"
+                                                    "Position Claims Folder"
                                                 ]
                                             ]
                                         }
@@ -14359,7 +14349,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "piyanthak Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "25bb0012-9de1-4629-b140-7d433a4a047f",
@@ -14385,7 +14375,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
+                                                        "name": "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                         "id": "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -14420,7 +14410,7 @@
                                                             "4e0c4cd4-dc98-4913-a8dc-72cbae46776a"
                                                         ],
                                                         [
-                                                            "",
+                                                            "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                             "Position Contribution Claim",
                                                             "Governance",
                                                             "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
@@ -14430,7 +14420,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "3375e5c9-2a9f-43b2-9aa5-ac299b4d9b99",
@@ -14501,7 +14491,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "piyanthak Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "70134a9f-6203-4244-b5e8-57697003eaf2",
@@ -14527,7 +14517,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
+                                                        "name": "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                         "id": "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -14562,7 +14552,7 @@
                                                             "4e0c4cd4-dc98-4913-a8dc-72cbae46776a"
                                                         ],
                                                         [
-                                                            "",
+                                                            "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                             "Position Contribution Claim",
                                                             "Governance",
                                                             "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
@@ -14572,7 +14562,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "piyanthak Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "929c6930-3eef-438b-85e4-f0a8292c7484",
@@ -14598,7 +14588,7 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
+                                                        "name": "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                         "id": "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
                                                     },
                                                     "referenceParentCombinedNodePath": [
@@ -14633,7 +14623,7 @@
                                                             "4e0c4cd4-dc98-4913-a8dc-72cbae46776a"
                                                         ],
                                                         [
-                                                            "",
+                                                            "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                             "Position Contribution Claim",
                                                             "Governance",
                                                             "1ac4c257-0ff4-4076-bc1b-0a46cfb86342"
@@ -14643,7 +14633,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "piyanthak ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "fbe46cd0-ae13-49e1-af75-f30f4d39e42d",
@@ -18791,11 +18781,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 4857.668852226349,
-                                        "y": 23377.645713530757
+                                        "y": 37777.64571353076
                                     },
                                     "targetPosition": {
                                         "x": 4567.891104339629,
-                                        "y": 23300
+                                        "y": 37700
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -18817,11 +18807,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 4567.891104339629,
-                                "y": 23300
+                                "y": 37700
                             },
                             "targetPosition": {
                                 "x": 4308.083483204297,
-                                "y": 23450
+                                "y": 37850
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -18845,11 +18835,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 4597.8612310910175,
-                            "y": 23527.645713530757
+                            "y": 37927.64571353076
                         },
                         "targetPosition": {
                             "x": 4308.083483204297,
-                            "y": 23450
+                            "y": 37850
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -18868,11 +18858,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4308.083483204297,
-                        "y": 23450
+                        "y": 37850
                     },
                     "targetPosition": {
                         "x": 4048.2758620689656,
-                        "y": 23600
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19017,11 +19007,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4308.083483204297,
-                        "y": 23750
+                        "y": 38150
                     },
                     "targetPosition": {
                         "x": 4048.2758620689656,
-                        "y": 23600
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19040,11 +19030,11 @@
             "savedPayload": {
                 "position": {
                     "x": 4048.2758620689656,
-                    "y": 23600
+                    "y": 38000
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 23600
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19100,11 +19090,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4158.083483204297,
-                        "y": 24009.807621135333
+                        "y": 38409.80762113533
                     },
                     "targetPosition": {
                         "x": 3898.2758620689656,
-                        "y": 23859.807621135333
+                        "y": 38259.80762113533
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19161,14 +19151,12 @@
                                     "referenceParent": {
                                         "type": "User Profile",
                                         "name": "Raplh2502",
-                                        "id": "7d63500d-1052-447c-aa8e-768e2633da96"
+                                        "id": "637720d9-c47c-456e-9624-2953d7f54b14"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Raplh2502",
-                                            "User Profile",
-                                            "Governance",
-                                            "7d63500d-1052-447c-aa8e-768e2633da96"
+                                            "User Profile"
                                         ]
                                     ]
                                 }
@@ -19311,11 +19299,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 3898.2758620689656,
-                        "y": 24159.807621135333
+                        "y": 38559.80762113533
                     },
                     "targetPosition": {
                         "x": 3898.2758620689656,
-                        "y": 23859.807621135333
+                        "y": 38259.80762113533
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19334,11 +19322,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3898.2758620689656,
-                    "y": 23859.807621135333
+                    "y": 38259.80762113533
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 23600
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19419,11 +19407,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3598.2758620689656,
-                    "y": 23859.807621135333
+                    "y": 38259.80762113533
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 23600
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19442,11 +19430,11 @@
         "savedPayload": {
             "position": {
                 "x": 3748.2758620689656,
-                "y": 23600
+                "y": 38000
             },
             "targetPosition": {
                 "x": 3448.2758620689656,
-                "y": 23600
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -19469,11 +19457,11 @@
         "savedPayload": {
             "position": {
                 "x": 3148.2758620689656,
-                "y": 23600
+                "y": 38000
             },
             "targetPosition": {
                 "x": 3448.2758620689656,
-                "y": 23600
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -19492,11 +19480,11 @@
     "savedPayload": {
         "position": {
             "x": 3448.2758620689656,
-            "y": 23600
+            "y": 38000
         },
         "targetPosition": {
             "x": 3448.2758620689656,
-            "y": 23600
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": false,

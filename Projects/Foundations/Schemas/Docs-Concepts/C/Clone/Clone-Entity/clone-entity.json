@@ -2,12 +2,26 @@
     "type": "Clone Entity",
     "definition": {
         "text": "Downloads a JSON file containing information similar to a backup. The main difference is that the feature is built to facilitate the production of identical copies of any particular structure of nodes, or a complete hierarchy. Use this feature to accelerate your work process when you need to replicate nodes, for example, to create multiple testing sessions. The file downloaded is named Clone followed by the name of the node you are cloning.",
-        "updated": 1610033087190
+        "updated": 1610033087190,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Скачивает файл JSON, содержащий информацию, аналогичную резервной копии. Основное отличие состоит в том, что эта функция создана для облегчения создания идентичных копий любой конкретной структуры узлов или полной иерархии. Используйте эту функцию, чтобы ускорить рабочий процесс, когда вам нужно копировать узлы, например, для создания нескольких сеансов тестирования. Загруженный файл называется Clone, за которым следует имя узла, который вы клонируете.",
+                "updated": 1638280838359
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638280854499
+                }
+            ]
         }
     ]
 }

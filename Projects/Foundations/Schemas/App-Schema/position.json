@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Current->Trading Last->"
+        "compatibleTypes": "->Trading Current->Trading Last->Portfolio Current->Portfolio Last->"
     },
     "propertyNameAtParent": "position",
     "childrenNodesProperties": [

@@ -1,0 +1,128 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "3",
+    "type": "Data Tasks Section",
+    "definition": {
+        "text": "The Data Tasks structure of nodes controls the bots you need to run to extract data from exchanges and process it into indicators or technical studies.",
+        "updated": 1610051156939,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Структура узлов Data Tasks управляет ботами, которых необходимо запускать для извлечения данных с бирж и их обработки в индикаторах или технических исследованиях.",
+                "updated": 1638358317269
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Tasks->Definition",
+            "updated": 1610051799865
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610051833622
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Data Tasks->7",
+            "updated": 1610052622292
+        },
+        {
+            "style": "Title",
+            "text": "Project Data Tasks"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Project Data Tasks->Definition",
+            "updated": 1610052251554
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Data Tasks",
+            "updated": 1610051854969
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Exchange Data Tasks->Definition",
+            "updated": 1610052267040
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Exchange Data Tasks->Content",
+            "updated": 1610052271283
+        },
+        {
+            "style": "Title",
+            "text": "Data Mine Tasks",
+            "updated": 1610051908264
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Mine Tasks->Definition",
+            "updated": 1610052291134
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Mine Tasks->Content",
+            "updated": 1610052294849
+        },
+        {
+            "style": "Title",
+            "text": "Task Manager",
+            "updated": 1610051922962
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task Manager->Definition",
+            "updated": 1610052305576
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task Manager->Content",
+            "updated": 1610052315139
+        },
+        {
+            "style": "Title",
+            "text": "Task"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task->Definition",
+            "updated": 1610052512203
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task->Content",
+            "updated": 1610052515948
+        },
+        {
+            "style": "Callout",
+            "text": "Data tasks may run instances of Indicator Bots or Sensor Bots. We'll cover those two in the next page. Some exchanges may require an API key for downloading certain kinds or amounts of data. Let's look into the Key Reference node.",
+            "updated": 1610104190961,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Задачи данных могут запускать экземпляры ботов-индикаторов или ботов-датчиков. Мы рассмотрим эти два на следующей странице. Некоторым биржам может потребоваться ключ API для загрузки определенных видов или объемов данных. Давайте посмотрим на узел Key Reference.",
+                    "updated": 1638359965647
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "Key Reference",
+            "updated": 1610053470203
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Key Reference->Definition",
+            "updated": 1610053463992
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Key Reference->Content",
+            "updated": 1610053479747
+        }
+    ]
+}

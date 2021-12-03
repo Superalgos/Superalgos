@@ -2,12 +2,26 @@
     "type": "Set Node Arrangement to Vertical Left",
     "definition": {
         "text": "The node adopts a slot on a vertical line to the left of its parent node.",
-        "updated": 1610032236738
+        "updated": 1610032236738,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел занимает слот на вертикальной линии слева от его родительского узла.",
+                "updated": 1638297850926
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638297863075
+                }
+            ]
         }
     ]
 }

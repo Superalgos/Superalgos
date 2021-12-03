@@ -7,6 +7,9 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginTradingMines: addMissingPluginTradingMines,
         addMissingPluginTradingSystems: addMissingPluginTradingSystems,
         addMissingPluginTradingEngines: addMissingPluginTradingEngines,
+        addMissingPluginPortfolioMines: addMissingPluginPortfolioMines,
+        addMissingPluginPortfolioSystems: addMissingPluginPortfolioSystems,
+        addMissingPluginPortfolioEngines: addMissingPluginPortfolioEngines,
         addMissingPluginLearningMines: addMissingPluginLearningMines,
         addMissingPluginLearningSystems: addMissingPluginLearningSystems,
         addMissingPluginLearningEngines: addMissingPluginLearningEngines,
@@ -14,7 +17,8 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginApiMaps: addMissingPluginApiMaps,
         enableSavingWithWorkspace: enableSavingWithWorkspace,
         disableSavingWithWorkspace: disableSavingWithWorkspace,
-        savePlugin: savePlugin,
+        savePluginFile: savePluginFile,
+        savePluginHierarchy: savePluginHierarchy, 
         installAsPlugin: installAsPlugin
     }
     return thisObject
@@ -140,6 +144,54 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         }
     }
 
+    function addMissingPluginPortfolioMines(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Mines', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Mines', 'Portfolio Mine', 'Portfolio-Management')
+        }
+    }
+
+    function addMissingPluginPortfolioSystems(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Systems', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Systems', 'Portfolio System', 'Portfolio-Management')
+        }
+    }
+
+    function addMissingPluginPortfolioEngines(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'Portfolio-Engines', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'Portfolio-Engines', 'Portfolio Engine', 'Portfolio-Management')
+        }
+    }
+
     function addMissingPluginLearningMines(node, rootNodes) {
         let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
         if (projectName === "" || projectName === undefined) {
@@ -232,8 +284,35 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     }
 
-    function savePlugin(node, rootNodes) {
-        UI.projects.communityPlugins.utilities.plugins.savePluginFile(node)
+    function savePluginFile(pluginFile, rootNodes) {
+        UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
+    }
+
+    function savePluginHierarchy(node, rootNodes) {
+        if (node.isPlugin !== true) { return }
+
+        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
+        let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
+        let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
+        let pluginFolderNode = UI.projects.visualScripting.utilities.nodeChildren.findChildByType(pluginProject, pluginForlderNodeType)
+
+        for (let i = 0; i < pluginFolderNode.pluginFiles.length; i++) {
+            let pluginFile = pluginFolderNode.pluginFiles[i]
+            let fileName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
+            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
+            if (codeName === fileName) {
+                UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
+                /*
+                Show nice message.
+                */
+                node.payload.uiObject.setInfoMessage(
+                    "Plugin Saved.",
+                    UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                )
+                return
+            }
+        }
     }
 
     function installAsPlugin(node, rootNodes) {
@@ -250,6 +329,8 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             return
         }
 
-        UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
+        UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
     }
+
+
 }

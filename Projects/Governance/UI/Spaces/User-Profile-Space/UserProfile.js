@@ -61,7 +61,9 @@ function newGovernanceUserProfileSpace() {
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            userProfile.payload.isLoading = true
+            if (userProfile.payload.isLoading === undefined) {
+                userProfile.payload.isLoading = true
+            }
         }
         /*
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')

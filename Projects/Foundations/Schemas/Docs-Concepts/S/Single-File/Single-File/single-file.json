@@ -2,7 +2,14 @@
     "type": "Single-File",
     "definition": {
         "text": "This Dataset contains only one file with all the data in there.",
-        "updated": 1622052957531
+        "updated": 1622052957531,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот набор данных Dataset содержит только один файл со всеми данными.",
+                "updated": 1638297980615
+            }
+        ]
     },
     "paragraphs": [
         {

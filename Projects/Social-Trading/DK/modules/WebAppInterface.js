@@ -7,11 +7,13 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     Later, it will try to use the personal social graph as a cache,
     so as to minimize the requests to Network Nodes.
     */
-    return {
+    let thisObject = {
         messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
     }
+
+    return thisObject
 
     function finalize() {
 
@@ -189,32 +191,34 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         the Network Nodes do not store that info themselves, they just
         store the structure of the social graph.
         */
-        return new Promise((resolve, reject) => {
+        let promise = new Promise((resolve, reject) => {
 
-                const fileName = postHash + ".json"
-                const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
+            const fileName = postHash + ".json"
+            const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
-                const fetch = SA.nodeModules.nodeFetch
-                let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
+            const fetch = SA.nodeModules.nodeFetch
+            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
 
-                fetch(url)
-                    .then((response) => {
+            fetch(url)
+                .then((response) => {
 
-                        if (response.status !== 200) {
-                            reject('Github.com responded with status ' + response.status)
-                            return
-                        }
+                    if (response.status != 200) {
+                        reject('Github.com responded with status ' + response.status)
+                        return
+                    }
 
-                        response.text().then(body => {
-                            post = JSON.parse(body)
-                            resolve(post.postText)
-                        })
+                    response.text().then(body => {
+                        post = JSON.parse(body)
+                        resolve(post.postText)
                     })
-                    .catch(err => {
-                        resolve('Post Text could not be fetched. ' + err.message)
-                    })
+                })
+                .catch(err => {
+                    resolve('Post Text could not be fetched. ' + err.message)
+                })
 
-            }
+        }
         )
+
+        return promise
     }
 }

@@ -71,6 +71,16 @@
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "bot",
+            "label": "Add Portfolio Bot Instance",
+            "relatedUiObject": "Portfolio Bot Instance",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
             "label": "Add Learning Bot Instance",
             "relatedUiObject": "Learning Bot Instance",
             "actionFunction": "payload.executeAction",
@@ -83,6 +93,16 @@
             "propertyToCheckFor": "keyReference",
             "label": "Add Key Reference",
             "relatedUiObject": "Key Reference",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedTasks",
+            "label": "Add Managed Tasks",
+            "relatedUiObject": "Managed Tasks",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
@@ -123,6 +143,11 @@
         {
             "name": "bot",
             "type": "node",
+            "childType": "Portfolio Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
             "childType": "Sensor Bot Instance"
         },
         {
@@ -144,6 +169,11 @@
             "name": "keyReference",
             "type": "node",
             "childType": "Key Reference"
+        },
+        {
+          "name": "managedTasks",
+          "type": "node",
+          "childType": "Managed Tasks"
         },
         {
             "name": "taskServerAppReference",

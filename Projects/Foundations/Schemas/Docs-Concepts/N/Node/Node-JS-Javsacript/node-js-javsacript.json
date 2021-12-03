@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "Eine Task in Superalgos läuft in Node JS, was bedeutet, dass die Bedingungen und Formeln, die Sie in Ihrem Trading System schreiben, der Syntax von Javascript für Node JS entsprechen müssen.",
                 "updated": 1637416496544
+            },
+            {
+                "language": "RU",
+                "text": "Задача в Superalgos выполняется в Node.js, а это означает, что условия и формулы, которые вы пишете в своей торговой системе Trading System, должны соответствовать синтаксису Javascript для Node.js.",
+                "updated": 1638286331533
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Das Gleiche gilt für propertie values in den Configs. Sie müssen gültige Datentypen von Javascript für Node JS sein.",
                     "updated": 1637416588142
+                },
+                {
+                    "language": "RU",
+                    "text": "То же самое и со значениями свойств в конфигах. Они должны быть действительными типами данных Javascript для Node.js.",
+                    "updated": 1638286362094
                 }
             ]
         }

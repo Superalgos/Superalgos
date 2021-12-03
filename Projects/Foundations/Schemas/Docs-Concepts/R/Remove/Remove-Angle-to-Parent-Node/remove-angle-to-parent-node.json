@@ -2,12 +2,26 @@
     "type": "Remove Angle to Parent Node",
     "definition": {
         "text": "The rotational symmetry is disabled and the node may take any position. The connection line with its parent is yellow.",
-        "updated": 1610029243797
+        "updated": 1610029243797,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вращательная симметрия отключена, и узел может принимать любое положение. Линия соединения с родителем желтого цвета.",
+                "updated": 1638288776383
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638288792117
+                }
+            ]
         }
     ]
 }

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Befehl, um die Änderungen zu speichern, die Sie beim Hinzufügen, Löschen oder Bearbeiten von Absätzen in den Docs oder beim Hinzufügen oder Löschen von Seiten vorgenommen haben.",
                 "updated": 1633894161377
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду для сохранения изменений, внесенных вами при добавлении, удалении или редактировании абзацев в документации или добавление / удаление страниц.",
+                "updated": 1637927558252
             }
         ]
     },
@@ -28,7 +33,14 @@
         },
         {
             "style": "Title",
-            "text": "Syntax"
+            "text": "Syntax",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1637927604772
+                }
+            ]
         },
         {
             "style": "Javascript",

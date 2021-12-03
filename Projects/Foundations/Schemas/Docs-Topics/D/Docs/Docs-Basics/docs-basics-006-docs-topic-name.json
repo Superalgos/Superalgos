@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Bezieht sich auf den Namen des Themas. Seiten mit demselben Docs-Thema-Namen gehören zu demselben Thema.",
                 "updated": 1633860169342
+            },
+            {
+                "language": "RU",
+                "text": "Относится к названию темы. Страницы с одинаковым Docs Topic Name относятся к одной и той же теме.",
+                "updated": 1638463832753
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Es gibt keine Seite, die exakt ein Thema beschreibt. Stattdessen wird der Name des Docs-Themas verwendet, um eine Reihe von verwandten Seiten unter einem bestimmten Thema zu gruppieren.",
                     "updated": 1633860255701
+                },
+                {
+                    "language": "RU",
+                    "text": "Там нет страницы, описывающей тему. Вместо этого Docs Topic Name используется для группировки набора связанных страниц по определенной теме.",
+                    "updated": 1638463626687
                 }
             ]
         }

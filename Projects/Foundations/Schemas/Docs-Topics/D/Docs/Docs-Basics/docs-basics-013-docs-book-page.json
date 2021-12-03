@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Ein Buch ist eine Sammlung von topics (Themen), die jeweils ein Kapitel des Buches darstellen.",
                 "updated": 1633863136250
+            },
+            {
+                "language": "RU",
+                "text": "Книга - это набор тем, каждая из которых представляет собой главу в книге.",
+                "updated": 1638464848191
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Ein Buch ist eine eigenständige Seite. Die Seite enthält eine Liste von Themen, die jeweils ein Kapitel des Buches darstellen.",
                     "updated": 1633863164409
+                },
+                {
+                    "language": "RU",
+                    "text": "Книга - это страница сама по себе. На странице представлен список тем, каждая из которых составляет главу в книге.",
+                    "updated": 1638464892604
                 }
             ]
         }

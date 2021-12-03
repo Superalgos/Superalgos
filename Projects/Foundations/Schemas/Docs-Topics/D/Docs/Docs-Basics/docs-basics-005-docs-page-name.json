@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Der Name der Dokumentseite ist nicht nur der sichtbare Name einer Seite, der oben als Haupttitel angezeigt wird, sondern auch der eindeutige Bezeichner einer Seite innerhalb eines Project.",
                 "updated": 1633859779373
+            },
+            {
+                "language": "RU",
+                "text": "Docs Page Name - это не только название страницы, отображаемое в качестве основного заголовка вверху, но и уникальный идентификатор страницы в проекте Project.",
+                "updated": 1638460986853
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Der Seitenname wird immer als Haupttitel der Seite angezeigt, und keine zwei Seiten dürfen denselben Namen haben.",
                     "updated": 1633859841437
+                },
+                {
+                    "language": "RU",
+                    "text": "Название страницы всегда указывается в качестве основного заголовка страницы, и никакие две страницы не могут иметь одинаковое имя.",
+                    "updated": 1638461041771
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Es ist wichtig, bei der Benennung einer Seite an die oben genannten Punkte zu denken. Sie sollten immer einen eindeutigen Namen für die Bezeichnung einer Seite verwenden.",
                     "updated": 1633859935042
+                },
+                {
+                    "language": "RU",
+                    "text": "Важно помнить вышесказанное во время присвоения названия странице. В качестве названия страницы всегда следует использовать однозначное описательное название.",
+                    "updated": 1638461202992
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "DE",
                     "text": "Zu diesem Zeitpunkt kann die Seitennummer nicht innerhalb des Docs-Interface geändert werden. Um die Seitennummer zu ändern, müssen Sie die entsprechende Datei manuell ändern, das Feld Seitennummer bearbeiten und die Seitennummer der Seite im Namen der Datei richtig zuordnen.",
                     "updated": 1633860025392
+                },
+                {
+                    "language": "RU",
+                    "text": "На этом этапе название страницы нельзя изменить в интерфейсе документов. Чтобы изменить название страницы, вам необходимо вручную изменить соответствующий файл, отредактировав поле типа и правильно сопоставив название страницы с именем файла.",
+                    "updated": 1638461297941
                 }
             ]
         },

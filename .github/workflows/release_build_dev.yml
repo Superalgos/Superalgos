@@ -27,7 +27,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.vars.outputs.tag }}.${{ steps.date.outputs.date }}
+          tag_name: ${{ steps.vars.outputs.tag }}-${{ steps.date.outputs.date }}
           release_name: Superalgos-Beta-v${{ steps.vars.outputs.tag }} Snapshot ${{ steps.date.outputs.date }}
           keep_num: 5
           keep_tags: false

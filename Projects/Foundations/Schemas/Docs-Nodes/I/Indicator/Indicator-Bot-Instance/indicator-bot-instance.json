@@ -2,7 +2,14 @@
     "type": "Indicator Bot Instance",
     "definition": {
         "text": "An indicator bot instance is a reference to an Indicator Bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
-        "updated": 1609617888057
+        "updated": 1609617888057,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Indicator Bot Instance - это ссылка на индикаторного бота, как определено в Data Mine. Экземпляр бота запускает определенные процессы и генерирует определенные продукты данных.",
+                "updated": 1638362383799
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -16,7 +23,14 @@
         {
             "style": "Text",
             "text": "The indicator bot instance holds no definitions as to what the bot does. Instead, its processes instances reference the process definitions in the corresponding Data Mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run.",
-            "updated": 1609617815818
+            "updated": 1609617815818,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляр индикаторного бота не содержит определений того, что делает бот. Вместо этого его экземпляры процессов ссылаются на определения процессов в соответствующем элементе иерархии Data Mine. Таким образом экземпляр индикаторного бота получает информацию о том, что ему нужно делать после запуска.",
+                    "updated": 1638362770490
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,7 +38,14 @@
         },
         {
             "style": "Note",
-            "text": "You do not start or stop an indicator bot instance directly. Instead, you start or stop the corresponding task."
+            "text": "You do not start or stop an indicator bot instance directly. Instead, you start or stop the corresponding task.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не запускаете и не останавливаете экземпляр индикаторного бота напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу.",
+                    "updated": 1638362556240
+                }
+            ]
         }
     ]
 }

@@ -2,7 +2,14 @@
     "type": "Tokens Awarded",
     "definition": {
         "text": "The Tokens Awarded node represents the number of tokens you get in reward for your contributions. The node is present on many of the Governance Programs.",
-        "updated": 1630436769778
+        "updated": 1630436769778,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El nodo de tokens otorgados representa la cantidad de tokens que obtiene como recompensa por sus contribuciones. El nodo está presente en muchos de los Governance Programs.",
+                "updated": 1637848415668
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Text",
             "text": "The information on how many tokens the particular program has awarded you is displayed as a notice below the node, along with other relevant information that depends on the context, like the number of people that helped you get them, or the number of claims computed, etc.",
-            "updated": 1630095366072
+            "updated": 1630095366072,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La información sobre cuántos tokens le ha otorgado el programa en particular se muestra como un aviso debajo del nodo, junto con otra información relevante que depende del contexto, como la cantidad de personas que lo ayudaron a obtenerlos o la cantidad de reclamos calculados, etc.",
+                    "updated": 1637848456975
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -23,30 +37,72 @@
         {
             "style": "Note",
             "text": "Each program calculates Tokens Awarded in a particular way. Follow the links below to learn the details about each program.",
-            "updated": 1630324671871
+            "updated": 1630324671871,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cada prgrama calcula Tokens Awarded de un modo particular.Siga los enlaces a continuación para conocer los detalles de cada programa.",
+                    "updated": 1637848524992
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In the Airdrop Program.",
-            "updated": 1630324552707
+            "updated": 1630324552707,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En el Airdrop Program.",
+                    "updated": 1637848536168
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In the Github Program.",
-            "updated": 1630324714648
+            "updated": 1630324714648,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En el  Github Program.",
+                    "updated": 1637848540889
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Community Building Programs node page explains how Tokens Awarded is calculated for the referral, support, and mentorship programs.",
-            "updated": 1630324749961
+            "updated": 1630324749961,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La página de los nodos de Community Building Programs  explica como el Tokens Awarded es calculado para los programas de referido, soporte y mentoria.",
+                    "updated": 1637848710841
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The How Claims are Resolved page explains how tokens are awarded in the Claims Program."
+            "text": "The How Claims are Resolved page explains how tokens are awarded in the Claims Program.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La página How Claims are Resolved ( Cómo se resuelven las solicitudes ) explica como los tokens son recompensados en el Claims Program.",
+                    "updated": 1637848835630
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "In the Staking Program."
+            "text": "In the Staking Program.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En el Staking Program.",
+                    "updated": 1637848846372
+                }
+            ]
         },
         {
             "style": "Text",

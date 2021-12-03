@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "CCXT es una biblioteca de código abierto popular que tiene como objetivo estandarizar los exchanges de criptomonedas APIs para que sea más fácil para los trading bots developers to access crypto exchanges.",
                 "updated": 1636383036907
+            },
+            {
+                "language": "RU",
+                "text": "CCXT - популярная библиотека с открытым исходным кодом, цель которой - стандартизировать API криптобирж, чтобы облегчить разработчикам торговых ботов доступ к криптобиржам.",
+                "updated": 1638280629384
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "ES",
                     "text": "Superalgos usa esta blilioteca para buscar candles ( velas) de un minuto de los exchanges como la pieza clave de información con la cual luego se construye el resto de los indicadores. Es también utilizada para colocar órdenes del LF Trading Bot.",
                     "updated": 1636383060758
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos использует эту библиотеку для получения одноминутных свечей с бирж в качестве необработанной информации, которая позже строит остальные индикаторы. Он также использует его для размещения заказов от LF Trading Bot.",
+                    "updated": 1638280662878
                 }
             ]
         }

@@ -1,0 +1,130 @@
+{
+    "type": "Live Portfolio Session",
+    "menuItems": [
+        {
+            "action": "Run Portfolio Session",
+            "label": "Run",
+            "workingLabel": "Run Request Sent",
+            "workDoneLabel": "Session Running",
+            "workFailedLabel": "Session Cannot be Run",
+            "secondaryAction": "Stop Portfolio Session",
+            "secondaryLabel": "Stop",
+            "secondaryWorkingLabel": "Stopping...",
+            "secondaryWorkDoneLabel": "Session Stopped",
+            "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+            "secondaryIcon": "stop",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Portfolio-Management"
+        },
+        {
+            "action": "Resume Portfolio Session",
+            "label": "Resume",
+            "workingLabel": "Resume Request Sent",
+            "workDoneLabel": "Session Running",
+            "workFailedLabel": "Session Cannot be Resumed",
+            "secondaryAction": "Stop Portfolio Session",
+            "secondaryLabel": "Stop",
+            "secondaryWorkingLabel": "Stopping...",
+            "secondaryWorkDoneLabel": "Session Stopped",
+            "secondaryWorkFailedLabel": "Session Cannot be Stopped",
+            "secondaryIcon": "stop",
+            "iconPathOn": "resume",
+            "iconPathOff": "resume",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Portfolio-Management"
+        },
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Social Bots",
+            "relatedUiObject": "Social Bots",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedSessions",
+            "label": "Add Managed Sessions",
+            "relatedUiObject": "Managed Sessions",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"folderName\": \"Your-Session-Folder-Name\"\n}"
+    },
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Portfolio System->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Process Instance->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "portfolioParameters",
+            "type": "node",
+            "childType": "Portfolio Parameters",
+            "autoAdd": true
+        },
+        {
+            "name": "portfolioSystemReference",
+            "type": "node",
+            "childType": "Portfolio System Reference",
+            "autoAdd": true
+        },
+        {
+            "name": "portfolioEngineReference",
+            "type": "node",
+            "childType": "Portfolio Engine Reference",
+            "autoAdd": true
+        },
+        {
+            "name": "socialBots",
+            "type": "node",
+            "childType": "Social Bots",
+            "project": "Social-Bots"
+        },
+        {
+          "name": "managedSessions",
+          "type": "node",
+          "childType": "Managed Sessions"
+        }
+    ],
+    "propertyNameAtParent": "session"
+}

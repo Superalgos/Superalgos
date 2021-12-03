@@ -39,9 +39,9 @@ function newCommunityPluginsActionSwitch() {
                 }
                 break
             case 'Add Specified Plugin Data Mine':
-            {
-                UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addSpecifiedPluginDataMine(action.node, action.rootNodes)
-            }
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addSpecifiedPluginDataMine(action.node, action.rootNodes)
+                }
                 break
             case 'Add Missing Plugin Trading Mines':
                 {
@@ -56,6 +56,21 @@ function newCommunityPluginsActionSwitch() {
             case 'Add Missing Plugin Trading Engines':
                 {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Portfolio Mines':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginPortfolioMines(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Portfolio Systems':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginPortfolioSystems(action.node, action.rootNodes)
+                }
+                break
+            case 'Add Missing Plugin Portfolio Engines':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.addMissingPluginPortfolioEngines(action.node, action.rootNodes)
                 }
                 break
             case 'Add Missing Plugin Learning Mines':
@@ -93,9 +108,14 @@ function newCommunityPluginsActionSwitch() {
                     UI.projects.communityPlugins.functionLibraries.pluginsFunctions.disableSavingWithWorkspace(action.node, action.rootNodes, action.callBackFunction)
                 }
                 break
+            case 'Save Plugin File':
+                {
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginFile(action.node, action.rootNodes)
+                }
+                break
             case 'Save Plugin':
                 {
-                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePlugin(action.node, action.rootNodes)
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginHierarchy(action.node, action.rootNodes)
                 }
                 break
 

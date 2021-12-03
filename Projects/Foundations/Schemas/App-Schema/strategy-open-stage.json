@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Current->"
+        "compatibleTypes": "->Trading Current->Portfolio Current->"
     },
     "propertyNameAtParent": "strategyOpenStage",
     "childrenNodesProperties": [

@@ -17,7 +17,7 @@
                     "situations": [
                         {
                             "type": "Situation",
-                            "name": "EMA crossover",
+                            "name": "Crossover",
                             "project": "Foundations",
                             "conditions": [
                                 {
@@ -27,17 +27,17 @@
                                     "javascriptCode": {
                                         "type": "Javascript Code",
                                         "name": "New Javascript Code",
-                                        "code": "chart.at01hs.EMA.previous.ema1 < chart.at01hs.EMA.previous.ema2",
+                                        "code": "chart.at01hs.EMA.ema1 > chart.at01hs.EMA.ema2 && chart.at01hs.EMA.previous.ema1 < chart.at01hs.EMA.previous.ema2",
                                         "project": "Foundations",
-                                        "id": "c4e9205d-5729-4c06-92ab-6c48ca195f9b",
+                                        "id": "eac8aa9b-2ead-4376-8ea2-aaf1a276c568",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 29767.05237465183,
-                                                "y": 30529.07127139445
+                                                "x": 30145.01097090622,
+                                                "y": 29906.8528149571
                                             },
                                             "targetPosition": {
-                                                "x": 30066.6412350782,
-                                                "y": 30513.370484521565
+                                                "x": 30357.143005262184,
+                                                "y": 30118.984849313063
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -52,71 +52,15 @@
                                             }
                                         }
                                     },
-                                    "id": "3a2d3669-04fb-43dc-9f4f-1fc14643dec3",
+                                    "id": "9d9ff49e-cb3b-4f2c-a562-3d33beb8fe32",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 30066.6412350782,
-                                            "y": 30513.370484521565
+                                            "x": 30357.143005262184,
+                                            "y": 30118.984849313063
                                         },
                                         "targetPosition": {
-                                            "x": 30366.230095504572,
-                                            "y": 30497.669697648682
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Condition",
-                                    "name": "Crossover",
-                                    "code": "chart.at24hs.Fisher.begin > chart.at24hs.Fisher.begin",
-                                    "project": "Foundations",
-                                    "javascriptCode": {
-                                        "type": "Javascript Code",
-                                        "name": "New Javascript Code",
-                                        "code": "chart.at01hs.EMA.ema1 > chart.at01hs.EMA.ema2",
-                                        "project": "Foundations",
-                                        "id": "b7f0dd1f-4d65-417a-b815-0fe0b138229e",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 30039.446674495557,
-                                                "y": 29994.46735688143
-                                            },
-                                            "targetPosition": {
-                                                "x": 30202.838385000065,
-                                                "y": 30246.068527265055
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    "id": "8dbc8bd5-b3a9-48b5-945b-881bf38b216b",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 30202.838385000065,
-                                            "y": 30246.068527265055
-                                        },
-                                        "targetPosition": {
-                                            "x": 30366.230095504572,
-                                            "y": 30497.669697648682
+                                            "x": 30569.275039618147,
+                                            "y": 30331.116883669027
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -132,7 +76,7 @@
                                     }
                                 }
                             ],
-                            "id": "66bd082e-2824-46c5-9791-d650ca28276d",
+                            "id": "567cfdbe-b067-4990-9611-dbfba9b9a793",
                             "savedPayload": {
                                 "position": {
                                     "x": 30569.275039618147,
@@ -145,7 +89,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -157,7 +101,7 @@
                         }
                     ],
                     "announcements": [],
-                    "id": "e6cb0b5d-da60-4cf1-9d0a-cce48aacdfdb",
+                    "id": "fc232171-151c-471b-a0b8-6ad2f7cb6adf",
                     "savedPayload": {
                         "position": {
                             "x": 30781.40707397411,
@@ -186,7 +130,7 @@
                     "situations": [
                         {
                             "type": "Situation",
-                            "name": "EMA Crossunder",
+                            "name": "Crossunder",
                             "project": "Foundations",
                             "conditions": [
                                 {
@@ -195,17 +139,17 @@
                                     "project": "Foundations",
                                     "javascriptCode": {
                                         "type": "Javascript Code",
-                                        "code": "chart.at01hs.EMA.ema1 < chart.at01hs.EMA.ema2",
+                                        "code": "chart.at01hs.EMA.ema1 < chart.at01hs.EMA.ema2 && chart.at01hs.EMA.previous.ema1 > chart.at01hs.EMA.previous.ema2",
                                         "project": "Foundations",
-                                        "id": "b4730ec2-fbc3-4b6c-b36e-71f1d4a5816e",
+                                        "id": "f47f7cc3-395f-4a45-9e6e-21f02a522e3a",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 30128.535252952344,
-                                                "y": 30074.683073224664
+                                                "x": 30993.539108330075,
+                                                "y": 29555.380952380954
                                             },
                                             "targetPosition": {
-                                                "x": 30421.979533172485,
-                                                "y": 30137.05658046999
+                                                "x": 30993.539108330075,
+                                                "y": 29855.380952380954
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -220,70 +164,15 @@
                                             }
                                         }
                                     },
-                                    "id": "7dde214e-8ecf-4541-bdab-9768c8236f65",
+                                    "id": "13378aa9-2623-4f2b-a300-158a35bf46d6",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 30421.979533172485,
-                                            "y": 30137.05658046999
+                                            "x": 30993.539108330075,
+                                            "y": 29855.380952380954
                                         },
                                         "targetPosition": {
-                                            "x": 30715.423813392626,
-                                            "y": 30199.43008771532
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 1,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Condition",
-                                    "name": "New Condition",
-                                    "project": "Foundations",
-                                    "javascriptCode": {
-                                        "type": "Javascript Code",
-                                        "name": "New Javascript Code",
-                                        "code": "chart.at01hs.EMA.previous.ema1 > chart.at01hs.EMA.previous.ema2",
-                                        "project": "Foundations",
-                                        "id": "82a1f178-10f4-4d9f-a41c-56f6e0cab768",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 31116.902177207943,
-                                                "y": 29753.543192428882
-                                            },
-                                            "targetPosition": {
-                                                "x": 30916.162995300285,
-                                                "y": 29976.4866400721
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    "id": "f5c13131-c464-4510-9648-38be2d1905a5",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 30916.162995300285,
-                                            "y": 29976.4866400721
-                                        },
-                                        "targetPosition": {
-                                            "x": 30715.423813392626,
-                                            "y": 30199.43008771532
+                                            "x": 30993.539108330075,
+                                            "y": 30155.380952380954
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -299,7 +188,7 @@
                                     }
                                 }
                             ],
-                            "id": "7f57d1a7-6c2f-4483-a3cc-2c04cb187cf3",
+                            "id": "2f91ed82-f85d-4b30-b255-465382b39a6f",
                             "savedPayload": {
                                 "position": {
                                     "x": 30993.539108330075,
@@ -312,7 +201,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 3,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -324,7 +213,7 @@
                         }
                     ],
                     "announcements": [],
-                    "id": "b2e64101-d51b-4c7b-9cd7-11df40ec6169",
+                    "id": "0e26f382-b651-4f73-98a3-90e154012560",
                     "savedPayload": {
                         "position": {
                             "x": 30993.539108330075,
@@ -365,7 +254,7 @@
                                         "name": "New Javascript Code",
                                         "code": "true",
                                         "project": "Foundations",
-                                        "id": "108efe9b-0e78-4650-95fa-5f47ea4566c3",
+                                        "id": "b88c81e8-4f12-46bc-9d3f-2be795784a46",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 31445.622609705046,
@@ -388,7 +277,7 @@
                                             }
                                         }
                                     },
-                                    "id": "5c513fb3-8787-41ba-87e9-09e2611b26ae",
+                                    "id": "8a94a57d-7752-4eb7-ac6c-587af40cef77",
                                     "savedPayload": {
                                         "position": {
                                             "x": 31309.425459783182,
@@ -412,7 +301,7 @@
                                     }
                                 }
                             ],
-                            "id": "7be78fed-0640-4023-910b-b1404f16bd3a",
+                            "id": "ef049a10-10d0-4cd0-8174-b114c669860b",
                             "savedPayload": {
                                 "position": {
                                     "x": 31173.22830986132,
@@ -437,7 +326,7 @@
                         }
                     ],
                     "announcements": [],
-                    "id": "09472203-67ee-4eba-ac2f-1f3cb48226df",
+                    "id": "6f7e0b1f-883b-4e9f-a997-4e531da4eb41",
                     "savedPayload": {
                         "position": {
                             "x": 31205.67114268604,
@@ -461,7 +350,7 @@
                     }
                 },
                 "announcements": [],
-                "id": "e4f2b5cb-2cb8-4619-9de3-c066aaa1a214",
+                "id": "829fe6d9-f8e8-44a7-8175-a884132e7497",
                 "savedPayload": {
                     "position": {
                         "x": 30993.539108330075,
@@ -502,7 +391,7 @@
                             "name": "Entry Target Rate",
                             "code": "tradingEngine.tradingCurrent.tradingEpisode.candle.close.value",
                             "project": "Foundations",
-                            "id": "f8736b16-edde-45a2-b565-49673a3d524e",
+                            "id": "3c57e8dc-6924-48b4-8275-3345e2535577",
                             "savedPayload": {
                                 "position": {
                                     "x": 31853.346729465407,
@@ -525,7 +414,7 @@
                                 }
                             }
                         },
-                        "id": "db001dc4-af5f-4059-a17c-0ce7c5583f78",
+                        "id": "934af723-db70-4eb3-bc63-1439c7669173",
                         "savedPayload": {
                             "position": {
                                 "x": 31703.346729465407,
@@ -557,7 +446,7 @@
                             "name": "Target Size in Quoted Asset",
                             "code": "tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value\n",
                             "project": "Foundations",
-                            "id": "c45c5654-232e-4ebe-a0eb-8103901a3fb6",
+                            "id": "801ccf6e-6b49-4433-8f3d-f6217c6caab7",
                             "savedPayload": {
                                 "position": {
                                     "x": 32153.346729465407,
@@ -580,7 +469,7 @@
                                 }
                             }
                         },
-                        "id": "726c5b24-7420-4496-84fb-9ada5054e1b3",
+                        "id": "40607c04-0955-4e90-9367-d4a26806833a",
                         "savedPayload": {
                             "position": {
                                 "x": 31853.346729465407,
@@ -603,7 +492,7 @@
                             }
                         }
                     },
-                    "id": "1350ac22-df5a-422e-bce3-771e15a3c75f",
+                    "id": "298964cc-3b37-4019-b576-6f9a96b1dacd",
                     "savedPayload": {
                         "position": {
                             "x": 31553.346729465407,
@@ -640,7 +529,7 @@
                                 {
                                     "type": "Market Buy Order",
                                     "name": "New Market Buy Order",
-                                    "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}",
+                                    "config": "{\n\"percentageOfAlgorithmSize\": 20, \n\"spawnMultipleOrders\": true \n}",
                                     "project": "Foundations",
                                     "createOrderEvent": {
                                         "type": "Create Order Event",
@@ -659,9 +548,9 @@
                                                         "javascriptCode": {
                                                             "type": "Javascript Code",
                                                             "name": "New Javascript Code",
-                                                            "code": "chart.at01hs.WEMAsignal.signal > 0.5 && chart.at01hs.WEMAsignal.signal >= chart.at01hs.WEMAsignal.previous.signal",
+                                                            "code": "chart.at01hs.WEMAsignal.signal >= 0.5 ",
                                                             "project": "Foundations",
-                                                            "id": "8596b4b4-d567-4c5d-868e-65e6688c5e70",
+                                                            "id": "05bd7461-7d39-4620-ad3e-62ca086103c7",
                                                             "savedPayload": {
                                                                 "position": {
                                                                     "x": 33112.1924562774,
@@ -684,7 +573,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "id": "71d536ee-8221-4903-981e-03e98374cbb8",
+                                                        "id": "8b212c49-db16-4604-ab38-c75386fe0ae8",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 32852.38483514207,
@@ -708,7 +597,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "cc73b406-6cb8-45cd-9173-4565e2355337",
+                                                "id": "602edc66-1cda-4517-80b0-8b70b8e837cd",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 32592.57721400674,
@@ -733,7 +622,7 @@
                                             }
                                         ],
                                         "announcements": [],
-                                        "id": "4874e11f-9b13-4da0-ba2f-a48b6e50ab89",
+                                        "id": "c155e10a-1cc7-48e6-b1f0-a8bd33f39710",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 32332.769592871406,
@@ -756,7 +645,7 @@
                                             }
                                         }
                                     },
-                                    "id": "321a9446-757c-4f6b-bd08-b251cc5743dc",
+                                    "id": "9790e36e-c011-420a-b37b-02411270d505",
                                     "savedPayload": {
                                         "position": {
                                             "x": 32072.961971736073,
@@ -814,7 +703,7 @@
                             "marketSellOrders": [],
                             "limitBuyOrders": [],
                             "limitSellOrders": [],
-                            "id": "9b82b9ad-205e-4bea-82ca-c51ba13e8a31",
+                            "id": "bca241c1-d104-4f57-82cf-910871e45362",
                             "savedPayload": {
                                 "position": {
                                     "x": 31813.15435060074,
@@ -839,7 +728,7 @@
                             }
                         }
                     ],
-                    "id": "ccf4976a-236f-4856-9061-bde952db5e57",
+                    "id": "66b8730e-850a-4a29-a205-5a81725e93b7",
                     "savedPayload": {
                         "position": {
                             "x": 31553.346729465407,
@@ -863,7 +752,7 @@
                     }
                 },
                 "announcements": [],
-                "id": "2b77a85e-6bb5-4c68-997c-c9fce2b84388",
+                "id": "9059702a-8b3a-47e2-a0a6-c2bd0e4397a8",
                 "savedPayload": {
                     "position": {
                         "x": 31293.539108330075,
@@ -903,7 +792,7 @@
                             "name": "Target Rate Formula",
                             "code": "tradingEngine.tradingCurrent.tradingEpisode.candle.close.value",
                             "project": "Foundations",
-                            "id": "08cd7f3b-d747-44c5-a69e-99303464414f",
+                            "id": "699d2c78-c689-4b1c-baad-43256bdfa585",
                             "savedPayload": {
                                 "position": {
                                     "x": 31663.15435060074,
@@ -926,7 +815,7 @@
                                 }
                             }
                         },
-                        "id": "10599ce9-11ac-4093-b633-fd8b9665d991",
+                        "id": "fe062d57-7da6-4773-bfec-5809514f3c66",
                         "savedPayload": {
                             "position": {
                                 "x": 31403.346729465407,
@@ -958,7 +847,7 @@
                             "name": "New Formula",
                             "code": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value",
                             "project": "Foundations",
-                            "id": "50bc8bac-b0e4-462c-85c1-3767a4e5076f",
+                            "id": "20b4c043-a62c-458c-b0dd-9d9f0fe8e5a9",
                             "savedPayload": {
                                 "position": {
                                     "x": 31143.539108330075,
@@ -981,7 +870,7 @@
                                 }
                             }
                         },
-                        "id": "ba2f4863-486a-4215-a8dd-dac6b357c439",
+                        "id": "c89cb5c4-d81c-4232-8086-c3fcfc1b2c48",
                         "savedPayload": {
                             "position": {
                                 "x": 31143.539108330075,
@@ -1004,7 +893,7 @@
                             }
                         }
                     },
-                    "id": "aedbcfb2-3a10-4f76-ad0f-67d6952d6cb7",
+                    "id": "558b4a55-7cbd-4794-a3ad-009015aca2f3",
                     "savedPayload": {
                         "position": {
                             "x": 31143.539108330075,
@@ -1041,7 +930,7 @@
                                 {
                                     "type": "Market Sell Order",
                                     "name": "New Market Sell Order",
-                                    "config": "{\n\"percentageOfAlgorithmSize\": 100, \n\"spawnMultipleOrders\": false \n}",
+                                    "config": "{\n\"percentageOfAlgorithmSize\": 20, \n\"spawnMultipleOrders\": true \n}",
                                     "project": "Foundations",
                                     "createOrderEvent": {
                                         "type": "Create Order Event",
@@ -1060,9 +949,9 @@
                                                         "javascriptCode": {
                                                             "type": "Javascript Code",
                                                             "name": "New Javascript Code",
-                                                            "code": "chart.at01hs.WEMAsignal.previous.signal >= 0.5 && chart.at01hs.WEMAsignal.signal < 0.5",
+                                                            "code": "chart.at01hs.WEMAsignal.signal < 0.5",
                                                             "project": "Foundations",
-                                                            "id": "d129d107-2206-4230-adaf-4976981c397d",
+                                                            "id": "e1fe9c08-832a-4411-9a46-19dad548583e",
                                                             "savedPayload": {
                                                                 "position": {
                                                                     "x": 30626.476248922347,
@@ -1085,7 +974,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "id": "197420ae-f425-41ac-b4b4-d10a61c964ba",
+                                                        "id": "ad126cf6-3be8-431c-9221-d23ed5a9b318",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 30548.83053539159,
@@ -1109,7 +998,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "f1ba99a2-6819-44b5-9087-a24855b4b48a",
+                                                "id": "e801551a-f69e-4433-bcf4-070b750fa909",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 30471.184821860832,
@@ -1144,9 +1033,9 @@
                                                         "javascriptCode": {
                                                             "type": "Javascript Code",
                                                             "name": "New Javascript Code",
-                                                            "code": "tradingEngine.tradingCurrent.tradingEpisode.candle.close.value >= tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.30",
+                                                            "code": "tradingEngine.tradingCurrent.tradingEpisode.candle.close.value >= tradingEngine.tradingCurrent.position.entryTargetRate.value * 1.17",
                                                             "project": "Foundations",
-                                                            "id": "67ae2544-d4ec-4fcd-beaa-6768984bbf48",
+                                                            "id": "f6578611-b4d5-4cb8-84a5-af567b367c55",
                                                             "savedPayload": {
                                                                 "position": {
                                                                     "x": 29943.539108330075,
@@ -1169,7 +1058,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "id": "03b9f164-f638-41c7-ad06-94cfeca007e7",
+                                                        "id": "ed0fb6c0-acf8-402f-9b62-21f9f6a2d204",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 30093.539108330075,
@@ -1193,7 +1082,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "3a2b7b7d-36a4-42d4-9147-4112115c53f7",
+                                                "id": "9f1e5745-3edc-4c75-96a7-806c90146778",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 30243.539108330075,
@@ -1230,7 +1119,7 @@
                                                             "name": "New Javascript Code",
                                                             "code": "tradingEngine.tradingCurrent.tradingEpisode.candle.close.value < 0.99 * tradingEngine.tradingCurrent.position.entryTargetRate.value",
                                                             "project": "Foundations",
-                                                            "id": "2b58539e-d6c9-4c81-aa81-d0f6d762f8f8",
+                                                            "id": "49d2a48c-caab-4ce6-9430-809c9f68345d",
                                                             "savedPayload": {
                                                                 "position": {
                                                                     "x": 29524.20586466991,
@@ -1253,7 +1142,7 @@
                                                                 }
                                                             }
                                                         },
-                                                        "id": "55eb23dc-b9c8-4ed3-be4b-cceee33097ce",
+                                                        "id": "caaf0c1e-4faa-439c-b80e-53ffa2774540",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 29813.983612556633,
@@ -1277,7 +1166,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "ce8433b3-1764-477d-b7fe-cb37c3e21f6c",
+                                                "id": "e8fe9bbc-b9d8-4177-b291-e1e88952ea07",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 30103.761360443354,
@@ -1302,7 +1191,7 @@
                                             }
                                         ],
                                         "announcements": [],
-                                        "id": "7d35f880-508f-4de0-b8b4-1779fd3f85d0",
+                                        "id": "fd3e6184-de9d-440d-8d1b-cc0f68f227bf",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 30393.539108330075,
@@ -1325,7 +1214,7 @@
                                             }
                                         }
                                     },
-                                    "id": "208a3dfa-fd43-4d88-97e9-cd72b9b7cf13",
+                                    "id": "bacbbd95-ce0d-49de-9991-4820ea678296",
                                     "savedPayload": {
                                         "position": {
                                             "x": 30543.539108330075,
@@ -1382,7 +1271,7 @@
                             ],
                             "limitBuyOrders": [],
                             "limitSellOrders": [],
-                            "id": "e628be12-6c65-4c84-87f1-93b9743e3ff3",
+                            "id": "abf3b874-e889-4735-bb49-6e3cf7b0dbd1",
                             "savedPayload": {
                                 "position": {
                                     "x": 30693.539108330075,
@@ -1406,7 +1295,7 @@
                             }
                         }
                     ],
-                    "id": "e05fc323-fde9-4b43-9559-fb88abf5f3e3",
+                    "id": "d070d00a-5728-4ff7-8763-95e52e7eee86",
                     "savedPayload": {
                         "position": {
                             "x": 30843.539108330075,
@@ -1430,7 +1319,7 @@
                     }
                 },
                 "announcements": [],
-                "id": "be7862dd-f241-4b73-9faf-ca0fb9bee6b7",
+                "id": "392a1c94-23e2-45ac-bc59-f10284ec2f16",
                 "savedPayload": {
                     "position": {
                         "x": 30993.539108330075,
@@ -1453,7 +1342,7 @@
                     }
                 }
             },
-            "id": "85ed96f4-8744-43ce-a7ca-d7277f3e8183",
+            "id": "889d297a-c62d-4fcb-b7bc-1e6526111891",
             "savedPayload": {
                 "position": {
                     "x": 30993.539108330075,
@@ -1466,7 +1355,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -1477,7 +1366,7 @@
             }
         }
     ],
-    "id": "e9a1f6f4-7f43-4355-921e-a4f24375de5f",
+    "id": "9e13804e-0aca-4773-960a-fbe37184f0c6",
     "savedPayload": {
         "position": {
             "x": 30693.539108330075,

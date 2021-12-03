@@ -4,7 +4,14 @@
     "type": "App Error - Update Failed",
     "definition": {
         "text": "There was a problem trying to update the Client. Check the console for errors and make sure your GitHub.com credentials are correct.",
-        "updated": 1611129344277
+        "updated": 1611129344277,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es gab ein Problem beim aktualisieren ihres client`s. Überprüfen sie die Konsole nach error-Meldungen und vergewissern sie sich, das ihre Github.com credentials korrekt sind.",
+                "updated": 1637772440444
+            }
+        ]
     },
     "paragraphs": [
         {

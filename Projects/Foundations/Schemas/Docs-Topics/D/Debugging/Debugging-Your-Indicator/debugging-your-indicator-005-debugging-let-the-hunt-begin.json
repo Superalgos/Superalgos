@@ -11,6 +11,11 @@
                 "text": "Use F11 to zoom in to the code once it stops at the breaking point, and use F5 to take it step by step forward. ",
                 "updated": 1614338803641,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Verwenden Sie F11, um in den Code zu zoomen, sobald er am breaking point anhält, und verwenden Sie F5, um ihn Schritt für Schritt weiterzuverfolgen.",
+                "updated": 1637875078405
             }
         ]
     },
@@ -18,12 +23,26 @@
         {
             "style": "Title",
             "text": "Ssssh, be quiet... wait for it...",
-            "updated": 1614512153973
+            "updated": 1614512153973,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Pssst, sei still... warte ...",
+                    "updated": 1637875098578
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "As soon as the data for your indicator is being processed, your IDE will pause the process at the break point we set earlier...",
-            "updated": 1614512188902
+            "updated": 1614512188902,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sobald die Daten für Ihren Indikator verarbeitet werden, hält Ihre IDE den Prozess an dem zuvor festgelegten break point an...",
+                    "updated": 1637875140804
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -31,12 +50,26 @@
         },
         {
             "style": "Text",
-            "text": "... allowing you to zoom in to the details what's really going on."
+            "text": "... allowing you to zoom in to the details what's really going on.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "...so dass Sie in die Details zoomen können, um zu sehen was wirklich vor sich geht.",
+                    "updated": 1637875228203
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Keep an eye out for when your Breaking point changes from a dot to an arrow.",
-            "updated": 1614334261604
+            "updated": 1614334261604,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, wann Ihr Breaking Point von einem Punkt zu einem Pfeil wird.",
+                    "updated": 1637875252248
+                }
+            ]
         },
         {
             "style": "Png",
@@ -50,15 +83,36 @@
         },
         {
             "style": "Text",
-            "text": "Use F11 to zoom into the code and F5 to step forward."
+            "text": "Use F11 to zoom into the code and F5 to step forward.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutze F11 um in den code zu zoomen und F5 um einen Schritt weiterzugehen.",
+                    "updated": 1637875286767
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Keep stepping forward to follow the flow of data."
+            "text": "Keep stepping forward to follow the flow of data.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Treten Sie weiter vor, um dem Datenfluss zu folgen.",
+                    "updated": 1637875300199
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Monitor what's going on in the code, and hover over your variables to check what values they get."
+            "text": "Monitor what's going on in the code, and hover over your variables to check what values they get.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beobachten Sie, was im Code vor sich geht, und schweben sie mit ihrer Maus über Ihre Variablen, um zu sehen, welche Werte sie erhalten.",
+                    "updated": 1637875367673
+                }
+            ]
         },
         {
             "style": "Png",
@@ -66,9 +120,16 @@
             "updated": 1623411423507
         },
         {
-            "style": "Note",
-            "text": "Tip: In cases where the values turn to \"NaN\" or stays \"undefined\" without a logical reason - There's a point to raise doubt.",
-            "updated": 1614512232138
+            "style": "Success",
+            "text": "In cases where the values turn to \"NaN\" or stays \"undefined\" without a logical reason - There's a point to raise doubt.",
+            "updated": 1637882309343,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In Fällen, in denen die Werte ohne logischen Grund zu \"NaN\" werden oder \"undefiniert\" bleiben, ist es angebracht, Zweifel zu äußern.",
+                    "updated": 1637875568347
+                }
+            ]
         }
     ]
 }

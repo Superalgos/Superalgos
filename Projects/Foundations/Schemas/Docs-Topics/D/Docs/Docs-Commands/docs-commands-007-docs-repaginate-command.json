@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Wenn Sie eine Docs Topic Page oder eine Docs Tutorial Page hinzufügen, können Sie eine Seitenzahl definieren. Die Nummer bestimmt die Position der Seite im Inhaltsverzeichnis. Um eine Seite zwischen anderen Seiten einzufügen, können Sie Dezimalwerte verwenden. Verwenden Sie den Befehl Repaginate, um alle Seitenzahlen neu zu berechnen und den gesamten Satz in ganzen Zahlen zu belassen.",
                 "updated": 1633895007044
+            },
+            {
+                "language": "RU",
+                "text": "Когда вы добавляете страницу Docs Topic Page или страницу Docs Tutorial Page, вы можете указать номер страницы. Число определяет положение страницы в оглавлении. Чтобы добавить страницу между другими страницами, вы можете использовать десятичные значения. Используйте команду Repaginate, чтобы пересчитать все номера страниц и составить весь набор в целых числах.",
+                "updated": 1638465473279
             }
         ]
     },
@@ -23,12 +28,24 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass Sie sich mit der Superalgos Documentation  Gruppe beraten, bevor Sie den Befehl Docs Repaginate für bestehende Themen oder Tutorials verwenden. Die Repaginierung ändert alle Dateien in der Sammlung. Aus diesem Grund kann der Befehl zu Konflikten mit anderen Benutzern führen, die ebenfalls an diesen Dateien arbeiten.",
                     "updated": 1633895079781
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно проконсультируйтесь с группой по документации Superalgos (Superalgos Documentation Group), прежде чем использовать команду Docs Repaginate для существующих тем или учебных пособий. При повторной компоновке изменяются все файлы в коллекции. По этой причине команда может быть подвержена конфликтам с другими пользователями, которые также могут работать с этими файлами.",
+                    "updated": 1638466508210
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Syntax"
+            "text": "Syntax",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1638465802167
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -36,7 +53,14 @@
         },
         {
             "style": "Title",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638465812184
+                }
+            ]
         },
         {
             "style": "List",
@@ -46,6 +70,11 @@
                     "language": "DE",
                     "text": "Category: Es muss entweder ein Topic oder Tutorial sein.",
                     "updated": 1633895143925
+                },
+                {
+                    "language": "RU",
+                    "text": "Категория: это должна быть тема Topic или учебное пособие Tutorial.",
+                    "updated": 1638466087699
                 }
             ]
         },
@@ -57,6 +86,11 @@
                     "language": "DE",
                     "text": "Project:  Jedes bestehende, bereits integrierte project.",
                     "updated": 1633895168329
+                },
+                {
+                    "language": "RU",
+                    "text": "Проект: Любой существующий уже интегрированный проект.",
+                    "updated": 1638465970101
                 }
             ]
         },
@@ -69,6 +103,11 @@
                     "language": "DE",
                     "text": "Topic or Tutorial name: Der Name des Topic oder Tutorial, das Sie neu veröffentlichen möchten.",
                     "updated": 1633895204521
+                },
+                {
+                    "language": "RU",
+                    "text": "Название темы или учебного пособия: название, присвоенное теме или учебному пособию, которые вы хотите изменить.",
+                    "updated": 1638466049307
                 }
             ]
         },
@@ -80,6 +119,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633895096256
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638466112303
                 }
             ]
         },
@@ -95,6 +139,11 @@
                     "language": "DE",
                     "text": "Benutzung",
                     "updated": 1633895223510
+                },
+                {
+                    "language": "RU",
+                    "text": "Использование",
+                    "updated": 1638466140836
                 }
             ]
         },
@@ -107,6 +156,11 @@
                     "language": "DE",
                     "text": "Nachdem Sie ein Thema oder ein Tutorial repaginiert haben, löschen Sie am besten alle Dateien, die mit diesem Thema / Tutorial verbunden sind, manuell von der Festplatte. Nachdem Sie sie gelöscht haben, führen Sie den Befehl repaginate und anschließend den Befehl docs.save aus.",
                     "updated": 1633895303843
+                },
+                {
+                    "language": "RU",
+                    "text": "После повторной компоновки темы или учебного пособия лучший способ продолжить - вручную удалить с диска все файлы, связанные с этой темой / учебным пособием. После их удаления вы выполняете команду docs.repaginate, а затем команду docs.save.",
+                    "updated": 1638466670298
                 }
             ]
         },
@@ -119,6 +173,11 @@
                     "language": "DE",
                     "text": "Die Neuverteilung kennzeichnet alle Dateien dieses Topic / Tutorial als geändert, so dass Sie sich nicht um die gelöschten Dateien kümmern müssen, da sie alle neu erstellt werden.",
                     "updated": 1633895347236
+                },
+                {
+                    "language": "RU",
+                    "text": "Перекомпоновка помечает все файлы в этой теме / учебнике как измененные, поэтому вам не нужно беспокоиться об удаленных файлах, поскольку все они будут созданы заново.",
+                    "updated": 1638466715220
                 }
             ]
         },
@@ -130,6 +189,11 @@
                     "language": "DE",
                     "text": "Nach der Neuverteilung laden Sie die Benutzeroberfläche / UI neu, damit nur die neu verteilte Version gespeichert wird.",
                     "updated": 1633895375600
+                },
+                {
+                    "language": "RU",
+                    "text": "После перекомпоновки перезагрузите пользовательский интерфейс UI, чтобы в память попала только вновь созданная версия.",
+                    "updated": 1638466797706
                 }
             ]
         }

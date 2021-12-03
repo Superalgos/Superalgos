@@ -4,7 +4,14 @@
     "type": "Design Space Hierarchy",
     "definition": {
         "text": "Use this hierarchy to control the look, feel, and behavior of the Design Space.",
-        "updated": 1610039508226
+        "updated": 1610039508226,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте эту иерархию для управления внешним видом, ощущениями и поведением Design Space.",
+                "updated": 1638381607881
+            }
+        ]
     },
     "paragraphs": [
         {

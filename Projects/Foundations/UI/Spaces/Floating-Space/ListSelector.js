@@ -280,14 +280,24 @@ function newListSelector() {
             let fontSize
             let fontColor
             let opacity
+            let offset = thisObject.container.frame.radius / ( 8 / 5 )
 
             for (let i = 0; i < VISIBLE_LABELS; i++) {
 
                 let index = i + selected
                 let label = ''
+                let subLabel = ''
                 if (index >= 0 && index < optionsList.length) {
                     if (typeof(optionsList[index]) !== "string") {
+
+                        let path = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(optionsList[index].payload.parentNode)
+
+                        for (let i = 0; i < path.length; i++) {
+                            path[i].splice(1, 3)
+                        }
+
                         label = optionsList[index].name
+                        subLabel = path.join("->")
 
                         if (optionsList[index].payload.uiObject.icon !== undefined) {
                             icon = optionsList[index].payload.uiObject.icon
@@ -297,11 +307,15 @@ function newListSelector() {
                         label = optionsList[index]
                     }
                 }
+
+                // Reduce Labels if too long
+                if (label.length > 35) { label = label.substring(0,35) + " (cont...)" }
+                if (subLabel.length > 60) { subLabel = subLabel.substring(0,60) + " (cont...)" }
+
                 fontColor = UI_COLOR.BLACK
                 fontSize = FONT_SIZE
                 opacity = 1
 
-                let offset = thisObject.container.frame.radius / ( 8 / 5 )
                 let listSquare = offset * 2
                 let rowOffset = listSquare * ( i / VISIBLE_LABELS )
                 let rowHeight = listSquare / VISIBLE_LABELS
@@ -333,13 +347,48 @@ function newListSelector() {
 
                 let middleValue = Math.floor(VISIBLE_LABELS / 2)
                 let evenOffset = 0
+                let subOffset = 0
 
-                if (VISIBLE_LABELS % 2 === 0) {
-                    evenOffset = rowHeight / 2
-                }
+                if (VISIBLE_LABELS % 2 === 0) { evenOffset = rowHeight / 2 }
+                if (subLabel !== '') { subOffset = 10 }
 
                 UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 1 / 2, 1 / 2, - offset + SIZE, (i - middleValue) * rowHeight + evenOffset, SIZE, thisObject.container)
-                UI.projects.foundations.utilities.drawPrint.drawLabel(label, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+                UI.projects.foundations.utilities.drawPrint.drawLabel(label, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset - subOffset, fontSize, thisObject.container, fontColor, undefined, undefined, opacity)
+                UI.projects.foundations.utilities.drawPrint.drawLabel(subLabel, 1 / 2, 1 / 2, 0, (SIZE - fontSize) / 2 + (i - middleValue) * rowHeight + evenOffset + subOffset, fontSize / 2, thisObject.container, fontColor, undefined, undefined, opacity)
+            }
+
+            if (optionsList.length > VISIBLE_LABELS) {
+                let scrollbarPosition = {
+                    x: thisObject.container.frame.radius,
+                    y: thisObject.container.frame.radius
+                }
+
+                scrollbarPosition = thisObject.container.frame.frameThisPoint(scrollbarPosition)
+
+                // Scrollbar Background
+                browserCanvasContext.beginPath()
+                browserCanvasContext.moveTo(scrollbarPosition.x + offset + 5, scrollbarPosition.y - offset);
+                browserCanvasContext.lineTo(scrollbarPosition.x + offset + 20, scrollbarPosition.y - offset);
+                browserCanvasContext.lineTo(scrollbarPosition.x + offset + 20, scrollbarPosition.y + offset);
+                browserCanvasContext.lineTo(scrollbarPosition.x + offset + 5, scrollbarPosition.y + offset);
+                browserCanvasContext.closePath()
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.GREY + ', ' + 1 + ')'
+                browserCanvasContext.fill();
+
+                // Scrollbar Foreground
+                let scrollbarHeight = offset * 2 / (optionsList.length - VISIBLE_LABELS)
+                if (scrollbarHeight < 25) { scrollbarHeight = 25 }
+
+                let scrollbarOffset = ((offset * 2 - scrollbarHeight) / (optionsList.length - VISIBLE_LABELS)) * selected
+
+                browserCanvasContext.beginPath()
+                browserCanvasContext.moveTo(scrollbarPosition.x + offset + 7, scrollbarPosition.y - offset + 2 + scrollbarOffset);
+                browserCanvasContext.lineTo(scrollbarPosition.x + offset + 18, scrollbarPosition.y - offset + 2 + scrollbarOffset);
+                browserCanvasContext.lineTo(scrollbarPosition.x + offset + 18, scrollbarPosition.y - offset + scrollbarHeight - 2 + scrollbarOffset);
+                browserCanvasContext.lineTo(scrollbarPosition.x + offset + 7, scrollbarPosition.y - offset + scrollbarHeight - 2 + scrollbarOffset);
+                browserCanvasContext.closePath()
+                browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.LIGHT_GREY + ', ' + 1 + ')'
+                browserCanvasContext.fill();
             }
         }
     }

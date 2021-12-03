@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Mírate! Estás haciendo un gran progreso. Ahora vamos a conseguir eso Time Machine agregado!",
                 "updated": 1628645834818
+            },
+            {
+                "language": "RU",
+                "text": "Посмотрите на себя! Вы добиваетесь больших успехов. Теперь давайте добавим эту Машину Времени (Time Machine)!",
+                "updated": 1637939590565
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Coloca el cursor sobre tu Dashboard y has clic en Add Time Machine.",
                     "updated": 1628645866697
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор на панель инструментов (Dashboard)  и нажмите Add Time Machine.",
+                    "updated": 1637939675985
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Al nombrar un Time Machine es útil hacer referencia al Trading System y tipo de Trading Session que se conectará al gráfico. Para nosotros eso sería:",
                     "updated": 1628645933656
+                },
+                {
+                    "language": "RU",
+                    "text": "При присвоении имени машине времени (Time Machine) полезно указать торговую систему (Trading System) и тип торговой сессии (Trading Session) которая будет подключена к графику. Для нас это было бы так:",
+                    "updated": 1637939833112
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "language": "ES",
                     "text": "Otra información útil que puede utilizar para etiquetar sus gráficos puede incluir el intercambio, el par de mercado y el nodo de red asociado con la información presentada.",
                     "updated": 1628645952313
+                },
+                {
+                    "language": "RU",
+                    "text": "Другая полезная информация, которую вы можете использовать для маркировки графиков, может включать биржу, рыночную пару и сетевой узел, связанный с отображаемой информацией.",
+                    "updated": 1637939877854
                 }
             ]
         },

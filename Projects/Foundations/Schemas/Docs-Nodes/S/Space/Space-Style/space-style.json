@@ -1,7 +1,14 @@
 {
     "type": "Space Style",
     "definition": {
-        "text": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes."
+        "text": "The space style node features controls over the look and feel of the space, in particular, of background colors and font sizes.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Space Style позволяет управлять внешним видом пространства, в частности, цветами фона и размерами шрифта.",
+                "updated": 1638350639992
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,51 +18,116 @@
         {
             "style": "Title",
             "text": "Space Style Configuration",
-            "updated": 1609861783834
+            "updated": 1609861783834,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Space Style",
+                    "updated": 1638350660667
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609862712741
+            "updated": 1609862712741,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638350672219
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "backgroundColor refers to the background of the design space (see table below)."
+            "text": "backgroundColor refers to the background of the design space (see table below).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "backgroundColor относится к фону пространства дизайна (см. таблицу ниже).",
+                    "updated": 1638350683643
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "node refers to all nodes in the design space."
+            "text": "node refers to all nodes in the design space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "node относится ко всем узлам в пространстве дизайна.",
+                    "updated": 1638350733106
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "imageSize refers to the size of icons representing nodes.",
-            "updated": 1609862764823
+            "text": "type refers to the type of node, as indicated by the string of text below each node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "type относится к типу узла, на что указывает строка текста под каждым узлом.",
+                    "updated": 1638350883557
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "type refers to the type of node, as indicated by the string of text below each node."
+            "text": "name refers to the name or label of the node, as indicated above the node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "name относится к имени или метке узла, как указано над узлом.",
+                    "updated": 1638350911178
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "name refers to the name or label of the node, as indicated above the node."
-        },
-        {
-            "style": "List",
-            "text": "menuItem refers to items on the right-hand side of the menu."
+            "text": "menuItem refers to items on the right-hand side of the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "menuItem относится к элементам в правой части меню.",
+                    "updated": 1638350927625
+                }
+            ]
         },
         {
             "style": "List",
             "text": "fontSize refers to the size of the font of the string of text.",
-            "updated": 1609862776218
+            "updated": 1609862776218,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "fontSize относится к размеру шрифта строки текста.",
+                    "updated": 1638350939285
+                }
+            ]
         },
         {
             "style": "List",
             "text": "imageSize refers to the size of the icon illustrating the menu item.",
-            "updated": 1609862786614
+            "updated": 1609862786614,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "imageSize относится к размеру значка, иллюстрирующего пункт меню.",
+                    "updated": 1638350959942
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Available colors:"
+            "text": "Available colors:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Доступные цвета:",
+                    "updated": 1638350973317
+                }
+            ]
         },
         {
             "style": "Table",

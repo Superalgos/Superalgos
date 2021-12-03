@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Jedes Topic oder jede Tutorial-Seite hat eine fortlaufende Seitenzahl. Die Seitenzahl wird zur Erstellung des entsprechenden Inhaltsverzeichnisses verwendet.",
                 "updated": 1633859109353
+            },
+            {
+                "language": "RU",
+                "text": "Каждая страница темы или учебника имеет порядковый номер страницы. Номер страницы используется для построения соответствующей таблицы содержания.",
+                "updated": 1638460761919
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Zu diesem Zeitpunkt kann die Seitennummer nicht innerhalb des Docs-Interface geändert werden. Um die Seitennummer zu ändern, müssen Sie die entsprechende Datei manuell ändern, das Feld Seitennummer bearbeiten und die Seitennummer der Seite im Namen der Datei richtig zuordnen.",
                     "updated": 1633859557578
+                },
+                {
+                    "language": "RU",
+                    "text": "На этом этапе номер страницы нельзя изменить из интерфейса документов. Чтобы изменить номер страницы, вам необходимо вручную изменить соответствующий файл, отредактировав поле номера страницы и правильно сопоставив номер страницы с именем файла.",
+                    "updated": 1638460818938
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Der Docs Repaginate Command hilft bei der Anordnung der Seitenzahlen bei einer großen Sammlung von Seiten.",
                     "updated": 1633859626848
+                },
+                {
+                    "language": "RU",
+                    "text": "Команда Docs Repaginate Command помогает упорядочивать номера страниц в большой коллекции страниц.",
+                    "updated": 1638460881439
                 }
             ]
         }

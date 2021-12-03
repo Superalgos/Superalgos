@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Ein placeholder wird verwendet, um Informationen darzustellen, die von einer externen Quelle außerhalb der Docs kommen, wie z.B. der UI im Allgemeinen, dem Client oder dem TS. Es ist der Mechanismus, der zum Beispiel verwendet wird, um Fehlermeldungen oder Werte innerhalb einer Docs Page anzuzeigen.",
                 "updated": 1633960188910
+            },
+            {
+                "language": "RU",
+                "text": "Заполнитель используется для отображения информации, поступающей из документов и внешнего источника вне документов, например пользовательского интерфейса UI в целом, клиента Client или TS. Это механизм используется, например, для отображения сообщений об ошибках или значений на странице документов Docs Page.",
+                "updated": 1638545861525
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Wenn die Docs von einer node auf der Benutzeroberfläche geöffnet werden, der eine Fehler-, Warn- oder Info-Meldung anzeigt, haben die Docs die Möglichkeit, noch detailliertere Informationen zu diesem Ereignis anzuzeigen. Dies geschieht durch den Empfang eines Platzhalter-Objekts mit verschiedenen Eigenschaften, wie z.B: errorMessage, errorStack, und möglicherweise anderen.",
                     "updated": 1633960272931
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда документы открываются из узла в пользовательском интерфейсе, отображающем сообщение об ошибке, предупреждении или информации, документы имеют возможность отображать еще более подробную информацию об этом событии. Способ состоит в том, чтобы получить объект-заполнитель с различными свойствами, например, errorMessage, errorStack и другими.",
+                    "updated": 1638545980386
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Wenn Sie auf der zu öffnenden Seite einen Platzhalter mit einem Textwert erstellen, der einer der Eigenschaften dieses Objekts entspricht, wird der Inhalt dieser Eigenschaft im Platzhalterabsatz angezeigt.",
                     "updated": 1633960304948
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы создаете заполнитель на открываемой странице с текстовым значением, соответствующим любому из свойств этого объекта, содержимое этого свойства будет отображаться в абзаце заполнителя.",
+                    "updated": 1638546015047
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1633961290701
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638546028782
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Platzhalter für die Eigenschaft errorMessage",
                     "updated": 1633960470918
+                },
+                {
+                    "language": "RU",
+                    "text": "Заполнитель для свойства errorMessage",
+                    "updated": 1638546043999
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "DE",
                     "text": "Wird die Seite angezeigt, ohne dass das Platzhalterobjekt verfügbar ist, wird nur der dafür definierte Eigenschaftsname angezeigt.",
                     "updated": 1633960491979
+                },
+                {
+                    "language": "RU",
+                    "text": "Если страница просматривается без доступного объекта-заполнителя, на ней будет просто отображаться имя свойства, определенное для нее.",
+                    "updated": 1638546112177
                 }
             ]
         }

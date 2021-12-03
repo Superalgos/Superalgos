@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Seite existiert nicht in der angegebenen Kategorie.",
                 "updated": 1633896537697
+            },
+            {
+                "language": "RU",
+                "text": "Страница не существует в указанной категории.",
+                "updated": 1638529455645
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Vergewissern Sie sich mehrfach, dass der Docs Page Name richtig geschrieben ist und dass sie zur angegebenen Docs Page Category gehört",
                     "updated": 1633896799038
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды проверьте правильность написания название страницы документов Docs Page Name и его принадлежность к указанной категории страниц документов Docs Page Category.",
+                    "updated": 1638529581475
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633896647563
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529594704
                 }
             ]
         },

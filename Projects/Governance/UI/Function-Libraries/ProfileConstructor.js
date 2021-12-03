@@ -232,10 +232,13 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         addSigningAccounts(p2pNetworkNodes, 'P2P Network Node')
 
         function addSigningAccounts(nodeArray, targetNodeType) {
-            if (nodeArray === undefined) return;
-            for (let i = 0; i < nodeArray.length; i++) {
-                let currentNode = nodeArray[i]
-                addSigningAccount(currentNode, targetNodeType, i + 1)
+            if (nodeArray === undefined){
+                return;
+            } else {
+                for (let i = 0; i < nodeArray.length; i++) {
+                    let currentNode = nodeArray[i]
+                    addSigningAccount(currentNode, targetNodeType, i + 1)
+                }
             }
         }
 

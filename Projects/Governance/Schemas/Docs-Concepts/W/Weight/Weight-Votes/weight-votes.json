@@ -2,7 +2,14 @@
     "type": "Weight Votes",
     "definition": {
         "text": "Weight Votes are a type of vote within the Voting Program used to confer Weight to different types of nodes in the multiple Project Definition Hierarchies. The Weight that Asset, Feature, Position, and Pool nodes get from Weight Votes cast by the Community determines the Token Rewards available as incentives for those nodes. The term Weight Votes is a generalization describing any or all of the types of weight vote nodes, namely Pool Weight Vote, Position Weight Vote, Feature Weight Vote, and Asset Weight Vote.",
-        "updated": 1630498313646
+        "updated": 1630498313646,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Weight Votes - это тип голосования в программе голосования Voting Program, используемый для присвоения веса Weight различным типам узлов в нескольких иерархиях Project Definition Hierarchies. Вес, который получают узлы Asset, Feature, Position и Pool от голосов Weight Votes, поданных сообществом, определяет награды в виде токенов Token Rewards, доступные в качестве стимулов для этих узлов. Термин Weight Votes является обобщением, описывающим любой или все типы узлов голосования по весу, а именно голосование по весу пула, голосование по весу позиции, голосование по весу характеристик и голосование по весу ресурсов.",
+                "updated": 1638621005020
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -1608,6 +1608,12 @@
                     "fileName": "WebSocketsNetworkClient.js"
                 },
                 {
+                    "name": "Http Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesHttpNetworkClient",
+                    "fileName": "HttpNetworkClient.js"
+                },                
+                {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",
                     "functionName": "newNetworkModulesUserProfiles",

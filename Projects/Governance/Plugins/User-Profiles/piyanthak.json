@@ -1662,7 +1662,7 @@
         "id": "91519c6e-8c07-488c-98dd-255890a00d6e",
         "savedPayload": {
             "position": {
-                "x": 26883956521739132,
+                "x": 26086.956521739132,
                 "y": 23669239493
             },
             "targetPosition": {
@@ -1670,7 +1670,7 @@
                 "y": 23600236478
             },
             "floatingObject": {
-                "isPinned": true,
+                "isPinned": false,
                 "isFrozen": false,
                 "isCollapsed": true,
                 "angleToParent": 1,

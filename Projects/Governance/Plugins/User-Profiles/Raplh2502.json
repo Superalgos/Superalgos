@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\r\n    \"percentage\": 2\r\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -840,7 +840,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\r\n    \"percentage\": 30\r\n}",
+            "config": "{\r\n    \"percentage\": 50\r\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -851,7 +851,7 @@
                     {
                         "type": "Votes Switch",
                         "name": "Weight Voting",
-                        "config": "{\r\n}",
+                        "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
                         "claimVotesSwitch": [],
@@ -10168,7 +10168,7 @@
                     {
                         "type": "Votes Switch",
                         "name": "Support Voting",
-                        "config": "{\r\n    \"percentage\": 10\r\n}",
+                        "config": "{\r\n    \"percentage\": 25\r\n}",
                         "project": "Governance",
                         "votesSwitch": [
                             {
@@ -10310,7 +10310,7 @@
                                     {
                                         "type": "Claim Votes Switch",
                                         "name": "Carl",
-                                        "config": "{\r\n    \"percentage\": 48.7\r\n}",
+                                        "config": "{\r\n    \"percentage\": 30\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
@@ -10551,8 +10551,8 @@
                                         "id": "35315344-7ff0-4a1e-a15f-a23bc0e95206",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14500.546837806314,
-                                                "y": 18060.22225211328
+                                                "x": 14454.259663255854,
+                                                "y": 18051.64343138952
                                             },
                                             "targetPosition": {
                                                 "x": 14422.901124275559,
@@ -10611,7 +10611,7 @@
                                     {
                                         "type": "Claim Votes Switch",
                                         "name": "Quantum8",
-                                        "config": "{\r\n    \"percentage\": 26\r\n}",
+                                        "config": "{\r\n    \"percentage\": 15.6\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
@@ -10905,8 +10905,8 @@
                                         "id": "220fe439-f50e-4471-8719-ccb05275b91c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14682.70874541089,
-                                                "y": 18200
+                                                "x": 14623.640306183215,
+                                                "y": 18127.056552356782
                                             },
                                             "targetPosition": {
                                                 "x": 14422.901124275559,
@@ -10965,7 +10965,7 @@
                                     {
                                         "type": "Claim Votes Switch",
                                         "name": "BlaaSwe",
-                                        "config": "{}",
+                                        "config": "{\r\n    \"percentage\": 15.6\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
@@ -11046,8 +11046,8 @@
                                         "id": "ec49e863-4b05-4ee9-9903-46f88f7966b6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14712.67887216228,
-                                                "y": 18427.645713530757
+                                                "x": 14716.3454044957,
+                                                "y": 18287.626492754673
                                             },
                                             "targetPosition": {
                                                 "x": 14422.901124275559,
@@ -11102,6 +11102,38 @@
                                                 ]
                                             ]
                                         }
+                                    },
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Julian",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "b1f3edd7-5846-4280-aae5-1fc0c978dd70",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 14696.964761568339,
+                                                "y": 18472.02099292274
+                                            },
+                                            "targetPosition": {
+                                                "x": 14422.901124275559,
+                                                "y": 18350
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
                                     }
                                 ],
                                 "weightVotesSwitch": [],
@@ -11119,7 +11151,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -11352,152 +11384,25 @@
                         "positionClaimsFolders": [
                             {
                                 "type": "Position Claims Folder",
-                                "name": "Telegram Team Position Class",
-                                "config": "{}",
+                                "name": "Algo",
+                                "config": "{\r\n    \"percentage\": 25\r\n}",
                                 "project": "Governance",
                                 "positionClaimsFolders": [],
                                 "positionContributionClaims": [
                                     {
                                         "type": "Position Contribution Claim",
-                                        "name": "",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "id": "8ba2b7e2-88ae-4450-99e4-058e57c86cd8",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 20137.41460630219,
-                                                "y": 44828.60364266255
-                                            },
-                                            "targetPosition": {
-                                                "x": 19917.499044753244,
-                                                "y": 44624.551821331275
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position",
-                                                "name": "Team Members",
-                                                "id": "4f90524a-b619-480f-8911-b346dd7c6a6b"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Other Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Chat Platforms Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Telegram Team",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Team Members",
-                                                    "Position"
-                                                ]
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "id": "5a651bde-837a-4add-81c5-0b2be1ac6670",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 14379.62145769264,
-                                        "y": 18707.294901687517
-                                    },
-                                    "targetPosition": {
-                                        "x": 14203.285882004897,
-                                        "y": 18950
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position Class",
-                                        "name": "Telegram Team",
-                                        "id": "d845296c-a4c9-43a1-9fcd-f63678d09649"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                        ],
-                                        [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class",
-                                            "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                        ],
-                                        [
-                                            "Other Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
-                                        ],
-                                        [
-                                            "Chat Platforms Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "15850aa9-709f-413e-b0e7-0d843c4d17dd"
-                                        ],
-                                        [
-                                            "Telegram Team",
-                                            "Position Class",
-                                            "Governance",
-                                            "d845296c-a4c9-43a1-9fcd-f63678d09649"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Claims Folder",
-                                "name": "Forum Team Position Class",
-                                "config": "{}",
-                                "project": "Governance",
-                                "positionClaimsFolders": [],
-                                "positionContributionClaims": [
-                                    {
-                                        "type": "Position Contribution Claim",
-                                        "name": "",
+                                        "name": "Algorithmic-Trading & Portfolio Management Team Token Pool Algorithmic-Trading & Portfolio Management Team PoW Report",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "a1ccb23b-848e-4f22-8d40-c0534aa2b250",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20450.92716667598,
-                                                "y": 44600.353104646536
+                                                "x": 22279.639068711927,
+                                                "y": 44724.17555977104
                                             },
                                             "targetPosition": {
-                                                "x": 20164.25532494014,
-                                                "y": 44511.92655232327
+                                                "x": 22067.507034355964,
+                                                "y": 44936.30759412701
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11512,8 +11417,8 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position",
-                                                "name": "Team Members",
-                                                "id": "022ef346-8219-4e60-8385-8d8fdc81d26a"
+                                                "name": "Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                                "id": "d93681ca-23e4-4503-b76f-d675d4e81732"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -11521,23 +11426,19 @@
                                                     "Positions"
                                                 ],
                                                 [
-                                                    "Teams @ V.1.0",
+                                                    "Teams @ Nov 2021",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Other Teams",
+                                                    "Teams With PoW Reports",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Chat Platforms Teams",
+                                                    "Algorithmic-Trading & Portfolio Management Team PoW Report",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Forum Team",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Team Members",
+                                                    "Algorithmic-Trading & Portfolio Management Team Token Pool",
                                                     "Position"
                                                 ]
                                             ]
@@ -11547,8 +11448,8 @@
                                 "id": "9c0b1bf5-c854-4b35-87c5-3c8f56ac0a46",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14488.602836893442,
-                                        "y": 18857.294901687517
+                                        "x": 14415.41791636086,
+                                        "y": 18737.867965644036
                                     },
                                     "targetPosition": {
                                         "x": 14203.285882004897,
@@ -11567,39 +11468,25 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position Class",
-                                        "name": "Forum Team",
-                                        "id": "b779f4a3-91c0-419c-b41b-d264c0e6b055"
+                                        "name": "Algorithmic-Trading & Portfolio Management Team PoW Report",
+                                        "id": "d3592eff-41f3-45af-a534-05750b22a887"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
-                                            "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                            "Teams of Contributors",
+                                            "Positions"
                                         ],
                                         [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class",
-                                            "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                            "Teams @ Nov 2021",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Other Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
+                                            "Teams With PoW Reports",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Chat Platforms Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "15850aa9-709f-413e-b0e7-0d843c4d17dd"
-                                        ],
-                                        [
-                                            "Forum Team",
-                                            "Position Class",
-                                            "Governance",
-                                            "b779f4a3-91c0-419c-b41b-d264c0e6b055"
+                                            "Algorithmic-Trading & Portfolio Management Team PoW Report",
+                                            "Position Class"
                                         ]
                                     ]
                                 }
@@ -11607,24 +11494,24 @@
                             {
                                 "type": "Position Claims Folder",
                                 "name": "Superalgos Blog Team Position Class",
-                                "config": "{\r\n    \"percentage\": 37\r\n}",
+                                "config": "{\r\n    \"percentage\": 16\r\n}",
                                 "project": "Governance",
                                 "positionClaimsFolders": [],
                                 "positionContributionClaims": [
                                     {
                                         "type": "Position Contribution Claim",
-                                        "name": "",
+                                        "name": "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "3c37577f-2a06-4141-b584-cf8394bae376",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20612.881978939375,
-                                                "y": 44538.07464029429
+                                                "x": 22426.00890977709,
+                                                "y": 45333.84982510794
                                             },
                                             "targetPosition": {
-                                                "x": 20316.232731071836,
-                                                "y": 44582.787320147145
+                                                "x": 22140.691954888545,
+                                                "y": 45241.14472679546
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11639,8 +11526,8 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position",
-                                                "name": "Team Members",
-                                                "id": "54b162bf-645a-4409-9d67-4283b2ff67b1"
+                                                "name": "Superalgos Medium Blog Team Token Pool",
+                                                "id": "396f32ad-352d-48bf-af2e-9e57b38778ec"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -11648,23 +11535,19 @@
                                                     "Positions"
                                                 ],
                                                 [
-                                                    "Teams @ V.1.0",
+                                                    "Teams @ Nov 2021",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Marketing Teams",
+                                                    "Teams With PoW Reports",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Content Creation Teams",
+                                                    "Marketing Teams PoW Report",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Superalgos Blog Team",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Team Members",
+                                                    "Superalgos Medium Blog Team Token Pool",
                                                     "Position"
                                                 ]
                                             ]
@@ -11674,8 +11557,8 @@
                                 "id": "fa933a03-ae13-43a6-8060-b30abac358ff",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14488.602836893442,
-                                        "y": 19042.705098312483
+                                        "x": 14503.285882004897,
+                                        "y": 18950
                                     },
                                     "targetPosition": {
                                         "x": 14203.285882004897,
@@ -11703,18 +11586,18 @@
                                 "positionContributionClaims": [
                                     {
                                         "type": "Position Contribution Claim",
-                                        "name": "",
+                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "a4427655-59ae-4242-b0d2-00c21133326f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 10336.008184275523,
-                                                "y": 19435.410196624965
+                                                "x": 22208.046151375485,
+                                                "y": 45633.84982510794
                                             },
                                             "targetPosition": {
-                                                "x": 10159.67260858778,
-                                                "y": 19192.705098312483
+                                                "x": 22031.710575687743,
+                                                "y": 45391.14472679546
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11729,8 +11612,8 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position",
-                                                "name": "Team Members",
-                                                "id": "5b8525df-666d-4c76-899c-85a7a897d9b6"
+                                                "name": "Data Mining Team Token Pool",
+                                                "id": "e61f97a8-ee3a-4bf3-947d-eba128813dda"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -11738,23 +11621,19 @@
                                                     "Positions"
                                                 ],
                                                 [
-                                                    "Teams @ V.1.0",
+                                                    "Teams @ Nov 2021",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Software Projects Teams",
+                                                    "Teams With PoW Reports",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Active Projects",
+                                                    "Data Mining Team PoW Report",
                                                     "Position Class"
                                                 ],
                                                 [
-                                                    "Data Mining Project",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Team Members",
+                                                    "Data Mining Team Token Pool",
                                                     "Position"
                                                 ]
                                             ]
@@ -11764,8 +11643,8 @@
                                 "id": "be043c07-e2f7-4cc6-8ecd-0433b9eada55",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14379.62145769264,
-                                        "y": 19192.705098312483
+                                        "x": 14415.41791636086,
+                                        "y": 19162.132034355964
                                     },
                                     "targetPosition": {
                                         "x": 14203.285882004897,
@@ -11836,7 +11715,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": false,
+                                "isCollapsed": true,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -11942,7 +11821,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 24\n}",
+            "config": "{\n    \"percentage\": 48\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",
@@ -12056,7 +11935,7 @@
                             {
                                 "type": "User Delegate",
                                 "name": "quantum8",
-                                "config": "{\r\n    \"percentage\": 9.54\r\n}",
+                                "config": "{\r\n\r\n}",
                                 "project": "Governance",
                                 "id": "9bb38b05-d9e7-45c3-99be-6fc671fdfe2f",
                                 "savedPayload": {
@@ -12097,7 +11976,7 @@
                             {
                                 "type": "User Delegate",
                                 "name": "BlaaSwe",
-                                "config": "{\r\n    \"percentage\": 82.5\r\n}",
+                                "config": "{\r\n    \"percentage\": 68.8\r\n}",
                                 "project": "Governance",
                                 "id": "094f4369-f282-4fd6-8d69-b11ce189ebcd",
                                 "savedPayload": {
@@ -12200,7 +12079,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -12381,7 +12260,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

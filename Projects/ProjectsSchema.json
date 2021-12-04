@@ -1638,6 +1638,12 @@
                     "fileName": "P2PNetworkPeers.js"
                 },
                 {
+                    "name": "P2P Network Head",
+                    "propertyName": "p2pNetworkHead",
+                    "functionName": "newNetworkModulesP2PNetworkHead",
+                    "fileName": "P2PNetworkHead.js"
+                },                
+                {
                     "name": "P2P Network Client",
                     "propertyName": "p2pNetworkClient",
                     "functionName": "newNetworkModulesP2PNetworkClient",

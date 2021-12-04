@@ -142,7 +142,7 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.initialize('Network Client')
                     /*
-                    Set up the connections to network nodes.
+                    Set up the connections to network peers nodes. These connections will be used to consume signals.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers.initialize(
@@ -151,7 +151,17 @@ exports.newTaskServer = function newTaskServer() {
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS
                     )
-                }  
+                    /*
+                    Set up the connections to network head nodes. These connections will be used to send signals.
+                    */
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkHead()
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers.initialize(
+                        'Network Client',
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient,
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork,
+                        global.env.TASK_SERVER_APP_MAX_OUTGOING_HEADS
+                    )
+                }
 
                 function setupTaskHeartbeats() {
                     /* 

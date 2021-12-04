@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Статия закрытия имеет дело с определениями, которые составляют логику закрытия позиции, включая целевую ставку и размер, а также исполнение ордера.",
-                "updated": 1637757567864
+                "text": "Close Stage имеет дело с определениями, которые составляют логику закрытия позиции, включая целевую ставку и размер, а также исполнение ордера.",
+                "updated": 1638646936617
             }
         ]
     },
@@ -23,16 +23,37 @@
         {
             "style": "Title",
             "text": "Optionality",
-            "updated": 1615101975045
+            "updated": 1615101975045,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Необязательность",
+                    "updated": 1638646990995
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Close Stage is optional. That means that if you don't need it you can just delete this node and everything should work just fine. "
+            "text": "The Close Stage is optional. That means that if you don't need it you can just delete this node and everything should work just fine. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этап закрытия Close Stage не является обязательным. Это означает, что если он вам не нужен, вы можете просто удалить этот узел, и все должно работать нормально.",
+                    "updated": 1638647056459
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are situations where users might want to execute both buy and sell orders from within the Open Stage. In those situations they might want to delete the Manage Stage and the Close Stage so that they don't execute at all. That is possible because both are optional. This is how optionality looks like at the code:",
-            "updated": 1615102048658
+            "updated": 1615102048658,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бывают ситуации, когда пользователи могут захотеть исполнять ордера как на покупку, так и на продажу на открытой стадии Open Stage. В таких ситуациях они могут захотеть удалить этап управления Manage Stage и этап закрытия Close Stage, чтобы они вообще не выполнялись. Это возможно, потому что и то, и другое необязательно. Вот как выглядит опциональность в коде:",
+                    "updated": 1638647195338
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -41,24 +62,59 @@
         },
         {
             "style": "Title",
-            "text": "Close Stage Concept"
+            "text": "Close Stage Concept",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концепция Close Stage",
+                    "updated": 1638647217509
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The close stage is opened when either the stop loss or take profit targets are hit. It is also opened after the position is opened if the Manage Stage is undefined."
+            "text": "The close stage is opened when either the stop loss or take profit targets are hit. It is also opened after the position is opened if the Manage Stage is undefined.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этап закрытия открывается при достижении целевых значений стоп-лосса или тейк-профита. Он также открывается после открытия позиции, если стадия управления Manage Stage не определена.",
+                    "updated": 1638647250210
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In a way, the close stage is virtually a mirror of the open stage, as the same definitions are required to close a position. There are a few logical differences, though."
+            "text": "In a way, the close stage is virtually a mirror of the open stage, as the same definitions are required to close a position. There are a few logical differences, though.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В некотором смысле, стадия закрытия фактически является зеркалом открытой стадии, поскольку для закрытия позиции требуются те же определения. Однако есть несколько логических различий.",
+                    "updated": 1638647296480
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, in the open stage, you probably defined the target size as a function of the capital allocated to the trading system. In the close stage, you will likely want to define the target size as a function of the size filled, that is, the amount of the orders placed that was filled during the open stage."
+            "text": "For example, in the open stage, you probably defined the target size as a function of the capital allocated to the trading system. In the close stage, you will likely want to define the target size as a function of the size filled, that is, the amount of the orders placed that was filled during the open stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, на этапе открытия вы, вероятно, определили целевой размер как функцию капитала, выделенного торговой системе. На этапе закрытия вы, вероятно, захотите определить целевой размер как функцию от заполненного размера, то есть количества размещенных ордеров, которые были выполнены на этапе открытия.",
+                    "updated": 1638647324164
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In the event that the target size of the asset to be traded in Close Stage is equal to zero then Close Stage will close as will the currently running strategy. For example: Suppose the Open Stage was to trade x amount of quoted asset at y price via a limit order. But instead price moved in the opposite direction and to the point that Open Stage closed prior to the accumulation of any of the Base Asset which was to be traded via the Close Stage. In that scenario Close Stage would not take any action and would Close the current instance of the Strategy and the system would resume polling for another Trigger On event.",
-            "updated": 1622300970890
+            "updated": 1622300970890,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае, если целевой размер актива для торговли на стадии закрытия равен нулю, стадия закрытия закроется, как и текущая стратегия. Например: Предположим, что на этапе открытия была сделана торговля X количеством котируемого актива по цене Y через лимитный ордер. Но вместо этого цена двигалась в противоположном направлении и до такой степени, что стадия открытия закрывалась до накопления любого из базовых активов Base Asset, которые должны были быть проданы через стадию закрытия. В этом сценарии Close Stage не будет предпринимать никаких действий и закроет текущий экземпляр стратегии, и система возобновит опрос для другого события Trigger On.",
+                    "updated": 1638647589231
+                }
+            ]
         },
         {
             "style": "Include",

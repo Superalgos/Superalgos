@@ -1,7 +1,14 @@
 {
     "type": "Distance To Trading Event",
     "definition": {
-        "text": "Distance to trading event features counters indicating how many periods (candles) have passed since the last occurrence of certain events, in the context of the episode."
+        "text": "Distance to trading event features counters indicating how many periods (candles) have passed since the last occurrence of certain events, in the context of the episode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Distance To Trading Event содержит счетчики, показывающие, сколько периодов (свечей) прошло с момента последнего наступления определенных событий в контексте эпизода.",
+                "updated": 1638732349826
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The information may be used from within strategies, for example, to leave a cool-down period in-between positions, to separate orders in specific intervals, or to achieve any particular logic that may require counting how much time has passed since the last time a specific event was triggered."
+            "text": "The information may be used from within strategies, for example, to leave a cool-down period in-between positions, to separate orders in specific intervals, or to achieve any particular logic that may require counting how much time has passed since the last time a specific event was triggered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация может быть использована внутри стратегий, например, для того, чтобы оставить период охлаждения между позициями, для разделения ордеров через определенные интервалы или для достижения какой-либо конкретной логики, которая может потребовать подсчета времени, прошедшего с момента последнего срабатывания определенного события.",
+                    "updated": 1638732567345
+                }
+            ]
         }
     ]
 }

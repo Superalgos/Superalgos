@@ -910,6 +910,13 @@ function newCanvas() {
                     let spaceInstance = projectInstance.events.onMouseClickMap.get(j)
                     if (spaceInstance === undefined) { continue }
 
+                    /* Side Space always gets precedence */
+                    if (spaceInstance.definition.name === 'Side Space') {
+                        container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+                        container.eventHandler.raiseEvent('onMouseClick', point)
+                        return
+                    }
+
                     if (spaceInstance.getContainer === undefined) { continue }
                     container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 

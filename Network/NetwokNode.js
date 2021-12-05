@@ -56,7 +56,7 @@ exports.newNetworkNode = function newNetworkNode() {
             thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
             await thisObject.socialGraphService.initialize()
             /*
-            The Sotrage deals with persisting the Social Graph.
+            The Storage deals with persisting the Social Graph.
             */
             thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
             thisObject.storage.initialize()

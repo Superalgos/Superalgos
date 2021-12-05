@@ -2,7 +2,14 @@
     "type": "Reviews",
     "definition": {
         "text": "This book is a catalogue of all types of reviews at the Docs.",
-        "updated": 1621437863554
+        "updated": 1621437863554,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эта книга представляет собой каталог всех видов рецензий в Docs.",
+                "updated": 1638466923216
+            }
+        ]
     },
     "paragraphs": [
         {

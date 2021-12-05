@@ -40,7 +40,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
     function sendMessage(message) {
         return new Promise(sendHttpMessage)
 
-        function sendHttpMessage(resolve, reject) {
+        async function sendHttpMessage(resolve, reject) {
             try {
                 let signature = web3.eth.accounts.sign(JSON.stringify(message), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
 

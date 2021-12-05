@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -326,7 +328,7 @@
                                 "assetClaimVotes": [
                                     {
                                         "type": "Asset Claim Vote",
-                                        "name": "thaissmolina75 Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                        "name": "thaissmolina75 ",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "76d40425-1ca8-45af-b45f-2ccabd9c78d9",
@@ -352,7 +354,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Asset Contribution Claim",
-                                                "name": "Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                                "name": "",
                                                 "id": "de19cc5d-59f6-4c86-9f16-803ff61858d8"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -387,7 +389,7 @@
                                                     "7f98ecaa-6c64-40e3-ae28-864f510acac9"
                                                 ],
                                                 [
-                                                    "Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                                    "",
                                                     "Asset Contribution Claim",
                                                     "Governance",
                                                     "de19cc5d-59f6-4c86-9f16-803ff61858d8"
@@ -512,7 +514,7 @@
                         "assetContributionClaims": [
                             {
                                 "type": "Asset Contribution Claim",
-                                "name": "Foundations-Project-Docs Spanish Translations thaissmolina75 Translations",
+                                "name": "",
                                 "config": "{\n  \"description\": \"\"\n}",
                                 "project": "Governance",
                                 "id": "de19cc5d-59f6-4c86-9f16-803ff61858d8",
@@ -716,17 +718,17 @@
     "id": "45c60ab4-3c57-4692-9764-2cd073128e16",
     "savedPayload": {
         "position": {
-            "x": 3061.2244897959185,
-            "y": 18250
+            "x": 14117.64705882353,
+            "y": 14000.000000000002
         },
         "targetPosition": {
-            "x": 3061.2244897959185,
-            "y": 18250
+            "x": 14117.64705882353,
+            "y": 14000.000000000002
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 2,
             "distanceToParent": 3,
             "arrangementStyle": 0

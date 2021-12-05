@@ -17690,24 +17690,24 @@
                     {
                         "type": "Delegate Power Switch",
                         "name": "Data Mining",
-                        "config": "{\r\n    \"percentage\": 85\r\n}",
+                        "config": "{\r\n    \"percentage\": 87\r\n}",
                         "project": "Governance",
                         "delegatePowerSwitch": [],
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
                                 "name": "BlaaSwe",
-                                "config": "{}",
+                                "config": "{\r\n    \"percentage\": 68.75\r\n}",
                                 "project": "Governance",
                                 "id": "c4354e16-23e1-4846-a507-5c3745a611fd",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21641.564954656475,
-                                        "y": 34049.585369022054
+                                        "x": 4481.321546948567,
+                                        "y": 29249.585369022054
                                     },
                                     "targetPosition": {
-                                        "x": 21351.787206769754,
-                                        "y": 33971.9396554913
+                                        "x": 4191.543799061847,
+                                        "y": 29171.939655491296
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -17743,12 +17743,12 @@
                                 "id": "98860b81-f72f-4177-b815-fee8317b49c1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21429.43292030051,
-                                        "y": 34261.71740337802
+                                        "x": 4269.189512592603,
+                                        "y": 29461.717403378017
                                     },
                                     "targetPosition": {
-                                        "x": 21351.787206769754,
-                                        "y": 33971.9396554913
+                                        "x": 4191.543799061847,
+                                        "y": 29171.939655491296
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -17790,7 +17790,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -17806,7 +17806,47 @@
                         "config": "{}",
                         "project": "Governance",
                         "delegatePowerSwitch": [],
-                        "userDelegates": [],
+                        "userDelegates": [
+                            {
+                                "type": "User Delegate",
+                                "name": "EvaMaria70",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "0b348acd-078e-49e2-b9a2-b78c3c22a707",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 3979.4117647058824,
+                                        "y": 29559.807621135333
+                                    },
+                                    "targetPosition": {
+                                        "x": 3979.4117647058824,
+                                        "y": 29259.807621135333
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "User Profile",
+                                        "name": "EvaMaria70",
+                                        "id": "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "EvaMaria70",
+                                            "User Profile"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
                         "id": "0c8af913-90cf-4179-9fe5-59a4095e2691",
                         "savedPayload": {
                             "position": {

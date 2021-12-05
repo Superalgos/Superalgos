@@ -39,150 +39,36 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
     }
 
     async function sendMessage(message) {
-
-        await axios()
-        async function axios() {
-            /*
-            This function helps a caller to use await syntax while the called
-            function uses callbacks, specifically for retrieving files.
-            */
-            let promise = new Promise((resolve, reject) => {
-
-                const axios = require('axios')
-                console.log('call axios')
-                axios
-                    .post('http://localhost:31248/New-Signal', {
-                        messageId: 'La concha de tu madre.'
-                    })
-                    .then(res => {
-                        console.log(`statusCode: ${res.status}`)
-                        console.log('ATENTIONNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN !!!!!!!!!!!!!!!! ' + res.data)
-                        resolve()
-                    })
-                    .catch(error => {
-                        console.error(error)
-                        reject()
-                    })
-            })
-
-            return promise
-        }
-
-
         /*
-        let signature = web3.eth.accounts.sign(JSON.stringify(message), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
+        This function helps a caller to use await syntax while the called
+        function uses callbacks, specifically for retrieving files.
+        */
+        let promise = new Promise((resolve, reject) => {
 
-        let body = {
-            messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            messageType: 'Request',
-            signature: JSON.stringify(signature),
-            payload: JSON.stringify(message)
-        }
-
-        const data = JSON.stringify(body)
-        const http = SA.nodeModules.http
-
-        const options = {
-            hostname: thisObject.host,
-            port: thisObject.port,
-            path: '/New-Signal',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': data.length
+            let signature = web3.eth.accounts.sign(JSON.stringify(message), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
+        
+            let body = {
+                messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                messageType: 'Request',
+                signature: JSON.stringify(signature),
+                payload: JSON.stringify(message)
             }
-        }
 
-        const req = http.request(options, res => {
-            console.log(`statusCode: ${res.statusCode}`)
-
-            res.on('data', d => {
-                process.stdout.write(d)
-            })
+            const axios = require('axios')
+            console.log('Sending Message to P2P Network Node')
+            axios
+                .post('http://localhost:31248/New-Signal', body)
+                .then(res => {
+                    console.log(`statusCode: ${res.status}`)
+                    console.log('Response Received from P2P Network Node: ' + res.data)
+                    resolve()
+                })
+                .catch(error => {
+                    console.error('[ERROR] Error trying to send message to the P2P Network node via its http interface -> Error = ' + error)
+                    reject()
+                })
         })
 
-        req.on('error', error => {
-            console.error(error)
-        })
-
-        req.write(data)
-        req.end()
-*/
-
-        /*
-        
-                return new Promise(sendHttpMessage)
-        
-                async function sendHttpMessage(resolve, reject) {
-                    try {
-                        let signature = web3.eth.accounts.sign(JSON.stringify(message), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
-        
-                        let body = {
-                            messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            messageType: 'Request',
-                            signature: JSON.stringify(signature),
-                            payload: JSON.stringify(message)
-                        }
-        
-                        const data = JSON.stringify(body)
-                        const http = SA.nodeModules.http
-        
-                        const options = {
-                            hostname: thisObject.host,
-                            port: thisObject.port,
-                            path: '/New-Signal',
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Content-Length': data.length
-                            }
-                        }
-        
-                        const req = http.request(options, res => {
-                            console.log(`statusCode: ${res.statusCode}`)
-        
-                            res.on('data', d => {
-                                process.stdout.write(d)
-                            })
-                        })
-        
-                        req.on('error', error => {
-                            console.error(error)
-                        })
-        
-                        req.write(data)
-                        req.end()
-        
-                        return
-        
-                        /*
-                                        const fetch = SA.nodeModules.nodeFetch
-                                        const url = 'http://' + thisObject.host + ':' + thisObject.port + '/' + 'New-Signal'
-                                        const options = {
-                                            method: 'post',
-                                            body: JSON.stringify(body),
-                                            headers: { 'Content-Type': 'application/json' }
-                                        }
-                                        const response = fetch(url)
-                                            .then(returnData)
-                                            .catch(onError)
-                        
-                                        function onError(errorMessage) {
-                                            console.log('[ERROR] Error sending http request to P2P Network Node via httpInterdace: ' + errorMessage)
-                                        }
-                        
-                                        async function returnData() {
-                                            const data = await response.json();
-                                            resolve(data)
-                                        }
-                        */
-        /*
-     } catch (err) {
-         console.log('[ERROR] Http Network Client -> err.message = ' + err.message)
-         reject(err.description)
-     }
-
-   
- }  */
+        return promise
     }
 }

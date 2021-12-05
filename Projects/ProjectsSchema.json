@@ -1639,15 +1639,15 @@
                 },
                 {
                     "name": "P2P Network Head",
-                    "propertyName": "p2pNetworkHead",
-                    "functionName": "newNetworkModulesP2PNetworkHead",
-                    "fileName": "P2PNetworkHead.js"
+                    "propertyName": "p2pNetworkStart",
+                    "functionName": "newNetworkModulesP2PNetworkStart",
+                    "fileName": "P2PNetworkStart.js"
                 },                
                 {
-                    "name": "P2P Network Client",
-                    "propertyName": "p2pNetworkClient",
-                    "functionName": "newNetworkModulesP2PNetworkClient",
-                    "fileName": "P2PNetworkClient.js"
+                    "name": "P2P Network Client Identity",
+                    "propertyName": "p2pNetworkClientIdentity",
+                    "functionName": "newNetworkModulesP2PNetworkClientIdentity",
+                    "fileName": "P2PNetworkClientIdentity.js"
                 }
             ],
             "utilities": [

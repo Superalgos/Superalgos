@@ -1,7 +1,12 @@
-exports.newNetworkModulesP2PNetworkHead = function newNetworkModulesP2PNetworkHead() {
+exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkStart() {
     /*
-    This has identified which are the nodes at the head of the network worm,
-    and it is ready to send messages to it.
+    This module assumes the p2p network is formed by network nodes connected to each other
+    not randombly but as a directed acyclic graph.
+
+    https://en.wikipedia.org/wiki/Directed_acyclic_graph
+
+    This module will identify which are the Start Nodes of the DAG, and be ready to send
+    messages via the http interface of nodes to some of them.
     */
     let thisObject = {
         peers: undefined,
@@ -24,7 +29,7 @@ exports.newNetworkModulesP2PNetworkHead = function newNetworkModulesP2PNetworkHe
 
     async function initialize(
         callerRole,
-        p2pNetworkIdentity,
+        p2pNetworkClientIdentity,
         p2pNetwork,
         maxOutgoingPeers
     ) {
@@ -69,7 +74,7 @@ exports.newNetworkModulesP2PNetworkHead = function newNetworkModulesP2PNetworkHe
                 */
                 if (peer.httpClient === undefined) {
                     peer.httpClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesHttpNetworkClient()
-                    peer.httpClient.initialize(callerRole, p2pNetworkIdentity, peer.p2pNetworkNode)
+                    peer.httpClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode)
                 }
 
                 return await peer.httpClient.testConnection()

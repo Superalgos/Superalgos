@@ -1,6 +1,16 @@
 exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkPeers() {
     /*
     This module holds the P2P Nodes we are coonected to.
+    Here we implement the mechanism to connect via websockets
+    to a set of Network Nodes and keep ourselves connected to them
+    so that when it is needed we can send messages to them, but also
+    we will receive incomming messages from them.
+    
+    If connections are lost, we will re establish them so as to keep
+    ourselves connected to the configured amount of network nodes.
+
+    When an outgoing message is received, it will be rounted to one 
+    of our pool of connected nodes. 
     */
     let thisObject = {
         peers: undefined,
@@ -23,7 +33,7 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
 
     async function initialize(
         callerRole,
-        p2pNetworkIdentity,
+        p2pNetworkClientIdentity,
         p2pNetwork,
         maxOutgoingPeers
     ) {
@@ -48,7 +58,7 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
                 if (isPeerConnected(peer) === true) { continue }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
-                await peer.webSocketsClient.initialize(callerRole, p2pNetworkIdentity, peer.p2pNetworkNode, onConnectionClosed)
+                await peer.webSocketsClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode, onConnectionClosed)
                     .then(addPeer)
                     .catch(onError)
 

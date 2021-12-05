@@ -18,7 +18,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
 
     }
 
-    async function initialize(nodeCodeName, p2pNetworkIdentity) {
+    async function initialize(nodeCodeName, p2pNetworkClientIdentity) {
 
         await loadAppSchemas()
         await loadProfiles()
@@ -158,9 +158,9 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                         if (
                             networkClient.id === SA.secrets.map.get(nodeCodeName).nodeId
                         ) {
-                            p2pNetworkIdentity.node = networkClient
-                            p2pNetworkIdentity.blockchainAccount = blockchainAccount
-                            p2pNetworkIdentity.userProfile = userProfile
+                            p2pNetworkClientIdentity.node = networkClient
+                            p2pNetworkClientIdentity.blockchainAccount = blockchainAccount
+                            p2pNetworkClientIdentity.userProfile = userProfile
                         }
                     }
                 }

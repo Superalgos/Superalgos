@@ -29,10 +29,10 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
             let endpointOrFile = requestPath[1]
 
             switch (endpointOrFile) {
-                case 'Signal':
+                case 'New-Signal':
                     {
                         let message = requestPath[2]
-                        let response = await thisObject.clientInterface.messageReceived(message)
+                        let response = 'Message Received' //await thisObject.clientInterface.messageReceived(message)
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                     }
                     break

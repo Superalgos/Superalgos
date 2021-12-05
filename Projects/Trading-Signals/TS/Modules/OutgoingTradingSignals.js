@@ -14,7 +14,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
     function finalize() {
     }
 
-    function broadcastSignal(node) {
+    async function broadcastSignal(node) {
         if (node === undefined) { return }
         if (node.outgoingSignals === undefined) { return }
         if (node.outgoingSignals.signalReferences === undefined) { return }
@@ -30,7 +30,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                 socialTradingBotNodeId: signalReference.referenceParent.id
             }
     
-            TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signalMessage)
+            await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signalMessage)
         }
     }
 }

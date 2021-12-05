@@ -154,7 +154,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     /* Initialize this */
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value = 1
 
-                                    outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOn)
+                                    await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOn)
                                     announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
 
                                     if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {

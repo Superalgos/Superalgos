@@ -127,12 +127,12 @@
             "id": "9acc135c-21aa-45f2-bad8-9ce433aae126",
             "savedPayload": {
                 "position": {
-                    "x": 23177.272727272724,
-                    "y": 23990.192378864667
+                    "x": 39123.5294117647,
+                    "y": 32900
                 },
                 "targetPosition": {
-                    "x": 23027.272727272724,
-                    "y": 24250
+                    "x": 39123.5294117647,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -187,7 +187,7 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
@@ -310,7 +310,7 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
@@ -433,7 +433,7 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "1fd95e41-4b22-48d5-be3a-904c37afcb11"
+                                "id": "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
@@ -524,12 +524,12 @@
             "id": "64e87df3-6e95-4743-a77a-beb9d583e54b",
             "savedPayload": {
                 "position": {
-                    "x": 23177.272727272724,
-                    "y": 24509.807621135333
+                    "x": 39423.5294117647,
+                    "y": 33200
                 },
                 "targetPosition": {
-                    "x": 23027.272727272724,
-                    "y": 24250
+                    "x": 39123.5294117647,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -544,15 +544,188 @@
                 }
             }
         },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "CoinMonks Team Token Pool Marketing Teams PoW Report",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "97c198a0-3866-4313-b12d-7ff8cb2a16ff",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 39643.144654035365,
+                                        "y": 34100
+                                    },
+                                    "targetPosition": {
+                                        "x": 39383.33703290003,
+                                        "y": 33950
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "CoinMonks Team Token Pool",
+                                        "id": "dd454de1-59fd-470c-98ca-b4fb09917f6d"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ Nov 2021",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams PoW Report",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "CoinMonks Team Token Pool",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "1dd3e212-4f90-4f13-bd0d-d3736d31f28f",
+                        "savedPayload": {
+                            "position": {
+                                "x": 39383.33703290003,
+                                "y": 33950
+                            },
+                            "targetPosition": {
+                                "x": 39123.5294117647,
+                                "y": 33800
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "a8143aed-3c39-42d2-88ce-2a297f957285",
+                    "savedPayload": {
+                        "position": {
+                            "x": 38863.721790629366,
+                            "y": 33950
+                        },
+                        "targetPosition": {
+                            "x": 39123.5294117647,
+                            "y": 33800
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "f9a4c418-3a0e-4525-97d7-d93f0db85540",
+                "savedPayload": {
+                    "position": {
+                        "x": 39123.5294117647,
+                        "y": 33800
+                    },
+                    "targetPosition": {
+                        "x": 39123.5294117647,
+                        "y": 33500
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "f9a7fc0a-1c1f-41a5-a4bb-223bc4b64e00",
+            "savedPayload": {
+                "position": {
+                    "x": 39123.5294117647,
+                    "y": 33500
+                },
+                "targetPosition": {
+                    "x": 39123.5294117647,
+                    "y": 33200
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
         "id": "12ab77db-c933-4d79-b1b2-717c23db9769",
         "savedPayload": {
             "position": {
-                "x": 23027.272727272724,
-                "y": 24250
+                "x": 39123.5294117647,
+                "y": 33200
             },
             "targetPosition": {
-                "x": 22727.272727272724,
-                "y": 24250
+                "x": 38823.5294117647,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -574,12 +747,12 @@
         "id": "600a7833-2df4-4a8f-843b-75bb48d6c1ae",
         "savedPayload": {
             "position": {
-                "x": 22427.272727272724,
-                "y": 24250
+                "x": 38523.5294117647,
+                "y": 33200
             },
             "targetPosition": {
-                "x": 22727.272727272724,
-                "y": 24250
+                "x": 38823.5294117647,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -597,12 +770,12 @@
     "id": "56624bb7-2e7b-493a-a472-5fd97dfccb2f",
     "savedPayload": {
         "position": {
-            "x": 22727.272727272724,
-            "y": 24250
+            "x": 38823.5294117647,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 22727.272727272724,
-            "y": 24250
+            "x": 38823.5294117647,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,

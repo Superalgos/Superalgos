@@ -1588,7 +1588,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             } catch (err) {
-                                // we just try to reponnd to the web app, but maybe the response has already been sent.
+                                // we just try to respond to the web app, but maybe the response has already been sent.
                             }
                         }
                     }
@@ -2231,7 +2231,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Storage': {
                     let pathToFile = httpRequest.url.substring(9)
-                    /* Unsavping # */
+                    /* Unsaving # */
                     for (let i = 0; i < 10; i++) {
                         pathToFile = pathToFile.replace('_HASHTAG_', '#')
                     }

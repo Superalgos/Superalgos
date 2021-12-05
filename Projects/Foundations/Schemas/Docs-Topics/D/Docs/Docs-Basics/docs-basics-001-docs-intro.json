@@ -17,6 +17,11 @@
                 "text": "Die Docs sind ein Bereich innerhalb des Superalgos-Projekts. Es ermöglicht den Nutzern, nach Informationen zu Knoten, Konzepten, Themen, Tutorials, Rezensionen und Büchern zu suchen.\nDie Docs wurden ins deutsche übersetzt durch gitforkgit .",
                 "updated": 1633966515041,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Docs - это пространство в проекте Superalgos. Он позволяет пользователям искать информацию относительно узлов, концепций, тем, руководств, обзоров и книг.",
+                "updated": 1638457173451
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Jedes in Superalgos integrierte Projekt kann seine eigene Sammlung von Seiten haben, die die Projektdokumentation bilden.",
                     "updated": 1633805059356,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый проект, интегрированный в Superalgos, может иметь свой собственный набор страниц, составляющих документацию проекта.",
+                    "updated": 1638457209931
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Concepts sind Begriffe oder Ideen, die nicht als Nodes in einer Hierarchie dargestellt werden. Die Seiten in der Kategorie concept behandeln Begriffe oder Ideen, die auf einer einzigen Seite erklärt werden können. Das heißt, concepts (Konzepte) sind Begriffe, die auf einer einzigen Seite ausreichend behandelt werden können.",
                 "updated": 1633862634123
+            },
+            {
+                "language": "RU",
+                "text": "Концепции - это понятия или идеи, которые не представлены в виде узлов в иерархии. Страницы в категории концепций охватывают понятия или идеи, которые могут быть объяснены на одной странице. То есть концепции - это понятия, которые могут быть исчерпывающе рассмотрены на одной странице.",
+                "updated": 1638464758495
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Die Seite eines concept (Konzepts) ist in sich abgeschlossen.",
                     "updated": 1633862726682
+                },
+                {
+                    "language": "RU",
+                    "text": "Страница концепции самодостаточна.",
+                    "updated": 1638464785371
                 }
             ]
         }

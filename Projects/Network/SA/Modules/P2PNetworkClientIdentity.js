@@ -1,4 +1,4 @@
-exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetworkClient() {
+exports.newNetworkModulesP2PNetworkClientIdentity = function newNetworkModulesP2PNetworkClientIdentity() {
     /*
     This module represents the P2P Network Client running at the moment.
     */

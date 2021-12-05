@@ -1608,6 +1608,12 @@
                     "fileName": "WebSocketsNetworkClient.js"
                 },
                 {
+                    "name": "Http Network Client",
+                    "propertyName": "webHttpNetworkClient",
+                    "functionName": "newNetworkModulesHttpNetworkClient",
+                    "fileName": "HttpNetworkClient.js"
+                },                
+                {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",
                     "functionName": "newNetworkModulesUserProfiles",
@@ -1632,10 +1638,16 @@
                     "fileName": "P2PNetworkPeers.js"
                 },
                 {
-                    "name": "P2P Network Client",
-                    "propertyName": "p2pNetworkClient",
-                    "functionName": "newNetworkModulesP2PNetworkClient",
-                    "fileName": "P2PNetworkClient.js"
+                    "name": "P2P Network Head",
+                    "propertyName": "p2pNetworkStart",
+                    "functionName": "newNetworkModulesP2PNetworkStart",
+                    "fileName": "P2PNetworkStart.js"
+                },                
+                {
+                    "name": "P2P Network Client Identity",
+                    "propertyName": "p2pNetworkClientIdentity",
+                    "functionName": "newNetworkModulesP2PNetworkClientIdentity",
+                    "fileName": "P2PNetworkClientIdentity.js"
                 }
             ],
             "utilities": [

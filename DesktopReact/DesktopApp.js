@@ -3,7 +3,7 @@ exports.newDesktopApp = function newDesktopApp() {
 
     let thisObject = {
         userProfiles: undefined,
-        p2pNetworkClient: undefined,
+        p2pNetworkClientIdentity: undefined,
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
         webSocketsInterface: undefined,
@@ -26,13 +26,13 @@ exports.newDesktopApp = function newDesktopApp() {
             /*
             We set up ourselves as a Network Client.
             */
-            thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
-            await thisObject.p2pNetworkClient.initialize()
+            thisObject.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
+            await thisObject.p2pNetworkClientIdentity.initialize()
             /*
             We will read all user profiles plugins and get from there our network identity.
             */
             thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-            await thisObject.userProfiles.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClient)
+            await thisObject.userProfiles.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClientIdentity)
             /*
             We set up the P2P Network.
             */
@@ -44,7 +44,7 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
             await thisObject.p2pNetworkPeers.initialize(
                 'Network Client',
-                thisObject.p2pNetworkClient,
+                thisObject.p2pNetworkClientIdentity,
                 thisObject.p2pNetwork,
                 global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
             )
@@ -67,13 +67,13 @@ exports.newDesktopApp = function newDesktopApp() {
 
 
             let express = require('./backend/src/index')
-            let expressPort = JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort;
+            let expressPort = JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webPort;
             express.startExpress(expressPort,SA);
             console.log('express Interface ................................................ Listening at port ' + expressPort);
 
             /*TODO change this to have a definite port number*/
             let react = require('./frontend/scripts/start')
-            let reactPort = (+JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort + 1);
+            let reactPort = (+JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webPort + 1);
             react.start(reactPort);
             console.log('react Interface ................................................ Listening at port ' + reactPort);
         }

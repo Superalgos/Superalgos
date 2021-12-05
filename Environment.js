@@ -33,6 +33,7 @@ exports.newEnvironment = function () {
         DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
         DESKTOP_APP_MAX_OUTGOING_PEERS: 1,
         TASK_SERVER_APP_MAX_OUTGOING_PEERS: 1,
+        TASK_SERVER_APP_MAX_OUTGOING_HEADS: 1,
         MOBILE_APP_SIGNING_ACCOUNT: 'Social-Trading-Mobile-App-1',
         SERVER_APP_SIGNING_ACCOUNT: 'Social-Trading-Server-App-1',
         PLATFORM_APP_SIGNING_ACCOUNT: 'Algo-Traders-Platform-1',

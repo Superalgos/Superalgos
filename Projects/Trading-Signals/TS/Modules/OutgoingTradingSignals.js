@@ -17,16 +17,20 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
     function broadcastSignal(node) {
         if (node === undefined) { return }
         if (node.outgoingSignals === undefined) { return }
-        if (node.outgoingSignals.signalReference === undefined) { return }
-        if (node.outgoingSignals.signalReference.referenceParent === undefined) { return }
+        if (node.outgoingSignals.signalReferences === undefined) { return }
 
-        let signalMessage = {
-            signalId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            tradingSystemNodeType: node.type,
-            socialTradingBotNodeType: node.outgoingSignals.signalReference.referenceParent.id,
-            socialTradingBotNodeId: node.outgoingSignals.signalReference.referenceParent.id
+        for (let i = 0; i < node.outgoingSignals.signalReferences.length; i++) {
+            let signalReference = node.outgoingSignals.signalReferences[i]
+            if (signalReference.referenceParent === undefined) { return }
+
+            let signalMessage = {
+                signalId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                tradingSystemNodeType: node.type,
+                socialTradingBotNodeType: signalReference.referenceParent.type,
+                socialTradingBotNodeId: signalReference.referenceParent.id
+            }
+    
+            TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signalMessage)
         }
-
-        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signalMessage)
     }
 }

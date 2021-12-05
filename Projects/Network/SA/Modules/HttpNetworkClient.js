@@ -49,9 +49,9 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                     messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     messageType: 'Request',
                     signature: JSON.stringify(signature),
-                    payload: message
+                    payload: JSON.stringify(message)
                 }
-
+                const fetch = SA.nodeModules.nodeFetch
                 const response = await fetch('https://' + thisObject.host + ':' + thisObject.port + '/' + 'New-Signal', {
                     method: 'post',
                     body: JSON.stringify(body),

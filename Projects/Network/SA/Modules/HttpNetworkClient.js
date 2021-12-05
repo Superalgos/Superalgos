@@ -1,6 +1,7 @@
 exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetworkClient() {
 
     let thisObject = {
+        callerRole: undefined, 
         host: undefined,
         port: undefined,
         p2pNetworkNode: undefined,
@@ -25,7 +26,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         web3 = undefined
     }
 
-    async function initialize(p2pNetworkClientIdentity, p2pNetworkNode) {
+    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode) {
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         thisObject.p2pNetworkClientCodeName = JSON.parse(thisObject.p2pNetworkClientIdentity.node.config).codeName

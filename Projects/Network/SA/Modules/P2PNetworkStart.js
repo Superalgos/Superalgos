@@ -73,11 +73,11 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                 Test if the peer is actually online.
                 */
                 if (peer.httpClient === undefined) {
-                    peer.httpClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesHttpNetworkClient()
+                    peer.httpClient = SA.projects.network.modules.webHttpNetworkClient.newNetworkModulesHttpNetworkClient()
                     peer.httpClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode)
                 }
 
-                return await peer.httpClient.testConnection()
+                return true // TODO:: actually check if this node is online
             }
         }
     }

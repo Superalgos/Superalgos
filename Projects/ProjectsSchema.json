@@ -1609,7 +1609,7 @@
                 },
                 {
                     "name": "Http Network Client",
-                    "propertyName": "webSocketsNetworkClient",
+                    "propertyName": "webHttpNetworkClient",
                     "functionName": "newNetworkModulesHttpNetworkClient",
                     "fileName": "HttpNetworkClient.js"
                 },                

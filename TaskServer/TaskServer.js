@@ -158,7 +158,7 @@ exports.newTaskServer = function newTaskServer() {
                     /*
                     Set up the connections to network start nodes. These connections will be used to send signals.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkStart()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart = SA.projects.network.modules.p2pNetworkStart.newNetworkModulesP2PNetworkStart()
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.initialize(
                         'Network Client',
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,

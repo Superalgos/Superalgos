@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 24868.60465116279,
-                    "y": 32940.19237886467
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
                     "x": 24718.60465116279,
-                    "y": 33200
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -517,11 +517,11 @@
             "savedPayload": {
                 "position": {
                     "x": 24978.412272298123,
-                    "y": 33050
+                    "y": 23450
                 },
                 "targetPosition": {
                     "x": 24718.60465116279,
-                    "y": 33200
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -566,11 +566,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 25645.8357337156,
-                                        "y": 32682.57653858252
+                                        "y": 23082.57653858252
                                     },
                                     "targetPosition": {
                                         "x": 25568.190020184844,
-                                        "y": 32972.35428646924
+                                        "y": 23372.354286469243
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -600,11 +600,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 25827.997641320177,
-                                        "y": 32822.35428646924
+                                        "y": 23222.354286469243
                                     },
                                     "targetPosition": {
                                         "x": 25568.190020184844,
-                                        "y": 32972.35428646924
+                                        "y": 23372.354286469243
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -649,11 +649,11 @@
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26220.09980242753,
-                                                                "y": 32422.76891744719
+                                                                "y": 22822.76891744719
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26297.745515958286,
-                                                                "y": 32712.54666533391
+                                                                "y": 23112.54666533391
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -714,11 +714,11 @@
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26447.745515958286,
-                                                                "y": 32452.739044198577
+                                                                "y": 22852.739044198577
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26297.745515958286,
-                                                                "y": 32712.54666533391
+                                                                "y": 23112.54666533391
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -779,11 +779,11 @@
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26587.523263845007,
-                                                                "y": 32634.900951803153
+                                                                "y": 23034.900951803153
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26297.745515958286,
-                                                                "y": 32712.54666533391
+                                                                "y": 23112.54666533391
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -843,11 +843,11 @@
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 26297.745515958286,
-                                                        "y": 32712.54666533391
+                                                        "y": 23112.54666533391
                                                     },
                                                     "targetPosition": {
                                                         "x": 26147.745515958286,
-                                                        "y": 32972.35428646924
+                                                        "y": 23372.354286469243
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -909,11 +909,11 @@
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26727.301011731728,
-                                                                "y": 32817.06285940773
+                                                                "y": 23217.062859407728
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26437.523263845007,
-                                                                "y": 32894.708572938485
+                                                                "y": 23294.708572938485
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -961,11 +961,11 @@
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 26437.523263845007,
-                                                        "y": 32894.708572938485
+                                                        "y": 23294.708572938485
                                                     },
                                                     "targetPosition": {
                                                         "x": 26147.745515958286,
-                                                        "y": 32972.35428646924
+                                                        "y": 23372.354286469243
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1015,11 +1015,11 @@
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26667.36075822895,
-                                                                "y": 33272.35428646924
+                                                                "y": 23672.354286469243
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26407.55313709362,
-                                                                "y": 33122.35428646924
+                                                                "y": 23522.354286469243
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1079,11 +1079,11 @@
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 26407.55313709362,
-                                                        "y": 33122.35428646924
+                                                        "y": 23522.354286469243
                                                     },
                                                     "targetPosition": {
                                                         "x": 26147.745515958286,
-                                                        "y": 32972.35428646924
+                                                        "y": 23372.354286469243
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1138,11 +1138,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 26147.745515958286,
-                                                "y": 32972.35428646924
+                                                "y": 23372.354286469243
                                             },
                                             "targetPosition": {
                                                 "x": 25857.967768071565,
-                                                "y": 33050
+                                                "y": 23450
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1172,7 +1172,7 @@
                                                     {
                                                         "type": "Weight Votes Switch",
                                                         "name": "Desktop Team PoW Report",
-                                                        "config": "{\r\n    \"percentage\": 30\r\n}",
+                                                        "config": "{\r\n    \"percentage\": 40\r\n}",
                                                         "project": "Governance",
                                                         "weightVotesSwitch": [],
                                                         "poolWeightVotes": [],
@@ -1187,12 +1187,12 @@
                                                                 "id": "6407a4ef-a6e3-4ff1-bc45-1f19e265f870",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 26882.231836783492,
-                                                                        "y": 33474.26406871193
+                                                                        "x": 26874.844841140573,
+                                                                        "y": 23780.403389687788
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 26582.231836783492,
-                                                                        "y": 33474.26406871193
+                                                                        "x": 26578.538338962033,
+                                                                        "y": 23827.333729199858
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1248,12 +1248,12 @@
                                                         "id": "8d7d537c-d5ff-45d7-a1fe-d3a836c5af64",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 26582.231836783492,
-                                                                "y": 33474.26406871193
+                                                                "x": 26578.538338962033,
+                                                                "y": 23827.333729199858
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26282.231836783492,
-                                                                "y": 33474.26406871193
+                                                                "y": 23874.264068711927
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1317,12 +1317,12 @@
                                                                 "id": "4fe3b8c5-7554-45c1-9fdb-703d3a8a8ad0",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 26706.49590549542,
-                                                                        "y": 33898.528137423855
+                                                                        "x": 26816.835751296512,
+                                                                        "y": 24146.658368555654
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 26494.363871139456,
-                                                                        "y": 33686.39610306789
+                                                                        "x": 26549.533794040002,
+                                                                        "y": 24010.46121863379
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1378,12 +1378,12 @@
                                                         "id": "91e49bb4-180d-4b13-a7f2-293c112ce5de",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 26494.363871139456,
-                                                                "y": 33686.39610306789
+                                                                "x": 26549.533794040002,
+                                                                "y": 24010.46121863379
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26282.231836783492,
-                                                                "y": 33474.26406871193
+                                                                "y": 23874.264068711927
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1431,28 +1431,85 @@
                                                     },
                                                     {
                                                         "type": "Weight Votes Switch",
-                                                        "name": "Marketing Teams PoW Report",
+                                                        "name": "Old Devs",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "weightVotesSwitch": [],
-                                                        "poolWeightVotes": [],
-                                                        "assetWeightVotes": [],
-                                                        "featureWeightVotes": [],
-                                                        "positionWeightVotes": [
+                                                        "weightVotesSwitch": [
                                                             {
-                                                                "type": "Position Weight Vote",
-                                                                "name": "Marketing Teams PoW Report Exchange Relationships Team Token Pool",
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Algorithmic-Trading & Portfolio Management Team PoW Report",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "3fe56779-ba1b-4b88-af9f-0254fb4abb46",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [
+                                                                    {
+                                                                        "type": "Position Weight Vote",
+                                                                        "name": "Algorithmic-Trading & Portfolio Management Team PoW Report Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "c3562d33-d225-4878-bbe7-037c57469244",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 26989.062896482446,
+                                                                                "y": 24326.976222593403
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26703.7459415939,
+                                                                                "y": 24234.27112428092
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Position",
+                                                                                "name": "Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                                                                "id": "d93681ca-23e4-4503-b76f-d675d4e81732"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Teams of Contributors",
+                                                                                    "Positions"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams @ Nov 2021",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams With PoW Reports",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Algorithmic-Trading & Portfolio Management Team PoW Report",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                                                                    "Position"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "id": "95412486-bd55-4469-b496-fb9f34dd0d04",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 26432.231836783492,
-                                                                        "y": 34034.07168984726
+                                                                        "x": 26703.7459415939,
+                                                                        "y": 24234.27112428092
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 26282.231836783492,
-                                                                        "y": 33774.26406871193
+                                                                        "x": 26418.428986705356,
+                                                                        "y": 24141.566025968437
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1466,9 +1523,9 @@
                                                                         "isRunning": false
                                                                     },
                                                                     "referenceParent": {
-                                                                        "type": "Position",
-                                                                        "name": "Exchange Relationships Team Token Pool",
-                                                                        "id": "522fe7af-6343-42f7-9f4d-feb2c51e257c"
+                                                                        "type": "Position Class",
+                                                                        "name": "Algorithmic-Trading & Portfolio Management Team PoW Report",
+                                                                        "id": "d3592eff-41f3-45af-a534-05750b22a887"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
@@ -1484,30 +1541,87 @@
                                                                             "Position Class"
                                                                         ],
                                                                         [
-                                                                            "Marketing Teams PoW Report",
+                                                                            "Algorithmic-Trading & Portfolio Management Team PoW Report",
                                                                             "Position Class"
-                                                                        ],
-                                                                        [
-                                                                            "Exchange Relationships Team Token Pool",
-                                                                            "Position"
                                                                         ]
                                                                     ]
                                                                 }
                                                             },
                                                             {
-                                                                "type": "Position Weight Vote",
-                                                                "name": "Marketing Teams PoW Report CoinMonks Team Token Pool",
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Distribution Team PoW Report",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "99bd6e70-62fa-47b4-94f9-9ebbb9ac512f",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [
+                                                                    {
+                                                                        "type": "Position Weight Vote",
+                                                                        "name": "Distribution Team PoW Report Distribution Team Token Pool",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "8515032b-df76-4137-985f-0cdab4cd6ccc",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 26690.823286549083,
+                                                                                "y": 24676.169940481457
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26554.62613662722,
+                                                                                "y": 24408.867983224947
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Position",
+                                                                                "name": "Distribution Team Token Pool",
+                                                                                "id": "5a79b95b-d87c-4f56-92da-bbb44ae47c0d"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Teams of Contributors",
+                                                                                    "Positions"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams @ Nov 2021",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams With PoW Reports",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Distribution Team PoW Report",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Distribution Team Token Pool",
+                                                                                    "Position"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "id": "3316aced-bb9a-4932-aa73-59fd15c2f8c7",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 26132.231836783492,
-                                                                        "y": 34034.07168984726
+                                                                        "x": 26554.62613662722,
+                                                                        "y": 24408.867983224947
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 26282.231836783492,
-                                                                        "y": 33774.26406871193
+                                                                        "x": 26418.428986705356,
+                                                                        "y": 24141.566025968437
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1521,9 +1635,9 @@
                                                                         "isRunning": false
                                                                     },
                                                                     "referenceParent": {
-                                                                        "type": "Position",
-                                                                        "name": "CoinMonks Team Token Pool",
-                                                                        "id": "dd454de1-59fd-470c-98ca-b4fb09917f6d"
+                                                                        "type": "Position Class",
+                                                                        "name": "Distribution Team PoW Report",
+                                                                        "id": "a8d736f7-f1f6-42ce-b72a-626c2faf4d09"
                                                                     },
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
@@ -1539,26 +1653,396 @@
                                                                             "Position Class"
                                                                         ],
                                                                         [
-                                                                            "Marketing Teams PoW Report",
+                                                                            "Distribution Team PoW Report",
+                                                                            "Position Class"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Smidy’s Team PoW Report",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [
+                                                                    {
+                                                                        "type": "Position Weight Vote",
+                                                                        "name": "Smidy’s Team PoW Report Smidy’s Team Token Pool",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "4f31af5e-6431-4d47-a38f-c6897c94b744",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 26233.01879008039,
+                                                                                "y": 24712.199935745528
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26325.723888392873,
+                                                                                "y": 24426.882980856983
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Position",
+                                                                                "name": "Smidy’s Team Token Pool",
+                                                                                "id": "6e27ccd8-f4a9-4d72-a21e-deb58f2ca66c"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Teams of Contributors",
+                                                                                    "Positions"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams @ Nov 2021",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams With PoW Reports",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Smidy’s Team PoW Report",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Smidy’s Team Token Pool",
+                                                                                    "Position"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "id": "b0305923-968c-43a5-a8c2-21db90ed7115",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 26325.723888392873,
+                                                                        "y": 24426.882980856983
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 26418.428986705356,
+                                                                        "y": 24141.566025968437
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Class",
+                                                                        "name": "Smidy’s Team PoW Report",
+                                                                        "id": "7bdf079a-7ede-476e-b402-0461c2c312ee"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Teams of Contributors",
+                                                                            "Positions"
+                                                                        ],
+                                                                        [
+                                                                            "Teams @ Nov 2021",
                                                                             "Position Class"
                                                                         ],
                                                                         [
-                                                                            "CoinMonks Team Token Pool",
-                                                                            "Position"
+                                                                            "Teams With PoW Reports",
+                                                                            "Position Class"
+                                                                        ],
+                                                                        [
+                                                                            "Smidy’s Team PoW Report",
+                                                                            "Position Class"
                                                                         ]
                                                                     ]
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "c2894cf7-5e2f-4bfa-9b8e-7eb93d6eaf1f",
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "855ad169-dcfb-4f9e-a444-dd94e6fbc362",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 26282.231836783492,
-                                                                "y": 33774.26406871193
+                                                                "x": 26418.428986705356,
+                                                                "y": 24141.566025968437
                                                             },
                                                             "targetPosition": {
                                                                 "x": 26282.231836783492,
-                                                                "y": 33474.26406871193
+                                                                "y": 23874.264068711927
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": true,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Weight Votes Switch",
+                                                        "name": "Good Technical Jobs",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "weightVotesSwitch": [
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Brett’s Team PoW Report",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [
+                                                                    {
+                                                                        "type": "Position Weight Vote",
+                                                                        "name": "Brett’s Team PoW Report Brett’s Team Token Pool",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "a37f654d-9a92-44da-b4ad-3c09b0c1f410",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 26450.322266998606,
+                                                                                "y": 24730.718826788787
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26342.811882135014,
+                                                                                "y": 24450.644698839627
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Position",
+                                                                                "name": "Brett’s Team Token Pool",
+                                                                                "id": "bb67fd84-7283-4110-b838-dcdecbb7b4ca"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Teams of Contributors",
+                                                                                    "Positions"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams @ Nov 2021",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams With PoW Reports",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Brett’s Team PoW Report",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Brett’s Team Token Pool",
+                                                                                    "Position"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "id": "ae46bdc2-b4f9-4331-b52f-8900fb305b6c",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 26342.811882135014,
+                                                                        "y": 24450.644698839627
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 26235.301497271423,
+                                                                        "y": 24170.570570890468
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Class",
+                                                                        "name": "Brett’s Team PoW Report",
+                                                                        "id": "d97c8d9f-401d-4e48-aede-6c91f5b730fd"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Teams of Contributors",
+                                                                            "Positions"
+                                                                        ],
+                                                                        [
+                                                                            "Teams @ Nov 2021",
+                                                                            "Position Class"
+                                                                        ],
+                                                                        [
+                                                                            "Teams With PoW Reports",
+                                                                            "Position Class"
+                                                                        ],
+                                                                        [
+                                                                            "Brett’s Team PoW Report",
+                                                                            "Position Class"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "Weight Votes Switch",
+                                                                "name": "Data Mining Team PoW Report",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "weightVotesSwitch": [],
+                                                                "poolWeightVotes": [],
+                                                                "assetWeightVotes": [],
+                                                                "featureWeightVotes": [],
+                                                                "positionWeightVotes": [
+                                                                    {
+                                                                        "type": "Position Weight Vote",
+                                                                        "name": "Data Mining Team PoW Report Data Mining Team Token Pool",
+                                                                        "config": "{}",
+                                                                        "project": "Governance",
+                                                                        "id": "c8c3931b-b40b-420d-bbb8-b5de3f6e0b41",
+                                                                        "savedPayload": {
+                                                                            "position": {
+                                                                                "x": 25857.709262641518,
+                                                                                "y": 24636.858147764648
+                                                                            },
+                                                                            "targetPosition": {
+                                                                                "x": 26046.50537995647,
+                                                                                "y": 24403.714359327558
+                                                                            },
+                                                                            "floatingObject": {
+                                                                                "isPinned": false,
+                                                                                "isFrozen": false,
+                                                                                "isCollapsed": false,
+                                                                                "angleToParent": 2,
+                                                                                "distanceToParent": 3,
+                                                                                "arrangementStyle": 0
+                                                                            },
+                                                                            "uiObject": {
+                                                                                "isRunning": false
+                                                                            },
+                                                                            "referenceParent": {
+                                                                                "type": "Position",
+                                                                                "name": "Data Mining Team Token Pool",
+                                                                                "id": "e61f97a8-ee3a-4bf3-947d-eba128813dda"
+                                                                            },
+                                                                            "referenceParentCombinedNodePath": [
+                                                                                [
+                                                                                    "Teams of Contributors",
+                                                                                    "Positions"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams @ Nov 2021",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Teams With PoW Reports",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Data Mining Team PoW Report",
+                                                                                    "Position Class"
+                                                                                ],
+                                                                                [
+                                                                                    "Data Mining Team Token Pool",
+                                                                                    "Position"
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "id": "767a2e88-4748-4272-bf35-8ef46b368d6e",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 26046.50537995647,
+                                                                        "y": 24403.714359327558
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 26235.301497271423,
+                                                                        "y": 24170.570570890468
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Class",
+                                                                        "name": "Data Mining Team PoW Report",
+                                                                        "id": "2216c060-c9f7-4417-b41f-1d4f9cb4ca81"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "Teams of Contributors",
+                                                                            "Positions"
+                                                                        ],
+                                                                        [
+                                                                            "Teams @ Nov 2021",
+                                                                            "Position Class"
+                                                                        ],
+                                                                        [
+                                                                            "Teams With PoW Reports",
+                                                                            "Position Class"
+                                                                        ],
+                                                                        [
+                                                                            "Data Mining Team PoW Report",
+                                                                            "Position Class"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "poolWeightVotes": [],
+                                                        "assetWeightVotes": [],
+                                                        "featureWeightVotes": [],
+                                                        "positionWeightVotes": [],
+                                                        "id": "d1136306-11ad-43db-bebb-dcb9dff4969a",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 26235.301497271423,
+                                                                "y": 24170.570570890468
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 26282.231836783492,
+                                                                "y": 23874.264068711927
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1570,30 +2054,7 @@
                                                             },
                                                             "uiObject": {
                                                                 "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position Class",
-                                                                "name": "Marketing Teams PoW Report",
-                                                                "id": "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ Nov 2021",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Teams With PoW Reports",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams PoW Report",
-                                                                    "Position Class"
-                                                                ]
-                                                            ]
+                                                            }
                                                         }
                                                     }
                                                 ],
@@ -1605,11 +2066,11 @@
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 26282.231836783492,
-                                                        "y": 33474.26406871193
+                                                        "y": 23874.264068711927
                                                     },
                                                     "targetPosition": {
                                                         "x": 26070.09980242753,
-                                                        "y": 33262.132034355964
+                                                        "y": 23662.132034355964
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1633,11 +2094,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 26070.09980242753,
-                                                "y": 33262.132034355964
+                                                "y": 23662.132034355964
                                             },
                                             "targetPosition": {
                                                 "x": 25857.967768071565,
-                                                "y": 33050
+                                                "y": 23450
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1661,11 +2122,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 25857.967768071565,
-                                        "y": 33050
+                                        "y": 23450
                                     },
                                     "targetPosition": {
                                         "x": 25568.190020184844,
-                                        "y": 32972.35428646924
+                                        "y": 23372.354286469243
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1687,11 +2148,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 25568.190020184844,
-                                "y": 32972.35428646924
+                                "y": 23372.354286469243
                             },
                             "targetPosition": {
                                 "x": 25308.38239904951,
-                                "y": 33122.35428646924
+                                "y": 23522.354286469243
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1715,11 +2176,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 25608.38239904951,
-                            "y": 33122.35428646924
+                            "y": 23522.354286469243
                         },
                         "targetPosition": {
                             "x": 25308.38239904951,
-                            "y": 33122.35428646924
+                            "y": 23522.354286469243
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -1738,11 +2199,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 25308.38239904951,
-                        "y": 33122.35428646924
+                        "y": 23522.354286469243
                     },
                     "targetPosition": {
                         "x": 25018.60465116279,
-                        "y": 33200
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1827,11 +2288,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 25308.38239904951,
-                        "y": 33277.64571353076
+                        "y": 23677.645713530757
                     },
                     "targetPosition": {
                         "x": 25018.60465116279,
-                        "y": 33200
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1850,11 +2311,11 @@
             "savedPayload": {
                 "position": {
                     "x": 25018.60465116279,
-                    "y": 33200
+                    "y": 23600
                 },
                 "targetPosition": {
                     "x": 24718.60465116279,
-                    "y": 33200
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2251,11 +2712,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 25238.219893433456,
-                        "y": 33500
+                        "y": 23900
                     },
                     "targetPosition": {
                         "x": 24978.412272298123,
-                        "y": 33350
+                        "y": 23750
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -2274,11 +2735,11 @@
             "savedPayload": {
                 "position": {
                     "x": 24978.412272298123,
-                    "y": 33350
+                    "y": 23750
                 },
                 "targetPosition": {
                     "x": 24718.60465116279,
-                    "y": 33200
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2469,11 +2930,11 @@
             "savedPayload": {
                 "position": {
                     "x": 24868.60465116279,
-                    "y": 33459.80762113533
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
                     "x": 24718.60465116279,
-                    "y": 33200
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -2492,11 +2953,11 @@
         "savedPayload": {
             "position": {
                 "x": 24718.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "targetPosition": {
                 "x": 24418.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -2519,11 +2980,11 @@
         "savedPayload": {
             "position": {
                 "x": 24568.60465116279,
-                "y": 33459.80762113533
+                "y": 23859.807621135333
             },
             "targetPosition": {
                 "x": 24418.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -3033,11 +3494,11 @@
         "savedPayload": {
             "position": {
                 "x": 24268.60465116279,
-                "y": 33459.80762113533
+                "y": 23859.807621135333
             },
             "targetPosition": {
                 "x": 24418.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4484,11 +4945,11 @@
         "savedPayload": {
             "position": {
                 "x": 24118.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "targetPosition": {
                 "x": 24418.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4762,11 +5223,11 @@
         "savedPayload": {
             "position": {
                 "x": 24268.60465116279,
-                "y": 32940.19237886467
+                "y": 23340.192378864667
             },
             "targetPosition": {
                 "x": 24418.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4904,11 +5365,11 @@
         "savedPayload": {
             "position": {
                 "x": 24568.60465116279,
-                "y": 32940.19237886467
+                "y": 23340.192378864667
             },
             "targetPosition": {
                 "x": 24418.60465116279,
-                "y": 33200
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4927,11 +5388,11 @@
     "savedPayload": {
         "position": {
             "x": 24418.60465116279,
-            "y": 33200
+            "y": 23600
         },
         "targetPosition": {
             "x": 24418.60465116279,
-            "y": 33200
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,

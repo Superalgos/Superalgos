@@ -1,7 +1,5 @@
 exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
-    const MODULE_NAME = 'Twitter Bot'
-
     let thisObject = {
         taskParameters: undefined,
         format: undefined,
@@ -106,10 +104,6 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
     function logInfo(message) {
         console.log('[INFO]', message)
-    }
-    
-    function logWarn(message) {
-        console.warn('[WARN]', message)
     }
 
     function logError(message) {

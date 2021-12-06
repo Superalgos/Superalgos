@@ -263,6 +263,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             break
                         }
                     }
+                    break
                 }
                 case 'Webhook': {
                     switch (requestPath[2]) { // switch by command

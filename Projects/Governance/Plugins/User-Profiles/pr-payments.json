@@ -1,0 +1,257 @@
+{
+    "type": "User Profile",
+    "name": "pr-payments",
+    "config": "{\n    \"signature\": {\n        \"message\": \"pr-payments\",\n        \"messageHash\": \"0x0481343fa044e60341a612c80ba58409f1bfd3cbe530c9e06558d34a83363f93\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xab6d65c7b8a47162df7b09b9fcf3f326de1e16e7854c8c7ab9269891e9018a42\",\n        \"s\": \"0x4c081b6eb3d6eb8cd5d52281e0576755c88da3eac7c96e2801c44374592660ea\",\n        \"signature\": \"0xab6d65c7b8a47162df7b09b9fcf3f326de1e16e7854c8c7ab9269891e9018a424c081b6eb3d6eb8cd5d52281e0576755c88da3eac7c96e2801c44374592660ea1b\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Public Relations Team Token Pool Marketing Teams PoW Report",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "69a7ff1c-f3eb-45f5-88b6-1336d15b280c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 49980.90690893734,
+                                        "y": 13302.863636363636
+                                    },
+                                    "targetPosition": {
+                                        "x": 49721.099287802004,
+                                        "y": 13452.863636363636
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Public Relations Team Token Pool",
+                                        "id": "62b14d55-4a13-4f97-b0ec-efff71cd9231"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ Nov 2021",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams PoW Report",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Public Relations Team Token Pool",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "dd9d75cc-3c6e-45d0-8d68-51a8c41cf2e3",
+                        "savedPayload": {
+                            "position": {
+                                "x": 49721.099287802004,
+                                "y": 13452.863636363636
+                            },
+                            "targetPosition": {
+                                "x": 49461.29166666667,
+                                "y": 13602.863636363636
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "90c2b0b2-ced7-4e95-abc5-442c66978e9b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 49721.099287802004,
+                            "y": 13752.863636363636
+                        },
+                        "targetPosition": {
+                            "x": 49461.29166666667,
+                            "y": 13602.863636363636
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "d7d7e1d3-8ea1-4d43-abb5-cfa7af826f81",
+                "savedPayload": {
+                    "position": {
+                        "x": 49461.29166666667,
+                        "y": 13602.863636363636
+                    },
+                    "targetPosition": {
+                        "x": 49161.29166666667,
+                        "y": 13602.863636363636
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "b19e4b17-b8c7-45d4-99ee-eb6acbf49d6b",
+            "savedPayload": {
+                "position": {
+                    "x": 49161.29166666667,
+                    "y": 13602.863636363636
+                },
+                "targetPosition": {
+                    "x": 48861.29166666667,
+                    "y": 13602.863636363636
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "efc09aaa-8435-4efe-bb60-3f8928acfeb9",
+        "savedPayload": {
+            "position": {
+                "x": 48861.29166666667,
+                "y": 13602.863636363636
+            },
+            "targetPosition": {
+                "x": 48561.29166666667,
+                "y": 13602.863636363636
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "a4de9f3b-1917-4a32-9e17-86f3e921d56c",
+        "savedPayload": {
+            "position": {
+                "x": 48261.29166666667,
+                "y": 13602.863636363636
+            },
+            "targetPosition": {
+                "x": 48561.29166666667,
+                "y": 13602.863636363636
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "63be3e46-aafe-4218-8bd1-59bc23ee18e4",
+    "savedPayload": {
+        "position": {
+            "x": 48561.29166666667,
+            "y": 13602.863636363636
+        },
+        "targetPosition": {
+            "x": 48561.29166666667,
+            "y": 13602.863636363636
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": true,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

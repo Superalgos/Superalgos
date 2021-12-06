@@ -109,6 +109,7 @@
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
+    "alternativeIcons": "Use External Github Icon",
     "childrenNodesProperties": [
         {
             "name": "tokenPowerSwitch",

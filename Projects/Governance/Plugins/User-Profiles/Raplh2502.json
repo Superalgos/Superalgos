@@ -23,7 +23,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "195d80e7-3bff-405f-8a30-863d253e7baa",
+                    "id": "84dc9fce-0d0e-4622-b373-e0e7ce17fcd6",
                     "savedPayload": {
                         "position": {
                             "x": 12593.478260869566,
@@ -46,7 +46,7 @@
                         }
                     }
                 },
-                "id": "a775e1ff-dce2-4512-bcd9-060918ac9a1a",
+                "id": "4b6beb1a-8832-4413-8b50-142299d09b3c",
                 "savedPayload": {
                     "position": {
                         "x": 12893.478260869566,
@@ -78,7 +78,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "1fd54641-6497-4abc-a495-e8e8f5f4d3d5",
+                    "id": "d1b787ec-81c4-4691-a85f-150bde94926f",
                     "savedPayload": {
                         "position": {
                             "x": 13493.478260869566,
@@ -101,7 +101,7 @@
                         }
                     }
                 },
-                "id": "91f34fd5-f06d-4dda-b061-4df1c92ef55f",
+                "id": "e8644cb4-197d-49c8-a3c4-5947330bdd0b",
                 "savedPayload": {
                     "position": {
                         "x": 13343.478260869566,
@@ -124,15 +124,15 @@
                     }
                 }
             },
-            "id": "41995904-9ee9-45a1-b1d6-cadf6f759fca",
+            "id": "7e38f20d-b087-4468-90c3-01c50a6c8c31",
             "savedPayload": {
                 "position": {
-                    "x": 13193.478260869566,
-                    "y": 18540.192378864667
+                    "x": 8845.652173913044,
+                    "y": 13740.19237886467
                 },
                 "targetPosition": {
-                    "x": 13343.478260869566,
-                    "y": 18800
+                    "x": 8995.652173913044,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -163,7 +163,7 @@
                         "name": "Julian-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "2d06e0ba-0bed-4352-96e1-992601a8c98c",
+                        "id": "5dd8e8a0-02aa-4f44-b37f-49c3459a8ffd",
                         "savedPayload": {
                             "position": {
                                 "x": 13083.670639734235,
@@ -204,7 +204,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "3ac4827b-2020-44cd-a3db-2d1bc8dbe265",
+                    "id": "f626dcb3-1f3b-459f-9b9c-7ca7a985fb5c",
                     "savedPayload": {
                         "position": {
                             "x": 12973.863018598904,
@@ -231,7 +231,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "f957f95b-e8fd-4d59-8871-043744ff9e27",
+                    "id": "edf47d40-45ed-4870-902a-c51c213f3e23",
                     "savedPayload": {
                         "position": {
                             "x": 13383.670639734235,
@@ -254,7 +254,7 @@
                         }
                     }
                 },
-                "id": "3aed0e65-d873-4689-b886-3d142e91e4ae",
+                "id": "af3d21ec-978d-4057-a619-69300f21b668",
                 "savedPayload": {
                     "position": {
                         "x": 13233.670639734235,
@@ -288,7 +288,7 @@
                         "name": "Julian-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "0cfdbc78-46cc-40d9-93de-c51f274e359b",
+                        "id": "abca8a9e-ff9f-4695-952e-e9c23c06a9c0",
                         "savedPayload": {
                             "position": {
                                 "x": 13369.414623576786,
@@ -329,7 +329,7 @@
                         "name": "harrellbm",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "c9c82d1b-8b72-4f14-8bdb-787e54b3740e",
+                        "id": "af5178b0-4c75-470b-b6b1-dbd60b1d456c",
                         "savedPayload": {
                             "position": {
                                 "x": 13350.033980649425,
@@ -370,7 +370,7 @@
                         "name": "Luis-Fernando-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "f8eb3bad-a471-4894-bd30-4e3437b628e0",
+                        "id": "f9400709-2013-43aa-831e-09c87bc2ff9f",
                         "savedPayload": {
                             "position": {
                                 "x": 13442.73907896191,
@@ -411,7 +411,7 @@
                         "name": "ssplatt",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "92fbc1d0-5cf9-49bc-acb5-32f584e95f38",
+                        "id": "b311a7c0-1d1c-438f-b052-cdc083fbb253",
                         "savedPayload": {
                             "position": {
                                 "x": 13612.11972188927,
@@ -452,7 +452,7 @@
                         "name": "9808us",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "7f9f76a8-0e1a-40c2-b6e7-8be3f6834638",
+                        "id": "851876a4-28fc-4cb9-8766-7f77acb3a6cf",
                         "savedPayload": {
                             "position": {
                                 "x": 13793.478260869566,
@@ -493,7 +493,7 @@
                         "name": "Smidy13",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "17155ef6-3445-4e3a-9a48-0498233def96",
+                        "id": "eda97dd0-7b1f-47d9-9acd-e7df46fd0709",
                         "savedPayload": {
                             "position": {
                                 "x": 13917.541898162346,
@@ -534,7 +534,7 @@
                         "name": "cozed-gh",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "a1ad394f-e1ee-476a-b1c3-d5cd45a37f73",
+                        "id": "f4fff3b5-3a92-4448-a432-abd17ccc8479",
                         "savedPayload": {
                             "position": {
                                 "x": 13936.922541089707,
@@ -575,7 +575,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "7c1bf75c-b5ff-402e-8df3-8ea3b7a5ec8f",
+                    "id": "1cb6e193-a0ea-4cf5-836f-7127ff3f86f2",
                     "savedPayload": {
                         "position": {
                             "x": 13844.217442777224,
@@ -602,7 +602,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "c743d906-3710-48b0-8b03-fc43a2b73d95",
+                    "id": "5aff5498-325b-4401-8b06-8582fc587ed7",
                     "savedPayload": {
                         "position": {
                             "x": 13674.836799849862,
@@ -625,7 +625,7 @@
                         }
                     }
                 },
-                "id": "679d0975-9063-4b62-8d35-3b39284cb287",
+                "id": "1e7693cf-40a7-4867-9685-e2468a043882",
                 "savedPayload": {
                     "position": {
                         "x": 13643.478260869566,
@@ -659,7 +659,7 @@
                         "name": "Luis-Fernando-Molina",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "9283521d-f25a-4e0b-9f52-3559fd582c61",
+                        "id": "803ef235-3b50-44aa-bcc1-77a8ca00bc99",
                         "savedPayload": {
                             "position": {
                                 "x": 47407.34316804053,
@@ -700,7 +700,7 @@
                         "name": "PLuv",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "4fc7d39d-ed77-4197-9341-b552ef74b642",
+                        "id": "70e73e45-f940-443a-bbdd-7536bc9e39e5",
                         "savedPayload": {
                             "position": {
                                 "x": 47643.326229405684,
@@ -741,7 +741,7 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "a704aa7b-2ba8-4a0d-b407-7b55032e12bb",
+                    "id": "1fcf99bf-2a6b-4f65-9a9d-811bfd0c4e17",
                     "savedPayload": {
                         "position": {
                             "x": 47466.99065371794,
@@ -768,7 +768,7 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "ea1c859f-2772-43ec-a59e-7b60bdc5b251",
+                    "id": "123e6f1c-a0ad-4400-8709-56c79add2735",
                     "savedPayload": {
                         "position": {
                             "x": 47122.026213151985,
@@ -791,7 +791,7 @@
                         }
                     }
                 },
-                "id": "a72e0066-9cc8-422c-a411-0755418fede1",
+                "id": "610e72d7-f883-4356-bf9f-8fb6c37c5013",
                 "savedPayload": {
                     "position": {
                         "x": 13753.285882004897,
@@ -814,15 +814,15 @@
                     }
                 }
             },
-            "id": "deeb0fd8-4ba1-4bc5-b704-ca7d2632fcd9",
+            "id": "c28e52ae-5b2f-4199-9af7-0749e559dce1",
             "savedPayload": {
                 "position": {
-                    "x": 13493.478260869566,
-                    "y": 18540.192378864667
+                    "x": 9145.652173913044,
+                    "y": 13740.19237886467
                 },
                 "targetPosition": {
-                    "x": 13343.478260869566,
-                    "y": 18800
+                    "x": 8995.652173913044,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -840,7 +840,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\r\n    \"percentage\": 50\r\n}",
+            "config": "{\r\n    \"percentage\": 36\r\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -886,7 +886,7 @@
                                                                 "name": "Referrals Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "228d6307-9fe2-4070-9337-b1ed290c522f",
+                                                                "id": "2df233e4-f797-498c-a7cf-4eaa9479bb92",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 24732.621375475363,
@@ -951,7 +951,7 @@
                                                                 "name": "Referrals Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "6fe9b74e-2a32-4146-bed1-1d89ebfb5743",
+                                                                "id": "af701cb1-2059-441b-bf4e-edae3c3ca45a",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 24748.322162348246,
@@ -1015,7 +1015,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "8ee307d0-3191-4d18-b172-991d68cdc578",
+                                                        "id": "bf698f23-68ae-45c6-ab6f-e2cffd8f7eff",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 24999.923332731873,
@@ -1081,7 +1081,7 @@
                                                                 "name": "Support Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "f269a3a3-5bfd-4449-9079-db637b6891b3",
+                                                                "id": "10179a9c-8284-490d-a52c-6562084e52d5",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 24813.45605636204,
@@ -1146,7 +1146,7 @@
                                                                 "name": "Support Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "a4941121-0254-470b-b3e6-827de7df0e1e",
+                                                                "id": "b24816c6-db81-4dc1-b0f3-cb80fc7b6111",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25036.399504005258,
@@ -1210,7 +1210,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "eb936e89-bc68-4c14-92ae-bfe292e4e038",
+                                                        "id": "3c9a0cf0-2942-4cd8-acbb-a0440fb2698b",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25098.773011250585,
@@ -1276,7 +1276,7 @@
                                                                 "name": "Mentorship Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "9e6b746f-c0ea-4c7d-8376-359bef92f980",
+                                                                "id": "938c2965-c31d-4556-aaa5-24d64f0e21c7",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25179.015830109263,
@@ -1341,7 +1341,7 @@
                                                                 "name": "Mentorship Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "38dec767-e503-456f-90a4-36d6d6e5ba29",
+                                                                "id": "995f1463-aaab-449f-9eaa-b55bd0005be9",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25478.604690535634,
@@ -1405,7 +1405,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "79d70105-7c78-4d05-b1a4-b8f82f299b57",
+                                                        "id": "0c4f3f7d-0478-40e4-84ea-d23d42ff8ba0",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25315.212980031127,
@@ -1464,7 +1464,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "08a9cddd-6147-4d9d-bf9f-3e7e3d938000",
+                                                "id": "a4e00742-6e20-4c57-b8d7-0eadcc5d573e",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 7164.389816533356,
@@ -1530,7 +1530,7 @@
                                                                 "name": "Airdrop Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "c85e9929-f631-42cd-9ac1-b94f96124e79",
+                                                                "id": "39cc79d6-7e9c-4503-888d-a768470a59ff",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25036.399504005258,
@@ -1594,7 +1594,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "cb520190-68c7-4a16-9a43-3ace4c72b770",
+                                                        "id": "39c3f0c5-78de-4e72-9daa-46a824a76fcd",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25237.138685912916,
@@ -1660,7 +1660,7 @@
                                                                 "name": "Github Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "4ef6d567-575a-451c-8439-26cfc7650319",
+                                                                "id": "6a699aed-c721-48e2-8c5e-03b1b07c0959",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25623.28806444554,
@@ -1724,7 +1724,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "81c9b6d2-2c74-4e04-914d-b1f54949cd37",
+                                                        "id": "f0cbf7c4-fc46-4143-a402-6d20a06c0886",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25530.582966133057,
@@ -1783,7 +1783,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "ddedd16b-c884-4279-b069-7ae93978ad68",
+                                                "id": "c99302f0-2023-4b8b-9859-49ccf6618d86",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 7124.197437668688,
@@ -1849,7 +1849,7 @@
                                                                 "name": "Voting Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "9c88c4fa-8f8e-4816-9c0b-3daa625814c1",
+                                                                "id": "4b33cd78-a5fb-4b7f-a99d-99d3e8186997",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25778.36667000335,
@@ -1913,7 +1913,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "2ee15c70-46c9-44db-b33e-71881b1aeb5a",
+                                                        "id": "5442ecd0-8431-4068-b124-1d612d55adde",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25685.661571690867,
@@ -1972,7 +1972,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "11fda1df-8d7a-455f-b7d0-6181d18629ca",
+                                                "id": "6b3cdf06-8b46-4eef-ba2d-7e9b6ba5ccb6",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 7164.389816533356,
@@ -2038,7 +2038,7 @@
                                                                 "name": "Liquidity Rewards BTCB Pool",
                                                                 "config": "{\r\n    \"percentage\": 87\r\n}",
                                                                 "project": "Governance",
-                                                                "id": "4e76f715-2bd6-4725-a30d-ca65cf6f7df7",
+                                                                "id": "3f41b1ae-364a-4f77-8306-1f40796ce752",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 6825.8408690582055,
@@ -2103,7 +2103,7 @@
                                                                 "name": "Liquidity Rewards BNB Pool",
                                                                 "config": "{\r\n    \"percentage\": 10\r\n}",
                                                                 "project": "Governance",
-                                                                "id": "39f03c69-88e2-49da-9190-6f044c73a8b3",
+                                                                "id": "f71831a8-1db6-4cac-9b8e-815a148490f0",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 6901.25399002547,
@@ -2168,7 +2168,7 @@
                                                                 "name": "Liquidity Rewards BUSD Pool",
                                                                 "config": "{\r\n    \"percentage\": 2.9\r\n}",
                                                                 "project": "Governance",
-                                                                "id": "0715a162-c424-421e-9755-b3b1f4460a15",
+                                                                "id": "924333e2-4a38-4f39-a553-aaa47111fdc9",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 7061.823930423359,
@@ -2233,7 +2233,7 @@
                                                                 "name": "Liquidity Rewards ETH Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "bab19bee-0c3d-478b-81ab-368094a29370",
+                                                                "id": "b4555b43-99d1-496d-9d6f-06c39d2dff82",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 7246.218430591428,
@@ -2297,7 +2297,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "4ef5109c-4c58-4749-afea-7d3953c14e8e",
+                                                        "id": "60fe7e56-9082-4068-a9e7-52b91fbff666",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 7124.197437668688,
@@ -2356,7 +2356,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "d22f77e7-c7a2-4fba-8a4f-f14deef0371b",
+                                                "id": "b362c562-ac10-423d-8808-d063b940e07d",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 7274.197437668688,
@@ -2422,7 +2422,7 @@
                                                                 "name": "Staking Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "285de117-a402-4467-8893-040d66ffdc60",
+                                                                "id": "2cdd7fe6-1d01-4634-b4bf-f431b0a28b1d",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 7124.197437668688,
@@ -2486,7 +2486,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "5f393572-1974-4417-8695-bbf5b11867c0",
+                                                        "id": "c54702f2-0231-4dc2-925a-a3bcfd60a2b2",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 7274.197437668688,
@@ -2552,7 +2552,7 @@
                                                                 "name": "Delegation Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "bab91d13-4bef-44a0-a3a0-19b7e7f670c4",
+                                                                "id": "112f9036-b71b-4d85-a208-b5c33f5899bf",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 7724.197437668688,
@@ -2616,7 +2616,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "b216c922-3772-4f4a-a6fa-9f8a595c4d7e",
+                                                        "id": "04cc3b57-2391-4ee8-b2e1-ae33e87d7ccd",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 7574.197437668688,
@@ -2675,7 +2675,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "26df79f8-eaaa-432b-a53f-54e290b8e50e",
+                                                "id": "58cd6112-fb4e-4d84-a1a5-87b9a445cb1c",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 7424.197437668688,
@@ -2728,7 +2728,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "3e55b302-764c-494c-b469-bde6b30a4033",
+                                        "id": "e3d84df4-a4f4-476a-b108-f0cd873faa8d",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13571.123974400321,
@@ -2782,7 +2782,7 @@
                                                 "name": "Team Positions Pool",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "db536cd4-0a38-4753-a025-8d9114cca6f5",
+                                                "id": "70bb510c-f8f3-4ee9-9495-d0d249e84193",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 13830.931595535652,
@@ -2834,7 +2834,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "d9cabab1-8575-4cb9-a86f-eabc26f26eb0",
+                                        "id": "a7443cb0-11f9-4d89-aadf-131f8d1a47a8",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 13830.931595535652,
@@ -2881,7 +2881,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "75ef34ab-919c-4fb5-a111-e8dc8a038c6f",
+                                "id": "38f7bc1f-32ed-485e-bd3e-da2c88770b05",
                                 "savedPayload": {
                                     "position": {
                                         "x": 13830.931595535652,
@@ -2947,7 +2947,7 @@
                                                                 "name": "Referrals Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "f2c07866-92c6-4a6b-99ea-39953437fc6b",
+                                                                "id": "11c4a6f5-5334-471a-b4f7-f4dcc3157ff7",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 24735.006133204697,
@@ -3012,7 +3012,7 @@
                                                                 "name": "Referrals Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "53285b44-fea1-41c1-894d-636035038483",
+                                                                "id": "fcc8ea5d-3249-491f-a84a-c3c0d2140366",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 24750.70692007758,
@@ -3076,7 +3076,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "8c9d3393-9b34-49f9-bb3b-d061fd63f830",
+                                                        "id": "1e1d1dfe-90ed-481a-83d2-6c373d8eed66",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25002.308090461207,
@@ -3142,7 +3142,7 @@
                                                                 "name": "Support Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "082204a8-243a-4350-bf54-32f9f04c53aa",
+                                                                "id": "d26ab19d-25fc-46e1-a7a9-1032cf2ad9c6",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 24815.840814091374,
@@ -3207,7 +3207,7 @@
                                                                 "name": "Support Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "62c95acb-eba5-4a46-8c0f-f3c3c894bc3d",
+                                                                "id": "ae33d2dd-c290-48b1-812a-6d90a76fa870",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25038.784261734592,
@@ -3271,7 +3271,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "639d4599-cbb5-4a85-88e3-2c4d9bc37b80",
+                                                        "id": "e5dbf71e-7765-4bfd-8bce-02420344ddc3",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25101.15776897992,
@@ -3337,7 +3337,7 @@
                                                                 "name": "Mentorship Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "c4162dcd-8b56-4344-b7be-09049fe5a1ec",
+                                                                "id": "4599ab5b-2667-4540-81bc-6145c7b5dd1d",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25181.400587838598,
@@ -3402,7 +3402,7 @@
                                                                 "name": "Mentorship Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "8aca9ae6-82f5-4d3e-b21d-5ecd6e910a35",
+                                                                "id": "a3d57658-eaa7-4f30-8c32-d43397c13b33",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25480.98944826497,
@@ -3466,7 +3466,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "8b30f564-f498-4bde-9ffd-319f2b30d136",
+                                                        "id": "57a8046e-5c7b-4bd5-8037-bf1a06004f55",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25317.59773776046,
@@ -3525,7 +3525,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "a6ec77f9-d36d-4635-a4b2-b1ca3469b160",
+                                                "id": "e0173291-2a29-4011-957a-435eb6eb3cf7",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 35941.793233838194,
@@ -3591,7 +3591,7 @@
                                                                 "name": "Airdrop Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "00b01927-cd01-4de7-aea3-c21654628f0c",
+                                                                "id": "f5043da8-d079-441a-ae35-507233d9751a",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25038.784261734592,
@@ -3655,7 +3655,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "937ece38-cd33-4821-961e-0e1b563c0d5e",
+                                                        "id": "7ff1b598-4454-4a2e-ac52-92020ff6f262",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25239.52344364225,
@@ -3721,7 +3721,7 @@
                                                                 "name": "Github Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "ceea9035-8281-4c1f-9407-09604e3e9c11",
+                                                                "id": "d02b95d3-29cc-4d48-9632-7f7212c2285f",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25625.672822174874,
@@ -3785,7 +3785,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "400b710a-4371-40d4-96e1-b39311512ae2",
+                                                        "id": "a2927362-02c0-4efe-bed6-5edcd1923b2b",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25532.96772386239,
@@ -3844,7 +3844,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "04fa1a14-12a8-4e27-852f-2041357dae09",
+                                                "id": "99a45cd8-716c-4d56-b87c-cd565ed2c61f",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36019.43894736895,
@@ -3910,7 +3910,7 @@
                                                                 "name": "Voting Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "82989629-6d0d-49a1-b035-a4f322b305f4",
+                                                                "id": "9f1b89a2-f2e1-47ec-9a29-c5dd61f343f3",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 25780.751427732685,
@@ -3974,7 +3974,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "4dfb85aa-eca6-4212-91f4-20289b094039",
+                                                        "id": "b8dcbf25-08aa-45fc-a755-e0b1f59a0cbd",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25688.0463294202,
@@ -4033,7 +4033,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "dda627f4-06d8-4684-8552-2b8fcb36c655",
+                                                "id": "c3637c17-0d96-4fd5-946d-73016185a85c",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36153.92526819416,
@@ -4099,7 +4099,7 @@
                                                                 "name": "Liquidity Rewards BTCB Pool",
                                                                 "config": "{\r\n    \"percentage\": 87\r\n}",
                                                                 "project": "Governance",
-                                                                "id": "9b57a897-810e-4ff7-ae4e-c6735ff5b1d8",
+                                                                "id": "f6282581-e808-4a0a-8298-b2b5e6d96d68",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 7800.500368550581,
@@ -4164,7 +4164,7 @@
                                                                 "name": "Liquidity Rewards BNB Pool",
                                                                 "config": "{\r\n    \"percentage\": 10\r\n}",
                                                                 "project": "Governance",
-                                                                "id": "e8ef0b7c-5b45-4b04-b743-8a669f0b2a86",
+                                                                "id": "4d81b33a-b0e6-4898-a54c-e116379358ad",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 7973.595698992649,
@@ -4229,7 +4229,7 @@
                                                                 "name": "Liquidity Rewards BUSD Pool",
                                                                 "config": "{\r\n    \"percentage\": 2.9\r\n}",
                                                                 "project": "Governance",
-                                                                "id": "8080ad25-7aa0-4f01-9f30-e1cd76f6f307",
+                                                                "id": "a75b3e42-ca26-4340-8dbb-304f73007490",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 8152.688196370041,
@@ -4294,7 +4294,7 @@
                                                                 "name": "Liquidity Rewards ETH Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "d1ec73fc-76d9-44b7-b0b6-9cf0683a54f1",
+                                                                "id": "10c78de7-49fb-4fcf-a7be-9e6ed010bd6c",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 8269.370613814694,
@@ -4358,7 +4358,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "6662d9a8-7267-448e-b5b4-fe0ee6e98640",
+                                                        "id": "8c0bd55a-c1a1-4739-8a47-47a0a9146156",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 7989.296485865532,
@@ -4417,7 +4417,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "ea81f309-22cb-47c1-ae17-675fee2125a0",
+                                                "id": "06331241-87f6-48dc-a78b-a01692e1ea93",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36309.21669525567,
@@ -4483,7 +4483,7 @@
                                                                 "name": "Staking Rewards Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "75d8d769-81c1-4142-98b4-431f0adcd6bd",
+                                                                "id": "9123323b-cebc-43ed-aa0f-e21e2dd71cbd",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 8201.428520221496,
@@ -4547,7 +4547,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "a482b764-bdef-43b2-b0c5-da57f28a4d90",
+                                                        "id": "db6baa65-9921-421c-be82-064e87c6a62b",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 8123.7828066907405,
@@ -4613,7 +4613,7 @@
                                                                 "name": "Delegation Bonus Pool",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "de7e9a1e-209f-499c-9119-a7cb09f491fa",
+                                                                "id": "0227e2e8-9bac-4bce-bd04-743d85cf4cbe",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 8625.692588933425,
@@ -4677,7 +4677,7 @@
                                                         "assetWeightVotes": [],
                                                         "featureWeightVotes": [],
                                                         "positionWeightVotes": [],
-                                                        "id": "043ffdc5-4f18-4d5b-be16-c5a7e3f2008b",
+                                                        "id": "71921ed5-c7cc-4951-a1ef-405eedda6d41",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 8335.914841046704,
@@ -4736,7 +4736,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "2372bf1f-7445-4f35-a3ad-0f6b89258f0a",
+                                                "id": "4b9130d7-1e1f-4817-8345-041aee081481",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36443.70301608088,
@@ -4789,7 +4789,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "e63b6820-b57e-4838-a51c-8a1df6a28bf2",
+                                        "id": "f6f3816c-f3e0-4122-9894-85c179862cfb",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 36231.570981724915,
@@ -4843,7 +4843,7 @@
                                                 "name": "Team Positions Pool",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "208c2b87-a379-430d-9671-f51df3c1e07e",
+                                                "id": "c3584419-5c44-499a-98cc-3b8777bce504",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36733.4807639676,
@@ -4895,7 +4895,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "82b5f5b7-bd0a-4abe-a605-13935254a750",
+                                        "id": "cc185f74-6bfb-4e8e-b487-dd26c5aae294",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 36521.34872961164,
@@ -4942,7 +4942,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "00d99d8d-67d6-4d6d-b1c5-43fdd530136c",
+                                "id": "6827489d-69f0-4ccf-bde8-cfe49b424e16",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14058.577309066408,
@@ -5011,7 +5011,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "462e34a4-256c-420d-983b-ad85536471f2",
+                                                                "id": "a8a860a8-3ebd-45fc-aaff-0df75a555dd1",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 13700.157895929533,
@@ -5078,7 +5078,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "c385904b-b3f5-4286-9fe3-ec34842d0c57",
+                                                        "id": "c92073f0-7054-4ef5-a7dc-b0c21a78ecf3",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 13970.448556300258,
@@ -5153,7 +5153,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "b6b49619-f6ca-4532-b516-297abf283f24",
+                                                                "id": "9a198d53-c0dd-4f8a-b8d6-5afb5119c33d",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 13866.645335555742,
@@ -5220,7 +5220,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "2e87277b-09f4-4863-8916-1a24fab3987b",
+                                                        "id": "6d426a46-de2f-4320-820b-ba73bf298913",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14053.692276113363,
@@ -5295,7 +5295,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "141fb4e2-22e7-4b0d-a72c-8dc9a68d5bbe",
+                                                                "id": "300836e5-7670-482b-aff5-3811159abbf5",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14107.226656297193,
@@ -5362,7 +5362,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "ce91ad61-988f-45f8-bbaa-065b29a4f3a9",
+                                                        "id": "fc62816c-a43e-4270-9caf-cdfc6a2adfe7",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14173.982936484088,
@@ -5437,7 +5437,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "d5dc73dd-6a0b-4906-bb8a-e335aa0ce29e",
+                                                                "id": "f9465ea2-3b2f-494b-869e-8836e26646dd",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14374.251777044774,
@@ -5504,7 +5504,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "770bad1b-ab67-40e4-832b-8a6000ec8c36",
+                                                        "id": "b36847c6-0adb-43c5-ba72-1452ac42700e",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14307.495496857879,
@@ -5579,7 +5579,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "b6bdfcab-c21d-4912-a727-e7f1c04a7dbb",
+                                                                "id": "7f8cd985-f704-43bc-8256-9646af031e60",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14614.833097786224,
@@ -5646,7 +5646,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "13bad890-15a8-4a0d-9080-f4f6e670ae51",
+                                                        "id": "82374974-5806-475a-b943-7dba4b58079b",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14427.786157228604,
@@ -5721,7 +5721,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "8ac686dc-dbaf-43ef-936b-a606456d6e70",
+                                                                "id": "47c497a9-2a0e-4040-9947-8b0584ad0f44",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14781.320537412434,
@@ -5788,7 +5788,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "6d84c00d-7202-43a1-8779-d13324434890",
+                                                        "id": "f247842d-6e5f-40b9-945e-5ac51ac39643",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14511.029877041708,
@@ -5853,7 +5853,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "91eb61cb-31a0-4ea1-801b-ea75ee417397",
+                                                "id": "c40ea71a-2e69-4762-bda0-aa4f47815e2a",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 14240.739216670983,
@@ -5912,7 +5912,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "f9b64d9c-c560-43ac-b8a3-59514409005e",
+                                        "id": "5c2bb566-c1b6-48c8-8271-30dc3e7c60f2",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14240.739216670983,
@@ -5987,7 +5987,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "90df5723-f30b-49f9-af63-72cb36f334a2",
+                                                                "id": "b7708921-6bf7-4cc7-a80a-e8a8210da1cd",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 13752.945247241905,
@@ -6054,7 +6054,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "4fccf4db-24c4-4345-adea-9cfa0943a5f4",
+                                                        "id": "e3590e53-17fa-4b34-880d-748336f30f7a",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14033.019375191067,
@@ -6129,7 +6129,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "98626c1c-9bcf-4b83-924d-a54c42a027a6",
+                                                                "id": "c8e38b46-b76a-4ecb-846e-b15d4fe1509b",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 13986.310082131213,
@@ -6196,7 +6196,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "9dc4adbb-f83e-4f48-b49f-b8fd0e3cb3f8",
+                                                        "id": "054bff29-02ee-4d1a-b921-45151987cb87",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14149.70179263572,
@@ -6271,7 +6271,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "fbbe3813-3ba3-48cc-b4a2-f1a8e670c3d3",
+                                                                "id": "2b67cfa3-1ded-49ec-ae25-b3b498f91ade",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14344.495076885994,
@@ -6338,7 +6338,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "b336c60f-56bb-40b4-8752-de2646e4846b",
+                                                        "id": "cafc88fa-6d10-4f86-a603-f98cfdbfe20c",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14328.794290013111,
@@ -6413,7 +6413,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "f44bf57b-6367-4c43-bd6e-2034838ec15b",
+                                                                "id": "b7e333f5-294d-4cc9-bc55-e24cfc528531",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14690.685737770129,
@@ -6480,7 +6480,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "dc92bbef-109d-49f7-976d-d53f91ecb8b2",
+                                                        "id": "b9558d90-fb2a-424f-a09e-30b81b7ce6d3",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14501.889620455178,
@@ -6545,7 +6545,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "9565afaf-6dbb-4b2e-9a02-0c395f00302c",
+                                                "id": "1144ae98-c173-40e2-ba28-49dff0299f99",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 14313.093503140228,
@@ -6620,7 +6620,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "a05d68de-d651-4e80-8d46-5b3a460208e6",
+                                                                "id": "f28699c6-c460-4c28-a8a5-d4b222625682",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14385.447789609472,
@@ -6687,7 +6687,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "06137f1b-3a34-4c8e-80b7-8f70c5a093f2",
+                                                        "id": "4d4af3dd-d0c1-4034-a429-abe8b6db47c3",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14463.093503140228,
@@ -6762,7 +6762,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "fe79249c-5ec2-4d2d-9ca3-9c5653b27472",
+                                                                "id": "07dd1f7d-607c-462f-a6e6-b236240a2d16",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 14840.739216670983,
@@ -6829,7 +6829,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "f3e17845-cf49-4736-a59e-2e01ea6ecac8",
+                                                        "id": "e9e43799-36c2-4604-8eb5-5737772f01d9",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14690.739216670983,
@@ -6904,7 +6904,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "aab00f9c-18b2-421e-9770-f3c35eb1ad15",
+                                                                "id": "471579cf-874b-402b-8500-c1d537b12e71",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 15120.294712444425,
@@ -6971,7 +6971,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "5792564d-f300-420a-868f-8fa1f7ac996a",
+                                                        "id": "b608c2c6-475e-4acc-8345-e0d42cd27875",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14830.516964557704,
@@ -7036,7 +7036,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "5252b757-ed76-4a98-baab-1218e5503eac",
+                                                "id": "9660ae84-ab5b-4822-80ca-c8212c944820",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 14540.739216670983,
@@ -7105,7 +7105,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "efe11e74-7619-41a8-b0b4-3d8f5d34e11c",
+                                                        "id": "a3634b5f-7444-4229-ba8e-5a6d9a115888",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 14970.294712444425,
@@ -7166,7 +7166,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "93b6d045-4a5f-4d52-8a06-3e728d1e76fd",
+                                                "id": "2e73d322-d951-4658-997d-3c30c60e84df",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 14680.516964557704,
@@ -7225,7 +7225,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "e37ff1e6-32ac-44dd-a52a-ff3e91a719ed",
+                                        "id": "decf2951-26f2-44f4-8442-60711503f00d",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14390.739216670983,
@@ -7294,7 +7294,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "77f38f0a-c4f6-4d58-9d53-6a28e83d0000",
+                                                        "id": "3ccb5f1f-7df5-4168-b07a-2d931a7f5736",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25657.716689380104,
@@ -7355,7 +7355,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "ce66fa34-e48f-4f22-877f-d25a68b4c1ba",
+                                                "id": "0669a1dc-6170-4062-94fd-10c663d38ec4",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 25626.358150399807,
@@ -7424,7 +7424,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "fc51d570-9540-4cd5-b497-b82b60944d40",
+                                                        "id": "a1fb2c20-4d5c-4add-ac1f-b8e9abf45722",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 25996.477975234826,
@@ -7485,7 +7485,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "0332380d-b2a3-4600-be1b-b570ff58a8c8",
+                                                "id": "831d3f7f-2fcf-46b2-bb9f-cbdddac5b684",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 25795.738793327168,
@@ -7554,7 +7554,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "6d8538b7-25e1-4799-9df9-6ab422794f5b",
+                                                        "id": "af3a50eb-5f67-4612-9211-21d44a0623c2",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26181.88817185979,
@@ -7615,7 +7615,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "f3217923-1002-454e-ac86-6f0856401d9c",
+                                                "id": "37ff4961-5a51-49d7-baaa-dec565318a8f",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 25888.44389163965,
@@ -7684,7 +7684,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "9ea91c3c-27ff-474a-8742-c9731f1cc8d3",
+                                                        "id": "b8eb20c6-0a4a-4e60-8a07-fa8991066220",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26143.12688600507,
@@ -7745,7 +7745,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "5aab1f4e-1f00-44c7-9e6b-5c1dcbf9765f",
+                                                "id": "feb022b0-319b-4c46-a8d6-d3e5548d4bf3",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 25869.06324871229,
@@ -7804,7 +7804,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "f127995b-d284-4d7f-803a-baa459c08998",
+                                        "id": "57a27145-f40b-4adf-a608-73dd0343dc40",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14500.546837806314,
@@ -7873,7 +7873,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "bbba4522-d0fd-4d33-9a3f-ff24c2fd10df",
+                                                        "id": "f81d4616-fb52-4a1e-9a99-d2a1cd157b56",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 37091.37860286025,
@@ -7934,7 +7934,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "8dcff20d-8773-4a7e-9051-30e0f0696ab3",
+                                                "id": "ea40acda-1023-4d05-8c21-0d9f5dc56dce",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36941.37860286025,
@@ -8003,7 +8003,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "80c37c78-de14-4a50-8c91-9a653728bf87",
+                                                        "id": "2e0c5d01-afad-4909-8742-35c4b915d5b1",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 37310.99384513091,
@@ -8064,7 +8064,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "32014910-ee5f-4406-acfd-da2e0d96a0bb",
+                                                "id": "de039eb6-4461-4249-9132-69bdb11939fa",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 37051.18622399558,
@@ -8133,7 +8133,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "cf14672c-a4f5-41b8-b0bb-9b0242ab0123",
+                                                        "id": "b53550bb-3a74-4d99-ba24-2294e21574f6",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 37391.37860286025,
@@ -8194,7 +8194,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "cd941c11-0d3d-4ff1-a915-d9c5b3f4bd36",
+                                                "id": "ce213f54-a8ad-419e-835b-fde2fcd48486",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 37091.37860286025,
@@ -8263,7 +8263,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "acdafbc4-903a-4ee1-a3d2-babd65c639cd",
+                                                        "id": "955c396e-9960-475e-ae81-997bd454c3b1",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 37310.99384513091,
@@ -8324,7 +8324,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "caf7b36e-fa83-4033-a28b-b280fdb2001b",
+                                                "id": "997ea2ff-a694-4def-ac80-0a68cdfb0a5b",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 37051.18622399558,
@@ -8393,7 +8393,7 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "79f3a568-043c-404d-ab69-47fe70d5b233",
+                                                        "id": "13d29ef5-8d60-4d74-a25e-be33bbca82ae",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 37091.37860286025,
@@ -8454,7 +8454,7 @@
                                                         }
                                                     }
                                                 ],
-                                                "id": "056dff5d-a272-498e-a968-5f28eb7f03ea",
+                                                "id": "f1c50c33-8de1-4869-9574-e295017e40bf",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36941.37860286025,
@@ -8513,7 +8513,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "d0383483-5bed-43be-abe3-b03a87dec75a",
+                                        "id": "4765f48b-0927-4c06-89e2-61bc42265fec",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14540.739216670983,
@@ -8588,7 +8588,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "4c4d11bb-74c4-4411-86e4-ad3775a7388d",
+                                                                "id": "3ec33498-882a-4e6b-8777-6417919df224",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 26184.77735930623,
@@ -8655,7 +8655,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "f7f94354-d6b4-4763-a6a1-38581e31b7b0",
+                                                        "id": "b9962028-f26b-48e6-bfca-7d22738bda75",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26034.77735930623,
@@ -8730,7 +8730,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "552c4f2d-3f58-4742-8c41-529b09477f79",
+                                                                "id": "61c9f57c-6edd-4d9a-8b34-4317f69492a1",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 26464.332855079672,
@@ -8797,7 +8797,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "4ea1e1e9-f6b0-4706-86d6-70b07342c984",
+                                                        "id": "b2d4da02-623a-4293-9366-0cceb016f10d",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26174.55510719295,
@@ -8872,7 +8872,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "744a4dea-0385-4d37-a598-d4e92400040e",
+                                                                "id": "d95455e5-3ed2-45b9-8f39-b7c5bfbd0149",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 26404.392601576896,
@@ -8939,7 +8939,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "e391d8f4-ef87-41cd-877a-c148ae64e70d",
+                                                        "id": "ab4cef21-a06a-4057-9c64-7a59af420cbf",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 26144.584980441563,
@@ -9004,7 +9004,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "44b3a8f1-4a8c-4e29-92c8-b634d4bc51c0",
+                                                "id": "10353cf9-44c0-43a9-8e11-74ced5ea24f6",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 37040.9639718823,
@@ -9079,7 +9079,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "75dcd082-c979-4fd0-9eb7-626283b25552",
+                                                                "id": "ec9b5f17-d2ee-4bec-bc3d-a526b5551eb6",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 22986.08686625932,
@@ -9146,7 +9146,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "a499216e-ee7f-4332-befd-5068371071ee",
+                                                        "id": "9ba72247-2ab2-4a3b-b312-e68150447c3c",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 22696.3091183726,
@@ -9221,7 +9221,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "2045b95a-cd52-4718-81b9-987177e917e9",
+                                                                "id": "948fb91f-685b-48b3-a475-5457b5b02680",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 22926.146612756544,
@@ -9288,7 +9288,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "2f9160d8-62ca-4738-b27a-9d3629968b36",
+                                                        "id": "cc83aa07-afd8-4058-9fb9-1f2e656fba3c",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 22666.33899162121,
@@ -9363,7 +9363,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "fc4d8896-3a52-4f1e-bc64-8649db92f16d",
+                                                                "id": "ec30c882-6b20-4f6e-8d53-9e57d2708cc5",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 22561.822797547393,
@@ -9430,7 +9430,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "d66e839c-b115-4f2e-88dc-bb55935ff3e5",
+                                                        "id": "62d60008-1455-4bd5-8fe0-3f0139499c46",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 22484.177084016635,
@@ -9495,7 +9495,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "9b7a1a00-9e0c-4e3f-a092-305d6d7e21d4",
+                                                "id": "0e3b2bb5-a814-4034-9a68-ca1ce6d85b34",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 37010.99384513091,
@@ -9570,7 +9570,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "d95710f5-9fa5-4959-b8b9-868dfc40fe00",
+                                                                "id": "c5204563-a812-43ac-917a-cc1a7afac305",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 22743.98470515197,
@@ -9637,7 +9637,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "0d8a3c8c-d394-478a-8d77-fb13bb5e153d",
+                                                        "id": "2fac1ff9-008d-491f-ac34-377e82c5c13d",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 22484.177084016635,
@@ -9712,7 +9712,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "89328ef8-4947-44e6-a080-b03e73419be5",
+                                                                "id": "f62a6374-4e93-4159-b5ae-b40aeeb7e715",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 22379.660889942817,
@@ -9779,7 +9779,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "fb0f346b-3f7d-42cb-a7d5-36ac97637a8c",
+                                                        "id": "21622caa-8b34-4384-8535-f01e169806fe",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 22302.01517641206,
@@ -9854,7 +9854,7 @@
                                                                 "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
-                                                                "id": "0f71baa7-c6f8-4aeb-8964-aee0ca2ea846",
+                                                                "id": "1a2fb4f5-3e84-4c95-b156-891aafe811e7",
                                                                 "savedPayload": {
                                                                     "position": {
                                                                         "x": 21924.369462881303,
@@ -9921,7 +9921,7 @@
                                                                 }
                                                             }
                                                         ],
-                                                        "id": "68d103da-3146-4a1c-b1a7-593d484c340c",
+                                                        "id": "5bbcd008-d5f3-4c23-9111-68f0422bfbc1",
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 22074.369462881303,
@@ -9986,7 +9986,7 @@
                                                 "assetWeightVotes": [],
                                                 "featureWeightVotes": [],
                                                 "positionWeightVotes": [],
-                                                "id": "020d9a3a-4b23-4f82-af71-7dbf9335eae8",
+                                                "id": "73016f27-f045-4421-ab33-df789610f03a",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36828.83193752634,
@@ -10045,7 +10045,7 @@
                                         "assetWeightVotes": [],
                                         "featureWeightVotes": [],
                                         "positionWeightVotes": [],
-                                        "id": "4a7e0e52-f823-4b4a-a3fa-6776c3900c96",
+                                        "id": "4ec7946d-975e-4f33-8643-c61f4fc40f96",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14500.546837806314,
@@ -10098,7 +10098,7 @@
                                 "assetWeightVotes": [],
                                 "featureWeightVotes": [],
                                 "positionWeightVotes": [],
-                                "id": "e14a8d0e-c348-4e5a-b3b7-f8d8a78640ce",
+                                "id": "22341be2-7aa1-4772-b4a1-c5a01df5839c",
                                 "savedPayload": {
                                     "position": {
                                         "x": 14240.739216670983,
@@ -10142,15 +10142,15 @@
                             }
                         ],
                         "userProfileVotesSwitch": [],
-                        "id": "cdc76518-fdb6-492c-8f0e-2f532d4734b9",
+                        "id": "5bcce868-f38e-461a-a499-7e594d2d7b7f",
                         "savedPayload": {
                             "position": {
-                                "x": 13980.931595535652,
-                                "y": 18360.22225211328
+                                "x": 9633.10550857913,
+                                "y": 13560.22225211328
                             },
                             "targetPosition": {
-                                "x": 13903.285882004897,
-                                "y": 18650
+                                "x": 9555.459795048375,
+                                "y": 13850.000000000002
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -10187,7 +10187,7 @@
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "6363f69e-ffeb-4d2d-b6d0-9769b05da441",
+                                        "id": "4d5d4603-8fcb-41d3-af9e-a8b10e630822",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14090.739216670983,
@@ -10219,7 +10219,7 @@
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "d79782a4-963c-4c49-a3bb-fb996560e1a7",
+                                        "id": "95398b12-6109-4890-9e52-6ca2aedb7648",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14318.384930201739,
@@ -10251,7 +10251,7 @@
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "37f7a2b8-9450-4501-ad49-ebe87cd99a5f",
+                                        "id": "545ea485-00fc-4287-9b2c-15b1978ccdf5",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14500.546837806314,
@@ -10277,15 +10277,15 @@
                                 ],
                                 "weightVotesSwitch": [],
                                 "userProfileVotesSwitch": [],
-                                "id": "d8d7a6b5-0eca-4045-9055-6fecdceeb4b9",
+                                "id": "b9562c64-224c-4cea-bd26-b1478f44bcb4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14240.739216670983,
-                                        "y": 18210.22225211328
+                                        "x": 9892.913129714461,
+                                        "y": 13410.22225211328
                                     },
                                     "targetPosition": {
-                                        "x": 14163.093503140228,
-                                        "y": 18500
+                                        "x": 9815.267416183706,
+                                        "y": 13700.000000000002
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10310,24 +10310,24 @@
                                     {
                                         "type": "Claim Votes Switch",
                                         "name": "Carl",
-                                        "config": "{\r\n    \"percentage\": 30\r\n}",
+                                        "config": "{\r\n    \"percentage\": 52\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "cozed-gh ",
+                                                "name": "cozed-gh Data Mining Team Token Pool Data Mining Team PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "0e5bb1c6-6e17-48b4-b8d5-7e6ea7daa44e",
+                                                "id": "819788b9-bb65-48e5-bd12-e45a02168e9b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 35947.54051046482,
-                                                        "y": 18438.192378864667
+                                                        "x": 10137.792115279628,
+                                                        "y": 12953.28686277904
                                                     },
                                                     "targetPosition": {
-                                                        "x": 36097.54051046482,
-                                                        "y": 18698
+                                                        "x": 10106.433576299332,
+                                                        "y": 13251.64343138952
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10342,205 +10342,41 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "id": "2251e7c2-3d56-4494-a885-f465fdb01eb0"
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "1fbc52c2-4efc-49ab-9bcd-fbfe519a0dac"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "cozed-gh",
-                                                            "User Profile",
-                                                            "Governance",
-                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                                                            "User Profile"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch",
-                                                            "Governance",
-                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
+                                                            "Token Power Switch"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs",
-                                                            "Governance",
-                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
+                                                            "Votes And Claims Programs"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program",
-                                                            "Governance",
-                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
+                                                            "Claims Program"
                                                         ],
                                                         [
-                                                            "Teams @ V.1.0 Position Class",
-                                                            "Position Claims Folder",
-                                                            "Governance",
-                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
+                                                            "Teams @ Nov 2021 Position Class",
+                                                            "Position Claims Folder"
                                                         ],
                                                         [
-                                                            "Exchange Relationships Team Position Class",
-                                                            "Position Claims Folder",
-                                                            "Governance",
-                                                            "4aed3da7-10d9-4bfd-b1c6-d6124b1e2ac5"
+                                                            "Teams With PoW Reports Position Class",
+                                                            "Position Claims Folder"
                                                         ],
                                                         [
-                                                            "",
-                                                            "Position Contribution Claim",
-                                                            "Governance",
-                                                            "2251e7c2-3d56-4494-a885-f465fdb01eb0"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Claim Vote",
-                                                "name": "cozed-gh ",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "f232d981-addb-48c5-9637-0a1312ab4959",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 36175.18622399558,
-                                                        "y": 18408.22225211328
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 36097.54051046482,
-                                                        "y": 18698
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "id": "2977cd24-5e72-488e-b631-603b9aad3422"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "cozed-gh",
-                                                            "User Profile",
-                                                            "Governance",
-                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
+                                                            "Data Mining",
+                                                            "Position Claims Folder"
                                                         ],
                                                         [
-                                                            "New Token Power Switch",
-                                                            "Token Power Switch",
-                                                            "Governance",
-                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
-                                                        ],
-                                                        [
-                                                            "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs",
-                                                            "Governance",
-                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
-                                                        ],
-                                                        [
-                                                            "New Claims Program",
-                                                            "Claims Program",
-                                                            "Governance",
-                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0 Position Class",
-                                                            "Position Claims Folder",
-                                                            "Governance",
-                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
-                                                        ],
-                                                        [
-                                                            "Data Mining Project Position Class",
-                                                            "Position Claims Folder",
-                                                            "Governance",
-                                                            "d9761329-c869-4c51-888e-4828c29e4d1d"
-                                                        ],
-                                                        [
-                                                            "",
-                                                            "Position Contribution Claim",
-                                                            "Governance",
-                                                            "2977cd24-5e72-488e-b631-603b9aad3422"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Claim Vote",
-                                                "name": "cozed-gh ",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "b86d29e8-1fd3-49e4-a6b7-1808caff9901",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 36357.348131600156,
-                                                        "y": 18548
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 36097.54051046482,
-                                                        "y": 18698
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "id": "b255a76b-5847-4c83-a3eb-2e2c56f89443"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "cozed-gh",
-                                                            "User Profile",
-                                                            "Governance",
-                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
-                                                        ],
-                                                        [
-                                                            "New Token Power Switch",
-                                                            "Token Power Switch",
-                                                            "Governance",
-                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
-                                                        ],
-                                                        [
-                                                            "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs",
-                                                            "Governance",
-                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
-                                                        ],
-                                                        [
-                                                            "New Claims Program",
-                                                            "Claims Program",
-                                                            "Governance",
-                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0 Position Class",
-                                                            "Position Claims Folder",
-                                                            "Governance",
-                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
-                                                        ],
-                                                        [
-                                                            "Telegram Team Position Class",
-                                                            "Position Claims Folder",
-                                                            "Governance",
-                                                            "31504a20-9d2d-4e90-b5e1-b75e68bc4b38"
-                                                        ],
-                                                        [
-                                                            "",
-                                                            "Position Contribution Claim",
-                                                            "Governance",
-                                                            "b255a76b-5847-4c83-a3eb-2e2c56f89443"
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
                                                         ]
                                                     ]
                                                 }
@@ -10548,15 +10384,15 @@
                                         ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "35315344-7ff0-4a1e-a15f-a23bc0e95206",
+                                        "id": "60a551b1-ac68-412b-8928-fefd97e69426",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14454.259663255854,
-                                                "y": 18051.64343138952
+                                                "x": 10106.433576299332,
+                                                "y": 13251.64343138952
                                             },
                                             "targetPosition": {
-                                                "x": 14422.901124275559,
-                                                "y": 18350
+                                                "x": 10075.075037319037,
+                                                "y": 13550.000000000002
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10571,7 +10407,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
-                                                "name": "Teams @ V.1.0 Position Class",
+                                                "name": "Teams @ Nov 2021 Position Class",
                                                 "id": "0377d112-8545-4694-9c74-5205b2919ac3"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -10600,7 +10436,7 @@
                                                     "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                 ],
                                                 [
-                                                    "Teams @ V.1.0 Position Class",
+                                                    "Teams @ Nov 2021 Position Class",
                                                     "Position Claims Folder",
                                                     "Governance",
                                                     "0377d112-8545-4694-9c74-5205b2919ac3"
@@ -10620,15 +10456,15 @@
                                                 "name": "quantum8 ",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "165433b9-207a-42e2-8fb9-aab9d2aefe80",
+                                                "id": "fc114fa7-d6de-433d-91a1-0f07846137be",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 10494.118435286326,
-                                                        "y": 17901.64343138952
+                                                        "x": 10213.440711981366,
+                                                        "y": 13033.612272136643
                                                     },
                                                     "targetPosition": {
-                                                        "x": 10462.75989630603,
-                                                        "y": 18200
+                                                        "x": 10275.814219226693,
+                                                        "y": 13327.056552356784
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10691,15 +10527,15 @@
                                                 "name": "quantum8 ",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "46fd9bdf-a67a-4c32-8171-2db19f776324",
+                                                "id": "f653dd3c-6e1c-41fe-b389-08b423ceb68b",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 10663.499078213687,
-                                                        "y": 17977.056552356782
+                                                        "x": 10397.835212149434,
+                                                        "y": 13052.992915064004
                                                     },
                                                     "targetPosition": {
-                                                        "x": 10462.75989630603,
-                                                        "y": 18200
+                                                        "x": 10275.814219226693,
+                                                        "y": 13327.056552356784
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10762,15 +10598,15 @@
                                                 "name": "quantum8 ",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "b7e3c78b-e131-4b76-90e6-21a3d7909546",
+                                                "id": "7f1d4d29-7434-4733-a90a-7e00871915ea",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 10756.204176526171,
-                                                        "y": 18137.626492754673
+                                                        "x": 10535.621840362024,
+                                                        "y": 13177.056552356784
                                                     },
                                                     "targetPosition": {
-                                                        "x": 10462.75989630603,
-                                                        "y": 18200
+                                                        "x": 10275.814219226693,
+                                                        "y": 13327.056552356784
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10833,15 +10669,15 @@
                                                 "name": "quantum8 ",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "e16dd253-2b23-4362-b5a5-f634e99edaa3",
+                                                "id": "452f0808-d95e-480b-a08d-7c82347d3c9e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 10736.82353359881,
-                                                        "y": 18322.02099292274
+                                                        "x": 10574.170787837174,
+                                                        "y": 13358.41509133708
                                                     },
                                                     "targetPosition": {
-                                                        "x": 10462.75989630603,
-                                                        "y": 18200
+                                                        "x": 10275.814219226693,
+                                                        "y": 13327.056552356784
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -10902,20 +10738,20 @@
                                         ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "220fe439-f50e-4471-8719-ccb05275b91c",
+                                        "id": "9f78e745-7427-4881-9edb-070a3df013a0",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14623.640306183215,
-                                                "y": 18127.056552356782
+                                                "x": 10275.814219226693,
+                                                "y": 13327.056552356784
                                             },
                                             "targetPosition": {
-                                                "x": 14422.901124275559,
-                                                "y": 18350
+                                                "x": 10075.075037319037,
+                                                "y": 13550.000000000002
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
+                                                "isCollapsed": false,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -10965,7 +10801,7 @@
                                     {
                                         "type": "Claim Votes Switch",
                                         "name": "BlaaSwe",
-                                        "config": "{\r\n    \"percentage\": 15.6\r\n}",
+                                        "config": "{\r\n    \"percentage\": 4.4\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
@@ -10974,15 +10810,15 @@
                                                 "name": "BlaaSwe ",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "fec64605-086c-4d78-a80f-b9a72930ab53",
+                                                "id": "3146f12b-6be9-49fa-a911-7c773fb0fd2e",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 15002.456620049,
-                                                        "y": 18505.291427061515
+                                                        "x": 10661.963597759319,
+                                                        "y": 13425.252985509347
                                                     },
                                                     "targetPosition": {
-                                                        "x": 14712.67887216228,
-                                                        "y": 18427.645713530757
+                                                        "x": 10368.519317539178,
+                                                        "y": 13487.626492754674
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -11043,15 +10879,15 @@
                                         ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "ec49e863-4b05-4ee9-9903-46f88f7966b6",
+                                        "id": "fd41ad3b-c4ee-4c26-9d5f-c595a5b87db8",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14716.3454044957,
-                                                "y": 18287.626492754673
+                                                "x": 10368.519317539178,
+                                                "y": 13487.626492754674
                                             },
                                             "targetPosition": {
-                                                "x": 14422.901124275559,
-                                                "y": 18350
+                                                "x": 10075.075037319037,
+                                                "y": 13550.000000000002
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -11105,27 +10941,91 @@
                                     },
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "Julian",
-                                        "config": "{}",
+                                        "name": "Julian (BLOG)",
+                                        "config": "{\r\n    \"percentage\": 22.5\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
-                                        "positionClaimVotes": [],
+                                        "positionClaimVotes": [
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "Julian-Molina Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "6e2a530d-fce3-4880-aacc-04668d1f1f89",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 10623.202311904597,
+                                                        "y": 13794.041985845482
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 10349.138674611817,
+                                                        "y": 13672.020992922742
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                        "id": "817d3098-150b-4d7e-919f-02d41fecbe04"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Julian-Molina",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "Marketing Teams PoW Report Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "b1f3edd7-5846-4280-aae5-1fc0c978dd70",
+                                        "id": "82fcff8c-4e40-4fdc-a34f-ac64edfe9eed",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 14696.964761568339,
-                                                "y": 18472.02099292274
+                                                "x": 10349.138674611817,
+                                                "y": 13672.020992922742
                                             },
                                             "targetPosition": {
-                                                "x": 14422.901124275559,
-                                                "y": 18350
+                                                "x": 10075.075037319037,
+                                                "y": 13550.000000000002
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": false,
+                                                "isCollapsed": true,
                                                 "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
@@ -11138,20 +11038,20 @@
                                 ],
                                 "weightVotesSwitch": [],
                                 "userProfileVotesSwitch": [],
-                                "id": "361ae4f5-d15d-4a13-95f4-e6eb488bee9e",
+                                "id": "c90b7504-2f20-4ede-a260-8768dcfd5dcc",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14422.901124275559,
-                                        "y": 18350
+                                        "x": 10075.075037319037,
+                                        "y": 13550.000000000002
                                     },
                                     "targetPosition": {
-                                        "x": 14163.093503140228,
-                                        "y": 18500
+                                        "x": 9815.267416183706,
+                                        "y": 13700.000000000002
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -11177,7 +11077,7 @@
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "ed483a33-c904-4f59-be65-2254c759c519",
+                                        "id": "c635bd1d-858f-4a5e-be1f-29b7bcfcae90",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15097.67887216228,
@@ -11209,7 +11109,7 @@
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "34fb3ffe-e221-4c38-a436-592abe811bea",
+                                        "id": "d1f97184-98fb-4ec5-94fe-07fae76bddc1",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 15127.64899891367,
@@ -11241,7 +11141,7 @@
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "67485938-2c32-40a5-9115-0ff4805f3fae",
+                                        "id": "fdb015b3-b0c8-421e-869f-e0b1f4c1efb4",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14987.871251026949,
@@ -11267,15 +11167,15 @@
                                 ],
                                 "weightVotesSwitch": [],
                                 "userProfileVotesSwitch": [],
-                                "id": "543b1d83-3612-4315-8b5b-9f7284464f40",
+                                "id": "b5edd3e0-4c22-43fe-9f6c-f982232955d7",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14452.871251026949,
-                                        "y": 18577.645713530757
+                                        "x": 10105.045164070427,
+                                        "y": 13777.645713530757
                                     },
                                     "targetPosition": {
-                                        "x": 14163.093503140228,
-                                        "y": 18500
+                                        "x": 9815.267416183706,
+                                        "y": 13700.000000000002
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -11294,20 +11194,20 @@
                         "claimVotesSwitch": [],
                         "weightVotesSwitch": [],
                         "userProfileVotesSwitch": [],
-                        "id": "2fad6c62-0bac-433f-8f6e-8820906a1206",
+                        "id": "0047374d-c4a2-4615-a99f-84ddb29d59f2",
                         "savedPayload": {
                             "position": {
-                                "x": 14163.093503140228,
-                                "y": 18500
+                                "x": 9815.267416183706,
+                                "y": 13700.000000000002
                             },
                             "targetPosition": {
-                                "x": 13903.285882004897,
-                                "y": 18650
+                                "x": 9555.459795048375,
+                                "y": 13850.000000000002
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -11322,15 +11222,15 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "21265d18-824e-4b94-b9da-575bf3c4bee3",
+                    "id": "2f5cf7bc-6d4a-4fb7-9e90-3f80ec5daecd",
                     "savedPayload": {
                         "position": {
-                            "x": 14193.063629891618,
-                            "y": 18727.645713530757
+                            "x": 9845.237542935096,
+                            "y": 13927.645713530757
                         },
                         "targetPosition": {
-                            "x": 13903.285882004897,
-                            "y": 18650
+                            "x": 9555.459795048375,
+                            "y": 13850.000000000002
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -11345,20 +11245,20 @@
                         }
                     }
                 },
-                "id": "2bd88a55-388e-4dc5-b1f7-fc1d149b3321",
+                "id": "d1b58dd6-c544-48b8-b797-2157aa112461",
                 "savedPayload": {
                     "position": {
-                        "x": 13903.285882004897,
-                        "y": 18650
+                        "x": 9555.459795048375,
+                        "y": 13850.000000000002
                     },
                     "targetPosition": {
-                        "x": 13643.478260869566,
-                        "y": 18800
+                        "x": 9295.652173913044,
+                        "y": 14000.000000000002
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -11385,7 +11285,7 @@
                             {
                                 "type": "Position Claims Folder",
                                 "name": "Algo",
-                                "config": "{\r\n    \"percentage\": 25\r\n}",
+                                "config": "{\r\n\r\n}",
                                 "project": "Governance",
                                 "positionClaimsFolders": [],
                                 "positionContributionClaims": [
@@ -11394,7 +11294,7 @@
                                         "name": "Algorithmic-Trading & Portfolio Management Team Token Pool Algorithmic-Trading & Portfolio Management Team PoW Report",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "a1ccb23b-848e-4f22-8d40-c0534aa2b250",
+                                        "id": "94842052-c7f6-4ba2-b74b-ddaae52aa925",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 22279.639068711927,
@@ -11423,37 +11323,47 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Teams of Contributors",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                 ],
                                                 [
                                                     "Teams @ Nov 2021",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                 ],
                                                 [
                                                     "Teams With PoW Reports",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                 ],
                                                 [
                                                     "Algorithmic-Trading & Portfolio Management Team PoW Report",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "d3592eff-41f3-45af-a534-05750b22a887"
                                                 ],
                                                 [
                                                     "Algorithmic-Trading & Portfolio Management Team Token Pool",
-                                                    "Position"
+                                                    "Position",
+                                                    "Governance",
+                                                    "d93681ca-23e4-4503-b76f-d675d4e81732"
                                                 ]
                                             ]
                                         }
                                     }
                                 ],
-                                "id": "9c0b1bf5-c854-4b35-87c5-3c8f56ac0a46",
+                                "id": "3db33604-3609-45c6-96f9-5df048da017b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14415.41791636086,
-                                        "y": 18737.867965644036
+                                        "x": 10067.591829404339,
+                                        "y": 13937.867965644038
                                     },
                                     "targetPosition": {
-                                        "x": 14203.285882004897,
-                                        "y": 18950
+                                        "x": 9855.459795048375,
+                                        "y": 14150.000000000002
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -11474,19 +11384,27 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
                                             "Teams @ Nov 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
                                             "Algorithmic-Trading & Portfolio Management Team PoW Report",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "d3592eff-41f3-45af-a534-05750b22a887"
                                         ]
                                     ]
                                 }
@@ -11494,7 +11412,7 @@
                             {
                                 "type": "Position Claims Folder",
                                 "name": "Superalgos Blog Team Position Class",
-                                "config": "{\r\n    \"percentage\": 16\r\n}",
+                                "config": "{\r\n    \"percentage\": 12.88\r\n}",
                                 "project": "Governance",
                                 "positionClaimsFolders": [],
                                 "positionContributionClaims": [
@@ -11503,7 +11421,7 @@
                                         "name": "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "3c37577f-2a06-4141-b584-cf8394bae376",
+                                        "id": "d219b1bf-713b-4bc4-b5da-d2bf4c0dcf02",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 22426.00890977709,
@@ -11532,37 +11450,47 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Teams of Contributors",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                 ],
                                                 [
                                                     "Teams @ Nov 2021",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                 ],
                                                 [
                                                     "Teams With PoW Reports",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                 ],
                                                 [
                                                     "Marketing Teams PoW Report",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
                                                 ],
                                                 [
                                                     "Superalgos Medium Blog Team Token Pool",
-                                                    "Position"
+                                                    "Position",
+                                                    "Governance",
+                                                    "396f32ad-352d-48bf-af2e-9e57b38778ec"
                                                 ]
                                             ]
                                         }
                                     }
                                 ],
-                                "id": "fa933a03-ae13-43a6-8060-b30abac358ff",
+                                "id": "ca57ca7d-c990-4318-b71d-4e3546c6e649",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14503.285882004897,
-                                        "y": 18950
+                                        "x": 10155.459795048375,
+                                        "y": 14150.000000000002
                                     },
                                     "targetPosition": {
-                                        "x": 14203.285882004897,
-                                        "y": 18950
+                                        "x": 9855.459795048375,
+                                        "y": 14150.000000000002
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -11580,7 +11508,7 @@
                             {
                                 "type": "Position Claims Folder",
                                 "name": "Data Mining Project Position Class",
-                                "config": "{\r\n    \"percentage\": 35.54\r\n}",
+                                "config": "{\r\n    \"percentage\": 64.3\r\n}",
                                 "project": "Governance",
                                 "positionClaimsFolders": [],
                                 "positionContributionClaims": [
@@ -11589,7 +11517,7 @@
                                         "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "a4427655-59ae-4242-b0d2-00c21133326f",
+                                        "id": "84185506-42b7-45e2-bf5a-4334d8c9d763",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 22208.046151375485,
@@ -11618,37 +11546,47 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Teams of Contributors",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                 ],
                                                 [
                                                     "Teams @ Nov 2021",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                 ],
                                                 [
                                                     "Teams With PoW Reports",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                 ],
                                                 [
                                                     "Data Mining Team PoW Report",
-                                                    "Position Class"
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "2216c060-c9f7-4417-b41f-1d4f9cb4ca81"
                                                 ],
                                                 [
                                                     "Data Mining Team Token Pool",
-                                                    "Position"
+                                                    "Position",
+                                                    "Governance",
+                                                    "e61f97a8-ee3a-4bf3-947d-eba128813dda"
                                                 ]
                                             ]
                                         }
                                     }
                                 ],
-                                "id": "be043c07-e2f7-4cc6-8ecd-0433b9eada55",
+                                "id": "190e503c-3a86-4b4c-b5e4-d19ee00295fa",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14415.41791636086,
-                                        "y": 19162.132034355964
+                                        "x": 10067.591829404339,
+                                        "y": 14362.132034355966
                                     },
                                     "targetPosition": {
-                                        "x": 14203.285882004897,
-                                        "y": 18950
+                                        "x": 9855.459795048375,
+                                        "y": 14150.000000000002
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -11702,15 +11640,15 @@
                             }
                         ],
                         "positionContributionClaims": [],
-                        "id": "eb7ac682-3f18-4922-9d04-049b79497845",
+                        "id": "698a4761-1ac0-4f38-8025-ec72502622e0",
                         "savedPayload": {
                             "position": {
-                                "x": 14203.285882004897,
-                                "y": 18950
+                                "x": 9855.459795048375,
+                                "y": 14150.000000000002
                             },
                             "targetPosition": {
-                                "x": 13903.285882004897,
-                                "y": 18950
+                                "x": 9555.459795048375,
+                                "y": 14150.000000000002
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -11749,15 +11687,15 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "b5fdd270-a40f-415c-a39c-3ac4cf46dc4a",
+                    "id": "4e91ec3f-024b-4bd9-ae64-d0dcff0a4963",
                     "savedPayload": {
                         "position": {
-                            "x": 14053.285882004897,
-                            "y": 19209.807621135333
+                            "x": 9705.459795048375,
+                            "y": 14409.807621135333
                         },
                         "targetPosition": {
-                            "x": 13903.285882004897,
-                            "y": 18950
+                            "x": 9555.459795048375,
+                            "y": 14150.000000000002
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -11772,15 +11710,15 @@
                         }
                     }
                 },
-                "id": "8bf1fe92-698e-440c-b476-e568fd924cc7",
+                "id": "2dbf2eba-44f6-4075-b5a0-7fbcb74527f3",
                 "savedPayload": {
                     "position": {
-                        "x": 13903.285882004897,
-                        "y": 18950
+                        "x": 9555.459795048375,
+                        "y": 14150.000000000002
                     },
                     "targetPosition": {
-                        "x": 13643.478260869566,
-                        "y": 18800
+                        "x": 9295.652173913044,
+                        "y": 14000.000000000002
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -11795,20 +11733,20 @@
                     }
                 }
             },
-            "id": "bd5845eb-eea2-4987-b660-a7bd2ed734f6",
+            "id": "a17fdb07-2458-4ac4-bbae-e2d8c96550a7",
             "savedPayload": {
                 "position": {
-                    "x": 13643.478260869566,
-                    "y": 18800
+                    "x": 9295.652173913044,
+                    "y": 14000.000000000002
                 },
                 "targetPosition": {
-                    "x": 13343.478260869566,
-                    "y": 18800
+                    "x": 8995.652173913044,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -11826,21 +11764,21 @@
             "stakingProgram": {
                 "type": "Staking Program",
                 "name": "New Staking Program",
-                "config": "{\r\n    \"percentage\": 1\r\n}",
+                "config": "{\r\n\r\n}",
                 "project": "Governance",
                 "tokensAwarded": {
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "d54d14f8-bfa5-4d7f-b948-34dcfc0cf9f5",
+                    "id": "63714d45-6c5b-4e38-a744-4ac8bfd016c2",
                     "savedPayload": {
                         "position": {
-                            "x": 14013.093503140228,
-                            "y": 19359.807621135333
+                            "x": 9665.267416183706,
+                            "y": 14559.807621135333
                         },
                         "targetPosition": {
-                            "x": 13753.285882004897,
-                            "y": 19209.807621135333
+                            "x": 9405.459795048375,
+                            "y": 14409.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -11855,15 +11793,15 @@
                         }
                     }
                 },
-                "id": "84c43a5a-6980-44dd-be5e-d937e215c652",
+                "id": "d2dd2b66-2cff-4a0d-8e01-5bc2b40ed78b",
                 "savedPayload": {
                     "position": {
-                        "x": 13753.285882004897,
-                        "y": 19209.807621135333
+                        "x": 9405.459795048375,
+                        "y": 14409.807621135333
                     },
                     "targetPosition": {
-                        "x": 13493.478260869566,
-                        "y": 19059.807621135333
+                        "x": 9145.652173913044,
+                        "y": 14259.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -11881,7 +11819,7 @@
             "delegationProgram": {
                 "type": "Delegation Program",
                 "name": "New Delegation Program",
-                "config": "{\n    \"percentage\": 99\n}",
+                "config": "{\n    \"percentage\": 48.5\n}",
                 "project": "Governance",
                 "delegatePowerSwitch": [
                     {
@@ -11896,15 +11834,15 @@
                                 "name": "cozed-gh",
                                 "config": "{\r\n    \"percentage\": 0\r\n}",
                                 "project": "Governance",
-                                "id": "97e0ce7a-8fb7-436a-b6f6-b3dcd4f0003a",
+                                "id": "927e5c48-7411-439b-bcd7-841061733bd5",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 13903.285882004897,
-                                        "y": 19250
+                                        "x": 9555.459795048375,
+                                        "y": 14450.000000000002
                                     },
                                     "targetPosition": {
-                                        "x": 13753.285882004897,
-                                        "y": 19509.807621135333
+                                        "x": 9405.459795048375,
+                                        "y": 14709.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -11937,15 +11875,15 @@
                                 "name": "quantum8",
                                 "config": "{\r\n\r\n}",
                                 "project": "Governance",
-                                "id": "9bb38b05-d9e7-45c3-99be-6fc671fdfe2f",
+                                "id": "3864ace1-9082-4821-a106-74d1ba787151",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 14013.093503140228,
-                                        "y": 19659.807621135333
+                                        "x": 9665.267416183706,
+                                        "y": 14859.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 13753.285882004897,
-                                        "y": 19509.807621135333
+                                        "x": 9405.459795048375,
+                                        "y": 14709.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -11976,17 +11914,17 @@
                             {
                                 "type": "User Delegate",
                                 "name": "BlaaSwe",
-                                "config": "{\r\n    \"percentage\": 68.8\r\n}",
+                                "config": "{\r\n    \"percentage\": 60.6\r\n}",
                                 "project": "Governance",
-                                "id": "094f4369-f282-4fd6-8d69-b11ce189ebcd",
+                                "id": "773427b2-f1cf-4d7d-b98e-9bbd9a61300b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 13603.285882004897,
-                                        "y": 19769.615242270665
+                                        "x": 9255.459795048375,
+                                        "y": 14969.615242270664
                                     },
                                     "targetPosition": {
-                                        "x": 13753.285882004897,
-                                        "y": 19509.807621135333
+                                        "x": 9405.459795048375,
+                                        "y": 14709.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -12015,15 +11953,15 @@
                                 }
                             }
                         ],
-                        "id": "f5d11a0e-caca-4c4a-9ea6-27e33035768e",
+                        "id": "33ce6b85-61f8-44a5-b916-26231c44eb37",
                         "savedPayload": {
                             "position": {
-                                "x": 13753.285882004897,
-                                "y": 19509.807621135333
+                                "x": 9405.459795048375,
+                                "y": 14709.807621135333
                             },
                             "targetPosition": {
-                                "x": 13493.478260869566,
-                                "y": 19359.807621135333
+                                "x": 9145.652173913044,
+                                "y": 14559.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -12043,15 +11981,15 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "63afd7c2-9562-48a4-a7af-0a606673815c",
+                    "id": "e881dca4-0d1f-40c9-841c-8aac342d5144",
                     "savedPayload": {
                         "position": {
-                            "x": 13233.670639734235,
-                            "y": 19509.807621135333
+                            "x": 8885.844552777713,
+                            "y": 14709.807621135333
                         },
                         "targetPosition": {
-                            "x": 13493.478260869566,
-                            "y": 19359.807621135333
+                            "x": 9145.652173913044,
+                            "y": 14559.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -12066,15 +12004,15 @@
                         }
                     }
                 },
-                "id": "1c059399-a76f-4774-9cb7-89fa10de524c",
+                "id": "4c3927ff-609e-4634-853b-b4be81007843",
                 "savedPayload": {
                     "position": {
-                        "x": 13493.478260869566,
-                        "y": 19359.807621135333
+                        "x": 9145.652173913044,
+                        "y": 14559.807621135333
                     },
                     "targetPosition": {
-                        "x": 13493.478260869566,
-                        "y": 19059.807621135333
+                        "x": 9145.652173913044,
+                        "y": 14259.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -12089,15 +12027,15 @@
                     }
                 }
             },
-            "id": "ab2335df-e928-4686-a0cb-dea17dbf5098",
+            "id": "d59621e2-14a2-4959-8501-4459ccce59ee",
             "savedPayload": {
                 "position": {
-                    "x": 13493.478260869566,
-                    "y": 19059.807621135333
+                    "x": 9145.652173913044,
+                    "y": 14259.807621135333
                 },
                 "targetPosition": {
-                    "x": 13343.478260869566,
-                    "y": 18800
+                    "x": 8995.652173913044,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -12127,15 +12065,15 @@
                         "type": "Tokens Awarded",
                         "name": "New Tokens Awarded",
                         "project": "Governance",
-                        "id": "16eb0af9-4db5-4475-855b-cddf4dd863dd",
+                        "id": "45d0f0ff-9cbc-4857-a5c5-e58307eeb9f9",
                         "savedPayload": {
                             "position": {
-                                "x": 12893.478260869566,
-                                "y": 19579.422863406
+                                "x": 8545.652173913044,
+                                "y": 14779.422863405995
                             },
                             "targetPosition": {
-                                "x": 13043.478260869566,
-                                "y": 19319.615242270665
+                                "x": 8695.652173913044,
+                                "y": 14519.615242270664
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -12150,15 +12088,15 @@
                             }
                         }
                     },
-                    "id": "fb62f734-fe9b-4daa-ba9b-021bdbd2b884",
+                    "id": "d2aed915-4013-422b-bd72-d17bccd431c8",
                     "savedPayload": {
                         "position": {
-                            "x": 13043.478260869566,
-                            "y": 19319.615242270665
+                            "x": 8695.652173913044,
+                            "y": 14519.615242270664
                         },
                         "targetPosition": {
-                            "x": 13193.478260869566,
-                            "y": 19059.807621135333
+                            "x": 8845.652173913044,
+                            "y": 14259.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -12174,15 +12112,15 @@
                     }
                 }
             ],
-            "id": "e1dd6519-34fd-43eb-b470-6eef7a4c8c57",
+            "id": "a18ca1cc-ca4b-403d-b013-bb703d889c3b",
             "savedPayload": {
                 "position": {
-                    "x": 13193.478260869566,
-                    "y": 19059.807621135333
+                    "x": 8845.652173913044,
+                    "y": 14259.807621135333
                 },
                 "targetPosition": {
-                    "x": 13343.478260869566,
-                    "y": 18800
+                    "x": 8995.652173913044,
+                    "y": 14000.000000000002
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -12197,15 +12135,15 @@
                 }
             }
         },
-        "id": "07ac49f4-0f76-46f1-97d6-7bdb19e16353",
+        "id": "fcd3c4de-2f00-4209-b40b-cc79c2970c5e",
         "savedPayload": {
             "position": {
-                "x": 13343.478260869566,
-                "y": 18800
+                "x": 8995.652173913044,
+                "y": 14000.000000000002
             },
             "targetPosition": {
-                "x": 13043.478260869566,
-                "y": 18800
+                "x": 8695.652173913044,
+                "y": 14000.000000000002
             },
             "floatingObject": {
                 "isPinned": false,
@@ -12224,15 +12162,15 @@
         "type": "Tokens Mined",
         "name": "New Tokens Mined",
         "project": "Governance",
-        "id": "531c8581-0a18-49d9-8b19-c264f8245190",
+        "id": "61fc12d8-5f00-4884-9114-d35daca4b685",
         "savedPayload": {
             "position": {
-                "x": 12743.478260869566,
-                "y": 18800
+                "x": 8395.652173913044,
+                "y": 14000.000000000002
             },
             "targetPosition": {
-                "x": 13043.478260869566,
-                "y": 18800
+                "x": 8695.652173913044,
+                "y": 14000.000000000002
             },
             "floatingObject": {
                 "isPinned": false,
@@ -12247,15 +12185,15 @@
             }
         }
     },
-    "id": "9e4a2f83-10ec-4022-8206-9b892cf9be24",
+    "id": "06735ccb-d529-4e9e-9221-02d1bf806857",
     "savedPayload": {
         "position": {
-            "x": 13043.478260869566,
-            "y": 18800
+            "x": 8695.652173913044,
+            "y": 14000.000000000002
         },
         "targetPosition": {
-            "x": 13043.478260869566,
-            "y": 18800
+            "x": 8695.652173913044,
+            "y": 14000.000000000002
         },
         "floatingObject": {
             "isPinned": false,

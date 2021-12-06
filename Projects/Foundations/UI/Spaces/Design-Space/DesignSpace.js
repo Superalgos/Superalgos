@@ -6,6 +6,7 @@ function newFoundationsDesignSpace() {
         workspace: undefined,
         getIconByProjectAndName: getIconByProjectAndName,
         getIconByProjectAndType: getIconByProjectAndType,
+        getIconByExternalSource: getIconByExternalSource,
         physics: physics,
         draw: draw,
         getContainer: getContainer,
@@ -119,6 +120,31 @@ function newFoundationsDesignSpace() {
 
     function getIconByProjectAndType(project, type) {
         return thisObject.iconsByProjectAndType.get(project + '-' + type)
+    }
+
+    function getIconByExternalSource(project, url) {
+
+        let image
+        let key = project + '-' + url
+
+        image = UI.projects.foundations.spaces.designSpace.iconsByProjectAndName.get(key)
+
+        if (image === undefined) {
+
+            image = new Image()
+            image.onload = onImageLoad
+
+            function onImageLoad() {
+                image.canDrawIcon = true
+            }
+
+            image.src = url
+
+            let key = project + '-' + image.src
+            UI.projects.foundations.spaces.designSpace.iconsByProjectAndName.set(key, image)
+        }
+
+        return image
     }
 
     function physics() {

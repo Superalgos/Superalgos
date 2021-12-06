@@ -53,10 +53,10 @@ SA.nodeModules = {
     lookpath: require('lookpath'),
     process: require('process'),
     childProcess: require('child_process'),
-    twitter: require('twitter-v2')
+    twitter: require('twitter-api-v2')
 }
 
-SA.version = require('./package.json').version    
+SA.version = require('./package.json').version
 /*
 Check if we are starting from a particular workspace.
 */

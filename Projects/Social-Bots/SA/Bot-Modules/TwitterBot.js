@@ -15,7 +15,7 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
     function initialize(config) {
         /* Twitter Bot Initialization */
-        const Twitter = SA.nodeModules.twitter
+        const { TwitterApi } = SA.nodeModules.twitter
 
         let consumer_key = config.consumer_key
         let consumer_secret = config.consumer_secret
@@ -47,13 +47,15 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
         if (!access_token_secret) {
             logError("access_token_secret must be set")
         }
-        var twitterClient = new Twitter({
-            consumer_key: consumer_key,
-            consumer_secret: consumer_secret,
-            access_token_key: access_token_key,
-            access_token_secret: access_token_secret
-        });
-        thisObject.twitterClient = twitterClient
+        var twitterClient = new TwitterApi({
+            appKey: consumer_key,
+            appSecret: consumer_secret,
+            accessToken: access_token_key,
+            accessSecret: access_token_secret
+        })
+        const rwClient = twitterClient.readWrite
+        const v2Client = rwClient.v2
+        thisObject.twitterClient = v2Client
 
         try {
             let exchange = 'TestExchange'
@@ -80,14 +82,13 @@ exports.newSocialBotsBotModulesTwitterBot = function (processIndex) {
 
     async function sendMessage(message) {
         try {
-            message = {text: formatMessage(message)}
+            message = formatMessage(message)
         } catch (err) {
             logError(`sendMessage -> Twitter message formatting error -> err: ${err}`)
         }
-        let urlParams = {}
         try {
-            let response = await thisObject.twitterClient.post('tweets', message, urlParams)
-            logInfo(`sendMessage -> Twitter bot post tweet -> response -> ${response}`)
+            let response = await thisObject.twitterClient.tweet(message)
+            logInfo(`sendMessage -> Twitter bot post tweet -> response -> ${JSON.parse(response)}`)
             return response
         } catch (err) {
             logError(`sendMessage -> Twitter bot post tweet -> ${err}`)

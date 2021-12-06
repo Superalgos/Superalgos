@@ -1691,27 +1691,6 @@
         "SA": {
             "botModules": [
                 {
-                    "name": "Telegram Bot",
-                    "propertyName": "telegramBot",
-                    "functionName": "newSocialBotsBotModulesTelegramBot",
-                    "fileName": "TelegramBot.js",
-                    "folderName": ""
-                },
-                {
-                    "name": "Discord Bot",
-                    "propertyName": "discordBot",
-                    "functionName": "newSocialBotsBotModulesDiscordBot",
-                    "fileName": "DiscordBot.js",
-                    "folderName": ""
-                },
-                {
-                    "name": "Slack Bot",
-                    "propertyName": "slackBot",
-                    "functionName": "newSocialBotsBotModulesSlackBot",
-                    "fileName": "SlackBot.js",
-                    "folderName": ""
-                },
-                {
                     "name": "Twitter Bot",
                     "propertyName": "twitterBot",
                     "functionName": "newSocialBotsBotModulesTwitterBot",
@@ -1734,6 +1713,27 @@
                     "propertyName": "socialBots",
                     "functionName": "newSocialBotsBotModulesSocialBots",
                     "fileName": "SocialBots.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Telegram Bot",
+                    "propertyName": "telegramBot",
+                    "functionName": "newSocialBotsBotModulesTelegramBot",
+                    "fileName": "TelegramBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSocialBotsBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
                     "folderName": ""
                 }
             ]

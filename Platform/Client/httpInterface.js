@@ -251,11 +251,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     socialBot.initialize(config)
                                     socialBot.sendMessage(message)
                                         .then(response => {
-                                            console.log('[INFO] twitter test message sent. response: ', response)
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                         })
                                         .catch(err => {
-                                            console.error('[ERROR] twitter test message error: ', err)
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })

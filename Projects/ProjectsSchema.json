@@ -1892,6 +1892,17 @@
             ],
             "utilities": []
         },
+        "SA": {
+            "botModules": [
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newSocialBotsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
+        },
         "TS": {
             "botModules": [
                 {
@@ -1927,13 +1938,6 @@
                     "propertyName": "slackBot",
                     "functionName": "newSocialBotsBotModulesSlackBot",
                     "fileName": "SlackBot.js",
-                    "folderName": ""
-                },
-                {
-                    "name": "Twitter Bot",
-                    "propertyName": "twitterBot",
-                    "functionName": "newSocialBotsBotModulesTwitterBot",
-                    "fileName": "TwitterBot.js",
                     "folderName": ""
                 }
             ]

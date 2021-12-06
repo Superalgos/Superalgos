@@ -2871,6 +2871,34 @@
                                         "isRunning": false
                                     }
                                 }
+                            },
+                            {
+                                "type": "Plugin File",
+                                "name": "pr-payments",
+                                "config": "{\"project\":\"Governance\",\"fileName\":\"pr-payments\",\"folderName\":\"User-Profiles\",\"nodeType\":\"User Profile\",\"saveWithWorkspace\":true}",
+                                "project": "Community-Plugins",
+                                "id": "452fa389-4bac-44f6-8dcd-990d28e7170e",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34890.348563997104,
+                                        "y": 5928.774329342588
+                                    },
+                                    "targetPosition": {
+                                        "x": 34817.348563997104,
+                                        "y": 6020.774329342588
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
                             }
                         ],
                         "id": "64e9f828-b908-4bbb-9435-e65839c4a011",
@@ -5031,7 +5059,7 @@
                     "arrangementStyle": 1
                 },
                 "uiObject": {
-                    "isPlaying": true,
+                    "isPlaying": false,
                     "isRunning": false
                 },
                 "tutorial": {

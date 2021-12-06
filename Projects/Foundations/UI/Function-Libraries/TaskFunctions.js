@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryTaskFunctions() {
+    function newFoundationsFunctionLibraryTaskFunctions() {
     let thisObject = {
         synchronizeTaskWithBackEnd: synchronizeTaskWithBackEnd,
 

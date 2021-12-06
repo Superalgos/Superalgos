@@ -127,12 +127,12 @@
             "id": "5a1c7d96-3077-4ea6-9300-36ccd234290b",
             "savedPayload": {
                 "position": {
-                    "x": 18159.190857885376,
-                    "y": 18587.867965644036
+                    "x": 21201.787206769754,
+                    "y": 37787.867965644036
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 20989.65517241379,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{\n    \"percentage\": 1\n}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -166,12 +166,12 @@
                         "id": "31721402-7e62-4d72-9037-d2535567c941",
                         "savedPayload": {
                             "position": {
-                                "x": 16031.792957307596,
-                                "y": 11810.222252113279
+                                "x": 21627.10850707988,
+                                "y": 37560.22225211328
                             },
                             "targetPosition": {
-                                "x": 15954.14724377684,
-                                "y": 12100
+                                "x": 21549.462793549123,
+                                "y": 37850
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -207,12 +207,12 @@
                     "id": "ca9e4046-d3f3-4bd9-85a2-852c67a8c4f8",
                     "savedPayload": {
                         "position": {
-                            "x": 16213.954864912172,
-                            "y": 11950
+                            "x": 21809.270414684455,
+                            "y": 37700
                         },
                         "targetPosition": {
-                            "x": 15954.14724377684,
-                            "y": 12100
+                            "x": 21549.462793549123,
+                            "y": 37850
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -234,12 +234,12 @@
                     "id": "ed5ec5af-a544-4ad2-b7f8-72228e814c20",
                     "savedPayload": {
                         "position": {
-                            "x": 16243.924991663562,
-                            "y": 12177.645713530756
+                            "x": 21839.240541435844,
+                            "y": 37927.64571353076
                         },
                         "targetPosition": {
-                            "x": 15954.14724377684,
-                            "y": 12100
+                            "x": 21549.462793549123,
+                            "y": 37850
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -257,17 +257,17 @@
                 "id": "3648a9b1-b3bc-4348-b940-1b868ea884d3",
                 "savedPayload": {
                     "position": {
-                        "x": 18506.866444664745,
-                        "y": 18650
+                        "x": 21549.462793549123,
+                        "y": 37850
                     },
                     "targetPosition": {
-                        "x": 18247.058823529413,
-                        "y": 18800
+                        "x": 21289.65517241379,
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -280,7 +280,7 @@
             "supportProgram": {
                 "type": "Support Program",
                 "name": "New Support Program",
-                "config": "{\n    \"percentage\": 10\n}",
+                "config": "{\n    \"percentage\": 0\n}",
                 "project": "Governance",
                 "userSupporters": [
                     {
@@ -291,12 +291,12 @@
                         "id": "013d635e-71ae-4376-86a7-97eaa6a788b5",
                         "savedPayload": {
                             "position": {
-                                "x": 16170.675198329252,
-                                "y": 12007.294901687515
+                                "x": 21823.526430841903,
+                                "y": 38027.97900707726
                             },
                             "targetPosition": {
-                                "x": 15994.33962264151,
-                                "y": 12250
+                                "x": 21549.462793549123,
+                                "y": 38150
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -312,14 +312,12 @@
                             "referenceParent": {
                                 "type": "User Profile",
                                 "name": "Julian-Molina",
-                                "id": "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
+                                "id": "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile",
-                                    "Governance",
-                                    "b85aaac1-0708-4aec-97f9-bc3cc70e530a"
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -332,12 +330,12 @@
                         "id": "d96cd4df-2cda-4ff8-a54d-5d81b1fabca7",
                         "savedPayload": {
                             "position": {
-                                "x": 16279.656577530055,
-                                "y": 12157.294901687515
+                                "x": 21842.907073769264,
+                                "y": 38212.37350724533
                             },
                             "targetPosition": {
-                                "x": 15994.33962264151,
-                                "y": 12250
+                                "x": 21549.462793549123,
+                                "y": 38150
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -373,12 +371,12 @@
                     "id": "c9a059b6-8a82-4961-9c9e-54aa37ffcf08",
                     "savedPayload": {
                         "position": {
-                            "x": 16279.656577530055,
-                            "y": 12342.705098312485
+                            "x": 21750.20197545678,
+                            "y": 38372.94344764322
                         },
                         "targetPosition": {
-                            "x": 15994.33962264151,
-                            "y": 12250
+                            "x": 21549.462793549123,
+                            "y": 38150
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -400,12 +398,12 @@
                     "id": "b17ecb03-af59-4504-83cd-a92c2ac3a0e5",
                     "savedPayload": {
                         "position": {
-                            "x": 16170.675198329252,
-                            "y": 12492.705098312485
+                            "x": 21580.82133252942,
+                            "y": 38448.356568610485
                         },
                         "targetPosition": {
-                            "x": 15994.33962264151,
-                            "y": 12250
+                            "x": 21549.462793549123,
+                            "y": 38150
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -423,17 +421,17 @@
                 "id": "8c881a99-9bbc-4854-b849-f9a7d5ef1016",
                 "savedPayload": {
                     "position": {
-                        "x": 18506.866444664745,
-                        "y": 18950
+                        "x": 21549.462793549123,
+                        "y": 38150
                     },
                     "targetPosition": {
-                        "x": 18247.058823529413,
-                        "y": 18800
+                        "x": 21289.65517241379,
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -446,17 +444,17 @@
             "id": "3fb1d37b-4db8-438a-a198-cdd2e27d4cc1",
             "savedPayload": {
                 "position": {
-                    "x": 18247.058823529413,
-                    "y": 18800
+                    "x": 21289.65517241379,
+                    "y": 38000
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 20989.65517241379,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -492,12 +490,12 @@
                                 "id": "68121dca-efcb-413c-b2c7-08890be6c36b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 18971.32289224134,
-                                        "y": 19224.264068711927
+                                        "x": 22013.919241125717,
+                                        "y": 38424.26406871193
                                     },
                                     "targetPosition": {
-                                        "x": 18671.32289224134,
-                                        "y": 19224.264068711927
+                                        "x": 21713.919241125717,
+                                        "y": 38424.26406871193
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -539,12 +537,12 @@
                         "id": "ac8cd464-4ba9-42b3-8ae6-c229f8e26931",
                         "savedPayload": {
                             "position": {
-                                "x": 18671.32289224134,
-                                "y": 19224.264068711927
+                                "x": 21713.919241125717,
+                                "y": 38424.26406871193
                             },
                             "targetPosition": {
-                                "x": 18371.32289224134,
-                                "y": 19224.264068711927
+                                "x": 21413.919241125717,
+                                "y": 38424.26406871193
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -565,24 +563,81 @@
                     {
                         "type": "Position Claims Folder",
                         "name": "New Position Claims Folder",
-                        "config": "{\n    \"percentage\": 20\n}",
+                        "config": "{\n    \"percentage\": 100\n}",
                         "project": "Governance",
-                        "positionClaimsFolders": [],
-                        "positionContributionClaims": [
+                        "positionClaimsFolders": [
                             {
-                                "type": "Position Contribution Claim",
-                                "name": "1 Team Member quantum8 Discord Team",
+                                "type": "Position Claims Folder",
+                                "name": "New Position Claims Folder",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "c4c0c9fb-bd96-4c75-b9ee-187e7f5cb9b3",
+                                "positionClaimsFolders": [],
+                                "positionContributionClaims": [
+                                    {
+                                        "type": "Position Contribution Claim",
+                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "2529497e-641f-4cc8-84ac-e3be92f8858d",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 22050.31534419361,
+                                                "y": 39060.66017177982
+                                            },
+                                            "targetPosition": {
+                                                "x": 21838.183309837645,
+                                                "y": 38848.528137423855
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position",
+                                                "name": "Data Mining Team Token Pool",
+                                                "id": "e61f97a8-ee3a-4bf3-947d-eba128813dda"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Teams of Contributors",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Teams @ Nov 2021",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Data Mining Team PoW Report",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Data Mining Team Token Pool",
+                                                    "Position"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "0cf00d2f-bfae-4fbb-b9cf-d1dad56cb1e8",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 18879.761428775844,
-                                        "y": 19389.46576355582
+                                        "x": 21838.183309837645,
+                                        "y": 38848.528137423855
                                     },
                                     "targetPosition": {
-                                        "x": 18583.454926597304,
-                                        "y": 19436.39610306789
+                                        "x": 21626.05127548168,
+                                        "y": 38636.39610306789
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -596,217 +651,41 @@
                                         "isRunning": false
                                     },
                                     "referenceParent": {
-                                        "type": "Position",
-                                        "name": "1 Team Member quantum8",
-                                        "id": "6393cd1d-7c45-4ba5-a81b-05c2b1bc382e"
+                                        "type": "Position Class",
+                                        "name": "Data Mining Team PoW Report",
+                                        "id": "2216c060-c9f7-4417-b41f-1d4f9cb4ca81"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
-                                            "Superalgos",
+                                            "Teams of Contributors",
                                             "Positions"
                                         ],
                                         [
-                                            "Roles Played @ Beta-12",
+                                            "Teams @ Nov 2021",
                                             "Position Class"
                                         ],
                                         [
-                                            "Other Teams",
+                                            "Teams With PoW Reports",
                                             "Position Class"
                                         ],
                                         [
-                                            "Chat Platforms Teams",
+                                            "Data Mining Team PoW Report",
                                             "Position Class"
-                                        ],
-                                        [
-                                            "Discord Team",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "1 Team Member quantum8",
-                                            "Position"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Contribution Claim",
-                                "name": "2 Team Member Tentacle23 quantum8 Docs Teams",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "431eae13-7099-46f7-9a7a-63de3b394b12",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 18850.756883853814,
-                                        "y": 19572.593252989755
-                                    },
-                                    "targetPosition": {
-                                        "x": 18583.454926597304,
-                                        "y": 19436.39610306789
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position",
-                                        "name": "2 Team Member Tentacle23 quantum8",
-                                        "id": "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Education Teams",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Docs Teams",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "2 Team Member Tentacle23 quantum8",
-                                            "Position"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Contribution Claim",
-                                "name": "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv Data Mining Project",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "97a084c4-6b55-47a0-b19d-1a6bf7d4f90f",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 18719.652076519167,
-                                        "y": 19703.6980603244
-                                    },
-                                    "targetPosition": {
-                                        "x": 18583.454926597304,
-                                        "y": 19436.39610306789
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position",
-                                        "name": "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
-                                        "id": "96ef6745-3340-4f59-a174-41deedf4f074"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Software Projects",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Active Projects",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Data Mining Project",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "3 Project Contributors Alexandru cozed-gh(Carl) Quantum8 PLuv",
-                                            "Position"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Contribution Claim",
-                                "name": "1 Team Member quantum8 Tutorials Team",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "143fcc59-bbbe-435e-9084-820e5a80fba3",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 18536.524587085234,
-                                        "y": 19732.70260524643
-                                    },
-                                    "targetPosition": {
-                                        "x": 18583.454926597304,
-                                        "y": 19436.39610306789
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position",
-                                        "name": "1 Team Member quantum8",
-                                        "id": "3c0015fa-c06a-4ee1-a000-b283cad18c16"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Education Teams",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Tutorials Team",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "1 Team Member quantum8",
-                                            "Position"
                                         ]
                                     ]
                                 }
                             }
                         ],
+                        "positionContributionClaims": [],
                         "id": "f0da0682-0041-4766-8650-76b09c4cd6fd",
                         "savedPayload": {
                             "position": {
-                                "x": 18583.454926597304,
-                                "y": 19436.39610306789
+                                "x": 21626.05127548168,
+                                "y": 38636.39610306789
                             },
                             "targetPosition": {
-                                "x": 18371.32289224134,
-                                "y": 19224.264068711927
+                                "x": 21413.919241125717,
+                                "y": 38424.26406871193
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -818,7 +697,22 @@
                             },
                             "uiObject": {
                                 "isRunning": false
-                            }
+                            },
+                            "referenceParent": {
+                                "type": "Position Class",
+                                "name": "Teams @ Nov 2021",
+                                "id": "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Teams of Contributors",
+                                    "Positions"
+                                ],
+                                [
+                                    "Teams @ Nov 2021",
+                                    "Position Class"
+                                ]
+                            ]
                         }
                     }
                 ],
@@ -829,12 +723,12 @@
                     "id": "8e22e033-836e-4984-944d-2af5a8130f92",
                     "savedPayload": {
                         "position": {
-                            "x": 18371.32289224134,
-                            "y": 19524.264068711927
+                            "x": 21413.919241125717,
+                            "y": 38724.26406871193
                         },
                         "targetPosition": {
-                            "x": 18371.32289224134,
-                            "y": 19224.264068711927
+                            "x": 21413.919241125717,
+                            "y": 38424.26406871193
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -852,12 +746,12 @@
                 "id": "e38b91df-79f1-457c-b68b-7b6ca9002a1a",
                 "savedPayload": {
                     "position": {
-                        "x": 18371.32289224134,
-                        "y": 19224.264068711927
+                        "x": 21413.919241125717,
+                        "y": 38424.26406871193
                     },
                     "targetPosition": {
-                        "x": 18159.190857885376,
-                        "y": 19012.132034355964
+                        "x": 21201.787206769754,
+                        "y": 38212.132034355964
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -875,12 +769,12 @@
             "id": "f42fed03-2397-410d-9f44-1883705d41f6",
             "savedPayload": {
                 "position": {
-                    "x": 18159.190857885376,
-                    "y": 19012.132034355964
+                    "x": 21201.787206769754,
+                    "y": 38212.132034355964
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 20989.65517241379,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -898,12 +792,12 @@
         "id": "9af8e675-0256-4b47-bb58-ebe914eb16a3",
         "savedPayload": {
             "position": {
-                "x": 17947.058823529413,
-                "y": 18800
+                "x": 20989.65517241379,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 17647.058823529413,
-                "y": 18800
+                "x": 20689.65517241379,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -925,12 +819,12 @@
         "id": "7b9b1c90-9101-4b09-bffd-1e5f46cee2c8",
         "savedPayload": {
             "position": {
-                "x": 17347.058823529413,
-                "y": 18800
+                "x": 20389.65517241379,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 17647.058823529413,
-                "y": 18800
+                "x": 20689.65517241379,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -948,17 +842,17 @@
     "id": "f2ba562b-9032-4fb4-8b97-0b58d8542905",
     "savedPayload": {
         "position": {
-            "x": 17647.058823529413,
-            "y": 18800
+            "x": 20689.65517241379,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 17647.058823529413,
-            "y": 18800
+            "x": 20689.65517241379,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

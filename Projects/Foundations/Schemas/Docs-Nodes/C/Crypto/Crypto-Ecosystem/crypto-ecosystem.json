@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El crypto ecosystem es una jerarquía que contiene definiciones sobre terceros, incluidos los intercambios y sus mercados, así como las cuentas de los usuarios con esos terceros.",
                 "updated": 1624496849850
+            },
+            {
+                "language": "RU",
+                "text": "Crypto Ecosystem - это иерархия, которая содержит определения третьих сторон, включая биржи и их рынки, а также учетные записи пользователей с этими третьими сторонами.",
+                "updated": 1638336135564
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "There is only one crypto ecosystem hierarchy. You will use it to define which exchanges and which markets you wish to work with, as well as the details of your accounts with those exchanges."
+            "text": "There is only one crypto ecosystem hierarchy. You will use it to define which exchanges and which markets you wish to work with, as well as the details of your accounts with those exchanges.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть только одна иерархия Crypto Ecosystem. Вы будете использовать его для определения бирж и рынков, с которыми вы хотите работать, а также деталей ваших учетных записей на этих биржах.",
+                    "updated": 1638336168626
+                }
+            ]
         }
     ]
 }

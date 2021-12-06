@@ -1,7 +1,14 @@
 {
     "type": "Super Scripts",
     "definition": {
-        "text": "The super scripts hierarchy holds definitions of scripts used to automate certain aspects of the administration and maintenance of the workspace, such as installing and deleting markets."
+        "text": "The super scripts hierarchy holds definitions of scripts used to automate certain aspects of the administration and maintenance of the workspace, such as installing and deleting markets.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия Super Scripts содержит определения скриптов, используемых для автоматизации определенных аспектов администрирования и обслуживания рабочего пространства, таких как установка и удаление рынков.",
+                "updated": 1638342745110
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The super scripts hierarchy may be used by developers who wish to create their own scripts for automating the deployment or maintenance of all sorts of structures of nodes across any of the hierarchies in the design space."
+            "text": "The super scripts hierarchy may be used by developers who wish to create their own scripts for automating the deployment or maintenance of all sorts of structures of nodes across any of the hierarchies in the design space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия суперсценариев может использоваться разработчиками, которые хотят создавать свои собственные сценарии для автоматизации развертывания или обслуживания всех видов структур узлов в любой из иерархий в Design Space.",
+                    "updated": 1638342805141
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Regular users will find little to do with this hierarchy, even though they may use it indirectly, for instance, when installing or uninstalling markets."
+            "text": "Regular users will find little to do with this hierarchy, even though they may use it indirectly, for instance, when installing or uninstalling markets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обычные пользователи найдут мало общего с этой иерархией, даже если они могут использовать ее косвенно, например, при установке или удалении рынков.",
+                    "updated": 1638342853865
+                }
+            ]
         },
         {
             "style": "Block",
@@ -23,16 +44,37 @@
         {
             "style": "Title",
             "text": "Super Scripts Configuration",
-            "updated": 1609873496526
+            "updated": 1609873496526,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Super Scripts",
+                    "updated": 1638342869814
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873505709
+            "updated": 1609873505709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638342886513
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the hierarchy as is used in the system's code."
+            "text": "codeName is the name of the hierarchy as is used in the system's code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя иерархии, которое используется в системном коде.",
+                    "updated": 1638342912801
+                }
+            ]
         }
     ]
 }

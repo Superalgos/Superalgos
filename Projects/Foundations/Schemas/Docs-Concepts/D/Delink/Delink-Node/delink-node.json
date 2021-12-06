@@ -2,12 +2,26 @@
     "type": "Delink Node",
     "definition": {
         "text": "Removes the reference that may have existed between the node and a second node.",
-        "updated": 1610032584574
+        "updated": 1610032584574,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Удаляет ссылку, которая могла существовать между узлами.",
+                "updated": 1638282887048
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638282899444
+                }
+            ]
         }
     ]
 }

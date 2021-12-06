@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un trading mine es una jerarquía que contiene definiciones de trading bots y sus conspiradores. Estas definiciones constituyen los programas reales de dichos bots: el código fuente.",
                 "updated": 1628906153772
+            },
+            {
+                "language": "RU",
+                "text": "Trading Mine - это иерархия, которая содержит определения торговых ботов и их плоттеры. Эти определения составляют фактические программы таких ботов - исходный код.",
+                "updated": 1638338598326
             }
         ]
     },
@@ -17,16 +22,37 @@
         },
         {
             "style": "Text",
-            "text": "Altough Superalgos is starting out with a single trading bot, the system is prepared to feature as many trading bots as developers are willing to create. As such, a trading mine is a catalog of trading bots."
+            "text": "Altough Superalgos is starting out with a single trading bot, the system is prepared to feature as many trading bots as developers are willing to create. As such, a trading mine is a catalog of trading bots.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя Superalgos начинает с одного торгового бота, система готова включать в себя столько торговых ботов, сколько разработчики готовы создать. Таким образом, Trading Mine представляет собой каталог торговых ботов.",
+                    "updated": 1638338508685
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Notice that, in the context of Superalgos, a trading bot has nothing to do with the trading logic. Think of trading logic as the business rules which—in Superalgos—are defined in trading systems. Anyone may build a Trading System, meaning that creating trading systems and the trading strategies within does not require coding.",
-            "updated": 1609861342619
+            "updated": 1609861342619,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что в контексте Superalgos торговый бот не имеет ничего общего с торговой логикой. Думайте о торговой логике как о бизнес-правилах, которые - в Superalgos - определены в торговых системах. Любой может создать торговую систему, а это означает, что создание торговых систем и торговых стратегий внутри нее не требует программирования.",
+                    "updated": 1638338537661
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trading mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters."
+            "text": "Trading mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Trading Mine работает аналогично Data Mine в том смысле, что они предоставляют те же инструменты для структурирования определений ботов, включая определения процессов, определения продуктов и плоттеры.",
+                    "updated": 1638338689173
+                }
+            ]
         },
         {
             "style": "Block",
@@ -35,7 +61,14 @@
         {
             "style": "Title",
             "text": "Trading Mine Configuration",
-            "updated": 1609861240385
+            "updated": 1609861240385,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка Trading Mine",
+                    "updated": 1638338789550
+                }
+            ]
         }
     ]
 }

@@ -38,9 +38,22 @@
             "updated": 1638052333924
         },
         {
+            "style": "List",
+            "text": "Workspace terms -> all Technical Terms related to the Workspace",
+            "updated": 1638487168731
+        },
+        {
+            "style": "List",
+            "text": "node Terms ->  all Technical Terms related to Nodes "
+        },
+        {
+            "style": "List",
+            "text": "Other Technical Terms ->  all Technical Terms that dont fit the other categories"
+        },
+        {
             "style": "Note",
             "text": "In the columns with translation as their header you can add the translation into your language, if your language is selected in the footer, otherwise the translations would be globally in the table what isn`t the Goal.",
-            "updated": 1638052343422
+            "updated": 1638486873653
         },
         {
             "style": "Text",

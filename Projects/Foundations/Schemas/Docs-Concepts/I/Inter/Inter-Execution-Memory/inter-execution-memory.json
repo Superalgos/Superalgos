@@ -2,13 +2,27 @@
     "type": "Inter Execution Memory",
     "definition": {
         "text": "It is a data structure that some bots need in order to resume their operations after they get woken up at the next cycle of their Main Loop. ",
-        "updated": 1621955211473
+        "updated": 1621955211473,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это структура данных, которая нужна некоторым ботам для возобновления работы после того, как они проснутся в следующем цикле их основного цикла Main Loop.",
+                "updated": 1638283859604
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This data structure is currently saved inside the Status Report of the Bot. Since every bot usually read it's own Status Report at every run, with it, it has access to the Inter Execution Memory data structure that itself saved at the previous run.",
-            "updated": 1621955314173
+            "updated": 1621955314173,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта структура данных в настоящее время сохраняется в отчете о состоянии (Status Report) бота. Поскольку каждый бот обычно читает свой собственный Status Report при каждом запуске, он имеет доступ к структуре данных Inter Execution Memory, которая была сохранена при предыдущем запуске.",
+                    "updated": 1638284031302
+                }
+            ]
         }
     ]
 }

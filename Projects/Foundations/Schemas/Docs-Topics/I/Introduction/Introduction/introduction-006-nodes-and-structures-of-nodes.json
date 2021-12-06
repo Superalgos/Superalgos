@@ -4,37 +4,93 @@
     "type": "Nodes and Structures of Nodes",
     "definition": {
         "text": "A node is a small data structure containing information that may be related to market information, trading intelligence, the operation of the system, or other concepts. They are visually represented by icons in the design space.",
-        "updated": 1609946951589
+        "updated": 1609946951589,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Чтобы отсоединить узел, нажмите кнопку отсоединения в меню узла.",
+                "updated": 1638346526207
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Structure of Nodes",
-            "updated": 1609946982728
+            "updated": 1609946982728,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Структура узлов",
+                    "updated": 1638274159024
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Nodes may be chained together forming structures of nodes. In every structure of nodes there is a parent node with offsprings. That is, a structure of nodes is a data structure composed of any node and its offspring."
+            "text": "Nodes may be chained together forming structures of nodes. In every structure of nodes there is a parent node with offsprings. That is, a structure of nodes is a data structure composed of any node and its offspring.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы могут быть связаны вместе, образуя структуры узлов. В каждой структуре узлов есть родительский узел с потомками. То есть структура узлов - это структура данных, состоящая из любого узла и его потомков.",
+                    "updated": 1638274181825
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a consequence, structures of nodes are hierarchical structures, and a logical representation of how the concepts embodied by each node relate to each other."
+            "text": "As a consequence, structures of nodes are hierarchical structures, and a logical representation of how the concepts embodied by each node relate to each other.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как следствие, структуры узлов являются иерархическими структурами и логическим представлением того, как концепции, воплощенные в каждом узле, соотносятся друг с другом.",
+                    "updated": 1638274209845
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Parent-Offspring Relationships"
+            "text": "Parent-Offspring Relationships",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отношения между родителями и потомками",
+                    "updated": 1638274225756
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Nodes in structures of nodes are chained to each other by so-called parent-offspring relationships. These relationships are visually represented by orange dotted lines, which may turn yellow or blue depending on certain visualization properties that the user may control. When nodes are chained together they form structures of nodes."
+            "text": "Nodes in structures of nodes are chained to each other by so-called parent-offspring relationships. These relationships are visually represented by orange dotted lines, which may turn yellow or blue depending on certain visualization properties that the user may control. When nodes are chained together they form structures of nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы в структурах узлов связаны друг с другом так называемыми отношениями родитель-потомок. Эти отношения визуально представлены оранжевыми пунктирными линиями, которые могут стать желтыми или синими в зависимости от определенных свойств визуализации, которыми может управлять пользователь. Когда узлы связаны вместе, они образуют структуры узлов.",
+                    "updated": 1638274257862
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The direction of the relationship is determined, in most cases, by the ability of a node to produce the offspring node. That is, the parent node is the one which, by software design, may produce the offspring node."
+            "text": "The direction of the relationship is determined, in most cases, by the ability of a node to produce the offspring node. That is, the parent node is the one which, by software design, may produce the offspring node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Направление взаимосвязи в большинстве случаев определяется способностью узла производить потомок. То есть родительский узел - это тот, который, по замыслу программного обеспечения, может создавать дочерний узел.",
+                    "updated": 1638274291618
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "How to Detach and Attach Nodes"
+            "text": "How to Detach and Attach Nodes",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как отсоединить и присоединить узлы",
+                    "updated": 1638274360582
+                }
+            ]
         },
         {
             "style": "Include",

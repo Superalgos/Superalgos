@@ -24,7 +24,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
         thisObject.incomingSignals = NT.projects.network.modules.incomingSignals.newNetworkModulesIncomingSignals()
         thisObject.incomingSignals.initialize()
 
-        let port = JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webPort
+        let port = NT.networkNode.p2pNetworkNode.node.config.webPort
         /*
         We will create an HTTP Server and leave it running forever.
         */

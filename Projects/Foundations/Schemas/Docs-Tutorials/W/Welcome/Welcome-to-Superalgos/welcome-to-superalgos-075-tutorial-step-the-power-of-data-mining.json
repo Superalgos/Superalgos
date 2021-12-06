@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Seviyeler neden yukarı ve aşağı zıplıyor? Sana henüz söylemediğim bir şey var, bu aklını başından alacak.",
                 "updated": 1636205310660
+            },
+            {
+                "language": "RU",
+                "text": "Почему уровни прыгают вверх и вниз? Есть кое-что, о чем я еще не рассказал Вам, потому что боюсь, что это может взорвать Вамш мозг!",
+                "updated": 1637656806036
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Bot, veri kümesinin başlangıcından bu yana tüm destek seviyelerini canlı olarak takip eder, ancak size yalnızca mevcut fiyata en yakın beş seviyeyi gösterir.",
                     "updated": 1636205332521
+                },
+                {
+                    "language": "RU",
+                    "text": "Бот отслеживает все уровни поддержки с момента запуска набора данных, но показывает Вам только пять уровней, наиболее близких к текущей цене.",
+                    "updated": 1637656876957
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Veri kümesinin tüm aralığı için - ki bu yılları içerebilir - bilgi kaydını tutmak, veri madenciliğinin olağanüstü değeridir ve bir fonksiyonla anında hesaplayamayacağınız türden şeylerdir. Gösterge Botu ile ilişkili Plotter, fiyata en yakın beş destek seviyesini dinamik olarak gösterir, çünkü bunlar durum için ilgili seviyelerdir ve çizici bu şekilde inşa edilmiştir!",
                     "updated": 1636205604729
+                },
+                {
+                    "language": "RU",
+                    "text": "Отслеживание информации за весь период набора данных, который может исчисляться годами - это исключительная ценность интеллектуального анализа данных и подобного рода вещи Вы не смогли бы вычислить \"на лету\". Plotter, связанный с Indicator Bot, динамически показывает пять уровней поддержки, наиболее близких к цене, потому что это соответствующие уровни для контекста, и именно так устроен плоттер.",
+                    "updated": 1637657295196
                 }
             ]
         }

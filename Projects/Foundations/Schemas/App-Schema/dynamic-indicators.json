@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading System->"
+        "compatibleTypes": "->Trading System->Portfolio System->"
     },
     "propertyNameAtParent": "dynamicIndicators",
     "childrenNodesProperties": [

@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "Die User Manual (Benutzerhandbuch) behandelt Superalgos von A bis Z, beginnend mit einer umfassenden konzeptionellen Einführung. Das Buch deckt die Funktionalität und die Merkmale zusammen mit der Beschreibung der einzelnen Hierarchien ab. Es ist so aufgebaut, dass es kontinuierlich gelesen werden kann und führt Sie vom Einsteiger bis zum fortgeschrittenen Superalgos-User (Benutzer).",
                 "updated": 1634758568256
+            },
+            {
+                "language": "RU",
+                "text": "Руководство пользователя охватывает Superalgos от А до Я, начиная с всеобъемлющего концептуального введения. В книге описаны функциональные возможности и особенности, а также дано описание каждой иерархии. Он организован для непрерывного чтения и проведет вас от начального уровня до продвинутого пользователя Superalgos.",
+                "updated": 1638271366841
             }
         ]
     },
@@ -102,12 +107,8 @@
         },
         {
             "style": "Chapter",
-            "text": "XVII->Foundations->Topic->Contributing to Foundations->Superalgos is a Community project. Everything you build with Superalgos is susceptible to be contributed to the project. Contributing to the project earns you Superalgos (SA) tokens! This chapter covers how you may contribute some of the intelligence you build for yourself, and also how you may get involved with the project at a deeper level.",
+            "text": "XVII->Foundations->Topic->Contributing to Superalgos->Superalgos is a Community project. Everything you build with Superalgos is susceptible to be contributed to the project. Contributing to the project earns you Superalgos (SA) tokens! This chapter covers how you may contribute some of the intelligence you build for yourself, and also how you may get involved with the project at a deeper level.",
             "updated": 1617708229948
-        },
-        {
-            "style": "Text",
-            "text": ""
         }
     ]
 }

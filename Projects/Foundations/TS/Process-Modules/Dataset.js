@@ -68,7 +68,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (thisObject.node.parentNode.parentNode.parentNode === undefined) {
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine or Trading Mine. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> Bot not attached to a Data Mine, Trading Mine, or Portfolio Mine. Bot = " + JSON.stringify(thisObject.node.parentNode.parentNode));
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return
             }
@@ -188,7 +188,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         The problem that we need to solve here is the following:
 
         A. We are interested in a particular Exchange and Market.
-        B. We have the Network we received from the UI whe the user ran the Task.
+        B. We have the Network we received from the UI where the user ran the Task.
         C. We have the Product Definition that is the parent node of the Data Set represented by this object.
         D. This Product Definition is referenced by one or more Data Products nodes at some branch of the LAN Network Hierarchy.
         E. We need to find the right Data Product node, the one who is itself a descendent of the Market Data Products
@@ -197,7 +197,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         So, the strategy we will implement is the following:
 
         1. We will scan all the branches of the Network received from the UI.
-        2. Once we find a Market Data Products, Market Trading Products o Market Learning Products we will check
+        2. Once we find a Market Data Products, Market Trading Products, Market Portfolio Products or Market Learning Products we will check
         that they are referencing the market and exchange we need, other wise we ignore them and continue
         with the scanning.
         3. Once found, we will go into their own branches and find a path until the Product Definition we need to reach.
@@ -222,7 +222,7 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
 
-            let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
+            let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }
 
             if (startingNode.id === productDefinition.id) {
@@ -244,8 +244,9 @@ exports.newFoundationsProcessModulesDataset = function (processIndex) {
             }
 
             if (
-                startingNode.type === 'Market Data Products' ||
-                startingNode.type === 'Market Trading Products' ||
+                startingNode.type === 'Market Data Products'        ||
+                startingNode.type === 'Market Trading Products'     ||
+                startingNode.type === 'Market Portfolio Products'   ||
                 startingNode.type === 'Market Learning Products'
             ) {
                 /*

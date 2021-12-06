@@ -8,13 +8,25 @@
                 "language": "ES",
                 "text": "Se refiere a un Workspace creado por un usuario y almacenado localmente en la carpeta My-Workspaces.",
                 "updated": 1624493527752
+            },
+            {
+                "language": "RU",
+                "text": "Относится к рабочей области Workspace, созданной пользователем и хранящейся локально в папке My-Workspaces.",
+                "updated": 1638300169287
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638300182641
+                }
+            ]
         }
     ]
 }

@@ -48,7 +48,7 @@ exports.newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions = fun
             node.dataDependency = dataDependenciesModule.curatedDependencyNodeArray[0]
         }
 
-        let outputDatasets = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+        let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
             TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
         )
 

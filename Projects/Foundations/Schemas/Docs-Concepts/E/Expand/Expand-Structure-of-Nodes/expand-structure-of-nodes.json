@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "Wenn Sie auf die Plus-Schaltfläche klicken, wird die Struktur der offspring-nodes (nodes die mit der node referenziert sind) erweitert.",
                 "updated": 1636659245778
+            },
+            {
+                "language": "RU",
+                "text": "Нажатие кнопки «плюс» расширяет структуру дочерних узлов.",
+                "updated": 1638283377334
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1636659327164
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638283388879
                 }
             ]
         }

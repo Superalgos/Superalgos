@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Superalgos presenta cuatro tipos de sesiones de trading: Backtesting Session, Paper Trading Session, Forward Testing Session, y Live Trading Session.",
                 "updated": 1624452309505
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos предлагает четыре типа торговых сессий: Backtesting Session, Paper Trading Session, Forward Testing Session, и Live Trading Session.",
+                "updated": 1638299574296
             }
         ]
     },
@@ -15,7 +20,14 @@
         {
             "style": "Text",
             "text": "When the term is used without specifying the type of session, then it refers to the overall concept by which a trading bot instance—based on datasets exposed as products by other bots—applies the trading logic defined on a trading system in any of the aforementioned modes.",
-            "updated": 1611937772880
+            "updated": 1611937772880,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда термин используется без указания типа сеанса, то он относится к общей концепции, согласно которой экземпляр торгового бота - на основе наборов данных, представленных как продукты другими ботами - применяет торговую логику, определенную в торговой системе в любом из вышеупомянутых режимов.",
+                    "updated": 1638299656007
+                }
+            ]
         }
     ]
 }

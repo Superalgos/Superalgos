@@ -1,0 +1,95 @@
+{
+    "type": "Portfolio Task",
+    "menuItems": [
+        {
+            "action": "Run Task",
+            "label": "Run",
+            "workingLabel": "Stop",
+            "workDoneLabel": "Task Running",
+            "workFailedLabel": "Task Cannot be Run",
+            "secondaryAction": "Stop Task",
+            "secondaryLabel": "Stop",
+            "secondaryWorkingLabel": "Stopping...",
+            "secondaryWorkDoneLabel": "Task Stopped",
+            "secondaryWorkFailedLabel": "Task Cannot be Stopped",
+            "secondaryIcon": "stop",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Debug Task",
+            "label": "Debug",
+            "workingLabel": "Debugging",
+            "workDoneLabel": "Debug Request Sent",
+            "workFailedLabel": "Task Cannot be Debugged",
+            "iconPathOn": "status-dependency",
+            "iconPathOff": "status-dependency",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "bot",
+            "label": "Add Portfolio Bot Instance",
+            "relatedUiObject": "Portfolio Bot Instance",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "keyReference",
+            "label": "Add Key Reference",
+            "relatedUiObject": "Key Reference",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedTasks",
+            "label": "Add Managed Tasks",
+            "relatedUiObject": "Managed Tasks",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Task Manager->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "bot",
+            "type": "node",
+            "childType": "Portfolio Bot Instance"
+        },
+        {
+            "name": "keyReference",
+            "type": "node",
+            "childType": "Key Reference"
+        },
+        {
+          "name": "managedTasks",
+          "type": "node",
+          "childType": "Managed Tasks"
+        }
+    ],
+    "propertyNameAtParent": "portfolioTasks"
+}

@@ -2,12 +2,26 @@
     "type": "Backup Entity",
     "definition": {
         "text": "Downloads a JSON file with the entity, which may be to whole Workspace or a node, including references concerning the particular node and its offspring. Use this feature to save your entire workspace or any particular structure of nodes within your workspace so that you may later restore the information, including all references, should you need to. For your reference, the file downloaded is named Backup followed by the name of the entity you are backing up.",
-        "updated": 1610032969934
+        "updated": 1610032969934,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Загружает файл JSON с объектом, который может относиться ко всей рабочей области или узлу, включая ссылки, касающиеся конкретного узла и его потомков. Используйте эту функцию, чтобы сохранить всю рабочую область или любую конкретную структуру узлов в рабочей области, чтобы впоследствии вы могли восстановить информацию, включая все ссылки, если вам потребуется. \nДля справки: загруженный файл называется Backup, за которым следует имя",
+                "updated": 1638280537614
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638280567062
+                }
+            ]
         }
     ]
 }

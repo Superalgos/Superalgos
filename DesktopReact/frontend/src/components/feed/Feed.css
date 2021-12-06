@@ -1,0 +1,11 @@
+.feed {
+    width: 40rem;
+    height: 95vh;
+    overflow: auto;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar for Firefox */
+}
+
+.feed::-webkit-scrollbar { /* Hide scrollbar for Chrome, Safari and Opera */
+    display: none;
+}

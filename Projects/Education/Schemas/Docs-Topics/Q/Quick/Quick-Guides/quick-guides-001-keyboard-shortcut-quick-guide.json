@@ -119,16 +119,17 @@
         },
         {
             "style": "Subtitle",
-            "text": "Custom Shortcuts"
+            "text": "Custom Shortcuts to Nodes",
+            "updated": 1637691249937
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Keyboard Shortcuts to Nodes->Custom Node Shortcuts",
+            "updated": 1637691223240
         },
         {
             "style": "List",
-            "text": "It is also possible to set a custom shortcut to any node you would like. Simply hover over a node and hit Ctrl + Alt + your preferred key to assign the shortcut.",
-            "updated": 1634909920250
-        },
-        {
-            "style": "Note",
-            "text": "A more detailed walk through can be found here: Keyboard Shortcuts to Nodes"
+            "text": "It is also possible to set a custom shortcut to any node you would like. Simply hover over a node and hit Ctrl + Alt + your preferred key to assign the shortcut."
         },
         {
             "style": "Subtitle",

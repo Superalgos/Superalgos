@@ -2,12 +2,26 @@
     "type": "Action",
     "definition": {
         "text": "An Action is something that users of the system can trigger via the UI, usually by clicking on a Menu Item of a Node. Actions can also be triggered by other actions enabling a reusable set of functionality to be available to users of the Design Space. Once triggered the action executes pre-defined code.",
-        "updated": 1614784762410
+        "updated": 1614784762410,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Action - это то, что пользователи системы могут запускать через пользовательский интерфейс, обычно щелкая элемент меню узла. Действия также могут запускаться другими действиями, позволяющими повторно использовать набор функций, которые будут доступны пользователям Пространства дизайна. После запуска действие выполняет предопределенный код.",
+                "updated": 1638278322545
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638278353123
+                }
+            ]
         }
     ]
 }

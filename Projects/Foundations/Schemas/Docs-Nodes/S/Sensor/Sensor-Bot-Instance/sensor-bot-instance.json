@@ -2,7 +2,14 @@
     "type": "Sensor Bot Instance",
     "definition": {
         "text": "A sensor bot instance is a reference to a Sensor Bot as defined in a data mine. The instance of the bot runs the defined processes and generates the defined data products.",
-        "updated": 1609617856257
+        "updated": 1609617856257,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Sensor Bot Instance - это ссылка на сенсорный бот, как это определено в Data Mine. Экземпляр бота запускает определенные процессы и генерирует определенные продукты данных.",
+                "updated": 1638362886389
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,7 +18,14 @@
         },
         {
             "style": "Text",
-            "text": "The sensor bot instance holds no definitions as to what the bot does. Instead, its process instance references a process definition in the corresponding data mine. That is how the sensor bot instance obtains the information regarding what it needs to do once it is run."
+            "text": "The sensor bot instance holds no definitions as to what the bot does. Instead, its process instance references a process definition in the corresponding data mine. That is how the sensor bot instance obtains the information regarding what it needs to do once it is run.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляр сенсорного бота не содержит определений того, что делает бот. Вместо этого его экземпляр процесса ссылается на определение процесса в соответствующем элементе Data Mine. Таким образом экземпляр сенсорного бота получает информацию о том, что ему нужно делать после запуска.",
+                    "updated": 1638362981003
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,34 +34,83 @@
         {
             "style": "Title",
             "text": "Sensor Bot Instance Configuration",
-            "updated": 1609613944104
+            "updated": 1609613944104,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация экземпляра Sensor Bot",
+                    "updated": 1638363050476
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638363065891
+                }
+            ]
         },
         {
             "style": "List",
             "text": "startDate is the desired starting date of the data product the sensor bot instance builds, in the YYYY-MM-DD format. The sensor bot instance queries its data source for data starting on the configured startDate.",
-            "updated": 1609614002529
+            "updated": 1609614002529,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "startDate - желаемая дата начала информационного продукта, создаваемого экземпляром сенсорного бота, в формате ГГГГ-ММ-ДД. Экземпляр сенсорного бота запрашивает у своего источника данных данные, начиная с настроенного startDate.",
+                    "updated": 1638363105886
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "   The actual date in which the dataset starts depends on external factors: A. The market may start at a later date. B. The exchange may limit how far in the past data may be retrieved. In both cases, the sensor bot automatically discovers the date closest to the desired starting date* that is possible to start with, and proceeds accordingly."
+            "text": "   The actual date in which the dataset starts depends on external factors: A. The market may start at a later date. B. The exchange may limit how far in the past data may be retrieved. In both cases, the sensor bot automatically discovers the date closest to the desired starting date* that is possible to start with, and proceeds accordingly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактическая дата начала набора данных зависит от внешних факторов: A. Рынок может начаться позже. B. Обмен может ограничить, насколько далеко могут быть получены данные в прошлом. В обоих случаях сенсорный бот автоматически определяет дату, наиболее близкую к желаемой дате начала, с которой возможно начать, и действует соответствующим образом.",
+                    "updated": 1638363164773
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In the case the startDate is changed after the sensor bot has started building a data product, either for an earlier or later date, the sensor re-evaluates the feasibility of starting at the new date. The actual date may or may not change; regardless, the sensor bot discards the existing data product and starts over from the newly discovered date. In other words, if the startDate is changed, the sensor bot starts over.",
-            "updated": 1609614011955
+            "updated": 1609614011955,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае изменения startDate после того, как бот-сенсор начал создавать информационный продукт, либо для более ранней, либо для более поздней даты, датчик повторно оценивает возможность запуска в новую дату. Фактическая дата может измениться, а может и не измениться. Тем не менее, бот-сенсор отбрасывает существующие данные и начинает заново с недавно обнаруженной даты. Другими словами, если startDate изменяется, сенсорный бот запускается заново.",
+                    "updated": 1638363265494
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Notice that the above starts a chain reaction among all indicator bots that have a data dependency with the sensor bot's output dataset. Also, if the actual date ends up changing, all indicators that determine the starting date of the market by looking at the date discovered by the sensor bot have to discard their existing data products and start over from the new date.",
-            "updated": 1609614020847
+            "updated": 1609614020847,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что приведенное выше запускает цепную реакцию между всеми индикаторными ботами, которые имеют зависимость данных с выходным набором данных сенсорного бота. Кроме того, если фактическая дата изменится, все индикаторы, которые определяют дату начала рынка, глядя на дату, обнаруженную ботом-сенсором, должны отбросить свои существующие данные и начать заново с новой даты.",
+                    "updated": 1638363316803
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "You do not start or stop a sensor bot instance directly. Instead, you start or stop the corresponding task."
+            "text": "You do not start or stop a sensor bot instance directly. Instead, you start or stop the corresponding task.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не запускаете и не останавливаете экземпляр сенсорного бота напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу Task.",
+                    "updated": 1638363344907
+                }
+            ]
         }
     ]
 }

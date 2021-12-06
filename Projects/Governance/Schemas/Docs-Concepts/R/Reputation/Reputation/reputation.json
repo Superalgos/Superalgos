@@ -2,7 +2,14 @@
     "type": "Reputation",
     "definition": {
         "text": "The tokens you earn when contributing to the project determine your reputation. You may leverage reputation to increase your Voting Power! ",
-        "updated": 1630061607470
+        "updated": 1630061607470,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los tokens que gana contribuyendo con el proyecto determina su reputatción. Puede aprovechar la reputación para incrementar su Voting Power!",
+                "updated": 1637427162178
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Important",
-            "text": "Only the tokens you get for contributing to the project grant you reputation. Reputation is not transferable, so the tokens you acquire by any other means (buying, swapping, borrowing, trading, etc.) do not carry a reputation value."
+            "text": "Only the tokens you get for contributing to the project grant you reputation. Reputation is not transferable, so the tokens you acquire by any other means (buying, swapping, borrowing, trading, etc.) do not carry a reputation value.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Solamente los tokens que obtienes contribuyendo al proyecto le otorga reputación. La  Reputación ino es transferible, entonce los tokens que adquiere por todo concepto (comprar, intercambiar, préstamo, trading, etc.) no acarrean valor de reputación.",
+                    "updated": 1637427404031
+                }
+            ]
         },
         {
             "style": "Title",
@@ -20,15 +34,36 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos SA Tokens in your Governance Address determine the Token Power you may use throughout the Governance System."
+            "text": "Superalgos SA Tokens in your Governance Address determine the Token Power you may use throughout the Governance System.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Superalgos SA Tokens en su  Governance Address determina el Token Power que puede utilizar a través del sistema de gobernanza.",
+                    "updated": 1637427518614
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Your reputation grants you Reputation Power, which is added to the Token Power you direct into the Voting Program. That is, reputation augments your Voting Power."
+            "text": "Your reputation grants you Reputation Power, which is added to the Token Power you direct into the Voting Program. That is, reputation augments your Voting Power.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su reputación le otorga  Reputation Power, el cuál es agregado al Token Power que derija al  Voting Program. Esto es, la reptación aumenta su Voting Power.",
+                    "updated": 1637427631306
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Reputation may only be leveraged within the Voting Program. The rationale behind this is that Superalgos wishes contributors to have a bigger voice in the direction of development, but not an advantage to participate in financial programs or any other program for that matter."
+            "text": "Reputation may only be leveraged within the Voting Program. The rationale behind this is that Superalgos wishes contributors to have a bigger voice in the direction of development, but not an advantage to participate in financial programs or any other program for that matter.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La reputación solo se puede aprovechar dentro del Voting Program. La razón detrás de esto es que Superalgos desea que los contribuyentes tengan una voz más grande en la dirección del desarrollo, pero no una ventaja para participar en programas financieros o cualquier otro programa para el caso.",
+                    "updated": 1637427807218
+                }
+            ]
         },
         {
             "style": "Title",
@@ -36,38 +71,94 @@
         },
         {
             "style": "Text",
-            "text": "The way the system determines the reputation in your User Profile is by checking how many tokens your Governance Address ever got from the Treasury Account."
+            "text": "The way the system determines the reputation in your User Profile is by checking how many tokens your Governance Address ever got from the Treasury Account.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La forma en que el sistema determina la reputación en su User Profile Es comprobando cuántos tokens su Governance Address alguna vez obtuvo de la Treasury Account.",
+                    "updated": 1637427891301
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "A Governance Address holds as much reputation as tokens it may have received from the Treasury Account, or as tokens it may currently have in its balance, whichever is the lesser."
+            "text": "A Governance Address holds as much reputation as tokens it may have received from the Treasury Account, or as tokens it may currently have in its balance, whichever is the lesser.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una Governance Address contiene tanta reputación como cantidad de tokens que pueda haber recibido desde la Treasury Account, o como tokens que pueda tener actualmente en su saldo, el que sea menor.",
+                    "updated": 1637428039457
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let's unpack the above statement with an example.",
-            "updated": 1630089275940
+            "updated": 1630089275940,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Analicemos la declaración anterior con un ejemplo.",
+                    "updated": 1637428075852
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Let's say you contributed fixing a bug and you got 1,000 SA Tokens for your contribution in the latest distribution event. You now have 1,000 SA Tokens in your Governance Address. Because all of the tokens came from the Treasury Account, your reputation is equal to 1,000."
+            "text": "Let's say you contributed fixing a bug and you got 1,000 SA Tokens for your contribution in the latest distribution event. You now have 1,000 SA Tokens in your Governance Address. Because all of the tokens came from the Treasury Account, your reputation is equal to 1,000.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Supongamos que contribuyó a corregir un error y obtuvo 1,000 SA Tokens por su contribución en el último evento de distribución. Ahora tienes 1,000 Tokens SA en su Governance Address. Porque todos los tokens  vinieron de la Treasury Account, su reputación es igual a 1,000.",
+                    "updated": 1637435658659
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Now, let's assume you send 100 SA Tokens to a friend to get him interested in the project and sell another 400 SA Tokens in the market."
+            "text": "Now, let's assume you send 100 SA Tokens to a friend to get him interested in the project and sell another 400 SA Tokens in the market.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Ahora, asumamos que envía 100 SA Tokens a un amigo para qe se interese en el proyecto y vende otros 400 SA Tokens en el mercado.",
+                    "updated": 1637435811525
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Your Governance Address now has 500 SA Tokens in the balance, so your reputation is now 500. Notice that the total number of SA Tokens you ever got from the Treasury Account is still 1,000, but because you decided to part with some of them, your reputation is now indicated by the balance of your Governance Address, which is lesser.",
-            "updated": 1630064707717
+            "updated": 1630064707717,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Su Governance Address ahora tiene  500 SA Tokens en el balance, entonces su reputación es ahora 500. Note  que el número total de SA Tokens alguna vez obtuviste de la Treasury Account es aún 1,000, pero debido a que decidió desprenderse de algunos de ellos, su reputación ahora está indicada por el saldo de su Governance Address, la cuál es menor.",
+                    "updated": 1637436007518
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Imagine your friend comes to Superalgos and uses his existing address with the 100 SA Tokens you sent him to set up his User Profile. Because those 100 Tokens did not come from the Treasury Account, his Governance Address features 0 reputation, despite his balance is 100. In this case, the number of tokens the address got from the Treasury Account is lesser than the number of tokens in the balance."
+            "text": "Imagine your friend comes to Superalgos and uses his existing address with the 100 SA Tokens you sent him to set up his User Profile. Because those 100 Tokens did not come from the Treasury Account, his Governance Address features 0 reputation, despite his balance is 100. In this case, the number of tokens the address got from the Treasury Account is lesser than the number of tokens in the balance.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Imagine  que su amigo viene  a Superalgos y usa su dirección actual con el 100 SA Tokens que e enviaste para configurar su User Profile. Debido a que esos 100 tokens no provienen de la Treasury Account, si Governance Address manifiesta 0 reputación,a pesar de que su saldo es 100. En este caso, el número de tokens que la dirección obtuvo de la Treasury Account es menor que el número de tokens en el saldo.",
+                    "updated": 1637436226782
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Let's close the circle. Let's say you go to the market and buy 1,000 SA Tokens and send them to your Governance Address. The balance is now 1,500 SA Tokens, but because you only ever got 1,000 from the Treasury Account, your reputation is back to 1,000.",
-            "updated": 1630064784130
+            "updated": 1630064784130,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cerremos el círculo. Supongamos que va al mercado y compra 1000 tokens SA y se los envía a su Governance Address. Su balance es ahora 1,500 SA Tokens, pero porque solo obtuviste 1,000 de la Treasury Account, su reputación es nuevamente 1,000.",
+                    "updated": 1637436344447
+                }
+            ]
         },
         {
             "style": "Title",
@@ -75,17 +166,38 @@
         },
         {
             "style": "Text",
-            "text": "Superalgos values contributions above everything else, that is why only contributors acquire reputation."
+            "text": "Superalgos values contributions above everything else, that is why only contributors acquire reputation.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Superalgos valora contribuciones por sobre todas las cosas, es por eso que solo los colaboradores adquieren reputación.",
+                    "updated": 1637436398076
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Once you have contributed to Superalgos, you should always be able to leverage your reputation in Governance. However, if you divest your Superalgos SA Token holdings, that is, if you remove some skin from the game, then your reputation will go down too. That said, you can always get your reputation back by putting skin back in the game.",
-            "updated": 1630089391699
+            "updated": 1630089391699,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que haya contribuido a Superalgos, siempre podrá aprovechar su reputación en la gobernanza. Sin embargo, si se deshace de su tenencia de Superalgos SA Token, esto es, si quitas algo de piel del juego, tu reputación también se reducirá. Dicho esto, siempre puedes recuperar tu reputación volviendo a poner piel en el juego.",
+                    "updated": 1637436496946
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That is the game theory behind the reputation system.",
-            "updated": 1630064881383
+            "updated": 1630064881383,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esa es la teoría del juego detrás del sistema de reputación..",
+                    "updated": 1637436517733
+                }
+            ]
         }
     ]
 }

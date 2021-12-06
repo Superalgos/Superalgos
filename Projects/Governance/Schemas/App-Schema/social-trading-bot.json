@@ -1,0 +1,74 @@
+{
+    "type": "Social Trading Bot",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "socialTradingBotsFollowing",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Social Trading Bots Following",
+            "relatedUiObject": "Social Trading Bots Following",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Available Signals",
+            "relatedUiObject": "Available Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },        
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Social Trading Bots->"
+    },
+    "propertyNameAtParent": "socialTradingBots",
+    "childrenNodesProperties": [
+        {
+            "name": "socialTradingBotsFollowing",
+            "type": "node",
+            "childType": "Social Trading Bots Following",
+            "autoAdd": false
+        },
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        },
+        {
+            "name": "availableSignals",
+            "type": "node",
+            "childType": "Available Signals",
+            "autoAdd": false
+        }
+    ]
+}

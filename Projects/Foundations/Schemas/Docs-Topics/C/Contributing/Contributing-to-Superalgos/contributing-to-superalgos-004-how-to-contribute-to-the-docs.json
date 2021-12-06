@@ -4,18 +4,39 @@
     "type": "How to Contribute to the Docs",
     "definition": {
         "text": "Helping with keeping the Docs up to date, improving the delivery of the information, expanding on explanations, or simply fixing typos and grammar mistakes makes for a better user experience and lowers entry barriers for new users.",
-        "updated": 1613810324131
+        "updated": 1613810324131,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Помогая поддерживать документацию в актуальном состоянии, улучшая доступность информации, добавляя пояснения или просто исправляя опечатки и грамматические ошибки, улучшается взаимодействие с пользователем и снижается входной барьер для новых пользователей.",
+                "updated": 1637942357657
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Coordination",
-            "updated": 1613819062207
+            "updated": 1613819062207,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласование",
+                    "updated": 1637942404826
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Join the Docs Group to coordinate efforts with other contributors:",
-            "updated": 1613819084738
+            "updated": 1613819084738,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Присоединяйтесь к группе Docs Group, чтобы координировать усилия с другими участниками:",
+                    "updated": 1637942446024
+                }
+            ]
         },
         {
             "style": "Link",
@@ -25,7 +46,14 @@
         {
             "style": "Text",
             "text": "Please, introduce yourself and get up to speed with the group currently doing the work. The main coordination efforts involve planning the documentation of new functionality or discussing which sections of the Docs need a revision.",
-            "updated": 1613819203043
+            "updated": 1613819203043,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, представьтесь и познакомьтесь с группой, которая в настоящее время выполняет работу. Основные усилия по координации включают планирование документации по новой функциональности или обсуждение того, какие разделы нуждаются в доработке.",
+                    "updated": 1637942497193
+                }
+            ]
         },
         {
             "style": "Include",
@@ -34,57 +62,134 @@
         {
             "style": "Title",
             "text": "Learn How the Docs Work",
-            "updated": 1613811876102
+            "updated": 1613811876102,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте, как работают Документы",
+                    "updated": 1637942671745
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!",
-            "updated": 1613827243519
+            "updated": 1613827243519,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы, вероятно, имеете представление о том, как работать с документацией, после использования приложения и выполнения первых нескольких руководств. Если вы намерены вносить случайные мелкие исправления на существующие страницы, вы знаете достаточно, чтобы начать вносить свой вклад!",
+                    "updated": 1637942790124
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should read The Docs Explained book.",
-            "updated": 1613819297682
+            "updated": 1613819297682,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако, если вы хотите заняться документированием новых функций, реорганизацией тем, систематизацией книг и т. д., вам следует прочитать книгу The Docs Explained.",
+                    "updated": 1637942922140
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Logistics and Best Practice",
-            "updated": 1613817330818
+            "updated": 1613817330818,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Логистика и лучшие практики",
+                    "updated": 1637942944760
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There may be several people contributing to the Docs at any point in time. To minimize the occurrence of conflicts at the time of merging your contributions into the Superalgos repository, the following practices are highly recommended.",
-            "updated": 1613819314231
+            "updated": 1613819314231,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В любой момент времени над документами могут работать несколько человек. Чтобы свести к минимуму возникновение конфликтов во время слияния ваших вкладов в репозиторий Superalgos, настоятельно рекомендуются следующие методы.",
+                    "updated": 1637942969293
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Update your app frequently so that you incorporate recent changes other users may have submitted.",
-            "updated": 1613817514502
+            "updated": 1613817514502,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Регулярно обновляйте свое приложение, чтобы включать недавние изменения, которые могли быть отправлены другими пользователями.",
+                    "updated": 1637943003592
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Do not keep changes locally for too long. Split your work and submit your contributions every day.",
-            "updated": 1613817561886
+            "updated": 1613817561886,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не храните изменения локально слишком долго. Разделите свою работу и отправляйте свои вклады каждый день.",
+                    "updated": 1637943048901
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When you run the App Contribute Command, a Pull Request is created at your fork. The Superalgos repo maintainers will look into your submission and determine if it may be merged as is, or if the work requires any adjustments.",
-            "updated": 1613818674004
+            "updated": 1613818674004,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда вы запускаете команду App Contribute Command, на вашей вилке создается запрос на извлечение. Сопровождающие репозитория Superalgos изучат вашу заявку и определят, можно ли ее объединить как есть, или требует ли работа каких-либо корректировок.",
+                    "updated": 1637943204172
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Keep track of your contributions until they are merged.",
-            "updated": 1613818739120
+            "updated": 1613818739120,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следите за своими вкладами, пока они не будут объединены.",
+                    "updated": 1637943225091
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Stay responsive if there is any feedback or requests from maintainers.",
-            "updated": 1613818758881
+            "updated": 1613818758881,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Оставайтесь отзывчивыми, если есть какие-либо отзывы или запросы от сопровождающих.",
+                    "updated": 1637943250510
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Be attentive to emails you may get from GitHub.com",
-            "updated": 1613819348463
+            "updated": 1613819348463,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Будьте внимательны к электронным письмам, которые вы можете получать от GitHub.com",
+                    "updated": 1637943273499
+                }
+            ]
         },
         {
             "style": "Text",

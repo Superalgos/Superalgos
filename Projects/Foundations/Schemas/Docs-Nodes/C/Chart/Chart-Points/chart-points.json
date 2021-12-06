@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un chart points agrupa definiciones de puntos de coordenadas que se utilizan para definir polígonos.",
                 "updated": 1628036795702
+            },
+            {
+                "language": "RU",
+                "text": "Точки диаграммы группируют определения координатных точек, используемых для определения многоугольников.",
+                "updated": 1638275366827
             }
         ]
     },

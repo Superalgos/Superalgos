@@ -1,0 +1,55 @@
+{
+    "type": "Portfolio Last",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Engine->"
+    },
+    "propertyNameAtParent": "portfolioLast",
+    "childrenNodesProperties": [
+        {
+            "name": "position",
+            "type": "node",
+            "childType": "Position",
+            "autoAdd": true
+        },
+        {
+            "name": "strategy",
+            "type": "node",
+            "childType": "Strategy",
+            "autoAdd": true
+        },
+        {
+            "name": "limitOrders",
+            "type": "node",
+            "childType": "Limit Order",
+            "autoAdd": true
+        },
+        {
+            "name": "marketOrders",
+            "type": "node",
+            "childType": "Market Order",
+            "autoAdd": true
+        }
+    ]
+}

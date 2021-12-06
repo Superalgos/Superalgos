@@ -2,7 +2,14 @@
     "type": "Distribution Event",
     "definition": {
         "text": "The Superalgos Project distributes its native Superalgos SA Tokens after each release to reward contributions and incentivize desirable behaviors. The Distribution Event represents the moment in time and the act of running the process that distributes tokens from the Treasury Account to the Governance Address associated with each User Profile that participates in governance.",
-        "updated": 1630570602251
+        "updated": 1630570602251,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "El Superalgos Project distribuye sus tokens nativos de Superalgos SA después de cada lanzamiento para recompensar las contribuciones e incentivar los comportamientos deseables. El evento de distribución representa el momento en el tiempo y el acto de ejecutar el proceso que distribuye los tokens fdesde la Treasury Account ( Cuenta del tesoro) a la Governance Address asociada con cada User Profile  que participa en la gobernanza.",
+                "updated": 1637851695478
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,15 +20,36 @@
         {
             "style": "Text",
             "text": "The Superalgos Project announces each release through all official channels, including the Telegram Announcements channel and the Superalgos Medium Blog.",
-            "updated": 1630235099973
+            "updated": 1630235099973,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Superalgos Project anuncia cada lanzamiento a través de todos los canales oficiales, incluido el canal de Anuncios de Telegram y el Blog de Superalgos Medium.",
+                    "updated": 1637851873356
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "At the moment of the announcement, a time window opens for the Community to participate in governance. At this point, the window is of an indeterminate span. Users may set up their User Profiles until the window closes. "
+            "text": "At the moment of the announcement, a time window opens for the Community to participate in governance. At this point, the window is of an indeterminate span. Users may set up their User Profiles until the window closes. ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "En el momento del anuncio, se abre una ventana de tiempo para que la Community participe en la gobernanza.. En este punto, la ventana tiene un tramo indeterminado. Los usuarios pueden configurar sus perfiles de usuario hasta que se cierre la ventana.",
+                    "updated": 1637851833645
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the window closes, no further modifications are accepted on governance hierarchies until the Distribution Event takes place."
+            "text": "Once the window closes, no further modifications are accepted on governance hierarchies until the Distribution Event takes place.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que se cierra la ventana, no se aceptan más modificaciones en las jerarquías de gobierno hasta que tenga lugar el Evento de distribución.",
+                    "updated": 1637851866405
+                }
+            ]
         }
     ]
 }

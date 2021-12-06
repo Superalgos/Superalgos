@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "El primer nodo del que aprenderemos hoy es el Dashboard. Un Dashboard nos ayuda a mantenernos organizados.",
                 "updated": 1628641836641
+            },
+            {
+                "language": "DE",
+                "text": "Die erste node, welche wir heute kennenlernen werden, ist das Dashboard. Ein Dashboard hilft uns, organisiert zu bleiben.",
+                "updated": 1637616416519
+            },
+            {
+                "language": "RU",
+                "text": "Первый узел, о котором мы сегодня узнаем, - это Dashboard. Dashboard - Приборная панель помогает нам оставаться организованными.",
+                "updated": 1637920880908
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Para empezar, quiero que se sienta un poco más cómodo con la forma en que Charting Space está arreglado.",
                     "updated": 1628641961306
+                },
+                {
+                    "language": "DE",
+                    "text": "Für den Anfang möchte ich, dass Sie sich ein wenig mit dem Aufbau des Charting Space vertraut machen.",
+                    "updated": 1637616455845
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы начать, я хочу, чтобы вы немного освоились с тем, как настроено пространство графиков (Charting Space).",
+                    "updated": 1637920928928
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Tómate unos minutos y observa esta jerarquía. ¿Que notaste?",
                     "updated": 1628641984247
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit und sehen Sie sich in dieser Hierarchie um. Was fällt Ihnen auf?",
+                    "updated": 1637616473699
+                },
+                {
+                    "language": "RU",
+                    "text": "Уделите несколько минут и оглянитесь вокруг этой иерархии. Что вы заметили?",
+                    "updated": 1637920975675
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "¡Así es! Hay un Dashboard configurado para Backtesting,uno para Live Trading, Y un tercero para Learning Tasks. Dashboards son una forma conveniente de agrupar gráficos según el tipo o cualquier otro criterio, para el caso.",
                     "updated": 1628642097225
+                },
+                {
+                    "language": "DE",
+                    "text": "Das ist richtig! Es gibt ein Dashboard für das Backtesting, eines für das Live Trading und ein drittes für Learning Tasks. Dashboards sind eine bequeme Möglichkeit, Charts nach ihrem Typ oder nach anderen Kriterien zu gruppieren.",
+                    "updated": 1637616563270
+                },
+                {
+                    "language": "RU",
+                    "text": "Правильно! Одна приборная панель (Dashboard) настроена для бэктестинга, другая - для реальной торговли Live (Trading), а третья - для учебных задач (Learning Tasks). Приборные панели - это удобный способ группировки графиков по типу или любым другим критериям, если на то пошло.",
+                    "updated": 1637921124261
                 }
             ]
         },

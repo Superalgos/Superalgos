@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Este tutorial te ayudará a configurar tu primer gráfico personalizado. Los conceptos fundamentales que aprenda aquí lo ayudarán a aprovechar al máximo la Charting Space.",
                 "updated": 1628641477952
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Tutorial hilft Ihnen, Ihre erste benutzerdefinierte chart zu erstellen. Die grundlegenden Konzepte, die Sie hier lernen, werden Ihnen helfen, das Beste aus dem Charting Space herauszuholen.",
+                "updated": 1637615937010
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник поможет вам настроить свою первую пользовательскую диаграмму. Основополагающие концепции, которые вы здесь изучите, помогут вам максимально использовать возможности Charting Space.",
+                "updated": 1637918595225
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "En particular, vamos a conectar un Time Machine a los indicadores de la Candles Data Mine. Estos indicadores serán los datos básicos que trazamos en nuestro gráfico.",
                     "updated": 1628641565219
+                },
+                {
+                    "language": "DE",
+                    "text": "Insbesondere werden wir eine Time Machine mit den Indikatoren der Candles Data Mine verbinden. Diese Indikatoren werden die Kerndaten sein, die wir in unserer chart plotten (darstellen).",
+                    "updated": 1637616024944
+                },
+                {
+                    "language": "RU",
+                    "text": "В частности, мы собираемся подключить машину времени (Time Machine) к индикаторам шахты Candles Data Mine. Эти индикаторы будут основными данными, которые мы наносим на наш график.",
+                    "updated": 1637918725340
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Por ejemplo velas, bandas de bollinger, soportes, etc.",
                     "updated": 1628641605085
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel candles, bollinger bands, supports, etc.",
+                    "updated": 1637616191419
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, свечи, полосы Боллинджера, поддержки и т.д.",
+                    "updated": 1637918742832
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "También adjuntaremos el Backtesting Session para el Lighting Strike Trading System. Esto nos permitirá ver la salida del trading system en nuestro gráfico también.",
                     "updated": 1628641719712
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden auch die Backtesting Session mit dem Lighting Strike Trading System verbinden. So können wir den Output des trading systems auch in unserem Chart sehen!",
+                    "updated": 1637616271842
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы также приложим сессию бэктестинга (Backtesting Session) для торговой системы (Trading System) Lighting Strike. Это позволит нам увидеть вывод торговой системы на нашем графике!",
+                    "updated": 1637918901245
                 }
             ]
         }

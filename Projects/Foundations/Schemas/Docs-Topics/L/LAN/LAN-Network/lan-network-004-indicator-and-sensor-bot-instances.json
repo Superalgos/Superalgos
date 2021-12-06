@@ -1,0 +1,113 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "4",
+    "type": "Indicator and Sensor Bot Instances",
+    "definition": {
+        "text": "Data tasks may run instances of Indicator Bots or Sensor Bots, and some exchange may require an API key for downloading certain kinds or amounts of data. We will look into each of these cases.",
+        "updated": 1610103659306,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Задачи данных могут запускать экземпляры ботов-индикаторов или ботов-датчиков, а для некоторых обменов может потребоваться ключ API для загрузки определенных видов или объемов данных. Мы рассмотрим каждый из этих случаев.",
+                "updated": 1638362296692
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Indicator Bot Instance"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Indicator Bot Instance->Definition",
+            "updated": 1610052992001
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Indicator Bot Instance->Content",
+            "updated": 1610053001117
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Indicator Bot Instance->5",
+            "updated": 1610103706186
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Process Instance"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Indicator Process Instance->Definition",
+            "updated": 1610053043468
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Indicator Process Instance->Content",
+            "updated": 1610053048925
+        },
+        {
+            "style": "Title",
+            "text": "Time Frames Filter",
+            "updated": 1610053086734
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Time Frames Filter->Definition",
+            "updated": 1610053096751
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Time Frames Filter->Content->",
+            "updated": 1610053112916
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Bot Instance"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Sensor Bot Instance->Definition",
+            "updated": 1610053220123
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Sensor Bot Instance->Content",
+            "updated": 1610053224701
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Sensor Bot Instance->2",
+            "updated": 1610103781696
+        },
+        {
+            "style": "Title",
+            "text": "Sensor Process Instance"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Sensor Process Instance->Definition",
+            "updated": 1610053248186
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Sensor Process Instance->Content",
+            "updated": 1610053252094
+        },
+        {
+            "style": "Title",
+            "text": "Key Reference",
+            "updated": 1610103821335
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Key Reference->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Key Reference->Content",
+            "updated": 1610053479747
+        }
+    ]
+}

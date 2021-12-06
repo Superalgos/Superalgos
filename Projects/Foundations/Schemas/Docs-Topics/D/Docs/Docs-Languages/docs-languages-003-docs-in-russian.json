@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben.",
                 "updated": 1636750003639
+            },
+            {
+                "language": "RU",
+                "text": "Страницы документации Superalgos и других интегрированных проектов изначально написаны на английском языке. Система позволяет пользователям искать и просматривать страницы на других языках, если пользователи ранее предоставили соответствующие переводы.",
+                "updated": 1637924042557
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
                     "updated": 1636750015798
+                },
+                {
+                    "language": "RU",
+                    "text": "Английский считается языком по умолчанию. Когда вы переключаетесь на другой язык, система пытается показать контент на новом языке. Однако, если перевод еще не доступен, вместо него отображается английская версия.",
+                    "updated": 1637924170953
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
                     "updated": 1636750023487
+                },
+                {
+                    "language": "RU",
+                    "text": "Типы узлов Node, имена переменных, заголовки страниц документации и ​​некоторые другие элементы Superalgos не могут быть переведены, поскольку они являются уникальными идентификаторами указанных элементов. Вы всегда получите их на английском языке.",
+                    "updated": 1637924315355
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
                     "updated": 1636750035891
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите внести свой вклад в переводы, прочтите страницу How to Contribute Translations.",
+                    "updated": 1638276910095
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "DE",
                     "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
                     "updated": 1636750056716
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользователи могут переключаться между языками, используя ссылки / флаги в нижнем колонтитуле каждой страницы документации.",
+                    "updated": 1637924677679
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Sie können nur Seiten zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten. ",
                     "updated": 1636750092775
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете добавлять или удалять страницы в документации, только если установлен английский язык. Для перевода вам необходимо выбрать язык, на который вы хотите перевести. (В данном случае русский)",
+                    "updated": 1637924687646
                 }
             ]
         }

@@ -2,7 +2,14 @@
     "type": "Core Team",
     "definition": {
         "text": "The Core Team is the group of people tasked with bootstrapping the Superalgos Project. Their mission is do what it takes for the project to succeed.",
-        "updated": 1630928152385
+        "updated": 1630928152385,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Core Team - это группа людей, которым поручено запустить проект Superalgos. Их миссия - делать все, что нужно для успеха проекта.",
+                "updated": 1638281221178
+            }
+        ]
     },
     "paragraphs": [
         {

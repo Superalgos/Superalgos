@@ -29,13 +29,13 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
     async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode) {
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
-        thisObject.p2pNetworkClientCodeName = JSON.parse(thisObject.p2pNetworkClientIdentity.node.config).codeName
+        thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
 
         web3 = new SA.nodeModules.web3()
 
-        thisObject.host = JSON.parse(thisObject.p2pNetworkNode.node.config).host
-        thisObject.port = JSON.parse(thisObject.p2pNetworkNode.node.config).webPort
+        thisObject.host = thisObject.p2pNetworkNode.node.config.host
+        thisObject.port = thisObject.p2pNetworkNode.node.config.webPort
     }
 
     async function sendMessage(message) {

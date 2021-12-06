@@ -251,32 +251,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         }
                     }
                     /*
-                    The caller needs to provide it's Node.
-                    */
-                    if (messageHeader.callerNode === undefined) {
-                        let response = {
-                            result: 'Error',
-                            message: 'node Not Provided.'
-                        }
-                        caller.socket.send(JSON.stringify(response))
-                        caller.socket.close()
-                        return
-                    }
-                    /*
-                    The caller's Node needs to be parseable.
-                    */
-                    try {
-                        caller.node = JSON.parse(messageHeader.callerNode)
-                    } catch (err) {
-                        let response = {
-                            result: 'Error',
-                            message: 'node Not Coorrect JSON Format.'
-                        }
-                        caller.socket.send(JSON.stringify(response))
-                        caller.socket.close()
-                        return
-                    }
-                    /*
                     The caller needs to provide it's User Profile Handle.
                     */
                     if (messageHeader.callerProfileHandle === undefined) {

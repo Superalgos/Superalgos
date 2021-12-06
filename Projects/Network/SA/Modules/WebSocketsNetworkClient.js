@@ -43,7 +43,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
-        thisObject.p2pNetworkClientCodeName = JSON.parse(thisObject.p2pNetworkClientIdentity.node.config).codeName
+        thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
         thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
@@ -51,8 +51,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
         thisObject.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
 
-        thisObject.host = JSON.parse(thisObject.p2pNetworkNode.node.config).host
-        thisObject.port = JSON.parse(thisObject.p2pNetworkNode.node.config).webSocketsPort
+        thisObject.host = thisObject.p2pNetworkNode.node.config.host
+        thisObject.port = thisObject.p2pNetworkNode.node.config.webSocketsPort
 
         thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebSocketClient()
@@ -104,7 +104,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                                 callerRole: thisObject.callerRole,
                                 callerProfileHandle: SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
-                                callerNode: JSON.stringify(thisObject.p2pNetworkClientIdentity.node),
                                 step: 'One'
                             }
                             thisObject.socket.send(JSON.stringify(message))

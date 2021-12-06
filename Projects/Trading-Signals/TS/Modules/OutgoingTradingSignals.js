@@ -37,7 +37,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             let userApp = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
             if (userApp === undefined) { return }
             if (userApp.node.config === undefined) { return }
-            let userAppCodeName = JSON.parse(userApp.node.config).codeName 
+            let userAppCodeName = userApp.node.config.codeName 
             if (userAppCodeName === undefined) { return }
             let userAppCategory = userApp.node.parentNode
             if (userAppCategory === undefined) { return }

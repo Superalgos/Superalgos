@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Exchange ID es un identificador único que el exchange asigna al pedido, de modo que pueda identificarse de manera inequívoca.",
                 "updated": 1637231542788
+            },
+            {
+                "language": "RU",
+                "text": "Exchange ID - это уникальный идентификатор, который биржа присваивает ордеру, чтобы его можно было однозначно идентифицировать.",
+                "updated": 1638784205775
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "Por defecto, es la tasa al cierre de la última vela en el momento en que se realiza la orden. Todas las órdenes de mercado tienen el valor de la tasa predeterminada.",
                     "updated": 1637231569099
+                },
+                {
+                    "language": "RU",
+                    "text": "По умолчанию это курс на момент закрытия последней свечи в момент размещения ордера. Все рыночные ордера имеют значение по умолчанию.",
+                    "updated": 1638784469891
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "En el caso de las órdenes limitadas, es la tarifa especificada por la fórmula en el nodo de tarifa de la orden. Si no existe tal definición, las órdenes limitadas también utilizan el valor predeterminado.",
                     "updated": 1637231597892
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае лимитных ордеров это курс, указанный формулой в узле Order Rate. Если такого определения не существует, то лимитные ордера также используют значение по умолчанию.",
+                    "updated": 1638784574425
                 }
             ]
         },

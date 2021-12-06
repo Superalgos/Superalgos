@@ -1,7 +1,14 @@
 {
     "type": "Entry Target Rate",
     "definition": {
-        "text": "Entry target rate is the target rate set on the initial targets definition, in the open stage of the strategy."
+        "text": "Entry target rate is the target rate set on the initial targets definition, in the open stage of the strategy.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Entry Target Rate - это целевая ставка, установленная при определении начальных целей на открытой стадии стратегии.",
+                "updated": 1638773334431
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Refresh this concepts by reading about the initial target definitions at the trading system."
+            "text": "Refresh this concepts by reading about the initial target definitions at the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обновите эти концепции, прочитав о начальных определениях целей в торговой системе.",
+                    "updated": 1638773386524
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Entry Target Rate Configuration",
-            "updated": 1609926431796
+            "updated": 1609926431796,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Entry Target Rate",
+                    "updated": 1638773419157
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638773426918
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638773435582
+                }
+            ]
         }
     ]
 }

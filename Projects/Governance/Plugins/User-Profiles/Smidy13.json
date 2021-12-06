@@ -4633,7 +4633,7 @@
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -4704,131 +4704,20 @@
                 "positionClaimsFolders": [
                     {
                         "type": "Position Claims Folder",
-                        "name": "Teams @ Nov 2021 Position Class",
+                        "name": "Smidy’s Team Report Claim",
                         "config": "{}",
                         "project": "Governance",
-                        "positionClaimsFolders": [
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
                             {
-                                "type": "Position Claims Folder",
-                                "name": "Teams With PoW Reports Position Class",
+                                "type": "Position Contribution Claim",
+                                "name": "Smidy’s Team Token Pool Smidy’s Team PoW Report",
                                 "config": "{}",
                                 "project": "Governance",
-                                "positionClaimsFolders": [
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Smidy’s Team PoW Report Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [],
-                                        "positionContributionClaims": [
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "Smidy’s Team Token Pool Smidy’s Team PoW Report",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "a843e80e-9f29-45f5-a15c-c0e50492e6d8",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 26647.738655618086,
-                                                        "y": 33350
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 26197.738655618086,
-                                                        "y": 33350
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Smidy’s Team Token Pool",
-                                                        "id": "6e27ccd8-f4a9-4d72-a21e-deb58f2ca66c"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ Nov 2021",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Teams With PoW Reports",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Smidy’s Team PoW Report",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Smidy’s Team Token Pool",
-                                                            "Position"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "id": "ae1e4761-fa9a-41b8-b8ed-e6d8f829d3a9",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 26197.738655618086,
-                                                "y": 33350
-                                            },
-                                            "targetPosition": {
-                                                "x": 25747.738655618086,
-                                                "y": 33350
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Smidy’s Team PoW Report",
-                                                "id": "7bdf079a-7ede-476e-b402-0461c2c312ee"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ Nov 2021",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Teams With PoW Reports",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Smidy’s Team PoW Report",
-                                                    "Position Class"
-                                                ]
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "positionContributionClaims": [],
-                                "id": "f288edf2-a91a-4e44-bd8d-f3bee83cbb7b",
+                                "id": "a843e80e-9f29-45f5-a15c-c0e50492e6d8",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25747.738655618086,
+                                        "x": 25597.738655618086,
                                         "y": 33350
                                     },
                                     "targetPosition": {
@@ -4840,16 +4729,16 @@
                                         "isFrozen": false,
                                         "isCollapsed": false,
                                         "angleToParent": 2,
-                                        "distanceToParent": 4,
+                                        "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
                                     "uiObject": {
                                         "isRunning": false
                                     },
                                     "referenceParent": {
-                                        "type": "Position Class",
-                                        "name": "Teams With PoW Reports",
-                                        "id": "90e3eeda-0a84-4338-ae03-c1b0199660ad"
+                                        "type": "Position",
+                                        "name": "Smidy’s Team Token Pool",
+                                        "id": "6e27ccd8-f4a9-4d72-a21e-deb58f2ca66c"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -4863,13 +4752,20 @@
                                         [
                                             "Teams With PoW Reports",
                                             "Position Class"
+                                        ],
+                                        [
+                                            "Smidy’s Team PoW Report",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Smidy’s Team Token Pool",
+                                            "Position"
                                         ]
                                     ]
                                 }
                             }
                         ],
-                        "positionContributionClaims": [],
-                        "id": "3d379616-7d9f-4d6a-97b3-46624627b7fa",
+                        "id": "ae1e4761-fa9a-41b8-b8ed-e6d8f829d3a9",
                         "savedPayload": {
                             "position": {
                                 "x": 25297.738655618086,
@@ -4892,8 +4788,8 @@
                             },
                             "referenceParent": {
                                 "type": "Position Class",
-                                "name": "Teams @ Nov 2021",
-                                "id": "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
+                                "name": "Smidy’s Team PoW Report",
+                                "id": "7bdf079a-7ede-476e-b402-0461c2c312ee"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
@@ -4902,6 +4798,14 @@
                                 ],
                                 [
                                     "Teams @ Nov 2021",
+                                    "Position Class"
+                                ],
+                                [
+                                    "Teams With PoW Reports",
+                                    "Position Class"
+                                ],
+                                [
+                                    "Smidy’s Team PoW Report",
                                     "Position Class"
                                 ]
                             ]
@@ -4971,7 +4875,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0

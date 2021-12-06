@@ -9,113 +9,91 @@
         "config": "{}",
         "project": "Governance",
         "tokenPowerSwitch": [],
-        "financialPrograms": {
-            "type": "Financial Programs",
-            "name": "New Financial Programs",
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
             "config": "{}",
             "project": "Governance",
-            "stakingProgram": {
-                "type": "Staking Program",
-                "name": "New Staking Program",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
                 "config": "{}",
                 "project": "Governance",
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "72272ba4-1d32-4336-97a2-024d69675091",
-                    "savedPayload": {
-                        "position": {
-                            "x": 14690.000000000002,
-                            "y": 5947.05830753354
-                        },
-                        "targetPosition": {
-                            "x": 14624.000000000002,
-                            "y": 5990.05830753354
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "64e8c27c-87ff-4ffb-bc7f-8ec519c18446",
-                "savedPayload": {
-                    "position": {
-                        "x": 14624.000000000002,
-                        "y": 5990.05830753354
-                    },
-                    "targetPosition": {
-                        "x": 14636.000000000002,
-                        "y": 5972.05830753354
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 2,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "id": "2f0cfede-d811-452c-938f-bbbf11142f8e",
-            "savedPayload": {
-                "position": {
-                    "x": 14636.000000000002,
-                    "y": 5972.05830753354
-                },
-                "targetPosition": {
-                    "x": 14559.000000000002,
-                    "y": 6072.05830753354
-                },
-                "floatingObject": {
-                    "isPinned": false,
-                    "isFrozen": false,
-                    "isCollapsed": false,
-                    "angleToParent": 2,
-                    "distanceToParent": 3,
-                    "arrangementStyle": 0
-                },
-                "uiObject": {
-                    "isRunning": false
-                }
-            }
-        },
-        "liquidityPrograms": {
-            "type": "Liquidity Programs",
-            "name": "New Liquidity Programs",
-            "config": "{}",
-            "project": "Governance",
-            "liquidityProgram": [
-                {
-                    "type": "Liquidity Program",
-                    "name": "New Liquidity Program",
-                    "config": "{\n\"asset\": \"BTCB\"\n}",
-                    "project": "Governance",
-                    "tokensAwarded": {
-                        "type": "Tokens Awarded",
-                        "name": "New Tokens Awarded",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{}",
                         "project": "Governance",
-                        "id": "46b73f8a-b71a-4e4d-96de-937084227338",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Public Relations Team Token Pool Marketing Teams PoW Report",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "69a7ff1c-f3eb-45f5-88b6-1336d15b280c",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 49980.90690893734,
+                                        "y": 13302.863636363636
+                                    },
+                                    "targetPosition": {
+                                        "x": 49721.099287802004,
+                                        "y": 13452.863636363636
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Public Relations Team Token Pool",
+                                        "id": "62b14d55-4a13-4f97-b0ec-efff71cd9231"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ Nov 2021",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Marketing Teams PoW Report",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Public Relations Team Token Pool",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "dd9d75cc-3c6e-45d0-8d68-51a8c41cf2e3",
                         "savedPayload": {
                             "position": {
-                                "x": 14631.000000000002,
-                                "y": 6120.05830753354
+                                "x": 49721.099287802004,
+                                "y": 13452.863636363636
                             },
                             "targetPosition": {
-                                "x": 14631.000000000002,
-                                "y": 6141.05830753354
+                                "x": 49461.29166666667,
+                                "y": 13602.863636363636
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -129,16 +107,21 @@
                                 "isRunning": false
                             }
                         }
-                    },
-                    "id": "9c3d3419-fa40-4243-9adb-a0204ee89508",
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "90c2b0b2-ced7-4e95-abc5-442c66978e9b",
                     "savedPayload": {
                         "position": {
-                            "x": 14631.000000000002,
-                            "y": 6141.05830753354
+                            "x": 49721.099287802004,
+                            "y": 13752.863636363636
                         },
                         "targetPosition": {
-                            "x": 14617.000000000002,
-                            "y": 6158.05830753354
+                            "x": 49461.29166666667,
+                            "y": 13602.863636363636
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -152,23 +135,45 @@
                             "isRunning": false
                         }
                     }
+                },
+                "id": "d7d7e1d3-8ea1-4d43-abb5-cfa7af826f81",
+                "savedPayload": {
+                    "position": {
+                        "x": 49461.29166666667,
+                        "y": 13602.863636363636
+                    },
+                    "targetPosition": {
+                        "x": 49161.29166666667,
+                        "y": 13602.863636363636
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
                 }
-            ],
-            "id": "22c4036b-c9da-441f-ac4d-a47ad1708562",
+            },
+            "id": "b19e4b17-b8c7-45d4-99ee-eb6acbf49d6b",
             "savedPayload": {
                 "position": {
-                    "x": 14617.000000000002,
-                    "y": 6158.05830753354
+                    "x": 49161.29166666667,
+                    "y": 13602.863636363636
                 },
                 "targetPosition": {
-                    "x": 14559.000000000002,
-                    "y": 6072.05830753354
+                    "x": 48861.29166666667,
+                    "y": 13602.863636363636
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
                     "isCollapsed": false,
-                    "angleToParent": 2,
+                    "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
                 },
@@ -180,12 +185,12 @@
         "id": "efc09aaa-8435-4efe-bb60-3f8928acfeb9",
         "savedPayload": {
             "position": {
-                "x": 14559.000000000002,
-                "y": 6072.05830753354
+                "x": 48861.29166666667,
+                "y": 13602.863636363636
             },
             "targetPosition": {
-                "x": 14465.000000000002,
-                "y": 6000.05830753354
+                "x": 48561.29166666667,
+                "y": 13602.863636363636
             },
             "floatingObject": {
                 "isPinned": false,
@@ -207,12 +212,12 @@
         "id": "a4de9f3b-1917-4a32-9e17-86f3e921d56c",
         "savedPayload": {
             "position": {
-                "x": 14560.000000000002,
-                "y": 6057.05830753354
+                "x": 48261.29166666667,
+                "y": 13602.863636363636
             },
             "targetPosition": {
-                "x": 14465.000000000002,
-                "y": 6000.05830753354
+                "x": 48561.29166666667,
+                "y": 13602.863636363636
             },
             "floatingObject": {
                 "isPinned": false,
@@ -230,17 +235,17 @@
     "id": "63be3e46-aafe-4218-8bd1-59bc23ee18e4",
     "savedPayload": {
         "position": {
-            "x": 14465.000000000002,
-            "y": 6000.05830753354
+            "x": 48561.29166666667,
+            "y": 13602.863636363636
         },
         "targetPosition": {
-            "x": 14366.000000000002,
-            "y": 6079.05830753354
+            "x": 48561.29166666667,
+            "y": 13602.863636363636
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

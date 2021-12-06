@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Как и пространство дизайна, пространство построения графиков имеет огромную область, где Вы можете создать диаграмм столько.. сколько сможет выдержать Ваше устройство!",
                 "updated": 1636199050252
+            },
+            {
+                "language": "NL",
+                "text": "Net als de Design Space, heeft de Charting Space een grote ruimte om grafieken op te bouwen.... zoveel als je hardware aan kan!",
+                "updated": 1638782237066
             }
         ]
     },
@@ -84,6 +89,11 @@
                     "language": "RU",
                     "text": "Чтобы новичкам было проще, в Getting Started Tutorials workspace имеется только две диаграммы. Опытные пользователи могут отслеживать графики с множествами бирж и рынков.",
                     "updated": 1636199196560
+                },
+                {
+                    "language": "NL",
+                    "text": "Om het voor nieuwkomers eenvoudig te houden, zijn er slechts twee grafieken in deze Getting Started Tutorials. Gevorderde gebruikers monitoren grafieken van meerdere beurzen en meerdere markten.",
+                    "updated": 1638782331057
                 }
             ]
         },
@@ -124,6 +134,11 @@
                     "language": "RU",
                     "text": "Чтобы перемещаться по Viewport, удерживайте левую кнопку мыши и перетащите пустую область. При использовании клавиатуры, воспользуйтесь комбинацией клавиш Shift + ↑ ← → ↓.",
                     "updated": 1636199439035
+                },
+                {
+                    "language": "NL",
+                    "text": "Om te bewegen in de Viewport, klik en sleep met je muis op de blanco achtergrond. De keyboard combinatie is Shift plus de pijltjestoetsen ↑ ← → ↓",
+                    "updated": 1638782443884
                 }
             ],
             "updated": 1622198195729

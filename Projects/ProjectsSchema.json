@@ -1183,6 +1183,12 @@
                     "propertyName": "plugins",
                     "functionName": "newPluginsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Nodes",
+                    "propertyName": "nodes",
+                    "functionName": "newPluginsUtilitiesNodes",
+                    "fileName": "Nodes.js"
                 }
             ]
         },

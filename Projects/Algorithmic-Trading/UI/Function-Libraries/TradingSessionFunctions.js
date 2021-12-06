@@ -106,7 +106,8 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
             'Situation->Condition->Javascript Code->' +
             'Outgoing Signals->Incoming Signals->Signal Reference->' +
-            'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
+            'Trigger On Signal->Trigger Off Signal->Take Position Signal->Trigger Stage Signals->' +
+            'Available Signals->Social Trading Bot->Signing Account->' + 
             'Create Order Signal->Cancel Order Signal->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +

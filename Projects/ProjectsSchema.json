@@ -1587,6 +1587,12 @@
                     "propertyName": "httpInterface",
                     "functionName": "newNetworkModulesHttpInterface",
                     "fileName": "HttpInterface.js"
+                },
+                {
+                    "name": "Incoming Signals",
+                    "propertyName": "incomingSignals",
+                    "functionName": "newNetworkModulesIncomingSignals",
+                    "fileName": "IncomingSignals.js"
                 }
             ],
             "utilities": []

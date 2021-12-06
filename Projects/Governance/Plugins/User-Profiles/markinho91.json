@@ -192,7 +192,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "EvaMaria70",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
                                 ]
                             ]
                         }
@@ -1232,23 +1234,33 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
                                             "Teams @ Nov 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
                                             "Non-Tech-Users Community Team",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
                                         ],
                                         [
                                             "Team Creator EvaMaria70 Token Pool",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "8bfad32e-ec6e-4fc7-97a5-8edaf4146076"
                                         ]
                                     ]
                                 }
@@ -1287,23 +1299,33 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
                                             "Teams @ Nov 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
                                             "Non-Tech-Users Community Team",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
                                         ],
                                         [
                                             "Team Leader @gustavohcorradi Token Pool ",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "9f231aa9-c04a-424a-b94f-20bcffe5d860"
                                         ]
                                     ]
                                 }
@@ -1338,11 +1360,15 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Teams of Contributors",
-                                    "Positions"
+                                    "Positions",
+                                    "Governance",
+                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                 ],
                                 [
                                     "Teams @ Nov 2021",
-                                    "Position Class"
+                                    "Position Class",
+                                    "Governance",
+                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                 ]
                             ]
                         }
@@ -1619,8 +1645,8 @@
         "id": "cae549fa-67c3-4e11-bfa7-6f4dc6863e0c",
         "savedPayload": {
             "position": {
-                "x": 8545.652173913044,
-                "y": 19059.807621135333
+                "x": 8395.652173913044,
+                "y": 18800
             },
             "targetPosition": {
                 "x": 8695.652173913044,

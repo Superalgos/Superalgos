@@ -11,11 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\..\\PlatformRoot.js",
-            "outFiles": [
-                "${workspaceFolder}/Platform/Client/**/*.js",
-                "${workspaceFolder}/Projects/Social-Bots/**/*.js"
-            ]
+            "program": "${workspaceFolder}\\..\\PlatformRoot.js"
         }
     ]
 }

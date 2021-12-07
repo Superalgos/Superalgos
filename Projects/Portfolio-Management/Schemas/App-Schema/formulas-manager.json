@@ -1,22 +1,22 @@
 {
-    "type": "Portfolio System",
+    "type": "Formulas Manager",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Events Manager",
+            "label": "Add Confirm Formula Rules",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "eventsManager",
-            "relatedUiObject": "Events Manager",
+            "propertyToCheckFor": "confirmFormulaRules",
+            "relatedUiObject": "Confirm Formula Rules",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Formulas Manager",
+            "label": "Add Set Formula Rules",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "formulasManager",
-            "relatedUiObject": "Formulas Manager",
+            "propertyToCheckFor": "setFormulaRules",
+            "relatedUiObject": "Set Formula Rules",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -32,23 +32,22 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 0,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio System->"
+    },
     "childrenNodesProperties": [
         {
-            "name": "eventsManager",
+            "name": "confirmFormulaRules",
             "type": "node",
-            "childType": "Events Manager",
-            "autoAdd": true,
-            "project": "Portfolio-Management"
+            "childType": "Confirm Formula Rules"
         },
         {
-            "name": "formulasManager",
+            "name": "setFormulaRules",
             "type": "node",
-            "childType": "Formulas Manager",
-            "autoAdd": true,
-            "project": "Portfolio-Management"
+            "childType": "Set Formula Rules"
         }
-    ]
+    ],
+    "propertyNameAtParent": "formulasManager"
 }

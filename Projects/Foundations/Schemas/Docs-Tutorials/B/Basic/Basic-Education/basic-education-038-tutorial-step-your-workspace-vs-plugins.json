@@ -68,6 +68,11 @@
             ]
         },
         {
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
+            "updated": 1638830459326
+        },
+        {
             "style": "Json",
             "text": "\\Projects\\Foundations\\Plugins\\Workspaces"
         },

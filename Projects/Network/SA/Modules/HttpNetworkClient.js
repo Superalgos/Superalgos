@@ -47,7 +47,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                 .post('http://localhost:31248/New-Signal', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
-                    console.log('Response Received from P2P Network Node: ' + res.data)
+                    console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
                     resolve()
                 })
                 .catch(error => {

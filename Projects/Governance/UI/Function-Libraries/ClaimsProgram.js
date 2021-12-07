@@ -251,19 +251,18 @@ function newGovernanceFunctionLibraryClaimsProgram() {
 
                         */
                         node.payload.claimsProgram.share.count = node.payload.referenceParent.payload.claimsProgram.count
-                        node.payload.claimsProgram.share.percentage = 1 / node.payload.referenceParent.payload.claimsProgram.count * 100
-                        /*
-                        Share Percentage is which is the percentage of the tokens available to be claimed, that this
-                        claim is going to get.
-                        */
-                        node.payload.claimsProgram.awarded.percentage = claimPowerToUse / node.payload.referenceParent.payload.claimsProgram.votes * 100
+                        node.payload.claimsProgram.share.percentage = claimPowerToUse / node.payload.referenceParent.payload.claimsProgram.votes * 100
                         /*
                         Here we calculate the tokens awarded.
                         */
                         node.payload.claimsProgram.awarded.tokens = Math.min(
-                            node.payload.referenceParent.payload.tokens * node.payload.claimsProgram.awarded.percentage / 100,
+                            node.payload.referenceParent.payload.tokens * node.payload.claimsProgram.share.percentage / 100,
                             claimPowerToUse)
-
+                        /*
+                        Share Percentage is which is the percentage of the tokens available to be claimed, that this
+                        claim is going to get.
+                        */
+                        node.payload.claimsProgram.awarded.percentage = node.payload.claimsProgram.awarded.tokens / node.payload.referenceParent.payload.tokens * 100
                         drawClaims(node)
                         drawProgramPower(node, programPower, percentage)
                     }

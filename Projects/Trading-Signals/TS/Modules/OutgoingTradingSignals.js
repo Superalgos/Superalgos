@@ -50,6 +50,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             let signalMessage = {
                 signal: {
                     uniqueId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    timestamp: (new Date()).valueOf(),
                     source: {
                         tradingSystem: {
                             node: {

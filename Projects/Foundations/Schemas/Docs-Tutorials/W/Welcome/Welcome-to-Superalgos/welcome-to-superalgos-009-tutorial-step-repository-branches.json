@@ -30,8 +30,8 @@
             },
             {
                 "language": "DE",
-                "text": "Das Superalgos-Repository hat drei Hauptzweige: master, develop und den, nach dem wir suchen, plugins-docs.",
-                "updated": 1634821013096,
+                "text": "Das Superalgos-Repository hat zwei Hauptzweige: master und develop.",
+                "updated": 1638832363730,
                 "style": "Definition"
             },
             {
@@ -138,8 +138,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis betreffen.",
-                    "updated": 1634821041566,
+                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis, Übersetzungen,Verbesserungen der Docs, Tutorials, plugins sowie Data-Mines, trading systems und so weiter betreffen.",
+                    "updated": 1638831914823,
                     "style": "List"
                 },
                 {

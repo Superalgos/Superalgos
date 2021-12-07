@@ -3,21 +3,23 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Portfolio Strategy",
-            "relatedUiObject": "Portfolio Strategy",
+            "label": "Add Events Manager",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "eventsManager",
+            "relatedUiObject": "Events Manager",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
+            "label": "Add Formulas Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "dynamicIndicators",
-            "label": "Add Dynamic Indicators",
-            "relatedUiObject": "Dynamic Indicators",
+            "propertyToCheckFor": "formulasManager",
+            "relatedUiObject": "Formulas Manager",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",
@@ -35,18 +37,18 @@
     "level": 0,
     "childrenNodesProperties": [
         {
-            "name": "portfolioStrategies",
-            "type": "array",
-            "childType": "Portfolio Strategy",
+            "name": "eventsManager",
+            "type": "node",
+            "childType": "Events Manager",
             "autoAdd": true,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         },
         {
-            "name": "dynamicIndicators",
+            "name": "formulasManager",
             "type": "node",
-            "childType": "Dynamic Indicators",
+            "childType": "Formulas Manager",
             "autoAdd": true,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         }
     ]
 }

@@ -240,6 +240,31 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                     break
+                case 'Social-Bots': {
+                    switch (requestPath[2]) { // switch by command
+                        case 'Twitter-Test-Message': {
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    config = JSON.parse(body)
+                                    let message = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(0)
+                                    socialBot.initialize(config)
+                                    socialBot.sendMessage(message)
+                                        .then(response => {
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        })
+                                        .catch(err => {
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
+                            break
+                        }
+                    }
+                    break
+                }
                 case 'Webhook': {
                     switch (requestPath[2]) { // switch by command
                         case 'Fetch-Messages': {

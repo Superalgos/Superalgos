@@ -1,0 +1,53 @@
+{
+    "type": "Events Manager",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Confirm Event Rules",
+            "relatedUiObject": "Confirm Event Rules",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "confirmEventRules",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Raise Event Rules",
+            "relatedUiObject": "Raise Event Rules",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "raiseEventRules",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio System->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "confirmEventRules",
+            "type": "node",
+            "childType": "Confirm Event Rules"
+        },
+        {
+            "name": "raiseEventRules",
+            "type": "node",
+            "childType": "Raise Event Rules"
+        }
+    ],
+    "propertyNameAtParent": "eventsManager"
+}

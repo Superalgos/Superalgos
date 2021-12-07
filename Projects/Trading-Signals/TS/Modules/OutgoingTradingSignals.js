@@ -6,12 +6,15 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
         finalize: finalize
     }
 
+    let web3
     return thisObject
 
     function initialize() {
+        web3 = new SA.nodeModules.web3()
     }
 
     function finalize() {
+        web3 = undefined
     }
 
     async function broadcastSignal(node) {
@@ -57,8 +60,8 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                     broadcaster: {
                         userApp: {
                             categoryType: userAppCategory.type,
-                            appType: userApp.type,
-                            appId: userApp.id
+                            appType: userApp.node.type,
+                            appId: userApp.node.id
                         },
                         socialTradingBot: {
                             id: socialTradingBot.id,

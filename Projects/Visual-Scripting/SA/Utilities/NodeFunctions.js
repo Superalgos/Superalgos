@@ -6,7 +6,6 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         nodeMeshToPathArray: nodeMeshToPathArray,
         findNodeInNodeArray: findNodeInNodeArray,
         filterOutNodeWihtoutReferenceParentFromNodeArray: filterOutNodeWihtoutReferenceParentFromNodeArray,
-        getManagedSessions: getManagedSessions
     }
 
     return thisObject
@@ -48,47 +47,6 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
                         break
                     }
                 }
-            }
-        }
-    }
-
-    /* findManagedSessions(startingNode) :
-     *  recursively searches startingNode branches to documents managed sessions at ~/taskConstants.MANAGED_SESSIONS_MAP
-     *  Session Key naming convention: name + type + id
-     */
-    function getManagedSessions(startingNode) {
-        if (startingNode == undefined) { return ; }
-        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type);
-        
-        // Base Cases:
-        if (schemaDocument == undefined) { return; }
-        if (startingNode.type === 'Session Reference' &&
-            startingNode.referenceParent != undefined) {
-                let key = startingNode.referenceParent.name + '-' +
-                            startingNode.referenceParent.type + '-' + startingNode.referenceParent.id;
-                let communicationModule = TS.projects.portfolioManagement.botModules.PMCommunicationModule_Portfolio.newPMCommunicationModule_Portfolio(key);
-                TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.set(key, communicationModule);
-                return;
-            }
-        
-        if (schemaDocument.childrenNodesProperties == undefined) { return; }
-        for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-            let child = schemaDocument.childrenNodesProperties[i];
-
-            switch (child.type) {
-                case 'node':
-                    getManagedSessions(startingNode[child.name]);
-                    break;
-                case 'array':
-                    let startingNodePropertyArray = startingNode[child.name];
-                    if (startingNodePropertyArray != undefined) {
-                        for (let j = 0; j < startingNodePropertyArray.length; j++) {
-                            getManagedSessions(startingNodePropertyArray[j]);
-                        }
-                    }
-                    break;
-                default:
-                    return;
             }
         }
     }

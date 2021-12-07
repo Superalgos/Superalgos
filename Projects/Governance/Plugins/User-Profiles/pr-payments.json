@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "pr-payments",
-    "config": "{\n    \"signature\": {\n        \"message\": \"pr-payments\",\n        \"messageHash\": \"0x0481343fa044e60341a612c80ba58409f1bfd3cbe530c9e06558d34a83363f93\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xab6d65c7b8a47162df7b09b9fcf3f326de1e16e7854c8c7ab9269891e9018a42\",\n        \"s\": \"0x4c081b6eb3d6eb8cd5d52281e0576755c88da3eac7c96e2801c44374592660ea\",\n        \"signature\": \"0xab6d65c7b8a47162df7b09b9fcf3f326de1e16e7854c8c7ab9269891e9018a424c081b6eb3d6eb8cd5d52281e0576755c88da3eac7c96e2801c44374592660ea1b\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"pr-payments\",\"messageHash\":\"0x0481343fa044e60341a612c80ba58409f1bfd3cbe530c9e06558d34a83363f93\",\"v\":\"0x1b\",\"r\":\"0xab6d65c7b8a47162df7b09b9fcf3f326de1e16e7854c8c7ab9269891e9018a42\",\"s\":\"0x4c081b6eb3d6eb8cd5d52281e0576755c88da3eac7c96e2801c44374592660ea\",\"signature\":\"0xab6d65c7b8a47162df7b09b9fcf3f326de1e16e7854c8c7ab9269891e9018a424c081b6eb3d6eb8cd5d52281e0576755c88da3eac7c96e2801c44374592660ea1b\"},\"codeName\":\"pr-payments\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -63,23 +63,33 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
                                             "Teams @ Nov 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
                                             "Marketing Teams PoW Report",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
                                         ],
                                         [
                                             "Public Relations Team Token Pool",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "62b14d55-4a13-4f97-b0ec-efff71cd9231"
                                         ]
                                     ]
                                 }
@@ -235,12 +245,12 @@
     "id": "63be3e46-aafe-4218-8bd1-59bc23ee18e4",
     "savedPayload": {
         "position": {
-            "x": 48561.29166666667,
-            "y": 13602.863636363636
+            "x": 6896.551724137931,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 48561.29166666667,
-            "y": 13602.863636363636
+            "x": 6896.551724137931,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,

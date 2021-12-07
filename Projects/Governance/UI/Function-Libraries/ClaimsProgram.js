@@ -215,9 +215,6 @@ function newGovernanceFunctionLibraryClaimsProgram() {
                     node.payload.referenceParent.payload.claimsProgram.count !== undefined &&
                     node.payload.referenceParent.payload.claimsProgram.votes !== undefined
                 ) {
-                    if (node.id === "f1df33a9-6d4a-40cd-b82d-ae4dc8b303a4") {
-                        let a = 1
-                    }
                     /*                    
                         claimPowerToUse is the minimun between the Claim Power the user is assigning to 
                         his claim, and the votes the claim have from other user profiles.

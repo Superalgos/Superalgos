@@ -1169,6 +1169,12 @@
                     "propertyName": "plugins",
                     "functionName": "newPluginsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Nodes",
+                    "propertyName": "nodes",
+                    "functionName": "newPluginsUtilitiesNodes",
+                    "fileName": "Nodes.js"
                 }
             ]
         },
@@ -1573,6 +1579,12 @@
                     "propertyName": "httpInterface",
                     "functionName": "newNetworkModulesHttpInterface",
                     "fileName": "HttpInterface.js"
+                },
+                {
+                    "name": "Incoming Signals",
+                    "propertyName": "incomingSignals",
+                    "functionName": "newNetworkModulesIncomingSignals",
+                    "fileName": "IncomingSignals.js"
                 }
             ],
             "utilities": []

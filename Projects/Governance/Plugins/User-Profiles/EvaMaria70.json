@@ -635,7 +635,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "\"codeName\": \"EvaMaria70\"\r\n{    \"percentage\": 75\r\n}",
+            "config": "\"codeName\": \"EvaMaria70\"\r\n{\r\n    \"percentage\": 85\r\n}",
             "project": "Governance",
             "claimsProgram": {
                 "type": "Claims Program",
@@ -660,8 +660,8 @@
                                 "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35494.465391959064,
-                                        "y": 13547.466426222752
+                                        "x": 35750.56681968117,
+                                        "y": 13513.750033627439
                                     },
                                     "targetPosition": {
                                         "x": 35663.215391959064,
@@ -671,7 +671,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 1,
+                                        "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -1177,7 +1177,7 @@
             },
             "targetPosition": {
                 "x": 37931.03448275861,
-                "y": 28400
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1200,11 +1200,11 @@
         "savedPayload": {
             "position": {
                 "x": 37781.03448275861,
-                "y": 28400
+                "y": 33200
             },
             "targetPosition": {
                 "x": 37931.03448275861,
-                "y": 28400
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1223,11 +1223,11 @@
     "savedPayload": {
         "position": {
             "x": 37931.03448275861,
-            "y": 28400
+            "y": 33200
         },
         "targetPosition": {
             "x": 37931.03448275861,
-            "y": 28400
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,

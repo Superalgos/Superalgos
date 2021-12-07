@@ -39,7 +39,7 @@ exports.newTaskServer = function newTaskServer() {
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
-                            SA.projects.visualScripting.utilities.nodeFunctions.getManagedSessions(TS.projects.foundations.globals.taskConstants.MANAGED_TASKS);
+                            TS.projects.foundations.utilities.miscellaneousFunctions.getManagedSessions(TS.projects.foundations.globals.taskConstants.MANAGED_TASKS);
                             bootingProcess();
                         } catch (err) {
                             console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)

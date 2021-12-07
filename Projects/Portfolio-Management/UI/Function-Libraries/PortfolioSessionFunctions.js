@@ -98,28 +98,36 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         eventsServerClient.raiseEvent("Task Manager", 'Task Status', eventKey)
 
         let lightingPath = '' +
-            'Portfolio System->' +
-            'Dynamic Indicators->Indicator Function->Formula->' +
-            'Portfolio Strategy->' +
-            'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
-            'Open Stage->' +
-            'Manage Stage->' +
-            'Managed Stop Loss->Managed Take Profit->' +
-            'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
-            'Situation->Condition->Javascript Code->' +
-            'Close Stage->' +
-            'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
-            'Open Execution->Close Execution->' +
-            'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
-            'Order Rate->Formula->' +
-            'Create Order Event->Cancel Order Event->' +
-            'Close Stage Event->' +
-            'Announcement->Announcement Formula->Announcement Condition->' +
-            'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
-            'Situation->Condition->Javascript Code->' +
-            'Market Order->Limit Order->' +
-            'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
-            'User Defined Code->Javascript Code->'
+        'Portfolio System->' +
+        'Events Manager->' +
+        'Raise Event Rules->Raise Event Reference->Confirm Event Rules->Confirm Event Reference->' +
+        'Formulas Manager->Confirm Formula Rules->Confirm Formula Reference->' +
+        'Set Formula Rules->Set Formula Reference->' +
+        'Situation->Condition->' +
+        'Trading System->' +
+        'Dynamic Indicators->Indicator Function->Formula->' +
+        'Trading Strategy->' +
+        'Trigger Stage->Trigger On Event->Trigger Off Event->Take Position Event->' +
+        'Open Stage->' +
+        'Manage Stage->' +
+        'Managed Stop Loss->Managed Take Profit->' +
+        'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
+        'Situation->Condition->Javascript Code->' +
+        'Outgoing Signals->Incoming Signals->Signal Reference->' +
+        'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
+        'Create Order Signal->Cancel Order Signal->' +
+        'Close Stage->' +
+        'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
+        'Open Execution->Close Execution->' +
+        'Execution Algorithm->Market Buy Order->Market Sell Order->Limit Buy Order->Limit Sell Order->' +
+        'Order Rate->Formula->' +
+        'Create Order Event->Cancel Order Event->' +
+        'Close Stage Event->' +
+        'Announcement->Announcement Formula->Announcement Condition->' +
+        'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
+        'Situation->Condition->Javascript Code->' +
+        'Market Order->Limit Order->' +
+        'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
 
         let portfolioSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.portfolioSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

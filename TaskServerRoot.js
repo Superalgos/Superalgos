@@ -53,7 +53,7 @@ SA.nodeModules = {
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),
-    twitter: require('twitter')
+    twitter: require('twitter-api-v2')
 }
 /*
 Setting up Secrets.

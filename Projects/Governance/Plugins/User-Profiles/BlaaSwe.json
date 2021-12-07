@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3598.2758620689656,
-                    "y": 37740.19237886467
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 38000
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -406,11 +406,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3898.2758620689656,
-                    "y": 37740.19237886467
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 38000
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -9734,11 +9734,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 4158.083483204297,
-                                "y": 37590.19237886467
+                                "y": 23190.192378864667
                             },
                             "targetPosition": {
                                 "x": 4308.083483204297,
-                                "y": 37850
+                                "y": 23450
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -9943,11 +9943,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 4645.536817870386,
-                                        "y": 37410.22225211328
+                                        "y": 23010.22225211328
                                     },
                                     "targetPosition": {
                                         "x": 4567.891104339629,
-                                        "y": 37700
+                                        "y": 23300
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10072,11 +10072,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 4827.698725474961,
-                                        "y": 37550
+                                        "y": 23150
                                     },
                                     "targetPosition": {
                                         "x": 4567.891104339629,
-                                        "y": 37700
+                                        "y": 23300
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10700,7 +10700,7 @@
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
                                                 "name": "New Position Claims Folder",
-                                                "id": "edbcd16e-5159-4930-a287-1ffb4094dac9"
+                                                "id": "f8573f3c-62b1-48ba-a892-bb8be27288e1"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -12872,7 +12872,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "Smidy13 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "16609920-0f28-4a04-88c5-c50c9218c4f2",
@@ -12943,7 +12943,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "Smidy13 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "54292b09-5ef9-4a8f-9c93-d171c255c832",
@@ -13090,7 +13090,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "harrellbm ",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "b285ccf8-27ca-47dc-bbfd-18c99a1f701a",
@@ -13249,7 +13249,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "harrellbm ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "6d14bcb7-a369-49a9-b617-2ac0fe4e94b0",
@@ -13414,7 +13414,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "harrellbm ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "6b9e45d3-6e6a-4001-bcd5-6928dc14f1dc",
@@ -13579,7 +13579,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "harrellbm ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "71de6e66-2743-484a-a682-1c3826b00694",
@@ -13744,7 +13744,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "harrellbm ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "583c659e-b6a6-438a-9620-6ccf3f8a6b6e",
@@ -13979,7 +13979,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "harrellbm ",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "a21f5523-7457-4cb9-b463-5e4c3a44ea42",
@@ -14132,7 +14132,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "harrellbm ",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "884020d6-4fb5-4e6f-b038-dfb47280e9b9",
@@ -14303,7 +14303,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
-                                                "name": "New Position Claims Folder",
+                                                "name": "Education Team PoW Report Position Class",
                                                 "id": "1e714443-cf8f-46df-ac93-7de2e780ceae"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -14332,7 +14332,7 @@
                                                     "3eae8d92-6250-4aa9-a361-a8f4e8c9b110"
                                                 ],
                                                 [
-                                                    "New Position Claims Folder",
+                                                    "Education Team PoW Report Position Class",
                                                     "Position Claims Folder",
                                                     "Governance",
                                                     "1e714443-cf8f-46df-ac93-7de2e780ceae"
@@ -14774,7 +14774,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "quantum8 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "9a48d0d0-fc9b-4232-86a1-c8587223bb2c",
@@ -14845,7 +14845,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "quantum8 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "f0aeb6d9-519f-46fc-80b1-552b56655d31",
@@ -14916,7 +14916,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "quantum8 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "b1df850a-d6d0-4d89-b873-862cf44803cc",
@@ -14987,7 +14987,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "quantum8 ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "654d0f2b-fcfc-40e4-97f5-1374d2d04ead",
@@ -15384,7 +15384,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "594ebbb9-3edf-488b-8ac1-a0c6444cf3d0",
@@ -15625,7 +15625,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "52c0d859-0ee5-4d40-9a23-1977d58d8bda",
@@ -15708,7 +15708,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "04ce178e-3e55-4789-8e03-51be3aa0f0f5",
@@ -15791,7 +15791,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "bc4c3db7-1966-4127-8d50-43bc719db70f",
@@ -15874,7 +15874,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "bf983868-522b-49a3-90a9-bb3c156a615b",
@@ -16115,7 +16115,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "a747e5e5-f7b9-47f7-922d-238aae3ea7d9",
@@ -16198,7 +16198,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "72d97deb-afd0-4456-88c7-9be62d3c788b",
@@ -16363,7 +16363,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "f10c2f1e-e5d1-4f2b-9924-0d4cbb8b22f7",
@@ -16528,7 +16528,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "812f1f73-5ac8-4d17-a271-e1036c7109fb",
@@ -16611,7 +16611,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "b232b0f3-1a9e-4bec-942d-c34a3abda92e",
@@ -16694,7 +16694,7 @@
                                                             },
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "prepheadrus ",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "14342006-d6a2-4bfc-b6da-84e6f716be02",
@@ -16948,38 +16948,28 @@
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
                                                 "name": "New Position Claims Folder",
-                                                "id": "284f56b9-c58f-40e4-9728-b35b4df95bb9"
+                                                "id": "0c4db688-af32-427e-8c34-7310a57b30e4"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "prepheadrus",
-                                                    "User Profile",
-                                                    "Governance",
-                                                    "9cca5059-eb9d-41d8-97be-3887e9807512"
+                                                    "User Profile"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch",
-                                                    "Governance",
-                                                    "6f1b6e77-81ef-4bec-8f08-b8dcfe3095ee"
+                                                    "Token Power Switch"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs",
-                                                    "Governance",
-                                                    "2acb606a-29f2-43b8-8575-58f81d1150fd"
+                                                    "Votes And Claims Programs"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program",
-                                                    "Governance",
-                                                    "02cfff25-aa0e-48d5-b63c-aa9744c26aa1"
+                                                    "Claims Program"
                                                 ],
                                                 [
                                                     "New Position Claims Folder",
-                                                    "Position Claims Folder",
-                                                    "Governance",
-                                                    "284f56b9-c58f-40e4-9728-b35b4df95bb9"
+                                                    "Position Claims Folder"
                                                 ]
                                             ]
                                         }
@@ -17520,7 +17510,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "end-debug ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "baa3729e-6721-4c2d-b8a3-e225111153b8",
@@ -17591,7 +17581,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "end-debug ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "d26e3439-79a5-43e9-9ba1-7d482bc966b2",
@@ -17662,7 +17652,7 @@
                                             },
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "end-debug ",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "c773f116-c826-4ac2-af8a-6d529db197a5",
@@ -17757,7 +17747,7 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Claims Folder",
-                                                "name": "New Position Claims Folder",
+                                                "name": "end-debug Claims Folder",
                                                 "id": "76879fb6-eeb8-49c3-b3df-6e046074ffdd"
                                             },
                                             "referenceParentCombinedNodePath": [
@@ -17786,7 +17776,7 @@
                                                     "b139671c-2415-41c4-9fa4-86eee29bc95d"
                                                 ],
                                                 [
-                                                    "New Position Claims Folder",
+                                                    "end-debug Claims Folder",
                                                     "Position Claims Folder",
                                                     "Governance",
                                                     "76879fb6-eeb8-49c3-b3df-6e046074ffdd"
@@ -18781,11 +18771,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 4857.668852226349,
-                                        "y": 37777.64571353076
+                                        "y": 23377.645713530757
                                     },
                                     "targetPosition": {
                                         "x": 4567.891104339629,
-                                        "y": 37700
+                                        "y": 23300
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -18807,11 +18797,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 4567.891104339629,
-                                "y": 37700
+                                "y": 23300
                             },
                             "targetPosition": {
                                 "x": 4308.083483204297,
-                                "y": 37850
+                                "y": 23450
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -18835,11 +18825,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 4597.8612310910175,
-                            "y": 37927.64571353076
+                            "y": 23527.645713530757
                         },
                         "targetPosition": {
                             "x": 4308.083483204297,
-                            "y": 37850
+                            "y": 23450
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -18858,11 +18848,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4308.083483204297,
-                        "y": 37850
+                        "y": 23450
                     },
                     "targetPosition": {
                         "x": 4048.2758620689656,
-                        "y": 38000
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -18894,18 +18884,18 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "08e1d8af-478d-435f-9ebb-d2c4ed4fbdd1",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 11544.827586206897,
-                                        "y": 37480.384757729335
+                                        "x": 4908.083483204297,
+                                        "y": 23750
                                     },
                                     "targetPosition": {
-                                        "x": 11394.827586206897,
-                                        "y": 37740.19237886467
+                                        "x": 4608.083483204297,
+                                        "y": 23750
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -18920,8 +18910,8 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Team Members",
-                                        "id": "5b8525df-666d-4c76-899c-85a7a897d9b6"
+                                        "name": "Data Mining Team Token Pool",
+                                        "id": "e61f97a8-ee3a-4bf3-947d-eba128813dda"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -18929,23 +18919,19 @@
                                             "Positions"
                                         ],
                                         [
-                                            "Teams @ V.1.0",
+                                            "Teams @ Nov 2021",
                                             "Position Class"
                                         ],
                                         [
-                                            "Software Projects Teams",
+                                            "Teams With PoW Reports",
                                             "Position Class"
                                         ],
                                         [
-                                            "Active Projects",
+                                            "Data Mining Team PoW Report",
                                             "Position Class"
                                         ],
                                         [
-                                            "Data Mining Project",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Team Members",
+                                            "Data Mining Team Token Pool",
                                             "Position"
                                         ]
                                     ]
@@ -18955,18 +18941,18 @@
                         "id": "ccdb53e1-2c66-4a9d-b298-7487315a275d",
                         "savedPayload": {
                             "position": {
-                                "x": 11394.827586206897,
-                                "y": 37740.19237886467
+                                "x": 4608.083483204297,
+                                "y": 23750
                             },
                             "targetPosition": {
-                                "x": 11244.827586206897,
-                                "y": 38000
+                                "x": 4308.083483204297,
+                                "y": 23750
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
                                 "isCollapsed": false,
-                                "angleToParent": 1,
+                                "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
                             },
@@ -18983,18 +18969,18 @@
                     "id": "4512c996-9c65-4c82-a2f0-ec4efac9dafd",
                     "savedPayload": {
                         "position": {
-                            "x": 11394.827586206897,
-                            "y": 38259.80762113533
+                            "x": 4458.083483204297,
+                            "y": 24009.807621135333
                         },
                         "targetPosition": {
-                            "x": 11244.827586206897,
-                            "y": 38000
+                            "x": 4308.083483204297,
+                            "y": 23750
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -19007,16 +18993,16 @@
                 "savedPayload": {
                     "position": {
                         "x": 4308.083483204297,
-                        "y": 38150
+                        "y": 23750
                     },
                     "targetPosition": {
                         "x": 4048.2758620689656,
-                        "y": 38000
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -19030,11 +19016,11 @@
             "savedPayload": {
                 "position": {
                     "x": 4048.2758620689656,
-                    "y": 38000
+                    "y": 23600
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 38000
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19090,11 +19076,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4158.083483204297,
-                        "y": 38409.80762113533
+                        "y": 24009.807621135333
                     },
                     "targetPosition": {
                         "x": 3898.2758620689656,
-                        "y": 38259.80762113533
+                        "y": 23859.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19151,7 +19137,7 @@
                                     "referenceParent": {
                                         "type": "User Profile",
                                         "name": "Raplh2502",
-                                        "id": "637720d9-c47c-456e-9624-2953d7f54b14"
+                                        "id": "3d7b84e4-73cd-4675-b0de-faeb3fdca82a"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -19299,11 +19285,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 3898.2758620689656,
-                        "y": 38559.80762113533
+                        "y": 24159.807621135333
                     },
                     "targetPosition": {
                         "x": 3898.2758620689656,
-                        "y": 38259.80762113533
+                        "y": 23859.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19322,11 +19308,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3898.2758620689656,
-                    "y": 38259.80762113533
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 38000
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19407,11 +19393,11 @@
             "savedPayload": {
                 "position": {
                     "x": 3598.2758620689656,
-                    "y": 38259.80762113533
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
                     "x": 3748.2758620689656,
-                    "y": 38000
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19430,11 +19416,11 @@
         "savedPayload": {
             "position": {
                 "x": 3748.2758620689656,
-                "y": 38000
+                "y": 23600
             },
             "targetPosition": {
                 "x": 3448.2758620689656,
-                "y": 38000
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -19457,11 +19443,11 @@
         "savedPayload": {
             "position": {
                 "x": 3148.2758620689656,
-                "y": 38000
+                "y": 23600
             },
             "targetPosition": {
                 "x": 3448.2758620689656,
-                "y": 38000
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -19480,11 +19466,11 @@
     "savedPayload": {
         "position": {
             "x": 3448.2758620689656,
-            "y": 38000
+            "y": 23600
         },
         "targetPosition": {
             "x": 3448.2758620689656,
-            "y": 38000
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,

@@ -1,22 +1,22 @@
 {
-    "type": "Portfolio System",
+    "type": "Events Manager",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Events Manager",
+            "label": "Add Confirm Event Rules",
+            "relatedUiObject": "Confirm Event Rules",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "eventsManager",
-            "relatedUiObject": "Events Manager",
+            "propertyToCheckFor": "confirmEventRules",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
         {
             "action": "Add UI Object",
-            "label": "Add Formulas Manager",
+            "label": "Add Raise Event Rules",
+            "relatedUiObject": "Raise Event Rules",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "formulasManager",
-            "relatedUiObject": "Formulas Manager",
+            "propertyToCheckFor": "raiseEventRules",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -32,23 +32,22 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 0,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio System->"
+    },
     "childrenNodesProperties": [
         {
-            "name": "eventsManager",
+            "name": "confirmEventRules",
             "type": "node",
-            "childType": "Events Manager",
-            "autoAdd": true,
-            "project": "Portfolio-Management"
+            "childType": "Confirm Event Rules"
         },
         {
-            "name": "formulasManager",
+            "name": "raiseEventRules",
             "type": "node",
-            "childType": "Formulas Manager",
-            "autoAdd": true,
-            "project": "Portfolio-Management"
+            "childType": "Raise Event Rules"
         }
-    ]
+    ],
+    "propertyNameAtParent": "eventsManager"
 }

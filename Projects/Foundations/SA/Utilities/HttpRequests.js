@@ -1,7 +1,8 @@
 exports.newFoundationsUtilitiesHttpRequests = function () {
 
     let thisObject = {
-        getRequestBody: getRequestBody
+        getRequestBody: getRequestBody,
+        getRequestBodyAsync: getRequestBodyAsync
     }
 
     return thisObject
@@ -33,5 +34,21 @@ exports.newFoundationsUtilitiesHttpRequests = function () {
             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
             callback()
         }
+    }
+
+    function getRequestBodyAsync(httpRequest, httpResponse) {
+        return new Promise((resolve, reject) => {
+            let body = []
+            httpRequest.on('error', (err) => {
+                console.error('[ERROR] getRequestBodyAync -> err.stack = ', err.stack)
+                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                reject(err)
+            }).on('data', (chunk) => {
+                body.push(chunk)
+            }).on('end', () => {
+                body = Buffer.concat(body).toString()
+                resolve(body)
+            })
+        })
     }
 }

@@ -179,3 +179,36 @@ function httpRequest(pContentToSend, pPath, callBackFunction) {
         }
     }
 }
+
+function httpRequestAsync(pContentToSend, pPath) {
+    return new Promise((resolve, reject) => {
+        let xmlHttpRequest = new XMLHttpRequest()
+
+        function xhrSuccess() {
+            if (xmlHttpRequest.readyState === 4) {
+                if (xmlHttpRequest.status === 200) {
+                    resolve({result: 'Ok', message: xmlHttpRequest.responseText})
+                } else {
+                    reject({result: 'Fail', message: xmlHttpRequest.responseText})
+                }
+            }
+        }
+        
+        function xhrError() {
+            reject({result: 'Fail', message: xmlHttpRequest.responseText})
+        }
+
+        if (pContentToSend === undefined) {
+            xmlHttpRequest.open("GET", pPath, true)
+            xmlHttpRequest.send()
+            xmlHttpRequest.onload = xhrSuccess
+            xmlHttpRequest.onerror = xhrError
+        } else {
+            let blob = new Blob([pContentToSend], { type: 'text/plain' })
+            xmlHttpRequest.open("POST", pPath, true)
+            xmlHttpRequest.send(blob)
+            xmlHttpRequest.onload = xhrSuccess
+            xmlHttpRequest.onerror = xhrError
+        }
+    })
+}

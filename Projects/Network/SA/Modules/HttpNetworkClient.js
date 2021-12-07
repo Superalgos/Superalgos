@@ -22,17 +22,13 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
 
         thisObject.p2pNetworkNode = undefined
         thisObject.p2pNetworkClientIdentity = undefined
-
-        web3 = undefined
     }
 
     async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode) {
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
-        thisObject.p2pNetworkNode = p2pNetworkNode
-
-        web3 = new SA.nodeModules.web3()
+        thisObject.p2pNetworkNode = p2pNetworkNode        
 
         thisObject.host = thisObject.p2pNetworkNode.node.config.host
         thisObject.port = thisObject.p2pNetworkNode.node.config.webPort
@@ -51,7 +47,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                 .post('http://localhost:31248/New-Signal', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
-                    console.log('Response Received from P2P Network Node: ' + res.data)
+                    console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
                     resolve()
                 })
                 .catch(error => {

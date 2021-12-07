@@ -35,8 +35,8 @@
         },
         {
             "style": "List",
-            "text": "A project-specific Pools hierarchy for assets (for instance, Foundations-Project-Assets or Education-Project-Assets), providing a more granular definition of various pools for several categories of assets, such as user interface, task server, app schemas, custom code, education, multi media,, and plugins.",
-            "updated": 1630581068210
+            "text": "A project-specific Pools hierarchy for assets (for instance, Foundations-Project-Assets or Education-Project-Assets), providing a more granular definition of various pools for several categories of assets, such as user interface, task server, app schemas, custom code, education, multi media and plugins.",
+            "updated": 1638830984138
         },
         {
             "style": "Subtitle",

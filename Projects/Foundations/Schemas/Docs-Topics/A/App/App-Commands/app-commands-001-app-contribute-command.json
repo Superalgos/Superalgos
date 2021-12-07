@@ -70,9 +70,14 @@
             ]
         },
         {
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
+            "updated": 1638830624336
+        },
+        {
             "style": "Important",
-            "text": "In most cases, contributions must go from the develop branch to the develop branch, or from the plugins-docs branch to the plugins-docs branch, unless you have previously agreed with team members that you will send a contribution from master to master.",
-            "updated": 1622028905753,
+            "text": "In most cases, contributions must go from the develop branch to the develop branch, unless you have previously agreed with team members that you will send a contribution from master to master.",
+            "updated": 1638830652823,
             "translations": [
                 {
                     "language": "ES",
@@ -93,8 +98,8 @@
         },
         {
             "style": "Text",
-            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead, all contributions are expected to go to the develop or the plugins-docs branches, where many users are testing that branch every day. Contributions of plugins and Docs may reach the master branch often. Contributions to the develop branch will reach the master branch on the next release.",
-            "updated": 1622029260459,
+            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead, all contributions are expected to go to the develop branch, where many users are testing that branch every day.  Contributions to the develop branch will reach the master branch on the next release.",
+            "updated": 1638831440396,
             "translations": [
                 {
                     "language": "ES",

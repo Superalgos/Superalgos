@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie meine Anweisungen genau befolgt haben, sollten Sie jetzt die Software im Zweig plugins-docs ausführen! Großartig!",
-                "updated": 1635148049596
+                "text": "Wenn Sie meine Anweisungen genau befolgt haben, sollten Sie jetzt die Software im branch(Zweig) develop ausführen! Großartig!",
+                "updated": 1638831614967
             }
         ]
     },
@@ -49,8 +49,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die Software, die Sie gerade ausführen, ist die Version von Superalgos, die sich im plugins-docs-Zweig befand, als Sie das Projekt geforkt haben! Das liegt daran, dass der Prozess des Wechselns der Zweige die Software von Ihrem Fork herunterlädt und nicht vom Upstream-Repository.",
-                    "updated": 1635148060851
+                    "text": "Die Software, die Sie gerade ausführen, ist die Version von Superalgos, die sich im develop branch befand, als Sie das Projekt geforkt haben! Das liegt daran, dass der Prozess des Wechselns der branches die Software von Ihrem Fork herunterlädt und nicht vom Upstream-Repository.  ",
+                    "updated": 1638831659018
                 }
             ]
         },
@@ -74,7 +74,7 @@
                 {
                     "language": "DE",
                     "text": "Sie müssen aktualisieren, damit Sie die neueste Version verwenden! Dies ist besonders wichtig, wenn Sie beabsichtigen, zu dem Projekt beizutragen. Sie sollten immer an der neuesten Version arbeiten, damit die Änderungen, die Sie vornehmen, die neuesten Änderungen anderer Mitwirkender enthalten!",
-                    "updated": 1635148067772
+                    "updated": 1638831732431
                 }
             ]
         }

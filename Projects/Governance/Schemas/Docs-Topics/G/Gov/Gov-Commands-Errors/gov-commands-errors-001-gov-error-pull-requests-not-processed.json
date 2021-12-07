@@ -4,13 +4,27 @@
     "type": "Gov Error - Pull Requests Not Processed",
     "definition": {
         "text": "There was a problem trying to process the pull requests at the Superalgos repository",
-        "updated": 1611129378492
+        "updated": 1611129378492,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es gab ein Problem bei der Bearbeitung der Pull Requests im Superalgos Repository",
+                "updated": 1638746677069
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Check the following section for details on what may have happened. After you fix the issue that prevented the Gov PRs Command to run, you may try again.",
-            "updated": 1611152997869
+            "updated": 1611152997869,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie den folgenden Abschnitt, um zu erfahren, was passiert sein könnte. Nachdem Sie das Problem behoben haben, das die Ausführung des Befehls Gov PRs verhindert hat, können Sie es erneut versuchen.",
+                    "updated": 1638746717268
+                }
+            ]
         },
         {
             "style": "Title",
@@ -19,20 +33,48 @@
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1638746731702
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611153032408
+            "updated": 1611153032408,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1638746793412
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Error Message"
+            "text": "Error Message",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Error Nachricht",
+                    "updated": 1638746754945
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occurred at the Client:"
+            "text": "The following is the Error Message of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Ausnahme angezeigt:",
+                    "updated": 1638746808346
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -44,7 +86,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occurred at the Client:"
+            "text": "The following is the Error Stack of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Error Stack der beim Client aufgetretenen Ausnahme dargestellt:",
+                    "updated": 1638746830116
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -56,7 +105,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the Client:"
+            "text": "The following is the Error Code of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
+                    "updated": 1638746868393
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -70,7 +126,14 @@
         {
             "style": "Text",
             "text": "The following are all the Error details of the Exception that occurred at the Client:",
-            "updated": 1611154675224
+            "updated": 1611154675224,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Ausnahme aufgeführt:",
+                    "updated": 1638746879966
+                }
+            ]
         },
         {
             "style": "Placeholder",

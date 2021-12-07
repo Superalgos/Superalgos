@@ -23,7 +23,7 @@ exports.newSocialTradingModulesQueriesUserProfiles = function newSocialTradingMo
     function initialize(queryReceived) {
 
         thisObject.profiles = Array.from(
-            SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID, 
+            SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID, 
             x => x[1]
             )
         thisObject.profiles.sort((a, b) => (a["ranking"] > b["ranking"]) ? 1 : -1)

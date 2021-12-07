@@ -39,7 +39,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     }
 
     function initialize() {
-        let port = JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort
+        let port = NT.networkNode.p2pNetworkNode.node.config.webSocketsPort
 
         thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
         thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
@@ -251,32 +251,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         }
                     }
                     /*
-                    The caller needs to provide it's Node.
-                    */
-                    if (messageHeader.callerNode === undefined) {
-                        let response = {
-                            result: 'Error',
-                            message: 'node Not Provided.'
-                        }
-                        caller.socket.send(JSON.stringify(response))
-                        caller.socket.close()
-                        return
-                    }
-                    /*
-                    The caller's Node needs to be parseable.
-                    */
-                    try {
-                        caller.node = JSON.parse(messageHeader.callerNode)
-                    } catch (err) {
-                        let response = {
-                            result: 'Error',
-                            message: 'node Not Coorrect JSON Format.'
-                        }
-                        caller.socket.send(JSON.stringify(response))
-                        caller.socket.close()
-                        return
-                    }
-                    /*
                     The caller needs to provide it's User Profile Handle.
                     */
                     if (messageHeader.callerProfileHandle === undefined) {
@@ -374,7 +348,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
                     if (witnessUserProfile === undefined) {
                         let response = {

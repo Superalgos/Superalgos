@@ -99,7 +99,7 @@
     "telegraf": "^4.4.2",
     "terser-webpack-plugin": "4.2.3",
     "ts-pnp": "1.2.0",
-    "twitter": "^1.7.1",
+    "twitter-api-v2": "^1.7.1",
     "url-loader": "4.1.1",
     "util": "^0.12.4",
     "web-vitals": "^1.1.2",

@@ -1,0 +1,36 @@
+{
+    "type": "Raise Event Rules",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Raise Event Rules",
+            "relatedUiObject": "Raise Event Reference",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Events Manager->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "raiseEventReference",
+            "type": "array",
+            "childType": "Raise Event Reference"
+        }
+    ],
+    "propertyNameAtParent": "raiseEventRules"
+}

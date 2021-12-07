@@ -660,8 +660,8 @@
                                 "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35412.40401336044,
-                                        "y": 13613.918420353886
+                                        "x": 35494.465391959064,
+                                        "y": 13547.466426222752
                                     },
                                     "targetPosition": {
                                         "x": 35663.215391959064,
@@ -713,71 +713,6 @@
                                             "Position",
                                             "Governance",
                                             "8bfad32e-ec6e-4fc7-97a5-8edaf4146076"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Contribution Claim",
-                                "name": "Public Relations Team Token Pool Marketing Teams PoW Report",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "c2c7fd17-ea3d-41f9-a2fd-97fb2e0f5f09",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35800.489008997145,
-                                        "y": 13531.428408045622
-                                    },
-                                    "targetPosition": {
-                                        "x": 35663.215391959064,
-                                        "y": 13839.75
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position",
-                                        "name": "Public Relations Team Token Pool",
-                                        "id": "62b14d55-4a13-4f97-b0ec-efff71cd9231"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Teams of Contributors",
-                                            "Positions",
-                                            "Governance",
-                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
-                                        ],
-                                        [
-                                            "Teams @ Nov 2021",
-                                            "Position Class",
-                                            "Governance",
-                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
-                                        ],
-                                        [
-                                            "Teams With PoW Reports",
-                                            "Position Class",
-                                            "Governance",
-                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
-                                        ],
-                                        [
-                                            "Marketing Teams PoW Report",
-                                            "Position Class",
-                                            "Governance",
-                                            "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
-                                        ],
-                                        [
-                                            "Public Relations Team Token Pool",
-                                            "Position",
-                                            "Governance",
-                                            "62b14d55-4a13-4f97-b0ec-efff71cd9231"
                                         ]
                                     ]
                                 }
@@ -855,8 +790,8 @@
                                 "id": "51f345f8-d7ac-474e-8427-2408656d20de",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 35733.38558761006,
-                                        "y": 14169.87481524766
+                                        "x": 35831.965391959064,
+                                        "y": 14132.033573777248
                                     },
                                     "targetPosition": {
                                         "x": 35663.215391959064,
@@ -881,23 +816,33 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
                                             "Teams @ Nov 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
                                             "Marketing Teams PoW Report",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
                                         ],
                                         [
                                             "Exchange Relationships Team Token Pool",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "522fe7af-6343-42f7-9f4d-feb2c51e257c"
                                         ]
                                     ]
                                 }
@@ -1231,8 +1176,8 @@
                 "y": 14008.5
             },
             "targetPosition": {
-                "x": 34482.758620689645,
-                "y": 14000.000000000002
+                "x": 37931.03448275861,
+                "y": 28400
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1254,12 +1199,12 @@
         "id": "f95822af-6480-47f6-9f64-93e3b0da64d5",
         "savedPayload": {
             "position": {
-                "x": 34332.758620689645,
-                "y": 14000.000000000002
+                "x": 37781.03448275861,
+                "y": 28400
             },
             "targetPosition": {
-                "x": 34482.758620689645,
-                "y": 14000.000000000002
+                "x": 37931.03448275861,
+                "y": 28400
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1277,12 +1222,12 @@
     "id": "75a78d74-93f3-44c5-a96a-5b2b9f730afe",
     "savedPayload": {
         "position": {
-            "x": 34482.758620689645,
-            "y": 14000.000000000002
+            "x": 37931.03448275861,
+            "y": 28400
         },
         "targetPosition": {
-            "x": 34482.758620689645,
-            "y": 14000.000000000002
+            "x": 37931.03448275861,
+            "y": 28400
         },
         "floatingObject": {
             "isPinned": false,

@@ -67,15 +67,30 @@ exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSig
             return response
         }
         /*
+        Validate that the Signed Message is the same as the Signal received.
+        */
+        let signedMessage = JSON.stringify(signalMessage.signal)
+        if (
+            signedMessage !== signalMessage.signatures.userApp.message ||
+            signedMessage !== signalMessage.signatures.socialTradingBot.message
+        ) {
+            let response = {
+                result: 'Error',
+                message: 'Signal Message Does Not Match Signature Message.'
+            }
+            return response
+        }
+        /*
         We will verify that the signatures belongs to the signal contained at the message.
         To do this we will hash the signature.message and see if we get 
         the same hash of the signature.
         */
-        let hash = web3.eth.accounts.hashMessage(signalMessage.signal)
+
+        let hash = web3.eth.accounts.hashMessage(signedMessage)
         if (
             hash !== signalMessage.signatures.userApp.messageHash ||
             hash !== signalMessage.signatures.socialTradingBot.messageHash
-            ) {
+        ) {
             let response = {
                 result: 'Error',
                 message: 'Signal Hash Does Not Match Signature Hash.'

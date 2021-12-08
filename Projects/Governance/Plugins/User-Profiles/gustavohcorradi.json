@@ -681,7 +681,7 @@
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
-                "config": "{\n    \"percentage\": 70\n}",
+                "config": "{\n    \"percentage\": 80\n}",
                 "project": "Governance",
                 "assetClaimsFolders": [],
                 "featureClaimsFolders": [],

@@ -94,6 +94,11 @@
                 "language": "RU",
                 "text": "Production Trading Tasks организует торговые сессии, включающие торговлю в режиме реального времени.",
                 "updated": 1638355950987
+            },
+            {
+                "language": "TR",
+                "text": "Ticareti Görevleri Üretim düğümü, canlı ticareti içeren ticaret oturumları düzenler.",
+                "updated": 1638952743790
             }
         ]
     }

@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Машина времени синхронизирует несколько графиков временной шкалы на одной и той же временной шкале. Графики временной шкалы в машине времени могут иметь разные шкалы скорости или шкалы временных рамок, но их шкала времени всегда будет совпадать.",
                 "updated": 1636199722951
+            },
+            {
+                "language": "TR",
+                "text": "Bir zaman makinesi, aynı zaman çizelgesi üzerinde birden \ngrafiği senkronize eder. Bir zaman makinesi içindeki zaman çizelgeleri, farklı hız ölçeklerine veya zaman çerçevesi ölçeklerine sahip olabilir, ancak zaman ölçekleri her zaman eşleşir.",
+                "updated": 1638969379783
             }
         ],
         "updated": 1628644911381

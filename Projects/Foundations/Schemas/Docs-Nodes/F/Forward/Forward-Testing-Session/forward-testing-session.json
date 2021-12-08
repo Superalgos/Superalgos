@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Сессия форвардного тестирования - это торговый режим, в котором экземпляр торгового бота выполняет реальную торговлю с определенной пользователем долей доступного капитала.",
                 "updated": 1636195888530
+            },
+            {
+                "language": "TR",
+                "text": "Forward Testing Session, ticaret bot'unun, mevcut sermayenin kullanıcı tanımlı bir bölümü ile canlı ticaret gerçekleştirdiği bir ticaret modudur.",
+                "updated": 1638968565873
             }
         ]
     },

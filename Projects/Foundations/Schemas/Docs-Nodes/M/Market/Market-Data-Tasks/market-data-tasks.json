@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Задачи рыночных данных группирует задачи интеллектуального анализа данных, работающие на определенном рынке.",
                 "updated": 1636195923570
+            },
+            {
+                "language": "TR",
+                "text": "Market Veri Görevleri düğümü, belirli bir pazarda faaliyet gösteren veri madenciliği görevlerini gruplandırır.",
+                "updated": 1638966713442
             }
         ]
     },

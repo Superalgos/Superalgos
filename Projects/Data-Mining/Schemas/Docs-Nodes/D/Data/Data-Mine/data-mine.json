@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Data Mine - это иерархия, содержащая определения датчиков и ботов-индикаторов, а также их плоттеров. Эти определения взяты из фактического кода таких ботов.",
                 "updated": 1638275063658
+            },
+            {
+                "language": "TR",
+                "text": "Veri madeni, sensör ve gösterge botlarının ve bunların çizicilerinin ( grafiğe dökülmesi) tanımlarını içeren bir hiyerarşidir. Bu tanımlar, bu tür botların altüel kodundan üretilir.",
+                "updated": 1638966901121
             }
         ]
     },

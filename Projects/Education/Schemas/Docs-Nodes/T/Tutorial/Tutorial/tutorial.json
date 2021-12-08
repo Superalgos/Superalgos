@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Иерархия Tutorial содержит свободное расположение Tutorial Topic и узлов Tutorial Step, которые вместе составляют это учебное пособие. Каждый узел в иерархии, включая родительский узел пособия, представляет собой HTML-страницу, которая может быть наложена поверх Design Space и Charting Space.",
                 "updated": 1638340460215
+            },
+            {
+                "language": "TR",
+                "text": "Öğretici hiyerarşisi, bir öğretici oluşturan Eğitim Konusu ( Tutorial Topic ) ve Eğitim Adımı ( Tutorial Step ) düğümlerinin ücretsiz bir düzenlemesini içerir. Ana eğitim düğümü de dahil olmak üzere hiyerarşideki her düğüm, hem Tasarım Alanının hem de Grafik Alanının üzerine yerleştirilebilecek bir HTML sayfasını temsil eder.",
+                "updated": 1638951969328
             }
         ]
     },

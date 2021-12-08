@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Торговая сессия в реальном времени - это режим торговли, с помощью которого экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, размещает заданные ордера на соответствующей бирже и сохраняет определенные данные продуктов.",
                 "updated": 1635452817783
+            },
+            {
+                "language": "TR",
+                "text": "Canlı Ticaret Oturumu, ticaret botu'nun bir canlı piyasa veri beslemesini okuduğu, ilgili ticaret sisteminde tanımlanan kuralları uyguladığı, ilgili emirleri ilgili borsaya yerleştirdiği ve tanımlanan veri ürünlerini depoladığı bir ticaret modudur.",
+                "updated": 1638954552457
             }
         ]
     },

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Sensor Bot Instance - это ссылка на сенсорный бот, как это определено в Data Mine. Экземпляр бота запускает определенные процессы и генерирует определенные продукты данных.",
                 "updated": 1638362886389
+            },
+            {
+                "language": "TR",
+                "text": "Bir sensör botu olayı, bir veri madeninde tanımlandığı şekliyle bir Sensör Botuna referanstır. Bot örneği, tanımlanan süreçleri çalıştırır ve tanımlanan veri ürünlerini oluşturur.",
+                "updated": 1638955071693
             }
         ]
     },

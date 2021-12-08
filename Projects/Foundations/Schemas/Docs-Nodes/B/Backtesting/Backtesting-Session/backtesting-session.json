@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Сессия Обратного тестирования - это торговый режим, с помощью которого экземпляр торгового бота считывает исторические рыночные данные в заданном пользователем диапазоне дат и времени, применяет правила, определенные в соответствующей торговой системе и генерирует торговую симуляцию.",
                 "updated": 1635592132857
+            },
+            {
+                "language": "TR",
+                "text": "Geriye Dönük Test Oturumu, ticaret bot'nun kullanıcı tanımlı bir tarih-saat aralığında geçmiş piyasa verilerini okuduğu, ilgili ticaret sisteminde tanımlanan kuralları uyguladığı ve bir ticaret simülasyonu oluşturduğu bir ticaret modudur.",
+                "updated": 1638954499137
             }
         ]
     },

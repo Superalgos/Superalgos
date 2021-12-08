@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Эта книга проведет вас по пути, который поможет вам изучить Superalgos наиболее эффективным способом. Интерактивные учебники - лучший инструмент для преодоления кривой обучения. Настоятельно рекомендуется выполнять учебники в предложенном порядке.",
                 "updated": 1637920073292
+            },
+            {
+                "language": "TR",
+                "text": "Bu kılavuz, Superalgos'u mümkün olan en verimli şekilde öğrenmenize yardımcı olacak yolda size rehberlik edecektir. Etkileşimli öğreticiler, öğrenme sürecinin üstesinden gelmek için en iyi araçtır. Öğreticileri önerilen sırayla yapmak şiddetle tavsiye edilir.",
+                "updated": 1638914991277
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "RU",
                     "text": "Как использовать эту книгу",
                     "updated": 1637920084060
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Kılavuz Nasıl Kullanılır?",
+                    "updated": 1638915016291
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "RU",
                     "text": "Учебники обеспечивают максимальный практический опыт обучения. Изучение всех существующих учебников оказалось наиболее эффективным способом преодоления кривой обучения.",
                     "updated": 1637920111715
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler, uygulamalı öğrenme deneyimi sağlar. Mevcut tüm eğitimleri yapmanın, öğrenme sürecinin üstesinden gelmenin en etkili yolu olduğu kanıtlanmıştır.",
+                    "updated": 1638915173767
                 }
             ]
         },
@@ -59,6 +74,11 @@
                     "language": "RU",
                     "text": "Чтобы сделать учебник, загрузите соответствующее рабочее пространство плагина, найдите учебник в нижней части пространства проектирования и выберите в меню пункт Play.",
                     "updated": 1637920130755
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir öğretici başlatmak için ilgili eklenti çalışma alanını yükleyin, tasarım alanının altındaki öğreticiyi bulun ve menüden Oynat'ı seçin.",
+                    "updated": 1638915224839
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "RU",
                     "text": "Когда вам нужно быстрое обновление, вы всегда можете вернуться и переделать весь учебник или несколько шагов. Поскольку учебники состоят из страниц с возможностью поиска, вы также можете сканировать содержимое, фактически не выполняя учебник.",
                     "updated": 1637920230871
+                },
+                {
+                    "language": "TR",
+                    "text": "Hızlı bir tekrara ihtiyacınız olduğunda, her zaman geri dönüp tüm öğreticiyi veya birkaç adımı tekrarlayabilirsiniz. Öğreticiler aranabilir sayfalardan oluştuğundan, öğreticiyi gerçekten yapmadan içeriği de tarayabilirsiniz.",
+                    "updated": 1638915299829
                 }
             ]
         },
@@ -92,6 +117,11 @@
                     "language": "RU",
                     "text": "Рекомендуемый порядок приведен в списке ниже, но правда в том, что все учебники имеют значение, независимо от порядка.",
                     "updated": 1637920246813
+                },
+                {
+                    "language": "TR",
+                    "text": "Önerilen sıra aşağıdaki listede verilmiştir, ancak gerçek şu ki, sıra ne olursa olsun önemli olan tüm dersleri yapmaktır.",
+                    "updated": 1638915318393
                 }
             ]
         },
@@ -103,6 +133,11 @@
                     "language": "RU",
                     "text": "Список рабочих пространств и учебников по плагинам",
                     "updated": 1637920261835
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) ve Öğreticilerin (Tutorial) Listesi",
+                    "updated": 1638915383541
                 }
             ]
         },
@@ -120,6 +155,11 @@
                     "language": "RU",
                     "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Plugin Workspaces) и учебников, которые есть в каждом из них.",
                     "updated": 1637920336885
+                },
+                {
+                    "language": "TR",
+                    "text": "Size kolaylık sağlamak için, Eklenti Çalışma Alanları ile her birinin içerdiği öğreticilerin bir ilişkisini aşağıda listelenmiştir.",
+                    "updated": 1638915455745
                 }
             ]
         },

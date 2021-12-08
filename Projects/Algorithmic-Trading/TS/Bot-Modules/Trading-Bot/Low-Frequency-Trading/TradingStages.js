@@ -47,6 +47,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         snapshotsModuleObject.initialize()
         tradingExecutionModuleObject.initialize()
         tradingEpisodeModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
     }
 
     function finalize() {
@@ -71,6 +72,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
         tradingEpisodeModuleObject.finalize()
         tradingEpisodeModuleObject = undefined
+
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {

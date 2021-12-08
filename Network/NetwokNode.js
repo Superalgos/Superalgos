@@ -56,7 +56,7 @@ exports.newNetworkNode = function newNetworkNode() {
             thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
             await thisObject.socialGraphService.initialize()
             /*
-            The Sotrage deals with persisting the Social Graph.
+            The Storage deals with persisting the Social Graph.
             */
             thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
             thisObject.storage.initialize()
@@ -65,13 +65,13 @@ exports.newNetworkNode = function newNetworkNode() {
             */
             thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort)
+            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkNode.p2pNetworkNode.node.config.webSocketsPort)
             /*
             Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
             */
             thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Network Node Http Interface .................................................. Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webPort)
+            console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkNode.p2pNetworkNode.node.config.webPort)
         }
     }
 }

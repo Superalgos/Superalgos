@@ -47,6 +47,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         snapshotsModuleObject.initialize()
         tradingExecutionModuleObject.initialize()
         tradingEpisodeModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
     }
 
     function finalize() {
@@ -71,6 +72,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
         tradingEpisodeModuleObject.finalize()
         tradingEpisodeModuleObject = undefined
+
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -154,7 +158,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                     /* Initialize this */
                                     tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value = 1
 
-                                    outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOn)
+                                    await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOn)
                                     announcementsModuleObject.makeAnnouncements(triggerStage.triggerOn)
 
                                     if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {

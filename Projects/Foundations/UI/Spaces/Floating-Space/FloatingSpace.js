@@ -347,6 +347,10 @@ function newFoundationsFloatingSpace() {
             y: browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
         }
 
+        /* Do not displace if we would end up out of bounds */
+        if (thisObject.container.frame.position.y + displaceVector.y >
+            -(TOP_SPACE_HEIGHT + COCKPIT_SPACE_HEIGHT) * thisObject.container.frame.height / browserCanvas.height) { return }
+
         thisObject.container.displace(displaceVector)
         return displaceVector
     }
@@ -357,6 +361,7 @@ function newFoundationsFloatingSpace() {
             x: 0,
             y: -browserCanvas.height * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100
         }
+        if (thisObject.container.frame.position.y + displaceVector.y + thisObject.container.frame.height < browserCanvas.height) { return }
 
         thisObject.container.displace(displaceVector)
         return displaceVector
@@ -368,6 +373,7 @@ function newFoundationsFloatingSpace() {
             x: browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
             y: 0
         }
+        if (thisObject.container.frame.position.x + displaceVector.x > 0) { return }
 
         thisObject.container.displace(displaceVector)
         return displaceVector
@@ -379,6 +385,7 @@ function newFoundationsFloatingSpace() {
             x: -browserCanvas.width * PERCENTAGE_OF_SCREEN_FOR_DISPLACEMENT / 100,
             y: 0
         }
+        if (thisObject.container.frame.position.x + displaceVector.x + thisObject.container.frame.width < browserCanvas.width) { return }
 
         thisObject.container.displace(displaceVector)
         return displaceVector

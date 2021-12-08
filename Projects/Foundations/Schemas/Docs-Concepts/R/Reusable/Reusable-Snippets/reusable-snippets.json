@@ -255,7 +255,11 @@
             "updated": 1620501837377
         },
         {
-            "style": "Note",
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Text",
             "text": "All contributions to the Docs and Plugins must be submitted to the Plugins-Docs branch. All contributions to the code base must be submitted to the Develop branch. Make sure you update to the latest version in new branch and that everything you are submitting works properly in that version.",
             "updated": 1620501903096,
             "translations": [
@@ -272,6 +276,15 @@
             ]
         },
         {
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups.",
+            "updated": 1638831064656
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
             "style": "Subtitle",
             "text": "Switch Branches",
             "updated": 1620501916113,
@@ -285,8 +298,8 @@
         },
         {
             "style": "Text",
-            "text": "To switch to the plugins-docs or the develop branch:",
-            "updated": 1620501928162,
+            "text": "To switch to the plugins-docs(-outdated) or the develop branch:",
+            "updated": 1638831170834,
             "translations": [
                 {
                     "language": "DE",
@@ -318,8 +331,8 @@
         },
         {
             "style": "List",
-            "text": "Select Plugins-Docs or Develop under the Contributions Branch title.",
-            "updated": 1620501942290,
+            "text": "Select Develop or master(only if you get specifically told to switch into master branch) under the Contributions Branch title.",
+            "updated": 1638831120115,
             "translations": [
                 {
                     "language": "DE",
@@ -335,8 +348,8 @@
         },
         {
             "style": "List",
-            "text": "Then select Plugins-Docs or Develop under the Choose the Current Branch title.",
-            "updated": 1620501951286,
+            "text": "Then select Develop or master(only if you get specifically told to switch into master branch) under the Choose the Current Branch title.",
+            "updated": 1638831147506,
             "translations": [
                 {
                     "language": "DE",

@@ -19,9 +19,9 @@ exports.newSocialTradingModulesQueriesBotProfileStats = function newSocialTradin
         */
         let userProfile
         if (queryReceived.targetUserProfileId !== undefined) {
-            userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            userProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(queryReceived.targetUserProfileId)
         } else {
-            userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            userProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
 
         if (userProfile === undefined) {

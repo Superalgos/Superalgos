@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Wenn alles gut gegangen ist, müssen Sie eine Bestätigung erhalten haben, dass der Beitragszweig geändert wurde! Großartig!",
-                "updated": 1634821709445
+                "text": "Wenn alles gut gegangen ist, müssen Sie eine Bestätigung erhalten haben, dass der Beitragszweig(contributions-branch) geändert wurde! Großartig!",
+                "updated": 1638831999790
             }
         ]
     },
@@ -73,8 +73,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie den Zweig wechseln, wird die Anwendung eine Reihe von Git-Befehlen ausführen, die die Software aus dem plugins-docs-Zweig Ihres Forks herunterladen! Die aktuelle Software wird auf Ihrer Festplatte ersetzt! Aus diesem Grund müssen Sie die Anwendung nach dem Wechsel schließen. Aber lassen Sie uns noch ein paar Dinge besprechen, bevor Sie fortfahren!",
-                    "updated": 1634821752941
+                    "text": "Wenn Sie den Zweig wechseln, wird die Anwendung eine Reihe von Git-Befehlen ausführen, die die Software aus dem develop-Zweig Ihres Forks herunterladen! Die aktuelle Software wird auf Ihrer Festplatte ersetzt! Aus diesem Grund müssen Sie die Anwendung nach dem Wechsel schließen. Aber lassen Sie uns noch ein paar Dinge besprechen, bevor Sie fortfahren!",
+                    "updated": 1638832046326
                 }
             ]
         }

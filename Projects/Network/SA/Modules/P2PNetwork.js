@@ -1,7 +1,9 @@
 exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     /*
     This module represents the P2P Network and it is needed to enable the connection
-    of this current node to other peers.
+    of this current node to other peers. The main feature here is the array on 
+    nodes that we can potengially connect to. When we are running with the role of a Network Peer,
+    the list of available nodes will exclude ourselves.
     */
     let thisObject = {
         p2pNodesToConnect: undefined,

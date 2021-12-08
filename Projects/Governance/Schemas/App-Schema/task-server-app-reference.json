@@ -12,6 +12,9 @@
             "actionFunction": "payload.executeAction"
         }
     ],
+    "title": [
+        "Use Reference Parent"
+    ],
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {

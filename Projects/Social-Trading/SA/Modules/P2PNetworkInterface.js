@@ -4,10 +4,13 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     that are not responses to requests sent.
 
     This is the case for any kind of events happening at entities followed
-    by the user running this app, in particular trading events.
+    by the user running this app, in particular trading signals.
     */
     let thisObject = {
+        p2pNetworkInterface: undefined,
         eventReceived: eventReceived,
+        signalReceived: signalReceived,
+        userApp: userApp,
         initialize: initialize,
         finalize: finalize
     }
@@ -19,10 +22,22 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     }
 
     function initialize() {
+        /*
+        This is where we will process all the events / signals comming from the p2p network.
+        */
+        thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
 
     }
 
     async function eventReceived(event) {
         DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
+    }
+
+    async function signalReceived(signalMessage) {
+        /*
+        We will run some valiadtions to be sure the signal received is legit.
+        */
+       
+        userApp.signalReceived()
     }
 }

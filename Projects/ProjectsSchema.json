@@ -175,13 +175,13 @@
                     "name": "Portfolio Manager Events Client",
                     "propertyName": "portfolioManagerEventsClient",
                     "functionName": "newPortfolioManagementModulesPortfolioManagerEventsClient",
-                    "fileName": "PortfolioManagerEventsClient.js" 
+                    "fileName": "PortfolioManagerEventsClient.js"
                 },
                 {
                     "name": "Portfolio Manager Events Interface",
                     "propertyName": "portfolioManagerEventsInterface",
                     "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
-                    "fileName": "PortfolioManagerEventsInterface.js" 
+                    "fileName": "PortfolioManagerEventsInterface.js"
                 }
             ],
             "botModules": [
@@ -1610,7 +1610,7 @@
                     "propertyName": "webHttpNetworkClient",
                     "functionName": "newNetworkModulesHttpNetworkClient",
                     "fileName": "HttpNetworkClient.js"
-                },                
+                },
                 {
                     "name": "User Profiles",
                     "propertyName": "userProfiles",
@@ -1640,7 +1640,7 @@
                     "propertyName": "p2pNetworkStart",
                     "functionName": "newNetworkModulesP2PNetworkStart",
                     "fileName": "P2PNetworkStart.js"
-                },                
+                },
                 {
                     "name": "P2P Network Client Identity",
                     "propertyName": "p2pNetworkClientIdentity",
@@ -1789,6 +1789,12 @@
                     "propertyName": "socialGraphPost",
                     "functionName": "newSocialTradingModulesSocialGraphPost",
                     "fileName": "Social-Graph/Post.js"
+                },
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
                 }
             ],
             "globals": [
@@ -1850,12 +1856,6 @@
                     "propertyName": "webAppInterface",
                     "functionName": "newSocialTradingModulesWebAppInterface",
                     "fileName": "WebAppInterface.js"
-                },
-                {
-                    "name": "P2P Network Interface",
-                    "propertyName": "p2pNetworkInterface",
-                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
-                    "fileName": "P2PNetworkInterface.js"
                 },
                 {
                     "name": "Social Graph",
@@ -1961,6 +1961,13 @@
                     "propertyName": "outgoingTradingSignals",
                     "functionName": "newTradingSignalsModulesOutgoingTradingSignals",
                     "fileName": "OutgoingTradingSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Trading Signals",
+                    "propertyName": "incomingTradingSignals",
+                    "functionName": "newTradingSignalsModulesIncomingTradingSignals",
+                    "fileName": "IncomingTradingSignals.js",
                     "folderName": ""
                 }
             ]

@@ -26,6 +26,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     let tradingExecutionModuleObject = TS.projects.algorithmicTrading.botModules.tradingExecution.newAlgorithmicTradingBotModulesTradingExecution(processIndex)
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
     let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+    let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
     let portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
     let snapshotsModuleObject = TS.projects.algorithmicTrading.botModules.snapshots.newAlgorithmicTradingBotModulesSnapshots(processIndex)
     let tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
@@ -48,6 +49,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         tradingExecutionModuleObject.initialize()
         tradingEpisodeModuleObject.initialize()
         outgoingTradingSignalsModuleObject.initialize()
+        incomingTradingSignalsModuleObject.initialize()
     }
 
     function finalize() {
@@ -75,6 +77,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
         outgoingTradingSignalsModuleObject.finalize()
         outgoingTradingSignalsModuleObject = undefined
+
+        incomingTradingSignalsModuleObject.finalize()
+        incomingTradingSignalsModuleObject = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -188,6 +193,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 if (triggerStage !== undefined) {
                     if (triggerStage.triggerOff !== undefined) {
+
+                        let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
+
                         for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
                             let situation = triggerStage.triggerOff.situations[k]
                             let passed
@@ -209,7 +217,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOff.value = 1
 
-                                outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOff)
+                                await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.triggerOff)
                                 announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')

@@ -27,6 +27,11 @@
                 "language": "RU",
                 "text": "Узел Project Data Tasks - это организационное устройство, объединяющее все Data Tasks, соответствующие одному и тому же проекту.",
                 "updated": 1638358378928
+            },
+            {
+                "language": "TR",
+                "text": "Proje Veri Görevleri düğümü, aynı Projeye karşılık gelen tüm Veri Görevlerini gruplayan organizasyonel bir cihazdır.",
+                "updated": 1638954735055
             }
         ]
     }

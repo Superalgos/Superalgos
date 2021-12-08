@@ -88,6 +88,11 @@
                 "language": "RU",
                 "text": "Data Tasks относятся к интеллектуальному анализу данных, т.е. к деятельности по обработке данных. Вам необходимо обрабатывать данные для подачи графиков, чтобы Ваши торговые системы могли принимать решения на основе качественной информации.",
                 "updated": 1638356535434
+            },
+            {
+                "language": "TR",
+                "text": "Veri görevleri, veri madenciliğini, yani veri işleme faaliyetini ifade eder. Grafikleri beslemek için verileri işlemeniz gerekir ve böylece ticaret sistemleriniz kaliteli bilgilere dayalı kararlar verebilir.",
+                "updated": 1638954331437
             }
         ]
     }

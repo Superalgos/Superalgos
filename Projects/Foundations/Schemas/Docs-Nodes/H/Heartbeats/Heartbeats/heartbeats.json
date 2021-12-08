@@ -1,7 +1,14 @@
 {
     "type": "Heartbeats",
     "definition": {
-        "text": "During a trading session, the backend communicates with the frontend via heartbeats to inform the frontend about the status of the session. The parameter controls what information is made available to the user through the frontend."
+        "text": "During a trading session, the backend communicates with the frontend via heartbeats to inform the frontend about the status of the session. The parameter controls what information is made available to the user through the frontend.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Во время торговой сессии серверная часть связывается с клиентской частью посредством тактовых импульсов, чтобы сообщить клиентской части о статусе сеанса. Параметр определяет, какая информация предоставляется пользователю через интерфейс.",
+                "updated": 1638965654160
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "This parameter affects how you see the progress of the trading session below the trading bot instance node on the design space."
+            "text": "This parameter affects how you see the progress of the trading session below the trading bot instance node on the design space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот параметр влияет на то, как вы видите ход торговой сессии под узлом экземпляра торгового бота Trading Bot Instance в пространстве дизайна Design Space.",
+                    "updated": 1638966004839
+                }
+            ]
         },
         {
             "style": "Block",
@@ -19,20 +33,48 @@
         {
             "style": "Title",
             "text": "Heartbeats Configuration",
-            "updated": 1609676752786
+            "updated": 1609676752786,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Heartbeats",
+                    "updated": 1638965831355
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609676758182
+            "updated": 1609676758182,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638965840942
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "date determines whether the date is shown in the progress notice below the trading process instance node; possible values are true or false."
+            "text": "date determines whether the date is shown in the progress notice below the trading process instance node; possible values are true or false.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "date определяет, отображается ли дата в уведомлении о ходе выполнения под узлом экземпляра торгового процесса Trading Process Instance; возможные значения - true (истина) или false (ложь).",
+                    "updated": 1638966097944
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "candleIndex determines whether the index of the candle is shown in the progress notice below the trading process instance node; possible values are true or false."
+            "text": "candleIndex determines whether the index of the candle is shown in the progress notice below the trading process instance node; possible values are true or false.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "candleIndex определяет, отображается ли индекс свечи в уведомлении о ходе выполнения под узлом экземпляра торгового процесса Trading Process Instance; возможные значения - true (истина) или false (ложь).",
+                    "updated": 1638966074737
+                }
+            ]
         }
     ]
 }

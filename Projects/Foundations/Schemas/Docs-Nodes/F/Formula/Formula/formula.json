@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Формула - это математическое выражение, предназначенное для определения числового значения, которое будет динамически применяться к определенному свойству.",
-                "updated": 1637757255574
+                "text": "Formula - это математическое выражение, предназначенное для определения числового значения, которое будет динамически применяться к определенному свойству.",
+                "updated": 1638964280985
             }
         ]
     },
@@ -23,12 +23,26 @@
         {
             "style": "Text",
             "text": "In the context of a Trading System, formulas are used to determine the values for several properties, such as the Target Rate, Target Size, Managed Stop Loss, Managed Take Profit, and so on.",
-            "updated": 1610211948110
+            "updated": 1610211948110,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте торговой системы Trading System, формулы используются для определения значений нескольких свойств, таких как Target Rate, Target Size, Managed Stop Loss, Managed Take Profit и т.д.",
+                    "updated": 1638964455685
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Formulas may use indicators and Trading Engine properties. The main difference between writing a Formula and writing a Condition is that while conditions must evaluate to true or false, formulas must evaluate to a number.",
-            "updated": 1610211971367
+            "updated": 1610211971367,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формулы могут использовать индикаторы и свойства торгового механизма. Основ��ое различие между написанием формулы Formula  и написанием условия Condition заключается в том, что, хотя условия должны оцениваться как истинные (true) или ложные (false), результатом вычисления формулы должно быть числом.",
+                    "updated": 1638964739071
+                }
+            ]
         },
         {
             "style": "Block",
@@ -41,11 +55,25 @@
         {
             "style": "Subtitle",
             "text": "A simple math example",
-            "updated": 1609346397254
+            "updated": 1609346397254,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простой математический пример",
+                    "updated": 1638964757714
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This simple formula may be used to define an initial take profit target 3% above the rate at which the position was taken."
+            "text": "This simple formula may be used to define an initial take profit target 3% above the rate at which the position was taken.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта простая формула может использоваться для определения первоначальной цели тейк-профита на 3% выше ставки, по которой была открыта позиция.",
+                    "updated": 1638964780163
+                }
+            ]
         },
         {
             "style": "Json",
@@ -53,21 +81,49 @@
         },
         {
             "style": "Note",
-            "text": "You may use any variable made available by the trading engine, as explained on the accessing runtime data page."
+            "text": "You may use any variable made available by the trading engine, as explained on the accessing runtime data page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать любую переменную, доступную в торговой системе, как описано на странице с данными времени выполнения Accessing Runtime Data.",
+                    "updated": 1638964916864
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "A simple JavaScript example",
-            "updated": 1609346401859
+            "updated": 1609346401859,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Простой пример JavaScript",
+                    "updated": 1638964935609
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A bit of very basic JavaScript, introducing conditional statements, allows more intelligence. For example, in this case, we ask if the proposed formula results in a number greater than the current stop loss value; if it does, then the proposed formula is used; if not, then the current stop loss value is left as is."
+            "text": "A bit of very basic JavaScript, introducing conditional statements, allows more intelligence. For example, in this case, we ask if the proposed formula results in a number greater than the current stop loss value; if it does, then the proposed formula is used; if not, then the current stop loss value is left as is.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, в этом случае мы спрашиваем, дает ли предложенная формула число больше, чем текущее значение стоп-лосса; если да, то используется предложенная формула; если нет, то текущее значение стоп-лосса остается как есть.",
+                    "updated": 1638965202307
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is—basically—a trailing stop loss 2% below the Bollinger Bands moving average that may go higher if the moving average goes up, but it may never come down—thanks to the use of the IF / ELSE clause.",
-            "updated": 1610563073190
+            "updated": 1610563073190,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это - в основном - скользящий стоп-лосс на 2% ниже скользящей средней полосы Боллинджера, который может увеличиваться, если скользящая средняя растет, но может никогда не снизиться - благодаря использованию конструкции IF / ELSE.",
+                    "updated": 1638965258058
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -85,12 +141,26 @@
         {
             "style": "Subtitle",
             "text": "For developers",
-            "updated": 1609346635457
+            "updated": 1609346635457,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для разработчиков",
+                    "updated": 1638965269551
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "To build more complex logic within a formula, create a function that implements the logic and returns a numerical value—and then call the function:",
-            "updated": 1610561517656
+            "updated": 1610561517656,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы построить более сложную логику в формуле, создайте функцию, которая реализует логику и возвращает числовое значение, а затем вызовите функцию:",
+                    "updated": 1638965287143
+                }
+            ]
         },
         {
             "style": "Javascript",

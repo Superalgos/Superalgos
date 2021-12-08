@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Для остановки всех задач может потребоваться до одной минуты. Вы никогда не должны закрывать систему до остановки всех задач.",
                 "updated": 1636197133652
+            },
+            {
+                "language": "NL",
+                "text": "Het kan een minuut duren voordat alle taken gestopt zijn. Sluit het systeem nooit voordat alle taken zijn gestopt.",
+                "updated": 1638780340286
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "RU",
                     "text": "Проверьте консольное приложение, чтобы увидеть, как прекращается процесс.",
                     "updated": 1636197186388
+                },
+                {
+                    "language": "NL",
+                    "text": "Controleer de console app of de taken stoppen!",
+                    "updated": 1638780387554
                 }
             ],
             "updated": 1616416021973
@@ -118,6 +128,11 @@
                     "language": "RU",
                     "text": "Правильный способ, чтобы закрыть Superalgos:",
                     "updated": 1636197216206
+                },
+                {
+                    "language": "NL",
+                    "text": "De juiste manier om Superalgos af te sluiten is:",
+                    "updated": 1638780416686
                 }
             ]
         },
@@ -153,6 +168,11 @@
                     "language": "RU",
                     "text": "Остановите все задачи и подождите пару минут.",
                     "updated": 1636197255402
+                },
+                {
+                    "language": "NL",
+                    "text": "Stop alle taken en wacht een paar minuten.",
+                    "updated": 1638780441110
                 }
             ]
         },
@@ -188,6 +208,11 @@
                     "language": "RU",
                     "text": "Когда все задачи остановятся, Вы можете закрыть консольное приложение или остановить процесс с помощью клавиш Ctrl + C.",
                     "updated": 1636197311204
+                },
+                {
+                    "language": "NL",
+                    "text": "Als alle taken gestopt zijn, sluit je de console app of stop het process met Ctrl + Key-C.",
+                    "updated": 1638780618494
                 }
             ]
         },
@@ -222,6 +247,11 @@
                     "language": "RU",
                     "text": "Вы можете закрыть браузер в любой момент и остановить обработку задач в фоновом режиме.",
                     "updated": 1636197378582
+                },
+                {
+                    "language": "NL",
+                    "text": "Je kan op elk moment de browser afsluiten en de taken in de achtergrond laten draaien.",
+                    "updated": 1638780572014
                 }
             ]
         },
@@ -257,6 +287,11 @@
                     "language": "RU",
                     "text": "Закрытие Client до остановки всех задач может привести к повреждению Ваших данных!",
                     "updated": 1636197418068
+                },
+                {
+                    "language": "NL",
+                    "text": "Het stoppen van de Client voordat de taken zijn gestopt, kan je data corrupt raken!",
+                    "updated": 1638780998930
                 }
             ]
         }

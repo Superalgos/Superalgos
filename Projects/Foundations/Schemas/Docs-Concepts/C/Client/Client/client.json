@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Client вместе с TS и UI является одним из трех основных компонентов программного обеспечения Superalgos.",
                 "updated": 1638276853370
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İstemci, TS ( Task Server ) ve UI ( User Interface ) ile birlikte Superalgos Yazılımının üç temel bileşeninden biridir.",
+                "updated": 1638953308419
             }
         ]
     },

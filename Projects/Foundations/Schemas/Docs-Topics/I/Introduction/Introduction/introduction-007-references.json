@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Чтобы установить ссылку, щелкните правой кнопкой мыши первый узел и перетащите его ближе к целевому узлу. Чтобы удалить ссылку, используйте кнопку удаления ссылки в меню.",
                 "updated": 1638275608891
+            },
+            {
+                "language": "TR",
+                "text": "Referans ( References ), bir düğümdeki bilgilerin diğer düğümlerle ilişkili olduğu veya bu düğümler tarafından erişildiği bir mekanizmadır. Bir düğümün başka bir düğümle referans oluşturma yeteneği, birincinin ikincisinde yer alan bilgilere veya özelliklere erişmesini sağlar.",
+                "updated": 1638950419414
             }
         ]
     },

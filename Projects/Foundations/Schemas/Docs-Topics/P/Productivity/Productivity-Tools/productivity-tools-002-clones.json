@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "La función clone está diseñada para producir copias de estructuras de datos cuando necesita replicar estructuras de nodos y espera que las copias se comporten de manera similar al original.",
                 "updated": 1628036115149
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Klonlama özelliği, düğüm yapılarını çoğaltmanız gerektiğinde ve kopyaların orijinaline benzer şekilde davranmasını beklediğinizde veri yapılarının kopyalarını üretmek için tasarlanmıştır.",
+                "updated": 1638951788141
             }
         ]
     },

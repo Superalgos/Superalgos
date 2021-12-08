@@ -126,7 +126,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 a strategy trigger off which can be hit before taking a position. If hit, we would
                 be outside a strategy again and looking for the conditions to enter all over again.
                 */
-                tradingSystem.evalConditions(tradingSystem, 'Trigger On Event')
 
                 for (let j = 0; j < tradingSystem.tradingStrategies.length; j++) {
                     if ( // If a strategy was already picked during the loop, we exit the loop
@@ -135,6 +134,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                     let strategy = tradingSystem.tradingStrategies[j]
                     let triggerStage = strategy.triggerStage
+
+                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
+                    tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signal)
 
                     if (triggerStage !== undefined) {
                         if (triggerStage.triggerOn !== undefined) {
@@ -193,8 +195,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 if (triggerStage !== undefined) {
                     if (triggerStage.triggerOff !== undefined) {
-
-                        let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
 
                         for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
                             let situation = triggerStage.triggerOff.situations[k]

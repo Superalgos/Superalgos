@@ -8,6 +8,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     */
     let thisObject = {
         p2pNetworkInterface: undefined,
+        getNextSignal: getNextSignal,
         eventReceived: eventReceived,
         signalReceived: signalReceived,
         userApp: userApp,
@@ -15,39 +16,59 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         finalize: finalize
     }
 
+    let signalsBySignalDefinitionId = new Map()
+
     return thisObject
 
     function finalize() {
 
     }
 
-    function initialize() {
+    function initialize(userApp) {
         /*
         This is where we will process all the events / signals comming from the p2p network.
         */
-        thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
-
+        thisObject.userApp = userApp
     }
 
     async function eventReceived(event) {
-        DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
+        userApp.signalReceived()
+
+        // DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
     }
 
     async function signalReceived(signalMessage) {
         /*
         We will run some valiadtions to be sure the signal received is legit.
         */
-        let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signalMessage)
-
-        if (response === undefined) {
-            response = {
-                result: 'Ok',
-                message: 'Signal Accepted.'
-            }
-
-            userApp.signalReceived()
-        } else {
+        if (SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signalMessage) !== undefined) {
             console.log('[WARN] Signal received could not be accepted -> cause = ' + response.message)
-        }            
+            return
+        }
+        /*
+        Next, we will add the signal to an array of signals received from the same Social Trading Bot / Signal Definition.
+        */
+        let signals = signalsBySignalDefinitionId.get(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id)
+        if (signals === undefined) { signal = [] }
+        signals.push(signalMessage.signal)
+        signalsBySignalDefinitionId.set(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id, signalMessage.signal)
+    }
+
+    function getNextSignal(signalDefinitionId) {
+        /*
+        Here we will allow the User App to request the next signal of a certain 
+        type, by providing the id of the Signal Definition Node, at the User Profile
+        providing the signal. 
+        */
+        let signals = signalsBySignalDefinitionId.get(signalDefinitionId)
+        if (signals === undefined) { return }
+        let signal = signals[0]
+        if (signal === undefined) { return }
+        /* 
+        If we do have a signal to return, we will remove it from the array where it was stored
+        so that we can not give it again in a next call.
+        */ 
+        signal.splice(0, 1)
+        return signal
     }
 }

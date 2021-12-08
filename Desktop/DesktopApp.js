@@ -40,7 +40,7 @@ exports.newDesktopApp = function newDesktopApp() {
             /*
             This is where we will process all the events comming from the p2p network.
             */
-            thisObject.p2pNetworkInterface = DK.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
+            thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
             /*
             Set up the connections to network nodes.
             */

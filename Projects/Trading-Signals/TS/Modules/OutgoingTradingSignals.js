@@ -30,8 +30,8 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             */
             let signalReference = node.outgoingSignals.signalReferences[i]
             if (signalReference.referenceParent === undefined) { return }
-            let socialTradingBotSignalDefinition = signalReference.referenceParent
-            let socialTradingBot = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(socialTradingBotSignalDefinition, 'Social Trading Bot')
+            let signalDefinition = signalReference.referenceParent
+            let socialTradingBot = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(signalDefinition, 'Social Trading Bot')
             if (socialTradingBot === undefined) { return }
             if (socialTradingBot.config === undefined) { return }
             let socialTradingBotCodeName = socialTradingBot.config.codeName 
@@ -67,8 +67,8 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                         socialTradingBot: {
                             id: socialTradingBot.id,
                             signalDefinition: {
-                                id: socialTradingBotSignalDefinition.id,
-                                type: socialTradingBotSignalDefinition.type
+                                id: signalDefinition.id,
+                                type: signalDefinition.type
                             }
                         }
                     }

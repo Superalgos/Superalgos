@@ -1223,16 +1223,16 @@
     "savedPayload": {
         "position": {
             "x": 37931.03448275861,
-            "y": 28400
+            "y": 23600
         },
         "targetPosition": {
             "x": 37931.03448275861,
-            "y": 28400
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 2,
             "arrangementStyle": 0

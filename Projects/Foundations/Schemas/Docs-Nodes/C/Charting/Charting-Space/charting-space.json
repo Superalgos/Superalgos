@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Charting Space - это иерархия, которая управляет конфигурацией диаграмм и двумерным пространством, в котором создаются диаграммы.",
                 "updated": 1638336056380
+            },
+            {
+                "language": "TR",
+                "text": "Grafik alanı, grafiklerin çizildiği ve konfigürasyonunun yönetildiği iki boyutlu uzaydır.",
+                "updated": 1638969233857
             }
         ]
     },

@@ -15,6 +15,11 @@
                 "language": "ES",
                 "text": "Este workspace es el primer punto de contacto con Superalgos. Su propósito es familiarizar a los nuevs usuarios con lo aspectos básicos de Superalgos.",
                 "updated": 1636559957769
+            },
+            {
+                "language": "TR",
+                "text": "Bu çalışma alanı, Superalgos ile ilk karşılaşma noktasıdır. Amacı, yeni kullanıcıları Superalgos'un tüm temel yönleriyle tanıştırmaktır.",
+                "updated": 1638964773960
             }
         ]
     },

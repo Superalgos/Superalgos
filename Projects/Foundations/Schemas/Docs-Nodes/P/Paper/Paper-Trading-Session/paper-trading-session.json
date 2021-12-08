@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Административная торговая сессия - это режим торговли, при котором экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, и генерирует торговую симуляцию.",
                 "updated": 1636195850621
+            },
+            {
+                "language": "TR",
+                "text": "Paper Trading Session, alım satım bot'unun canlı bir piyasa veri beslemesini okuduğu, ilgili alım satım sisteminde tanımlanan kuralları uyguladığı ve bir alım satım simülasyonu oluşturduğu bir alım satım modudur.",
+                "updated": 1638968462522
             }
         ]
     },

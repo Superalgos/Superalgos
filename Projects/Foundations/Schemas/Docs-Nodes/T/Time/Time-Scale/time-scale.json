@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Шкала времени управляет масштабом горизонтальной оси, т.е. временной шкалой соответствующей машины времени и всех графиков временной шкалы в ней.",
                 "updated": 1636202596939
+            },
+            {
+                "language": "TR",
+                "text": "Zaman ölçeği, yatay eksenin ölçeğini, yani zaman çizelgesini ve grafikteki tüm zaman periyotlarını kontrol eder.",
+                "updated": 1638969596834
             }
         ]
     },

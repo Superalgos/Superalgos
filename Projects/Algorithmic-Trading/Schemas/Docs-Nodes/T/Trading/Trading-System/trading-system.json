@@ -17,6 +17,11 @@
                 "language": "DE",
                 "text": "Ein Handelssystem ist ein Framework, der die Low-Level-Logik handhabt, die dazu dient, die Prozesse und Methoden zu strukturieren, die zur Umsetzung und Anwendung von trading strategies verwendet werden.",
                 "updated": 1636658948319
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret sistemi, ticaret stratejilerini uygulamak ve dağıtmak için kullanılan süreçleri ve yöntemleri yapılandırmaya hizmet eden düşük seviyeli mantığı işleyen bir sistemdir.",
+                "updated": 1638968130807
             }
         ]
     },

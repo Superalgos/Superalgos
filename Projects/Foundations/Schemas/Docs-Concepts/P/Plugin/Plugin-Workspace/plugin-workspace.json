@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Plugin Workspace относится к Workspace, созданному пользователем, внесенному в проект в виде плагина и распространяемому вместе с программным пакетом. Plugin Workspace полезны для предоставления пользователям доступа к готовым к запуску стратегиям, демонстрациям, учебным пособиям или введениям в области разрабатываемой системы.",
                 "updated": 1638287343879
+            },
+            {
+                "language": "TR",
+                "text": "Bir kullanıcı tarafından oluşturulan, projeye eklenti olarak katkıda bulunan ve yazılım paketi ile dağıtılan bir Çalışma Alanı anlamına gelir. Eklenti çalışma alanları, kullanıcılara çalışmaya hazır stratejilere, demolara, öğreticilere veya sistemin geliştirilmekte olan alanlarına girişlere erişim sağlamak için kullanışlıdır.",
+                "updated": 1638964836949
             }
         ]
     },

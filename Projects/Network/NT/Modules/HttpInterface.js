@@ -19,6 +19,10 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
 
     function initialize() {
         /*
+        Setup Web 3 Library
+        */
+        web3 = new SA.nodeModules.web3()
+        /*
         Setup the module that will process incoming signals.
         */
         thisObject.incomingSignals = NT.projects.network.modules.incomingSignals.newNetworkModulesIncomingSignals()

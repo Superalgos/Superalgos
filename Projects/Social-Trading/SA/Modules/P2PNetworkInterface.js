@@ -37,7 +37,17 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         /*
         We will run some valiadtions to be sure the signal received is legit.
         */
-       
-        userApp.signalReceived()
+        let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signalMessage)
+
+        if (response === undefined) {
+            response = {
+                result: 'Ok',
+                message: 'Signal Accepted.'
+            }
+
+            userApp.signalReceived()
+        } else {
+            console.log('[WARN] Signal received could not be accepted -> cause = ' + response.message)
+        }            
     }
 }

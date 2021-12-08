@@ -1971,6 +1971,16 @@
                     "folderName": ""
                 }
             ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signal Validations",
+                    "propertyName": "signalValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
+                    "fileName": "SignalValidations.js" 
+                } 
+            ]
         }
     }
 ]

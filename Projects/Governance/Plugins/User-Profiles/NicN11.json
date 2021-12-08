@@ -584,7 +584,7 @@
                                         "positionContributionClaims": [
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
+                                                "name": "",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "33974a6a-d6e2-4ede-90a9-fc8f4c01b099",
@@ -914,7 +914,7 @@
         "floatingObject": {
             "isPinned": true,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

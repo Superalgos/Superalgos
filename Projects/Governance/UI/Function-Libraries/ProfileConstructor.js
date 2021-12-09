@@ -159,10 +159,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 */
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
-                /* 
-                Delete the mnemonic from the Profile Constructor config.
-                */
-                node.config = "{}"
                 /*
                 Show nice message.
                 */

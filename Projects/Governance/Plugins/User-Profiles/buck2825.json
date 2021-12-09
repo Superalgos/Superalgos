@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "buck2825",
-    "config": "{\n    \"signature\": {\n        \"message\": \"buck2825\",\n        \"messageHash\": \"0x25077fb144655baf1d41fe987c015aa6d31238522cc615f5808b1c7dcf7992af\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xb3fcfe3b9563bed1ad547f18ece439164cb0d0448a5721ce7ccfcb61f8dceb03\",\n        \"s\": \"0x1aa3f081362e6364fc3499e66caa10e1f7e0f1f47e0c82260f0affcc24d09314\",\n        \"signature\": \"0xb3fcfe3b9563bed1ad547f18ece439164cb0d0448a5721ce7ccfcb61f8dceb031aa3f081362e6364fc3499e66caa10e1f7e0f1f47e0c82260f0affcc24d093141c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"buck2825\",\"messageHash\":\"0x25077fb144655baf1d41fe987c015aa6d31238522cc615f5808b1c7dcf7992af\",\"v\":\"0x1c\",\"r\":\"0xb3fcfe3b9563bed1ad547f18ece439164cb0d0448a5721ce7ccfcb61f8dceb03\",\"s\":\"0x1aa3f081362e6364fc3499e66caa10e1f7e0f1f47e0c82260f0affcc24d09314\",\"signature\":\"0xb3fcfe3b9563bed1ad547f18ece439164cb0d0448a5721ce7ccfcb61f8dceb031aa3f081362e6364fc3499e66caa10e1f7e0f1f47e0c82260f0affcc24d093141c\"},\"codeName\":\"buck2825\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -160,14 +160,14 @@
                 "userReferrers": [
                     {
                         "type": "User Referrer",
-                        "name": "Charlie67j",
+                        "name": "",
                         "config": "{}",
                         "project": "Governance",
                         "id": "f31299c2-9dd8-4aa8-9911-248c4dcc049e",
                         "savedPayload": {
                             "position": {
-                                "x": 14614.807621135331,
-                                "y": 11073.115242270662
+                                "x": 14655,
+                                "y": 11223.115242270662
                             },
                             "targetPosition": {
                                 "x": 14355,
@@ -186,13 +186,15 @@
                             },
                             "referenceParent": {
                                 "type": "User Profile",
-                                "name": "Charlie67j",
+                                "name": "Dummy",
                                 "id": "7f24cabd-729b-4fe5-9258-cbfa779ba03e"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
-                                    "Charlie67j",
-                                    "User Profile"
+                                    "Dummy",
+                                    "User Profile",
+                                    "Governance",
+                                    "7f24cabd-729b-4fe5-9258-cbfa779ba03e"
                                 ]
                             ]
                         }
@@ -351,17 +353,17 @@
     "id": "a35721bf-9df2-4730-887e-f5a7650786e4",
     "savedPayload": {
         "position": {
-            "x": 13755,
-            "y": 10703.5
+            "x": 40909.09090909091,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 13755,
-            "y": 10703.5
+            "x": 40909.09090909091,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

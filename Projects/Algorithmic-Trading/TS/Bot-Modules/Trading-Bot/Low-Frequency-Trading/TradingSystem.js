@@ -244,7 +244,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             if (typeof err === 'string' || err instanceof String) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
-            if (err.stack !== undefined) {
+            if (err !== undefined && err.stack !== undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
@@ -312,7 +312,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                                     evaluating,
                                     descendentOfNodeType,
                                     isDescendent,
-                                    node, 
+                                    node,
                                     signal
                                 )
                             }
@@ -329,7 +329,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                                     evaluating,
                                     descendentOfNodeType,
                                     isDescendent,
-                                    node, 
+                                    node,
                                     signal
                                 )
                             }

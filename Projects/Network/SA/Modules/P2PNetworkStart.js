@@ -36,7 +36,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
 
         thisObject.peers = []
 
-        connectToPeers()
+        await connectToPeers()
         intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
 
         async function connectToPeers() {
@@ -53,10 +53,17 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
 
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
                 if (isPeerConnected(peer) === true) { continue }
-                if (isPeerOnline(peer) === false) { continue }
 
-                thisObject.peers.push(peer)
+                await isPeerOnline(peer)
+                .then(isOnline)
+                .catch(isOffline)
 
+                function isOnline() {
+                    thisObject.peers.push(peer)
+                }
+                function isOffline() {
+                    
+                }
             }
 
             function isPeerConnected(peer) {
@@ -70,14 +77,33 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
 
             async function isPeerOnline(peer) {
                 /*
-                Test if the peer is actually online.
+                This function us to check if a network node is online and will 
+                receive an http request when needed.
                 */
-                if (peer.httpClient === undefined) {
+                let promise = new Promise(sendTestMessage)
+                return promise
+
+                async function sendTestMessage(resolve, reject) {
+                    /*
+                    Test if the peer is actually online.
+                    */
+                    if (peer.httpClient !== undefined) { return }
+
                     peer.httpClient = SA.projects.network.modules.webHttpNetworkClient.newNetworkModulesHttpNetworkClient()
                     peer.httpClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode)
-                }
 
-                return true // TODO:: actually check if this node is online
+
+                    await peer.httpClient.sendTestMessage()
+                        .then(isConnected)
+                        .catch(isNotConnected)
+
+                    function isConnected() {
+                        resolve()
+                    }
+                    function isNotConnected() {
+                        reject()
+                    }
+                }
             }
         }
     }

@@ -405,11 +405,15 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Teams of Contributors",
-                                    "Positions"
+                                    "Positions",
+                                    "Governance",
+                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                 ],
                                 [
                                     "Teams @ Nov 2021",
-                                    "Position Class"
+                                    "Position Class",
+                                    "Governance",
+                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                 ]
                             ]
                         }
@@ -710,16 +714,16 @@
     "savedPayload": {
         "position": {
             "x": 3409.090909090909,
-            "y": 28400
+            "y": 33200
         },
         "targetPosition": {
             "x": 3409.090909090909,
-            "y": 28400
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

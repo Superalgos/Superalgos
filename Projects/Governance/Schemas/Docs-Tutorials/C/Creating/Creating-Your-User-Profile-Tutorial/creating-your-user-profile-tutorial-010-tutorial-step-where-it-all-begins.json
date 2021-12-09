@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Hier befinden wir uns an der Spitze der Governance Project hierarchy. Lassen Sie uns das Profil erstellen!",
                 "updated": 1637873509200
+            },
+            {
+                "language": "RU",
+                "text": "Здесь мы находимся во главе иерархии проекта управления Governance Project. Давайте создадим этот профиль!",
+                "updated": 1639046765111
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf die Schaltfläche Add Profile Constructor.",
                     "updated": 1637873524931
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите на Add Profile Constructor.",
+                    "updated": 1639046810929
                 }
             ]
         },
@@ -94,6 +104,11 @@
                     "language": "DE",
                     "text": "Wir werden diese Node verwenden, um Ihr Benutzerprofil (User Profile) zu erstellen. Später werden Sie diese Node löschen, um alle sensiblen Informationen, die Sie zusammen mit den vom Konstruktor generierten Informationen eingeben, zu löschen. Aber das ist im Moment kein Grund zur Sorge! Ich lasse Sie wissen, wann Sie sie löschen müssen!",
                     "updated": 1637873720461
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы будем использовать этот узел для создания вашего профиля пользователя User Profile. Позже вы удалите этот узел, чтобы стереть всю конфиденциальную информацию, которую вы можете ввести вместе с информацией, которую создаст конструктор. Но здесь не о чем беспокоиться! Я дам вам знать, когда его удалить!",
+                    "updated": 1639046874862
                 }
             ]
         }

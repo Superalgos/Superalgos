@@ -2,7 +2,14 @@
     "type": "Votes And Claims Programs",
     "definition": {
         "text": "Votes and claims are instruments the Community uses to determine what is incentivized and how contributions are compensated. Use this node to spawn the Claims Program and the Voting Program.",
-        "updated": 1630226336941
+        "updated": 1630226336941,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Голоса и претензии - это инструменты, которые Community использует для определения того, что поощряется и как возмещаются взносы. Используйте этот узел, чтобы создать программы Claims Program и Voting Program.",
+                "updated": 1638986119590
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Success",
             "text": "Learn more about how Token Power Flows into these programs!",
-            "updated": 1630226462874
+            "updated": 1630226462874,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
+                    "updated": 1638986151659
+                }
+            ]
         },
         {
             "style": "Block",
@@ -21,7 +35,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638986163127
+                }
+            ]
         }
     ]
 }

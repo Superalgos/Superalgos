@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Este programa incentiva a los usuarios a bifurcar el repositorio de Superalgos, un paso necesario para contribuir. También incentiva a los usuarios a dar una estrella y ver el repositorio, lo que ayuda a los desarrolladores a encontrar el proyecto cuando buscan en Github.com.",
                 "updated": 1637844555204
+            },
+            {
+                "language": "RU",
+                "text": "Эта программа побуждает пользователей создать форк репозитория Superalgos, что является необходимым шагом для внесения своего вклада. Это также побуждает пользователей поставить звездочку и добавить репозиторий в список наблюдения, что помогает разработчикам находить проект при поиске на Github.com.",
+                "updated": 1638979847768
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "The Github Program distribuye los Rewards Pool definidos debajo de los Governance Programs > Onboarding Programssección de la jerarquía de Superalgos Pools.",
                     "updated": 1637844639051
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа Github распределяет пул вознаграждений Rewards Pool, определенный в разделе Governance Programs > Onboarding Programs иерархии пулов Superalgos.",
+                    "updated": 1638979968656
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "ES",
                     "text": "Generando el programa Github y enviando su User Profile ies todo lo que necesita hacer para participar en el programa. Para maximizar sus Tokens Awarded, ¡asegúrese de tener una bifurcación, una estrella y esté mirando el repositorio! El sistema realiza comprobaciones automáticas en Github.com y verifica su existencia en tiempo real.",
                     "updated": 1637844741335
+                },
+                {
+                    "language": "RU",
+                    "text": "Создание программы Github Program и отправка вашего профиля пользователя User Profile - это все, что вам нужно сделать, чтобы принять участие в программе. Чтобы максимально увеличить количество полученных токенов, убедитесь, что вы создали форк репозитория, поставили звездочку и вы следите за репозиторием! Система выполняет автоматическую проверку Github.com и проверяет их существование в режиме реального времени.",
+                    "updated": 1638980158208
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "ES",
                     "text": "Hay un límite de 1.000 SA para cada uno de estos incentivos. Esto significa que puede obtener hasta 3000 SA en Tokens Awarded si maximiza su participación.",
                     "updated": 1637844797302
+                },
+                {
+                    "language": "RU",
+                    "text": "Для каждого из этих стимулов существует ограничение в размере 1000 SA токенов. Это означает, что вы можете получить до 3000 SA токенов в качестве вознаграждения, если максимально увеличите свое участие.",
+                    "updated": 1638980310876
                 }
             ]
         },
@@ -60,6 +80,11 @@
                     "language": "ES",
                     "text": "En caso de que no haya suficientes tokens en el Rewards Pool para cubrir cada incentivo hasta el límite definido para todos los User Profiles,luego, cada perfil obtiene una proporción igual para cada uno de los incentivos aplicables.",
                     "updated": 1637844863885
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае, если в пуле вознаграждений недостаточно токенов для покрытия каждого стимула до определенного предела для всех профилей пользователей, то каждый профиль получает равную долю для каждого из применимых стимулов.",
+                    "updated": 1638980399506
                 }
             ]
         },
@@ -73,7 +98,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638980412788
+                }
+            ]
         }
     ]
 }

@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "En Superalgos, estamos orgullosos del nivel de soporte que ofrecemos a los recién llegados y a la comunidad en general. Es un aspecto crucial de nuestra cultura, basada por sobre todo en la colaboración. El Support Program posibilita a la comunidad compensar a los Community Mods contribuyendo a los esfuerzos de soporte del proyecto.",
                 "updated": 1633544186835
+            },
+            {
+                "language": "RU",
+                "text": "В Superalgos мы гордимся уровнем поддержки, которую мы предлагаем новичкам и сообществу в целом. Это важнейший аспект нашей культуры, основанной, прежде всего, на сотрудничестве. Программа поддержки Support Program позволяет сообществу Community компенсировать модификации сообщества Community Mods, способствующие усилиям по поддержке проекта.",
+                "updated": 1638984386133
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "ES",
                     "text": "Superalgos es un sistema vasto y y la curva de aprendizaje aún es un largo paso. Muchos usuarios ayudan, particularmente durante las etapas tempranas.",
                     "updated": 1633544374767
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos - обширная система, и кривая обучения все еще довольно крутая. Многим пользователям нужна помощь, особенно на ранних этапах.",
+                    "updated": 1638984420766
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "ES",
                     "text": "Mientras que la Community está siempre lista para ayudar con las preguntas típicas, hemos notado que lleva cierto nivel de experiencia y conocimiento para porveer un soporte efectivo. Por esto es que la selección de Community Mods está a cargo del Support Group.",
                     "updated": 1633544529696
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя сообщество всегда готово помочь с типичными вопросами, мы заметили, что для оказания эффективной поддержки требуется определенный уровень опыта и знаний. Вот почему некоторые Community Mods находятся в ведении группы Support Group.",
+                    "updated": 1638984662551
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "language": "ES",
                     "text": "Si alguna vez desea sumarse al equipo de los Community Mods, empieza a participar de varios de los grupos de Telegram y del Discord channels, ayudando a usuarios y respondiendo preguntas. Pronto lo descubriremos y lo llevaremos al equipo de los Community Mods!",
                     "updated": 1633544734836
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы когда-нибудь захотите присоединиться к команде Community Mods, начните участвовать в различных группах Telegram и каналах Discord, помогая пользователям и отвечая на вопросы. Мы скоро заметим вас и примем в команду разработчиков Community Mods!",
+                    "updated": 1638984771245
                 }
             ]
         },
@@ -65,6 +85,11 @@
                     "language": "ES",
                     "text": "Para participar, debe desplegar el Support Program y declarar sus supporters favoritos. Para hacer esto, agregue un nodo de User Supporter y uselo para establecer la referencia al User Profile de la persona que le ha ayudado más! Si tien más de un supporter favorito, agregue más nodos de User Supporter!",
                     "updated": 1633544936312
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы принять участие, вы должны запустить программу поддержки Support Program и объявить лучших пользователей, оказавших вам поддержку. Для этого добавьте узел User Supporter и используйте его, чтобы установить ссылку на профиль пользователя человека, который помог вам больше всего! Если у вас их много, добавьте больше узлов User Supporter!",
+                    "updated": 1638985485392
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "language": "ES",
                     "text": "Si rara vez usael grupo de Support, eso puede ser gracias al esfuerzo puesto en montar tutoriales y documentacion. Si es ese su caso, siéntase libre de elegir individuos o equipos haciendo  este trabajo  como sus supporters preferidos!",
                     "updated": 1633545138992
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы редко пользуетесь группой Support Group, это может быть связано с усилиями, вложенными в создание руководств и документации. Если это ваш случай, то не стесняйтесь выбирать людей или команды, выполняющие эту работу, в качестве ваших предпочтительных!",
+                    "updated": 1638985600784
                 }
             ]
         },
@@ -90,7 +120,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638985616631
+                }
+            ]
         }
     ]
 }

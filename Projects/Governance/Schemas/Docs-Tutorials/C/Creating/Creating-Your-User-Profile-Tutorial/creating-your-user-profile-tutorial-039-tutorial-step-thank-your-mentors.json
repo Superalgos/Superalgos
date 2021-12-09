@@ -15,6 +15,11 @@
                 "text": "Los mentores son cruciales para desarrollar colaboradores. ¡Son las personas que hacen un esfuerzo adicional para ayudarte a progresar y dominar Superalgos!",
                 "updated": 1630898636401,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Наставники имеют решающее значение для развития участников Contributors. Это люди, которые делают все возможное, чтобы помочь вам прогрессировать и осваивать Superalgos!",
+                "updated": 1639053225583
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "El Mentorship Programes muy similar al Support Program, solo que sus mentores no necesitan ser moderadores. ¡Puede ser tu amigo aprendiendo Superalgos contigo, o otro miembro de la comunidad!",
                     "updated": 1630898711625,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа наставничества Mentorship Program очень похожа на программу поддержки Support Program, только ваши наставники не обязательно должны быть модераторами. Это может быть ваш друг, изучающий Superalgos вместе с вами, или любой другой член сообщества!",
+                    "updated": 1639053294573
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "¡Declara a tus mentores!",
                     "updated": 1630898761046,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните программу и объявите своих наставников!",
+                    "updated": 1639053305575
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "¡Con esto, has completado la configuración de la Governance Programs orientado a los recién llegados! ¡Ahora es el momento de contribuir con tu User Profile al repositorio de Superalgos!",
                     "updated": 1630898857914,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "На этом вы завершили настройку основных программ управления Governance Programs, ориентированных на новичков! Пришло время добавить свой профиль пользователя User Profile в репозиторий Superalgos!",
+                    "updated": 1639053374051
                 }
             ]
         }

@@ -49,7 +49,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         Next, we will add the signal to an array of signals received from the same Social Trading Bot / Signal Definition.
         */
         let signals = signalsBySignalDefinitionId.get(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id)
-        if (signals === undefined) { signal = [] }
+        if (signals === undefined) { signals = [] }
         signals.push(signalMessage.signal)
         signalsBySignalDefinitionId.set(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id, signalMessage.signal)
     }

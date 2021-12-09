@@ -3,8 +3,8 @@
     "pageNumber": "4",
     "type": "Plugins-Docs",
     "definition": {
-        "text": "The branch Plugins-Docs is used by contributors of Plugins, documentations or tutorials. This branch in synchronized with Develop and Master everytime a new version is released, and it's purpose is to allow the flow of docs pages, plugins and tutorials into the master branch at a higher rate than changes at the codebase done at the Develop branch. This means that the Master branch might have many updates in between releases.",
-        "updated": 1622467789596,
+        "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. Outdated: \"The branch Plugins-Docs is used by contributors of Plugins, documentations or tutorials. This branch in synchronized with Develop and Master everytime a new version is released, and it's purpose is to allow the flow of docs pages, plugins and tutorials into the master branch at a higher rate than changes at the codebase done at the Develop branch. This means that the Master branch might have many updates in between releases.\"",
+        "updated": 1638829995951,
         "translations": [
             {
                 "language": "ES",

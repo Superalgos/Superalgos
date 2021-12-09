@@ -127,12 +127,12 @@
             "id": "1bc0ffaa-83d2-44c7-8231-74fb6b747487",
             "savedPayload": {
                 "position": {
-                    "x": 17722.058823529413,
-                    "y": 18410.288568297
+                    "x": 10419.827586206897,
+                    "y": 37610.288568297
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -166,12 +166,12 @@
                         "id": "18ca0727-c296-4059-aef0-a75c324e526e",
                         "savedPayload": {
                             "position": {
-                                "x": 17665.878821530277,
-                                "y": 17750.62194646692
+                                "x": 13811.92344627673,
+                                "y": 27350.62194646692
                             },
                             "targetPosition": {
-                                "x": 18055.590253233277,
-                                "y": 17975.62194646692
+                                "x": 14201.634877979728,
+                                "y": 27575.62194646692
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -207,12 +207,12 @@
                     "id": "43b6c240-ff85-41cf-b423-963ad99a8e9c",
                     "savedPayload": {
                         "position": {
-                            "x": 17939.12168293714,
-                            "y": 17540.955324636838
+                            "x": 14085.166307683594,
+                            "y": 27140.955324636838
                         },
                         "targetPosition": {
-                            "x": 18055.590253233277,
-                            "y": 17975.62194646692
+                            "x": 14201.634877979728,
+                            "y": 27575.62194646692
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -234,12 +234,12 @@
                     "id": "7afeae27-2cc1-4888-b8d2-9c5536c6e9ae",
                     "savedPayload": {
                         "position": {
-                            "x": 18280.590253233277,
-                            "y": 17585.91051476392
+                            "x": 14426.634877979728,
+                            "y": 27185.91051476392
                         },
                         "targetPosition": {
-                            "x": 18055.590253233277,
-                            "y": 17975.62194646692
+                            "x": 14201.634877979728,
+                            "y": 27575.62194646692
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -257,12 +257,12 @@
                 "id": "68e7a305-2909-4741-9b12-624d7e556915",
                 "savedPayload": {
                     "position": {
-                        "x": 18055.590253233277,
-                        "y": 17975.62194646692
+                        "x": 14201.634877979728,
+                        "y": 27575.62194646692
                     },
                     "targetPosition": {
-                        "x": 18172.058823529413,
-                        "y": 18410.288568297
+                        "x": 14318.103448275862,
+                        "y": 28010.288568297
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -291,12 +291,12 @@
                         "id": "8ca39d43-eb8b-4ea8-b5e1-594230285470",
                         "savedPayload": {
                             "position": {
-                                "x": 18280.590253233277,
-                                "y": 17585.91051476392
+                                "x": 14426.634877979728,
+                                "y": 27185.91051476392
                             },
                             "targetPosition": {
-                                "x": 18397.058823529413,
-                                "y": 18020.577136594
+                                "x": 14543.103448275862,
+                                "y": 27620.577136594
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -332,12 +332,12 @@
                     "id": "4a32dc2c-14e4-4678-a3e9-54acabfcd427",
                     "savedPayload": {
                         "position": {
-                            "x": 18622.058823529413,
-                            "y": 17630.865704891003
+                            "x": 14768.103448275862,
+                            "y": 27230.865704891003
                         },
                         "targetPosition": {
-                            "x": 18397.058823529413,
-                            "y": 18020.577136594
+                            "x": 14543.103448275862,
+                            "y": 27620.577136594
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -359,12 +359,12 @@
                     "id": "e0a87fb2-2fff-42ba-a51a-2ca560b9bb70",
                     "savedPayload": {
                         "position": {
-                            "x": 18831.725445359494,
-                            "y": 17904.108566297866
+                            "x": 14977.770070105944,
+                            "y": 27504.108566297866
                         },
                         "targetPosition": {
-                            "x": 18397.058823529413,
-                            "y": 18020.577136594
+                            "x": 14543.103448275862,
+                            "y": 27620.577136594
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -382,12 +382,12 @@
                 "id": "411a6083-99ae-4ece-9334-42801ee0fc8c",
                 "savedPayload": {
                     "position": {
-                        "x": 18397.058823529413,
-                        "y": 18020.577136594
+                        "x": 14543.103448275862,
+                        "y": 27620.577136594
                     },
                     "targetPosition": {
-                        "x": 18172.058823529413,
-                        "y": 18410.288568297
+                        "x": 14318.103448275862,
+                        "y": 28010.288568297
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -416,12 +416,12 @@
                         "id": "84ce8ba3-c177-43ed-b9f3-c901d014db2c",
                         "savedPayload": {
                             "position": {
-                                "x": 18831.725445359494,
-                                "y": 17904.108566297866
+                                "x": 14977.770070105944,
+                                "y": 27504.108566297866
                             },
                             "targetPosition": {
-                                "x": 18606.725445359494,
-                                "y": 18293.819998000865
+                                "x": 14752.770070105944,
+                                "y": 27893.819998000865
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -457,12 +457,12 @@
                     "id": "6028a9fa-2862-4e8e-8b20-15b1871502e9",
                     "savedPayload": {
                         "position": {
-                            "x": 19041.392067189576,
-                            "y": 18177.35142770473
+                            "x": 15187.436691936025,
+                            "y": 27777.35142770473
                         },
                         "targetPosition": {
-                            "x": 18606.725445359494,
-                            "y": 18293.819998000865
+                            "x": 14752.770070105944,
+                            "y": 27893.819998000865
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -484,12 +484,12 @@
                     "id": "e537f875-0429-46c7-9e22-9f363b49e440",
                     "savedPayload": {
                         "position": {
-                            "x": 18996.436877062493,
-                            "y": 18518.819998000865
+                            "x": 15142.481501808941,
+                            "y": 28118.819998000865
                         },
                         "targetPosition": {
-                            "x": 18606.725445359494,
-                            "y": 18293.819998000865
+                            "x": 14752.770070105944,
+                            "y": 27893.819998000865
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -507,12 +507,12 @@
                 "id": "ef87e43d-72f8-4ff4-915d-38d376a381ed",
                 "savedPayload": {
                     "position": {
-                        "x": 18606.725445359494,
-                        "y": 18293.819998000865
+                        "x": 14752.770070105944,
+                        "y": 27893.819998000865
                     },
                     "targetPosition": {
-                        "x": 18172.058823529413,
-                        "y": 18410.288568297
+                        "x": 14318.103448275862,
+                        "y": 28010.288568297
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -530,12 +530,12 @@
             "id": "ad9c1239-f4dd-4e12-8998-ecead32065ab",
             "savedPayload": {
                 "position": {
-                    "x": 18172.058823529413,
-                    "y": 18410.288568297
+                    "x": 10869.827586206897,
+                    "y": 37610.288568297
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -595,12 +595,12 @@
                                                         "id": "9323910e-6489-45b6-a5eb-58ba4f678e52",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 19305.373898294274,
-                                                                "y": 16856.91765441952
+                                                                "x": 12003.142660971756,
+                                                                "y": 36056.91765441953
                                                             },
                                                             "targetPosition": {
-                                                                "x": 19488.405387678384,
-                                                                "y": 17268.013110358694
+                                                                "x": 12186.174150355866,
+                                                                "y": 36468.0131103587
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -621,35 +621,51 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "end-debug",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "2ba902c6-59f4-40f4-91f5-44d12f807061"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "1c8787dc-31af-4852-9c50-4fd2abeac607"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "01108aa7-6972-4d9f-9707-b64431d3f096"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "b139671c-2415-41c4-9fa4-86eee29bc95d"
                                                                 ],
                                                                 [
                                                                     "end-debug Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "76879fb6-eeb8-49c3-b3df-6e046074ffdd"
                                                                 ],
                                                                 [
                                                                     "Teams With PoW Reports Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "3292089f-6985-4da8-970a-18d3a5a069ae"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "a4ff1f7d-ba55-469b-9a4c-02186fee90df"
                                                                 ],
                                                                 [
                                                                     "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "e035d55f-4a59-4bfa-8470-4c09c8f54f78"
                                                                 ]
                                                             ]
                                                         }
@@ -660,12 +676,12 @@
                                                 "id": "841b0c68-2d93-463d-bbd8-5f98d92b5a7d",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 19488.405387678384,
-                                                        "y": 17268.013110358694
+                                                        "x": 12186.174150355866,
+                                                        "y": 36468.0131103587
                                                     },
                                                     "targetPosition": {
-                                                        "x": 19671.436877062493,
-                                                        "y": 17679.108566297866
+                                                        "x": 12369.205639739976,
+                                                        "y": 36879.108566297866
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -695,12 +711,12 @@
                                                         "id": "559fe31b-2aea-4a8d-9410-68b6732b38e8",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 19858.557398798475,
-                                                                "y": 16798.77572563744
+                                                                "x": 12556.326161475958,
+                                                                "y": 35998.77572563744
                                                             },
                                                             "targetPosition": {
-                                                                "x": 19764.997137930484,
-                                                                "y": 17238.942145967652
+                                                                "x": 12462.765900607967,
+                                                                "y": 36438.94214596765
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -721,35 +737,51 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "cozed-gh",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                                 ],
                                                                 [
                                                                     "Teams @ Nov 2021 Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "0377d112-8545-4694-9c74-5205b2919ac3"
                                                                 ],
                                                                 [
                                                                     "Teams With PoW Reports Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "087d89dd-af34-49b9-b1ae-213139ecc820"
                                                                 ],
                                                                 [
                                                                     "Exchange Relationships",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "40a1a08b-ccfe-42c3-99d6-62ca73254963"
                                                                 ],
                                                                 [
                                                                     "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "7adca2ce-d7e4-476d-a987-a1047392f3e1"
                                                                 ]
                                                             ]
                                                         }
@@ -760,12 +792,12 @@
                                                 "id": "a9f23304-0043-40f8-a017-3c0f5ecde01c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 19764.997137930484,
-                                                        "y": 17238.942145967652
+                                                        "x": 12462.765900607967,
+                                                        "y": 36438.94214596765
                                                     },
                                                     "targetPosition": {
-                                                        "x": 19671.436877062493,
-                                                        "y": 17679.108566297866
+                                                        "x": 12369.205639739976,
+                                                        "y": 36879.108566297866
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -789,21 +821,21 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "",
+                                                        "name": "gustavohcorradi Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e64af3bc-0f8a-4484-873a-87a12b93ab57",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 20340.26721999215,
-                                                                "y": 17076.89102057489
+                                                                "x": 13038.03598266963,
+                                                                "y": 36276.89102057489
                                                             },
                                                             "targetPosition": {
-                                                                "x": 20005.852048527322,
-                                                                "y": 17377.99979343638
+                                                                "x": 12703.620811204803,
+                                                                "y": 36577.99979343638
                                                             },
                                                             "floatingObject": {
-                                                                "isPinned": true,
+                                                                "isPinned": false,
                                                                 "isFrozen": false,
                                                                 "isCollapsed": false,
                                                                 "angleToParent": 2,
@@ -812,7 +844,38 @@
                                                             },
                                                             "uiObject": {
                                                                 "isRunning": false
-                                                            }
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Contribution Claim",
+                                                                "name": "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
+                                                                "id": "1f64f90f-61a4-4592-bc05-3f5de5313683"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "gustavohcorradi",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "New Position Claims Folder",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
+                                                                    "Position Contribution Claim"
+                                                                ]
+                                                            ]
                                                         }
                                                     }
                                                 ],
@@ -821,12 +884,12 @@
                                                 "id": "1ba202d4-ce54-47fa-a5ee-0ceb416ed0b8",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 20005.852048527322,
-                                                        "y": 17377.99979343638
+                                                        "x": 12703.620811204803,
+                                                        "y": 36577.99979343638
                                                     },
                                                     "targetPosition": {
-                                                        "x": 19671.436877062493,
-                                                        "y": 17679.108566297866
+                                                        "x": 12369.205639739976,
+                                                        "y": 36879.108566297866
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -853,18 +916,18 @@
                                                         "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
-                                                        "id": "08d1ebc9-4f77-4a84-bbde-c8d5dcdd6cb1",
+                                                        "id": "8cfb92bd-9cb9-4251-8b14-6d7283fd861e",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 20566.50658289394,
-                                                                "y": 17585.03294935698
+                                                                "x": 13264.275345571423,
+                                                                "y": 36785.03294935698
                                                             },
                                                             "targetPosition": {
-                                                                "x": 20118.971729978217,
-                                                                "y": 17632.070757827423
+                                                                "x": 12816.7404926557,
+                                                                "y": 36832.07075782742
                                                             },
                                                             "floatingObject": {
-                                                                "isPinned": true,
+                                                                "isPinned": false,
                                                                 "isFrozen": false,
                                                                 "isCollapsed": false,
                                                                 "angleToParent": 2,
@@ -882,12 +945,12 @@
                                                 "id": "8aaf8c06-9b23-41e8-bfab-dc370b41e6bd",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 20118.971729978217,
-                                                        "y": 17632.070757827423
+                                                        "x": 12816.7404926557,
+                                                        "y": 36832.07075782742
                                                     },
                                                     "targetPosition": {
-                                                        "x": 19671.436877062493,
-                                                        "y": 17679.108566297866
+                                                        "x": 12369.205639739976,
+                                                        "y": 36879.108566297866
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -909,12 +972,12 @@
                                         "id": "c5f2c03e-c91b-46b2-92f4-fbb698a47116",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 19671.436877062493,
-                                                "y": 17679.108566297866
+                                                "x": 12369.205639739976,
+                                                "y": 36879.108566297866
                                             },
                                             "targetPosition": {
-                                                "x": 19446.436877062493,
-                                                "y": 18068.819998000865
+                                                "x": 12144.205639739976,
+                                                "y": 37268.819998000865
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -936,12 +999,12 @@
                                 "id": "b56fce46-4cd5-4fde-8969-f6b0bae7fbcf",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19446.436877062493,
-                                        "y": 18068.819998000865
+                                        "x": 12144.205639739976,
+                                        "y": 37268.819998000865
                                     },
                                     "targetPosition": {
-                                        "x": 19221.436877062493,
-                                        "y": 18458.531429703864
+                                        "x": 11919.205639739976,
+                                        "y": 37658.531429703864
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6431,12 +6494,12 @@
                                 "id": "85851d15-8105-48e3-97d4-83688155079a",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19671.436877062493,
-                                        "y": 18458.531429703864
+                                        "x": 12369.205639739976,
+                                        "y": 37658.531429703864
                                     },
                                     "targetPosition": {
-                                        "x": 19221.436877062493,
-                                        "y": 18458.531429703864
+                                        "x": 11919.205639739976,
+                                        "y": 37658.531429703864
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6456,12 +6519,12 @@
                         "id": "971ce358-0519-4a2a-a4e9-7fa75b1dfb04",
                         "savedPayload": {
                             "position": {
-                                "x": 19221.436877062493,
-                                "y": 18458.531429703864
+                                "x": 11919.205639739976,
+                                "y": 37658.531429703864
                             },
                             "targetPosition": {
-                                "x": 18831.725445359494,
-                                "y": 18683.531429703864
+                                "x": 11529.494208036978,
+                                "y": 37883.531429703864
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6484,12 +6547,12 @@
                     "id": "08f9c339-2e89-4bf6-bf59-5216f17f98af",
                     "savedPayload": {
                         "position": {
-                            "x": 19281.725445359494,
-                            "y": 18683.531429703864
+                            "x": 11979.494208036978,
+                            "y": 37883.531429703864
                         },
                         "targetPosition": {
-                            "x": 18831.725445359494,
-                            "y": 18683.531429703864
+                            "x": 11529.494208036978,
+                            "y": 37883.531429703864
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -6507,12 +6570,12 @@
                 "id": "c8c050fa-f135-42dd-a51b-8b9292bef1d9",
                 "savedPayload": {
                     "position": {
-                        "x": 18831.725445359494,
-                        "y": 18683.531429703864
+                        "x": 11529.494208036978,
+                        "y": 37883.531429703864
                     },
                     "targetPosition": {
-                        "x": 18397.058823529413,
-                        "y": 18800
+                        "x": 11094.827586206897,
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -6537,104 +6600,43 @@
                 "positionClaimsFolders": [
                     {
                         "type": "Position Claims Folder",
-                        "name": "Teams @ V.1.0 Position Class",
-                        "config": "{\r\n    \r\n}",
+                        "name": "Teams @ Nov 2021 Position Class",
+                        "config": "{}",
                         "project": "Governance",
                         "positionClaimsFolders": [
                             {
                                 "type": "Position Claims Folder",
-                                "name": "Software Projects Teams Position Class",
+                                "name": "Teams With PoW Reports Position Class",
                                 "config": "{}",
                                 "project": "Governance",
                                 "positionClaimsFolders": [
                                     {
                                         "type": "Position Claims Folder",
-                                        "name": "Active Projects Position Class",
-                                        "config": "{}",
+                                        "name": "Marketing Teams PoW Report Position Class",
+                                        "config": "{\r\n    \"percentage\": 0.351\r\n}",
                                         "project": "Governance",
-                                        "positionClaimsFolders": [
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
                                             {
-                                                "type": "Position Claims Folder",
-                                                "name": "Foundations Project Position Class",
+                                                "type": "Position Contribution Claim",
+                                                "name": "Exchange Relationships Team Token Pool Marketing Teams PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "e44753b3-2eec-41e1-b898-5acbd04ff152",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 5487.987293771963,
-                                                                "y": 17345.577136594
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 5487.987293771963,
-                                                                "y": 17795.577136594
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "28ade59b-f309-4251-855c-a4c0c610d048"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Software Projects Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Active Projects",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Foundations Project",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "60c2caba-9e14-44f9-b6c3-4fdd64925b43",
+                                                "id": "0987f8a6-94cd-4dc4-8be3-93a384b1a947",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 5487.987293771963,
-                                                        "y": 17795.577136594
+                                                        "x": 13223.20550523022,
+                                                        "y": 38225
                                                     },
                                                     "targetPosition": {
-                                                        "x": 5487.987293771963,
-                                                        "y": 18245.577136594
+                                                        "x": 12788.538883400139,
+                                                        "y": 38341.468570296136
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
                                                         "isCollapsed": false,
-                                                        "angleToParent": 2,
+                                                        "angleToParent": 3,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
@@ -6642,162 +6644,54 @@
                                                         "isRunning": false
                                                     },
                                                     "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Foundations Project",
-                                                        "id": "e7c3a1dc-f70e-4ad0-83de-fc3e7a99b7a8"
+                                                        "type": "Position",
+                                                        "name": "Exchange Relationships Team Token Pool",
+                                                        "id": "522fe7af-6343-42f7-9f4d-feb2c51e257c"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Teams of Contributors",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                         ],
                                                         [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                         ],
                                                         [
-                                                            "Software Projects Teams",
-                                                            "Position Class"
+                                                            "Teams With PoW Reports",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                         ],
                                                         [
-                                                            "Active Projects",
-                                                            "Position Class"
+                                                            "Marketing Teams PoW Report",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
                                                         ],
                                                         [
-                                                            "Foundations Project",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Social Bots Project Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "6e1df2c0-6963-4399-a039-3289d71acd3e",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 6267.410157177957,
-                                                                "y": 17795.577136594
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 5877.69872547496,
-                                                                "y": 18020.577136594
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "dbd147d1-b622-45f3-805b-de9abb0b17c6"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Software Projects Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Active Projects",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Bots Project",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "875a7cb1-f0fb-4dae-8628-da41377cb77c",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 5877.69872547496,
-                                                        "y": 18020.577136594
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 5487.987293771963,
-                                                        "y": 18245.577136594
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Social Bots Project",
-                                                        "id": "f2df45f6-69c7-4b9d-8120-ee850ee8fda2"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Software Projects Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Active Projects",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Social Bots Project",
-                                                            "Position Class"
+                                                            "Exchange Relationships Team Token Pool",
+                                                            "Position",
+                                                            "Governance",
+                                                            "522fe7af-6343-42f7-9f4d-feb2c51e257c"
                                                         ]
                                                     ]
                                                 }
                                             }
                                         ],
-                                        "positionContributionClaims": [],
-                                        "id": "7ab2f2ad-8825-4a1e-8360-7763f4f7b1b0",
+                                        "id": "e3f693c1-6ca6-4042-a231-e86a182e175d",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 5487.987293771963,
-                                                "y": 18245.577136594
+                                                "x": 12788.538883400139,
+                                                "y": 38341.468570296136
                                             },
                                             "targetPosition": {
-                                                "x": 5262.987293771963,
-                                                "y": 18635.288568297
+                                                "x": 12353.872261570057,
+                                                "y": 38457.93714059227
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6812,682 +6706,64 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Class",
-                                                "name": "Active Projects",
-                                                "id": "3d07a798-ba00-4358-aae8-fe61221956cf"
+                                                "name": "Marketing Teams PoW Report",
+                                                "id": "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Teams of Contributors",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                 ],
                                                 [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
+                                                    "Teams @ Nov 2021",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                 ],
                                                 [
-                                                    "Software Projects Teams",
-                                                    "Position Class"
+                                                    "Teams With PoW Reports",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                 ],
                                                 [
-                                                    "Active Projects",
-                                                    "Position Class"
+                                                    "Marketing Teams PoW Report",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "454ef86c-c1c6-40c5-aaca-d6725e1e3584"
                                                 ]
                                             ]
                                         }
-                                    }
-                                ],
-                                "positionContributionClaims": [],
-                                "id": "c51f5575-0cb5-42c5-8596-3074873e2eaf",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19571.15255971813,
-                                        "y": 18858.274394323707
                                     },
-                                    "targetPosition": {
-                                        "x": 19221.436877062493,
-                                        "y": 19141.468570296136
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position Class",
-                                        "name": "Software Projects Teams",
-                                        "id": "96a5e7ff-4f1b-4859-90b0-7be8e78c3103"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Teams of Contributors",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Teams @ V.1.0",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Software Projects Teams",
-                                            "Position Class"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Claims Folder",
-                                "name": "Marketing Teams Position Class",
-                                "config": "{\r\n    \"percentage\": 20\r\n}",
-                                "project": "Governance",
-                                "positionClaimsFolders": [
                                     {
                                         "type": "Position Claims Folder",
-                                        "name": "Social Network Teams Position Class",
+                                        "name": "Brett’s Team PoW Report Position Class",
                                         "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Twitter Team Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "ed5fc1d1-544b-486b-a14c-be741531927d",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 5094.167295771094,
-                                                                "y": 17585.91051476392
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 5319.167295771094,
-                                                                "y": 17975.62194646692
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "9485a7dd-ab36-4f8b-975a-f43171351c14"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Network Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Twitter Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "faf584ab-3d8d-4e33-80e0-db7040ce1da8",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 5319.167295771094,
-                                                        "y": 17975.62194646692
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 5544.167295771094,
-                                                        "y": 18365.33337816992
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Twitter Team",
-                                                        "id": "6ca00155-5a42-4c42-894c-0f78dcf9b52d"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Twitter Team",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Reddit Team Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "597f4d40-1dda-4afd-8ff2-32f3c870c0ce",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 5777.104436363363,
-                                                                "y": 17496.000134509755
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 5660.635866067229,
-                                                                "y": 17930.666756339837
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "734b979d-5b26-4382-bf0b-f5e39d8bc0bd"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Network Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Reddit Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "f51bd932-30a9-4d11-8a88-dae0713c8ae3",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 5660.635866067229,
-                                                        "y": 17930.666756339837
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 5544.167295771094,
-                                                        "y": 18365.33337816992
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Reddit Team",
-                                                        "id": "9d239c98-5261-4b87-80a8-67cf1d078bb3"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Reddit Team",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Youtube Team Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "4e9fb9e8-fe5d-47a3-aadf-ec6f2780e8ec",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 6323.590159177089,
-                                                                "y": 17915.33337816992
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 5933.878727474092,
-                                                                "y": 18140.33337816992
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "5e58427a-5946-468c-849f-bbc525aa39ed"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Social Network Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Youtube Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "a26cf4e4-fa42-4137-b539-dd58c4d6e9a4",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 5933.878727474092,
-                                                        "y": 18140.33337816992
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 5544.167295771094,
-                                                        "y": 18365.33337816992
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Youtube Team",
-                                                        "id": "55832fb9-2568-40b4-ae6e-9dfa79e5d007"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Social Network Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Youtube Team",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "positionContributionClaims": [],
-                                        "id": "db3a4795-75d2-4977-959a-b0158c1cbe47",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 19971.92894056354,
-                                                "y": 18783.502218521982
-                                            },
-                                            "targetPosition": {
-                                                "x": 19670.82016770205,
-                                                "y": 19117.91738998681
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": true,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Social Network Teams",
-                                                "id": "128602e0-9011-4d20-bee6-fc09e0f8f1ac"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Marketing Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Social Network Teams",
-                                                    "Position Class"
-                                                ]
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Content Creation Teams Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Brett Live Streaming and Videos Team Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "3efa3ca2-98ee-4cd4-b75c-78669e82b471",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 21018.970039620726,
-                                                                "y": 19047.263849058836
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 20569.586748981168,
-                                                                "y": 19070.81502936816
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "33e4bba0-08da-4740-88f4-9797c9112624"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Marketing Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Content Creation Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Brett Live Streaming and Videos Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "40fd5116-5ddb-4b85-9f04-97f5db96208e",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 20569.586748981168,
-                                                        "y": 19070.81502936816
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 20120.20345834161,
-                                                        "y": 19094.366209677486
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Brett Live Streaming and Videos Team",
-                                                        "id": "e7238382-b3c4-4422-a1e2-0e347598f7fd"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Marketing Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Content Creation Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Brett Live Streaming and Videos Team",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "positionContributionClaims": [],
-                                        "id": "d63efa57-f856-494f-873a-871685a9f7ae",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 20120.20345834161,
-                                                "y": 19094.366209677486
-                                            },
-                                            "targetPosition": {
-                                                "x": 19670.82016770205,
-                                                "y": 19117.91738998681
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": true,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Content Creation Teams",
-                                                "id": "0beaaebd-e735-49d4-8b24-282452c69a9a"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Marketing Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Content Creation Teams",
-                                                    "Position Class"
-                                                ]
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Exchange Relationships Team Position Class",
-                                        "config": "{\r\n    \"percentage\": 1.751\r\n}",
                                         "project": "Governance",
                                         "positionClaimsFolders": [],
                                         "positionContributionClaims": [
                                             {
                                                 "type": "Position Contribution Claim",
-                                                "name": "",
+                                                "name": "Brett’s Team Token Pool Brett’s Team PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "93240e2e-1de5-4d18-92ff-5b4b9e4146d0",
+                                                "id": "8b449c7e-37d6-4100-aafb-ebe245837e2a",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 20339.65051063171,
-                                                        "y": 19720.134935709786
+                                                        "x": 13133.295124976052,
+                                                        "y": 38907.93714059227
                                                     },
                                                     "targetPosition": {
-                                                        "x": 20005.23533916688,
-                                                        "y": 19419.0261628483
+                                                        "x": 12743.583693273054,
+                                                        "y": 38682.93714059227
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
                                                         "isCollapsed": false,
-                                                        "angleToParent": 2,
+                                                        "angleToParent": 3,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
                                                     },
@@ -7496,49 +6772,59 @@
                                                     },
                                                     "referenceParent": {
                                                         "type": "Position",
-                                                        "name": "Team Members",
-                                                        "id": "2621796b-2691-4b3e-804a-b909977a8d05"
+                                                        "name": "Brett’s Team Token Pool",
+                                                        "id": "bb67fd84-7283-4110-b838-dcdecbb7b4ca"
                                                     },
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Teams of Contributors",
-                                                            "Positions"
+                                                            "Positions",
+                                                            "Governance",
+                                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                         ],
                                                         [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                         ],
                                                         [
-                                                            "Marketing Teams",
-                                                            "Position Class"
+                                                            "Teams With PoW Reports",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                         ],
                                                         [
-                                                            "Exchange Relationships Team",
-                                                            "Position Class"
+                                                            "Brett’s Team PoW Report",
+                                                            "Position Class",
+                                                            "Governance",
+                                                            "d97c8d9f-401d-4e48-aede-6c91f5b730fd"
                                                         ],
                                                         [
-                                                            "Team Members",
-                                                            "Position"
+                                                            "Brett’s Team Token Pool",
+                                                            "Position",
+                                                            "Governance",
+                                                            "bb67fd84-7283-4110-b838-dcdecbb7b4ca"
                                                         ]
                                                     ]
                                                 }
                                             }
                                         ],
-                                        "id": "83c6f6f6-a89c-4b22-89e4-8167ff47dbe4",
+                                        "id": "082d5ecf-7c75-47b4-9b35-e0c648e07b27",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 20005.23533916688,
-                                                "y": 19419.0261628483
+                                                "x": 12743.583693273054,
+                                                "y": 38682.93714059227
                                             },
                                             "targetPosition": {
-                                                "x": 19670.82016770205,
-                                                "y": 19117.91738998681
+                                                "x": 12353.872261570057,
+                                                "y": 38457.93714059227
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
-                                                "isCollapsed": true,
-                                                "angleToParent": 2,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
@@ -7547,46 +6833,54 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Position Class",
-                                                "name": "Exchange Relationships Team",
-                                                "id": "8803c91c-0a3e-4797-ba08-dce8b7f81fba"
+                                                "name": "Brett’s Team PoW Report",
+                                                "id": "d97c8d9f-401d-4e48-aede-6c91f5b730fd"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Teams of Contributors",
-                                                    "Positions"
+                                                    "Positions",
+                                                    "Governance",
+                                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                                 ],
                                                 [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
+                                                    "Teams @ Nov 2021",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                                 ],
                                                 [
-                                                    "Marketing Teams",
-                                                    "Position Class"
+                                                    "Teams With PoW Reports",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                                 ],
                                                 [
-                                                    "Exchange Relationships Team",
-                                                    "Position Class"
+                                                    "Brett’s Team PoW Report",
+                                                    "Position Class",
+                                                    "Governance",
+                                                    "d97c8d9f-401d-4e48-aede-6c91f5b730fd"
                                                 ]
                                             ]
                                         }
                                     }
                                 ],
                                 "positionContributionClaims": [],
-                                "id": "2a0d6f1e-935c-433f-a8b9-29872c452585",
+                                "id": "507089a2-4c05-4d87-b59b-1a02949a7ab2",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 19670.82016770205,
-                                        "y": 19117.91738998681
+                                        "x": 12353.872261570057,
+                                        "y": 38457.93714059227
                                     },
                                     "targetPosition": {
-                                        "x": 19221.436877062493,
-                                        "y": 19141.468570296136
+                                        "x": 11919.205639739976,
+                                        "y": 38341.468570296136
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 3,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -7595,642 +6889,42 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position Class",
-                                        "name": "Marketing Teams",
-                                        "id": "247db4d7-ff6c-42fa-a94a-20b04e4cdb9d"
+                                        "name": "Teams With PoW Reports",
+                                        "id": "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
-                                            "Teams @ V.1.0",
-                                            "Position Class"
+                                            "Teams @ Nov 2021",
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
-                                            "Marketing Teams",
-                                            "Position Class"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Claims Folder",
-                                "name": "Tech Teams Position Class",
-                                "config": "{}",
-                                "project": "Governance",
-                                "positionClaimsFolders": [
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Sys Admins Team Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [],
-                                        "positionContributionClaims": [
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "f0f0532f-24fb-4358-a331-ddc6cd50aa8a",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 20497.60521391705,
-                                                        "y": 19433.65849667155
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 20048.22192327749,
-                                                        "y": 19410.107316362224
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Members",
-                                                        "id": "eefb9f2c-e331-4750-8479-12015ba1bbd4"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Tech Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Sys Admins Team",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Team Members",
-                                                            "Position"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "id": "f74e6689-ae10-47f7-8840-9ca8417bb1f8",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 20048.22192327749,
-                                                "y": 19410.107316362224
-                                            },
-                                            "targetPosition": {
-                                                "x": 19598.838632637933,
-                                                "y": 19386.5561360529
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Sys Admins Team",
-                                                "id": "cc27c4ee-a25c-4ff7-964c-3dc4820d02b9"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Tech Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Sys Admins Team",
-                                                    "Position Class"
-                                                ]
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Docker Team Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [],
-                                        "positionContributionClaims": [
-                                            {
-                                                "type": "Position Contribution Claim",
-                                                "name": "",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "0b199ad2-7ece-4928-ba98-72320b628fc3",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 20007.430082403524,
-                                                        "y": 20188.46200782243
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 19803.13435752073,
-                                                        "y": 19787.509071937664
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position",
-                                                        "name": "Team Members",
-                                                        "id": "717469f9-988a-43c1-8374-20f34af9500a"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Tech Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Docker Team",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Team Members",
-                                                            "Position"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "id": "e8a00761-6571-46da-85e6-8d05e1bbdf4c",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 19803.13435752073,
-                                                "y": 19787.509071937664
-                                            },
-                                            "targetPosition": {
-                                                "x": 19598.838632637933,
-                                                "y": 19386.5561360529
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Docker Team",
-                                                "id": "a4e0df2c-1cbd-4d4b-9ae5-6e15e039e3b3"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Tech Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Docker Team",
-                                                    "Position Class"
-                                                ]
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "positionContributionClaims": [],
-                                "id": "a86b7883-e2ab-43cc-ac2f-e32cefba5726",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19598.838632637933,
-                                        "y": 19386.5561360529
-                                    },
-                                    "targetPosition": {
-                                        "x": 19221.436877062493,
-                                        "y": 19141.468570296136
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position Class",
-                                        "name": "Tech Teams",
-                                        "id": "772440df-3167-4503-ac0b-62778d89ca5e"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Teams of Contributors",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Teams @ V.1.0",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Tech Teams",
-                                            "Position Class"
-                                        ]
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "Position Claims Folder",
-                                "name": "Other Teams Position Class",
-                                "config": "{\r\n    \"percentage\": 2\r\n}",
-                                "project": "Governance",
-                                "positionClaimsFolders": [
-                                    {
-                                        "type": "Position Claims Folder",
-                                        "name": "Chat Platforms Teams Position Class",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "positionClaimsFolders": [
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Telegram Team Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "69df2e87-c451-4f72-b81f-94211873b906",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 20243.399396964538,
-                                                                "y": 20548.079306088475
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 19893.6837143089,
-                                                                "y": 20264.885130116047
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "4f90524a-b619-480f-8911-b346dd7c6a6b"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Other Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Chat Platforms Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Telegram Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "bb210038-43e4-4f73-a439-e072524b0f07",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 19893.6837143089,
-                                                        "y": 20264.885130116047
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 19543.96803165326,
-                                                        "y": 19981.690954143618
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Telegram Team",
-                                                        "id": "fbcf50c5-8b5e-4cc5-8889-0fb340747d5c"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Other Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Chat Platforms Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Telegram Team",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            },
-                                            {
-                                                "type": "Position Claims Folder",
-                                                "name": "Discord Team Position Class",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "positionClaimsFolders": [],
-                                                "positionContributionClaims": [
-                                                    {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "config": "{}",
-                                                        "project": "Governance",
-                                                        "id": "54c046f3-f001-408d-862c-b65ecb55b60d",
-                                                        "savedPayload": {
-                                                            "position": {
-                                                                "x": 19403.177013117056,
-                                                                "y": 20870.610460679243
-                                                            },
-                                                            "targetPosition": {
-                                                                "x": 19473.57252238516,
-                                                                "y": 20426.15070741143
-                                                            },
-                                                            "floatingObject": {
-                                                                "isPinned": false,
-                                                                "isFrozen": false,
-                                                                "isCollapsed": false,
-                                                                "angleToParent": 2,
-                                                                "distanceToParent": 3,
-                                                                "arrangementStyle": 0
-                                                            },
-                                                            "uiObject": {
-                                                                "isRunning": false
-                                                            },
-                                                            "referenceParent": {
-                                                                "type": "Position",
-                                                                "name": "Team Members",
-                                                                "id": "ac86ca72-2190-42c0-87f1-08094cc6fea3"
-                                                            },
-                                                            "referenceParentCombinedNodePath": [
-                                                                [
-                                                                    "Teams of Contributors",
-                                                                    "Positions"
-                                                                ],
-                                                                [
-                                                                    "Teams @ V.1.0",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Other Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Chat Platforms Teams",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Discord Team",
-                                                                    "Position Class"
-                                                                ],
-                                                                [
-                                                                    "Team Members",
-                                                                    "Position"
-                                                                ]
-                                                            ]
-                                                        }
-                                                    }
-                                                ],
-                                                "id": "0836f679-4de3-4787-bfc1-d680874c3365",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 19473.57252238516,
-                                                        "y": 20426.15070741143
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 19543.96803165326,
-                                                        "y": 19981.690954143618
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Class",
-                                                        "name": "Discord Team",
-                                                        "id": "96c2e290-2ac9-4e2f-9618-77d7f6522609"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "Teams of Contributors",
-                                                            "Positions"
-                                                        ],
-                                                        [
-                                                            "Teams @ V.1.0",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Other Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Chat Platforms Teams",
-                                                            "Position Class"
-                                                        ],
-                                                        [
-                                                            "Discord Team",
-                                                            "Position Class"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "positionContributionClaims": [],
-                                        "id": "8b4cdae5-332a-4358-9c0b-88159e9cf4f8",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 19543.96803165326,
-                                                "y": 19981.690954143618
-                                            },
-                                            "targetPosition": {
-                                                "x": 19382.702454357877,
-                                                "y": 19561.579762219877
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Class",
-                                                "name": "Chat Platforms Teams",
-                                                "id": "611de4df-d8f5-4557-bf14-75f366765d7f"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Teams of Contributors",
-                                                    "Positions"
-                                                ],
-                                                [
-                                                    "Teams @ V.1.0",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Other Teams",
-                                                    "Position Class"
-                                                ],
-                                                [
-                                                    "Chat Platforms Teams",
-                                                    "Position Class"
-                                                ]
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "positionContributionClaims": [],
-                                "id": "b9be5f0b-f5ce-48b4-8344-74532451ea0a",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 19382.702454357877,
-                                        "y": 19561.579762219877
-                                    },
-                                    "targetPosition": {
-                                        "x": 19221.436877062493,
-                                        "y": 19141.468570296136
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": true,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position Class",
-                                        "name": "Other Teams",
-                                        "id": "370195fe-3150-425c-b667-0ee74d436baa"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Teams of Contributors",
-                                            "Positions"
-                                        ],
-                                        [
-                                            "Teams @ V.1.0",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Other Teams",
-                                            "Position Class"
+                                            "Teams With PoW Reports",
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ]
                                     ]
                                 }
                             }
                         ],
                         "positionContributionClaims": [],
-                        "id": "db682ebd-024c-49bc-a3d4-e4aa774d3fff",
+                        "id": "492d16c5-7d26-4323-810c-d5cf8da3603e",
                         "savedPayload": {
                             "position": {
-                                "x": 19221.436877062493,
-                                "y": 19141.468570296136
+                                "x": 11919.205639739976,
+                                "y": 38341.468570296136
                             },
                             "targetPosition": {
-                                "x": 18786.77025523241,
-                                "y": 19025
+                                "x": 11484.539017909894,
+                                "y": 38225
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8272,12 +6966,12 @@
                     "id": "299232ef-1aa4-4ea1-9872-56d396957fc9",
                     "savedPayload": {
                         "position": {
-                            "x": 19104.968306766357,
-                            "y": 19343.198051533946
+                            "x": 11802.73706944384,
+                            "y": 38543.198051533946
                         },
                         "targetPosition": {
-                            "x": 18786.77025523241,
-                            "y": 19025
+                            "x": 11484.539017909894,
+                            "y": 38225
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8295,12 +6989,12 @@
                 "id": "efb5c85c-0a81-4c64-9e00-4211fdbfd558",
                 "savedPayload": {
                     "position": {
-                        "x": 18786.77025523241,
-                        "y": 19025
+                        "x": 11484.539017909894,
+                        "y": 38225
                     },
                     "targetPosition": {
-                        "x": 18397.058823529413,
-                        "y": 18800
+                        "x": 11094.827586206897,
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -8318,17 +7012,17 @@
             "id": "768ed0b3-bb30-49df-a068-11b3bff1ab93",
             "savedPayload": {
                 "position": {
-                    "x": 18397.058823529413,
-                    "y": 18800
+                    "x": 11094.827586206897,
+                    "y": 38000
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 4,
                     "arrangementStyle": 0
@@ -8488,12 +7182,12 @@
             "id": "6cb49071-51d5-4a82-ba5d-7bc220037a9d",
             "savedPayload": {
                 "position": {
-                    "x": 18172.058823529413,
-                    "y": 19189.711431703
+                    "x": 10869.827586206897,
+                    "y": 38389.711431703
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -8683,12 +7377,12 @@
             "id": "9288e3d7-b232-49b9-afc5-78904b7eb6ae",
             "savedPayload": {
                 "position": {
-                    "x": 17797.058823529413,
-                    "y": 19059.807621135333
+                    "x": 10494.827586206897,
+                    "y": 38259.80762113533
                 },
                 "targetPosition": {
-                    "x": 17947.058823529413,
-                    "y": 18800
+                    "x": 10644.827586206897,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -8706,12 +7400,12 @@
         "id": "e056163b-0413-488e-913a-8baa59d41a4f",
         "savedPayload": {
             "position": {
-                "x": 17947.058823529413,
-                "y": 18800
+                "x": 10644.827586206897,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 17647.058823529413,
-                "y": 18800
+                "x": 10344.827586206897,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8733,12 +7427,12 @@
         "id": "ed7a0fad-e0cb-479d-b197-ae5301647fdb",
         "savedPayload": {
             "position": {
-                "x": 17347.058823529413,
-                "y": 18800
+                "x": 10044.827586206897,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 17647.058823529413,
-                "y": 18800
+                "x": 10344.827586206897,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8756,12 +7450,12 @@
     "id": "56600855-7a91-49e8-8a58-2fa28d07efd1",
     "savedPayload": {
         "position": {
-            "x": 17647.058823529413,
-            "y": 18800
+            "x": 10344.827586206897,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 17647.058823529413,
-            "y": 18800
+            "x": 10344.827586206897,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": false,

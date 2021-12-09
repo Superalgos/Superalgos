@@ -1,0 +1,39 @@
+{
+    "type": "Confirm Formula Reference",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Situation",
+            "relatedUiObject": "Situation",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Confirm Formula Rules->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Target Rate->Target Size In Quoted Asset->Target Size In Base Asset->Order Rate->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "situations",
+            "type": "array",
+            "childType": "Situation"
+        }
+    ],
+    "propertyNameAtParent": "confirmFormulaReference"
+}

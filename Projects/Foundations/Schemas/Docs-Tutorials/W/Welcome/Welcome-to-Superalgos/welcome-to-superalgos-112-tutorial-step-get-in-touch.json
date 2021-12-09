@@ -7,8 +7,8 @@
             "name": "telegram-bot",
             "project": "Social-Bots"
         },
-        "text": "Drop by to say hi, get help, and meet the Community! You may <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">join the new Discord Server</a> or the original Telegram groups below, where it all started!",
-        "updated": 1619810146066,
+        "text": "Drop by to say hi, get help, and meet the Community! You may join the new Discord Server or the original Telegram groups below, where it all started!",
+        "updated": 1638914541602,
         "translations": [
             {
                 "language": "IT",
@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Komm vorbei, um Hallo zu sagen, Hilfe zu bekommen und die Community kennenzulernen! Ihr könnt dem neuen <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> oder den ursprünglichen Telegram-Gruppen unten beitreten, wo alles begann!",
                 "updated": 1634247458200
+            },
+            {
+                "language": "TR",
+                "text": "Merhaba demek, yardım almak ve Toplulukla ( Community ) tanışmak için uğrayın! Her şeyin başladığı yeni Discord Sunucusuna veya aşağıdaki orijinal Telegram gruplarına katılabilirsiniz!",
+                "updated": 1638913840643
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "DE",
                     "text": "Announcements Channel - Erfahre offizielle Neuigkeiten zuerst!",
                     "updated": 1634247467965
+                },
+                {
+                    "language": "TR",
+                    "text": "Duyurular Kanalı ( Announcements Channel ) — Önce resmi haberleri alın!",
+                    "updated": 1638913886098
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "DE",
                     "text": "Community Group - Lasst uns über Superalgos reden!",
                     "updated": 1634247474003
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Grubu ( Community Group ) — Haydi Superalgos hakkında konuşalım!",
+                    "updated": 1638914076141
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "DE",
                     "text": "Develop Group - Triff andere Entwickler!",
                     "updated": 1634247481455
+                },
+                {
+                    "language": "TR",
+                    "text": "Geliştiriciler Grubu ( Develop Group ) — Diğer geliştiricilerle tanışın!",
+                    "updated": 1638914087853
                 }
             ]
         },
@@ -80,6 +100,11 @@
                     "language": "DE",
                     "text": "Support Group - Brauchen Sie Hilfe bei den ersten Schritten?",
                     "updated": 1634247492820
+                },
+                {
+                    "language": "TR",
+                    "text": "Destek Grubu ( Support Group ) — Başlarken yardıma mı ihtiyacınız var?",
+                    "updated": 1638914156904
                 }
             ]
         },
@@ -92,6 +117,11 @@
                     "language": "DE",
                     "text": "Token Group - Reden wir über Governance und den Token!",
                     "updated": 1634247507289
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Grubu ( Token Group ) — Yönetim ve Token hakkında konuşalım!",
+                    "updated": 1638914218979
                 }
             ]
         },
@@ -104,6 +134,11 @@
                     "language": "DE",
                     "text": "UX-UI Group - Können Sie entwerfen?",
                     "updated": 1634247513855
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Tasarlayabilir misin?",
+                    "updated": 1638914331685
                 }
             ]
         },
@@ -116,6 +151,11 @@
                     "language": "DE",
                     "text": "Docs Group - Helfen Sie uns, die Docs zu verbessern!",
                     "updated": 1634247519287
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Grubu ( Docs Group ) — Dokümanları iyileştirmemize yardımcı olabilirsin!",
+                    "updated": 1638914389026
                 }
             ]
         },
@@ -128,6 +168,11 @@
                     "language": "DE",
                     "text": "Machine Learning Group - Diskutieren Sie über TensorFlow!",
                     "updated": 1634247524820
+                },
+                {
+                    "language": "TR",
+                    "text": "Makine Öğrenimi Grubu ( Machine Learning Group ) — TensorFlow'u tartışın!",
+                    "updated": 1638914441873
                 }
             ]
         },
@@ -146,6 +191,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf den Einladungslink im Docs-Panel!",
                     "updated": 1634247545426
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar panelinde davet bağlantısını bulmak için tıklayın!",
+                    "updated": 1638914459181
                 }
             ]
         }

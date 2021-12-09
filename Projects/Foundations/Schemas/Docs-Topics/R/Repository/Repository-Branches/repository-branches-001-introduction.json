@@ -8,8 +8,18 @@
     },
     "paragraphs": [
         {
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
+            "updated": 1638830740618
+        },
+        {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "updated": 1638830745729
+        },
+        {
+            "style": "Text",
+            "text": ""
         }
     ]
 }

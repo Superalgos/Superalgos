@@ -39,7 +39,7 @@ exports.newTaskServer = function newTaskServer() {
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
-                            SA.projects.visualScripting.utilities.nodeFunctions.getManagedSessions(TS.projects.foundations.globals.taskConstants.MANAGED_TASKS);
+                            TS.projects.foundations.utilities.miscellaneousFunctions.getManagedSessions(TS.projects.foundations.globals.taskConstants.MANAGED_TASKS);
                             bootingProcess();
                         } catch (err) {
                             console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
@@ -136,14 +136,19 @@ exports.newTaskServer = function newTaskServer() {
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.userProfiles.initialize(
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.config.codeName, 
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.config.codeName,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
-                        )
+                    )
                     /*
                     We set up the P2P Network, meaning the array of nodes we will be able to connect to.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.initialize('Network Client')
+                    /*
+                    This is where we will process all the events comming from the p2p network.
+                    */
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.initialize()
                     /*
                     Set up the connections to network peers nodes. These connections will be used to consume signals.
                     In this context peers means network nodes with a similar ranking that our network client identity.
@@ -153,6 +158,7 @@ exports.newTaskServer = function newTaskServer() {
                         'Network Client',
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork,
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface, 
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS
                     )
                     /*

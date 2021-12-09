@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Stil, um JSON-Code zu formatieren, wie z. B. den Code in den configs.",
                 "updated": 1633955480601
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль для форматирования кода JSON, например, в конфигурациях.",
+                "updated": 1638534175573
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Zeilenumbrüche in diesem Stil erzeugen keine neuen Absätze.",
                     "updated": 1633955498897
+                },
+                {
+                    "language": "RU",
+                    "text": "Разрывы строк в этом стиле не создают новые абзацы.",
+                    "updated": 1638534201355
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633955508936
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638534210572
                 }
             ]
         },

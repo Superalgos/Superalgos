@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Es ist möglich, PNG-Bilder in eine Docs-Seite einzubetten.",
                 "updated": 1633957628577
+            },
+            {
+                "language": "RU",
+                "text": "На страницу документов можно встраивать изображения PNG.",
+                "updated": 1638542754361
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Um ein PNG-Bild in eine Docs-Seite einzubetten, müssen Sie diese Syntax befolgen:",
                     "updated": 1633957649862
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы вставить изображение PNG на страницу документов, вам необходимо следовать этому синтаксису:",
+                    "updated": 1638542947360
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633957661851
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638542967388
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "DE",
                     "text": "Dies sieht wiefolgt aus:",
                     "updated": 1633957847513
+                },
+                {
+                    "language": "RU",
+                    "text": "Выглядит так:",
+                    "updated": 1638542998979
                 }
             ]
         },

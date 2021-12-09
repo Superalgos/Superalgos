@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El activo de la cuenta del exchange representa un único activo que el usuario tiene en el exchange.",
                 "updated": 1637230605691
+            },
+            {
+                "language": "RU",
+                "text": "Exchange Account Asset представляет собой единственный актив, который пользователь имеет на бирже.",
+                "updated": 1638782429615
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "El activo de la cuenta del exchange es una referencia a un activo definido debajo del nodo de activos del exchange.",
                     "updated": 1637230688300
+                },
+                {
+                    "language": "RU",
+                    "text": "Актив учетной записи биржи - это ссылка на актив, определенный в узле Exchange Assets.",
+                    "updated": 1638782539412
                 }
             ]
         }

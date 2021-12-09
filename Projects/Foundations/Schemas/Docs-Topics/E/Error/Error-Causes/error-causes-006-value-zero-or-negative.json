@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zur Laufzeit können einige Nodes einen Wert erhalten, und wenn erwartet wird, dass er nicht Null oder negativ ist, wird diese Art von Fehler angezeigt. Um diese Art von Fehler zu vermeiden, stellen Sie sicher, dass die Node, bei dem der Fehler auftrat, niemals einen Null- oder Negativwert erhält.",
                 "updated": 1637874899636
+            },
+            {
+                "language": "RU",
+                "text": "Во время выполнения некоторые узлы Node могут получить значение, и когда ожидается, что оно не будет нулевым или отрицательным, появится ошибка этого типа. Чтобы избежать этого типа ошибки, убедитесь, что узел, на котором возникла ошибка, никогда не получает нулевое или отрицательное значение.",
+                "updated": 1638553279949
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
                     "updated": 1637874816277
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
+                    "updated": 1638553289409
                 }
             ]
         }

@@ -2,7 +2,14 @@
     "type": "Assets",
     "definition": {
         "text": "The Assets hierarchy defines the structure of assets that a project is composed of. Any digital component of a Project may be characterised as an asset, including code files, stylesheets, images, documentation pages, tutorial pages, and so on. Assets, like Features, need to be created and maintained, thus their creation and maintenance must be incentivized. ",
-        "updated": 1624708951019
+        "updated": 1624708951019,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия Assets определяет структуру ресурсов, из которых состоит проект. Любой цифровой компонент проекта может быть охарактеризован как ресурс, включая файлы кода, таблицы стилей, изображения, страницы документации, страницы руководств и так далее. Ресурсы, как и функции, необходимо создавать и поддерживать,\nтаким образом, их создание и поддержание необходимо стимулировать.",
+                "updated": 1638617726711
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,39 +19,95 @@
         },
         {
             "style": "Text",
-            "text": "Defining assets at the project level is an excellent way to atomize the description of a project. This level of granularity allows multiple groups of Contributors to take charge of clearly delimited components, which is crucial to developing, evolving, and maintaining a vast project through massive collaboration."
+            "text": "Defining assets at the project level is an excellent way to atomize the description of a project. This level of granularity allows multiple groups of Contributors to take charge of clearly delimited components, which is crucial to developing, evolving, and maintaining a vast project through massive collaboration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение ресурсов на уровне проекта - отличный способ атомизировать описание проекта. Такой уровень детализации позволяет нескольким группам участников брать на себя ответственность за четко разграниченные компоненты, что имеет решающее значение для разработки, развития и поддержки обширного проекта посредством массового сотрудничества.",
+                    "updated": 1638618106378
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The hierarchy features Asset Class nodes, an organizational device, and Asset nodes, the representation of actual assets. Both types of nodes may accept incoming Weight Votes but only Asset nodes may accept Contribution Claims.",
-            "updated": 1630434541690
+            "updated": 1630434541690,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия включает узлы класса ресурсов Asset Class, организационное устройство и узлы ресурсов Asset, представляющие фактические ресурсы. Оба типа узлов могут принимать входящие голоса Weight Votes, но только узлы ресурсов могут принимать заявки на участие Contribution Claims.",
+                    "updated": 1638618493050
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "A crucial feature of this hierarchy is the Install Assets feature available both at the top-level of the hierarchy, and at the Asset Class node level.",
-            "updated": 1624709216096
+            "updated": 1624709216096,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Важнейшей особенностью этой иерархии является функция установки ресурсов Install Assets, доступная как на верхнем уровне иерархии, так и на уровне узла Assets Class.",
+                    "updated": 1638618660748
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Install Missing Assets",
-            "updated": 1624709536566
+            "updated": 1624709536566,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установка недостающих ресурсов",
+                    "updated": 1638618890263
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The Install Missing Assets feature is oriented to people maintaining Project Definition Hierarchies. You may safely skip this explanation if you are a regular user learning about governance.",
-            "updated": 1630434796338
+            "updated": 1630434796338,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функция Install Missing Assets предназначена для людей, поддерживающих иерархии Project Definition Hierarchies. Вы можете смело пропустить это объяснение, если вы обычный пользователь, изучающий управление.",
+                    "updated": 1638618863067
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Both the Assets node and Asset Class nodes support the Install Missing Assets command available on the menu. Because Asset nodes map digital files shipping with the system, the Install Missing Assets feature is designed to map files on disk into a hierarchical structures of nodes below the node where the Install Missing Assets command is run. In the resulting structure of nodes, Asset Class nodes represent folders, and Asset nodes represent files."
+            "text": "Both the Assets node and Asset Class nodes support the Install Missing Assets command available on the menu. Because Asset nodes map digital files shipping with the system, the Install Missing Assets feature is designed to map files on disk into a hierarchical structures of nodes below the node where the Install Missing Assets command is run. In the resulting structure of nodes, Asset Class nodes represent folders, and Asset nodes represent files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы Asset и Asset Class поддерживают команду Install Missing Assets, доступную в меню. Поскольку узлы ресурсов сопоставляют цифровые файлы, доставляемые с системой, функция Install Missing Assets предназначена для сопоставления файлов на диске в иерархические структуры узлов ниже узла, на котором выполняется команда Install Missing Assets. В итоговой структуре узлов узлы Asset Class представляют папки, а узлы Assets представляют файлы.",
+                    "updated": 1638619197330
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To run the command, you must configure the path you wish to map."
+            "text": "To run the command, you must configure the path you wish to map.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы выполнить команду, вы должны настроить путь, который хотите отобразить.",
+                    "updated": 1638619233070
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1638619248350
+                }
+            ]
         },
         {
             "style": "Json",
@@ -54,7 +117,14 @@
         {
             "style": "Text",
             "text": "Using the above configuration, the Install Missing Assets command creates a Superalgos Asset Class node (the root of the Superalgos folder), and the UI Asset Class node as an offspring node. Then, the contents of the UI folder are mapped as offspring of the UI Asset Class node.",
-            "updated": 1630434897746
+            "updated": 1630434897746,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используя приведенную выше конфигурацию, команда Install Missing Assets создает узел Superalgos Asset Class (корневой каталог папки Superalgos) и и узел класса ресурсов пользовательского интерфейса UI Asset Class в качестве дочернего узла. Затем содержимое папки пользовательского интерфейса UI отображается как потомок узла UI Asset Class.",
+                    "updated": 1638620164191
+                }
+            ]
         },
         {
             "style": "Block",
@@ -62,7 +132,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638619862406
+                }
+            ]
         }
     ]
 }

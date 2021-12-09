@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die angegebene Docs Page Number stimmt nicht mit der Docs Page Number auf der Seite überein, die Sie löschen möchten.",
                 "updated": 1633899671709
+            },
+            {
+                "language": "RU",
+                "text": "Указанный номер страницы документов Docs Page Number не совпадает с номером на странице, которую вы хотите удалить.",
+                "updated": 1638530491431
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Seite, die Sie löschen möchten, und geben Sie die richtige Seitenzahl für den Befehl ein.",
                     "updated": 1633899740018
+                },
+                {
+                    "language": "RU",
+                    "text": "Отметьте страницу, которую вы хотите удалить, и получите правильный номер страницы для использования в команде.",
+                    "updated": 1638530507477
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633899745946
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638530518790
                 }
             ]
         },

@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Алгоритм выполнения - это набор инструкций, используемых для размещения и управления ордерами на бирже.",
-                "updated": 1637756233547
+                "text": "Execution Algorithm - это набор инструкций, используемых для размещения и управления ордерами на бирже.",
+                "updated": 1638785781426
             }
         ]
     },
@@ -22,19 +22,47 @@
         },
         {
             "style": "Text",
-            "text": "Any given strategy may have simple or very complex execution requirements. To deal with complexity, Superalgos allows users to set up as many execution algorithms as required."
+            "text": "Any given strategy may have simple or very complex execution requirements. To deal with complexity, Superalgos allows users to set up as many execution algorithms as required.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Любая заданная стратегия может иметь простые или очень сложные требования к исполнению. Чтобы справиться со сложностью, Superalgos позволяет пользователям настраивать столько алгоритмов выполнения, сколько требуется.",
+                    "updated": 1638785805848
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Then, the logic in each algorithm may remain simple, while the combined work of multiple algorithms may deal with the required complexity."
+            "text": "Then, the logic in each algorithm may remain simple, while the combined work of multiple algorithms may deal with the required complexity.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тогда логика в каждом алгоритме может оставаться простой, в то время как совместная работа нескольких алгоритмов может иметь дело с требуемой сложностью.",
+                    "updated": 1638785824016
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each algorithm may be assigned a fraction of the target size (see the configuration section), thus, the extent of each algorithm's involvement in the execution is defined by this parameter."
+            "text": "Each algorithm may be assigned a fraction of the target size (see the configuration section), thus, the extent of each algorithm's involvement in the execution is defined by this parameter.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждому алгоритму может быть назначена часть целевого размера (см. Раздел конфигурации), таким образом, степень участия каждого алгоритма в выполнении определяется этим параметром.",
+                    "updated": 1638785855815
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An execution algorithm is a set of instructions in the sense that the orders defined in each algorithm are themselves the instructions. That is, an execution algorithm is a set of predefined orders which may be created or canceled given specific market situations."
+            "text": "An execution algorithm is a set of instructions in the sense that the orders defined in each algorithm are themselves the instructions. That is, an execution algorithm is a set of predefined orders which may be created or canceled given specific market situations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Алгоритм выполнения (Execution Algorithm) - это набор инструкций в том смысле, что ордеры, определенные в каждом алгоритме, сами являются инструкциями. То есть алгоритм исполнения - это набор предопределенных ордеров, которые могут быть созданы или отменены в определенных рыночных ситуациях.",
+                    "updated": 1638785928425
+                }
+            ]
         },
         {
             "style": "Block",
@@ -43,11 +71,25 @@
         {
             "style": "Title",
             "text": "Execution Algorithm Configuration",
-            "updated": 1617197817510
+            "updated": 1617197817510,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Execution Algorithm",
+                    "updated": 1638785949446
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageOfStageTargetSize is the definition of how much of the target size of the whole stage will be handled by the one specific execution algorithm, expressed as a percentage of the total target size. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the algorithm will not be executed."
+            "text": "percentageOfStageTargetSize is the definition of how much of the target size of the whole stage will be handled by the one specific execution algorithm, expressed as a percentage of the total target size. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the algorithm will not be executed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "процентOfStageTargetSize - это определение того, какая часть целевого размера всего этапа будет обрабатываться одним конкретным алгоритмом выполнения, выраженное в процентах от общего целевого размера. Возможные значения - это действительные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, алгоритм не будет выполняться.",
+                    "updated": 1638785982625
+                }
+            ]
         }
     ]
 }

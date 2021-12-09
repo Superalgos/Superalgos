@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Das Wort \"from\" ist Teil der Syntax des Befehls fehlt jedoch.",
                 "updated": 1633897940977
+            },
+            {
+                "language": "RU",
+                "text": "Слово «from» является частью синтаксиса команды и отсутствует.",
+                "updated": 1638530031769
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Syntax des Befehls und sehen Sie nach, wo das Wort \"from\" zu platzieren ist.",
                     "updated": 1633897999011
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте синтаксис команды и посмотрите, где разместить слово «from».",
+                    "updated": 1638530058357
                 }
             ]
         },
@@ -52,10 +62,6 @@
                     "updated": 1633897980837
                 }
             ]
-        },
-        {
-            "style": "List",
-            "text": "Docs Delete Command"
         },
         {
             "style": "List",

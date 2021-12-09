@@ -2,7 +2,14 @@
     "type": "Asset Class",
     "definition": {
         "text": "The Asset Class node is an organizational device used to group Asset nodes in arbitrary arrangements. The node may receive Weight Votes. When it does, votes are evenly distributed among offspring nodes.",
-        "updated": 1624720632494
+        "updated": 1624720632494,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Asset Class - это организационное устройство, используемое для группировки узлов ресурсов в произвольном порядке. Узел может получать голоса по весу Weight Votes. Когда это происходит, голоса равномерно распределяются между дочерними узлами.",
+                "updated": 1638620222146
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,11 +20,25 @@
         {
             "style": "Text",
             "text": "You may direct Weight Votes to an Asset Class node when you intend to drive Weight to the whole class, including all assets within.",
-            "updated": 1630434955110
+            "updated": 1630434955110,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете направить Weight Votes на узел классов ресурсов Asset Class, если вы намереваетесь передать вес всему классу, включая все изделия внутри.",
+                    "updated": 1638620255741
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Asset Class nodes may take incoming Weight Votes. When you cast Weight Votes on an Asset Class node, votes cascade evenly to all offspring nodes."
+            "text": "Asset Class nodes may take incoming Weight Votes. When you cast Weight Votes on an Asset Class node, votes cascade evenly to all offspring nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы класса ресурсов могут принимать входящие голоса по весу Weight Votes. Когда вы применяете Weight Votes к узлу Asset Class, голоса распределяются равномерно по всем дочерним узлам.",
+                    "updated": 1638620301677
+                }
+            ]
         },
         {
             "style": "Block",
@@ -25,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638611848567
+                }
+            ]
         }
     ]
 }

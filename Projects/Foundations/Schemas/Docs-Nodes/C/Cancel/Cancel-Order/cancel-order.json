@@ -1,12 +1,26 @@
 {
     "type": "Cancel Order",
     "definition": {
-        "text": "Counts the periods since the last time an order was canceled."
+        "text": "Counts the periods since the last time an order was canceled.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Подсчитывает периоды с момента последней отмены заказа.",
+                "updated": 1638645989879
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638645999562
+                }
+            ]
         },
         {
             "style": "Block",
@@ -15,15 +29,36 @@
         {
             "style": "Title",
             "text": "Cancel Order Configuration",
-            "updated": 1609925777606
+            "updated": 1609925777606,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Cancel Order",
+                    "updated": 1638646016508
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638646023257
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638646033144
+                }
+            ]
         }
     ]
 }

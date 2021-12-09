@@ -1,7 +1,14 @@
 {
     "type": "Cancel Order Event",
     "definition": {
-        "text": "The cancel order event makes cancelling limit orders possible."
+        "text": "The cancel order event makes cancelling limit orders possible.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Событие отмена ордера делает возможной отмену лимитных ордеров.",
+                "updated": 1638646107820
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The cancel order event defines the market situations in which a limit order shall be canceled. When the event is triggered, the order is closed, even when the order may have been partially filled. In such a case, the size filled remains as is, and all accounts are computed accordingly, with the partial fill."
+            "text": "The cancel order event defines the market situations in which a limit order shall be canceled. When the event is triggered, the order is closed, even when the order may have been partially filled. In such a case, the size filled remains as is, and all accounts are computed accordingly, with the partial fill.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие отмены ордера определяет рыночные ситуации, в которых лимитный ордер должен быть отменен. Когда событие запускается, ордер закрывается, даже если он мог быть частично исполнен. В таком случае заполненный размер остается неизменным, и все счета рассчитываются соответственно с частичным заполнением.",
+                    "updated": 1638646134499
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,14 @@
 {
     "type": "Close Execution",
     "definition": {
-        "text": "The close execution node groups all execution algorithms involved in the process of closing a position."
+        "text": "The close execution node groups all execution algorithms involved in the process of closing a position.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел выполнения закрытия группирует все алгоритмы выполнения, участвующие в процессе закрытия позиции.",
+                "updated": 1638646656797
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The close execution section of the close stage works similarly to the open execution in the open stage. Please refer to the explanations of the open stage for the details."
+            "text": "The close execution section of the close stage works similarly to the open execution in the open stage. Please refer to the explanations of the open stage for the details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Секция выполнения закрытия на этапе закрытия работает аналогично открытому исполнению на этапе открытия. Пожалуйста, обратитесь к объяснениям открытого этапа для получения подробной информации.",
+                    "updated": 1638646699239
+                }
+            ]
         }
     ]
 }

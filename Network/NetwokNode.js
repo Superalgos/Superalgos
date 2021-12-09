@@ -45,6 +45,7 @@ exports.newNetworkNode = function newNetworkNode() {
                 'Network Peer',
                 thisObject.p2pNetworkNode,
                 thisObject.p2pNetwork,
+                thisObject.p2pNetworkInterface,
                 global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS
             )
         }

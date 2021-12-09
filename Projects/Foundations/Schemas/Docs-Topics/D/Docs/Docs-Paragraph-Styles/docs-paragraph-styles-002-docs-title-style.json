@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Stil, um Titel auf der docs-Seite darzustellen.",
                 "updated": 1633952314955
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль для отображения заголовков на странице документов.",
+                "updated": 1638532759086
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Wie der Name schon vermuten lässt, macht der Titelstil einfach alles, was Sie während der Bearbeitung eingeben, als Titel auf der docs-Seite sichtbar.",
                     "updated": 1633952379140
+                },
+                {
+                    "language": "RU",
+                    "text": "Как следует из названия, стиль заголовка просто делает все, что вы вводите во время редактирования, видимым как заголовок на странице документов.",
+                    "updated": 1638532794274
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633952935582
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638532842101
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Der vorherige ist ein Absatz im Titelstil. (Beispiel Überschrift ist Titel-Stil)",
                     "updated": 1633952469135
+                },
+                {
+                    "language": "RU",
+                    "text": "Предыдущий - это абзац в стиле заголовка.",
+                    "updated": 1638532822687
                 }
             ]
         }

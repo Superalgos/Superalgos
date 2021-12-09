@@ -7,6 +7,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         host: undefined,
         port: undefined,
         callerRole: undefined,
+        p2pNetworkInterface: undefined,
         p2pNetworkNode: undefined,
         p2pNetworkClientIdentity: undefined,
         p2pNetworkClientCodeName: undefined,
@@ -31,6 +32,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.port = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
+        thisObject.p2pNetworkInterface = undefined
         thisObject.p2pNetworkClientIdentity = undefined
         thisObject.onConnectionClosedCallBack = undefined
 
@@ -39,12 +41,13 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode, onConnectionClosedCallBack) {
+    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode, p2pNetworkInterface, onConnectionClosedCallBack) {
 
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
+        thisObject.p2pNetworkInterface = p2pNetworkInterface
         thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
         web3 = new SA.nodeModules.web3()
@@ -133,7 +136,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             the one we have on record for the user profile of the Network Node we are calling.
                             */
                             if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
-                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
                                 reject()
                                 return
                             }
@@ -307,21 +310,38 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             /*
             The message received is a not response to a message sent.
             That means that is a notification received from the Network Node
-            of an event that happened at some other Client of the Network.
+            of an event or signal that happened at some other Client of the Network.
 
-            This can only happen when this module is running at an APP like the Desktop App.
+            This can only happen when this module is running at an APP like 
+            the Desktop App, Server App, Platform App, or Task Server App.
             */
-            let event
-            try {
-                event = JSON.parse(message.eventMessage)
-            } catch (err) {
-                console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
-                console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
-                thisObject.socket.close()
+            if (message.eventMessage !== undefined) {
+                let eventMessage
+                try {
+                    eventMessage = JSON.parse(message.eventMessage)
+                } catch (err) {
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
+                    thisObject.socket.close()
+                    return
+                }
+                thisObject.p2pNetworkInterface.eventReceived(eventMessage)
                 return
             }
 
-            DK.desktopApp.p2pNetworkInterface.eventReceived(event)
+            if (message.signalMessage !== undefined) {
+                let signalMessage
+                try {
+                    signalMessage = JSON.parse(message.signalMessage)
+                } catch (err) {
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
+                    thisObject.socket.close()
+                    return
+                }
+                thisObject.p2pNetworkInterface.signalReceived(signalMessage)
+                return
+            }            
         }
     }
 }

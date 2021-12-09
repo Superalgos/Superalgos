@@ -67,16 +67,31 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             return passed
         }
 
-        tradingSystem.evalConditions = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'Conditions', descendentOfNodeType)
+        tradingSystem.evalConditions = function (startingNode, descendentOfNodeType, signal) {
+            evalNode(
+                startingNode,
+                'Conditions',
+                descendentOfNodeType,
+                undefined,
+                undefined,
+                signal
+            )
         }
 
         tradingSystem.evalFormulas = async function (startingNode, descendentOfNodeType) {
-            await evalNode(startingNode, 'Formulas', descendentOfNodeType)
+            await evalNode(
+                startingNode,
+                'Formulas',
+                descendentOfNodeType
+            )
         }
 
         tradingSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'User Codes', descendentOfNodeType);
+            evalNode(
+                startingNode,
+                'User Codes',
+                descendentOfNodeType
+            )
         }
 
         tradingSystem.addError = function (errorDataArray) {
@@ -229,13 +244,20 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             if (typeof err === 'string' || err instanceof String) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
-            if (err.stack !== undefined) {
+            if (err !== undefined && err.stack !== undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
     }
 
-    async function evalNode(node, evaluating, descendentOfNodeType, isDescendent, parentNode) {
+    async function evalNode(
+        node,
+        evaluating,
+        descendentOfNodeType,
+        isDescendent,
+        parentNode,
+        signal
+    ) {
         if (node === undefined) { return }
 
         /* Verify if this node is descendent of the specified node type */
@@ -249,7 +271,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         if (node.type === 'Condition' && evaluating === 'Conditions') {
             /* We will eval this condition */
             if (isDescendent === true) {
-                evalCondition(node)
+                evalCondition(node, signal)
             }
         }
 
@@ -285,7 +307,14 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                await evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent, node)
+                                await evalNode(
+                                    node[property.name],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    node,
+                                    signal
+                                )
                             }
                             previousPropertyName = property.name
                         }
@@ -295,7 +324,14 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                await evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent, node)
+                                await evalNode(
+                                    nodePropertyArray[m],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    node,
+                                    signal
+                                )
                             }
                         }
                         break
@@ -305,7 +341,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         }
     }
 
-    function evalCondition(node) {
+    function evalCondition(node, signal) {
         let value
         let errorMessage
         let docs
@@ -322,7 +358,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                 nodeName = node.javascriptCode.name
             }
         }
-
+        /*
+        Note that the signal object is part of the objects available to the users at
+        their conditions code.
+        */
         try {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> ' + node.name + ' -> code = ' + code)
             value = eval(code)

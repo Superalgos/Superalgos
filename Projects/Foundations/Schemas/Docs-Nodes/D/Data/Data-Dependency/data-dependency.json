@@ -1,7 +1,14 @@
 {
     "type": "Data Dependency",
     "definition": {
-        "text": "Data dependencies are references established with dataset definitions of other bots, determining which datasets the process establishing the reference uses as input."
+        "text": "Data dependencies are references established with dataset definitions of other bots, determining which datasets the process establishing the reference uses as input.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Data Dependency - это ссылки, установленные с определениями наборов данных других ботов, определяющие, какие наборы данных процесс, устанавливающий ссылку, использует в качестве входных.",
+                "updated": 1638729798621
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Most bots consume data other bots have produced. Because bots need the data as input for their calculations, processes establish a data dependency with the dataset definitions of other bots. The reference provides the process with all the information needed to decode the dataset, enabling it to perform the required calculations."
+            "text": "Most bots consume data other bots have produced. Because bots need the data as input for their calculations, processes establish a data dependency with the dataset definitions of other bots. The reference provides the process with all the information needed to decode the dataset, enabling it to perform the required calculations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство ботов потребляют данные, созданные другими ботами. Поскольку боты нуждаются в данных в качестве входных данных для своих вычислений, процессы устанавливают зависимость данных с определениями наборов данных других ботов. Справочник предоставляет процессу всю информацию, необходимую для декодирования набора данных, что позволяет ему выполнять необходимые вычисления.",
+                    "updated": 1638729832092
+                }
+            ]
         }
     ]
 }

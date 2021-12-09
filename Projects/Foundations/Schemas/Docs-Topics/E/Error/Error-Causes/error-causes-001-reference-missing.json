@@ -4,12 +4,26 @@
     "type": "Reference Missing",
     "definition": {
         "text": "You will get an error of this type every time a Node that is expected to reference some other node and no reference was found. You can usually avoid this type of errors by setting up the expected reference.",
-        "updated": 1611652038378
+        "updated": 1611652038378,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы будете получать ошибку этого типа каждый раз, когда узел Node, который, как ожидается, будет ссылаться на какой-либо другой узел, и ссылка не была найдена. Обычно вы можете избежать ошибок такого типа, настроив ожидаемую ссылку.",
+                "updated": 1638552874457
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
+                    "updated": 1638553042454
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,14 @@
 {
     "type": "Exit Type",
     "definition": {
-        "text": "Exit type refers to the reason why the object is closed."
+        "text": "Exit type refers to the reason why the object is closed.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Exit Type относится к причине закрытия объекта.",
+                "updated": 1638786418732
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,31 +17,80 @@
         },
         {
             "style": "Text",
-            "text": "No Exit is the default value until a new value is assigned before the object is closed. Other possible values vary with the context."
+            "text": "No Exit is the default value until a new value is assigned before the object is closed. Other possible values vary with the context.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": " «No Exit» - это значение по умолчанию, пока перед закрытием объекта не будет присвоено новое значение. Другие возможные значения зависят от контекста.",
+                    "updated": 1638786468648
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of the episode object:"
+            "text": "In the context of the episode object:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте объекта эпизода:",
+                    "updated": 1638786481664
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Last Candle Reached: the object was closed because the last candle was reached."
+            "text": "Last Candle Reached: the object was closed because the last candle was reached.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Last Candle Reached: объект был закрыт, потому что была достигнута последняя свеча.",
+                    "updated": 1638786502165
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Position Closed: the position was closed."
+            "text": "Position Closed: the position was closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Position Closed: позиция была закрыта.",
+                    "updated": 1638786513416
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Take Profit: the take profit target was hit."
+            "text": "Take Profit: the take profit target was hit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Take Profit: тейк-профит был достигнут.",
+                    "updated": 1638786582087
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Stop Loss: the stop loss target was hit."
+            "text": "Stop Loss: the stop loss target was hit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Stop Loss: стоп-лосса был достигнут.",
+                    "updated": 1638786575335
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Closing Stage: the current stage started closing because the Close Stage is opening."
+            "text": "Closing Stage: the current stage started closing because the Close Stage is opening.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Closing Stage: текущий этап начал закрываться, потому что открывается этап закрытия Close Stage.",
+                    "updated": 1638786625532
+                }
+            ]
         },
         {
             "style": "Block",
@@ -44,17 +100,38 @@
         {
             "style": "Title",
             "text": "Exit Type Configuration",
-            "updated": 1609880198732
+            "updated": 1609880198732,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Exit Type",
+                    "updated": 1638786640372
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638786648431
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638786659112
+                }
+            ]
         }
     ]
 }

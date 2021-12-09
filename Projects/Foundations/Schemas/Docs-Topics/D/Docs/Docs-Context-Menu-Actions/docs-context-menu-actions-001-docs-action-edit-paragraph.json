@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diese Aktion, um den Text eines Absatzes zu bearbeiten. Verwenden Sie dann die ESC-Taste, um den Bearbeitungsmodus zu verlassen.",
                 "updated": 1633964883418
+            },
+            {
+                "language": "RU",
+                "text": "Используйте это действие для редактирования текста абзаца. Затем используйте клавишу ESC, чтобы выйти из режима редактирования.",
+                "updated": 1638532068326
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1633965063472
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638532081277
                 }
             ]
         }

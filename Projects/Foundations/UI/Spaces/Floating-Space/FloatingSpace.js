@@ -709,9 +709,9 @@ function newFoundationsFloatingSpace() {
     function rescueFloatingObject(position){
 
         UI.projects.foundations.spaces.cockpitSpace.setStatus('Attempting to rescue lost nodes to your mouse', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
-
+        let map;
         for (let i = 0; i < UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
-            let map = new Map()
+            //let map = new Map() // Why is it here?
             map = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes[i])
             let iterator1 = map.values();
             for (let k = 0; k < map.size; k++) {

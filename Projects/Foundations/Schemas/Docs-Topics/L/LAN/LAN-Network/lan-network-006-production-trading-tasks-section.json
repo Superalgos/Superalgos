@@ -1,0 +1,37 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "6",
+    "type": "Production Trading Tasks Section",
+    "definition": {
+        "text": "The production environment organizes your strategy-deployment resources, grouping tasks and associated forward testing and live trading sessions.",
+        "updated": 1610106563761,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В производственной среде организуются ресурсы для развертывания стратегии, группируются задачи и связанные с ними форвард-тестирование и торговые сессии в реальном времени.",
+                "updated": 1638601275613
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Production Trading Tasks->Definition",
+            "updated": 1610106660823
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Production Trading Tasks->Content",
+            "updated": 1610106664031
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610111896199
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Production Trading Tasks->7"
+        }
+    ]
+}

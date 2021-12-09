@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Eine API-Map stellt das Mapping einer API dar, so dass sie von Bots innerhalb von Superalgos genutzt werden kann. API Maps werden von Nutzern erstellt und als Plugins geteilt, so dass jedes andere Community-Mitglied sie mit seinen Bots nutzen kann.",
                 "updated": 1637407347172
+            },
+            {
+                "language": "RU",
+                "text": "API Map представляет собой сопоставление API, которое может использоваться ботами в Superalgos. Карты API создаются пользователями и передаются как плагины, так что любой другой член сообщества может использовать их со своими ботами.",
+                "updated": 1638625736372
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Um eine API-Map zu erstellen, sollten Sie die API-Dokumentation für jeden Endpunkt sowie das  Data Mining Topic lesen. Diese Quellen liefern Ihnen alle Informationen, die Sie für die Erstellung einer erfolgreichen API-Map benötigen.",
                     "updated": 1637407413755
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы создать карту API, необходимо прочитать документацию по API для каждой конечной точки, а также раздел Data Mining. Эти источники предоставят вам всю информацию, необходимую для создания успешной карты API.",
+                    "updated": 1638626165824
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Grundsätzlich kann man sich eine API-Map als eine Darstellung des URL-Links vorstellen, der für die Anforderung (request) von Informationen von der API benötigt wird, sowie als das Layout der von der API zurückgegebenen Daten. Das bedeutet, dass eine API-Map alle Informationen enthält, die zum Anfordern von Daten und zum Entschlüsseln der zurückgegebenen Daten erforderlich sind.",
                     "updated": 1637407595202
+                },
+                {
+                    "language": "RU",
+                    "text": "Базовый способ представления карты API - это представление URL-ссылки, необходимой для запроса информации из API, а также макета данных, возвращаемых API. Это означает, что карта API содержит всю информацию, необходимую для запроса данных и дешифрования данных после их возврата.",
+                    "updated": 1638625830025
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "DE",
                     "text": "Wie werden API Maps verwendet?",
                     "updated": 1637407620683
+                },
+                {
+                    "language": "RU",
+                    "text": "Как используются карты API?",
+                    "updated": 1638625862785
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "DE",
                     "text": "API Maps werden von API Data Fetcher Bots verwendet, um Daten von einer API anzufordern und zu speichern. Dazu muss der Benutzer eine Task zur Ausführung des Bots einrichten. Diese Einrichtung erfolgt automatisch als Teil des Install Market-Verfahrens, wenn sowohl eine API Map als auch die zugehörige Datamine im Workspace erkannt werden. In dieser Task wird ein Verweis (reference) auf die API-Map eingerichtet.",
                     "updated": 1637407784736
+                },
+                {
+                    "language": "RU",
+                    "text": "Карты API используются ботами API Data Fetcher Bots для запроса и сохранения данных из API. Для этого пользователю необходимо настроить задачу для запуска бота. Эта настройка выполняется автоматически как часть процедуры Install Market, если в рабочем пространстве Worksapce обнаружены как карта API, так и ее хранилище данных. В рамках этой задачи устанавливается ссылка на карту API.",
+                    "updated": 1638626096878
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "DE",
                     "text": "When the Task is run, the UI will send to the Task Server all the definitions inside the API Map so that the API Data Fetcher Bot can use them to connect to the API Server, fetch data from it, and correctly interpret the responses. Wenn die Task ausgeführt wird, sendet die UI (Benutzeroberfläche) alle Definitionen in der API Map an den Task Server, damit der API Data Fetcher Bot sie verwenden kann, um eine Verbindung zum API Server herzustellen, Daten von ihm abzurufen und die Antworten korrekt zu interpretieren.",
                     "updated": 1637407893809
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда задача Task выполняется, пользовательский интерфейс UI отправляет на сервер задач Task Server все определения внутри карты API, чтобы бот API Data Fetcher Bot мог использовать их для подключения к серверу API, извлечения данных с него и правильной интерпретации ответов.",
+                    "updated": 1638626360852
                 }
             ]
         },
@@ -85,6 +115,11 @@
                     "language": "DE",
                     "text": "Wie man eine \"API Request URL\" liest:",
                     "updated": 1637407947758
+                },
+                {
+                    "language": "RU",
+                    "text": "Как читать URL-адрес запроса API",
+                    "updated": 1638626392091
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "DE",
                     "text": "Die API, die Sie abbilden (mappen) möchten, sollte über eine Dokumentation ihrer API Endpoints verfügen. Wenn dies nicht der Fall ist, prüfen Sie alle Beispiele, die sie für die Abfrage der Daten bereitstellen, und sehen Sie nach, ob es innere Ordner unterhalb des Hauptordners des API Endpoints gibt. Jeder dieser Ordner ist ein API Path Parameter, der definiert werden muss.",
                     "updated": 1637408139914
+                },
+                {
+                    "language": "RU",
+                    "text": "API, который вы пытаетесь сопоставить, должен иметь задокументированные конечные точки API Endpoints. Если нет, проверьте любые примеры, которые они могут предоставить для запроса данных, и посмотрите, есть ли внутренние папки под основной папкой API Enpoint. Каждая из этих папок представляет собой параметр пути API Path Parameter, который необходимо определить.",
+                    "updated": 1638626550400
                 }
             ]
         },
@@ -108,6 +148,11 @@
                     "language": "DE",
                     "text": "Hier sind einige Beispiele für API request URLs:",
                     "updated": 1637408182777
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот несколько примеров URL-адресов запросов API:",
+                    "updated": 1638626596716
                 }
             ]
         },
@@ -128,6 +173,11 @@
                     "language": "DE",
                     "text": "Abschnitte einer API Request URL:",
                     "updated": 1637408214715
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделы URL-адреса запроса API",
+                    "updated": 1638626624418
                 }
             ]
         },
@@ -139,6 +189,11 @@
                     "language": "DE",
                     "text": "Lassen Sie uns eine dieser URLs aufschlüsseln und jeden Teil davon identifizieren.",
                     "updated": 1637408255353
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте разберем один из этих URL-адресов и определим каждую его часть.",
+                    "updated": 1638626638275
                 }
             ]
         },
@@ -151,6 +206,11 @@
                     "language": "DE",
                     "text": "Internet Protocol: Dieser Teil steht am Anfang fast jedes Internet-Links, den Sie sehen werden.",
                     "updated": 1637408455485
+                },
+                {
+                    "language": "RU",
+                    "text": "Internet Protocol: Это раздел в начале практически любой интернет-ссылки, которую вы увидите.",
+                    "updated": 1638626706898
                 }
             ]
         },
@@ -167,6 +227,11 @@
                     "language": "DE",
                     "text": "Sie definieren dies über die Eigenschaft protocol config in der main API Map node.",
                     "updated": 1637408526085
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете это с помощью свойства конфигурации протокола в главном узле API Map.",
+                    "updated": 1638626740278
                 }
             ]
         },
@@ -178,6 +243,11 @@
                     "language": "DE",
                     "text": "Root Domain Name: Dies ist der Teil der URL, der vor dem ersten Backslash steht:",
                     "updated": 1637408573940
+                },
+                {
+                    "language": "RU",
+                    "text": "Root Domain Name: Это раздел URL-адреса перед первой обратной косой чертой:",
+                    "updated": 1638626832667
                 }
             ]
         },
@@ -194,6 +264,11 @@
                     "language": "DE",
                     "text": "Sie definieren dies über die hostName config property in der main API Map node.",
                     "updated": 1637408669762
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете это с помощью свойства конфигурации hostName в главном узле API Map.",
+                    "updated": 1638626807381
                 }
             ]
         },
@@ -205,6 +280,11 @@
                     "language": "DE",
                     "text": "API Path: Dies ist der Abschnitt, der den Hauptpfad zur API definiert:",
                     "updated": 1637408725011
+                },
+                {
+                    "language": "RU",
+                    "text": "API Path: Это раздел, который определяет основной путь к API:",
+                    "updated": 1638626826024
                 }
             ]
         },
@@ -221,6 +301,11 @@
                     "language": "DE",
                     "text": "Sie definieren dies über die path config property in der main API Map node.",
                     "updated": 1637408876286
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете это с помощью свойства конфигурации пути в главном узле API Map.",
+                    "updated": 1638626861400
                 }
             ]
         },
@@ -232,6 +317,11 @@
                     "language": "DE",
                     "text": "API Version Number:  In diesem Abschnitt wird die API-Version definiert, an die Sie Anfragen stellen.",
                     "updated": 1637408824379
+                },
+                {
+                    "language": "RU",
+                    "text": "API Version Number: Это раздел, который определяет версию API, к которой вы делаете запросы.",
+                    "updated": 1638626876947
                 }
             ]
         },
@@ -255,6 +345,11 @@
                     "language": "DE",
                     "text": "Hinweis: Sie definieren dies über die  codeName config property in der API Version node.",
                     "updated": 1637408939849
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете это с помощью свойства конфигурации codeName в узле API Version.",
+                    "updated": 1638626916137
                 }
             ]
         },
@@ -267,6 +362,11 @@
                     "language": "DE",
                     "text": "API Endpoint: In diesem Abschnitt wird der API mitgeteilt, welche Art von Daten Sie anfordern möchten.",
                     "updated": 1637414433995
+                },
+                {
+                    "language": "RU",
+                    "text": "API Endpoint: Это раздел, который сообщает API, какие данные вы хотите запросить.",
+                    "updated": 1638626936884
                 }
             ]
         },
@@ -283,6 +383,11 @@
                     "language": "DE",
                     "text": "Sie definieren dies über die  config codeName property des API-Endpoint node.",
                     "updated": 1637414475525
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете это с помощью свойства codeName узла API Endpoint.",
+                    "updated": 1638627035603
                 }
             ]
         },
@@ -295,6 +400,11 @@
                     "language": "DE",
                     "text": "Path Parameters: Dies sind die verbleibenden Abschnitte des Pfads vor dem Fragezeichen. Sie grenzen die Daten, die Sie von der API anfordern möchten, weiter ein. In diesem Fall möchten wir Daten über Bitcoin erhalten:",
                     "updated": 1637414552491
+                },
+                {
+                    "language": "RU",
+                    "text": "Path Parameters: Это оставшиеся участки пути до вопросительного знака, они еще больше сужают данные, которые вы хотите запросить у API. В этом случае мы хотим получить данные о биткойнах:",
+                    "updated": 1638627103770
                 }
             ]
         },
@@ -311,6 +421,11 @@
                     "language": "DE",
                     "text": "Sie definieren jedes dieser Elemente über die codeName config property in der API Path Parameter node.",
                     "updated": 1637414615962
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете каждый из них с помощью свойства codeName в узле API Path Parameter.",
+                    "updated": 1638627166155
                 }
             ]
         },
@@ -323,6 +438,11 @@
                     "language": "DE",
                     "text": "Query Parameters: Dies sind alle Abschnitte nach dem Fragezeichen. Sie werden häufig verwendet, um die von der API zurückgegebene Datenmenge zu reduzieren, damit Sie nur die Daten erhalten, an denen Sie interessiert sind:",
                     "updated": 1637414650342
+                },
+                {
+                    "language": "RU",
+                    "text": "Query Parameters: Это все разделы после вопросительного знака. Они часто используются для объединения количества данных, возвращаемых API, чтобы вы получали только то, что вам интересно:",
+                    "updated": 1638627188726
                 }
             ]
         },
@@ -338,6 +458,11 @@
                     "language": "DE",
                     "text": "Sie definieren diese über die codeName und value config property der API Query Parameter node.",
                     "updated": 1637414687252
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы определяете их, используя свойства codeName и value узла API Query Parameter.",
+                    "updated": 1638627238395
                 }
             ]
         },

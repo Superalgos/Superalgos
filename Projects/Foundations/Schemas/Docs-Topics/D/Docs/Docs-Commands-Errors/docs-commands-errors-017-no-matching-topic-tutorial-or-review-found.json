@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Das von Ihnen angegebene Thema oder Tutorial hat keine passenden Seiten innerhalb dieses Topic oder Tutorial erzeugt.",
                 "updated": 1633900832160
+            },
+            {
+                "language": "RU",
+                "text": "Указанная вами тема Topic или учебное пособие Tutorial не привело ни к каким совпадающим страницам в рамках этой темы или учебного пособия.",
+                "updated": 1638531557004
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Vergewissern Sie sich, dass der Name des angegebenen Topic oder Tutorial richtig geschrieben ist.",
                     "updated": 1633901040653
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что название темы Topic или учебного пособия Tutorial написано правильно.",
+                    "updated": 1638531603909
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633901047649
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638531616524
                 }
             ]
         },

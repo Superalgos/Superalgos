@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El exchange account key contiene la definición del nombre de la clave y el secreto proporcionado por el exchange correspondiente para acceder a la cuenta de usuario a través de la exchange API.",
                 "updated": 1624496637194
+            },
+            {
+                "language": "RU",
+                "text": "Exchange Account Key содержит определение имени и секрета ключа, предоставленного соответствующей биржей для доступа к учетной записи пользователя через API биржи.",
+                "updated": 1638782702254
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Exchange Account Key"
+            "text": "Configuring Exchange Account Key",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Exchange Account Key",
+                    "updated": 1638782714093
+                }
+            ]
         },
         {
             "style": "List",
@@ -27,6 +39,11 @@
                     "language": "ES",
                     "text": "codeName es el nombre o etiqueta de su llave, suministrado por el exchange.",
                     "updated": 1637230815507
+                },
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя или метка вашего ключа, предоставленные биржей.",
+                    "updated": 1638782752247
                 }
             ]
         },
@@ -38,6 +55,11 @@
                     "language": "ES",
                     "text": "secrete es la clave secreta proporcionada por el exchange.",
                     "updated": 1637230936259
+                },
+                {
+                    "language": "RU",
+                    "text": "secret - секретный ключ, предоставленный биржей.",
+                    "updated": 1638782797608
                 }
             ]
         },
@@ -49,6 +71,11 @@
                     "language": "ES",
                     "text": "uid es la identificación de usuario proporcionado por el exchange. Esto no es obligatorio para todos los exchanges.",
                     "updated": 1637230922445
+                },
+                {
+                    "language": "RU",
+                    "text": "uid - это идентификатор пользователя, предоставленный биржей. Это требуется не для всех бирж.",
+                    "updated": 1638782812478
                 }
             ]
         },
@@ -60,6 +87,11 @@
                     "language": "ES",
                     "text": "password ies la contraseña o frase de contraseña proporcionada al crear la clave y el secreto. Esto no es obligatorio para todos los exchanges.",
                     "updated": 1637230970843
+                },
+                {
+                    "language": "RU",
+                    "text": "password - это пароль или кодовая фраза, предоставленная при создании ключа и секрета. Это требуется не для всех бирж.",
+                    "updated": 1638782835194
                 }
             ]
         },
@@ -71,6 +103,11 @@
                     "language": "ES",
                     "text": "Para mantener sus llaves del exchange seguras, nnunca comparta estructuras de datos que pueda descargar del sistema, ya que las descargas contienen toda la información en la estructura de datos, incluida información personal como llave del exchange. En su lugar, use la opción de compartir en el menú. La opción de compartir elimina la información confidencial y genera un archivo que es seguro para compartir.",
                     "updated": 1637231067789
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы обеспечить безопасность ваших ключей биржи, никогда не делитесь структурами данных, которые вы можете загрузить из системы, так как загрузки содержат всю информацию в структуре данных, включая личную информацию, такую ​​как ключи биржи. Вместо этого используйте опцию share в меню. Параметр общего доступа удаляет конфиденциальную информацию и выводит файл, которым можно безопасно поделиться.",
+                    "updated": 1638782934220
                 }
             ]
         }

@@ -1,7 +1,14 @@
 {
     "type": "Execution Started Event",
     "definition": {
-        "text": "The execution started event is the event that triggers the execution of a process. It usually references the execution finished event of another process on which the process depends on."
+        "text": "The execution started event is the event that triggers the execution of a process. It usually references the execution finished event of another process on which the process depends on.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Execution Started Event - это событие, которое запускает выполнение процесса. Обычно он ссылается на событие завершения выполнения другого процесса, от которого этот процесс зависит.",
+                "updated": 1638603503305
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "These references determine when a process is due for another run. By listening to the execution finished event of the process it depends on, it may wake up just in time to process the new batch of data the dependency has just delivered."
+            "text": "These references determine when a process is due for another run. By listening to the execution finished event of the process it depends on, it may wake up just in time to process the new batch of data the dependency has just delivered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти ссылки определяют, когда процесс подлежит следующему запуску. При прослушивании события завершения выполнения процесса, от которого он зависит, он может проснуться как раз вовремя, чтобы обработать новый пакет данных, только что доставленный зависимостью.",
+                    "updated": 1638603523868
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Bots form a sort of multi-branched execution sequence with an indeterminate number of dependencies. Every time the bot further down the tree of dependencies finishes a cycle, it triggers the execution of multiple bots listening to its execution finished event."
+            "text": "Bots form a sort of multi-branched execution sequence with an indeterminate number of dependencies. Every time the bot further down the tree of dependencies finishes a cycle, it triggers the execution of multiple bots listening to its execution finished event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Боты образуют своего рода разветвленную последовательность выполнения с неопределенным количеством зависимостей. Каждый раз, когда бот дальше по дереву зависимостей завершает цикл, он запускает выполнение нескольких ботов, прослушивая событие завершения его выполнения.",
+                    "updated": 1638603546972
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of a trading process instance running a trading session on the network hierarchy, the execution started event may be used to force the trading process to run only after the last indicator bot dependency finishes its job. This guarantees that all dependencies are up to date and that the trading bot will evaluate the information corresponding to the same candles for all indicators used by the trading system."
+            "text": "In the context of a trading process instance running a trading session on the network hierarchy, the execution started event may be used to force the trading process to run only after the last indicator bot dependency finishes its job. This guarantees that all dependencies are up to date and that the trading bot will evaluate the information corresponding to the same candles for all indicators used by the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте экземпляра торгового процесса, запускающего торговую сессию в сетевой иерархии, событие начала выполнения может использоваться для принудительного запуска торгового процесса только после того, как последняя зависимость индикаторного бота завершит свою работу. Это гарантирует актуальность всех зависимостей и то, что торговый бот будет оценивать информацию, соответствующую одним и тем же свечам, для всех индикаторов, используемых торговой системой.",
+                    "updated": 1638603588568
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Not setting up this event on a trading session may result in eventual data inconsistencies, as&mdash;in theory&mdash;the trading bot may run with some indicators up to date and some slightly delayed."
+            "text": "Not setting up this event on a trading session may result in eventual data inconsistencies, as&mdash;in theory&mdash;the trading bot may run with some indicators up to date and some slightly delayed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсутствие настройки этого события в торговой сессии может привести к возможной несогласованности данных, поскольку теоретически торговый бот может работать с некоторыми индикаторами в актуальном состоянии, а с некоторыми - с небольшой задержкой.",
+                    "updated": 1638603606073
+                }
+            ]
         }
     ]
 }

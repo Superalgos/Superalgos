@@ -1,7 +1,14 @@
 {
     "type": "Dataset Definition",
     "definition": {
-        "text": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine."
+        "text": "A data set is a collection of files stored in the designated location, as per the definitions on the referenced data product in the corresponding data mine.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Dataset - это набор файлов, хранящихся в указанном месте, в соответствии с определениями в соответствующем информационном продукте в соответствующем хранилище данных.",
+                "updated": 1638731468335
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "A good part of what makes datasets easy to consume by other bots is the fact that they are standardized in terms of their structure. It is that structure that is specified in the dataset definitions."
+            "text": "A good part of what makes datasets easy to consume by other bots is the fact that they are standardized in terms of their structure. It is that structure that is specified in the dataset definitions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значительная часть того, что облегчает использование наборов данных другими ботами, заключается в том, что они стандартизированы с точки зрения их структуры. Именно эта структура указана в определениях набора данных.",
+                    "updated": 1638731504637
+                }
+            ]
         },
         {
             "style": "Block",
@@ -19,38 +33,94 @@
         {
             "style": "Title",
             "text": "Dataset Definition Configuration",
-            "updated": 1609788319432
+            "updated": 1609788319432,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Dataset Definition",
+                    "updated": 1638731534017
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609788325479
+            "updated": 1609788325479,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638731547032
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName is the name of the dataset as used within the code. 'Single-File' is a special value. Use it for datasets that do not depend on Time Frames and that have a timestamp Record Property instead of the regular Begin and End. When this type of datasets are a dependency of Market or Daily datasets, they need the codeName 'Single-File' in order to be found on disk.",
-            "updated": 1621100190528
+            "updated": 1621100190528,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя набора данных, используемое в коде. «Single-File» - это специальное значение. Используйте его для наборов данных, которые не зависят от таймфрейма и имеют свойство записи с меткой времени вместо обычных Begin и End. Когда этот тип наборов данных является зависимостью от наборов данных Market или Daily, им нужен codeName 'Single-File'a, чтобы его можно было найти на диске.",
+                    "updated": 1638731698107
+                }
+            ]
         },
         {
             "style": "List",
             "text": "type refers to the type of dataset; possible values are market files and daily files.",
-            "updated": 1609788409763
+            "updated": 1609788409763,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "type относится к типу набора данных; возможными значениями являются файлы рынка и ежедневные файлы.",
+                    "updated": 1638731752652
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "validTimeFrames refers to the time frames handled by the dataset."
+            "text": "validTimeFrames refers to the time frames handled by the dataset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "validTimeFrames относятся к таймфреймам, обрабатываемым набором данных.",
+                    "updated": 1638731843558
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "filePath sets the path on which files are stored; the proper name of the data mine, the bot and the product need to be entered."
+            "text": "filePath sets the path on which files are stored; the proper name of the data mine, the bot and the product need to be entered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "filePath устанавливает путь, по которому хранятся файлы; необходимо ввести собственное имя хранилища данных, бота и продукта.",
+                    "updated": 1638731874454
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "fileName sets the name of the files that constitute the dataset."
+            "text": "fileName sets the name of the files that constitute the dataset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "fileName устанавливает имя файлов, составляющих набор данных.",
+                    "updated": 1638731888972
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "timeFrames sets the name and path of the file indicating which time frames shall be filtered when the users sets a time frames filter."
+            "text": "timeFrames sets the name and path of the file indicating which time frames shall be filtered when the users sets a time frames filter.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "timeFrames устанавливает имя и путь к файлу, указывая, какие таймфреймы должны быть отфильтрованы, когда пользователи устанавливают фильтр таймфреймов.",
+                    "updated": 1638731956207
+                }
+            ]
         },
         {
             "style": "Subtitle",

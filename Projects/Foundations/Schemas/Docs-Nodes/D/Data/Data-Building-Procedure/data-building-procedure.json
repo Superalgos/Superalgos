@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Процедура построения данных обрабатывает информацию, которая должна быть передана свойствам, хранящимся на выход�� данных.\n",
-                "updated": 1636569783197
+                "text": "Data Building Procedure обрабатывает информацию, которая должна быть передана свойствам, хранящимся в выходном наборе данных.",
+                "updated": 1638729673934
             },
             {
                 "language": "DE",
@@ -33,6 +33,11 @@
                     "language": "DE",
                     "text": "Diese Prozedur enthält die Kernlogik des Bots, da sie den Code enthält, der die Berechnungen durchführt, die erforderlich sind, um den neuen Datensatz zu erzeugen. Der Code ist aufgeteilt in eine Prozedurinitialisierung (procedure initialization) und eine Prozedurschleife (procedure loop).",
                     "updated": 1637588231987
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта процедура содержит основную логику бота, поскольку она содержит код, который выполняет вычисления, необходимые для создания нового набора данных. Код разделен между инициализацией процедуры и циклом процедуры.",
+                    "updated": 1638729725869
                 }
             ]
         }

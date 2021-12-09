@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Условия - это правила внутри ситуации. Когда все условия в ситуации проверяются на истинность, ситуация также проверяется, и запускается соответствующее событие.\n",
-                "updated": 1637756827569
+                "text": "Condition - это п��авила внутри ситуации. Когда все условия в ситуации проверяются на истинность, ситуация также проверяется, и запускается соответствующее событие.",
+                "updated": 1638647829118
             }
         ]
     },
@@ -22,15 +22,36 @@
         },
         {
             "style": "Text",
-            "text": "Therefore, conditions are used to mathematically describe what needs to happen with the market for a certain action to be taken."
+            "text": "Therefore, conditions are used to mathematically describe what needs to happen with the market for a certain action to be taken.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Таким образом, условия используются для математического описания того, что должно произойти с рынком для выполнения определенного действия.",
+                    "updated": 1638647845891
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1638647858497
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Situation 1"
+            "text": "Situation 1",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ситуация 1",
+                    "updated": 1638647869436
+                }
+            ]
         },
         {
             "style": "List",
@@ -39,7 +60,14 @@
         },
         {
             "style": "Note",
-            "text": "This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average."
+            "text": "This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что последняя свеча на часовом графике закрылась выше скользящей средней полосы Боллинджера.",
+                    "updated": 1638647890361
+                }
+            ]
         },
         {
             "style": "List",
@@ -48,16 +76,37 @@
         },
         {
             "style": "Note",
-            "text": "This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average."
+            "text": "This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что максимальное значение свечи перед последней было выше скользящей средней полосы Боллинджера.",
+                    "updated": 1638647906181
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In the example above, conditions A and B are comparison statements that may evaluate either true or false. In the case both would evaluate true then Situation 1 would be true as well.",
-            "updated": 1609595293131
+            "updated": 1609595293131,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": ".В приведенном выше примере условия A и B представляют собой операторы сравнения, которые могут оценивать как true, так и false. В случае, если оба будут оценивать как true, то ситуация 1 также будет верной.",
+                    "updated": 1638648000709
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "To learn how to write conditions, start with the Syntax Overview."
+            "text": "To learn how to write conditions, start with the Syntax Overview.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать, как писать условия, начните с обзора Syntax Overview.",
+                    "updated": 1638648036555
+                }
+            ]
         }
     ]
 }

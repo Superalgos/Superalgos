@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Mit dieser Aktion können Sie einen Absatz löschen. Diese Aktion kann nicht rückgängig gemacht werden. Sie können die Seite jedoch aktualisieren, ohne den Docs Save Command auszuführen, um alle Änderungen bis zur letzten Ausführung des Save command rückgängig zu machen.",
                 "updated": 1633965789039
+            },
+            {
+                "language": "RU",
+                "text": "Используйте это действие, чтобы удалить абзац. Это действие не может быть отменено. Вы по-прежнему можете обновить страницу, не выполняя команду сохранения документов Docs Save Command, чтобы откатить все изменения до последнего выполнения команды сохранения.",
+                "updated": 1638532144893
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1633965820597
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638532157426
                 }
             ]
         }

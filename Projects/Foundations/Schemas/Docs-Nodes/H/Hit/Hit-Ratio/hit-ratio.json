@@ -1,7 +1,14 @@
 {
     "type": "Hit Ratio",
     "definition": {
-        "text": "Hit ratio is the percentage of positions that closed with a positive profit loss, in the context of the parent node."
+        "text": "Hit ratio is the percentage of positions that closed with a positive profit loss, in the context of the parent node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Hit Ratio - это процент позиций, которые закрылись с прибыльно, в контексте родительского узла.",
+                "updated": 1638967831345
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Hit ratio results from multiplying the number of hits by 100 and dividing it by the number of positions: hit ratio = hits * 100 / positions."
+            "text": "Hit ratio results from multiplying the number of hits by 100 and dividing it by the number of positions: hit ratio = hits * 100 / positions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Коэффициент попадания получается путем умножения количества попаданий на 100 и деления его на количество позиций: hit ratio = hits * 100 / positions (коэффициент попадания = попадания * 100 / позиции).",
+                    "updated": 1638968023940
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Hit Ratio Configuration",
-            "updated": 1609880479389
+            "updated": 1609880479389,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Hit Ratio",
+                    "updated": 1638968039373
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638968046998
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638968057158
+                }
+            ]
         }
     ]
 }

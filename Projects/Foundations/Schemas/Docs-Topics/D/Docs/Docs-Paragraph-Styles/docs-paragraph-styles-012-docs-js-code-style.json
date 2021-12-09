@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Stil, um Javascript-Code korrekt zu formatieren.",
                 "updated": 1633955167417
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль для правильного форматирования кода javascript.",
+                "updated": 1638534092923
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Einer der Hauptunterschiede dieses Stils zu den vorhergehenden ist, dass Sie viele Zeilenumbrüche haben können und diese nicht als neue Absätze betrachtet werden, sondern als einzelne Blöcke behandelt werden.",
                     "updated": 1633955342507
+                },
+                {
+                    "language": "RU",
+                    "text": "Одним из основных отличий этого стиля от предыдущих является то, что у вас может быть много разрывов строк, и они не будут рассматриваться как новые абзацы, вместо этого все они будут рассматриваться как один блок.",
+                    "updated": 1638534120781
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633955348685
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638534128750
                 }
             ]
         },

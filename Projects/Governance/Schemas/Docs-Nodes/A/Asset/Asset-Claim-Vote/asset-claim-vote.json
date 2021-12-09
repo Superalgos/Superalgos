@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo para establecer una referencia con una Asset Contribution Claim (slicitud decontribución de activo) colocada por un clega en la sección Claims Program de sur User Profile( perfil de usuario). Este voto significa que apoya a la solicitud de su colega  con el Support Power que dirija al nodo de Claim Votes!",
                 "updated": 1636111162787
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел, чтобы установить ссылку на Contribution Claim, размещенное вашим коллегой в разделе Claims Program их профиля пользователя User Profile. Это голосование означает, что вы поддерживаете утверждение своего коллеги с помощью Claim Support Power, которую вы вводите в узел Claim Votes!",
+                "updated": 1638610461985
             }
         ]
     },

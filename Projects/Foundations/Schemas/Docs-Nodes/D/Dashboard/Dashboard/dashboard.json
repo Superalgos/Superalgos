@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un dashboard es una colección de máquinas del tiempo, cada una de las cuales contiene un número indeterminado de gráficos.",
                 "updated": 1628897543779
+            },
+            {
+                "language": "RU",
+                "text": "Dashboard -  это набор средств наблюдения реального времени, каждый из которых содержит любое количество диаграмм.",
+                "updated": 1638707398781
             }
         ]
     },
@@ -17,11 +22,25 @@
         },
         {
             "style": "Text",
-            "text": "The concept of the dashboard allows having multiple charts configured all at once, so that you may consult different exchanges, different markets, different time frames, or different technical studies on demand, simply by moving around and zooming in or out. You may put charts side by side, or even superimpose them to study market flows, search for arbitrage opportunities, or simply keep them in sight when you analyze particular market situations."
+            "text": "The concept of the dashboard allows having multiple charts configured all at once, so that you may consult different exchanges, different markets, different time frames, or different technical studies on demand, simply by moving around and zooming in or out. You may put charts side by side, or even superimpose them to study market flows, search for arbitrage opportunities, or simply keep them in sight when you analyze particular market situations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концепция информационной панели позволяет настраивать сразу несколько графиков, чтобы вы могли консультироваться с разными биржами, разными рынками, разными таймфреймами или различными техническими исследованиями по запросу, просто перемещаясь и увеличивая или уменьшая масштаб. Вы можете размещать графики рядом или даже накладывать их друг на друга для изучения рыночных потоков, поиска возможностей арбитража или просто держать их в поле зрения при анализе конкретных рыночных ситуаций.",
+                    "updated": 1638707972767
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "At the moment, the functionality of a dashboard is trivial: grouping time machines. However, in the future, it will offer various features to enhance the user experience."
+            "text": "At the moment, the functionality of a dashboard is trivial: grouping time machines. However, in the future, it will offer various features to enhance the user experience.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данный момент функциональность информационной панели тривиальна: группировка средств наблюдения. Однако в будущем он будет предлагать различные функции для улучшения взаимодействия с пользователем.",
+                    "updated": 1638708114283
+                }
+            ]
         }
     ]
 }

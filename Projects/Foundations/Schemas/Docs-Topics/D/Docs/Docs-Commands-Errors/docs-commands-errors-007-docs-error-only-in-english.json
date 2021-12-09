@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Sie können diesen command (Befehl) nur in der englischen Version der Docs verwenden.",
                 "updated": 1633897115018
+            },
+            {
+                "language": "RU",
+                "text": "Вы можете использовать эту команду только в английской версии документов Docs.",
+                "updated": 1638529778402
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": " Stellen Sie in der Fußzeile dieser Seite Englisch als Ihre bevorzugte Sprache ein und versuchen Sie es erneut.",
                     "updated": 1633897180372
+                },
+                {
+                    "language": "RU",
+                    "text": "Установите английский в качестве предпочитаемого языка в нижнем колонтитуле этой страницы и попробуйте еще раз.",
+                    "updated": 1638529794602
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633897190987
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529810363
                 }
             ]
         },

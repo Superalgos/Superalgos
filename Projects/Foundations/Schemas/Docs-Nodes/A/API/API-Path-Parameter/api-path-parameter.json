@@ -2,53 +2,130 @@
     "type": "API Path Parameter",
     "definition": {
         "text": "A path parameter defines the unique path to your endpoint. \nFor a full description of how to identify a path parameter see the API Path Parameters page.",
-        "updated": 1622774607176
+        "updated": 1622774607176,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "API Path Parameter определяет уникальный путь к вашей конечной точке.\nПолное описание параметров смотрите на странице API Path Parameters.",
+                "updated": 1638627806353
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "A path parameter can be a fixed string of text defined at an API Path Parameter node, or it can be dynamically replaced by the API Fetcher Bot for a value generated at runtime.",
-            "updated": 1622772709866
+            "updated": 1622772709866,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр пути может быть фиксированной строкой текста, определенной в узле API Path Parameter, или он может быть динамически заменен ботом API Fetcher Bot, созданного во время выполнения.",
+                    "updated": 1638627892835
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "API Path Parameter Configuration",
-            "updated": 1622895766034
+            "updated": 1622895766034,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация API Path Parameter",
+                    "updated": 1638627917117
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638627924942
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName: This property holds the value used to help build the request URL.",
-            "updated": 1622773158340
+            "updated": 1622773158340,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName: Это свойство содержит значение, используемое для построения URL-адреса запроса.",
+                    "updated": 1638627941008
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Be careful to write the exact string specified in the API documentation. Extra spaces, or capital letters will break the URL and cause it to return an error.",
-            "updated": 1622773133088
+            "updated": 1622773133088,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Будьте внимательны, чтобы написать точную строку, указанную в документации API. Лишние пробелы или заглавные буквы нарушат URL-адрес и вызовут возврат ошибки.",
+                    "updated": 1638627956428
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "isString: Define if the path parameter is a string or not."
+            "text": "isString: Define if the path parameter is a string or not.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isString: Определите, является ли параметр пути строкой или нет.",
+                    "updated": 1638628000984
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "isOptional: Define if this path parameter is optional or not."
+            "text": "isOptional: Define if this path parameter is optional or not.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isOptional: Определите, является ли этот параметр пути необязательным или нет.",
+                    "updated": 1638628017695
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "description: Define a basic description of what this path parameter accomplishes. "
+            "text": "description: Define a basic description of what this path parameter accomplishes. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "description: Определите базовое описание того, что выполняет этот параметр пути.",
+                    "updated": 1638628045416
+                }
+            ]
         },
         {
             "style": "List",
             "text": "replaceBy: [Optional] This property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime.",
-            "updated": 1622863592804
+            "updated": 1622863592804,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "replaceBy: [Необязательно] Это свойство позволяет указать боту API Fetcher Bot установить значение этого параметра, заменяя текущее значение по умолчанию и используя контекстную информацию, доступную только во время выполнения.",
+                    "updated": 1638628112234
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here is an example of an API Path Parameter config:"
+            "text": "Here is an example of an API Path Parameter config:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот пример конфигурации параметра пути API:",
+                    "updated": 1638628129062
+                }
+            ]
         },
         {
             "style": "Json",

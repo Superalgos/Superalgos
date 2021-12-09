@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Dies ist einfach die Art und Weise, wie Untertitel auf einer docs-Seite angezeigt werden können.",
                 "updated": 1633952612954
+            },
+            {
+                "language": "RU",
+                "text": "Это просто способ показать субтитры на странице документов.",
+                "updated": 1638532866465
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Geben Sie im Bearbeitungsmodus ein, was als Untertitel auf der docs-Seite angezeigt werden soll.",
                     "updated": 1633952646354
+                },
+                {
+                    "language": "RU",
+                    "text": "В режиме редактирования введите все, что вы хотите отобразить в качестве субтитров на странице документов.",
+                    "updated": 1638532895398
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633952653809
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533778286
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Der vorherige ist ein Absatz im Stil eines Untertitels. (Beispiel steht im Untertiel Stil im Absatz vor diesem)",
                     "updated": 1633952699925
+                },
+                {
+                    "language": "RU",
+                    "text": "Предыдущий - это абзац в стиле субтитров.",
+                    "updated": 1638532947591
                 }
             ]
         }

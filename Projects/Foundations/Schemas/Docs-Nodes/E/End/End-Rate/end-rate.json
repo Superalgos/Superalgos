@@ -1,7 +1,14 @@
 {
     "type": "End Rate",
     "definition": {
-        "text": "End rate is the close rate of the candle corresponding to the datetime of the end property."
+        "text": "End rate is the close rate of the candle corresponding to the datetime of the end property.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "End Rate - это скорость закрытия свечи, соответствующая дате и времени свойства End.",
+                "updated": 1638772061820
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a strategy, it is the close rate of the last closed candle at the moment the strategy is triggered-off."
+            "text": "In the context of a strategy, it is the close rate of the last closed candle at the moment the strategy is triggered-off.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте стратегии это курс закрытия последней закрытой свечи в момент срабатывания стратегии.",
+                    "updated": 1638772088477
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of a position, it is the close rate of the last closed candle at the moment the close stage is closed."
+            "text": "In the context of a position, it is the close rate of the last closed candle at the moment the close stage is closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте позиции это курс закрытия последней закрытой свечи в момент закрытия стадии close.",
+                    "updated": 1638772192638
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of an episode, it is the close rate of the last closed candle at the moment the episode ends."
+            "text": "In the context of an episode, it is the close rate of the last closed candle at the moment the episode ends.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте эпизода это курс закрытия последней закрытой свечи в момент окончания эпизода.",
+                    "updated": 1638772212462
+                }
+            ]
         },
         {
             "style": "Block",
@@ -28,17 +56,38 @@
         {
             "style": "Title",
             "text": "End Rate Configuration",
-            "updated": 1609880099707
+            "updated": 1609880099707,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация End Rate",
+                    "updated": 1638772236549
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638772245706
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638772254968
+                }
+            ]
         }
     ]
 }

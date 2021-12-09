@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Einschließende Absätze werden verwendet, um in eine Docs Page (Seite) Absätze einzuschließen, die zu anderen Docs-Pages gehören. Dazu müssen Sie auf einen Docs Block Style Absatz verweisen, der sich in einer anderen Docs Page befindet.",
                 "updated": 1633958486374
+            },
+            {
+                "language": "RU",
+                "text": "Вставка абзацев используются для включения в страницу документов Docs Page абзацев, принадлежащих другим страницам документов. Для этого вам нужно сослаться на абзац в стиле Docs Block Style, расположенный на какой-либо другой странице документов.",
+                "updated": 1638544986229
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1609259560967
+            "updated": 1609259560967,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1638544932360
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -32,6 +44,11 @@
                     "language": "DE",
                     "text": "Parameter",
                     "updated": 1633958563420
+                },
+                {
+                    "language": "RU",
+                    "text": "Параметры",
+                    "updated": 1638544948051
                 }
             ]
         },
@@ -44,6 +61,11 @@
                     "language": "DE",
                     "text": "Project:  Ist das Projekt, zu dem die Docs-Seite gehört.",
                     "updated": 1633958586988
+                },
+                {
+                    "language": "RU",
+                    "text": "Project: это проект, которому принадлежит страница документов Docs Page.",
+                    "updated": 1638545079357
                 }
             ]
         },
@@ -55,6 +77,11 @@
                     "language": "DE",
                     "text": "Docs Page Category (Kategorie): Node, Concept oder Topic.",
                     "updated": 1633958615123
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Category: это Node, Concept или Topic.",
+                    "updated": 1638545071258
                 }
             ]
         },
@@ -67,6 +94,11 @@
                     "language": "DE",
                     "text": "Docs Page Name:  Für Nodes ist es: the type of node, for Concepts, the concept name, for topics, the topic's page name.",
                     "updated": 1633958814766
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Name: для узлов это тип узла, для концепций - название концепции, для тем - название темы страницы.",
+                    "updated": 1638545141446
                 }
             ]
         },
@@ -79,6 +111,11 @@
                     "language": "DE",
                     "text": "Docs Page Block: Dies ist der Blockname des Absatzblocks, den Sie einschließen möchten. Auf der Zielseite muss ein Absatz mit einem Docs Block Style vorhanden sein, der den Namen trägt den sie hier angeben.",
                     "updated": 1633959116403
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Block: это название для блока абзацев, который вы хотите включить. У вас должен быть абзац со стилем Docs Block Style на целевой странице с названием, которое вы здесь указываете.",
+                    "updated": 1638545368553
                 }
             ]
         },
@@ -91,6 +128,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1633959201029
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638545498007
                 }
             ]
         },

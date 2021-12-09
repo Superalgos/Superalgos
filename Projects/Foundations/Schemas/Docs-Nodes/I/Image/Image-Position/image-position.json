@@ -1,7 +1,14 @@
 {
     "type": "Image Position",
     "definition": {
-        "text": "The image position node is a reference to a point defined in the chart points, and serves to determine the position in which the image shall be placed."
+        "text": "The image position node is a reference to a point defined in the chart points, and serves to determine the position in which the image shall be placed.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Image Position - это ссылка на точку, определенную в точках карты, и служит для определения положения, в которое должно быть помещено изображение.",
+                "updated": 1638969742672
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The image position node works similarly to the polygon vertex in the sense that it must establish a reference with a point in the charts point to acquire a defined coordinate that determines where the image shall be placed."
+            "text": "The image position node works similarly to the polygon vertex in the sense that it must establish a reference with a point in the charts point to acquire a defined coordinate that determines where the image shall be placed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел расположения изображения работает аналогично вершине многоугольника в том смысле, что он должен устанавливать ссылку с точкой в ​​точке диаграммы, чтобы получить определенную координату, которая определяет, где должно быть размещено изображение.",
+                    "updated": 1638969852515
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "See the configuration for further details."
+            "text": "See the configuration for further details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "См. Конфигурацию для получения дополнительной информации.",
+                    "updated": 1638969865931
+                }
+            ]
         },
         {
             "style": "Block",
@@ -22,11 +43,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Image Position"
+            "text": "Configuring Image Position",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация  Image Position",
+                    "updated": 1638969880091
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
+                    "updated": 1638969908203
+                }
+            ]
         },
         {
             "style": "Text",
@@ -46,11 +81,25 @@
         },
         {
             "style": "List",
-            "text": "offsetX is an offset in the X axis, in pixels, applied to displace the image in relation to the coordinate point defined by the reference of the node. Negative values displace the image to the left and positive values to the right."
+            "text": "offsetX is an offset in the X axis, in pixels, applied to displace the image in relation to the coordinate point defined by the reference of the node. Negative values displace the image to the left and positive values to the right.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "offsetX - это смещение по оси X в пикселях, применяемое для смещения изображения по отношению к координатной точке, определенной ссылкой узла. Отрицательные значения смещают изображение влево, а положительные - вправо.",
+                    "updated": 1638969931567
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "offsetY is an offset in the Y axis. Negative values displace the image downwards and positive values displace the image upwards."
+            "text": "offsetY is an offset in the Y axis. Negative values displace the image downwards and positive values displace the image upwards.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "offsetY - это смещение по оси Y. Отрицательные значения смещают изображение вниз, а положительные значения смещают изображение вверх.",
+                    "updated": 1638969944946
+                }
+            ]
         }
     ]
 }

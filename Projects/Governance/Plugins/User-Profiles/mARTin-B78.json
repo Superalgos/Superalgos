@@ -1,18 +1,48 @@
 {
     "type": "User Profile",
     "name": "mARTin-B78",
-    "config": "{\n    \"signature\": {\n        \"message\": \"mARTin-B78\",\n        \"messageHash\": \"0x9fd8d3dc518f2035f1164574151b32c7f42d06425b9534e0404e1346d8043138\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x077d02fb4a37a2ea31b75485667affd25eaec5c5a01c77ae1a55aa5d4f289925\",\n        \"s\": \"0x5e9315028835fdc8c3ad66c22b20fbd8f79221811bbcd75142f2f47c99d9c18c\",\n        \"signature\": \"0x077d02fb4a37a2ea31b75485667affd25eaec5c5a01c77ae1a55aa5d4f2899255e9315028835fdc8c3ad66c22b20fbd8f79221811bbcd75142f2f47c99d9c18c1c\"\n    }\n}",
+    "config": "{\r\n    \"signature\": {\r\n        \"message\": \"mARTin-B78\",\r\n        \"messageHash\": \"0x9fd8d3dc518f2035f1164574151b32c7f42d06425b9534e0404e1346d8043138\",\r\n        \"v\": \"0x1c\",\r\n        \"r\": \"0x077d02fb4a37a2ea31b75485667affd25eaec5c5a01c77ae1a55aa5d4f289925\",\r\n        \"s\": \"0x5e9315028835fdc8c3ad66c22b20fbd8f79221811bbcd75142f2f47c99d9c18c\",\r\n        \"signature\": \"0x077d02fb4a37a2ea31b75485667affd25eaec5c5a01c77ae1a55aa5d4f2899255e9315028835fdc8c3ad66c22b20fbd8f79221811bbcd75142f2f47c99d9c18c1c\"\r\n    },\r\n    \"codeName\": \"mARTin-B78\"\r\n}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
         "name": "New Token Power Switch",
-        "config": "{}",
+        "config": "",
         "project": "Governance",
-        "tokenPowerSwitch": [],
+        "tokenPowerSwitch": [
+            {
+                "type": "Token Power Switch",
+                "name": "New Token Power Switch",
+                "config": "{\r\n    \"percentage\": 0\r\n}",
+                "project": "Governance",
+                "tokenPowerSwitch": [],
+                "id": "732b31b6-136c-4937-8cfe-d5ffb0cc846f",
+                "savedPayload": {
+                    "position": {
+                        "x": 4555.120988644037,
+                        "y": 18514.683045111455
+                    },
+                    "targetPosition": {
+                        "x": 4647.826086956522,
+                        "y": 18800
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            }
+        ],
         "onboardingPrograms": {
             "type": "Onboarding Programs",
             "name": "New Onboarding Programs",
-            "config": "{}",
+            "config": "{\r\n    \"percentage\": 0\r\n}",
             "project": "Governance",
             "airdropProgram": {
                 "type": "Airdrop Program",
@@ -26,12 +56,12 @@
                     "id": "887d3aed-0bd1-491b-8c19-86d462797019",
                     "savedPayload": {
                         "position": {
-                            "x": 13799.000000000002,
-                            "y": 5123.635444127544
+                            "x": 4827.814107308415,
+                            "y": 18026.951287091295
                         },
                         "targetPosition": {
-                            "x": 13949.000000000002,
-                            "y": 5383.443065262876
+                            "x": 4859.172646288711,
+                            "y": 18325.307855701776
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +79,12 @@
                 "id": "8af67f19-3406-4f1f-9dbd-ae5ae6ddc2de",
                 "savedPayload": {
                     "position": {
-                        "x": 13949.000000000002,
-                        "y": 5383.443065262876
+                        "x": 4859.172646288711,
+                        "y": 18325.307855701776
                     },
                     "targetPosition": {
-                        "x": 14099.000000000002,
-                        "y": 5643.250686398208
+                        "x": 4890.5311852690065,
+                        "y": 18623.664424312257
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +111,12 @@
                     "id": "26e414c9-b056-4913-8174-f0ce00509318",
                     "savedPayload": {
                         "position": {
-                            "x": 14699.000000000002,
-                            "y": 5643.250686398208
+                            "x": 5438.658459854567,
+                            "y": 18867.706410157734
                         },
                         "targetPosition": {
-                            "x": 14399.000000000002,
-                            "y": 5643.250686398208
+                            "x": 5164.594822561787,
+                            "y": 18745.685417234996
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +134,12 @@
                 "id": "0034f78a-6f45-4f72-a738-e4498657fa4b",
                 "savedPayload": {
                     "position": {
-                        "x": 14399.000000000002,
-                        "y": 5643.250686398208
+                        "x": 5164.594822561787,
+                        "y": 18745.685417234996
                     },
                     "targetPosition": {
-                        "x": 14099.000000000002,
-                        "y": 5643.250686398208
+                        "x": 4890.5311852690065,
+                        "y": 18623.664424312257
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,12 +157,12 @@
             "id": "3faced00-65f6-4a65-b60c-d4f7730041fa",
             "savedPayload": {
                 "position": {
-                    "x": 14099.000000000002,
-                    "y": 5643.250686398208
+                    "x": 4890.5311852690065,
+                    "y": 18623.664424312257
                 },
                 "targetPosition": {
-                    "x": 13949.000000000002,
-                    "y": 5903.05830753354
+                    "x": 4647.826086956522,
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -150,28 +180,28 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\r\n    \"percentage\": 10\r\n}",
             "project": "Governance",
-            "referralProgram": {
-                "type": "Referral Program",
-                "name": "New Referral Program",
+            "supportProgram": {
+                "type": "Support Program",
+                "name": "New Support Program",
                 "config": "{}",
                 "project": "Governance",
-                "userReferrers": [
+                "userSupporters": [
                     {
-                        "type": "User Referrer",
-                        "name": "",
+                        "type": "User Supporter",
+                        "name": "ssplatt",
                         "config": "{}",
                         "project": "Governance",
-                        "id": "2a8aae14-f444-4c92-b121-948b31632f04",
+                        "id": "17896a92-5b65-4446-b304-4b13bbec04f9",
                         "savedPayload": {
                             "position": {
-                                "x": 14399.000000000002,
-                                "y": 5862.865928668872
+                                "x": 5225.941381893976,
+                                "y": 18867.35419648694
                             },
                             "targetPosition": {
-                                "x": 14399.000000000002,
-                                "y": 6162.865928668872
+                                "x": 5133.236283581491,
+                                "y": 19152.671151375485
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -183,7 +213,57 @@
                             },
                             "uiObject": {
                                 "isRunning": false
-                            }
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "ssplatt",
+                                "id": "56600855-7a91-49e8-8a58-2fa28d07efd1"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "ssplatt",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "harrellbm",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "e998ee3d-1592-4c32-93a0-21a7b71c2527",
+                        "savedPayload": {
+                            "position": {
+                                "x": 5433.236283581491,
+                                "y": 19152.671151375485
+                            },
+                            "targetPosition": {
+                                "x": 5133.236283581491,
+                                "y": 19152.671151375485
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "harrellbm",
+                                "id": "3af73d3b-7c0e-4de7-a1e1-a72238081740"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "harrellbm",
+                                    "User Profile"
+                                ]
+                            ]
                         }
                     }
                 ],
@@ -191,15 +271,15 @@
                     "type": "Tokens Awarded",
                     "name": "New Tokens Awarded",
                     "project": "Governance",
-                    "id": "a8aa0bd9-a20d-4564-9a9f-574820ecff3a",
+                    "id": "2d71a76a-eb89-4cdb-adcd-27409f6f77d0",
                     "savedPayload": {
                         "position": {
-                            "x": 14699.000000000002,
-                            "y": 6162.865928668872
+                            "x": 5225.941381893976,
+                            "y": 19437.98810626403
                         },
                         "targetPosition": {
-                            "x": 14399.000000000002,
-                            "y": 6162.865928668872
+                            "x": 5133.236283581491,
+                            "y": 19152.671151375485
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -218,15 +298,15 @@
                     "type": "Tokens Bonus",
                     "name": "New Tokens Bonus",
                     "project": "Governance",
-                    "id": "b6155f25-ac26-4beb-a0bc-6a88a3b222b6",
+                    "id": "c2a31b8e-a795-4153-9afe-b178683c844a",
                     "savedPayload": {
                         "position": {
-                            "x": 14399.000000000002,
-                            "y": 6462.865928668872
+                            "x": 4890.5311852690065,
+                            "y": 19329.006727063228
                         },
                         "targetPosition": {
-                            "x": 14399.000000000002,
-                            "y": 6162.865928668872
+                            "x": 5133.236283581491,
+                            "y": 19152.671151375485
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -241,98 +321,15 @@
                         }
                     }
                 },
-                "id": "4d3c4aa1-be4d-4d53-908f-2f7050d06649",
+                "id": "05e17463-ca40-4cc1-a970-83004131017c",
                 "savedPayload": {
                     "position": {
-                        "x": 14399.000000000002,
-                        "y": 6162.865928668872
+                        "x": 5133.236283581491,
+                        "y": 19152.671151375485
                     },
                     "targetPosition": {
-                        "x": 14099.000000000002,
-                        "y": 6162.865928668872
-                    },
-                    "floatingObject": {
-                        "isPinned": false,
-                        "isFrozen": false,
-                        "isCollapsed": false,
-                        "angleToParent": 1,
-                        "distanceToParent": 3,
-                        "arrangementStyle": 0
-                    },
-                    "uiObject": {
-                        "isRunning": false
-                    }
-                }
-            },
-            "supportProgram": {
-                "type": "Support Program",
-                "name": "New Support Program",
-                "config": "{}",
-                "project": "Governance",
-                "userSupporters": [],
-                "tokensAwarded": {
-                    "type": "Tokens Awarded",
-                    "name": "New Tokens Awarded",
-                    "project": "Governance",
-                    "id": "631d7aa4-3e5c-4778-a794-bbcff354b9a8",
-                    "savedPayload": {
-                        "position": {
-                            "x": 14099.000000000002,
-                            "y": 6682.481170939535
-                        },
-                        "targetPosition": {
-                            "x": 13949.000000000002,
-                            "y": 6422.6735498042035
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "tokensBonus": {
-                    "type": "Tokens Bonus",
-                    "name": "New Tokens Bonus",
-                    "project": "Governance",
-                    "id": "76d1f2d4-f1ec-4315-92cc-22a5fe10b402",
-                    "savedPayload": {
-                        "position": {
-                            "x": 13649.000000000002,
-                            "y": 6422.6735498042035
-                        },
-                        "targetPosition": {
-                            "x": 13949.000000000002,
-                            "y": 6422.6735498042035
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": false,
-                            "angleToParent": 1,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
-                "id": "a55d9360-9e6b-47d5-8946-258d42d57aeb",
-                "savedPayload": {
-                    "position": {
-                        "x": 13949.000000000002,
-                        "y": 6422.6735498042035
-                    },
-                    "targetPosition": {
-                        "x": 14099.000000000002,
-                        "y": 6162.865928668872
+                        "x": 4890.5311852690065,
+                        "y": 18976.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -350,12 +347,742 @@
             "id": "d7b73568-ad0f-4d53-bc22-b21732e47191",
             "savedPayload": {
                 "position": {
-                    "x": 14099.000000000002,
-                    "y": 6162.865928668872
+                    "x": 4890.5311852690065,
+                    "y": 18976.335575687743
                 },
                 "targetPosition": {
-                    "x": 13949.000000000002,
-                    "y": 5903.05830753354
+                    "x": 4647.826086956522,
+                    "y": 18800
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "Teams @ Nov 2021 Position Class",
+                        "config": "{}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [
+                            {
+                                "type": "Position Claims Folder",
+                                "name": "Teams With PoW Reports Position Class",
+                                "config": "{}",
+                                "project": "Governance",
+                                "positionClaimsFolders": [
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Education Team PoW Report Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "5ef826b8-fe05-4f5b-ba0e-e0ea99b2d4e8",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 4886.098519882428,
+                                                        "y": 19392.83817551265
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 5086.837701790086,
+                                                        "y": 19615.781623155868
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Translation Team Token Pool",
+                                                        "id": "80007c46-9f19-4375-bc24-2770b9cf8ab4"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Education Team PoW Report",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Translation Team Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Documentation Team Token Pool Education Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "5d906295-dc64-4257-967a-9e63f93482c9",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 5309.781149433304,
+                                                        "y": 19415.04244124821
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 5086.837701790086,
+                                                        "y": 19615.781623155868
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Documentation Team Token Pool",
+                                                        "id": "86dcb14e-8d6b-4a38-8ba3-5402e973399f"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Education Team PoW Report",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Documentation Team Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Infrastructure Team Token Pool Education Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "341cd946-d5c9-4a90-98cb-167cd95f9116",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 5287.576883697743,
+                                                        "y": 19838.725070799086
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 5086.837701790086,
+                                                        "y": 19615.781623155868
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Infrastructure Team Token Pool",
+                                                        "id": "8b3b36d9-5bc0-40c0-9773-3e639762fc61"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Education Team PoW Report",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Infrastructure Team Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "37b36a40-b7ad-4308-9034-b4929475c653",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 5086.837701790086,
+                                                "y": 19615.781623155868
+                                            },
+                                            "targetPosition": {
+                                                "x": 4863.894254146868,
+                                                "y": 19816.520805063526
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Education Team PoW Report",
+                                                "id": "c609da41-373d-46ca-b637-d45e24e9b692"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Teams of Contributors",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Teams @ Nov 2021",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Brett’s Team PoW Report Position Class",
+                                        "config": "{\r\n    \"percentage\": 20\r\n}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Brett’s Team Token Pool Brett’s Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "ec491100-c69d-40dc-b171-8398ea7c9a13",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 5265.372617962183,
+                                                        "y": 20262.407700349962
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 5064.633436054525,
+                                                        "y": 20039.464252706744
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Brett’s Team Token Pool",
+                                                        "id": "bb67fd84-7283-4110-b838-dcdecbb7b4ca"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Brett’s Team PoW Report",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Brett’s Team Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "ad4695df-bdca-478c-8168-a184ad7bc842",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 5064.633436054525,
+                                                "y": 20039.464252706744
+                                            },
+                                            "targetPosition": {
+                                                "x": 4863.894254146868,
+                                                "y": 19816.520805063526
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Brett’s Team PoW Report",
+                                                "id": "d97c8d9f-401d-4e48-aede-6c91f5b730fd"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Teams of Contributors",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Teams @ Nov 2021",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Brett’s Team PoW Report",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Non-Tech-Users Community Team Position Class",
+                                        "config": "{\r\n    \"percentage\": 20\r\n}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Team Creator EvaMaria70 Token Pool Non-Tech-Users Community Team",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "873e7f82-4b81-40da-8ae3-c234f0ddb287",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 4841.689988411307,
+                                                        "y": 20240.203434614403
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 4640.95080650365,
+                                                        "y": 20017.259986971185
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Team Creator EvaMaria70 Token Pool",
+                                                        "id": "8bfad32e-ec6e-4fc7-97a5-8edaf4146076"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Non-Tech-Users Community Team",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Team Creator EvaMaria70 Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Team Leader @gustavohcorradi Token Pool  Non-Tech-Users Community Team",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "22fa0f6e-5876-472b-ac7c-0126f388984d",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 4418.007358860432,
+                                                        "y": 20217.999168878843
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 4640.95080650365,
+                                                        "y": 20017.259986971185
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Team Leader @gustavohcorradi Token Pool ",
+                                                        "id": "9f231aa9-c04a-424a-b94f-20bcffe5d860"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Non-Tech-Users Community Team",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Team Leader @gustavohcorradi Token Pool ",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Team Members Token Pool Non-Tech-Users Community Team",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "e379ced4-2a38-4d63-8af5-1af4bbdb47f0",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 4440.211624595992,
+                                                        "y": 19794.316539327967
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 4640.95080650365,
+                                                        "y": 20017.259986971185
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 1,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Team Members Token Pool",
+                                                        "id": "26c8c98f-17ae-467f-9153-ce3d9813a9d1"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Nov 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Non-Tech-Users Community Team",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Team Members Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "c8ab733d-fd42-4a8b-9755-8dccd91bfd71",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 4640.95080650365,
+                                                "y": 20017.259986971185
+                                            },
+                                            "targetPosition": {
+                                                "x": 4863.894254146868,
+                                                "y": 19816.520805063526
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Non-Tech-Users Community Team",
+                                                "id": "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Teams of Contributors",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Teams @ Nov 2021",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Non-Tech-Users Community Team",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "positionContributionClaims": [],
+                                "id": "fa82b7cb-207a-45ff-8421-850316e96481",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4863.894254146868,
+                                        "y": 19816.520805063526
+                                    },
+                                    "targetPosition": {
+                                        "x": 4663.15507223921,
+                                        "y": 19593.57735742031
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Class",
+                                        "name": "Teams With PoW Reports",
+                                        "id": "90e3eeda-0a84-4338-ae03-c1b0199660ad"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ Nov 2021",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "positionContributionClaims": [],
+                        "id": "65e53eb5-4721-49c8-b7b4-23adfbe6ce3d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4663.15507223921,
+                                "y": 19593.57735742031
+                            },
+                            "targetPosition": {
+                                "x": 4462.415890331553,
+                                "y": 19370.63390977709
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Position Class",
+                                "name": "Teams @ Nov 2021",
+                                "id": "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Teams of Contributors",
+                                    "Positions"
+                                ],
+                                [
+                                    "Teams @ Nov 2021",
+                                    "Position Class"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "c3af3ad2-ef7f-4f93-86a9-e9d204e99d01",
+                    "savedPayload": {
+                        "position": {
+                            "x": 4168.971610111411,
+                            "y": 19433.007417022418
+                        },
+                        "targetPosition": {
+                            "x": 4462.415890331553,
+                            "y": 19370.63390977709
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "65542239-63da-4c7c-82ed-90d0aa58e90e",
+                "savedPayload": {
+                    "position": {
+                        "x": 4462.415890331553,
+                        "y": 19370.63390977709
+                    },
+                    "targetPosition": {
+                        "x": 4555.120988644037,
+                        "y": 19085.316954888545
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "341811ac-c9b4-478f-bb1b-ab9cc58af590",
+            "savedPayload": {
+                "position": {
+                    "x": 4555.120988644037,
+                    "y": 19085.316954888545
+                },
+                "targetPosition": {
+                    "x": 4647.826086956522,
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -373,12 +1100,12 @@
         "id": "bfcd5faf-d1cd-4f52-8b75-3b4d8fd80fc5",
         "savedPayload": {
             "position": {
-                "x": 13949.000000000002,
-                "y": 5903.05830753354
+                "x": 4647.826086956522,
+                "y": 18800
             },
             "targetPosition": {
-                "x": 13649.000000000002,
-                "y": 5903.05830753354
+                "x": 4347.826086956522,
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -400,12 +1127,12 @@
         "id": "fc36ec93-af4e-4d5a-8e3b-5a02d4d1192b",
         "savedPayload": {
             "position": {
-                "x": 13349.000000000002,
-                "y": 5903.05830753354
+                "x": 4047.826086956522,
+                "y": 18800
             },
             "targetPosition": {
-                "x": 13649.000000000002,
-                "y": 5903.05830753354
+                "x": 4347.826086956522,
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -423,12 +1150,12 @@
     "id": "6b027e4e-32c9-4847-8f74-90aac9c738c0",
     "savedPayload": {
         "position": {
-            "x": 13649.000000000002,
-            "y": 5903.05830753354
+            "x": 4347.826086956522,
+            "y": 18800
         },
         "targetPosition": {
-            "x": 13649.000000000002,
-            "y": 5903.05830753354
+            "x": 4347.826086956522,
+            "y": 18800
         },
         "floatingObject": {
             "isPinned": false,

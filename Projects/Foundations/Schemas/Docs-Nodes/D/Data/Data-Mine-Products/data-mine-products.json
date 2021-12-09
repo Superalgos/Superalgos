@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Продукты добычи данных - это ссылки, установленные с помощью шахт данных, для облегчения установления ссылок на продукты данных с несколькими данными в этой шахте.",
-                "updated": 1636568841075
+                "text": "Data Mine Products - это ссылки, установленные с помощью хранилищ данных, для облегчения установления ссылок на продукты данных с несколькими продуктами в данном хранилище данных.",
+                "updated": 1638730619082
             }
         ]
     },
@@ -22,11 +22,25 @@
         },
         {
             "style": "Text",
-            "text": "The node may be used as an organizational device, simply to arrange bot products. However, the smart use of the node involves automating the deployment of multiple data products."
+            "text": "The node may be used as an organizational device, simply to arrange bot products. However, the smart use of the node involves automating the deployment of multiple data products.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел можно использовать как организационное устройство, просто для размещения продуктов ботов. Однако разумное использование узла предполагает автоматизацию развертывания нескольких продуктов данных.",
+                    "updated": 1638730436753
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The use of the data mine products node is optional, as data products may also exist outside of data mine products nodes."
+            "text": "The use of the data mine products node is optional, as data products may also exist outside of data mine products nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование узла продуктов исследования данных является необязательным, поскольку продукты данных также могут существовать вне узлов продуктов исследования данных.",
+                    "updated": 1638730456254
+                }
+            ]
         }
     ]
 }

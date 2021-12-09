@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "No nos gustan los lanzamientos airdrop sin sentido. Pero, ¿qué pasa si los lanzamientos airdrop acercan a los usuarios un paso más a participar en la gobernanza? El programa Airdrops incentiva a los usuarios a dar el primer paso para participar en la gobernanza: crear y enviar un User Profile.",
                 "updated": 1637845243827
+            },
+            {
+                "language": "RU",
+                "text": "Мы не любим бессмысленные раздачи токенов (Airdrop). Но что, если они приблизят пользователей на шаг к участию в управлении? Программа Airdrops Program побуждает пользователей сделать первый шаг к участию в управлении: создать и отправить профиль пользователя User Profile.",
+                "updated": 1638605752026
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "El programa Airdrop distribuye la Rewards Pool definido bajo los Governance Programs > Onboarding Programs section de la jerarquía de  Superalgos Pools.",
                     "updated": 1637845331924
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа Airdrop распределяет пул вознаграждений Rewards Pool, определенный в разделе Governance Programs > Onboarding Programs иерархии Superalgos Pools.",
+                    "updated": 1638605544880
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Generando el programa Airdrop y enviándole al User Profile es el único requisito para recibir los tokens lanzados del airdrop y, al mismo tiempo, es el primer paso para participar en la gobernanza y contribuir al proyecto.",
                     "updated": 1637845446790
+                },
+                {
+                    "language": "RU",
+                    "text": "Запуск программы Airdrop и отправка вашего профиля пользователя User Profile - единственное требование для получения токенов, раздающихся по воздуху, и в то же время первый шаг к участию в управлении и внесению вклада в проект.",
+                    "updated": 1638605651266
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "ES",
                     "text": "El programa distribuye el Rewards Pool uniformemente a todos los perfiles existentes, con un límite de 1000 SA por perfil, en cada versión.",
                     "updated": 1637845507274
+                },
+                {
+                    "language": "RU",
+                    "text": "Программа распределяет Rewards Pool равномерно по всем существующим профилям с лимитом в 1000 SA на профиль для каждого выпуска!",
+                    "updated": 1638606024273
                 }
             ]
         },
@@ -58,7 +78,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638606037595
+                }
+            ]
         }
     ]
 }

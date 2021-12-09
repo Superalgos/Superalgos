@@ -2,7 +2,14 @@
     "type": "Trading Bot Instance",
     "definition": {
         "text": "A trading bot instance is a reference to the Trading Bot as defined in the Masters data mine. The instance of the bot runs the defined processes and generates the defined data products.",
-        "updated": 1609668718157
+        "updated": 1609668718157,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Trading Bot Instance - это ссылка на торгового бота, как это определено в хранилище данных Masters. Экземпляр бота запускает определенные процессы и генерирует определенные продукты данных.",
+                "updated": 1638601725431
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,12 +19,26 @@
         {
             "style": "Text",
             "text": "The trading bot instance holds no definitions as to what the bot does. Instead, its process instance references the process definition in the Masters data mine. That is how the indicator bot instance obtains the information of what it needs to do once it is run.",
-            "updated": 1610105308091
+            "updated": 1610105308091,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляр торгового бота не содержит определений того, что он делает. Вместо этого его экземпляр процесса ссылается на определение процесса в хранилище данных Masters. Таким образом экземпляр индикаторного бота получает информацию о том, что ему нужно делать после запуска.",
+                    "updated": 1638601700923
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You do not start or stop a Trading Bot Instance directly. Instead, you start or stop the corresponding task.",
-            "updated": 1609668832266
+            "updated": 1609668832266,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не запускаете и не останавливаете экземпляр торгового бота напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу.",
+                    "updated": 1638601766917
+                }
+            ]
         },
         {
             "style": "Block",

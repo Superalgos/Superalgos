@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo como un dispositivo organizacional, para crear nodos de Asset Contribution Claim, y a mapear estructuras enteras en una jerarquía de Assets ( activo) para colocar múltiples solicitudes de contrbucion al mismo tiempo.",
                 "updated": 1636111484600
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы подверждений о вкладе Asset Contribution Claim и отображать целые структуры в иерархии изделий для одновременного размещения нескольких заявлений о вкладе Contribution Claims.",
+                "updated": 1638611052833
             }
         ]
     },

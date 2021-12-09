@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Blockabsätze definieren eine Reihe von Absätzen, die von anderen Seiten aus eingefügt werden können. Wenn Sie einen Block einbinden, indem Sie einen Docs Include Style Absatz erstellen, müssen Sie auf einen Blockabsatz verweisen, der auf der Seite erstellt wurde, die die einzubindende Absatzgruppe enthält. Ein Block enthält alle Absätze nach sich selbst bis zum nächsten Block oder dem Ende der Seite.",
                 "updated": 1633958201415
+            },
+            {
+                "language": "RU",
+                "text": "Блок абзацев Block Paragraph определяет набор абзацев, которые могут быть включены с других страниц. Когда вы включаете блок, создавая абзац стиля Docs Include Style, вам необходимо ссылаться на абзац блока, созданный на странице, на которой есть набор абзацев для включения. Блок содержит весь абзац после себя до следующего блока или конца страницы.",
+                "updated": 1638544396175
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Um einen Blockabsatz korrekt zu definieren, müssen Sie die folgende Syntax befolgen:",
                     "updated": 1633958297788
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы правильно определить блок абзацев, вам необходимо следовать следующему синтаксису:",
+                    "updated": 1638544350250
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "DE",
                     "text": "Block Name: Dies bezieht sich auf einen beliebigen Namen, den Sie dem neu erstellten Block geben möchten. Der Name muss innerhalb der Seite einzigartig sein.",
                     "updated": 1633958323628
+                },
+                {
+                    "language": "RU",
+                    "text": "Name: Это относится к любому имени, которое вы хотели бы дать вновь созданному блоку. Имя должно быть уникальным на странице.",
+                    "updated": 1638544436027
                 }
             ]
         }

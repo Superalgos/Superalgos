@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen command (Befehl), um eine neue Seite zu den Docs hinzuzufügen.",
                 "updated": 1633893255504
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду, чтобы добавить новую страницу в документы Docs.",
+                "updated": 1638527740195
             }
         ]
     },
@@ -17,22 +22,50 @@
         {
             "style": "Text",
             "text": "This command adds a new page to the docs allowing you to specify where and what type of page you would like to add. The command specifies four main properties of your new page:",
-            "updated": 1637179049731
+            "updated": 1637179049731,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта команда добавляет новую страницу в документы, позволяя указать, где и какой тип страницы вы хотите добавить. Команда определяет четыре основных свойства вашей новой страницы:",
+                    "updated": 1638527766954
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Page Type: Superalgos' documentation is broken up into a variety of different page catagories.  You can read more about the different options at this page: Docs Page Category",
-            "updated": 1637179879424
+            "updated": 1637179879424,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Page Type: Документация Superalgos разбита на множество категорий страниц. Вы можете узнать больше о различных вариантах на странице Docs Page Category.",
+                    "updated": 1638527822929
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Project within which the page will live: Each project within Superalgos contains it's own documentation. This option allows you to choose the project your page will be added to.",
-            "updated": 1637182337124
+            "updated": 1637182337124,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "The Project within which the page will live: Каждый проект в Superalgos содержит собственную документацию. Эта опция позволяет вам выбрать проект, в который будет добавлена ​​ваша страница.",
+                    "updated": 1638527862420
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "From these projects they have to choose one",
-            "updated": 1638115759331
+            "updated": 1638115759331,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из этих проектов нужно выбрать один",
+                    "updated": 1638527907627
+                }
+            ]
         },
         {
             "style": "Include",
@@ -42,26 +75,61 @@
         {
             "style": "List",
             "text": "Topic, Tutorial, or Review Title: Collections of pages are gathered under topic titles. These titles act as unique keys that make the collection of pages browsable as a unit. This option allows you to choose which topic to create or add your page to.",
-            "updated": 1637182170914
+            "updated": 1637182170914,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Topic, Tutorial, or Review Title: Коллекции страниц собраны по заголовкам тем. Эти заголовки действуют как уникальные ключи, которые делают коллекцию страниц доступной для просмотра как единое целое. Эта опция позволяет вам выбрать тему для создания или добавления вашей страницы.",
+                    "updated": 1638527947204
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Page Title: Each page is identified by a unique title. This title should help users find the content of your page. This option allows you to choose this title.",
-            "updated": 1637181908883
+            "updated": 1637181908883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Page Title: Каждая страница имеет уникальный заголовок. Этот заголовок должен помочь пользователям найти содержание вашей страницы. Эта опция позволяет вам выбрать этот заголовок.",
+                    "updated": 1638528002800
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Page Number: Optionally, a page number can be manually defined for the new page. If you do not, the system will automatically generate the next available number for your page.",
-            "updated": 1637181939592
+            "updated": 1637181939592,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Page Number: При желании номер страницы можно определить вручную для новой страницы. Если вы этого не сделаете, система автоматически сгенерирует следующий доступный номер для вашей страницы.",
+                    "updated": 1638528022530
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Single-Page Syntax"
+            "text": "Single-Page Syntax",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одностраничный синтаксис",
+                    "updated": 1638528044135
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Some catagories of pages are added without using a topic title. If you would like to add one of these single page catagories you may use the following syntax.",
-            "updated": 1637181470140
+            "updated": 1637181470140,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Некоторые категории страниц добавляются без названия темы. Если вы хотите добавить одну из этих одностраничных категорий, вы можете использовать следующий синтаксис.",
+                    "updated": 1638528065855
+                }
+            ]
         },
         {
             "style": "Json",
@@ -77,6 +145,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633893266139
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638528078571
                 }
             ]
         },
@@ -98,11 +171,25 @@
         {
             "style": "Title",
             "text": "Page-Collection Syntax",
-            "updated": 1613766298709
+            "updated": 1613766298709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис коллекции страниц",
+                    "updated": 1638528105384
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The other page catagories use a topic title to group pages together.  You may add one of these pages using this syntax."
+            "text": "The other page catagories use a topic title to group pages together.  You may add one of these pages using this syntax.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другие категории страниц используют заголовок темы для группировки страниц. Вы можете добавить одну из этих страниц, используя этот синтаксис.",
+                    "updated": 1638528132694
+                }
+            ]
         },
         {
             "style": "Json",
@@ -118,6 +205,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633893277348
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638528146806
                 }
             ]
         },

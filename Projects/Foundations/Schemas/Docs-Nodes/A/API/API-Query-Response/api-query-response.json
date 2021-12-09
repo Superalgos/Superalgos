@@ -2,36 +2,85 @@
     "type": "API Query Response",
     "definition": {
         "text": "This node enables the definition of a particular response from the API call.",
-        "updated": 1622862747985
+        "updated": 1622862747985,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел позволяет определять конкретный ответ на вызов API.",
+                "updated": 1638629545701
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "API Query Response Configuration",
-            "updated": 1622895797460
+            "updated": 1622895797460,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация API Query Response",
+                    "updated": 1638629560935
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638629568298
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName: At the codeName property, the API Fetcher Bot will expect to find the http response code from the API call handled by this node. You will need to have at least one of these nodes with a codeName = \"200\" (that is the standard code for success).",
-            "updated": 1622862811491
+            "updated": 1622862811491,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName: в свойстве codeName бот API Fetcher Bot ожидает найти код ответа http от вызова API, обрабатываемого этим узлом. Вам понадобится хотя бы один из этих узлов с codeName = \"200\" (это стандартный код для успеха).",
+                    "updated": 1638629676913
+                }
+            ]
         },
         {
             "style": "List",
             "text": "isError: Define if the status code should be considered an error or not.",
-            "updated": 1622862913882
+            "updated": 1622862913882,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isError: Определите, следует ли считать код состояния ошибкой или нет.",
+                    "updated": 1638629698384
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you wish to be able to react to other error codes, you should also have more of these nodes with the codeName of each status you want to cover. If the API Data Fetcher Bot receives a response code that has not been defined, it will stop processing and error out.",
-            "updated": 1622862870506
+            "updated": 1622862870506,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите иметь возможность реагировать на другие коды ошибок, у вас также должно быть больше этих узлов с codeName каждого статуса, который вы хотите охватить. Если бот API Data Fetcher Bot получит код ответа, который не был определен, он прекратит обработку и выдаст ошибку.",
+                    "updated": 1638629745693
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here is an example API Query Response config:"
+            "text": "Here is an example API Query Response config:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот пример конфигурации ответа на запрос API:",
+                    "updated": 1638629758397
+                }
+            ]
         },
         {
             "style": "Json",

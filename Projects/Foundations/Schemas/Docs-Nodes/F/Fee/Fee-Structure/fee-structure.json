@@ -1,7 +1,14 @@
 {
     "type": "Fee Structure",
     "definition": {
-        "text": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions."
+        "text": "The fee structure is a parameter fundamental to the calculation of fees, both in testing and live trading sessions.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Fee Structure является параметром, основополагающим для расчета комиссий как во время тестирования, так и во время торговых сессий.",
+                "updated": 1638962976222
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "Exchange fees are a crucial part of trading. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation."
+            "text": "Exchange fees are a crucial part of trading. A strategy may work like a charm when you leave fees out of the equation but would lead you to bankruptcy in a live trading situation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржевые комисси - важная часть торговли. Стратегия может отработать прибыльно, когда вы исключите комиссию из уравнения, но в реальной торговой ситуации она приведет вас к банкротству.",
+                    "updated": 1638963085832
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Exchanges don't usually report the amount charged in fees on each transaction, thus, the system calculates fees and subtract them from balances. Learn more about the handling of fees."
+            "text": "Exchanges don't usually report the amount charged in fees on each transaction, thus, the system calculates fees and subtract them from balances. Learn more about the handling of fees.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржи обычно не сообщают сумму комиссий по каждой транзакции, поэтому система рассчитывает комиссию и вычитает ее из балансов. Узнайте больше об обработке комиссий.",
+                    "updated": 1638963192716
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "The accuracy of the internal account-keeping depends on this parameter. Make sure you obtain the correct fee structure from the exchange corresponding to the tier of your account."
+            "text": "The accuracy of the internal account-keeping depends on this parameter. Make sure you obtain the correct fee structure from the exchange corresponding to the tier of your account.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "От этого параметра зависит точность ведения внутреннего учета. Убедитесь, что вы получили правильную структуру комиссий от биржи, соответствующую уровню вашей учетной записи.",
+                    "updated": 1638963227924
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,28 +55,70 @@
         },
         {
             "style": "Title",
-            "text": "Fee Structure Configuration"
+            "text": "Fee Structure Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфмгурация Fee Structure",
+                    "updated": 1638963247347
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609676653644
+            "updated": 1609676653644,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638963255764
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "maker is the setting for the fee the exchange charges when an order adds liquidity to the market, such as with limit orders."
+            "text": "maker is the setting for the fee the exchange charges when an order adds liquidity to the market, such as with limit orders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maker - это настройка комиссии, взимаемой биржей, когда ордер добавляет ликвидности на рынок, например, с лимитными ордерами.",
+                    "updated": 1638963307124
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "taker is the setting for the fee the exchange charges when an order takes liquidity from the market, such as with market or instant orders."
+            "text": "taker is the setting for the fee the exchange charges when an order takes liquidity from the market, such as with market or instant orders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "taker - это настройка комиссии, взимаемой биржей, когда ордер забирает ликвидность с рынка, например, с рыночными или мгновенными ордерами.",
+                    "updated": 1638963299251
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If the fee structure parameter is left empty or detached both from your session and your trading system, fees are not computed during simulations."
+            "text": "If the fee structure parameter is left empty or detached both from your session and your trading system, fees are not computed during simulations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если параметр структуры комиссионных оставлен пустым или отключен как от вашей сессии, так и от вашей торговой системы, комиссии не вычисляются во время симулирования.",
+                    "updated": 1638963356875
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Remember that, for the time being, and until the new execution engine is released, all orders placed by the trading bot are market orders, thus, the taker fee applies in all cases."
+            "text": "Remember that, for the time being, and until the new execution engine is released, all orders placed by the trading bot are market orders, thus, the taker fee applies in all cases.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что на данный момент и до тех пор, пока не будет выпущен новый механизм исполнения, все ордера, размещенные торговым ботом, являются рыночными ордерами, поэтому во всех случаях применяется комиссия тейкера (taker).",
+                    "updated": 1638963519307
+                }
+            ]
         }
     ]
 }

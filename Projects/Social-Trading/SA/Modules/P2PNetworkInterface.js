@@ -8,10 +8,10 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     */
     let thisObject = {
         p2pNetworkInterface: undefined,
+        userApp: undefined,        
         getNextSignal: getNextSignal,
         eventReceived: eventReceived,
         signalReceived: signalReceived,
-        userApp: userApp,
         initialize: initialize,
         finalize: finalize
     }

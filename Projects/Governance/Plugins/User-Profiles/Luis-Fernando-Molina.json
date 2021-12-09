@@ -127,12 +127,12 @@
             "id": "f4d39b02-4324-438d-9f74-2bea2b7272ef",
             "savedPayload": {
                 "position": {
-                    "x": 20904.545454545452,
-                    "y": 18540.192378864667
+                    "x": 33783.333333333336,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 20754.545454545452,
-                    "y": 18800
+                    "x": 33633.333333333336,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -516,12 +516,12 @@
             "id": "b6e3c87d-a11b-4b2a-b6a6-edc96375f5da",
             "savedPayload": {
                 "position": {
-                    "x": 21014.353075680785,
-                    "y": 18650
+                    "x": 33893.14095446867,
+                    "y": 23450
                 },
                 "targetPosition": {
-                    "x": 20754.545454545452,
-                    "y": 18800
+                    "x": 33633.333333333336,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -608,7 +608,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "Loui-Molina Desktop Team Token Pool Desktop Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "a7b16281-70c4-48b7-95f7-4cca2d01a439",
@@ -749,7 +749,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "gonzalocatrina Desktop Team Token Pool Desktop Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "7555f7bd-3943-4730-90e2-c59997b793c9",
@@ -890,7 +890,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "alexandrustefan One-Man Team Token Pool One-Man Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "a609d286-b099-4299-b3eb-addf8246c9c8",
@@ -1064,7 +1064,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "NAmorim Distribution Team Token Pool Distribution Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e88fe472-08cf-46c4-817a-cf4f628e0cae",
@@ -1235,7 +1235,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Raplh2502 Algorithmic-Trading & Portfolio Management Team Token Pool Algorithmic-Trading & Portfolio Management Team PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "4c92fd47-564a-406b-9858-c281a622baa8",
@@ -1388,7 +1388,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Raplh2502 Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "efcd5659-93c7-4ed6-851c-7acb12fb22ed",
@@ -1541,7 +1541,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Raplh2502 Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ac4cd30b-7b0a-42b5-944f-a81288412f42",
@@ -1758,7 +1758,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "Smidy13 Smidy’s Team Token Pool Smidy’s Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "3b29cdd1-af5a-4062-a2b6-cc91e4eb1021",
@@ -1905,7 +1905,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "cozed-gh Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "cd3ec7d1-fc71-4aae-9a08-1afc9a0b04e0",
@@ -2070,7 +2070,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "cozed-gh Exchange Relationships Team Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "d8258c7c-42d4-47d6-8050-1f0fafef9886",
@@ -2235,7 +2235,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "cozed-gh Telegram Team Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "ebe87673-6c00-4ab4-ac10-d3c2cc2db465",
@@ -2470,7 +2470,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "harrellbm Documentation Team Token Pool Education Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "fa3f50fe-78dd-4db9-8bdb-df28e9c6527b",
@@ -2541,7 +2541,7 @@
                                                     },
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "harrellbm Infrastructure Team Token Pool Education Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "13d423cf-7c37-471c-a9fa-afd38864e4e9",
@@ -2682,7 +2682,7 @@
                                                 "positionClaimVotes": [
                                                     {
                                                         "type": "Position Claim Vote",
-                                                        "name": "PLuv Algorithmic-Trading & Portfolio Management Team Token Pool Algorithmic-Trading & Portfolio Management Team PoW Report",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e400042d-3ad8-4013-bc93-f108b5b8a76b",
@@ -2829,7 +2829,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Julian-Molina Superalgos.org Website Team Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "08321a34-9790-43b5-9f07-249e74e041e6",
@@ -2982,7 +2982,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Julian-Molina Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "c8f13dc4-c47b-439c-a07f-8802c1d6d270",
@@ -3135,7 +3135,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Julian-Molina Social Network Teams Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "4bd459c7-7db7-432c-8a49-2cdb1d15afc7",
@@ -3288,7 +3288,7 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "Julian-Molina Telegram Team Token Pool Marketing Teams PoW Report",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "7de6d60e-9e06-4f80-a3c5-e9bb2307753d",
@@ -3517,7 +3517,7 @@
                                                                 "positionClaimVotes": [
                                                                     {
                                                                         "type": "Position Claim Vote",
-                                                                        "name": "ssplatt Exchange Relationships Team Token Pool Marketing Teams PoW Report",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "c3615338-2243-452f-9cc0-68a64ed11557",
@@ -3682,7 +3682,7 @@
                                                                 "positionClaimVotes": [
                                                                     {
                                                                         "type": "Position Claim Vote",
-                                                                        "name": "ssplatt Brett’s Team Token Pool Brett’s Team PoW Report",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "9522130c-feaf-4e52-8fe1-116af98211de",
@@ -4049,7 +4049,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Liquidity Rewards BTCB Pool",
+                                                        "name": "",
                                                         "config": "{\r\n    \"percentage\": 80\r\n}",
                                                         "project": "Governance",
                                                         "id": "2e6f62b7-74ed-4005-bd23-0c6b0e8e7d86",
@@ -4114,7 +4114,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Liquidity Rewards BNB Pool",
+                                                        "name": "",
                                                         "config": "{\r\n    \"percentage\": 15\r\n}",
                                                         "project": "Governance",
                                                         "id": "0a9e7ec8-69a6-4de9-8972-931c492fa33e",
@@ -4179,7 +4179,7 @@
                                                     },
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Liquidity Rewards BUSD Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "cfc1692a-0461-4bde-a4e6-ffb1b7620bf8",
@@ -4309,7 +4309,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Team Positions Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "89ee5b51-976d-4eaf-abc2-445c3a1dec2b",
@@ -4415,7 +4415,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Support Rewards Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "1c002437-998f-49d8-9a48-c4effe4ee7df",
@@ -4588,7 +4588,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "Desktop Team PoW Report Desktop Team Token Pool",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "6407a4ef-a6e3-4ff1-bc45-1f19e265f870",
@@ -4718,7 +4718,7 @@
                                                         "positionWeightVotes": [
                                                             {
                                                                 "type": "Position Weight Vote",
-                                                                "name": "One-Man Team PoW Report One-Man Team Token Pool",
+                                                                "name": "",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "4fe3b8c5-7554-45c1-9fdb-703d3a8a8ad0",
@@ -4854,7 +4854,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Algorithmic-Trading & Portfolio Management Team PoW Report Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "c3562d33-d225-4878-bbe7-037c57469244",
@@ -4984,7 +4984,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Distribution Team PoW Report Distribution Team Token Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "8515032b-df76-4137-985f-0cdab4cd6ccc",
@@ -5114,7 +5114,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Smidy’s Team PoW Report Smidy’s Team Token Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "4f31af5e-6431-4d47-a38f-c6897c94b744",
@@ -5278,7 +5278,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Brett’s Team PoW Report Brett’s Team Token Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "a37f654d-9a92-44da-b4ad-3c09b0c1f410",
@@ -5408,7 +5408,7 @@
                                                                 "positionWeightVotes": [
                                                                     {
                                                                         "type": "Position Weight Vote",
-                                                                        "name": "Data Mining Team PoW Report Data Mining Team Token Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "c8c3931b-b40b-420d-bbb8-b5de3f6e0b41",
@@ -5732,7 +5732,7 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Luis’ Team Token Pool Luis’ Team PoW Report",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "180554c2-72c0-4e03-a8f7-50d7d2e4dfb8",
@@ -5904,12 +5904,12 @@
             "id": "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf",
             "savedPayload": {
                 "position": {
-                    "x": 21054.545454545452,
-                    "y": 18800
+                    "x": 33933.333333333336,
+                    "y": 23600
                 },
                 "targetPosition": {
-                    "x": 20754.545454545452,
-                    "y": 18800
+                    "x": 33633.333333333336,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -5944,18 +5944,18 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "alexandrustefan",
+                                "name": "",
                                 "config": "{\r\n    \"percentage\": 60\r\n}",
                                 "project": "Governance",
                                 "id": "da1969ba-e1fc-40f6-a246-41b0102b8e22",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21746.100352307414,
-                                        "y": 18737.867965644036
+                                        "x": 34624.8882310953,
+                                        "y": 23537.867965644036
                                     },
                                     "targetPosition": {
-                                        "x": 21533.96831795145,
-                                        "y": 18950
+                                        "x": 34412.756196739334,
+                                        "y": 23750
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -5985,18 +5985,18 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "NAmorim",
+                                "name": "",
                                 "config": "{ \n}",
                                 "project": "Governance",
                                 "id": "d8d3a46a-bcc6-4fdc-88e0-f9a37a5ebaef",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21823.74606583817,
-                                        "y": 18872.354286469243
+                                        "x": 34702.533944626055,
+                                        "y": 23672.354286469243
                                     },
                                     "targetPosition": {
-                                        "x": 21533.96831795145,
-                                        "y": 18950
+                                        "x": 34412.756196739334,
+                                        "y": 23750
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6028,12 +6028,12 @@
                         "id": "f30a00a6-652f-4739-b618-c9ee92a8d4e8",
                         "savedPayload": {
                             "position": {
-                                "x": 21533.96831795145,
-                                "y": 18950
+                                "x": 34412.756196739334,
+                                "y": 23750
                             },
                             "targetPosition": {
-                                "x": 21274.160696816118,
-                                "y": 19100
+                                "x": 34152.948575604,
+                                "y": 23900
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6057,18 +6057,18 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "harrellbm",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "af0bdf1a-acf9-4621-ba01-8cbf7e1be56d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21874.160696816118,
-                                        "y": 19100
+                                        "x": 34752.948575604,
+                                        "y": 23900
                                     },
                                     "targetPosition": {
-                                        "x": 21574.160696816118,
-                                        "y": 19100
+                                        "x": 34452.948575604,
+                                        "y": 23900
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6100,12 +6100,12 @@
                         "id": "780725f6-8f8c-4e79-964e-f7dba7fc088c",
                         "savedPayload": {
                             "position": {
-                                "x": 21574.160696816118,
-                                "y": 19100
+                                "x": 34452.948575604,
+                                "y": 23900
                             },
                             "targetPosition": {
-                                "x": 21274.160696816118,
-                                "y": 19100
+                                "x": 34152.948575604,
+                                "y": 23900
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6129,7 +6129,7 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "Loui-Molina",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "4c9e5254-3292-40e2-ae8f-e294e8de63f7",
@@ -6170,7 +6170,7 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "gonzalocatrina",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "1ef198b7-8387-461a-8efc-e4db940fe699",
@@ -6211,7 +6211,7 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "claudioLopezSA",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "e5dd7629-64fb-4fa0-999b-a2c126b5b7ea",
@@ -6254,12 +6254,12 @@
                         "id": "72332ed3-98e3-48c9-a3b3-d7be6add4944",
                         "savedPayload": {
                             "position": {
-                                "x": 21533.96831795145,
-                                "y": 19250
+                                "x": 34412.756196739334,
+                                "y": 24050
                             },
                             "targetPosition": {
-                                "x": 21274.160696816118,
-                                "y": 19100
+                                "x": 34152.948575604,
+                                "y": 23900
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6289,18 +6289,18 @@
                                 "userDelegates": [
                                     {
                                         "type": "User Delegate",
-                                        "name": "gitforkgit",
+                                        "name": "",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "7ad69d1a-e38d-441b-bb03-ac9f220e71e6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21943.775939086783,
-                                                "y": 19659.807621135333
+                                                "x": 34822.56381787467,
+                                                "y": 24459.807621135333
                                             },
                                             "targetPosition": {
-                                                "x": 21683.96831795145,
-                                                "y": 19509.807621135333
+                                                "x": 34562.756196739334,
+                                                "y": 24309.807621135333
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6330,12 +6330,12 @@
                                 "id": "9c94893d-26d5-4f93-933c-236395ca706f",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21683.96831795145,
-                                        "y": 19509.807621135333
+                                        "x": 34562.756196739334,
+                                        "y": 24309.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 21424.160696816118,
-                                        "y": 19359.807621135333
+                                        "x": 34302.948575604,
+                                        "y": 24159.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6359,18 +6359,18 @@
                                 "userDelegates": [
                                     {
                                         "type": "User Delegate",
-                                        "name": "markinho91",
+                                        "name": "",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "28e9b5e1-3790-4092-8eb2-fd73b30b9949",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 21424.160696816118,
-                                                "y": 19959.807621135333
+                                                "x": 34302.948575604,
+                                                "y": 24759.807621135333
                                             },
                                             "targetPosition": {
-                                                "x": 21424.160696816118,
-                                                "y": 19659.807621135333
+                                                "x": 34302.948575604,
+                                                "y": 24459.807621135333
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6400,12 +6400,12 @@
                                 "id": "48422b47-4839-43bd-9f21-a06882b0e914",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21424.160696816118,
-                                        "y": 19659.807621135333
+                                        "x": 34302.948575604,
+                                        "y": 24459.807621135333
                                     },
                                     "targetPosition": {
-                                        "x": 21424.160696816118,
-                                        "y": 19359.807621135333
+                                        "x": 34302.948575604,
+                                        "y": 24159.807621135333
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6425,12 +6425,12 @@
                         "id": "2ee8a5ba-eb66-4f91-9de9-3fecd585c998",
                         "savedPayload": {
                             "position": {
-                                "x": 21424.160696816118,
-                                "y": 19359.807621135333
+                                "x": 34302.948575604,
+                                "y": 24159.807621135333
                             },
                             "targetPosition": {
-                                "x": 21274.160696816118,
-                                "y": 19100
+                                "x": 34152.948575604,
+                                "y": 23900
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6453,12 +6453,12 @@
                     "id": "1edd215f-5e05-4af4-a284-eff09bcc2915",
                     "savedPayload": {
                         "position": {
-                            "x": 21274.160696816118,
-                            "y": 19400
+                            "x": 34152.948575604,
+                            "y": 24200
                         },
                         "targetPosition": {
-                            "x": 21274.160696816118,
-                            "y": 19100
+                            "x": 34152.948575604,
+                            "y": 23900
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -6476,12 +6476,12 @@
                 "id": "4246052a-0eab-43a6-bdc4-d9a42a9bd694",
                 "savedPayload": {
                     "position": {
-                        "x": 21274.160696816118,
-                        "y": 19100
+                        "x": 34152.948575604,
+                        "y": 23900
                     },
                     "targetPosition": {
-                        "x": 21014.353075680785,
-                        "y": 18950
+                        "x": 33893.14095446867,
+                        "y": 23750
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -6499,12 +6499,12 @@
             "id": "ed112539-01ea-4937-85cf-69612ee6115d",
             "savedPayload": {
                 "position": {
-                    "x": 21014.353075680785,
-                    "y": 18950
+                    "x": 33893.14095446867,
+                    "y": 23750
                 },
                 "targetPosition": {
-                    "x": 20754.545454545452,
-                    "y": 18800
+                    "x": 33633.333333333336,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -6694,12 +6694,12 @@
             "id": "ba3bc469-3c94-444d-a5d0-8ed851aa3778",
             "savedPayload": {
                 "position": {
-                    "x": 20904.545454545452,
-                    "y": 19059.807621135333
+                    "x": 33783.333333333336,
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
-                    "x": 20754.545454545452,
-                    "y": 18800
+                    "x": 33633.333333333336,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -6717,17 +6717,17 @@
         "id": "f8182a9c-f830-4ec1-a238-ac3a5efd69e6",
         "savedPayload": {
             "position": {
-                "x": 20754.545454545452,
-                "y": 18800
+                "x": 33633.333333333336,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 20454.545454545452,
-                "y": 18800
+                "x": 33333.333333333336,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -6744,12 +6744,12 @@
         "id": "9870ca2a-cefc-484b-b7fc-206d62782ebc",
         "savedPayload": {
             "position": {
-                "x": 20604.545454545452,
-                "y": 19059.807621135333
+                "x": 33483.333333333336,
+                "y": 23859.807621135333
             },
             "targetPosition": {
-                "x": 20454.545454545452,
-                "y": 18800
+                "x": 33333.333333333336,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -6783,13 +6783,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xb7856f6e87c3a2808f7ad16a0bfbc33594edf7fdda4147281753caa04b828cb1\",\n        \"s\": \"0x32239a2a5d29887a37d70a377a8d2d234d915036c12622b45feca6a070c0c932\",\n        \"signature\": \"0xb7856f6e87c3a2808f7ad16a0bfbc33594edf7fdda4147281753caa04b828cb132239a2a5d29887a37d70a377a8d2d234d915036c12622b45feca6a070c0c9321b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xb048a264b4d4a9f23e32b923c81251155357693793477ca6ab801e44763f102c\",\n        \"s\": \"0x63398a37d37840cc4777d8710c94355cf82d49987ba49192f61a8bde486cc18e\",\n        \"signature\": \"0xb048a264b4d4a9f23e32b923c81251155357693793477ca6ab801e44763f102c63398a37d37840cc4777d8710c94355cf82d49987ba49192f61a8bde486cc18e1c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "5bbf87b3-0c88-4762-8963-dcc013778923",
+                        "id": "c578faa5-838d-4915-819a-7b49d1917bdb",
                         "savedPayload": {
                             "position": {
-                                "x": 28033.46785235314,
-                                "y": 19649.585369022054
+                                "x": 27749.660231217807,
+                                "y": 19523.585369022054
                             },
                             "targetPosition": {
                                 "x": 27773.660231217807,
@@ -6839,13 +6839,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xb3caae868f8d2f39d2c8d005e52864fb89446fa46e9b3b7d1246aa5882e04206\",\n        \"s\": \"0x36f9db32a86b7416906f54b478af814963e75e16c36ab2fea11b16d90a6f4869\",\n        \"signature\": \"0xb3caae868f8d2f39d2c8d005e52864fb89446fa46e9b3b7d1246aa5882e0420636f9db32a86b7416906f54b478af814963e75e16c36ab2fea11b16d90a6f48691b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xbf47fc41636b030fc71954537e40dcbc9f21b56b3db183cbf84104ea2cdfae85\",\n        \"s\": \"0x5273f32ffa9fae495b69e548bca3469615642be521b65c06fe1ca58bd6d2560f\",\n        \"signature\": \"0xbf47fc41636b030fc71954537e40dcbc9f21b56b3db183cbf84104ea2cdfae855273f32ffa9fae495b69e548bca3469615642be521b65c06fe1ca58bd6d2560f1b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "ef671e4a-85ca-44a2-aaff-46986537af62",
+                        "id": "0aa643d6-1605-4f48-af9f-cd655484cb09",
                         "savedPayload": {
                             "position": {
-                                "x": 27669.14403714399,
-                                "y": 19929.140864795496
+                                "x": 27549.498323613232,
+                                "y": 19650.363116908775
                             },
                             "targetPosition": {
                                 "x": 27591.498323613232,
@@ -6897,13 +6897,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xa452ff2bc00af08db7ec00f485eabb777b688a121bec31aeb39adb2449b20e49\",\n        \"s\": \"0x2ba6fb158373c827fc6d46083011e2bc6b6d0a91d122ac6a85625c32fc2e1e36\",\n        \"signature\": \"0xa452ff2bc00af08db7ec00f485eabb777b688a121bec31aeb39adb2449b20e492ba6fb158373c827fc6d46083011e2bc6b6d0a91d122ac6a85625c32fc2e1e361c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xff7d0f86498cd0237d4524ffef24deda010b06a14eb2e78a6d1d74284b6b74ca\",\n        \"s\": \"0x16e0abb861cf90731831457a4736a32ed44758759a40ec76ff08ca8e572b0c78\",\n        \"signature\": \"0xff7d0f86498cd0237d4524ffef24deda010b06a14eb2e78a6d1d74284b6b74ca16e0abb861cf90731831457a4736a32ed44758759a40ec76ff08ca8e572b0c781b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "616fc2e6-2286-49ce-b037-9da2b153a8f5",
+                        "id": "4be5d602-314b-4fd1-964b-28677d81766d",
                         "savedPayload": {
                             "position": {
-                                "x": 27213.852610082475,
-                                "y": 19869.20061129272
+                                "x": 27425.852610082475,
+                                "y": 19682.392990157387
                             },
                             "targetPosition": {
                                 "x": 27363.852610082475,
@@ -6983,13 +6983,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xc61a99e7e06f91a85feb75e1ffb602f40c58d9746f46d507f3d450582ef18fd9\",\n        \"s\": \"0x29ac7352f6bd02c6779637a3dd3e68ba06ec02acfa9b79f576587a732f0cc7b4\",\n        \"signature\": \"0xc61a99e7e06f91a85feb75e1ffb602f40c58d9746f46d507f3d450582ef18fd929ac7352f6bd02c6779637a3dd3e68ba06ec02acfa9b79f576587a732f0cc7b41c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x8cecb969a1b225fefdda96b8905e8f645c170eb6c57a8865c7ee03a71c57220f\",\n        \"s\": \"0x58a4d556d1f6258f8de06dff9b73bb3c1d43c318eb54fc1331c9ed6510997e77\",\n        \"signature\": \"0x8cecb969a1b225fefdda96b8905e8f645c170eb6c57a8865c7ee03a71c57220f58a4d556d1f6258f8de06dff9b73bb3c1d43c318eb54fc1331c9ed6510997e771b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "c958d032-f21f-4e60-9d93-410ca3f650f8",
+                        "id": "80beadce-0b09-43e5-94cc-aca996325da9",
                         "savedPayload": {
                             "position": {
-                                "x": 26986.206896551717,
-                                "y": 19839.23048454133
+                                "x": 27050.206896551717,
+                                "y": 19485.422863406
                             },
                             "targetPosition": {
                                 "x": 27136.206896551717,
@@ -7069,13 +7069,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xe69562f3d6fce7a56692c7d000ddf95bc313dc513f1aabdde1f9ee4a09a3a1c8\",\n        \"s\": \"0x5da50897902dce98a44b1f94dc498037baa93fe51ca5e08064f0785a00092ee1\",\n        \"signature\": \"0xe69562f3d6fce7a56692c7d000ddf95bc313dc513f1aabdde1f9ee4a09a3a1c85da50897902dce98a44b1f94dc498037baa93fe51ca5e08064f0785a00092ee11b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x14906bb9d3bd26cc96dc1b6ef130cf2a85e4d63afe7f7fedae07789fa8681cae\",\n        \"s\": \"0x79078dc208c34a13b33a08d0fd7e85d014999b90849f5aaf29d087f8207b1b02\",\n        \"signature\": \"0x14906bb9d3bd26cc96dc1b6ef130cf2a85e4d63afe7f7fedae07789fa8681cae79078dc208c34a13b33a08d0fd7e85d014999b90849f5aaf29d087f8207b1b021b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "90f0eaeb-99a4-4e19-ae05-c19567059dba",
+                        "id": "f17678be-2812-4150-b8b8-044e9e7e449d",
                         "savedPayload": {
                             "position": {
-                                "x": 26846.429148664996,
-                                "y": 19657.068576936756
+                                "x": 26897.429148664996,
+                                "y": 19369.260955801423
                             },
                             "targetPosition": {
                                 "x": 26996.429148664996,
@@ -7125,13 +7125,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xee23a1f8bae29ecb2ceb8ea501e3f75b3e4969cda04dd1c4d4009e84d260409d\",\n        \"s\": \"0x1bba5e0ef908751361f0137cc8b93d834010447589ea7c28682c44db71e06081\",\n        \"signature\": \"0xee23a1f8bae29ecb2ceb8ea501e3f75b3e4969cda04dd1c4d4009e84d260409d1bba5e0ef908751361f0137cc8b93d834010447589ea7c28682c44db71e060811b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x65e880563a79920db86cc7ade6a082a73add751cb3f34835072c75e48458c59a\",\n        \"s\": \"0x7700b32b2b4d996a33026005b3728e6329df4b2ac8f87f7210e27139353b49fb\",\n        \"signature\": \"0x65e880563a79920db86cc7ade6a082a73add751cb3f34835072c75e48458c59a7700b32b2b4d996a33026005b3728e6329df4b2ac8f87f7210e27139353b49fb1b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "358e8b10-6a2b-4711-b842-42ff37c8b9a0",
+                        "id": "2264b4b1-803b-4835-b9fd-ab05b4e06299",
                         "savedPayload": {
                             "position": {
-                                "x": 26566.873652891554,
-                                "y": 19292.744761727605
+                                "x": 26810.651400778275,
+                                "y": 19185.099048196847
                             },
                             "targetPosition": {
                                 "x": 26856.651400778275,
@@ -7183,13 +7183,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x7c60590c40a658cf32166197a19aecd6d3ce790e34e7bcd26417ce28b414f810\",\n        \"s\": \"0x53f1b2191fd5dbc94ef8acb711ba2362a3fb8f114bf206a26f8119a4611dde2b\",\n        \"signature\": \"0x7c60590c40a658cf32166197a19aecd6d3ce790e34e7bcd26417ce28b414f81053f1b2191fd5dbc94ef8acb711ba2362a3fb8f114bf206a26f8119a4611dde2b1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x6bc8d0392f0cf90d92f5e82ef8a076b6a0467e3af83e57d48d1fa1388fc83a6d\",\n        \"s\": \"0x1eadb1b2f32e9f1755990d071120f2f66a31acd81200f7f87d28bd2955685e73\",\n        \"signature\": \"0x6bc8d0392f0cf90d92f5e82ef8a076b6a0467e3af83e57d48d1fa1388fc83a6d1eadb1b2f32e9f1755990d071120f2f66a31acd81200f7f87d28bd2955685e731b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "3c08805f-d53a-4091-b671-4dfab46af594",
+                        "id": "668b9155-f751-4fee-b601-f3dfc086f6a3",
                         "savedPayload": {
                             "position": {
-                                "x": 26626.81390639433,
-                                "y": 18837.45333466609
+                                "x": 26949.621527529664,
+                                "y": 18929.45333466609
                             },
                             "targetPosition": {
                                 "x": 26886.621527529664,
@@ -7258,12 +7258,12 @@
         "id": "c57bd931-a0e1-4cf2-9270-b33f08839484",
         "savedPayload": {
             "position": {
-                "x": 20304.545454545452,
-                "y": 19059.807621135333
+                "x": 33183.333333333336,
+                "y": 23859.807621135333
             },
             "targetPosition": {
-                "x": 20454.545454545452,
-                "y": 18800
+                "x": 33333.333333333336,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7442,13 +7442,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xf20489ce6a3ce04e64b7830049fe1178167e68343153d4a6ffa627269951f133\",\n        \"s\": \"0x45ec9473ae6ec521d73dbe01756da5b7cd4aba51ddb1ca244cf8c146fca86ef8\",\n        \"signature\": \"0xf20489ce6a3ce04e64b7830049fe1178167e68343153d4a6ffa627269951f13345ec9473ae6ec521d73dbe01756da5b7cd4aba51ddb1ca244cf8c146fca86ef81c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xc4544f583ec5042c6de4718e705a2f7522962ed0d53e0105e3acb41cb7484e02\",\n        \"s\": \"0x416e0a358dd37ebdb6c75cfdbd62e2475163ee26e36e380fe4fbc6a84f994986\",\n        \"signature\": \"0xc4544f583ec5042c6de4718e705a2f7522962ed0d53e0105e3acb41cb7484e02416e0a358dd37ebdb6c75cfdbd62e2475163ee26e36e380fe4fbc6a84f9949861c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "c16d25bb-6e53-4229-acd1-6384d8765a0b",
+                        "id": "cbc08b66-9cc1-4a08-92bf-ffd147f34bd0",
                         "savedPayload": {
                             "position": {
-                                "x": 26466.591654281052,
-                                "y": 19100
+                                "x": 26781.399275416385,
+                                "y": 18888
                             },
                             "targetPosition": {
                                 "x": 26726.399275416385,
@@ -8403,16 +8403,16 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x7fd30d009b5a44db7499e502c45b1440a116a4d75b867c87930ae288f91a338f\",\n        \"s\": \"0x693cda2392a47563bceb9806483ae267629dcda78176ae9624e931b9d4ea462e\",\n        \"signature\": \"0x7fd30d009b5a44db7499e502c45b1440a116a4d75b867c87930ae288f91a338f693cda2392a47563bceb9806483ae267629dcda78176ae9624e931b9d4ea462e1b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x969de1404f2fba772c244fd0e663c924addebc8781c4e7a61b7b348cae48a05c\",\n        \"s\": \"0x5bd10c5239a949127cd9b9d1d1448f0859ec28da33d2b1528d410359228f6ce7\",\n        \"signature\": \"0x969de1404f2fba772c244fd0e663c924addebc8781c4e7a61b7b348cae48a05c5bd10c5239a949127cd9b9d1d1448f0859ec28da33d2b1528d410359228f6ce71b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "ff1ea43f-4160-43c1-8ee1-6bf5943686e5",
+                        "id": "ae5a7181-62e4-42b1-8f1d-ee0066c37632",
                         "savedPayload": {
                             "position": {
-                                "x": 32518.525712198003,
-                                "y": 18581
+                                "x": 26664.399275416385,
+                                "y": 18586
                             },
                             "targetPosition": {
-                                "x": 32473.525712198003,
+                                "x": 26726.399275416385,
                                 "y": 18650
                             },
                             "floatingObject": {
@@ -8709,12 +8709,12 @@
         "id": "54ced611-b518-435f-a284-935666ef47db",
         "savedPayload": {
             "position": {
-                "x": 20154.545454545452,
-                "y": 18800
+                "x": 33033.333333333336,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 20454.545454545452,
-                "y": 18800
+                "x": 33333.333333333336,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8879,13 +8879,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xe39747b8f0cf55261bf82a3139a41e1581b79789e82430c49fd8ad5fbc6a8460\",\n        \"s\": \"0x27f0fa30bed4af002887b8d77e7e389097e11ba886ea44ea942839ee7ac5959a\",\n        \"signature\": \"0xe39747b8f0cf55261bf82a3139a41e1581b79789e82430c49fd8ad5fbc6a846027f0fa30bed4af002887b8d77e7e389097e11ba886ea44ea942839ee7ac5959a1c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xddf1873699f1c5f6276f227bdfcf9ea927fcf5ad9b5050f4d1c705caeb3d3db2\",\n        \"s\": \"0x0e106ba124ecc97f99ef8277279453c241150ce37c3cc0907e71beafc131edc7\",\n        \"signature\": \"0xddf1873699f1c5f6276f227bdfcf9ea927fcf5ad9b5050f4d1c705caeb3d3db20e106ba124ecc97f99ef8277279453c241150ce37c3cc0907e71beafc131edc71b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "2087a41a-a76c-4d1f-a71c-29dfdb886a5d",
+                    "id": "4be5c8fd-c773-4281-9b56-f4f7901e65f0",
                     "savedPayload": {
                         "position": {
-                            "x": 37322.19189848183,
-                            "y": 18289.606064796506
+                            "x": 37199.19189848183,
+                            "y": 18330.606064796506
                         },
                         "targetPosition": {
                             "x": 37229.19189848183,
@@ -8935,13 +8935,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x791a6cfb6af87cb37e3c98766c829fe7adfae9c5d64aa03aae824d19ec5ecc38\",\n        \"s\": \"0x05ff43ad3b73f1c05aafcbe5deb89d05bbefd3f9bec426c6a93bb7f7d2c684ab\",\n        \"signature\": \"0x791a6cfb6af87cb37e3c98766c829fe7adfae9c5d64aa03aae824d19ec5ecc3805ff43ad3b73f1c05aafcbe5deb89d05bbefd3f9bec426c6a93bb7f7d2c684ab1b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x309599e3239caeeedba89df5623a298ebe7fbccb9a74e020e3e0e37f0e773318\",\n        \"s\": \"0x309348c9d67a92312c1eab670859129b0360b0afbde966d9894934492b5b7e99\",\n        \"signature\": \"0x309599e3239caeeedba89df5623a298ebe7fbccb9a74e020e3e0e37f0e773318309348c9d67a92312c1eab670859129b0360b0afbde966d9894934492b5b7e991b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "e679fa5a-4e7b-4550-9be9-6f5c65d0a7ea",
+                    "id": "f8e75eea-6d78-4b84-9d89-fb640ac4448b",
                     "savedPayload": {
                         "position": {
-                            "x": 37586.670272136376,
-                            "y": 18150.84978460961
+                            "x": 37454.670272136376,
+                            "y": 18318.84978460961
                         },
                         "targetPosition": {
                             "x": 37521.670272136376,
@@ -8987,12 +8987,12 @@
         "id": "e453990c-57e2-4886-9dc1-060cd2750467",
         "savedPayload": {
             "position": {
-                "x": 20304.545454545452,
-                "y": 18540.192378864667
+                "x": 33183.333333333336,
+                "y": 23340.192378864667
             },
             "targetPosition": {
-                "x": 20454.545454545452,
-                "y": 18800
+                "x": 33333.333333333336,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -9016,22 +9016,22 @@
             {
                 "type": "P2P Network Node",
                 "name": "P2P Network Node #1",
-                "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31248\",\n    \"webSocketsPort\": \"18042\"\n}",
+                "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"14321\",\n    \"webSocketsPort\": \"17222\"\n}",
                 "project": "Governance",
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xbdf8238593b801dc6969d275052c0a95c6d8e041ba9b197ea039a6782c3b1686\",\n        \"s\": \"0x2546945aeec87f977a934bb8ef153de38c9824c4d538f2dc8b9482c2b3966d9e\",\n        \"signature\": \"0xbdf8238593b801dc6969d275052c0a95c6d8e041ba9b197ea039a6782c3b16862546945aeec87f977a934bb8ef153de38c9824c4d538f2dc8b9482c2b3966d9e1b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x34fe8fa03861bce6de178ff849a89a7e2e04d68263ab06b9e0d3e684cbdb2307\",\n        \"s\": \"0x0bc206b609126d59bf46d50d075c43ab3f63cf94e1593f51f37fb21fc1dbd9c2\",\n        \"signature\": \"0x34fe8fa03861bce6de178ff849a89a7e2e04d68263ab06b9e0d3e684cbdb23070bc206b609126d59bf46d50d075c43ab3f63cf94e1593f51f37fb21fc1dbd9c21c\"\n    }\n}",
                     "project": "Governance",
-                    "id": "c22841c9-fe97-44c8-850b-b297c61d5071",
+                    "id": "b4314a92-dd10-48e5-94cb-cf45b8e282f3",
                     "savedPayload": {
                         "position": {
-                            "x": 14499.33333333333,
-                            "y": 44495.540676078286
+                            "x": 33483.333333333336,
+                            "y": 22740.192378864667
                         },
                         "targetPosition": {
-                            "x": 14499.33333333333,
-                            "y": 44795.540676078286
+                            "x": 33483.333333333336,
+                            "y": 23040.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -9049,12 +9049,12 @@
                 "id": "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3",
                 "savedPayload": {
                     "position": {
-                        "x": 14499.33333333333,
-                        "y": 44795.540676078286
+                        "x": 33483.333333333336,
+                        "y": 23040.192378864667
                     },
                     "targetPosition": {
-                        "x": 14499.33333333333,
-                        "y": 45095.540676078286
+                        "x": 33483.333333333336,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -9072,22 +9072,22 @@
             {
                 "type": "P2P Network Node",
                 "name": "P2P Network Node #2",
-                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31249\",\n    \"webSocketsPort\": \"18043\"\n}",
+                "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"12346\",\n    \"webSocketsPort\": \"4234\"\n}",
                 "project": "Governance",
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x114b5ecd16068e194613344da55f9649164e303030b311a80c1c89b8d3f3640a\",\n        \"s\": \"0x72497582c2122f8185c581a1365aa7881e602a82588cc67ef0a64e88139e11ea\",\n        \"signature\": \"0x114b5ecd16068e194613344da55f9649164e303030b311a80c1c89b8d3f3640a72497582c2122f8185c581a1365aa7881e602a82588cc67ef0a64e88139e11ea1b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x2576d52b85d0ffb00a1956f34f52683aa935f82e628f9582f417e7e76a34405e\",\n        \"s\": \"0x10181d4b9fe73d41579a22ba7df005fc1ad8bb0b1459b0f4f2a2fca358c96583\",\n        \"signature\": \"0x2576d52b85d0ffb00a1956f34f52683aa935f82e628f9582f417e7e76a34405e10181d4b9fe73d41579a22ba7df005fc1ad8bb0b1459b0f4f2a2fca358c965831b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "229d11eb-449d-4fb1-8841-b2bc3f1c06a4",
+                    "id": "4e551a5e-96f3-469c-8660-43dfec4ff3df",
                     "savedPayload": {
                         "position": {
-                            "x": 15018.948575603992,
-                            "y": 44795.540676078286
+                            "x": 34002.948575604,
+                            "y": 23040.192378864667
                         },
                         "targetPosition": {
-                            "x": 14759.140954468661,
-                            "y": 44945.540676078286
+                            "x": 33743.14095446867,
+                            "y": 23190.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -9105,12 +9105,12 @@
                 "id": "352cd906-c36c-48c7-8f01-728ff78b78e9",
                 "savedPayload": {
                     "position": {
-                        "x": 14759.140954468661,
-                        "y": 44945.540676078286
+                        "x": 33743.14095446867,
+                        "y": 23190.192378864667
                     },
                     "targetPosition": {
-                        "x": 14499.33333333333,
-                        "y": 45095.540676078286
+                        "x": 33483.333333333336,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -9129,17 +9129,17 @@
         "id": "da779e56-cb36-4825-bcd5-06692175a982",
         "savedPayload": {
             "position": {
-                "x": 20604.545454545452,
-                "y": 18540.192378864667
+                "x": 33483.333333333336,
+                "y": 23340.192378864667
             },
             "targetPosition": {
-                "x": 20454.545454545452,
-                "y": 18800
+                "x": 33333.333333333336,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -9152,12 +9152,12 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 20454.545454545452,
-            "y": 18800
+            "x": 33333.333333333336,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 20454.545454545452,
-            "y": 18800
+            "x": 33333.333333333336,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,

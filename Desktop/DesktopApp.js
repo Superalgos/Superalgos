@@ -69,11 +69,11 @@ exports.newDesktopApp = function newDesktopApp() {
             */
             thisObject.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webSocketsPort)
+            console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + DK.desktopApp.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
             thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Desktop Client Http Interface ................................................ Listening at port ' + JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webPort)
+            console.log('Desktop Client Http Interface ................................................ Listening at port ' + DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort)
         }
     }
 }

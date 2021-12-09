@@ -4,60 +4,144 @@
     "type": "Building Your Profile",
     "definition": {
         "text": "Building your User Profile involves linking your Governance Address to your identity in Github.com, using the Profile Constructor. ",
-        "updated": 1630067747645
+        "updated": 1630067747645,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Создание вашего профиля пользователя User Profile включает в себя привязку вашего адреса управления Governance Address к вашей учетной записи в Github.com, используя конструктор профилей Profile Constructor.",
+                "updated": 1638705526912
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This guide will get you up to speed in just a few minutes. This is what you’ll need (requirements):",
-            "updated": 1630066775182
+            "updated": 1630066775182,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это руководство введет вас в курс дела всего за несколько минут. Это то, что вам понадобится (требования):",
+                    "updated": 1638705547441
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Up-to-date software: the latest version of the Superalgos Platform in the Develop branch.",
-            "updated": 1630067794445
+            "updated": 1630067794445,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Актуальное программное обеспечение: последняя версия платформы Superalgos в ветке Develop.",
+                    "updated": 1638705573108
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Prior knowledge: a basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Plugin Workspace before diving into the Governance Project.",
-            "updated": 1630067826681
+            "updated": 1630067826681,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предварительные знания: базовое понимание того, как работает платформа Superalgos. Если вы еще этого не сделали, убедитесь, что вы изучили учебные материалы в рабочей области подключаемого модуля Getting Started Tutorials Plugin Workspace, прежде чем погрузиться в проект управления Governance Project.",
+                    "updated": 1638705588992
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Identity: your GitHub.com username.",
-            "updated": 1630066924264
+            "updated": 1630066924264,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идентификация: ваше имя пользователя на GitHub.com.",
+                    "updated": 1638705611232
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
+            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Необязательно: Trust Wallet или любой кошелек, который может импортировать закрытый ключ Binance Smart Chain (BSC).",
+                    "updated": 1638705637928
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The process described below is covered, step by step, in the Creating Your User Profile Tutorial. Doing the tutorial is highly recommended. If you do, then you do not need to follow the below instructions.",
-            "updated": 1630067119898
+            "updated": 1630067119898,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Описанный ниже процесс шаг за шагом описан в руководстве Creating Your User Profile Tutorial. Настоятельно рекомендуется пройти обучение. Если вы это сделали, то вам не нужно следовать приведенным ниже инструкциям.",
+                    "updated": 1638705658357
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Let’s Do This!"
+            "text": "Let’s Do This!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давай сделаем это!",
+                    "updated": 1638705675315
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "1. Load the Token Distribution Superalgos Plugin Workspace"
+            "text": "1. Load the Token Distribution Superalgos Plugin Workspace",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Загрузите модуль Token Distribution Superalgos Plugin Workspace",
+                    "updated": 1638705693035
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may start with the Token Distribution Superalgos Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions.",
-            "updated": 1630435453964
+            "updated": 1630435453964,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете начать с рабочей области плагина Token Distribution Superalgos Plugin Workspace, чтобы позже взаимодействовать с определениями верхнего уровня проекта Superalgos Project.",
+                    "updated": 1638705889923
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "2. Spawn and Configure the Profile Constructor",
-            "updated": 1630079965869
+            "updated": 1630079965869,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. 2. Создайте и настройте конструктор профиля Profile Constructor",
+                    "updated": 1638705920631
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Profile Constructor is the device you will use to link your Github.com identity with the BSC address where you hold or plan to hold your Superalgos SA Tokens. We call it your Governance Address.",
-            "updated": 1630080366604
+            "updated": 1630080366604,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Profile Constructor - это устройство, которое вы будете использовать, чтобы связать вашу учетную запись на Github.com с адресом BSC, на котором вы держите или планируете хранить свои токены Superalgos SA. Мы называем это вашим управленческим адресом Governance Address.",
+                    "updated": 1638706238530
+                }
+            ]
         },
         {
             "style": "Include",

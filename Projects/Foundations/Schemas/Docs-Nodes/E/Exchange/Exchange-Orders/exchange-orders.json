@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Exchange orders es la sección de la estructura de datos que realiza un seguimiento de los pedidos de todo tipo.",
                 "updated": 1637231928099
+            },
+            {
+                "language": "RU",
+                "text": "Exchange Orders - это раздел структуры данных, в котором отслеживаются заявки всех типов.",
+                "updated": 1638785155490
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "La función de esta sección del trading engine es proveer  la estructura de datos para contener la información de los pedidos a medida que están abiertos y cerrados.",
                     "updated": 1637231763521
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция этого раздела торгового механизма - предоставить структуру данных для хранения информации об открытых и закрытых ордерах.",
+                    "updated": 1638785210958
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "Orders se organizan por tipo, como órdenes de mercado y órdenes limitadas, y también por tipo de transacción, como órdenes de compra o venta.",
                     "updated": 1637231780323
+                },
+                {
+                    "language": "RU",
+                    "text": "Ордера Orders организованы по типу, например рыночные ордера и лимитные ордера, а также по типу транзакции, например ордера на покупку или продажу.",
+                    "updated": 1638785253669
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "ES",
                     "text": "Cada sección de la jerarquía debe tener la definición de tantos órdenes de cada tipo como el sistema de  trading es capaz de colocar al mismo tiempo. Por ejemplo, si el algoritmo de ejecución puede colocar hasta tres órdenes de compra límite para abrir una posición, entonces deben existir tres órdenes límite bajo la sección de órdenes de compra límite de la jerarquía. Cada orden definida en el sistema de trading debe hacer referencia a la estructura de datos de un tipo de orden coincidente en el trading engine.",
                     "updated": 1637231883239
+                },
+                {
+                    "language": "RU",
+                    "text": "В каждом разделе иерархии должно быть определено столько ордеров каждого типа, сколько торговая система способна разместить одновременно. Например, если алгоритм выполнения может разместить до трех лимитных ордеров на покупку для открытия позиции, то в разделе иерархии лимитные ордера на покупку должны существовать три лимитных ордера. Каждый ордер, определенный в торговой системе, должен ссылаться на структуру данных соответствующего типа ордера в торговом механизме.",
+                    "updated": 1638785308564
                 }
             ]
         }

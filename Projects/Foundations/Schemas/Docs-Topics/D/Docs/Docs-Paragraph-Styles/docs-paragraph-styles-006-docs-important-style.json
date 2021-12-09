@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Stil, um dem Leser einen Tipp oder etwas Wichtiges mitzuteilen.",
                 "updated": 1633953140310
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль, чтобы дать читателю совет или сообщить что-то важное.",
+                "updated": 1638533253070
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Alles, was Sie während der Bearbeitung eingeben, wird in das Feld \"Important\" übertragen.",
                     "updated": 1633953168185
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что вы наберете во время редактирования, будет отображаться в поле \"Important\".",
+                    "updated": 1638533338902
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633953174911
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533753968
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Beispiel für einen Absatz im \"important\"-Stil.",
                     "updated": 1633953206385
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример абзаца в важном стиле.",
+                    "updated": 1638533381338
                 }
             ]
         }

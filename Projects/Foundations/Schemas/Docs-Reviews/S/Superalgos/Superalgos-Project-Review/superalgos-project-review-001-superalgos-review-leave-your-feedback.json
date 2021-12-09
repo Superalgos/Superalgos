@@ -4,40 +4,96 @@
     "type": "Superalgos Review - Leave Your Feedback!",
     "definition": {
         "text": "This is the place where you may leave your feedback and impressions about the project, for others to find and read.",
-        "updated": 1610961496602
+        "updated": 1610961496602,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Здесь вы можете оставить свои отзывы и впечатления о проекте, чтобы другие могли их найти и прочитать.",
+                "updated": 1638553648223
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "After you create your own review page as part of this collection, you will be able to edit it over time, and add more info as your experience evolves with the system. So, don't worry is right now you can just write your first impressions. You will allways be able to come back and extend your page.",
-            "updated": 1610701884353
+            "updated": 1610701884353,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того, как вы создадите свою собственную страницу отзыва как часть этой коллекции, вы сможете со временем редактировать ее и добавлять дополнительную информацию по мере развития вашего опыта работы с системой. Так что не волнуйтесь, прямо сейчас вы можете просто написать свои первые впечатления. Вы всегда сможете вернуться и дополнить свою страницу.",
+                    "updated": 1638554113545
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "How to add your own Review",
-            "updated": 1610702480960
+            "updated": 1610702480960,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": " Как добавить свой собственный отзыв",
+                    "updated": 1638554011559
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In order to add your own review page of the Superalgos Project, copy and paste the following code at the search bar:"
+            "text": "In order to add your own review page of the Superalgos Project, copy and paste the following code at the search bar:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы добавить свою собственную страницу обзора проекта Superalgos Project, скопируйте и вставьте следующий код в строку поиска:",
+                    "updated": 1638554154090
+                }
+            ]
         },
         {
             "style": "Json",
             "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - YOUR REVIEW TITLE",
-            "updated": 1610702550459
+            "updated": 1610702550459,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "docs.add Review to Superalgos: Superalgos Project Review->Superalgos Review - ЗАГОЛОВОК ОТЗЫВА",
+                    "updated": 1638554224915
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "YOUR REVIEW TITLE: Replace this placeholder text for a short title for your Review Page."
+            "text": "YOUR REVIEW TITLE: Replace this placeholder text for a short title for your Review Page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "YOUR REVIEW TITLE: Замените этот замещающий текст коротким заголовком для своей страницы обзора.",
+                    "updated": 1638554248518
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "You need to sign your Review Page. At the en of the text, type your Github.com username. This needs to be present in order for the Review to be added to the next release of Superalgos.",
-            "updated": 1610702866522
+            "updated": 1610702866522,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вам необходимо подписать свою страницу отзыва Review Page . В поле \"en\" текста введите свое имя пользователя Github.com. Это необходимо для добавления обзора в следующий выпуск Superalgos.",
+                    "updated": 1638554375962
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Your review will be merged into the main repository once you send it as a contribution. For that you need to execute:"
+            "text": "Your review will be merged into the main repository once you send it as a contribution. For that you need to execute:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваш отзыв будет добавлен в основной репозиторий после того, как вы отправите его в качестве вклада. Для этого необходимо выполнить:",
+                    "updated": 1638554403365
+                }
+            ]
         },
         {
             "style": "Json",

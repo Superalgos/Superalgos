@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Узел скорости заказов определяет скорость лимитных ордеров.",
-                "updated": 1637757390733
+                "text": "Узел Order Rate определяет цену лимитных ордеров.",
+                "updated": 1638784862039
             }
         ]
     },
@@ -22,11 +22,25 @@
         },
         {
             "style": "Text",
-            "text": "Because the purpose of limit orders is to have control over the rate at which the order is executed, the definition of the order rate is required for all limit orders."
+            "text": "Because the purpose of limit orders is to have control over the rate at which the order is executed, the definition of the order rate is required for all limit orders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку целью лимитных ордеров является контроль над ценой, с которой выполняется ордер, определение цены исполнения ордеров требуется для всех лимитных ордеров.",
+                    "updated": 1638784727764
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Please, read about limit orders to complement the information in this definition."
+            "text": "Please, read about limit orders to complement the information in this definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочтите о лимитных ордерах, чтобы дополнить информацию в этом определении.",
+                    "updated": 1638784756656
+                }
+            ]
         },
         {
             "style": "Block",
@@ -36,17 +50,38 @@
         {
             "style": "Title",
             "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "updated": 1609873971454,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Order Rate",
+                    "updated": 1638784803016
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638784810847
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638784820790
+                }
+            ]
         }
     ]
 }

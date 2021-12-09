@@ -11,8 +11,8 @@
             },
             {
                 "language": "RU",
-                "text": "Сессия Обратного тестирования - это торговый режим, с помощью которого экземпляр торгового бота считывает исторические рыночные данные в заданном пользователем диапазоне дат и времени, применяет правила, определенные в соответствующей торговой системе и генерирует торговую симуляцию.",
-                "updated": 1635592132857
+                "text": "Backtesting Session - это торговый режим, с помощью которого экземпляр торгового бота считывает исторические рыночные данные в заданном пользователем диапазоне дат и времени, применяет правила, определенные в соответствующей торговой системе и генерирует торговую симуляцию.",
+                "updated": 1638602109697
             }
         ]
     },
@@ -23,7 +23,14 @@
         },
         {
             "style": "Text",
-            "text": "A backtesting session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it."
+            "text": "A backtesting session node must reference a trading system to gain access to the trading logic to be applied during the session. Other considerations framing the session come from the set of parameters attached to it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел сеанса бэктестирования должен ссылаться на торговую систему, чтобы получить доступ к торговой логике, которая будет применяться во время сеанса. Другие соображения, касающиеся сеанса, исходят из набора прикрепленных к нему параметров.",
+                    "updated": 1638643925683
+                }
+            ]
         },
         {
             "style": "Block",
@@ -32,19 +39,47 @@
         {
             "style": "Title",
             "text": "Running a Backtesting Session",
-            "updated": 1609669025756
+            "updated": 1609669025756,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск Backtesting Session",
+                    "updated": 1638643943360
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before you start a backtesting session, the corresponding task needs to be running, as it is the task that puts the trading bot instance to run. Once the trading bot instance is running, select Run on the menu to start the session."
+            "text": "Before you start a backtesting session, the corresponding task needs to be running, as it is the task that puts the trading bot instance to run. Once the trading bot instance is running, select Run on the menu to start the session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед тем, как вы начнете сеанс бэктестинга, необходимо запустить соответствующую задачу, так как именно эта задача запускает экземпляр торгового бота. После запуска экземпляра торгового бота выберите в меню пункт «Run», чтобы начать сеанс.",
+                    "updated": 1638643976853
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "After a few seconds, a literal indication of the progress of the calculations appears below the session node, displaying the date that is currently being processed. Once the calculation is finished, the session stops and the date below the session node disappears."
+            "text": "After a few seconds, a literal indication of the progress of the calculations appears below the session node, displaying the date that is currently being processed. Once the calculation is finished, the session stops and the date below the session node disappears.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Через несколько секунд под узлом сеанса появится буквальное указание хода вычислений, отображающее дату, которая в данный момент обрабатывается. Как только расчет завершен, сеанс останавливается, и дата под узлом сеанса исчезает.",
+                    "updated": 1638644056346
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To stop a backtesting session, select Stop on the menu."
+            "text": "To stop a backtesting session, select Stop on the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы остановить сеанс тестирования на истории, выберите в меню «Stop».",
+                    "updated": 1638644089501
+                }
+            ]
         },
         {
             "style": "Block",
@@ -52,17 +87,38 @@
         },
         {
             "style": "Title",
-            "text": "Backtesting Session Configuration"
+            "text": "Backtesting Session Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Backtesting Session",
+                    "updated": 1638644109598
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609668965860
+            "updated": 1609668965860,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638644117846
+                }
+            ]
         },
         {
             "style": "List",
             "text": "folderName allows you to set a significant name to the folder in which the data products&mdash;and logs&mdash;generated by the session are stored. If left blank, the system names the folders with the session id. This may be handy when you intend to consult the raw data generated by the session, as, otherwise, the folder would be hard to identify.",
-            "updated": 1609668975474
+            "updated": 1609668975474,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "folderName позволяет задать значимое имя для папки, в которой хранятся продукты данных и журналы, созданные сеансом. Если оставить поле пустым, система присвоит папкам имена с идентификатором сеанса. Это может быть удобно, если вы собираетесь ознакомиться с необработанными данными, сгенерированными в ходе сеанса, так как в противном случае папку было бы трудно идентифицировать.",
+                    "updated": 1638644170782
+                }
+            ]
         },
         {
             "style": "Text",

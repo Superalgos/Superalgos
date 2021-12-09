@@ -2,12 +2,26 @@
     "type": "Docs Space Style",
     "definition": {
         "text": "This node is currently a place holder that will eventually allow users to adjust the visual appearance of the docs space.",
-        "updated": 1631589004055
+        "updated": 1631589004055,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел в настоящее время является заполнителем, который в конечном итоге позволит пользователям настраивать внешний вид пространства документов.",
+                "updated": 1638532516073
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Right click and select the pencil button to enter edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите кнопку карандаша, чтобы войти в режим редактирования.",
+                    "updated": 1638532527365
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,14 @@
 {
     "type": "Entry Target Size",
     "definition": {
-        "text": "Entry target size is the target size set on the initial targets definition, in the open stage of the strategy."
+        "text": "Entry target size is the target size set on the initial targets definition, in the open stage of the strategy.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Entry Target Size - это размер цели, установленный на начальном определении целей на открытой стадии стратегии.",
+                "updated": 1638774567936
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "Refer to the explanations on the entry target size for some relevant context."
+            "text": "Refer to the explanations on the entry target size for some relevant context.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратитесь к пояснениям по целевому размеру записи для некоторого соответствующего контекста.",
+                    "updated": 1638774653281
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Refresh this concepts by reading about the initial target definitions at the trading system."
+            "text": "Refresh this concepts by reading about the initial target definitions at the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обновите эту концепцию, прочитав об исходных целевых определениях в торговой системе.",
+                    "updated": 1638774672626
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,17 +45,38 @@
         {
             "style": "Title",
             "text": "Entry Target Size Configuration",
-            "updated": 1609926552641
+            "updated": 1609926552641,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Entry Target Size",
+                    "updated": 1638774740546
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638774747753
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638774757394
+                }
+            ]
         }
     ]
 }

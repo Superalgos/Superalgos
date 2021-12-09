@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Das System erwartet mehr Parameter. Dies kann passieren, wenn Sie tatsächlich einen Parameter übersehen haben oder wenn ein Syntaxfehler den Befehl unterbricht.",
                 "updated": 1633895808948
+            },
+            {
+                "language": "RU",
+                "text": "Система ожидает большего количества параметров. Это может произойти, если вы фактически пропустили параметр или когда синтаксическая ошибка нарушает команду.",
+                "updated": 1638529070203
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Überprüfe die Befehlssyntax (command syntax) für eine detaillierte Liste der benötigten Parameter.",
                     "updated": 1633895905977
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте синтаксис команды, чтобы получить подробный список требуемых параметров.",
+                    "updated": 1638529104626
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633895922294
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529117120
                 }
             ]
         },

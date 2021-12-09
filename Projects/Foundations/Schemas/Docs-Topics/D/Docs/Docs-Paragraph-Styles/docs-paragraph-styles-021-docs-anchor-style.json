@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Anchor-Absätze werden zusammen mit dem Docs Goto Command verwendet. Wenn Sie einen Docs-Link zu einem bestimmten Teil einer Dokumentseite erstellen möchten, müssen Sie zunächst einen Ankerabsatz erstellen, um den Link zu dem bestimmten Absatz auf der Docs Page (Seite) erstellen zu können.",
                 "updated": 1633957967973
+            },
+            {
+                "language": "RU",
+                "text": "Привязанные абзацы используются вместе с командой Docs Goto Command. Если вы хотите создать ссылку на документы для определенной части страницы документов, вам сначала нужно создать абзац привязки, чтобы иметь возможность создать ссылку на конкретный абзац на странице.",
+                "updated": 1638543215710
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Um einen Anchor-Absatz korrekt zu definieren, müssen Sie die folgende Syntax befolgen:",
                     "updated": 1633958032481
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы правильно определить привязанный абзац, вам необходимо следовать следующему синтаксису:",
+                    "updated": 1638543205045
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Dies bezieht sich auf einen beliebigen Namen, den Sie dem neu erstellten Anchor (Anker) geben möchten. Der Name muss innerhalb der Seite einzigartig sein.",
                     "updated": 1633958094095
+                },
+                {
+                    "language": "RU",
+                    "text": "Name: Это относится к любому имени, которое вы хотели бы дать вновь созданному якору. Имя должно быть уникальным на странице.",
+                    "updated": 1638543431751
                 }
             ]
         }

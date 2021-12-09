@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Dieser Stil wird in einem blauen Kasten mit dem Wort note als Präfix dargestellt.",
                 "updated": 1633952776974
+            },
+            {
+                "language": "RU",
+                "text": "Этот стиль будет отображаться в синем поле со словом \"Примечание\" в качестве префикса.",
+                "updated": 1638533056075
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Geben Sie beim Bearbeiten eines Absatzes dieses Stils einfach den Text ein, der in dem Feld erscheinen soll. Die Wortnotiz wird automatisch eingefügt.",
                     "updated": 1633952809353
+                },
+                {
+                    "language": "RU",
+                    "text": "При редактировании абзаца этого стиля просто введите текст, который должен отображаться внутри поля. Слово \"Примечание\" добавляется автоматически.",
+                    "updated": 1638533089541
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633952816213
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533097266
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Beispiel für einen Absatz im note style.",
                     "updated": 1633952837202
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример абзаца в стиле примечания.",
+                    "updated": 1638533114392
                 }
             ]
         }

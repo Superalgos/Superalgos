@@ -1,7 +1,14 @@
 {
     "type": "Episode Base Asset",
     "definition": {
-        "text": "The episode base asset node keeps track of the evolution of variables and metrics denominated in the base asset, throughout the episode."
+        "text": "The episode base asset node keeps track of the evolution of variables and metrics denominated in the base asset, throughout the episode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Episode Base Asset отслеживает эволюцию переменных и показателей, обозначенных в базовом активе Asset, на протяжении всего эпизода.",
+                "updated": 1638774870216
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Note",
-            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как счета для базового актива и котируемого актива хранятся на странице Base Asset and Quoted Asset в разделе документации, посвященном механизму торговли.",
+                    "updated": 1638775161805
+                }
+            ]
         }
     ]
 }

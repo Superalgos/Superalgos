@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Ein Callout-Absatz wird verwendet, um die Aufmerksamkeit des Lesers zu wecken.",
                 "updated": 1633954607093
+            },
+            {
+                "language": "RU",
+                "text": "Выноска используется для привлечения внимания читателей.",
+                "updated": 1638533855788
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Alles, was Sie während der Bearbeitung eines Callouts eingeben, wird wie im folgenden Beispiel dargestellt.",
                     "updated": 1633954656065
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что вы вводите при редактировании выноски, будет отображаться как в примере ниже.",
+                    "updated": 1638533879303
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633954662776
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533891166
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Aufforderungsabsatz.",
                     "updated": 1633954699461
+                },
+                {
+                    "language": "RU",
+                    "text": "Это абзац с выноской.",
+                    "updated": 1638533905201
                 }
             ]
         }

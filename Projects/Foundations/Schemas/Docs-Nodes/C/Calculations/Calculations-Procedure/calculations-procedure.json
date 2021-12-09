@@ -1,7 +1,14 @@
 {
     "type": "Calculations Procedure",
     "definition": {
-        "text": "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others."
+        "text": "The calculations procedure processes information to be fed to calculated properties. Calculated properties are not stored in the data set; instead, they are calculated in real-time as the data is consumed by others.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Calculations Procedure обрабатывает информацию, которая должна быть передана в вычисляемые свойства. Вычисляемые свойства не сохраняются в наборе данных; вместо этого они вычисляются в режиме реального времени по мере использования данных другими пользователями.",
+                "updated": 1638645712103
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "Bots store data in the minimized array format as a strategy to build the lightest possible datasets. For the same reason, a bot may choose not to store easily calculable information."
+            "text": "Bots store data in the minimized array format as a strategy to build the lightest possible datasets. For the same reason, a bot may choose not to store easily calculable information.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Боты хранят данные в формате минимизированного массива в качестве стратегии для создания максимально легких наборов данных. По той же причине бот может отказаться от хранения легко вычисляемой информации.",
+                    "updated": 1638645744288
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, imagine an indicator that stores buy and sell volumes... does it need to store the total volume? Given that it is so easy to calculate, the answer is probably not. It is up to the developer to decide, but it is certainly not required."
+            "text": "For example, imagine an indicator that stores buy and sell volumes... does it need to store the total volume? Given that it is so easy to calculate, the answer is probably not. It is up to the developer to decide, but it is certainly not required.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, представьте индикатор, который хранит объемы покупок и продаж ... нужно ли ему хранить общий объем? Учитывая, что это так легко вычислить, ответ, вероятно, нет. Решение остается за разработчиком, но это, конечно, не обязательно.",
+                    "updated": 1638645764246
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The calculations procedure is used to calculate properties that the developer chooses not to store in the dataset."
+            "text": "The calculations procedure is used to calculate properties that the developer chooses not to store in the dataset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процедура вычислений используется для вычисления свойств, которые разработчик решает не хранить в наборе данных.",
+                    "updated": 1638645783469
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "To fully understand the role of the calculations procedure, please refer to the data mining workflow page."
+            "text": "To fully understand the role of the calculations procedure, please refer to the data mining workflow page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы полностью понять роль процедуры вычислений, обратитесь к странице Data Mining - Workflows.",
+                    "updated": 1638645915223
+                }
+            ]
         }
     ]
 }

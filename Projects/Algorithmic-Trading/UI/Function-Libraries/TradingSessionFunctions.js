@@ -111,7 +111,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Outgoing Signals->Incoming Signals->Signal Reference->' +
             'Trigger On Signal->Trigger Off Signal->Take Position Signal->Trigger Stage Signals->' +
-            'Available Signals->Social Trading Bot->Signing Account->' + 
+            'Available Signals->Social Trading Bot->Signing Account->' +
             'Create Order Signal->Cancel Order Signal->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
@@ -187,7 +187,8 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
             defaultMarket,
-            node.tradingSystemReference.payload.referenceParent
+            node.tradingSystemReference.payload.referenceParent,
+            node.tradingParameters.userDefinedParameters.config
         )
 
         /* Raise event to run the session */

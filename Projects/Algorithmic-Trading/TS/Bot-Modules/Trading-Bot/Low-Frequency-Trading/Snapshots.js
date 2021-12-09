@@ -215,18 +215,18 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
             let instructionsArray = code.split(' ')
             for (let i = 0; i < instructionsArray.length; i++) {
                 let instruction = instructionsArray[i]
-                instruction = instruction.replace('(', '')
-                instruction = instruction.replace(')', '')
-                instruction = instruction.replace(/</g, '')
-                instruction = instruction.replace(/>/g, '')
-                instruction = instruction.replace(/<=/g, '')
-                instruction = instruction.replace(/>=/g, '')
-                instruction = instruction.replace(/!=/g, '')
-                instruction = instruction.replace(/!==/g, '')
-                instruction = instruction.replace(/==/g, '')
-                instruction = instruction.replace(/===/g, '')
-                instruction = instruction.replace(/{/g, '')
-                instruction = instruction.replace(/}/g, '')
+                instruction = instruction.replaceAll('(', '')
+                instruction = instruction.replaceAll(')', '')
+                instruction = instruction.replaceAll(/</g, '')
+                instruction = instruction.replaceAll(/>/g, '')
+                instruction = instruction.replaceAll(/<=/g, '')
+                instruction = instruction.replaceAll(/>=/g, '')
+                instruction = instruction.replaceAll(/!=/g, '')
+                instruction = instruction.replaceAll(/!==/g, '')
+                instruction = instruction.replaceAll(/==/g, '')
+                instruction = instruction.replaceAll(/===/g, '')
+                instruction = instruction.replaceAll(/{/g, '')
+                instruction = instruction.replaceAll(/}/g, '')
                 if (instruction.indexOf('chart') >= 0) {
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
@@ -394,6 +394,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
                 }
 
                 function parseRecord(record) {
+                    // BUG: if a user defined record value is used in the settings then they don't come out well, don't know how to fix this. But it isn't a dealbreaker
                     // if we have undefined values, we need to extract the previous stored values for this trade and append them to the new record for completion
                     if (record[record.length - 1] === undefined && contentArray.length > 0) {
 

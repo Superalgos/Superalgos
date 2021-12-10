@@ -28,6 +28,8 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
 
     let tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
     let portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
+    let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
+    let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
 
     let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -45,6 +47,9 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         tradingSystem.formulas = new Map()
 
         tradingStagesModuleObject.initialize()
+        portfolioManagerClient.initialize()
+        incomingTradingSignalsModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Trading System Definition */
         tradingSystem.checkConditions = function (situation, passed) {
@@ -145,6 +150,15 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     function finalize() {
         tradingStagesModuleObject.finalize()
         tradingStagesModuleObject = undefined
+
+        portfolioManagerClient.finalize()
+        portfolioManagerClient = undefined
+                
+        incomingTradingSignalsModuleObject.finalize()
+        incomingTradingSignalsModuleObject = undefined
+        
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
 
         chart = undefined
         exchange = undefined

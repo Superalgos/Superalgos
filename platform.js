@@ -5,6 +5,7 @@ The Superalgos Platform is a software for algo-traders:
 This module represents the Nodejs command that users have to start the Platform App..
 
 */
+
 if (
     process.argv.includes("help") ||
     process.argv.includes("-help") ||

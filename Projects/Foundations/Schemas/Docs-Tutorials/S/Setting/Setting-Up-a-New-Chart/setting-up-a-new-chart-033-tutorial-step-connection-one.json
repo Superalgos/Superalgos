@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Hagamos la primera conexión. Ve a buscar tu Time Machine y arrástrelo de regreso aquí.",
                 "updated": 1628727737569
+            },
+            {
+                "language": "RU",
+                "text": "Давайте установим первую связь. Найди свою Машину времени (Time Machine) и перетащи ее сюда.",
+                "updated": 1639082261577
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "La primera conexión es entre un Trading Session y el Time Machine en lo que hemos estado trabajando. Esta referencia le dice a nuestro gráfico qué Trading System y Session escuchar.",
                     "updated": 1628727795218
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая связь - между торговой сессией (Trading Session) и машиной времени (Time Machine) над которой мы работали. Эта ссылка сообщает нашему графику, к какой торговой системе (Trading System) и сессии следует прислушаться",
+                    "updated": 1639083327808
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "ES",
                     "text": "Estos pasos son los mismos para conectarse a un Live Trading Session. La única diferencia es que la sesión se encontrará en la jerarquía Production Trading Task en su lugar.",
                     "updated": 1628728111828
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти шаги аналогичны подключению к реальной торговой сессии (Live Trading Session). Единственное отличие заключается в том, что сессия будет находиться в иерархии \"Задачи производственной торговли\" (Production Trading Task).",
+                    "updated": 1639083426362
                 }
             ]
         }

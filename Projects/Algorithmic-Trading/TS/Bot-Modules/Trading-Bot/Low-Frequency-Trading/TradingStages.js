@@ -191,7 +191,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                tradingSystem.evalConditions(strategy, 'Trigger Off Event')
+                let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
+                tradingSystem.evalConditions(strategy, 'Trigger Off Event', signal)
 
                 if (triggerStage !== undefined) {
                     if (triggerStage.triggerOff !== undefined) {
@@ -235,7 +236,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                tradingSystem.evalConditions(strategy, 'Take Position Event')
+                let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.takePosition)
+                tradingSystem.evalConditions(strategy, 'Take Position Event', signal)
                 await tradingSystem.evalFormulas(strategy, 'Take Position Event')
 
                 if (triggerStage !== undefined) {

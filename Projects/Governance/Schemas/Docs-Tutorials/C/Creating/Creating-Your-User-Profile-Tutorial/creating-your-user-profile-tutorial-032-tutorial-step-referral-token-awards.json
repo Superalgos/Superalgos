@@ -15,6 +15,11 @@
                 "text": "¡Superalgos es un proyecto administrado por la comunidad, no una startup financiada por VC! ¡Contamos con tu ayuda con el marketing de boca en boca!",
                 "updated": 1630896521389,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Superpages - это проект, управляемый сообществом, а не стартап, финансируемый венчурным капиталом! Мы рассчитываем на вашу помощь в маркетинге из уст в уста!",
+                "updated": 1639050898782
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "text": "Esta es la versión corta de cómo funcionan:",
                     "updated": 1630896948284,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Это краткая версия того, как работают эти программы:",
+                    "updated": 1639050914721
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "text": "Cuantas más personas te declaren como tus referentes, más tokens ganarás en todas y cada una de las versiones del software, ¡indefinidamente!",
                     "updated": 1630896831390,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Чем больше людей объявляют вас своими рефералами, тем больше токенов вы зарабатываете на каждом выпуске программного обеспечения на неопределенный срок!",
+                    "updated": 1639050932219
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "text": "Si la gente que traes a Superalgos también trae gente, tú también ganas por ellos, y por los que traen estos últimos, ¡tú también ganas!",
                     "updated": 1630896914087,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если люди, которых вы приводите в Superalgos, тоже приводят людей, вы за них тоже зарабатываете, а за тех, кого они приводят, вы тоже зарабатываете!",
+                    "updated": 1639050994343
                 }
             ]
         },

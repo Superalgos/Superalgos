@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Profilinizi başarıyla oluşturdunuz! Artık çeşitli Yönetişim Programlarına ( Governance Programs ) katılmaya hazırsınız!",
                 "updated": 1637247513837
+            },
+            {
+                "language": "RU",
+                "text": "Вы успешно создали свой профиль! Теперь вы готовы участвовать во всех различных программах управления Governance Programs!",
+                "updated": 1639048112021
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Onboarding Programları ( Onboarding Programs ), Superalgos yönetişimi dünyasındaki ilk durağınızdır. Bu yüzden onları profilinize ekleyelim!",
                     "updated": 1637247669076
+                },
+                {
+                    "language": "RU",
+                    "text": "Программы адаптации Onboarding Programs - это ваша первая остановка в мире управления Superalgos. Так что давайте добавим их в свой профиль!",
+                    "updated": 1639048151186
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Profili ( User Profile ) düğümünün altındaki Token Güç Anahtarı ( Token Power Switch ) düğümünü bulun ve menüden Onboarding Program Ekle'yi ( Onboarding Programs ) tıklayın.",
                     "updated": 1637247814410
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите узел Token Power Switch под узлом User Profile и щелкните в меню Add Onboarding Programs.",
+                    "updated": 1639048172701
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "İpucu: Onboarding Programs düğümü, Token Güç Anahtarının ( Token Power Switch ) bir alt öğesi olarak görünmelidir.",
                     "updated": 1637247866021
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Onboarding Programs должен появиться как потомок Token Power Switch.",
+                    "updated": 1639048205308
                 }
             ]
         }

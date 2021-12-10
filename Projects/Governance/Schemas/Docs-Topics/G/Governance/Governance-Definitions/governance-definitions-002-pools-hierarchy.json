@@ -4,7 +4,14 @@
     "type": "Pools Hierarchy",
     "definition": {
         "text": "The top-level definitions involve the definition of pools that intervene in the distribution of tokens.",
-        "updated": 1624720022127
+        "updated": 1624720022127,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos Pools - это иерархия верхнего уровня, с которой начинается определение всего проекта Superalgos Project. Он включает определение нескольких узлов Pool, описывающих основные области развития проекта, которые сообщество Community  желает стимулировать.",
+                "updated": 1639039628875
+            }
+        ]
     },
     "paragraphs": [
         {

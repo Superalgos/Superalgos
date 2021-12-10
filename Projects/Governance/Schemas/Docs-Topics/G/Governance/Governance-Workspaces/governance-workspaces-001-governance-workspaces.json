@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Superalgos Pools es la jerarquía de nivel superior que pone en marcha la definición del todo Superalgos Project. Cuenta con la definición de varios nodos Pool que describen las áreas principales del desarrollo del project que la Community desea incentivar.",
                 "updated": 1637405480065
+            },
+            {
+                "language": "RU",
+                "text": "Проект управления Governance Project включает несколько иерархий Project Definition Hierarchies, распределенных по нескольким Plugin Workspaces - по одному рабочему пространству Workspace для каждого проекта - для облегчения детального управления определениями независимыми группами специалистов по сопровождению. Это рабочие пространства Governance Workspaces.",
+                "updated": 1639026882441
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Main Governance Workspace",
-            "updated": 1630568120363
+            "updated": 1630568120363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основной Governance Workspace",
+                    "updated": 1639025240252
+                }
+            ]
         },
         {
             "style": "Text",
@@ -28,12 +40,24 @@
                     "language": "ES",
                     "text": "El Token Distribution Superalgos Governance Workspace (Espacio de trabajo de gobernanza de Superalgos de distribución de tokens) es el workspace principal. Cargue este workspace para comenzar su interacción con la gobernanza. Aquí es donde normalmente construiría y configuraría su User Profile (Pérfil de usuario).",
                     "updated": 1637404937644
+                },
+                {
+                    "language": "RU",
+                    "text": "Рабочее пространство Token Distribution Superalgos Governance Workspace является основной рабочим пространством. Загрузите это рабочее пространство, чтобы начать взаимодействие с управлением. Здесь вы обычно создаете и настраиваете свой профиль пользователя User Profile.",
+                    "updated": 1639025404132
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Naming Convention"
+            "text": "Naming Convention",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Соглашение о присвоени названий",
+                    "updated": 1639025654462
+                }
+            ]
         },
         {
             "style": "Text",
@@ -43,6 +67,11 @@
                     "language": "ES",
                     "text": "Todos los espacios de trabajo de gobernanza siguen una estructura de nomenclatura similar, para que sean fáciles de detectar en la pestaña de espacios de trabajo.:",
                     "updated": 1637404978098
+                },
+                {
+                    "language": "RU",
+                    "text": "Все рабочие пространства Governance Workspaces имеют аналогичную структуру названий, чтобы их было легко найти на вкладке Workspaces:",
+                    "updated": 1639025636955
                 }
             ]
         },
@@ -54,12 +83,26 @@
         {
             "style": "Note",
             "text": "XXX is replaced with the actual name of the Project.",
-            "updated": 1630568059149
+            "updated": 1630568059149,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "XXX заменяется фактическим названием проекта.",
+                    "updated": 1639025620533
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Finding Your Way Around Governance Workspaces",
-            "updated": 1631655296367
+            "updated": 1631655296367,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поиск своего направления в Governance Workspaces",
+                    "updated": 1639025962321
+                }
+            ]
         },
         {
             "style": "Text",
@@ -70,6 +113,11 @@
                     "language": "ES",
                     "text": "Cada uno de los espacios de trabajo de gobernanza presenta varias Project Definition Hierarchies describiendo los Pools, Assets, Features, and Positions del Proyecto correspondiente.",
                     "updated": 1637405088014
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждое из рабочих пространств Governance Workspaces содержит несколько иерархий Project Definition Hierarchies, описывающих пулы, ресурсы, функции и позиции соответствующего проекта Project.",
+                    "updated": 1639025816807
                 }
             ]
         },
@@ -84,7 +132,14 @@
         {
             "style": "Title",
             "text": "Superalgos Pools Hierarchy",
-            "updated": 1630568627153
+            "updated": 1630568627153,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия Superalgos Pools",
+                    "updated": 1639025988114
+                }
+            ]
         },
         {
             "style": "Include",
@@ -98,7 +153,14 @@
         {
             "style": "Title",
             "text": "Scope of Calculations",
-            "updated": 1630569279039
+            "updated": 1630569279039,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объем расчетов",
+                    "updated": 1639027923456
+                }
+            ]
         },
         {
             "style": "Include",

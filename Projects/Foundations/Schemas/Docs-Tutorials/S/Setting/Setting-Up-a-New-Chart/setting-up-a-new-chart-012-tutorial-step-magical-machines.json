@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Вы уже видели эти порталы в другое измерение! Теперь давайте подробнее рассмотрим волшебную Машину времени (Time Machine).",
                 "updated": 1637937803910
+            },
+            {
+                "language": "DE",
+                "text": "Du hast diese Portale in eine andere Dimension schon einmal gesehen! Jetzt wollen wir uns die magische Time Machine genauer ansehen.",
+                "updated": 1639102802329
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Вы могли заметить, что к каждой приборной панели подключена машина времени (Time Machine). Вы уже сталкивались с машинами времени в предыдущих уроках. Но сегодня мы будем работать с ними гораздо более тесно.",
                     "updated": 1637937896002
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie haben vielleicht bemerkt, dass jedes Dashboard mit einer Time Machine verbunden ist. Zeitmaschinen haben Sie bereits in früheren Tutorials kennengelernt. Aber heute werden wir viel intensiver mit ihnen arbeiten.",
+                    "updated": 1639102892584
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Потратьте минуту и прочитайте страницу их документации, чтобы получить лучшее представление о том, что они делают.",
                     "updated": 1637937914380
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich eine Minute Zeit und lesen Sie die Dokumentationsseite, um eine bessere Vorstellung davon zu bekommen, was sie tun.",
+                    "updated": 1639102947175
                 }
             ]
         }

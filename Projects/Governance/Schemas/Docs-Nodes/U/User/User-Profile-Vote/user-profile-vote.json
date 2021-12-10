@@ -2,7 +2,14 @@
     "type": "User Profile Vote",
     "definition": {
         "text": "Use this node to establish a reference with a colleague's User Profile. With this vote, you are passing on Voting Power directly into your colleague's Voting Program, effectively delegating your Voting Power.",
-        "updated": 1630394852693
+        "updated": 1630394852693,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот узел, чтобы установить ссылку на профиль пользователя User Profile коллеги. Этим голосованием вы передаете право голоса Voting Power непосредственно программе голосования Voting Program вашего коллеги, эффективно делегируя свое право голоса Voting Power.",
+                "updated": 1639040685110
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Success",
             "text": "You may delegate your Voting Power to empower voices you trust! Trusted members of the Community may make good use of your Voting Power, particularly if you feel you don't have the time or expertise to be on top of certain aspects of governance.",
-            "updated": 1630397257327
+            "updated": 1630397257327,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете делегировать свое право голоса Voting Power, чтобы усилить голоса, которым вы доверяете! Доверенные члены сообщества могут эффективно использовать ваш Voting Power, особенно если вы чувствуете, что у вас нет времени или опыта, чтобы быть в курсе определенных аспектов управления.",
+                    "updated": 1639041659802
+                }
+            ]
         },
         {
             "style": "Include",
@@ -22,12 +36,26 @@
         {
             "style": "Text",
             "text": "The same Voting Power may be delegated multiple times with the caveat in the below warning box. The delegation may be withdrawn at any point as well, simply by removing the User Profile Vote node or its reference.",
-            "updated": 1630423697159
+            "updated": 1630423697159,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одно и то же право голоса Voting Power может быть делегировано несколько раз с оговоркой в поле предупреждения ниже. Делегирование также может быть отозвано в любой момент, просто удалив узел User Profile Vote или его ссылку.",
+                    "updated": 1639041775223
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "Only 10% of the Voting Power you drive into a User Profile Vote node reaches the recipient User Profile. This is to disincentivize fraudulent behaviors that may arise involving circular declarations, fake profiles, or trading of votes.",
-            "updated": 1630408559866
+            "updated": 1630408559866,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Только 10% Voting Power, который вы вкладываете в узел User Profile Vote, достигает профиля пользователя получателя. Это сделано для предотвращения мошенничества, которое может возникнуть, связанного с циркулярными декларациями, поддельными профилями или торговлей голосами.",
+                    "updated": 1639041878013
+                }
+            ]
         },
         {
             "style": "Block",
@@ -35,7 +63,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639041889629
+                }
+            ]
         }
     ]
 }

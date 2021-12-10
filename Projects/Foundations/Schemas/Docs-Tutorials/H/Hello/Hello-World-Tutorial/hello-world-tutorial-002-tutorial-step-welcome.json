@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let’s build the mother of all trading strategies: The Moving Average Cross!",
         "icon": {
-            "name": "Tutorial\\tutorial",
+            "name": "tutorial",
             "project": "Foundations"
         },
         "updated": 1629342747241,
@@ -26,6 +26,11 @@
                 "language": "FR",
                 "text": "Construisons la mère de toutes les stratégies de trading : Le croisement des moyennes mobiles !",
                 "updated": 1630680395371
+            },
+            {
+                "language": "IT",
+                "text": "Una semplice strategia basata sull'incrocio delle Medie Mobili",
+                "updated": 1639072742670
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "FR",
                     "text": "Pour ce tuto nous partirons du principe que:",
                     "updated": 1630680728706
+                },
+                {
+                    "language": "IT",
+                    "text": "Per seguire al meglio questo tutorial vi consiglio di:",
+                    "updated": 1639072514502
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "FR",
                     "text": "Vous avez fait le Welcome Tutorial à l'intérieur du Getting Started Workspace",
                     "updated": 1630680751819
+                },
+                {
+                    "language": "IT",
+                    "text": "Aver completato il tutorial di benvenuto che trovate nel Getting Started Workspace",
+                    "updated": 1639071983775
                 }
             ],
             "updated": 1629342770748
@@ -98,6 +113,11 @@
                     "language": "FR",
                     "text": "Vous êtes à l'aise afin de vous déplacer dans les workspaces ainsi que sur les graphiques",
                     "updated": 1630680807222
+                },
+                {
+                    "language": "IT",
+                    "text": "Sentirvi a vostro agio nel muovervi nel workspace e nelle chart/grafici di SA",
+                    "updated": 1639072036068
                 }
             ],
             "updated": 1629342792390
@@ -123,6 +143,11 @@
                     "language": "FR",
                     "text": "Vous possédez une compréhension basique de ce qu'est un Trading Bot et une stratégie",
                     "updated": 1630680872076
+                },
+                {
+                    "language": "IT",
+                    "text": "Avere una conoscenza almeno basilare di cosa è un bot e di come può usare indicatori come la media mobile per costruire strategie di trading",
+                    "updated": 1639072557033
                 }
             ]
         },
@@ -147,6 +172,11 @@
                     "language": "FR",
                     "text": "Nous allons construire un bot afin de Backtester une stratégi basée sur le croisement des moyennes mobiles SMA50 et SMA200 sur une période de 4heures, un classique!",
                     "updated": 1630680963598
+                },
+                {
+                    "language": "IT",
+                    "text": "Creeremo un bot di trading basato sull'incrocio delle medie mobili SMA50 e SMA200 e faremo un backtest della strategia, un classico!",
+                    "updated": 1639072264191
                 }
             ]
         },

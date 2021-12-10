@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Why 3 Position Layers?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "position"
+            "name": "Position/position",
+            "project": "Foundations"
         },
         "text": "Did you notice there are three different layers about positions? \"Position\", \"Position Base Asset\", and \"Position Quoted Asset\"!",
         "updated": 1622541670733,

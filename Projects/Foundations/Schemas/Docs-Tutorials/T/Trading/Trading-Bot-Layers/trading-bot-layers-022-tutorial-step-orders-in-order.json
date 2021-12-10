@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Orders in Order",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-market-sell-order"
+            "name": "Bullet/bullet-market-sell-order",
+            "project": "Foundations"
         },
         "text": "You're familiar with the visualization of limit orders from the Welcome tutorial. It's time for market orders to shine!"
     },

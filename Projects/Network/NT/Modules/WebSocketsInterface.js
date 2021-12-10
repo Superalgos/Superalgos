@@ -18,7 +18,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
-        broadcastToClients: undefined,
+        broadcastToClients: broadcastToClients,
         initialize: initialize,
         finalize: finalize
     }

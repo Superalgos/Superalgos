@@ -28,7 +28,10 @@ exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSig
         /*
         Broadcast the Signal to all clients connected to this Network Node.
         */
-        if (NT.networkNode.webSocketsInterface(messageHeader) !== true) {
+        let messageHeader = {
+            payload: JSON.stringify({ signalMessage: JSON.stringify(signalMessage) })
+        }
+        if (NT.networkNode.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
             response = {
                 result: 'Error',
                 message: 'Signal Could Not be Broadcasted to Network Clients.'

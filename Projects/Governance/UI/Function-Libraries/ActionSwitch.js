@@ -38,6 +38,11 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.profileConstructor.buildProfile(action.node, action.rootNodes)
                     break
                 }
+            case 'Build Profile WalletConnect':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.buildProfileWalletConnect(action.node, action.rootNodes)
+                    break
+                }
             case 'Install Signing Accounts':
                 {
                     UI.projects.governance.functionLibraries.profileConstructor.installSigningAccounts(action.node, action.rootNodes)

@@ -135,7 +135,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     let strategy = tradingSystem.tradingStrategies[j]
                     let triggerStage = strategy.triggerStage
 
-                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
+                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOn)
                     tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signal)
 
                     if (triggerStage !== undefined) {

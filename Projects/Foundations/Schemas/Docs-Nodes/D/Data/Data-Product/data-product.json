@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Data Product представляет собой совокупность наборов данных, сгенерированных экземпляром бота, как определено в соответствующей Data Mine или Trading Mine.",
                 "updated": 1638377396280
+            },
+            {
+                "language": "TR",
+                "text": "Veri ürünü, ilgili veri madeni veya ticaret madeninde tanımlandığı gibi bir bot örneği tarafından oluşturulan veri kümelerinin koleksiyonunu temsil eder.",
+                "updated": 1639142540097
             }
         ]
     },

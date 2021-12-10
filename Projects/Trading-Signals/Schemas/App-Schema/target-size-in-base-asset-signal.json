@@ -1,13 +1,12 @@
 {
-    "type": "Signal Reference",
+    "type": "Target Size In Base Asset Signal",
     "menuItems": [
         {
             "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration",
-            "dontShowAtFullscreen": true,
-            "actionFunction": "uiObject.configEditor.activate"
+            "iconPathOff": "configuration"
         },
         {
             "action": "Delete UI Object",
@@ -24,17 +23,13 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\"\n}"
+        "config": "{}"
     },
     "addLeftIcons": true,
     "level": 2,
-    "referencingRules": {
-        "compatibleTypes": "->Trigger On Signal->Trigger Off Signal->Take Position Signal->Create Order Signal->Cancel Order Signal->Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->"
+    "attachingRules": {
+        "compatibleTypes": "->Open Stage Signals->Close Stage Signals->"
     },
-    "childrenNodesProperties": [],
-    "propertyNameAtParent": "signalReferences",
-    "title": [
-        "Use Reference Parent Parent",
-        "Use Reference Parent"
-    ]
+    "propertyNameAtParent": "targetSizeInBaseAssetSignal",
+    "childrenNodesProperties": []
 }

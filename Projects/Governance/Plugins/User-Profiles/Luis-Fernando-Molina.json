@@ -7604,12 +7604,12 @@
                                         "id": "3efbbfc2-3271-4faf-abac-6d49d03cbdaa",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31431.818751593626,
-                                                "y": 24074.39023148985
+                                                "x": 31628.06229506792,
+                                                "y": 24224.973198614298
                                             },
                                             "targetPosition": {
-                                                "x": 31632.557933501284,
-                                                "y": 23851.446783846633
+                                                "x": 31720.767393380404,
+                                                "y": 23939.656243725753
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -7632,12 +7632,12 @@
                                         "id": "660a0340-94ae-416e-8a66-a4c4a37d89ab",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 31347.24097861274,
-                                                "y": 23944.151882159116
+                                                "x": 31497.823945737186,
+                                                "y": 24140.39542563341
                                             },
                                             "targetPosition": {
-                                                "x": 31632.557933501284,
-                                                "y": 23851.446783846633
+                                                "x": 31720.767393380404,
+                                                "y": 23939.656243725753
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -7655,8 +7655,8 @@
                                     "id": "5b2945dd-bdbe-4d3e-95d7-4b3033ee43c5",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 31632.557933501284,
-                                            "y": 23851.446783846633
+                                            "x": 31720.767393380404,
+                                            "y": 23939.656243725753
                                         },
                                         "targetPosition": {
                                             "x": 31884.15910388491,
@@ -7686,8 +7686,64 @@
                                 "id": "ce14dcd3-1284-42c0-8ed8-b4b90fb1ee81",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31616.8571466284,
-                                        "y": 23551.857923420263
+                                        "x": 31604.08497593575,
+                                        "y": 23795.565458205718
+                                    },
+                                    "targetPosition": {
+                                        "x": 31884.15910388491,
+                                        "y": 23688.055073342126
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "targetSizeInBaseAssetSignal": {
+                                "type": "Target Size In Base Asset Signal",
+                                "name": "Open Stage Target Size In Base Asset Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "2be65d52-d825-41c9-9160-2b34f195af71",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31449.49248205483,
+                                        "y": 23571.58650304599
+                                    },
+                                    "targetPosition": {
+                                        "x": 31884.15910388491,
+                                        "y": 23688.055073342126
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 4,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
+                            "targetSizeInQuotedAssetSignal": {
+                                "type": "Target Size In Quoted Asset Signal",
+                                "name": "Open Stage Target Size In Quoted Asset Signal",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "id": "7805a0be-9364-49fe-a86e-4dff733c32cf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 31695.36298656996,
+                                        "y": 23454.911284905036
                                     },
                                     "targetPosition": {
                                         "x": 31884.15910388491,
@@ -7719,7 +7775,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0

@@ -4,7 +4,14 @@
     "type": "User Profile Hierarchy",
     "definition": {
         "text": "Your User Profile is where you define how you wish to participate in governance.",
-        "updated": 1624732275069
+        "updated": 1624732275069,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Token Power передается каскадно от узла User Profile к узлу Token Power Switch, к его потомкам и т. д., согласно структуре иерархии.",
+                "updated": 1639042322154
+            }
+        ]
     },
     "paragraphs": [
         {

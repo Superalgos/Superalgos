@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Github.com, izleyen çok kişi olduğunda, çok sayıda yıldız verildiğinde ve çok çatallandığında projelerin arama sıralamasını yükseltir!",
                 "updated": 1637441112883
+            },
+            {
+                "language": "RU",
+                "text": "Github.com поднимает поисковый рейтинг проектов, когда у них много звезд, форков и людей, наблюдающих за репозиторием!",
+                "updated": 1639048698999
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Bu yüzden sizden bu şekilde yardım etmenizi rica ediyoruz! Bu üç görevi tamamlayarak, daha fazla geliştiricinin Superalgos'u bulmasına etkili bir şekilde yardımcı olursunuz.",
                     "updated": 1637441142172
+                },
+                {
+                    "language": "RU",
+                    "text": "Поэтому мы просим вас помочь в этом! Выполняя эти три задачи, вы эффективно помогаете большему количеству разработчиков найти Superalgos.",
+                    "updated": 1639048715523
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Bunu yaptığınızda Superalgos tarafında ise işler şöyle yürüyor:",
                     "updated": 1637441187044
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот как это работает со стороны Superalgos:",
+                    "updated": 1639048771573
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "Sistem depoyu kontrol eder ve Github hesabınızda projeye yıldız verip vermediğinizi, çatallayıp çatallamadığınızı ve izleme listenize alıp almadığınızıkontrol ederek doğrular.",
                     "updated": 1637441329067
+                },
+                {
+                    "language": "RU",
+                    "text": "Система проверяет, есть ли у вашей учетной записи Github звездочка, форк и / или наблюдаете ли вы за репозиторием.",
+                    "updated": 1639048896415
                 }
             ]
         },
@@ -93,6 +113,11 @@
                     "language": "TR",
                     "text": "Bu işlemlerin her biri için 1.000 SA'lık bir üst sınır vardır. Bu, katılımınızı en üst düzeye çıkarırsanız, ( her 3 görevide tamamlarsanız ) 3.000' SA'lık bir ödül alacağınız anlamına gelir.",
                     "updated": 1637441420349
+                },
+                {
+                    "language": "RU",
+                    "text": "Для каждого из этих стимулов существует ограничение в размере 1000 SA. Это означает, что вы можете получить до 3000 SA, если максимизируете свое участие.",
+                    "updated": 1639049367596
                 }
             ]
         },
@@ -110,6 +135,11 @@
                     "language": "TR",
                     "text": "Github, sistemin yaptığı sorgu sayısını sınırladığı için bu, sisteme hemen yansımayabilir. Endişelenme, yine de Token'larını alacaksın.",
                     "updated": 1637441467662
+                },
+                {
+                    "language": "RU",
+                    "text": "Это может не сразу отразиться в системе, поскольку Github ограничивает количество запросов, которые делает система. Не волнуйтесь, вы все равно получите свои токены.",
+                    "updated": 1639049397684
                 }
             ]
         }

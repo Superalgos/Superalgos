@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Estos programas incentivan a los usuarios de Superalgos a realizar los primeros pasos para participar en la gorvernanza y comenzar a devolver al proyecto. Ellos hacen ganar los primeros pocos token como una brisa y permite que todos se involucren en los Superalgos SA Token! Estamos hablando del the Airdrop Program y el Github Program.",
                 "updated": 1633515446793
+            },
+            {
+                "language": "RU",
+                "text": "Эти программы побуждают пользователей Superalgos сделать первые несколько шагов, чтобы принять участие в управлении и начать вносить вклад в проект. Они упрощают получение первых нескольких токенов и позволяют каждому инвестировать в токен Superalgos SA Token! Речь идет о программе Airdrop и программе Github.",
+                "updated": 1638979401159
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Aprende más a cerca de como fluye el Token Power Flows dentro de los programas!",
                     "updated": 1633515500934
+                },
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
+                    "updated": 1638979486025
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "ES",
                     "text": "Lo que tienen estos dos programas en común es que no requieren de Token Power para funcionar. Esto es, aún si tiene cero Superalgos SA Tokens y cero Delegated Power, aún puede participar para ganar los primeros pocos tokens!",
                     "updated": 1633515674124
+                },
+                {
+                    "language": "RU",
+                    "text": "Общее у этих двух программ то, что для их работы не требуется Token Power. То есть, даже если у вас ноль токенов Superalgos SA Token и ноль делегированных полномочий Delegated Power, вы все равно можете участвовать, чтобы заработать свои первые несколько токенов!",
+                    "updated": 1638979596447
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "ES",
                     "text": "Todo lo que necesita hacer para participar es generar cada uno cada uno de los nodos del programa y crear su User Profile!",
                     "updated": 1633515800198
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что вам нужно сделать для участия, - это запустить каждый из узлов программы и отправить свой профиль пользователя User Profile!",
+                    "updated": 1638979630378
                 }
             ]
         },
@@ -58,7 +78,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638979641463
+                }
+            ]
         }
     ]
 }

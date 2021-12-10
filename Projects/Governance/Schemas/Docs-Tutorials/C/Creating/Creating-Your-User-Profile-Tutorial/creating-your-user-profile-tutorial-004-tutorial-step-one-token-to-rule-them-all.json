@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bazı kripto tokenlerinin aksine Superalgos SA Token'ın aslında bir anlamı var!\n",
                 "updated": 1637146439380
+            },
+            {
+                "language": "RU",
+                "text": "В отличие от некоторых крипто-токенов, Superalgos SA Token на самом деле что-то значит!",
+                "updated": 1639044536320
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "SA token'i, Binance Akıllı Zincirinde (BSC) bir BEP20 tokenidir. Token, kullanıcı tabanını ödüllendirmek ve geliştirme havuzunu büyütmek için kullanıldığından, token varlıklarınız Superalgos Projesi ve Topluluğuna (Superalgos Project and Community ) katkılarınızı somutlaştırır.",
                     "updated": 1637146564808
+                },
+                {
+                    "language": "RU",
+                    "text": "Токен SA - это токен BEP20 в Binance Smart Chain (BSC). Ваши токены воплощают ваш вклад в проект и сообщество Superalgos, поскольку токен используется для вознаграждения пользовательской базы и увеличения пула разработчиков.",
+                    "updated": 1639044639834
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "Not: Proje, token'ları yalnızca katkıda bulunanlar arasında dağıtır!",
                     "updated": 1637146626633
+                },
+                {
+                    "language": "RU",
+                    "text": "Проект раздает токены исключительно участникам!",
+                    "updated": 1639044655036
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "İpucu: Projeye ne kadar çok katkıda bulunursanız ve başkalarına yardım ederseniz, o kadar çok token kazanırsınız!",
                     "updated": 1637146614057
+                },
+                {
+                    "language": "RU",
+                    "text": "Чем больше вы вносите свой вклад в проект и помогаете другим, тем больше токенов вы заработаете!",
+                    "updated": 1639044669780
                 }
             ]
         },

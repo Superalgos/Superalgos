@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Cuando decimos Token Power Flows, es importante aclarar que los tokens no van a ninguna parte! Es el Token Power el que fluye!",
                 "updated": 1633296750160
+            },
+            {
+                "language": "RU",
+                "text": "Когда мы говорим о потоках Token Power Flows, важно уточнить, что токены никуда не денутся! Это  течет Token Power!",
+                "updated": 1639052530492
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Tokens en su Governance Address nunca se van de su dirección! Hay cero costo por participar en la gobernancia! El balance en su dirección le confiere Token Power a su User Profile, y es esta abstracción lo que fluye  hacia abajo en la jerarquia, no tokens reales.",
                     "updated": 1633297162024
+                },
+                {
+                    "language": "RU",
+                    "text": "Токены в вашем адресе управления Governance Address никогда не покидают ваш адрес! Нет никаких затрат на участие в управлении! Баланс в вашем адресе наделяет ваш профиль пользователя абстракцией Token Power, и именно эта абстракция течет вниз по иерархии, а не фактические токены.",
+                    "updated": 1639052656259
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Recuérdame que te muestre icomo jugar con Token Power Flows antes de que embalemos el tutorial! Pero regresemos a Community Building Programs antes de que perdamos el rumbo!",
                     "updated": 1633296908255
+                },
+                {
+                    "language": "RU",
+                    "text": "Напомните мне показать вам, как играть с Token Power Flows, прежде чем мы завершим урок! Но давайте вернемся к программам Community Building Programs, пока мы не заблудились!",
+                    "updated": 1639052702735
                 }
             ]
         }

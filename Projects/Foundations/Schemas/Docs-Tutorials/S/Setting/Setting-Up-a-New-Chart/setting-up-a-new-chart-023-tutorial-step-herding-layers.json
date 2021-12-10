@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Entremos en el meollo de la gestión de capas.",
                 "updated": 1628647389478
+            },
+            {
+                "language": "RU",
+                "text": "Давайте разберемся в тонкостях управления слоями.",
+                "updated": 1639074079606
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Layer Managers realizan un seguimiento de todas las capas conectadas debajo de ellos. También son los nodos que aceptan referencias a una variedad de Data Mine Products. Al establecer referencias con una Mina en particular, podemos agregar fácilmente todos los datos asociados a ella. Los tres tipos principales de datos son:",
                     "updated": 1628647451469
+                },
+                {
+                    "language": "RU",
+                    "text": "Layer Managers отслеживают все слои, подключенные под ними. Они также являются узлами, которые принимают ссылки на различные продукты Data Mine Products. Установив ссылки на конкретный рудник, мы можем легко добавить все данные, связанные с ним. Три основных типа данных:",
+                    "updated": 1639074177276
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Data Mine Products – para datos e indicadores de mercado.",
                     "updated": 1628647463823
+                },
+                {
+                    "language": "RU",
+                    "text": "Data Mine Products – для получения рыночных данных и индикаторов.",
+                    "updated": 1639074192406
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "ES",
                     "text": "Trading Mine Products – para los resultados de las trading sessions.",
                     "updated": 1628647492153
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Mine Products – для результатов торговых сессий.",
+                    "updated": 1639074215323
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "ES",
                     "text": "Learning Mine Products – para la salida de datos de algoritmos de aprendizaje.",
                     "updated": 1628647505306
+                },
+                {
+                    "language": "RU",
+                    "text": "Learning Mine Products – для вывода данных из алгоритмов обучения.",
+                    "updated": 1639074228916
                 }
             ]
         },

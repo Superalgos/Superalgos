@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Узел Exchange Data Tasks организует задачи интеллектуального анализа данных по бирже. Т.е. каждая биржа, установленная в системе, умеет узел Exchange Data Tasks, объединяющий все задачи рыночных данных, соответствующие указанной бирже.",
                 "updated": 1638358984303
+            },
+            {
+                "language": "TR",
+                "text": "Borsa veri görevleri düğümü, borsaya göre veri madenciliği görevlerini düzenler. Yani, sistemde kurulu olan her borsa, söz konusu borsaya karşılık gelen tüm piyasa verileri görevlerini gruplayan bir borsa verileri görevleri düğümüne sahiptir.",
+                "updated": 1639120723421
             }
         ]
     },

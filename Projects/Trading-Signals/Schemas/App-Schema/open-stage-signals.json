@@ -39,6 +39,16 @@
             "label": "Add Market Sell Order Signals",
             "relatedUiObject": "Market Sell Order Signals",
             "relatedUiObjectProject": "Trading-Signals"
+        }, 
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "targetRateSignal",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Target Rate Signal",
+            "relatedUiObject": "Target Rate Signal",
+            "relatedUiObjectProject": "Trading-Signals"
         },   
         {
             "action": "Delete UI Object",
@@ -86,6 +96,12 @@
             "name": "marketSellOrderSignals",
             "type": "array",
             "childType": "Market Sell Order Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "targetRateSignal",
+            "type": "node",
+            "childType": "Target Rate Signal",
             "autoAdd": false
         }
     ]

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Neredeyse geldik. Şimdi Profil Oluştur'a ( Build Profile ) tıklayın ve sihrin gerçekleşmesini izleyin. Evet, profilinizi yeni oluşturdunuz!",
                 "updated": 1637242566507
+            },
+            {
+                "language": "RU",
+                "text": "Мы почти на месте. Теперь нажмите Build Profile и посмотрите, как происходит волшебство. Правильно, вы только что создали свой профиль!",
+                "updated": 1639047257246
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Profilinizi ter dökmeden oluştururken, sahne arkasında oldukça şaşırtıcı şeyler oldu.",
                     "updated": 1637243000359
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя нам не пришлось беспокоиться о создании вашего профиля, за кулисами происходили довольно удивительные вещи.",
+                    "updated": 1639047272620
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Constructor, kullanıcı profilinizi oluşturdu, adresinizi bağladı ve benzersiz bir SA Token Yönetim Adresi ( Governance Addrss ) oluşturdu.",
                     "updated": 1637243124914
+                },
+                {
+                    "language": "RU",
+                    "text": "Конструктор только что сгенерировал ваш профиль пользователя и либо связал ваш адрес, либо создал уникальный адрес Governance Address токенов SA.",
+                    "updated": 1639047406304
                 }
             ]
         }

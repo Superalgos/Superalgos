@@ -15,6 +15,11 @@
                 "text": "El Support Program funciona bastante como el Referral Program, solo que declares quienes son tus favoritos Community Mods.",
                 "updated": 1630898004671,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Программа поддержки Support Program работает почти так же, как и реферальная программа Referral Program, только вы указываете, какие сообщества Community Mods вам нравятся больше всего!",
+                "updated": 1639052784452
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Añade el Support Program and use los nodos User Supporter para configurar referencias a tus moderadores favoritos! ",
                     "updated": 1630898198979,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Добавьте программу Support Program и используйте узлы User Supporter, чтобы настроить ссылки на ваших любимых модераторов! Их профили уже загружены!",
+                    "updated": 1639052832419
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "La comunidad está lista para ayudar con las preguntas típicas, pero se necesita un cierto nivel de experiencia y conocimiento para brindar un apoyo efectivo. ¡Por esta razón selectos Community Mods están a cargo! ¡Participar en este programa es la mejor manera de agradecer a las personas que ayudan desinteresadamente a los demás!",
                     "updated": 1630898255933,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя сообщество всегда готово помочь с типичными вопросами, для оказания эффективной поддержки требуется определенный уровень опыта и знаний. Вот почему за это отвечают избранные сообщества Community Mods! Участие в этой программе - лучший способ поблагодарить людей, которые бескорыстно помогают другим!",
+                    "updated": 1639052947238
                 }
             ]
         }

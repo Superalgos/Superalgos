@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Su dirección de gobierno en Superalgos es una SA Token address ( dirección del token) generadadesde dentro de Superalgos, utilizando el Profile Constructor ( Pérfil de constructor). Los tokens que holdea en esta dirección confiere su Token Power el cual puede utilizar a traves de su User Profile para participar en la  gobernanza.",
                 "updated": 1637404208656
+            },
+            {
+                "language": "RU",
+                "text": "Ваш Governance Address - это адрес токена Superalgos SA Token, созданный в Superalgos с помощью конструктора Profile Constructor. Токены, которые вы держите на этом адресе, наделяют вас Token Power, которые вы можете использовать из своего профиля пользователя User Profile для участия в управлении.",
+                "updated": 1639036980516
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Su dirección de gobierno de Superalgos es una  SA Token address generada dentro de Superalgos, usando el Profile Constructor. Los tokens que holdea en esta dirección le confiere su Token Power el cual puede usar a través de su  User Profile para participatar en la gobernanza.",
                     "updated": 1637404363372
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш Governance Address - это адрес токена Superalgos SA Token, созданный в Superalgos с помощью конструктора Profile Constructor. Токены, которые вы держите на этом адресе, наделяют вас Token Power, которые вы можете использовать из своего профиля пользователя User Profile для участия в управлении.",
+                    "updated": 1639036985623
                 }
             ]
         }

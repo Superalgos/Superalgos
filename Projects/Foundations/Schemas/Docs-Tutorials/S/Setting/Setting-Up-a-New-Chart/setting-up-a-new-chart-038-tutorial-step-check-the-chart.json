@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "En este punto, todo está bien conectado, ¡hurra! ¡Adelante, pruebe sus nuevas y brillantes listas de éxitos!",
                 "updated": 1628732255279
+            },
+            {
+                "language": "RU",
+                "text": "В этот момент все подключено, ура! Давайте, попробуйте покрутить свои новые блестящие графики!",
+                "updated": 1639084268914
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Asegúrate de ejecutar el Backtesting Session para el Lightning Strike Trading System y espera a que termine.",
                     "updated": 1628732385577
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно запустите сессию бэктестинга (Backtesting Session) для торговой системы Lightning Strike Trading System и дождитесь ее завершения.",
+                    "updated": 1639084334813
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Comprueba tu gráfico activando algunas capas de Trading System.",
                     "updated": 1628732345902
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте свой график, включив несколько слоев торговой системы Trading System .",
+                    "updated": 1639084363676
                 }
             ]
         }

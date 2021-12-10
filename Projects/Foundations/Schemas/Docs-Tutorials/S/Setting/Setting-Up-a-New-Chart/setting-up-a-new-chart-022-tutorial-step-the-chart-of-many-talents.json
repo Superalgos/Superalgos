@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "El Timeline Chart te da un control total sobre las capas disponibles en tu gráfico.",
                 "updated": 1628647109155
+            },
+            {
+                "language": "RU",
+                "text": "Диаграмма временной шкалы (Timeline Chart) дает вам полный контроль над слоями, доступными на вашем графике.",
+                "updated": 1639073028021
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Como mencioné anteriormente, una de las principales características del Charting Space ofrece es la capacidad de combinar muchos tipos diferentes de datos en un solo lugar. El Timeline Chartte da este control! Cada gráfico de línea de tiempo le permite recopilar los datos que desea ver en un Layer Manager. Como recordarás, el layer manageres lo que te permite activar y desactivar diferentes capas mientras está dentro de un Time Machine.",
                     "updated": 1628647224784
+                },
+                {
+                    "language": "RU",
+                    "text": "Как я уже упоминал ранее, одной из главных особенностей Charting Space является возможность объединить множество различных типов данных в одном месте. Временная диаграмма (Timeline Chart) дает вам этот контроль! Каждая временная диаграмма позволяет собирать данные, которые вы хотите видеть, под менеджером слоев (Layer Manager). Как вы, возможно, помните, менеджер слоев позволяет включать и выключать различные слои внутри Time Machine.",
+                    "updated": 1639073294957
                 }
             ]
         },

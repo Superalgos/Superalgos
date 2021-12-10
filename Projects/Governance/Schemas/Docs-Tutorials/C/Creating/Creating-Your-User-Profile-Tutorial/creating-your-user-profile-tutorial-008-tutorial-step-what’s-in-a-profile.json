@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Peki ne bekliyoruz? Başlayalım! Yönetime katılmak için bir Kullanıcı Profiline ( User Profile ) ihtiyacınız olacak.",
                 "updated": 1637159477888
+            },
+            {
+                "language": "RU",
+                "text": "Так чего же мы ждем? Давайте начнем! Для участия в управлении вам потребуется профиль пользователя User Profile.",
+                "updated": 1639045468025
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Profiliniz tıpkı Superalgos sisteminin geri kalanda olduğu gibi kurulur. Bu bir düğüm hiyerarşisidir. Yalnızca bu hiyerarşi, kazandığınız veya diğer kullanıcılar tarafından size devredilen Token Gücünü ( Token Power ) nasıl kullanmayı planladığınızı tanımlar.",
                     "updated": 1637159542629
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш профиль настроен так же, как и остальная часть системы Superalgos. Это иерархия узлов. Только эта иерархия определяет, как вы собираетесь использовать свой Token Power, который вы заработали или делегировали вам другие пользователи.",
+                    "updated": 1639045524305
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Not: Token gücünüzü kanalize ederek, sistemin hangi bölümlerinin daha fazla gelişme için teşvik edileceğine ve oynadıkları topluluk rolleri için kimlerin ödüllendirileceğine karar vermeye yardımcı olursunuz.",
                     "updated": 1637159570272
+                },
+                {
+                    "language": "RU",
+                    "text": "Направляя свои токены, вы помогаете решить, какие части системы будут стимулироваться для дальнейшего развития, а кто будет вознагражден за роль в сообществе, которую они сыграли.",
+                    "updated": 1639045540003
                 }
             ]
         }

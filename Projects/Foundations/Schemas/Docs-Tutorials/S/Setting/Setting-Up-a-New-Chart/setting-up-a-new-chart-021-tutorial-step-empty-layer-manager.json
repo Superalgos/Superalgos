@@ -8,7 +8,14 @@
         "icon": {
             "name": "",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1638177001607
+            }
+        ]
     },
     "paragraphs": [
         {

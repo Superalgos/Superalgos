@@ -17,7 +17,7 @@ exports.newSocialBotsBotModulesSlackBot = function () {
         const { WebClient } = SA.nodeModules.slack
 
         // read token from node config
-        const token = config.token
+        let token = config.token
         // Read a token from the environment variables, if present
         if (process.env.SLACK_TOKEN) {
             token = process.env.SLACK_TOKEN;
@@ -27,7 +27,7 @@ exports.newSocialBotsBotModulesSlackBot = function () {
         }
 
         // read conversation id (channel or DM) from config
-        const conversationId = config.conversationId
+        let conversationId = config.conversationId
         if (!conversationId) {
             logError("conversationId must be set")
         }

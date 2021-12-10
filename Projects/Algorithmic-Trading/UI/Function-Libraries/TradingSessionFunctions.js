@@ -123,7 +123,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Target Rate Signal->' +
             'Create Order Signal->Cancel Order Signal->' +
             'Limit Sell Order Signals->Limit Buy Order Signals->Market Sell Order Signals->Market Buy Order Signals->' +
-            'Trigger Stage Signals->Open Stage Signal->Manage Stage Signal->Close Stage Signal->' +
+            'Trigger Stage Signals->Open Stage Signals->Manage Stage Signals->Close Stage Signals->' +
             'Available Signals->Social Trading Bot->Signing Account->'
 
         let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)

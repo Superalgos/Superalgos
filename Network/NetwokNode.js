@@ -45,6 +45,7 @@ exports.newNetworkNode = function newNetworkNode() {
                 'Network Peer',
                 thisObject.p2pNetworkNode,
                 thisObject.p2pNetwork,
+                thisObject.p2pNetworkInterface,
                 global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS
             )
         }
@@ -65,13 +66,13 @@ exports.newNetworkNode = function newNetworkNode() {
             */
             thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webSocketsPort)
+            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkNode.p2pNetworkNode.node.config.webSocketsPort)
             /*
             Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
             */
             thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Network Node Http Interface .................................................. Listening at port ' + JSON.parse(NT.networkNode.p2pNetworkNode.node.config).webPort)
+            console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkNode.p2pNetworkNode.node.config.webPort)
         }
     }
 }

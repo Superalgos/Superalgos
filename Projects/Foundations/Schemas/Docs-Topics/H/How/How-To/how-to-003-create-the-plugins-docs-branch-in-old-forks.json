@@ -3,13 +3,19 @@
     "pageNumber": "3",
     "type": "Create the Plugins-Docs Branch in Old Forks",
     "definition": {
-        "text": "If your Superalgos fork is older than April 6, 2021, you must create the plugins-docs branch before you may switch to that branch! Newer forks already have the branch, so you don't need to follow this guide in that case!",
-        "updated": 1618155549345
+        "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. If your Superalgos fork is older than April 6, 2021, you must create the plugins-docs branch before you may switch to that branch! Newer forks already have the branch, so you don't need to follow this guide in that case!",
+        "updated": 1638830031625
     },
     "paragraphs": [
         {
             "style": "Warning",
-            "text": "If you didn't create a fork at all, and cloned or downloaded the Superalgos repository directory instead, you will not be able to send your contributions. If that is the case, you will need to close the app, delete the Superalgos folder, and follow the instructions on the README file to fork the repository."
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
+            "updated": 1638830057321
+        },
+        {
+            "style": "Warning",
+            "text": "If you didn't create a fork at all, and cloned or downloaded the Superalgos repository directory instead, you will not be able to send your contributions. If that is the case, you will need to close the app, delete the Superalgos folder, and follow the instructions on the README file to fork the repository.",
+            "updated": 1638830045287
         },
         {
             "style": "Title",

@@ -2,13 +2,27 @@
     "type": "API Data Fetcher Bot Instance",
     "definition": {
         "text": "This node represents an instance of an API Data Fetcher Bot. ",
-        "updated": 1621023247380
+        "updated": 1621023247380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел представляет собой экземпляр бота API Data Fetcher Bot.",
+                "updated": 1638623569559
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Please see the API Data Fetcher Bot page for a more indepth description of how this bot works.",
-            "updated": 1622896001076
+            "updated": 1622896001076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Более подробное описание того, как работает этот бот, можно найти на странице API Data Fetcher Bot.",
+                    "updated": 1638623607896
+                }
+            ]
         }
     ]
 }

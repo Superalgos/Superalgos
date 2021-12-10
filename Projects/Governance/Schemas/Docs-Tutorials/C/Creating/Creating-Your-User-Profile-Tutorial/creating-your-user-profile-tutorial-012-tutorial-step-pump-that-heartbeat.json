@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Şimdi Profil Oluşturucuyu ( Profile Constructor ) yapılandıralım, profil oluşturabilmek için önce bunu yapmalıyız.",
                 "updated": 1637242355962
+            },
+            {
+                "language": "RU",
+                "text": "Теперь давайте настроим конструктор профиля Profile Constructor, чтобы позже мы могли создать профиль!",
+                "updated": 1639047103215
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Yapılandırma seçeneğini tıklayın ve GitHub kullanıcı adınızı şu şekilde girin:",
                     "updated": 1637242376080
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните параметр конфигурации и введите свое имя пользователя GitHub следующим образом:",
+                    "updated": 1639047126840
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "TR",
                     "text": "Mevcut bir adresi bağlamak istiyorsanız, on iki kelimelik anımsatıcı özelliğini mnemonic kısmına yazın. Yeni bir adres oluşturmak için özelliği boş bırakın! Bu hassas bilgiyi daha sonra sileceğiz endişelenmeyin.Bu, bilgisayarınızdan başka bir yerde kullanılmayacak ve diske kaydedilmeyecektir.",
                     "updated": 1637242473343
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите связать существующий адрес, введите его мнемонику из двенадцати слов в свойстве mnemonic. Оставьте поле пустым, чтобы сгенерировать новый адрес! Позже вы удалите эту конфиденциальную информацию. Информация не уйдет с вашего компьютера и не будет сохранена на диске.",
+                    "updated": 1639047208191
                 }
             ]
         },

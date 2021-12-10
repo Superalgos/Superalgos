@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Estamos casi alli! Ve a arrastrar tu Time Machine, vuelve aquí y haz la última conexión.",
                 "updated": 1628731771086
+            },
+            {
+                "language": "RU",
+                "text": "Мы почти у цели! Перетащите свою Машину времени (Time Machine) сюда и сделайте последнее подключение.",
+                "updated": 1639083889535
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Bajo el nodo Session Reference verás el nodo Trading Mine Products.",
                     "updated": 1628731861158
+                },
+                {
+                    "language": "RU",
+                    "text": "Под узлом Session Reference вы увидите нужный нам узел Trading Mine Products .",
+                    "updated": 1639083932567
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Ahora crea una referencia entre su nuevo Layer Manager y el nodo Trading Mind Products etiquetado \"Lightning Strike Backtesting Session\".",
                     "updated": 1628731972281
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь создайте ссылку между вашим новым менеджером слоев (Layer Manager) и Trading Mind Products узлом названным: \"Lightning Strike Backtesting Session\"",
+                    "updated": 1639084056858
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "ES",
                     "text": "Si lo conectaste correctamente, el nombre Velas debería aparecer sobre el layer manager.",
                     "updated": 1628731999230
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы подключили его правильно, над менеджером слоев должно появиться название Candles.",
+                    "updated": 1639084079905
                 }
             ]
         },

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": " Möglicherweise haben Sie den Namen des project (Projekts) falsch geschrieben.",
                 "updated": 1633896066266
+            },
+            {
+                "language": "RU",
+                "text": "Возможно, вы неправильно написали название проекта.",
+                "updated": 1638529136981
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie den von Ihnen eingegebenen Project Namen. Bei Project Namen wird zwischen Groß- und Kleinschreibung unterschieden.",
                     "updated": 1633896187042
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте введенное вами название проекта. Нмена проектов чувствительны к регистру.",
+                    "updated": 1638529166753
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633896218417
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529175695
                 }
             ]
         },

@@ -22,15 +22,36 @@
         },
         {
             "style": "Text",
-            "text": "In the first cycle, it checks the status of orders at the exchange, synchronizes the accounts, and verifies if conditions to place new orders are met."
+            "text": "In the first cycle, it checks the status of orders at the exchange, synchronizes the accounts, and verifies if conditions to place new orders are met.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В первом цикле он проверяет статус ордеров на бирже, синхронизирует счета и проверяет, выполняются ли условия для размещения новых ордеров.",
+                    "updated": 1638649170403
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the second cycle, it creates the orders at the exchange, provided conditions where met on the previous cycle."
+            "text": "In the second cycle, it creates the orders at the exchange, provided conditions where met on the previous cycle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во втором цикле он создает ордера на бирже при условии, что выполнялись условия в предыдущем цикле.",
+                    "updated": 1638649186261
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The two possible values for the cycle node are First and Second."
+            "text": "The two possible values for the cycle node are First and Second.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Два возможных значения для узла цикла - Первое и Второе.",
+                    "updated": 1638649219103
+                }
+            ]
         }
     ]
 }

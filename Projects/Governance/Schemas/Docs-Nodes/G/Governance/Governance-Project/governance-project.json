@@ -8,6 +8,16 @@
                 "language": "ES",
                 "text": "The Governance Project es la sección de la plataforma Superalgos que posibilita la gobernanza distribuida del Superalgos Project.",
                 "updated": 1631672276415
+            },
+            {
+                "language": "DE",
+                "text": "Das Governance Project ist der Teil der Superalgos Plattform, der die verteilte Verwaltung des Superalgos Projekts ermöglicht.",
+                "updated": 1638747763320
+            },
+            {
+                "language": "RU",
+                "text": "Governance Project - это раздел платформы Superalgos, который обеспечивает распределенное управление проектом Superalgos.",
+                "updated": 1638982328967
             }
         ]
     },
@@ -15,11 +25,35 @@
         {
             "style": "Text",
             "text": "Use this hierarchy to spawn project definition hierarchies such as the Pools, Positions, Features and Assets Hierarchies.",
-            "updated": 1630067423070
+            "updated": 1630067423070,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie diese Hierarchie, project definition hierarchies wie die Pools, Positions, Features und Assets Hierarchies. zu erstellen.",
+                    "updated": 1638747796607
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте эту иерархию для создания иерархий определений проектов, таких как иерархии Pools, Positions, Features и Assets.",
+                    "updated": 1639029497341
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is also where you find the option to spawn the Profile Constructor node."
+            "text": "This is also where you find the option to spawn the Profile Constructor node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hier finden Sie auch die Option, die Profile Constructor Node zu erzeugen.",
+                    "updated": 1638747821859
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь вы также найдете возможность создать узел Profile Constructor.",
+                    "updated": 1638982536095
+                }
+            ]
         }
     ]
 }

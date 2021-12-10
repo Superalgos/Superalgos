@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben.",
                 "updated": 1636750558018
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'un Dokümanlar sayfaları ve entegre edilen diğer projeler orijinal olarak İngilizce olarak yazılmıştır. Sistem, kullanıcıların daha önce ilgili çevirilere katkıda bulunmaları koşuluyla, kullanıcıların diğer dillerdeki sayfaları da aramasına ve bu sayfalara göz atmasına olanak tanır.",
+                "updated": 1638913347701
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
                     "updated": 1636750574994
+                },
+                {
+                    "language": "TR",
+                    "text": "İngilizce varsayılan dil olarak kabul edilir. Farklı bir dile geçtiğinizde, sistem içeriği yeni dilde göstermeye çalışır. Ancak, çeviri henüz mevcut değilse, bunun yerine İngilizce sürümü gösterir.",
+                    "updated": 1638913366842
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
                     "updated": 1636750589863
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm türleri( Node ), değişken adları, Dokümanlar'daki sayfaların başlığı ve Superalgos'un birkaç öğesi, söz konusu öğelerin benzersiz tanımlayıcıları olduklarından çevrilemeyebilir. Bunları her zaman İngilizce olarak göreceksiniz.",
+                    "updated": 1638913421364
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
                     "updated": 1636750600480
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevirilere katkıda bulunmak istiyorsanız, Çevirilere Nasıl Katkıda Bulunulur ( How to Contribute Translations) sayfasını okuyun.",
+                    "updated": 1638913474957
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "DE",
                     "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
                     "updated": 1636750616494
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar, Dokümanlar'daki her sayfanın alt kısmında sağlanan bağlantıları/Bayrakları kullanarak diller arasında geçiş yapabilir.",
+                    "updated": 1638913501918
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Sie können nur Seiten zu den Dokumenten hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten.",
                     "updated": 1636750772952
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar'a yalnızca dil İngilizce olarak ayarlandığında sayfa ekleyebilir veya silebilirsiniz. Çeviri için çevirmek istediğiniz dili seçmelisiniz. (Şu anda Türkçe)",
+                    "updated": 1638913541372
                 }
             ]
         }

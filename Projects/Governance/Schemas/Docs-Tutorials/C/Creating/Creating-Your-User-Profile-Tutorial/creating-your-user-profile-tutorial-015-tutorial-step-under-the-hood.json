@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Yeni profilinizdeki kriptografik imzaya daha yakından bakalım.",
                 "updated": 1637244588517
+            },
+            {
+                "language": "RU",
+                "text": "Давайте подробнее рассмотрим криптографическую подпись в вашем новом профиле.",
+                "updated": 1639047574989
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Kullanıcı Profili ( User Profile ) düğümünüzdeki yapılandırma seçeneğine tıklayın ve içinde ne olduğuna bir göz atın.",
                     "updated": 1637244643042
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните параметр конфигурации в узле User Profile и посмотрите, что внутри.  ",
+                    "updated": 1639047625180
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Not: Vay, ne kadar çok sayı var! Yönetim sistemi bu şekilde, bu Kullanıcı Profilinin ( User Profile ) mesajı imzalayan özel anahtara ait olduğunu bilecektir, bu da profilinize Token Gücü veren tokenleri tutacak adrese aittir.",
                     "updated": 1637244772999
+                },
+                {
+                    "language": "RU",
+                    "text": "Ух ты, много цифр! Опять же, именно так система управления узнает, что этот профиль пользователя принадлежит закрытому ключу, подписавшему сообщение, который, в свою очередь, принадлежит адресу, который будет содержать токены, которые присваивают вашему профилю Token Power.",
+                    "updated": 1639047671461
                 }
             ]
         }

@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Encontremos un poco más de Data Products. Serás un profesional en encontrar cosas en la jerarquía Data Storage.",
                 "updated": 1628729502686
+            },
+            {
+                "language": "RU",
+                "text": "Давайте найдем еще несколько Продуктов данных. Вы станете профессионалом в поиске вещей в иерархии хранилища данных.",
+                "updated": 1639083462415
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Deberías notar que hay tres ramas. Uno para cada tipo de datos a los que podemos acceder en nuestros gráficos. Dado que ahora estamos interesados ​​en los datos de nuestro Trading System, necesitamos los productos de datos que se encuentran bajo la jerarquía de datos Trading Mines.",
                     "updated": 1628731297656
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны заметить, что есть три ветви. По одному для каждого типа данных, к которым мы можем обращаться в наших диаграммах. Поскольку сейчас нас интересуют данные нашей торговой системы (Trading System),нам нужны продукты данных, содержащиеся в иерархии Trading Mines Data .",
+                    "updated": 1639083534391
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Al igual que antes, siga la jerarquía hasta encontrar el nodo Trading Mine Products.",
                     "updated": 1628731321924
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и раньше, следуйте по иерархии, пока не найдете узлы Trading Mine Products .",
+                    "updated": 1639083569550
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "ES",
                     "text": "Asegúrate de mirar debajo de los nodos Trading Session Reference.",
                     "updated": 1628731373973
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно загляните в узлы справочника торговых сессий Trading Session Reference !",
+                    "updated": 1639083602613
                 }
             ]
         }

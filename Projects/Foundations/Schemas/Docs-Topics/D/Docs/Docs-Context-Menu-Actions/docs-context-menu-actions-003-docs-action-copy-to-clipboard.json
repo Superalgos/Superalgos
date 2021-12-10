@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Damit können Sie den Text eines beliebigen Absatzes einfach in die Zwischenablage Ihres Computers kopieren. Es ist besonders nützlich für Abschnitte des Docs Anchor Style oder des Docs Block Style um die Zeichenkette zu erhalten, die benötigt wird, um den Docs Goto Command im ersten Fall auszuführen oder um ihn in einem Docs Include Style im zweiten Fall zu verwenden.",
                 "updated": 1633966321272
+            },
+            {
+                "language": "RU",
+                "text": "Это позволяет легко скопировать текст любого абзаца в буфер обмена вашего компьютера. Это особенно полезно для страниц стиля привязки документов Docs Anchor Style или стиля блока документов Docs Block Style, чтобы получить строку, необходимую для выполнения команды перехода к документам Docs Goto Command в первом случае или для использования ее в стиле включения документов Docs Include Style во втором случае.",
+                "updated": 1638532404001
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Edit\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Die Docs wurden ins deutsche übersetzt durch gitforkgit.",
                     "updated": 1633968084023
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638532436659
                 }
             ]
         }

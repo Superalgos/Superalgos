@@ -2,65 +2,156 @@
     "type": "API Response Field",
     "definition": {
         "text": "The API responds with a JSON object. Each property of the object is mapped as a node of this type. This node can have children of the same type allowing users to map a complex data structure.",
-        "updated": 1622864246927
+        "updated": 1622864246927,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "API отвечает объектом JSON. Каждое свойство объекта отображается как узел этого типа. У этого узла могут быть дочерние элементы одного и того же типа, что позволяет пользователям отображать сложную структуру данных.",
+                "updated": 1638630022212
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "API Response Field Configuration",
-            "updated": 1622895885768
+            "updated": 1622895885768,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация API Response Field",
+                    "updated": 1638630037537
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638630044738
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName: The codeName needs to be the exact name of the property held in the response JSON object. ",
-            "updated": 1622864298993
+            "updated": 1622864298993,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName: сodeName должен быть точным именем свойства, содержащегося в объекте JSON ответа.",
+                    "updated": 1638630068012
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "For the first object, since it is a special case, we usually use the codeName of rootObject."
+            "text": "For the first object, since it is a special case, we usually use the codeName of rootObject.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для первого объекта, поскольку это особый случай, мы обычно используем codeName rootObject.",
+                    "updated": 1638630097836
+                }
+            ]
         },
         {
             "style": "List",
             "text": "fieldType: This property declares if the data is  a number, string, object, or array.",
-            "updated": 1622864334731
+            "updated": 1622864334731,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "fieldType: Это свойство объявляет, являются ли данные числом, строкой, объектом или мас��ивом.",
+                    "updated": 1638630113455
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "description: The API Map is expected to be used not only by the user who created, but once contributed as a Plugin, by all other users. This property is useful to store the description of this field as it was written at the API Server documentation, to avoid other users to go and look for it."
+            "text": "description: The API Map is expected to be used not only by the user who created, but once contributed as a Plugin, by all other users. This property is useful to store the description of this field as it was written at the API Server documentation, to avoid other users to go and look for it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "description: Ожидается, что API Map будет использоваться не только пользователем, который создал, но и когда-то внесен в качестве подключаемого модуля, всеми другими пользователями. Это свойство полезно для хранения описания этого поля, как оно было написано в документации по серверу API, чтобы другие пользователи не пошли его искать.",
+                    "updated": 1638630157177
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Possible Values for Field Type Property",
-            "updated": 1622864403887
+            "updated": 1622864403887,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможные значения для свойства Field Type",
+                    "updated": 1638630191675
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This property is very important and needs to be defined very well. This property defines the structure of the response data structure and needs to be very precise. It's possible values are:",
-            "updated": 1621953383545
+            "updated": 1621953383545,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство очень важно и должно быть очень хорошо определено. Это свойство определяет структуру структуры данных ответа и должно быть очень точным. Возможные значения:",
+                    "updated": 1638630241986
+                }
+            ]
         },
         {
             "style": "List",
             "text": "number: Any type of numbers fall into this category, including dates timestamps in numbers.",
-            "updated": 1621953444809
+            "updated": 1621953444809,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "number: В эту категорию попадают любые типы чисел, включая даты и временные метки (timestamp) в числах.",
+                    "updated": 1638630348885
+                }
+            ]
         },
         {
             "style": "List",
             "text": "string: Any strings falls into this category, including dates in string format.",
-            "updated": 1621953470163
+            "updated": 1621953470163,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "string: В эту категорию попадают любые строки, включая даты в строковом формате.",
+                    "updated": 1638630335455
+                }
+            ]
         },
         {
             "style": "List",
             "text": "object: Use this value when you find that the field holds a JSON object enclosed in { and }",
-            "updated": 1621953515163
+            "updated": 1621953515163,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "object: Используйте это значение, если вы обнаружите, что поле содержит объект JSON, заключенный в {  }",
+                    "updated": 1638630394663
+                }
+            ]
         },
         {
             "style": "List",
             "text": "array: Use this type when the value of the field is a JSON array enclosed in [ and ]",
-            "updated": 1621953569329
+            "updated": 1621953569329,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "array: Используйте этот тип, если значение поля представляет собой массив JSON, заключенный в [  ]",
+                    "updated": 1638630420783
+                }
+            ]
         }
     ]
 }

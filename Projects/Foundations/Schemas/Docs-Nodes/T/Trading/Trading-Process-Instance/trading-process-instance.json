@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un trading process instance es una referencia a la definición de proceso del Trading Bot, como se define en el Masters data mine.",
                 "updated": 1624497029906
+            },
+            {
+                "language": "RU",
+                "text": "Trading Process Instance - это ссылка на определение процесса торгового бота, как это определено в хранилище данных Masters.",
+                "updated": 1638601889130
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "The trading process instance must reference the Multi-Time-Frame process definition of the Jason trading bot in the Masters data mine."
+            "text": "The trading process instance must reference the Multi-Time-Frame process definition of the Jason trading bot in the Masters data mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляр торгового процесса должен ссылаться на определение процесса Multi-Time-Frame торгового бота Jason в хрнилище данных Masters.",
+                    "updated": 1638602002552
+                }
+            ]
         },
         {
             "style": "Block",
@@ -26,7 +38,14 @@
         {
             "style": "Note",
             "text": "You do not start or stop a Trading Process Instance directly. Instead, you start or stop the corresponding task.",
-            "updated": 1609668850890
+            "updated": 1609668850890,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не запускаете и не останавливаете экземпляр торгового процесса напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу.",
+                    "updated": 1638602025473
+                }
+            ]
         }
     ]
 }

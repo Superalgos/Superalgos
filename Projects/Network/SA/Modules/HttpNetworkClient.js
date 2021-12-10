@@ -8,6 +8,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         p2pNetworkClientIdentity: undefined,
         p2pNetworkClientCodeName: undefined,
         sendMessage: sendMessage,
+        sendTestMessage: sendTestMessage,
         initialize: initialize,
         finalize: finalize
     }
@@ -22,20 +23,16 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
 
         thisObject.p2pNetworkNode = undefined
         thisObject.p2pNetworkClientIdentity = undefined
-
-        web3 = undefined
     }
 
     async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode) {
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
-        thisObject.p2pNetworkClientCodeName = JSON.parse(thisObject.p2pNetworkClientIdentity.node.config).codeName
+        thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
 
-        web3 = new SA.nodeModules.web3()
-
-        thisObject.host = JSON.parse(thisObject.p2pNetworkNode.node.config).host
-        thisObject.port = JSON.parse(thisObject.p2pNetworkNode.node.config).webPort
+        thisObject.host = thisObject.p2pNetworkNode.node.config.host
+        thisObject.port = thisObject.p2pNetworkNode.node.config.webPort
     }
 
     async function sendMessage(message) {
@@ -45,22 +42,13 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         */
         let promise = new Promise((resolve, reject) => {
 
-            let signature = web3.eth.accounts.sign(JSON.stringify(message), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
-        
-            let body = {
-                messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                messageType: 'Request',
-                signature: JSON.stringify(signature),
-                payload: JSON.stringify(message)
-            }
-
             const axios = require('axios')
             console.log('Sending Message to P2P Network Node')
             axios
-                .post('http://localhost:31248/New-Signal', body)
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
                 .then(res => {
-                    console.log(`statusCode: ${res.status}`)
-                    console.log('Response Received from P2P Network Node: ' + res.data)
+                    //console.log(`statusCode: ${res.status}`)
+                    console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
                     resolve()
                 })
                 .catch(error => {
@@ -69,6 +57,31 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                 })
         })
 
+        return promise
+    }
+
+    async function sendTestMessage() {
+        /*
+        This function us to check if a network node is online and will 
+        receive an http request when needed.
+        */
+        let promise = new Promise((resolve, reject) => {
+
+            const axios = require('axios')
+            axios
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
+                .then(res => {
+                    if (res.data.indexOf("Pong") >= 0) {
+                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        resolve()
+                    } else {
+                        reject()
+                    }
+                })
+                .catch(error => {
+                    reject()
+                })
+        })
         return promise
     }
 }

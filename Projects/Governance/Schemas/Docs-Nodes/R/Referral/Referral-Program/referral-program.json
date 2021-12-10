@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El referral program incentiva la promoción del proyecto, ya sea de boca en boca  o en masa  a través de artículos, posteos en redes sociales, videos y otras formas de influencias en marketing .",
                 "updated": 1633524918233
+            },
+            {
+                "language": "RU",
+                "text": "Реферальная программа стимулирует продвижение проекта либо из уст в уста, либо “массово” посредством статей, постов в социальных сетях, видеороликов и других форм маркетинга влияния.",
+                "updated": 1638983828968
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "ES",
                     "text": "Con este programa, puede ganar Superalgos SA Tokens por cada usuario que usted refiera al proyecto, y tambien por los usuarios que ellos referencien!",
                     "updated": 1633525009280
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью этой программы вы можете зарабатывать токены Superalgos SA Token для каждого пользователя, которого вы ссылаетесь на проект, а также для пользователей, которых они ссылаются!",
+                    "updated": 1638984094214
                 }
             ]
         },
@@ -41,12 +51,24 @@
                     "language": "ES",
                     "text": "Para participar, debe extender el programa Referral Program y declarar su referido. Para hacer esto, agregue un nodo al User Referrer y úselo para establecer el User Profile de la persona que lo refirió a Superalgos. Si tiene más de un referido, simplemente agregue más nodos al User Referrer.",
                     "updated": 1633530224609
+                },
+                {
+                    "language": "RU",
+                    "text": "Для участия вы должны запустить реферальную программу Referral Program и объявить своего реферера. Для этого добавьте узел User Referrer и используйте его, чтобы установить ссылку на профиль пользователя человека, который направил вас в Superalgos. Если у вас более одного реферера, просто добавьте больше узлов User Referrer.",
+                    "updated": 1638984032303
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!"
+            "text": "Maybe you learned about Superalgos from an article, a video, a comment on Reddit, a tweet, the official website, or someone who told you about us!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может быть, вы узнали о Superalgos из статьи, видео, комментария на Reddit, твита, официального сайта или кого-то, кто рассказал вам о нас!",
+                    "updated": 1638984116650
+                }
+            ]
         },
         {
             "style": "Text",
@@ -56,6 +78,11 @@
                     "language": "ES",
                     "text": "Declarar sus referidos es el mejor modo de agradecerle a la gente que escribió el artículo o tweeteo, produjo ese video, realizó el mantenimiento de la web, o te habló a cerca de Superalgos! Sin ellos, probablemente no estaría aquí todavía!",
                     "updated": 1633530419731
+                },
+                {
+                    "language": "RU",
+                    "text": "Объявление ваших рефереров - лучший способ поблагодарить людей, которые, возможно, написали эту статью или твит, создали это видео, поддерживали веб-сайт или рассказали вам о Superalgos! Без них вас, наверное, еще бы здесь не было!",
+                    "updated": 1638984144769
                 }
             ]
         },
@@ -70,7 +97,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638984168546
+                }
+            ]
         }
     ]
 }

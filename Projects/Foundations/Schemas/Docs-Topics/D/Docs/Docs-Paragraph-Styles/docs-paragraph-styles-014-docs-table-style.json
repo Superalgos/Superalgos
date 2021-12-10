@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Es ist möglich, Tabellen in Docs-Seiten darzustellen. Dazu müssen Sie lediglich einige Formatierungsregeln beachten.",
                 "updated": 1633955749936
+            },
+            {
+                "language": "RU",
+                "text": "Можно отобразить таблицу на страницах документов. Для этого вам просто нужно следовать некоторым правилам форматирования.",
+                "updated": 1638539885307
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Im Bearbeitungsmodus müssen Sie das Zeichen | verwenden, um eine Tabelle zu zeichnen. Jede Zelle wird durch ein | getrennt. Zeilenumbrüche im Bearbeitungsmodus werden als neue Zeilen betrachtet. Die erste Zeile wird als Tabellenkopf gerendert. Column = Spalte. ",
                     "updated": 1633955859270
+                },
+                {
+                    "language": "RU",
+                    "text": "В режиме редактирования вам нужно использовать символ |, чтобы нарисовать таблицу. Каждая ячейка разделена символом |. Разрывы строк в режиме редактирования будут считаться новыми строками. Первая строка будет отображаться как заголовок таблицы.",
+                    "updated": 1638539934180
                 }
             ]
         },
@@ -32,12 +42,24 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633955811092
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638539949660
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "| Column 1 | Column 2 | Column 3 |"
+            "text": "| Column 1 | Column 2 | Column 3 |",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Столбец 1 | Столбец 2 | Столбец 3 |",
+                    "updated": 1638539977299
+                }
+            ]
         },
         {
             "style": "Text",
@@ -47,12 +69,24 @@
                     "language": "DE",
                     "text": "WIrd so dargestellt:",
                     "updated": 1633955898856
+                },
+                {
+                    "language": "RU",
+                    "text": "Отображается следующим образом:",
+                    "updated": 1638540005214
                 }
             ]
         },
         {
             "style": "Table",
-            "text": "| Column 1 | Column 2 | Column 3 |"
+            "text": "| Column 1 | Column 2 | Column 3 |",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Столбец 1 | Столбец 2 | Столбец 3 |",
+                    "updated": 1638540042027
+                }
+            ]
         },
         {
             "style": "Text",
@@ -62,6 +96,11 @@
                     "language": "DE",
                     "text": "Ein weiteres Beispiel für eine Tabelle wäre:",
                     "updated": 1633955923747
+                },
+                {
+                    "language": "RU",
+                    "text": "Другой пример таблицы:",
+                    "updated": 1638540024167
                 }
             ]
         },
@@ -73,6 +112,11 @@
                     "language": "DE",
                     "text": "| Column 1 | Column 2 | Column 3 |\n| Wert 1 | Wert 2 | Wert 3 |\n| Wert 4 | Wert 5 | Wert 6 |\n| Wert 7 | Wert 8 | Wert 9 |",
                     "updated": 1633955960135
+                },
+                {
+                    "language": "RU",
+                    "text": "| Столбец 1 | Столбец 2 | Столбец 3 |\n| Значение 1 | Значение 2 | Значение 3 |\n| Значение 4 | Значение 5 | Значение 6 |\n| Значение 7 | Значение 8 | Значение 9 |",
+                    "updated": 1638540115781
                 }
             ]
         },
@@ -84,6 +128,11 @@
                     "language": "DE",
                     "text": "Der Tabellenstil unterstützt das Rendern von Boxen zur Darstellung von RGB-Farben. Dazu müssen Sie nur etwas wie das folgende eingeben: RGB(23, 134, 222)",
                     "updated": 1633955987800
+                },
+                {
+                    "language": "RU",
+                    "text": "Стиль таблицы поддерживает блоки визуализации для демонстрации цветов RGB. Для этого вам просто нужно ввести что-то вроде этого: RGB(23, 134, 222)",
+                    "updated": 1638540185887
                 }
             ]
         },
@@ -107,6 +156,11 @@
                     "language": "DE",
                     "text": "| Variabler Wert | RGB Wert | Farbmuster |\n| DARK | 48, 48, 54 |RGB(48, 48, 54)|\n| LIGHT | 234, 226, 222 |RGB(234, 226, 222)|\n| GREY | 150, 150, 150 |RGB(150, 150, 150)|\n| LIGHT_GREY | 247, 247, 247 |RGB(247, 247, 247)|\n| WHITE | 255, 255, 255 |RGB(255, 255, 255)|\n| BLACK | 0, 0, 0 |RGB(0, 0, 0)|\n| GOLDEN_ORANGE | 240, 162, 2 |RGB(240, 162, 2)|\n| RUSTED_RED | 204, 88, 53 |RGB(204, 88, 53)|\n| GREEN | 188, 214, 67 |RGB(188, 214, 67)|\n| RED | 223, 70, 60 |RGB(223, 70, 60)|\n| PATINATED_TURQUOISE | 27, 153, 139 |RGB(27, 153, 139)|\n| TITANIUM_YELLOW | 244, 228, 9 |RGB(244, 228, 9)|\n| MANGANESE_PURPLE | 91,80, 122 |RGB(91,80, 122)|\n| TURQUOISE | 74, 207, 217 |RGB(74, 207, 217)|\n| DARK_TURQUOISE | 2, 149, 170 |RGB(2, 149, 170)|",
                     "updated": 1633956068937
+                },
+                {
+                    "language": "RU",
+                    "text": "| Значение переменной | Значение RGB | Образец цвета |\n| DARK | 48, 48, 54 |RGB(48, 48, 54)|\n| LIGHT | 234, 226, 222 |RGB(234, 226, 222)|\n| GREY | 150, 150, 150 |RGB(150, 150, 150)|\n| LIGHT_GREY | 247, 247, 247 |RGB(247, 247, 247)|\n| WHITE | 255, 255, 255 |RGB(255, 255, 255)|\n| BLACK | 0, 0, 0 |RGB(0, 0, 0)|\n| GOLDEN_ORANGE | 240, 162, 2 |RGB(240, 162, 2)|\n| RUSTED_RED | 204, 88, 53 |RGB(204, 88, 53)|\n| GREEN | 188, 214, 67 |RGB(188, 214, 67)|\n| RED | 223, 70, 60 |RGB(223, 70, 60)|\n| PATINATED_TURQUOISE | 27, 153, 139 |RGB(27, 153, 139)|\n| TITANIUM_YELLOW | 244, 228, 9 |RGB(244, 228, 9)|\n| MANGANESE_PURPLE | 91,80, 122 |RGB(91,80, 122)|\n| TURQUOISE | 74, 207, 217 |RGB(74, 207, 217)|\n| DARK_TURQUOISE | 2, 149, 170 |RGB(2, 149, 170)|",
+                    "updated": 1638540345350
                 }
             ]
         },

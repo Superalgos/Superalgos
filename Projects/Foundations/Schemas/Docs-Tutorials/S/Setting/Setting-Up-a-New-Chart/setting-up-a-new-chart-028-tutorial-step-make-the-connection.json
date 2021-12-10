@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Crear referencias es pan comido. ¡Hagamos la conexión!",
                 "updated": 1628724876371
+            },
+            {
+                "language": "RU",
+                "text": "Ты получил это. Создание ссылок - это кусок пирога. Давайте сделаем связь!",
+                "updated": 1639078956290
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "De los tres nodo Data Mine Products disponible, vamos a vincular nuestro gráfico a el Candles Data Mine.",
                     "updated": 1628724969263
+                },
+                {
+                    "language": "RU",
+                    "text": "Из трех доступных узлов Data Mine Products, мы собираемся связать наш график с Candles Data Mine.",
+                    "updated": 1639079114291
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Encuentra el Layer Manager bajo el Timeline Chart que agregaste anteriormente. A continuación, establece una referencia a los nodos Candles Data Mine Products.",
                     "updated": 1628725030976
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите Менеджер слоев (Layer Manager) под диаграммой временной шкалы, которую вы добавили ранее. Затем установите ссылку от него на узел Candles Data Mine Products .",
+                    "updated": 1639079226902
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "ES",
                     "text": "Si las cosas están conectadas correctamente, el nombre de la mina de datos debería aparecer sobre el layer manager.",
                     "updated": 1628725407610
+                },
+                {
+                    "language": "RU",
+                    "text": "Если все подключено правильно, название шахты данных должно появиться над менеджером слоев.",
+                    "updated": 1639079253592
                 }
             ]
         }

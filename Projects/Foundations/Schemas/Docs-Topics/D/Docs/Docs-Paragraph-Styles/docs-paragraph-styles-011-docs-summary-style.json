@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Summary-Absätze werden in der Regel am Anfang einer Seite verwendet, wie in diesem Beispiel.",
                 "updated": 1633954894895
+            },
+            {
+                "language": "RU",
+                "text": "Краткие абзацы обычно используются в начале страницы, как в этом.",
+                "updated": 1638534073279
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Alles, was Sie während der Bearbeitung eines Zusammenfassungsabsatzes schreiben, wird auf der Seite wiedergegeben.",
                     "updated": 1633954935286
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что вы напишете при редактировании сводного абзаца, будет отображено на странице.",
+                    "updated": 1638534020770
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633955049834
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638534045159
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Summary-Absatz.",
                     "updated": 1633954964142
+                },
+                {
+                    "language": "RU",
+                    "text": "Это краткий абзац.",
+                    "updated": 1638534058934
                 }
             ]
         },

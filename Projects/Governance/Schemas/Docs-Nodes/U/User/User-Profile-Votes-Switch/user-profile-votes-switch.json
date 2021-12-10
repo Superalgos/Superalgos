@@ -2,7 +2,14 @@
     "type": "User Profile Votes Switch",
     "definition": {
         "text": "Use this switch as an organizational device, and to spawn User Profile Vote nodes.",
-        "updated": 1630421929174
+        "updated": 1630421929174,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот переключатель в качестве организационного устройства и для создания узлов голосования профиля пользователя User Profile Vote.",
+                "updated": 1639041947693
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,16 +20,37 @@
         {
             "style": "Text",
             "text": "You may use this switch for two different purposes:",
-            "updated": 1630394642130
+            "updated": 1630394642130,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать этот переключатель для двух разных целей:",
+                    "updated": 1639041959934
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes."
+            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве организационного устройства: вы можете создавать произвольные схемы голосов, порождая больше переключателей и голосов.",
+                    "updated": 1639041980280
+                }
+            ]
         },
         {
             "style": "List",
             "text": "As a switch: You may control the flow of Voting Power, pretty much like with a Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
-            "updated": 1630394687805
+            "updated": 1630394687805,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве переключателя: вы можете управлять потоком Voting Power, почти так же, как с помощью переключателя Token Power Switch, но в рамках программы голосования Voting Program. Если вам нужно напоминание, прочитайте страницу Token Power Flows.",
+                    "updated": 1639042108295
+                }
+            ]
         },
         {
             "style": "Block",
@@ -30,7 +58,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639042118301
+                }
+            ]
         }
     ]
 }

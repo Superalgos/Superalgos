@@ -1,7 +1,14 @@
 {
     "type": "Positions",
     "definition": {
-        "text": "Positions counts the number of times positions have been opened, in the context of the parent node."
+        "text": "Positions counts the number of times positions have been opened, in the context of the parent node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Positions подсчитывают количество открытих должностей в контексте родительского узла.",
+                "updated": 1639029924519
+            }
+        ]
     },
     "paragraphs": [
         {

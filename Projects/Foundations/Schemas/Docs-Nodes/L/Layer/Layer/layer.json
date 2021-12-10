@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Слой представляет собой ссылку на продукт данных в узле хранения данных сетевой иерархии. Концептуально это означает, что определенный продукт данных, который существует в определенном месте в сети, содержит данные для отображения на диаграммах.",
-                "updated": 1636566192630
+                "text": "Layer представляет собой ссылку на продукт данных в узле хранения данных сетевой иерархии. Концептуально это означает, что определенный продукт данных, который существует в определенном месте в сети, содержит данные для отображения на диаграммах.",
+                "updated": 1638973075325
             }
         ]
     },
@@ -22,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "To set up a layer, you need to establish a reference with the data product of your choice."
+            "text": "To set up a layer, you need to establish a reference with the data product of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы настроить слой Layer, вам необходимо установить ссылку на выбранный вами информационный продукт.",
+                    "updated": 1638973171670
+                }
+            ]
         },
         {
             "style": "Block",
@@ -30,15 +37,36 @@
         },
         {
             "style": "Title",
-            "text": "Layer at the Charts"
+            "text": "Layer at the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Слой на графиках",
+                    "updated": 1638973158595
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To turn layers on and off, simply click on the layer in the corresponding products panel."
+            "text": "To turn layers on and off, simply click on the layer in the corresponding products panel.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы включить или выключить слои, просто щелкните слой на соответствующей панели продуктов.",
+                    "updated": 1638973236039
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To turn on and off a layer panel, click the panel button on the bottom-left corner of the layer."
+            "text": "To turn on and off a layer panel, click the panel button on the bottom-left corner of the layer.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы включить или выключить панель слоя, нажмите кнопку панели в нижнем левом углу слоя.",
+                    "updated": 1638973261370
+                }
+            ]
         },
         {
             "style": "Block",
@@ -48,21 +76,49 @@
         {
             "style": "Title",
             "text": "Layer Configuration",
-            "updated": 1609784767118
+            "updated": 1609784767118,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Layer",
+                    "updated": 1638973288222
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609784779223
+            "updated": 1609784779223,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638973295055
+                }
+            ]
         },
         {
             "style": "List",
             "text": "status may be on or off* and refers to the layer being visible or not on the charts.",
-            "updated": 1609784804308
+            "updated": 1609784804308,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "status может быть on (включен) или off (выключен)* и относится к слою, который виден или отсутствует на диаграммах.",
+                    "updated": 1638973381355
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "showPanels may be true or false; true shows the plotter panel that may be associated with the data product as per the plotter module definitions; false* makes panels invisible."
+            "text": "showPanels may be true or false; true shows the plotter panel that may be associated with the data product as per the plotter module definitions; false* makes panels invisible.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "showPanels может иметь значение true или false; true показывает панель плоттера, которая может быть связана с информационным продуктом в соответствии с определениями модуля плоттера; false * делает панели невидимыми.",
+                    "updated": 1638973402851
+                }
+            ]
         }
     ]
 }

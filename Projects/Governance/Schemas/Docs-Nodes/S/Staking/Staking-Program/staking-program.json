@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El programa de staking program le permite a la comunidad de Superalgos compensar a los token holders por mantener sus tokens. Mantener los tokens puede ser una contribución muy valiosa que  la comunidad  puede decidir incentivar en  cualquier momento.",
                 "updated": 1637849563660
+            },
+            {
+                "language": "RU",
+                "text": "Staking Program позволяет сообществу Superalgos компенсировать держателям токенов за хранение токенов. Хранение токенов может быть ценным вкладом, который сообщество может решить стимулировать в любой момент.",
+                "updated": 1638991915737
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Este es un programa muy simple, ya que no implica contratos inteligentes o transferencia de fondos fuera de su Governance Address.",
                     "updated": 1637849587765
+                },
+                {
+                    "language": "RU",
+                    "text": "Это очень простая программа, поскольку в ней не используются смарт-контракты или перевод средств из вашего административного адреса Governance Address.",
+                    "updated": 1638991944037
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "ES",
                     "text": "Puede participar en el Staking Program con el Token Power que no haya usado para otras propuestas. Todo lo que necesita hacer es deplegar el programa dentro del nodo de  Financial Programs y permitir que algo de Token Power fluya en él.",
                     "updated": 1637849740621
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете участвовать в программе Staking Program, используя Token Power, который вы не использовали для других целей. Все, что вам нужно сделать, это запустить программу из узла Financial Programs и позволить позволить некоторому количеству Token Power влиться в нее.",
+                    "updated": 1638992136507
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "ES",
                     "text": "Recibirá tokens desde Staking Rewards Pool definido en la jerarquía  de Superalgos Pools debajo del nodo de Governance Programs, proporcional al Staking Power que haya dirigido al programa.",
                     "updated": 1637849858949
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы получите токены из пула вознаграждений за размещение ставок Staking Rewards Pool, определенного в иерархии пулов Superalgos в узле Governance Programs, пропорционально Staking Power, которые вы направляете программе.",
+                    "updated": 1638992308533
                 }
             ]
         },
@@ -60,6 +80,11 @@
                     "language": "ES",
                     "text": "El cálculo de Tokens Awarded por este programa es similar a cómo el Tokens Bonus es calculado en otros programas: como una regla de tres directa.",
                     "updated": 1637849947801
+                },
+                {
+                    "language": "RU",
+                    "text": "Расчет токенов вознаграждения Tokens Awarded для этой программы аналогичен тому, как рассчитывается Tokens Bonus в других программах: как прямое правило трех Rule of Three.",
+                    "updated": 1638992463089
                 }
             ]
         },
@@ -77,6 +102,11 @@
                     "language": "ES",
                     "text": "Tenga en cuenta que stakingpuede no ser la mejor manera de acumular más tokens. Algunos otros programas, como los Community Building Programs, puede ofrecer una mejor oportunidad financiera a través de su Tokens Bonus! Es posible que desee comprobar cuán grandes son las Bonus Pool que incentiva en otros programas and compare esos con la Staking Rewards Pool!",
                     "updated": 1637850123572
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что ставки могут быть не лучшим способом накопить больше токенов. Некоторые другие программы, такие как Community Building Programs, могут предложить лучшие финансовые возможности за счет бонуса Tokens Bonus! Вы можете проверить, насколько велики поощрения бонуса Bonus Pool в других программах, и сравнить их с пулом Staking Rewards Pool!",
+                    "updated": 1638992630516
                 }
             ]
         },
@@ -86,7 +116,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638992642920
+                }
+            ]
         }
     ]
 }

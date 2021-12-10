@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "El nodo Data Storage contiene  los datos importantes que sus bots trabajan duro para producir. Piensa en ello como tu propio cofre de tesoros lleno de datos.",
                 "updated": 1628722704852
+            },
+            {
+                "language": "RU",
+                "text": "На узле Data Storage хранятся все важные данные, над созданием которых так усердно работают ваши боты. Считайте, что это ваш личный сундук с сокровищами, полный данных.",
+                "updated": 1639074450030
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Toda los Data Products que quieras visualizar en tus gráficos se mantienen en el nodo Data Storage. Comencemos practicando un poco para encontrar dónde se almacenan los datos que queremos. Recuerda, queremos conectar nuestro gráfico al Candles Data Mine. Acceder a estos productos nos permitirá visualizar Indicadores y otros Market Data.",
                     "updated": 1628722429136
+                },
+                {
+                    "language": "RU",
+                    "text": "Все продукты данных, которые вы захотите визуализировать в своих диаграммах, хранятся в узле Хранилище данных. Для начала давайте потренируемся находить, где хранятся нужные нам данные.. Помните, что мы хотим подключить наш график к шахте данных (Candles Data Mine). Доступ к этим продуктам позволит нам визуализировать индикаторы и другие рыночные данные (Market Data).",
+                    "updated": 1639074600572
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Superalgos utiliza una lógica coherente en todo el sistema. Lo que eso significa para nosotros ahora es que una vez que aprenda a conectar un gráfico a un tipo de datos, sabrá los pasos básicos para conectar sus gráficos a lo que desee.",
                     "updated": 1628722599505
+                },
+                {
+                    "language": "RU",
+                    "text": "Одна из замечательных особенностей Superalgos заключается в том, что он использует последовательную логику во всей системе. Для нас это означает, что как только вы научитесь привязывать график к одному типу данных, вы будете знать основные шаги для привязки графиков к чему угодно!",
+                    "updated": 1639074625764
                 }
             ]
         }

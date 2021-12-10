@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Esto agregará automáticamente referencias a todas las capas individuales producidas por el Bot Products bajo el nodo Candles Data Mine Products.",
                 "updated": 1628725658313
+            },
+            {
+                "language": "RU",
+                "text": "Как вы могли заметить, добавленные слои соответствуют Bot Products в узле Candles Data Mine Products .",
+                "updated": 1639079836469
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Tómate unos minutos y comprueba entre nodos Bot Products descendientes y sus nuevas capas. ¡Coinciden!",
                     "updated": 1628725744845
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте несколько минут и проверьте узлы потомства Bot Products  и ваши новые слои. Они совпадают!",
+                    "updated": 1639079732143
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Puede tener un control más preciso sobre las capas disponibles en sus gráficos agregando o eliminando capas individuales. ¡Tus gráficos son verdaderamente tuyos!",
                     "updated": 1628725765776
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете более тонко контролировать слои, доступные в ваших диаграммах, добавляя или удаляя отдельные слои. Ваши диаграммы - это действительно ваше!",
+                    "updated": 1639079659448
                 }
             ]
         }

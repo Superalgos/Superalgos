@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Superalgos gedeiht durch Beiträge und Zusammenarbeit. Wir haben die Community Building Programs entwickelt, um eine Gemeinschaft zu fördern, in der die Mitglieder immer bereit sind, zu helfen und etwas zurückzugeben! Die Node kann das Referral Program,  Support Program, und die Mentorship Program Nodes spwanen.",
                 "updated": 1637590388078
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos процветает благодаря вкладу и сотрудничеству. Мы разработали программы построения сообщества Community Building Programs, чтобы способствовать развитию сообщества, члены которого всегда готовы помочь и внести свой вклад! Узел может порождать узлы Referral Program, Support Program и Mentorship Program.",
+                "updated": 1638980684785
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "Erfahren Sie mehr darüber, wie Token Power in diese Programme fließt (Token Power Flows)!",
                     "updated": 1637590446132
+                },
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
+                    "updated": 1638980741139
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "DE",
                     "text": "Jedes der Community Building Programs hat einen zugehörigen Rewards Pool und einen Bonus Pool unter dem Abschnitt Governance Programs > Community Building Programs in der Superalgos Pools Hierarchie.",
                     "updated": 1637590674330
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая из программ Community Building Programs имеет связанный пул вознаграждений Rewards Pool и бонусный пул Bonus Pool в разделе Governance Programs > Community Building Programs иерархии пулов Superalgos.",
+                    "updated": 1638981148166
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "DE",
                     "text": "Die Anreize, die ein Bonuspool mit sich bringt, werden in der Node: Tokens Bonus erläutert.",
                     "updated": 1637590740831
+                },
+                {
+                    "language": "RU",
+                    "text": "Стимулы, связанные с Bonus Pool, объясняются в узле Tokens Bonus.",
+                    "updated": 1638980907612
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "DE",
                     "text": "Schauen wir uns an, wie die einzelnen Rewards Pool (Belohnungspools) im Falle der Community Building Programme verteilt werden. Im Allgemeinen gelten für das Referral Program, Support Program, und das Mentorship Program die folgenden gemeinsamen Regeln:",
                     "updated": 1637591066936
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте рассмотрим, как распределяется каждый Rewards Pool в случае программ построения сообщества. В целом, Referral Program, Support Program и Mentorship Program имеют следующие общие правила:",
+                    "updated": 1638981126342
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "DE",
                     "text": "Wenn Ihr Profil von anderen über deren User Referrer, User Supporter oder User Mentor Nodes referenziert wird, geben diese 10% der in der Node verfügbaren Referral Power, Support Power oder Mentorship Power an Sie weiter. Dies ist Ihre eingehende Power (Incoming Power) in dem entsprechenden Programm.",
                     "updated": 1637591215756
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда на ваш профиль ссылаются другие пользователи через их узлы User Referrer, User Supporter или User Mentor, они передают вам 10% ресурсов реферала, поддержки или наставничества, доступных в узле. Это ваша входящее полномочие Incoming Power в соответствующей программе.",
+                    "updated": 1638983130593
                 }
             ]
         },
@@ -121,6 +151,11 @@
                     "language": "DE",
                     "text": "Ihre Incoming Power wird in dem entsprechenden Programm zu Ihrer eigenen Leistung (Own Power) addiert, so dass Sie mehr power an andere Benutzerprofile (User Profiles) weitergeben können. Wie im umgekehrten Fall, wenn Sie andere Benutzerprofile referenzieren, geben Sie 10% der power weiter, an die Node die sie referenziert haben.",
                     "updated": 1637591444011
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваша входящее полномочие Incoming Power добавляется к вашим собственным полномочиям Own Power в соответствующей программе, чтобы вы могли передавать больше возможностей другим профилям пользователей. Как и в обратном случае, когда вы ссылаетесь на другие профили пользователей, вы передаете 10% полномочий, которая достигает узла, устанавливающего ссылку.",
+                    "updated": 1638983214934
                 }
             ]
         },
@@ -138,6 +173,11 @@
                     "language": "DE",
                     "text": "Diese Weitergabe von 10 % der power von einem Nutzer zum nächsten hat den Effekt, dass Kooperationsketten (rewarding collaboration chains) belohnt werden.",
                     "updated": 1637591556083
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта передача 10% полномочий от одного пользователя к другому приводит к вознаграждению за цепочки сотрудничества.",
+                    "updated": 1638981420656
                 }
             ]
         },
@@ -155,6 +195,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel erzählt Alice ihrem Freund Bob von Superalgos. Als Bob schließlich sein Benutzerprofil einrichtet, gibt er Alice als seinen Referrer an. Das bedeutet, dass Alice 10 % der Referral Power erhält, die Bob zu seiner User Referrer Node treibt. Dann bringt Bob seinen Freund Charly zu Superalgos. Charly richtet sein Profil ein und gibt Bob als seinen Referrer an. Bob erhält nun also 10 % der Referral Power, die Charly zu seiner User Referrer Node bringt.",
                     "updated": 1637591729634
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, Алиса рассказывает своему другу Бобу о Superalgos. Когда Боб в конечном итоге настраивает свой профиль пользователя, он объявляет Алису своим рефералом. Это означает, что Алиса получает 10% от реферального полномочия Referral Power, которую Боб передает своему узлу User Referrer. Затем Боб приводит своего друга Чарли в Superalgos. Чарли создает свой профиль и объявляет Боба своим рефералом. Итак, теперь Боб получает 10% реферального полномочия, которую Чарли направляет на его узел User Referrer.",
+                    "updated": 1638983297180
                 }
             ]
         },
@@ -172,6 +217,11 @@
                     "language": "DE",
                     "text": "Kannst du dir vorstellen, was mit Alices \"Incoming Referral Power\" passiert? Das ist es! Sie erhält 10 % von Bobs Power, die wiederum 10 % von Charlys Power umfasst und so weiter!",
                     "updated": 1637591778206
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы видите, что происходит с входящим реферальным полномочием Referral Power Алисы? Вот и все! Она получает 10% полномочий Боба, включая 10% полномочий Чарли и так далее!",
+                    "updated": 1638983372019
                 }
             ]
         },
@@ -188,6 +238,11 @@
                     "language": "DE",
                     "text": "Ähnlich verhält es sich mit dem Support Program und dem Mentorship Program.",
                     "updated": 1637591820432
+                },
+                {
+                    "language": "RU",
+                    "text": "Практически то же самое происходит с Support Program и Mentorship Program.",
+                    "updated": 1638981842735
                 }
             ]
         },
@@ -205,6 +260,11 @@
                     "language": "DE",
                     "text": "Die Incoming Power, die Sie von anderen Nutzern erhalten, steht in einem direktem Verhältnis (Direct Proportion) zu der Anzahl der Token, die Sie aus dem entsprechenden Rewards Pool des Programms erhalten. Die Berechnung basiert auf einer Dreierregel ( Rule of Three ), und das Ergebnis wird unter der Node \" Tokens Awarded \" des entsprechenden Programms angezeigt.",
                     "updated": 1637591993834
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящее полномочие Incoming Power, которую вы получаете от других пользователей, находится в прямой пропорции Direct Proportion к количеству токенов, которые вы получаете из соответствующего пула вознаграждений Rewards Pool программы. Расчет основан на правиле Rule of Three, и результат отображается в узле Tokens Awarded соответствующей программы.",
+                    "updated": 1638983423339
                 }
             ]
         },
@@ -227,6 +287,11 @@
                     "language": "DE",
                     "text": "Konfiguration:",
                     "updated": 1637591578326
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638982031084
                 }
             ]
         }

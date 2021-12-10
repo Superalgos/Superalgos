@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Token Gücünüzü ( Token Power ) nasıl kullandığınız, profil hiyerarşinizdeki bir dizi Yönetim Programında ( Govarnance Programs ) tanımlanır.",
                 "updated": 1637159684295
+            },
+            {
+                "language": "RU",
+                "text": "То, как вы используете свои токены, определяется рядом программ управления Governance Programs в иерархии вашего профиля.",
+                "updated": 1639046605191
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Bu programlar, ödüllendirmek istediğiniz geliştirme türlerini ve topluluk ilişkilerini düzenlemenize yardımcı olur.",
                     "updated": 1637159700351
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти программы помогают организовать типы развития и взаимоотношений с сообществом, которые вы хотите вознаградить.",
+                    "updated": 1639046620513
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Not: Örneğin, Talepler Programı ( Claims Program ), yaptığınız iş için taleplerde bulunmanıza izin verir. Destek Programı ( Support Program ), size teknik destek konusunda yardımcı olan diğer Superalgos kullanıcılarına teşekkür etmenizi sağlar.",
                     "updated": 1637159752080
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, программа Claims Program позволяет вам предъявлять претензии по выполненной вами работе. Программа Support Program позволяет вам благодарить других пользователей Superalgos, которые помогли вам с технической поддержкой.",
+                    "updated": 1639046715682
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "Çalışan bir profiliniz olduğunda tüm bunları ve diğer programları ayrıntılı olarak ele alacağız!",
                     "updated": 1637159772746
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы подробно рассмотрим все эти и другие программы, когда у вас будет рабочий профиль!",
+                    "updated": 1639046733330
                 }
             ]
         }

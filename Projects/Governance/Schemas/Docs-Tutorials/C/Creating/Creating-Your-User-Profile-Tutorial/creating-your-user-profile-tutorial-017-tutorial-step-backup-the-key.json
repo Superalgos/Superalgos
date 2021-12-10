@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Daha sonra Yönetim Adresinizi ( Governance Address ) bir kripto cüzdanına aktarabilmeniz için özel anahtarı yedeklemeniz gerekir.",
                 "updated": 1637244864917
+            },
+            {
+                "language": "RU",
+                "text": "Вам нужна резервная копия закрытого ключа, чтобы впоследствии вы могли импортировать свой управляющий адрес Governance Address в криптокошелек.",
+                "updated": 1639047714952
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Superalgos, özel anahtarı yerel olarak oluşturur. Makineniz güvende olduğu sürece, dünyada başka hiç kimse anahtarınıza erişemez veya anahtarınıza ilişkin bilgi sahibi olamaz.",
                     "updated": 1637244882805
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos генерирует закрытый ключ локально. Никто в мире не имеет доступа к вашему ключу и не знает его, пока ваша машина в безопасности.",
+                    "updated": 1639047734831
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Uyarı: Bazı kişiler, her kopyayı farklı yerlerde saklamak için özel anahtarın birkaç kopyasını yazdırır. Çoğu kayıp kripto vakasının, hacklerden değil, anahtarları kaybeden insanlardan kaynaklandığını unutmayın!",
                     "updated": 1637244946888
+                },
+                {
+                    "language": "RU",
+                    "text": "Некоторые люди распечатывают несколько копий закрытого ключа, чтобы хранить каждую копию в разных местах. Помните, что в большинстве случаев потери криптовалюты связаны с потерей ключей людьми, а не с взломом!",
+                    "updated": 1639047754684
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": " Not: Daha önce sahip olduğunuz bir adresi bağladıysanız, özel anahtarı kaydetmeniz gerekmez, ancak güvenlik için kurucunun ( Constructor ) içeriğini yedeklemeniz gerekir.",
                     "updated": 1637245002227
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы связали ранее принадлежавший адрес, вам не нужно сохранять закрытый ключ, но для безопасности следует создать резервную копию содержимого конструктора.",
+                    "updated": 1639047772176
                 }
             ]
         },

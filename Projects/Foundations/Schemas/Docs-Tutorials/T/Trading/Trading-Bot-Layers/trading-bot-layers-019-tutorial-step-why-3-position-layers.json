@@ -4,24 +4,52 @@
     "type": "Tutorial Step - Why 3 Position Layers?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "position"
+            "name": "Position/position",
+            "project": "Foundations"
         },
         "text": "Did you notice there are three different layers about positions? \"Position\", \"Position Base Asset\", and \"Position Quoted Asset\"!",
-        "updated": 1622541670733
+        "updated": 1622541670733,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Haben Sie bemerkt, dass es drei verschiedene Ebenen zu Positionen gibt? \"Position\", \"Position Base Asset\" und \"Position Quoted Asset\"!",
+                "updated": 1639142976803
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I'll give you the short version:"
+            "text": "I'll give you the short version:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich gebe Ihnen die Kurzversion:",
+                    "updated": 1639142998677
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The system keeps the accounts relative to both the base asset and the quoted asset. It also keeps a consolidated account of both assets (hence, position). What set of accounts is relevant to you depends on how the strategy is designed!"
+            "text": "The system keeps the accounts relative to both the base asset and the quoted asset. It also keeps a consolidated account of both assets (hence, position). What set of accounts is relevant to you depends on how the strategy is designed!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System führt die Konten sowohl in Bezug auf den Basiswert als auch auf den notierten Wert. Es führt auch ein konsolidiertes Konto für beide Vermögenswerte (daher \"Position\"). Welcher Kontensatz für Sie relevant ist, hängt davon ab, wie die Strategie konzipiert ist!",
+                    "updated": 1639143024440
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Reading this documentation page is a must to fully understand this concept."
+            "text": "Reading this documentation page is a must to fully understand this concept.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Die Lektüre dieser Dokumentationsseite ist ein Muss, um dieses Konzept vollständig zu verstehen.",
+                    "updated": 1639143017209
+                }
+            ]
         }
     ]
 }

@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Dieses Tutorial behandelt den Prozess der Installation eines neuen Marktes. Der Prozess automatisiert die Erstellung von Daten und Handelsaufgaben sowie von Charts für den besagten Market.",
                 "updated": 1635737551202
+            },
+            {
+                "language": "RU",
+                "text": "Это руководство охватывает процесс установки нового рынка. Процесс автоматизирует создание данных и торговых задач, а также графики для указанного рынка (Market).",
+                "updated": 1639169700019
             }
         ]
     },

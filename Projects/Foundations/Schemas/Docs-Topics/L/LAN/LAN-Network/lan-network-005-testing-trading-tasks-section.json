@@ -1,0 +1,131 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "5",
+    "type": "Testing Trading Tasks Section",
+    "definition": {
+        "text": "The testing environment organizes your strategy-testing resources, grouping tasks and associated backtesting and paper trading sessions",
+        "updated": 1610098745062
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Testing Trading Tasks->Definition",
+            "updated": 1610098836922
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Testing Trading Tasks->Content",
+            "updated": 1610098839938
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Snippets->Note for Hierarchy Tables",
+            "updated": 1610099117367
+        },
+        {
+            "style": "Hierarchy",
+            "text": "Foundations->Testing Trading Tasks->7",
+            "updated": 1610099143777
+        },
+        {
+            "style": "Title",
+            "text": "Project Trading Tasks",
+            "updated": 1610099464447
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Project Trading Tasks->Definition",
+            "updated": 1610099472471
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Project Trading Tasks->Content",
+            "updated": 1610099475424
+        },
+        {
+            "style": "Title",
+            "text": "Exchange Trading Tasks"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Exchange Trading Tasks->Definition",
+            "updated": 1610099304052
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Exchange Trading Tasks->Content",
+            "updated": 1610099319135
+        },
+        {
+            "style": "Title",
+            "text": "Market Trading Tasks",
+            "updated": 1610099570869
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Market Trading Tasks->Definition",
+            "updated": 1610099575741
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Market Trading Tasks->Content",
+            "updated": 1610099578861
+        },
+        {
+            "style": "Title",
+            "text": "Trading Mine Tasks",
+            "updated": 1610099612379
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Trading Mine Tasks->Definition",
+            "updated": 1610099623224
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Trading Mine Tasks->Content",
+            "updated": 1610099626491
+        },
+        {
+            "style": "Title",
+            "text": "Task Manager",
+            "updated": 1610099672822
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task Manager->Definition",
+            "updated": 1610099685252
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task Manager->Content",
+            "updated": 1610099688254
+        },
+        {
+            "style": "Title",
+            "text": "Task",
+            "updated": 1610099791047
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Task->Content",
+            "updated": 1610099795844
+        },
+        {
+            "style": "Callout",
+            "text": "Trading tasks run instances of the Trading Bot, which may run four different types of trading sessions. We shall study those in the next few pages.",
+            "updated": 1610100281413,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые задачи запускают экземпляры торгового бота, который может запускать четыре различных типа торговых сессий. Мы изучим их на следующих нескольких страницах.",
+                    "updated": 1638601234744
+                }
+            ]
+        }
+    ]
+}

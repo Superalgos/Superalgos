@@ -2,18 +2,39 @@
     "type": "API Response Schema",
     "definition": {
         "text": "This node represents the map for the API response. APIs send their data using a JSON object. The children of this node will map this JSON object so that the API Fetcher Bot knows how to extract the data you want.",
-        "updated": 1622863829380
+        "updated": 1622863829380,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел представляет карту для ответа API. API отправляют свои данные с помощью объекта JSON. Дочерние элементы этого узла будут отображать этот объект JSON, чтобы бот API Fetcher Bot знал, как извлекать нужные данные.",
+                "updated": 1638631422718
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The API Map assumes the API Server will respond with string formatted in JSON. This means that the response will be a data structure of nestled objects and arrays. Users will need to map the response format into an API Response Schema by adding children to this node and to this node's children. All these descendants are of the same Node Type API Response Field.",
-            "updated": 1622312357188
+            "updated": 1622312357188,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "API Map предполагает, что сервер API ответит строкой, отформатированной в JSON. Это означает, что ответ будет структурой данных вложенных объектов и массивов. Пользователям потребуется отобразить формат ответа в API Response Schema, добавив дочерние элементы к этому узлу и к дочерним элементам этого узла. Все эти потомки имеют один и тот же тип узла API Response Schema.",
+                    "updated": 1638631679549
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Here is an example of an API's response JSON:",
-            "updated": 1622894576735
+            "updated": 1622894576735,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот пример JSON ответа API:",
+                    "updated": 1638631697783
+                }
+            ]
         },
         {
             "style": "Json",
@@ -23,50 +44,120 @@
         {
             "style": "Text",
             "text": "The main object is the first set of curly brackets { } enclosing everything. As you can see, underneath that there are two object properties named status and data. Status is an object and contains the header information. Data is an array and holds the actual data we are after. As you API Response Field nodes to your API Response Schema node you will be mapping an API response similar to this one.",
-            "updated": 1622894937351
+            "updated": 1622894937351,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основным объектом является первый набор фигурных скобок {}, охватывающих все. Как видите, под ними находятся два свойства объекта с именами status и data. Статус - это объект, содержащий информацию заголовка. Данные - это массив, в котором хранятся фактические данные, которые нам нужны. По мере того, как вы используете узлы API Response Field на свой узел API Response Schema, вы будете отображать ответ API, аналогичный этому.",
+                    "updated": 1638631855666
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "When reading documentation, or looking at raw data held in JSON, it is important to remember that curly brackets { } define objects while square brackets [ ] define arrays."
+            "text": "When reading documentation, or looking at raw data held in JSON, it is important to remember that curly brackets { } define objects while square brackets [ ] define arrays.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При чтении документации или просмотре необработанных данных, содержащихся в JSON, важно помнить, что фигурные скобки { } определяют объекты, а квадратные скобки [ ] определяют массивы.",
+                    "updated": 1638631881425
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "API Response Schema Configuration",
-            "updated": 1622895860644
+            "updated": 1622895860644,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация API Response Schema",
+                    "updated": 1638631897932
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638631906598
+                }
+            ]
         },
         {
             "style": "List",
             "text": "nodePath: the response from the server might include some header type data in addition to the actual data requested. Since the response is a JSON object, then the actual data might be located somewhere within the structure of that object. This property allows you to declare the path to the actual data requested, so as to jump the header-like information.",
-            "updated": 1622864019058
+            "updated": 1622864019058,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "nodePath: ответ сервера может включать некоторые данные типа заголовка в дополнение к фактическим запрошенным данным. Поскольку ответ представляет собой объект JSON, фактические данные могут находиться где-нибудь в структуре этого объекта. Это свойство позволяет вам объявить путь к фактическим запрошенным данным, чтобы перейти к информации, подобной заголовку.",
+                    "updated": 1638631931877
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Why do We Need to Jump the Header?",
-            "updated": 1622864036535
+            "updated": 1622864036535,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Зачем нам нужно перепрыгивать через Заголовок?",
+                    "updated": 1638631961215
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In many cases it will be necessary to make several queries to the API Server in order to fetch all the data (think of pagination). Each page of data arrives at a certain location within the response data structure. That location is what we considered the Data Root.",
-            "updated": 1622864086051
+            "updated": 1622864086051,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во многих случаях необходимо будет сделать несколько запросов к серверу API, чтобы получить все данные (подумайте о разбивке на страницы). Каждая страница данных поступает в определенное место в структуре данных ответа. Это место мы считали корнем данных Data Root.",
+                    "updated": 1638632011513
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If your Endpoint does not support pagination, it is still a good practice to define which part of the JSON object is the Data Root.",
-            "updated": 1622864107476
+            "updated": 1622864107476,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ваша конечная точка не поддерживает разбиение на страницы, рекомендуется определить, какая часть объекта JSON является корнем данных.",
+                    "updated": 1638632040515
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Most Record Properties will be referencing API Response Field nodes that are under the Data Root you defined, but there might be one or two that are not there.  Rather these values may be under the response data structure in general, or at a section that could be considered a header. In that case, there is some special steps you need to follow. At the API Response Field Reference node config, you will need to set up a nodePath property as explained below.",
-            "updated": 1622864199297
+            "updated": 1622864199297,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство свойств Record Properties будут ссылаться на узлы API Response Field, которые находятся в заданном вами корне данных, но могут быть один или два, которых там нет. Скорее, эти значения могут находиться в структуре данных ответа в целом или в разделе, который можно рассматривать как заголовок. В этом случае вам необходимо выполнить некоторые особые действия. В конфигурации узла API Response Field Reference вам нужно будет настроить свойство nodePath, как описано ниже.",
+                    "updated": 1638632175022
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Check the API Response Field Reference node for details on how to setup this property.",
-            "updated": 1621971441459
+            "updated": 1621971441459,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подробную информацию о том, как настроить это свойство, можно найти в узле API Response Field Reference.",
+                    "updated": 1638632234190
+                }
+            ]
         }
     ]
 }

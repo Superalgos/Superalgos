@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Der Docs Topic Name stimmt nicht mit dem Docs Topic Name auf der Seite überein, die Sie löschen möchten.",
                 "updated": 1633899923355
+            },
+            {
+                "language": "RU",
+                "text": "Указанное название темы документов Docs Topic Name не совпадает с названием темы на странице, которую вы хотите удалить.",
+                "updated": 1638531209313
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Seite, die Sie löschen möchten, und geben Sie den korrekten Namen des Docs Topic Name ein, um den Befehl zu verwenden.",
                     "updated": 1633900074562
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте страницу, которую вы хотите удалить, и получите правильное название темы документа Docs Topic Name, которое будет использоваться в команде.",
+                    "updated": 1638531322369
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633900083785
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638531340945
                 }
             ]
         },

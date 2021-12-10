@@ -1,7 +1,14 @@
 {
     "type": "Execution Finished Event",
     "definition": {
-        "text": "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle."
+        "text": "The execution finished event is the event that processes trigger once they have finished an execution cycle. The event is broadcasted to whoever wants to listen, so that other bots may know when the process has finished its execution cycle.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Execution Finished Event - это событие, которое запускается процессами после завершения цикла выполнения. Событие транслируется всем, кто хочет слушать, чтобы другие боты могли узнать, когда процесс завершил свой цикл выполнения.",
+                "updated": 1638786041901
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The execution finished event is responsible for triggering the execution of every process that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice listens to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event."
+            "text": "The execution finished event is responsible for triggering the execution of every process that depends on the data a bot produces. If bot Alice depends on bot Bob, Alice listens to the execution finished event of Bob so that it may start a new execution cycle as soon as Bob finishes its cycle. Alice listens to Bob's execution finished event by establishing a reference from its execution started event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие завершения выполнения (Execution Finished Event) отвечает за запуск каждого процесса, который зависит от данных, производимых ботом. Если бот Алиса зависит от бота Боба, Алиса слушает событие завершения выполнения Боба, чтобы он мог начать новый цикл выполнения, как только Боб завершит свой цикл. Алиса слушает событие завершения выполнения Боба, устанавливая ссылку на событие запуска выполнения.",
+                    "updated": 1638786137527
+                }
+            ]
         }
     ]
 }

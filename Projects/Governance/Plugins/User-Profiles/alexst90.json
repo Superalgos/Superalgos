@@ -1,0 +1,84 @@
+{
+  "type": "User Profile",
+  "name": "alexst90",
+  "config": "{\"signature\":{\"message\":\"alexst90\",\"messageHash\":\"0x77c0973c22e9ab1f3bad631b63b891a8f653a0eb5d4acca9941ef10fe49a1501\",\"v\":\"0x1b\",\"r\":\"0xb9463690e1ed3e60b295b979c79a4d77869198295d1d967a347a34135fd8f39e\",\"s\":\"0x562c1151d608ec4fa9a849a7eac552969607879c13d5cab2c498ffcf10cf45d5\",\"signature\":\"0xb9463690e1ed3e60b295b979c79a4d77869198295d1d967a347a34135fd8f39e562c1151d608ec4fa9a849a7eac552969607879c13d5cab2c498ffcf10cf45d51b\"},\"codeName\":\"alexst90\"}",
+  "project": "Governance",
+  "tokenPowerSwitch": {
+    "type": "Token Power Switch",
+    "name": "New Token Power Switch",
+    "config": "{}",
+    "project": "Governance",
+    "tokenPowerSwitch": [],
+    "id": "33b7af2e-91a4-4aa0-8980-82bb67588b24",
+    "savedPayload": {
+      "position": {
+        "x": 14100.000000000002,
+        "y": 6800.0
+      },
+      "targetPosition": {
+        "x": 14130.0,
+        "y": 6880.0
+      },
+      "floatingObject": {
+        "isPinned": false,
+        "isFrozen": false,
+        "isCollapsed": false,
+        "angleToParent": 1,
+        "distanceToParent": 3,
+        "arrangementStyle": 0
+      },
+      "uiObject": {
+        "isRunning": false
+      }
+    }
+  },
+  "tokensMined": {
+    "type": "Tokens Mined",
+    "name": "New Tokens Mined",
+    "project": "Governance",
+    "id": "f3127024-10c6-4cd9-a777-6b47442fe030",
+    "savedPayload": {
+      "position": {
+        "x": 14170.0,
+        "y": 6715.0
+      },
+      "targetPosition": {
+        "x": 14110.0,
+        "y": 6775.0
+      },
+      "floatingObject": {
+        "isPinned": false,
+        "isFrozen": false,
+        "isCollapsed": false,
+        "angleToParent": 1,
+        "distanceToParent": 3,
+        "arrangementStyle": 0
+      },
+      "uiObject": {
+        "isRunning": false
+      }
+    }
+  },
+  "id": "baf2be92-f0e3-4db0-ab1d-2dd32257bdaa",
+  "savedPayload": {
+    "position": {
+      "x": 14130.0,
+      "y": 6880.0
+    },
+    "targetPosition": {
+      "x": 14070.0,
+      "y": 6805.0
+    },
+    "floatingObject": {
+      "isPinned": false,
+      "isFrozen": false,
+      "isCollapsed": false,
+      "angleToParent": 1,
+      "distanceToParent": 3,
+      "arrangementStyle": 0
+    },
+    "uiObject": {
+      "isRunning": false
+    }
+  }
+}

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Yönetime geçmeden önce Superalgos'un nasıl çalıştığını bilmeniz önemlidir!",
                 "updated": 1637146291519
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем приступить к управлению, важно знать, как работает Superalgos!",
+                "updated": 1639044437637
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Konuşacak çok heyecan verici şeylerimiz var ama önce bunları kolayca takip edebileceğinizden emin olmak istiyorum.",
                     "updated": 1637146318583
+                },
+                {
+                    "language": "RU",
+                    "text": "У нас есть много интересных вещей, о которых можно поговорить, но я хочу убедиться, что вы легко сможете понять, о чем идет речь.",
+                    "updated": 1639044452483
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Henüz yapmadıysanız, devam etmeden önce Başlarken Öğreticiler Eklentisi Çalışma Alanındaki ( Getting Started Tutorials Plugin Workspace ) öğreticileri gözden geçirdiğinizden emin olun!",
                     "updated": 1637146372454
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно ознакомьтесь с учебными материалами в Getting Started Tutorials Plugin Workspace, прежде чем продолжить, если вы еще этого не сделали!",
+                    "updated": 1639044502453
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "İpucu: Uzman olmanıza gerek yok, ancak sistemi nasıl çalıştıracağınızı bilmeniz gerekiyor! Aksi takdirde, süreç kafa karıştırıcı ve hatta sinir bozucu olabilir!",
                     "updated": 1637146395009
+                },
+                {
+                    "language": "RU",
+                    "text": "Не нужно быть экспертом, но вам нужно знать, как работать с системой! В противном случае процесс может сбивать с толку и даже разочаровывать!",
+                    "updated": 1639044519182
                 }
             ]
         }

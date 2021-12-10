@@ -89,7 +89,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             /*
             Validate Target User Profile.
             */
-            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }

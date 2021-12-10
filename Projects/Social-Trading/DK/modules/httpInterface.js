@@ -15,7 +15,7 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
     }
 
     function initialize() {
-        let port = JSON.parse(DK.desktopApp.p2pNetworkClient.node.config).webPort
+        let port = DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort
         /*
         We will create an HTTP Server and leave it running forever.
         */
@@ -42,7 +42,14 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
                     break
                 case 'ClientNode':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(DK.desktopApp.p2pNetworkClient.node), httpResponse)
+                        let clientNode = {
+                            name: DK.desktopApp.p2pNetworkClientIdentity.node.name,
+                            type: DK.desktopApp.p2pNetworkClientIdentity.node.type,
+                            id: DK.desktopApp.p2pNetworkClientIdentity.node.id,
+                            project: DK.desktopApp.p2pNetworkClientIdentity.node.project,
+                            config: JSON.stringify(DK.desktopApp.p2pNetworkClientIdentity.node.config)                            
+                        }
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(clientNode), httpResponse)
                     }
                     break
                 case 'ProjectsSchema':

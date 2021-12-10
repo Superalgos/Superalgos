@@ -33,7 +33,7 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->"
+        "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->Confirm Event Reference->Raise Event Reference->"
     },
     "childrenNodesProperties": [
         {

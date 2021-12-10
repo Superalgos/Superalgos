@@ -1,7 +1,14 @@
 {
     "type": "Time Frames Filter",
     "definition": {
-        "text": "The time frame filters node allows control over which time frames are to be calculated by each indicator bot instance running on the data mining operation."
+        "text": "The time frame filters node allows control over which time frames are to be calculated by each indicator bot instance running on the data mining operation.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Time Frames Filter позволяет контролировать, какие таймфреймы должны вычисляться каждым экземпляром индикаторного бота, запущенным в операции интеллектуального анализа данных.",
+                "updated": 1638364476967
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "Limiting the number of time frames calculated by any given indicator to the few that may be required by a particular trading system has a significant positive impact on performance: it reduces the load on the CPU, the memory requirements, and the requirements of storage space, in proportion with the time frames you remove."
+            "text": "Limiting the number of time frames calculated by any given indicator to the few that may be required by a particular trading system has a significant positive impact on performance: it reduces the load on the CPU, the memory requirements, and the requirements of storage space, in proportion with the time frames you remove.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ограничение количества таймфреймов, рассчитываемых любым индикатором, до нескольких, которые могут потребоваться конкретной торговой системе, оказывает значительное положительное влияние на производительность: это снижает нагрузку на ЦП, требования к памяти и требования к пространству для хранения, пропорционально удаляемым вами таймфреймов.",
+                    "updated": 1638364449661
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When a time frames filter is set up, a Time.Frames.json file is created by the indicator process in the corresponding output folder. This file is read by others&mdash;such as the charting system&mdash;to get the information regarding which time frames are available and which are not, to avoid reporting errors."
+            "text": "When a time frames filter is set up, a Time.Frames.json file is created by the indicator process in the corresponding output folder. This file is read by others&mdash;such as the charting system&mdash;to get the information regarding which time frames are available and which are not, to avoid reporting errors.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При настройке фильтра таймфреймов файл Time.Frames.json создается процессом индикатора в соответствующей выходной папке. Этот файл читают другие, например, система построения графиков, чтобы получить информацию о том, какие временные рамки доступны, а какие нет, чтобы избежать ошибок в отчетах.",
+                    "updated": 1638364402654
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Before applying a time frames filter or changing the configuration, that is, changing which time frames are produced and which are not, it is highly recommended to delete the data corresponding to the affected indicator, to avoid inconsistencies in the data that may later cause confusion."
+            "text": "Before applying a time frames filter or changing the configuration, that is, changing which time frames are produced and which are not, it is highly recommended to delete the data corresponding to the affected indicator, to avoid inconsistencies in the data that may later cause confusion.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед применением фильтра таймфреймов или изменением конфигурации, то есть изменением того, какие таймфреймы создаются, а какие нет, настоятельно рекомендуется удалить данные, соответствующие затронутому индикатору, чтобы избежать несоответствий в данных, которые впоследствии могут вызвать путаницу. ",
+                    "updated": 1638364345821
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When no time frames filter is defined, the bot processes all time frames by default."
+            "text": "When no time frames filter is defined, the bot processes all time frames by default.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если фильтр таймфреймов не задан, бот по умолчанию обрабатывает все таймфреймы.",
+                    "updated": 1638364363948
+                }
+            ]
         },
         {
             "style": "Block",
@@ -30,11 +65,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Time Frames Filter"
+            "text": "Configuring Time Frames Filter",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Time Frames Filter",
+                    "updated": 1638364497595
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
+                    "updated": 1638364534474
+                }
+            ]
         },
         {
             "style": "Text",
@@ -54,11 +103,25 @@
         },
         {
             "style": "Text",
-            "text": " dailyTimeFrames features the time frames corresponding to the daily files* type of data structure; in practical terms, the time frames below one hour."
+            "text": " dailyTimeFrames features the time frames corresponding to the daily files* type of data structure; in practical terms, the time frames below one hour.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "dailyTimeFrames имеет таймфреймы, соответствующие ежедневным файлам* типа структуры данных; на практике таймфрейм меньше одного часа.",
+                    "updated": 1638364834119
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " marketTimeFrames features the time frames corresponding to the market files* type of data structure; in practical terms, the time frames of one hour and above."
+            "text": " marketTimeFrames features the time frames corresponding to the market files* type of data structure; in practical terms, the time frames of one hour and above.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "marketTimeFrames имеет таймфреймы, соответствующие рыночным файлам* типа структуры данных; на практике от одного часа и выше.",
+                    "updated": 1638364973378
+                }
+            ]
         },
         {
             "style": "Text",

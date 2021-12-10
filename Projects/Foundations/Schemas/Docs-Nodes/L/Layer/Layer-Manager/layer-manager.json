@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Менеджер слоев определяет, какие слои будут видны на соответствующей временной диаграмме.",
-                "updated": 1636564822000
+                "text": "Layer Manager определяет, какие слои будут видны на соответствующей временной диаграмме.",
+                "updated": 1638973542784
             }
         ]
     },
@@ -22,12 +22,26 @@
         },
         {
             "style": "Text",
-            "text": "In other words, you use the layers manager node to configure which data products you wish to be made available for visualization purposes on the charts, in particular, on a specific timeline chart to which the layers manager node is attached to."
+            "text": "In other words, you use the layers manager node to configure which data products you wish to be made available for visualization purposes on the charts, in particular, on a specific timeline chart to which the layers manager node is attached to.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, вы используете узел диспетчера слоев Layer Manager, чтобы настроить, какие продукты данных вы хотите сделать доступными для целей визуализации на диаграммах, в частности, на определенной временной шкале, к которой прикреплен узел диспетчера слоев Layer Manager.",
+                    "updated": 1638973599312
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The Layer Manager node usually references a Trading Mine Products or Data Mine Products node in the Data Storage section of the Network Node. Once the reference is established, you may use the Add All Mine Layers button to add the layers corresponding to the referenced node.",
-            "updated": 1619094934893
+            "updated": 1619094934893,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Layer Manager обычно ссылается на узел Trading Mine Products или Data Mine Products в разделе Data Storage сетевого узла Network Node. Как только ссылка будет установлена, вы можете использовать кнопку Add All Mine Layers, чтобы добавить слои, соответствующие указанному узлу.",
+                    "updated": 1638973788537
+                }
+            ]
         },
         {
             "style": "Block",
@@ -36,24 +50,59 @@
         {
             "style": "Title",
             "text": "Layer Manager Configuration",
-            "updated": 1609784094455
+            "updated": 1609784094455,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Layer Manager",
+                    "updated": 1638973843170
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609784101355
+            "updated": 1609784101355,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638973850738
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "visibleLayers keeps track of how many layers the managers is rolled to, that is, how many layers it is displaying."
+            "text": "visibleLayers keeps track of how many layers the managers is rolled to, that is, how many layers it is displaying.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "visibleLayers отслеживает, на сколько слоев переключены менеджеры, то есть сколько слоев он отображает.",
+                    "updated": 1638973875178
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "panelLocation keeps track of the position of the panel relative to the four screen corners."
+            "text": "panelLocation keeps track of the position of the panel relative to the four screen corners.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "panelLocation отслеживает положение панели относительно четырех углов экрана.",
+                    "updated": 1638973898276
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "labelTwoFontSize allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market."
+            "text": "labelTwoFontSize allows adjusting the font size of the second-order label of each layer, displaying the name of the exchange and market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "labelTwoFontSize позволяет настроить размер шрифта метки второго порядка каждого слоя, отображающей название биржи и рынка.",
+                    "updated": 1638973925153
+                }
+            ]
         }
     ]
 }

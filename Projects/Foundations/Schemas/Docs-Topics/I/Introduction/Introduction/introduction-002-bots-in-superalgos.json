@@ -4,111 +4,390 @@
     "type": "Bots In Superalgos",
     "definition": {
         "text": "Bots are a crucial concept in Superalgos, and a good thread to explain how hierarchies interact with each other.",
-        "updated": 1609944023850
+        "updated": 1609944023850,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Боты - важнейшая концепция в Superalgos и хорошая ветка, объясняющая, как иерархии взаимодействуют друг с другом.",
+                "updated": 1637939070957
+            },
+            {
+                "language": "EL",
+                "text": "Τα ρομπότ είναι μια κρίσιμη έννοια στο Superalgos και μια καλή αρχή για να εξηγήσουμε πώς αλληλοεπιδρούν οι ιεραρχίες μεταξύ τους.",
+                "updated": 1638964017793
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "While sometimes people use the terms trading bot, trading strategy, and trading system interchangeably, in Superalgos the distinction is sharp and unequivocal. Let’s start by offering three fundamental definitions:",
-            "updated": 1609944046617
+            "updated": 1609944046617,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя иногда люди используют термины «торговый бот», «торговая стратегия» и «торговая система» как синонимы, в Superalgos различие является резким и недвусмысленным. Давайте начнем с трех основных определений:",
+                    "updated": 1637939113632
+                },
+                {
+                    "language": "EL",
+                    "text": "Ενώ μερικές φορές οι άνθρωποι χρησιμοποιούν εναλλακτικά τους όρους ρομπότ συναλλαγών, στρατηγική συναλλαγών και σύστημα συναλλαγών, στο Superalgos η διάκριση είναι οξεία και ξεκάθαρη. Ας ξεκινήσουμε προσφέροντας τρεις θεμελιώδεις ορισμούς:",
+                    "updated": 1638964027439
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading System: A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies."
+            "text": "Trading System: A trading system is a framework handling the low-level logic that serves to structure the processes and methods used to implement and deploy trading strategies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговая система: торговая система - это структура, обрабатывающая низкоуровневую логику, которая служит для структурирования процессов и методов, используемых для реализации и развертывания торговых стратегий.",
+                    "updated": 1637939152305
+                },
+                {
+                    "language": "EL",
+                    "text": "Σύστημα συναλλαγών: Ένα σύστημα συναλλαγών είναι ένα πλαίσιο που χειρίζεται τη λογική χαμηλού επιπέδου που χρησιμεύει στη δομή των διαδικασιών και των μεθόδων που χρησιμοποιούνται για την εφαρμογή και την ανάπτυξη στρατηγικών συναλλαγών.",
+                    "updated": 1638962955264
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading Strategy: A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions."
+            "text": "Trading Strategy: A trading strategy is the description of a set of actions or events run in stages. Events are triggered upon the validation of precise conditions describing specific market situations. Trading strategies are designed to achieve a specific goal within the broader plan of a trading system via taking and managing positions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговая стратегия Strategy: торговая стратегия - это описание набора действий или событий, выполняемых поэтапно. События инициируются после подтверждения точных условий, описывающих конкретные рыночные ситуации. Торговые стратегии предназначены для достижения конкретной цели в рамках более широкого плана торговой системы посредством открытия позиций и управления ими.",
+                    "updated": 1637939245457
+                },
+                {
+                    "language": "EL",
+                    "text": "Trading Strategy (Στρατηγική Συναλλαγών): Μια στρατηγική συναλλαγών είναι η περιγραφή ενός συνόλου ενεργειών ή γεγονότων που εκτελούνται σε στάδια. Τα γεγονότα ενεργοποιούνται με την επικύρωση ακριβών συνθηκών που περιγράφουν συγκεκριμένες καταστάσεις της αγοράς. Οι στρατηγικές συναλλαγών έχουν σχεδιαστεί για την επίτευξη ενός συγκεκριμένου στόχου εντός του ευρύτερου σχεδίου ενός συστήματος συναλλαγών μέσω λήψης και διαχείρισης θέσεων.",
+                    "updated": 1638963081412
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trading Bot: A trading bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots)—applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session."
+            "text": "Trading Bot: A trading bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots)—applies the trading logic defined on a trading system to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый бот: торговый бот - это компьютерная программа, которая - на основе наборов данных, представленных в качестве продуктов другими ботами (счетные датчики, индикаторы и даже другие торговые роботы) - применяет торговую логику, определенную в торговой системе, с одной стороны, для  полного моделирования торговли (вывод наборов данных, включающих сделки, действие стратегий, проверка условий и т. д.), а с другой стороны, управлять исполнением ордеров во время форвардного тестирования или торговой сессии в реальном времени.",
+                    "updated": 1637939479814
+                },
+                {
+                    "language": "EL",
+                    "text": "Ρομπότ Συναλλαγών: Ένα ρομπότ συναλλαγών είναι ένα πρόγραμμα υπολογιστή που -με βάση σύνολα δεδομένων που εκτίθενται ως προϊόντα από άλλα ρομπότ (αισθητήρες μέτρησης, δείκτες και ακόμη και άλλα ρομπότ συναλλαγών) - εφαρμόζει τη λογική συναλλαγών που ορίζεται σε ένα σύστημα συναλλαγών για να δημιουργήσει, από τη μία πλευρά, μια πλήρη προσομοίωση συναλλαγών (έκδοση συνόλων δεδομένων που περιλαμβάνουν συναλλαγές, δράση στρατηγικών, επικύρωση συνθηκών κ.λπ.) και, από την άλλη πλευρά, διαχείριση της εκτέλεσης των εντολών όταν βρίσκεστε σε δοκιμαστική ή πραγματική συνεδρία συναλλαγών.",
+                    "updated": 1638964083474
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In Superalgos, trading systems and trading strategies are definitions describing trading logic, while the trading bot is the computer program that uses the trading logic to test strategies, produce simulations, and trade."
+            "text": "In Superalgos, trading systems and trading strategies are definitions describing trading logic, while the trading bot is the computer program that uses the trading logic to test strategies, produce simulations, and trade.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Superalgos торговые системы и торговые стратегии - это определения, описывающие торговую логику, а торговый бот - это компьютерная программа, которая использует торговую логику для тестирования стратегий, моделирования и торговли.",
+                    "updated": 1637939519505
+                },
+                {
+                    "language": "EL",
+                    "text": "Στο Superalgos, τα συστήματα συναλλαγών και οι στρατηγικές συναλλαγών είναι ορισμοί που περιγράφουν τη λογική των συναλλαγών, ενώ το ρομπότ συναλλαγών είναι το πρόγραμμα υπολογιστή που χρησιμοποιεί τη λογική συναλλαγών για να δοκιμάσει στρατηγικές, να παράγει προσομοιώσεις και να κάνει συναλλαγές.",
+                    "updated": 1638964063091
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This documentation expands extensively on these three concepts. For the time being, the above distinction is sufficient to continue.",
-            "updated": 1609944079526
+            "updated": 1609944079526,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этой документации подробно рассматриваются эти три концепции. Пока что вышеупомянутого различия достаточно, чтобы продолжить.",
+                    "updated": 1637939553464
+                },
+                {
+                    "language": "EL",
+                    "text": "Αυτό το κείμενο επεκτείνεται εκτενώς σε αυτές τις τρεις έννοιες. Προς το παρόν, η παραπάνω διάκριση αρκεί για να συνεχίσετε.",
+                    "updated": 1638963387204
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before diving into an in-depth exploration of each hierarchy, a quick overview is in order. One of the most important underlying concepts in Superalgos is that of bots. Let’s then use bots as the guiding thread to show you how the different hierarchies in Superalgos interact with each other."
+            "text": "Before diving into an in-depth exploration of each hierarchy, a quick overview is in order. One of the most important underlying concepts in Superalgos is that of bots. Let’s then use bots as the guiding thread to show you how the different hierarchies in Superalgos interact with each other.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем углубиться в изучение каждой иерархии, сделаем краткий обзор. Одна из наиболее важных концепций, лежащих в основе Superalgos, - это боты. Затем давайте воспользуемся ботами в качестве ориентира, чтобы показать вам, как различные иерархии в Superalgos взаимодействуют друг с другом.",
+                    "updated": 1637939606532
+                },
+                {
+                    "language": "EL",
+                    "text": "Πριν μπούμε σε μια εις βάθος εξερεύνηση κάθε ιεραρχίας, χρειάζεται μια γρήγορη επισκόπηση. Μία από τις πιο σημαντικές υποκείμενες έννοιες στο Superalgos είναι αυτή των ρομπότ. Ας χρησιμοποιήσουμε στη συνέχεια τα ρομπότ ως κατευθυντήριο νήμα για να σας δείξουμε πώς αλληλεπιδρούν μεταξύ τους οι διαφορετικές ιεραρχίες στο Superalgos.",
+                    "updated": 1638964100273
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Bot Definitions"
+            "text": "Bot Definitions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определения ботов",
+                    "updated": 1637939648067
+                },
+                {
+                    "language": "EL",
+                    "text": "Ορισμοί Ρομπότ ",
+                    "updated": 1638964119354
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Bots are a very fluid concept within superalgos. You can think of them like a set of personal assistants each with a very specific job to do. A sensor bot collects information. An indicator bot preforms calculations on that information to create trading indicators. A trading bot places trade orders or backtests strategies. A social bot sends notifications using a social platform based on the preformance of the other bots, etc.",
-            "updated": 1637698573606
+            "text": "In the pages describing data mines and trading mines you will learn that bots are algorithms defined in such mines. That is, mines hold the source code and configuration—the complete set of definitions—of the three existing kinds of bots: sensors, indicators, and the trading bot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На страницах, описывающих источники данных и торговые данные, вы узнаете, что боты - это алгоритмы, определенные в таких источниках. То есть источники данных содержат исходный код и конфигурацию - полный набор определений - трех существующих видов ботов: датчиков, индикаторов и торгового бота.",
+                    "updated": 1637940402491
+                },
+                {
+                    "language": "EL",
+                    "text": "Στις σελίδες που περιγράφουν τα εξορυκτήρια δεδομένων και τα εξορυκτήρια συναλλαγών θα μάθετε ότι τα ρομπότ είναι αλγόριθμοι που ορίζονται σε τέτοια εξορυκτήρια. Δηλαδή, τα εξορυκτήρια διατηρούν τον πηγαίο κώδικα και τη διαμόρφωση - το πλήρες σύνολο ορισμών - των τριών υπαρχόντων ειδών ρομπότ: αισθητήρες, δείκτες και τα ρομπότ συναλλαγών.",
+                    "updated": 1638964140838
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the pages describing data mines and trading mines you will learn that bots are algorithms defined within these mines. That is, mines hold the source code and configuration—the complete set of definitions—of the existing kinds of bots: sensors, indicators, social, learning, the trading bots, etc. You can think of mines as the home for each kind of bot.",
-            "updated": 1637698856223
-        },
-        {
-            "style": "Text",
-            "text": "As a user, you may use all bots in data mines shipping with the system. As a developer, you may create your own mines to develop your own bots. Anything that can be executed using a computer algorithm can be turned into a bot! The sky is the limit, with developers adding new bots regularly.",
-            "updated": 1637698955490
+            "text": "As a user, you may use all bots in data mines shipping with the system. As a developer, you may create your own mines to develop your own sensors, indicators, and even a new trading bot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как пользователь, вы можете использовать всех ботов для сбора данных, поставляемых с системой. Как разработчик, вы можете создавать свои собственные сборщики данных для разработки собственных датчиков, индикаторов и даже нового торгового бота.",
+                    "updated": 1637940510087
+                },
+                {
+                    "language": "EL",
+                    "text": "Ως χρήστης, μπορείτε να χρησιμοποιήσετε όλα τα ρομπότ στα εξορυκτήρια δεδομένων που δίδονται με το σύστημα. Ως προγραμματιστής, μπορείτε να δημιουργήσετε τα δικά σας εξορυκτήρια για να αναπτύξετε τους δικούς σας αισθητήρες, δείκτες, ακόμη και ένα νέο ρομπότ συναλλαγών.",
+                    "updated": 1638963983018
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Bot Instances"
+            "text": "Bot Instances",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляры ботов",
+                    "updated": 1637940566659
+                },
+                {
+                    "language": "EL",
+                    "text": "Είδη Ρομπότ",
+                    "updated": 1638964180331
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Using any of these bots entails creating an instance of the bot definition, so that this instance may run the bot’s code. You will seldom need to create bot instances manually, as the process of installing a new market creates all necessary bot instances for your data mining operation and for running trading sessions (by the way, markets are defined and installed from within the crypto ecosystem hierarchy)."
+            "text": "Using any of these bots entails creating an instance of the bot definition, so that this instance may run the bot’s code. You will seldom need to create bot instances manually, as the process of installing a new market creates all necessary bot instances for your data mining operation and for running trading sessions (by the way, markets are defined and installed from within the crypto ecosystem hierarchy).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование любого из этих ботов влечет за собой создание экземпляра определения бота, чтобы этот экземпляр мог запускать код бота. Вам редко придется создавать экземпляры ботов вручную, поскольку в процессе установки нового рынка создаются все необходимые экземпляры ботов для вашей операции интеллектуального анализа данных и для проведения торговых сессий.",
+                    "updated": 1637940663667
+                },
+                {
+                    "language": "EL",
+                    "text": "Η χρήση οποιουδήποτε από αυτά τα bot συνεπάγεται τη δημιουργία ενός στιγμιότυπου του ορισμού του ρομπότ, έτσι ώστε αυτό το στιγμιότυπο να μπορεί να εκτελέσει τον κώδικα του ρομπότ. Σπάνια θα χρειαστεί να δημιουργήσετε χειροκίνητα στιγμιότυπα ρομπότ, καθώς η διαδικασία εγκατάστασης μιας νέας αγοράς δημιουργεί όλα τα απαραίτητα στιγμιότυπα ρομπότ για τη λειτουργία εξόρυξης δεδομένων και για την εκτέλεση συνεδριάσεων συναλλαγών (παρεμπιπτόντως, οι αγορές ορίζονται και εγκαθίστανται μέσα από την ιεραρχία του κρυπτογραφικού οικοσυστήματος) .",
+                    "updated": 1638964461015
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A bot instance is a reference to a bot as defined in a data or trading mine. The instance of the bot runs the defined processes and generates the defined data products."
+            "text": "A bot instance is a reference to a bot as defined in a data or trading mine. The instance of the bot runs the defined processes and generates the defined data products.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляр бота - это ссылка на бота, как это определено в сборщике данных или торговле. Экземпляр бота запускает определенные процессы и генерирует определенные информационные продукты.",
+                    "updated": 1637940707860
+                },
+                {
+                    "language": "EL",
+                    "text": "Ένα στυγμιότυπο του ρομπότ είναι μια αναφορά σε ένα ρομπότ όπως ορίζεται σε ένα εξορυκτήριο δεδομένων ή συναλλαγών. Το στιγμιότυπο του ρομπότ εκτελεί τις καθορισμένες διεργασίες και δημιουργεί τα καθορισμένα προϊόντα δεδομένων.",
+                    "updated": 1638964737284
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Bot instances are run from within the network hierarchy. You use task managers and tasks to control bot instances, meaning, to start and stop them. Also in the network hierarchy lies the configurations about where the data they generate is to be stored."
+            "text": "Bot instances are run from within the network hierarchy. You use task managers and tasks to control bot instances, meaning, to start and stop them. Also in the network hierarchy lies the configurations about where the data they generate is to be stored.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Экземпляры ботов запускаются из сетевой иерархии. Вы используете диспетчеры задач и задачи для управления экземплярами ботов, то есть для их запуска и остановки. Также в сетевой иерархии находятся конфигурации о том, где должны храниться генерируемые ими данные.",
+                    "updated": 1637940741408
+                },
+                {
+                    "language": "EL",
+                    "text": "Τα στιγμιότυπα του ρομπότ εκτελούνται μέσα από την ιεραρχία του δικτύου. Χρησιμοποιείτε διαχειριστές εργασιών και εργασίες για να ελέγχετε στιγμιότυπα του ρομπότ, δηλαδή, για να τα ξεκινήσετε και να τα σταματήσετε. Επίσης, στην ιεραρχία του δικτύου βρίσκονται οι διαμορφώσεις σχετικά με το πού θα αποθηκευτούν τα δεδομένα που δημιουργούν.",
+                    "updated": 1638964842812
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Bot Dependencies"
+            "text": "Bot Dependencies",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Зависимости ботов",
+                    "updated": 1637940762763
+                },
+                {
+                    "language": "EL",
+                    "text": "Εξαρτήσεις Των Ρομπότ",
+                    "updated": 1638964881238
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Upon execution, bot instances run in a branched sequence determined by their status and data dependencies. For instance, if bot Alice depends on the data produced by bot Bob, then Alice is configured to run as soon as Bob finishes its execution. These configurations are already set up in the corresponding data mines for all existing bots. Therefore, you only need to worry about this if you develop new bots."
+            "text": "Upon execution, bot instances run in a branched sequence determined by their status and data dependencies. For instance, if bot Alice depends on the data produced by bot Bob, then Alice is configured to run as soon as Bob finishes its execution. These configurations are already set up in the corresponding data mines for all existing bots. Therefore, you only need to worry about this if you develop new bots.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После выполнения экземпляры ботов запускаются в разветвленной последовательности, определяемой их статусом и зависимостями данных. Например, если бот Алиса зависит от данных, созданных ботом Бобом, то Алиса настроена на запуск, как только Боб завершит свое выполнение. Эти конфигурации уже настроены в соответствующих сборщиках данных для всех существующих ботов. Следовательно, вам нужно беспокоиться об этом, только если вы разрабатываете новых ботов.",
+                    "updated": 1637940854084
+                },
+                {
+                    "language": "EL",
+                    "text": "Κατά την εκτέλεση, τα στιγμιότυπα του ρομπότ εκτελούνται σε μια διακλαδισμένη ακολουθία που καθορίζεται από την κατάστασή τους και τις εξαρτήσεις δεδομένων. Για παράδειγμα, εάν το ρομπότ Alice εξαρτάται από τα δεδομένα που παράγονται από το ρομπότ Bob, τότε το Alice έχει ρυθμιστεί να εκτελείται μόλις το Bob ολοκληρώσει την εκτέλεσή του. Αυτές οι διαμορφώσεις έχουν ήδη ρυθμιστεί στα αντίστοιχα εξορυκτήρια δεδομένων για όλα τα υπάρχοντα ρομπότ. Επομένως, χρειάζεται να ανησυχείτε μόνο για αυτό εάν αναπτύξετε νέα ρομπότ.",
+                    "updated": 1638964976036
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "What you do need to understand as a user is that, if Alice depends on data Bob produces, then Bob needs to be running for Alice to do her job. If Bob is not running, then Alice can only sit and wait for Bob to do his part first."
+            "text": "What you do need to understand as a user is that, if Alice depends on data Bob produces, then Bob needs to be running for Alice to do her job. If Bob is not running, then Alice can only sit and wait for Bob to do his part first.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что вам действительно нужно понять как пользователю, так это то, что если Алиса зависит от данных, которые производит Боб, то Боб должен работать, чтобы Алиса выполняла свою работу. Если Боб не бежит, Алиса может только сидеть и ждать, пока Боб сделает свою часть работы первым.",
+                    "updated": 1637940905925
+                },
+                {
+                    "language": "EL",
+                    "text": "Αυτό που πρέπει να καταλάβετε ως χρήστης είναι ότι, εάν το Alice εξαρτάται από τα δεδομένα που παράγει το Bob, τότε το Bob πρέπει να τρέχει για να κάνει το Alice τη δουλειά του. Εάν το Μπομπ δεν τρέχει, τότε το Alice μπορεί μόνο να κάθεται και να περιμένει τον Μπομπ να κάνει πρώτα τη δουλειά του.",
+                    "updated": 1638965043059
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A good example of such dependencies may be found when running a live trading session. In such a case, the trading bot depends on the sensor and all indicator bots used in the referenced trading system. Indicators must process the data so that the trading bot may analyze it in realtime. Therefore, before running a live trading session, the data mining operation must be running and up to date."
-        },
-        {
-            "style": "Text",
-            "text": "Bots need to know what kind of data they will need to access to do its job. Trading bots need to know which market of which exchange they should work with. Exchanges and markets are defined in the crypto ecosystem hierarchy. Bots obtain that information by establishing references with the appropriate markets in that hierarchy. It also needs to know which type of trading session it should run, and what trading system’s rules it should follow. For those reasons, trading bots are paired with a specific session, which in turn, references a trading system.",
-            "updated": 1637699705206
-        },
-        {
-            "style": "Text",
-            "text": "Trading systems are themselves hierarchies. You may create a trading system by following a framework in which strategies are described in stages. You do not need to code to create a strategy, as the rules are written with simple mathematical statements. However, both basic and advanced knowledge of JavaScript will give you an edge. You may test and deploy your trading system by running trading sessions from within the network hierarchy."
+            "text": "A good example of such dependencies may be found when running a live trading session. In such a case, the trading bot depends on the sensor and all indicator bots used in the referenced trading system. Indicators must process the data so that the trading bot may analyze it in realtime. Therefore, before running a live trading session, the data mining operation must be running and up to date.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хорошим примером является запуск торговой сессии в реальном времени. В таком случае торговый бот зависит от датчика и всех индикаторных ботов, используемых в указанной торговой системе. Индикаторы должны обрабатывать данные, чтобы торговый бот мог анализировать их в реальном времени. Поэтому, прежде чем запускать торговую сессию в реальном времени, операция интеллектуального анализа данных должна быть запущена и обновляться.",
+                    "updated": 1637941085371
+                },
+                {
+                    "language": "EL",
+                    "text": "Ένα καλό παράδειγμα τέτοιων εξαρτήσεων μπορεί να βρεθεί κατά την εκτέλεση μιας πραγματικής συνεδρίας συναλλαγών. Σε μια τέτοια περίπτωση, το ρομπότ συναλλαγών εξαρτάται από τον αισθητήρα και όλα τα ρομπότ ένδειξης που χρησιμοποιούνται στο συγκεκριμένο σύστημα συναλλαγών. Οι δείκτες πρέπει να επεξεργάζονται τα δεδομένα έτσι ώστε το ρομπότ συναλλαγών να μπορεί να τα αναλύσει σε πραγματικό χρόνο. Επομένως, πριν από την εκτέλεση μιας πραγματικής συνεδρίας συναλλαγών, η λειτουργία εξόρυξης δεδομένων πρέπει να εκτελείται και να είναι ενημερωμένη.",
+                    "updated": 1638965146449
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Bots Execution"
+            "text": "Bots Execution",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск ботов",
+                    "updated": 1637941114442
+                },
+                {
+                    "language": "EL",
+                    "text": "Λειτουργία των ρομπότ",
+                    "updated": 1638965221412
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each bot runs for as long as it may require to perform its job, usually in the order of a few seconds, and remains asleep until the next cycle is due. That is, bots run for short bursts, in frequent cycles. The reason for this behavior is that bots are prepared to read live data feeds and process it online."
+            "text": "Each bot runs for as long as it may require to perform its job, usually in the order of a few seconds, and remains asleep until the next cycle is due. That is, bots run for short bursts, in frequent cycles. The reason for this behavior is that bots are prepared to read live data feeds and process it online.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый бот работает столько времени, сколько может потребоваться для выполнения своей работы, обычно порядка нескольких секунд, и остается спящим до наступления следующего цикла. То есть боты запускаются короткими очередями, частыми циклами. Причина такого поведения в том, что боты готовы читать потоки данных в реальном времени и обрабатывать их онлайн.",
+                    "updated": 1637941148484
+                },
+                {
+                    "language": "EL",
+                    "text": "Κάθε ρομπότ λειτουργεί για όσο διάστημα μπορεί να χρειαστεί για να εκτελέσει τη δουλειά του, συνήθως της τάξης των λίγων δευτερολέπτων, και παραμένει σε κατάσταση ύπνου μέχρι να ολοκληρωθεί ο επόμενος κύκλος. Δηλαδή, τα ρομπότ τρέχουν για σύντομο χρόνο, σε συχνούς τακτά διαστήματα. Ο λόγος για αυτήν τη συμπεριφορά είναι ότι τα ρομπότ είναι έτοιμα να διαβάζουν ζωντανές ροές δεδομένων και να τις επεξεργάζονται στο διαδίκτυο.",
+                    "updated": 1638965334255
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the end, bots can be created to access and use data from all hierarchies within the Superalgos ecosystem. They use this data to preform a job that helps the whole system work together to acomplish fine tuned effective trading!",
-            "updated": 1637699645798
+            "text": "Bots need to know which market of which exchange they should work with. Exchanges and markets are defined in the crypto ecosystem hierarchy. Bots obtain that information by establishing references with the appropriate markets in that hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Боты должны знать, на каком рынке и на какой бирже им следует работать. Биржи и рынки определены в иерархии крипто-экосистемы. Боты получают эту информацию, устанавливая ссылки на соответствующие рынки в этой иерархии.",
+                    "updated": 1637941171007
+                },
+                {
+                    "language": "EL",
+                    "text": "Τα ρομπότ πρέπει να γνωρίζουν με ποια αγορά από ποιο χρηματιστήριο θα πρέπει να συνεργαστούν. Τα χρηματιστήρια και οι αγορές ορίζονται στην ιεραρχία του οικοσυστήματος κρυπτογράφησης. Τα ρομπότ αποκτούν αυτές τις πληροφορίες καθιερώνοντας αναφορές με τις κατάλληλες αγορές σε αυτήν την ιεραρχία.",
+                    "updated": 1638965424331
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "In the case of the trading bot, it also needs to know which type of trading session it should run, and what trading system’s rules it should follow. For those reasons, trading bots are paired with a specific session, which in turn, references a trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае с торговым ботом ему также необходимо знать, какой тип торговой сессии он должен запустить и каким правилам торговой системы он должен следовать. По этим причинам торговые боты связаны с определенной сессией, которая, в свою очередь, ссылается на торговую систему.",
+                    "updated": 1637941199948
+                },
+                {
+                    "language": "EL",
+                    "text": "Στην περίπτωση του ρομπότ συναλλαγών, πρέπει επίσης να γνωρίζει ποιον τύπο συνεδρίας συναλλαγών θα πρέπει να εκτελέσει και ποιους κανόνες συστήματος συναλλαγών πρέπει να ακολουθεί. Για αυτούς τους λόγους, τα ρομπότ συναλλαγών συνδυάζονται με μια συγκεκριμένη συνεδρία, η οποία με τη σειρά της αναφέρεται σε ένα σύστημα συναλλαγών.",
+                    "updated": 1638965484845
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Trading systems are themselves hierarchies. You may create a trading system by following a framework in which strategies are described in stages. You do not need to code to create a strategy, as the rules are written with simple mathematical statements. However, both basic and advanced knowledge of JavaScript will give you an edge. You may test and deploy your trading system by running trading sessions from within the network hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые системы сами по себе являются иерархиями. Вы можете создать торговую систему, следуя структуре, в которой стратегии описываются поэтапно. Вам не нужно писать код для создания стратегии, так как правила написаны с помощью простых математических операторов. Однако как базовые, так и продвинутые знания JavaScript дадут вам преимущество. Вы можете протестировать и развернуть свою торговую систему, запустив торговые сессии из сетевой иерархии.",
+                    "updated": 1637941289667
+                },
+                {
+                    "language": "EL",
+                    "text": "Trading systems (Τα συστήματα συναλλαγών) είναι από μόνα τους ιεραρχίες. Μπορείτε να δημιουργήσετε ένα σύστημα συναλλαγών ακολουθώντας ένα πλαίσιο στο οποίο οι στρατηγικές περιγράφονται σταδιακά. Δεν χρειάζεται να γράψετε κώδικα για να δημιουργήσετε μια στρατηγική, καθώς οι κανόνες γράφονται με απλές μαθηματικές προτάσεις. Ωστόσο, τόσο η βασική όσο και η προηγμένη γνώση JavaScript θα σας δώσουν ένα πλεονέκτημα. Μπορείτε να δοκιμάσετε και να αναπτύξετε το σύστημα συναλλαγών σας εκτελώντας συνεδρίες συναλλαγών μέσα από την ιεραρχία του δικτύου.",
+                    "updated": 1638965557790
+                }
+            ]
         },
         {
             "style": "Text",

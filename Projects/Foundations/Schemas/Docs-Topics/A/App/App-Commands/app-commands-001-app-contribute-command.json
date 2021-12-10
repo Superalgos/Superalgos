@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Mit diesem Befehl können Sie einen Beitrag zum Projekt leisten. Der Beitrag geht an das Superalgos-Repository über einen Pull Request von Ihrer Superalgos fork.",
                 "updated": 1636810389931
+            },
+            {
+                "language": "RU",
+                "text": "Эта команда позволяет вам вносить свой вклад в проект. Вклад поступает в репозиторий Superalgos через Pull Request из вашего форка Superalgos.",
+                "updated": 1637946978081
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "DE",
                     "text": "Dieser Befehl sendet alle Änderungen, die Sie an den Docs-Seiten, aber auch an allen Dateien innerhalb des Superalgos-Ordners (außer den Ordnern My-Workspaces, Data-Storage und My-Logs) vorgenommen haben, an Ihren Fork auf Github.com. Es wird sie auch von Ihrem Fork an das Main Superalgos Repository senden. Und zwar vom Current Branch zum Contributions Branch, der in der Fußzeile dieser Seite erwähnt wird.",
                     "updated": 1636810799062
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта команда отправит все изменения, внесенные вами, а также в любой файл в папке Superalgos (за исключением папок My-Workspaces, Data-Storage и My-Logs) в вашу ветку на Github.com. Он также отправит их с вашего форка в основной репозиторий Superalgos. Он будет делать это специально из текущей ветви в ветку вкладов, упомянутую в нижнем колонтитуле этой страницы.",
+                    "updated": 1637947122767
                 }
             ]
         },
@@ -51,13 +61,23 @@
                     "language": "DE",
                     "text": "Verwenden Sie niemals Ihren Superalgos-Ordner, um persönliche Dateien zu speichern, da der gesamte Ordner, mit Ausnahme der wenigen oben erwähnten Ausnahmen, über das Internet an eine öffentliche Website gesendet werden kann.",
                     "updated": 1636810844509
+                },
+                {
+                    "language": "RU",
+                    "text": "Никогда не используйте папку Superalgos для хранения личных файлов, так как вся папка, за исключением нескольких упомянутых выше исключений, может быть отправлена ​​через Интернет на общедоступный сайт.",
+                    "updated": 1637947145035
                 }
             ]
         },
         {
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
+            "updated": 1638830624336
+        },
+        {
             "style": "Important",
-            "text": "In most cases, contributions must go from the develop branch to the develop branch, or from the plugins-docs branch to the plugins-docs branch, unless you have previously agreed with team members that you will send a contribution from master to master.",
-            "updated": 1622028905753,
+            "text": "In most cases, contributions must go from the develop branch to the develop branch, unless you have previously agreed with team members that you will send a contribution from master to master.",
+            "updated": 1638830652823,
             "translations": [
                 {
                     "language": "ES",
@@ -68,13 +88,18 @@
                     "language": "DE",
                     "text": "In den meisten Fällen müssen Beiträge(contributions) vom develop branch zum develop branch oder vom plugins-docs branch zum plugins-docs branch gehen, es sei denn, Sie haben vorher mit den Teammitgliedern vereinbart, dass Sie einen Beitrag von master zu master schicken.",
                     "updated": 1636811150520
+                },
+                {
+                    "language": "RU",
+                    "text": "В большинстве случаев вклады должны поступать из ветки разработки в ветку разработки или из ветви plugins-docs в ветку plugins-docs, если вы ранее не договорились с членами команды, что вы отправите вклад от мастера мастеру.",
+                    "updated": 1637947186101
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead, all contributions are expected to go to the develop or the plugins-docs branches, where many users are testing that branch every day. Contributions of plugins and Docs may reach the master branch often. Contributions to the develop branch will reach the master branch on the next release.",
-            "updated": 1622029260459,
+            "text": "Master is our stable branch and it is very unlikely that we are going to merge contributions there. Instead, all contributions are expected to go to the develop branch, where many users are testing that branch every day.  Contributions to the develop branch will reach the master branch on the next release.",
+            "updated": 1638831440396,
             "translations": [
                 {
                     "language": "ES",
@@ -85,6 +110,11 @@
                     "language": "DE",
                     "text": "Master ist unser stable branch und es ist sehr unwahrscheinlich, dass wir contributions dorthin mergen werden. Stattdessen wird erwartet, dass alle contributions in den Zweigen develop oder plugins-docs landen, wo viele Benutzer diese branches jeden Tag testen. Beiträge zu Plugins und Docs werden oft den Master-branch erreichen. Contributions zum develop branch werden den master branch bei der nächsten Veröffentlichung erreichen.",
                     "updated": 1636811857881
+                },
+                {
+                    "language": "RU",
+                    "text": "Master - это наша стабильная ветка, и очень маловероятно, что мы собираемся объединить туда вклады. Вместо этого ожидается, что все вклады будут направляться в ветки разработки или plugins-docs, где многие пользователи тестируют эту ветку каждый день. Добавленные плагины и документы могут часто попадать в основную ветку. Вклады в ветку разработки поступят в главную ветку в следующем выпуске.",
+                    "updated": 1637947233363
                 }
             ]
         },
@@ -102,6 +132,11 @@
                     "language": "DE",
                     "text": "Es ist auch sehr unwahrscheinlich, dass Beiträge aus dem master branch in den develop branch gemerged werden, da dies normalerweise zu Konflikten beim mergen führen kann.",
                     "updated": 1636811942836
+                },
+                {
+                    "language": "RU",
+                    "text": "Также очень маловероятно, что вклады, поступающие из основной ветки, будут объединены в ветвь разработки, поскольку это обычно может привести к конфликтам слияния.",
+                    "updated": 1637947263874
                 }
             ]
         },
@@ -118,12 +153,24 @@
                     "language": "DE",
                     "text": "Prüfen Sie in der Fußzeile der Dokumente, mit welchen Zweigen Sie arbeiten, bevor Sie Ihre contributions einreichen!",
                     "updated": 1636812025309
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте нижний колонтитул Документов, чтобы узнать, с какими ветвями вы работаете, прежде чем отправлять свои материалы!",
+                    "updated": 1637947301029
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Syntax"
+            "text": "Syntax",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1637947314768
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -132,7 +179,14 @@
         },
         {
             "style": "Title",
-            "text": "Parameters"
+            "text": "Parameters",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры",
+                    "updated": 1637947327900
+                }
+            ]
         },
         {
             "style": "List",
@@ -143,6 +197,11 @@
                     "language": "DE",
                     "text": "Message: Geben Sie eine kurze Beschreibung, worum es in Ihrer contribution geht. Die Angabe ist freiwillig, wird aber geschätzt.",
                     "updated": 1636812085622
+                },
+                {
+                    "language": "RU",
+                    "text": "Message: введите краткое описание того, о чем идет речь. Это необязательно, но приветствуется.",
+                    "updated": 1637947380485
                 }
             ]
         },
@@ -155,6 +214,11 @@
                     "language": "DE",
                     "text": "Beispiel (dieser Befehl reicht für Übersetzungen vollkommen aus. Denken sie daran vor dem app.contribute command den docs.save command auszuführen um änderungen zu speichern)",
                     "updated": 1636812385303
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1637947389686
                 }
             ]
         },
@@ -172,6 +236,11 @@
                     "language": "DE",
                     "text": "Für Entwickler:",
                     "updated": 1636812168426
+                },
+                {
+                    "language": "RU",
+                    "text": "Для разработчиков",
+                    "updated": 1637947411633
                 }
             ]
         },
@@ -184,6 +253,11 @@
                     "language": "DE",
                     "text": "Dies ist die Funktion des Befehls:",
                     "updated": 1636812191434
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот что делают команды:",
+                    "updated": 1637947457061
                 }
             ]
         },
@@ -196,6 +270,11 @@
                     "language": "DE",
                     "text": "git.add: fügt die Änderungen, die Sie an beitragsfähigen Dateien vorgenommen haben, einem Git-Commit hinzu.",
                     "updated": 1636812217041
+                },
+                {
+                    "language": "RU",
+                    "text": "git.add: добавляет изменения, которые вы внесли в дополнительные файлы, в коммит git.",
+                    "updated": 1637947488950
                 }
             ]
         },
@@ -207,6 +286,11 @@
                     "language": "DE",
                     "text": "git.commit: überträgt alle Änderungen.",
                     "updated": 1636812231989
+                },
+                {
+                    "language": "RU",
+                    "text": "git.commit: фиксирует все изменения.",
+                    "updated": 1637947507244
                 }
             ]
         },
@@ -218,6 +302,11 @@
                     "language": "DE",
                     "text": "git.push: überträgt die Änderungen auf Ihren Fork.",
                     "updated": 1636812247666
+                },
+                {
+                    "language": "RU",
+                    "text": "git.push: вносит изменения в вашу ветку.",
+                    "updated": 1637947595681
                 }
             ]
         },
@@ -229,6 +318,11 @@
                     "language": "DE",
                     "text": "github.createPullRequest: erstellt einen Pull Request im Superalgos Repository, oder fügt Commits zu einem bestehenden Pull Request hinzu.",
                     "updated": 1636812305579
+                },
+                {
+                    "language": "RU",
+                    "text": "github.createPullRequest: создает Pull Request в репозитории Superalgos или добавляет коммиты в существующий Pull Request.",
+                    "updated": 1637947616979
                 }
             ]
         },
@@ -239,7 +333,14 @@
         },
         {
             "style": "Title",
-            "text": "Authentication"
+            "text": "Authentication",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Авторизация",
+                    "updated": 1637947633057
+                }
+            ]
         },
         {
             "style": "Text",
@@ -250,6 +351,11 @@
                     "language": "DE",
                     "text": "Damit der App Contribute-Befehl ordnungsgemäß ausgeführt werden kann, sind zwei verschiedene Authentifizierungen erforderlich:",
                     "updated": 1636812413275
+                },
+                {
+                    "language": "RU",
+                    "text": "Для правильной работы команды App Contribute требуются две разные аутентификации:",
+                    "updated": 1637947658808
                 }
             ]
         },
@@ -262,13 +368,25 @@
                     "language": "DE",
                     "text": "Git Authentication: Wenn Sie diesen Befehl zum ersten Mal ausführen, öffnet Git ein Popup-Fenster, in dem Sie nach Ihren Github.com-Anmeldedaten gefragt werden. Dies geschieht nur einmal. Git verwendet diese Anmeldedaten, um den commit an Ihren Superalgos-Fork auf Github.com zu übertragen.",
                     "updated": 1636812477503
+                },
+                {
+                    "language": "RU",
+                    "text": "Git Authentication: при первом запуске этой команды Git откроет всплывающее окно, в котором вас попросят ввести учетные данные Github.com. Это случается только один раз. Git будет использовать эти учетные данные для отправки фиксации на ваш форк Superalgos на Github.com.",
+                    "updated": 1637947689722
                 }
             ]
         },
         {
             "style": "List",
             "text": "Github.com Authentication: The creation of the Pull Request is something that happens at Github.com and for this operation you need to authenticate too. To do this, you must generate a Personal Access Token and set it up at the Github Api node configuration in your active workspace.",
-            "updated": 1610909615254
+            "updated": 1610909615254,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Github.com Authentication: создание Pull Request - это то, что происходит на Github.com, и для этой операции вам также необходимо пройти авторизацию. Для этого вы должны сгенерировать токен персонального доступа и настроить его в конфигурации узла Github Api в вашей активной рабочей области.",
+                    "updated": 1637947765577
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -283,6 +401,11 @@
                     "language": "DE",
                     "text": "Erstellen Sie den Token, indem Sie diesem Link folgen:",
                     "updated": 1636812794679
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте токен, перейдя по этой ссылке:",
+                    "updated": 1637947797015
                 }
             ]
         },
@@ -304,6 +427,11 @@
                     "language": "DE",
                     "text": "Sobald Sie Ihr Token haben, suchen Sie die GitHub-API-Node (Sie können in der Documentation danach suchen). Die Konfiguration sieht wie folgt aus:",
                     "updated": 1636812850344
+                },
+                {
+                    "language": "RU",
+                    "text": "Получив токен, найдите узел API GitHub (его можно найти в документации). Конфигурация выглядит так:",
+                    "updated": 1637947829106
                 }
             ]
         },
@@ -321,6 +449,11 @@
                     "language": "DE",
                     "text": "Wenn Sie die node nicht über das Suchfeld finden können, ist er möglicherweise nicht im aktiven Arbeitsbereich vorhanden. Die APIs-Hierarchie ist standardmäßig nur im Arbeitsbereich \"Erste Schritte\" enthalten. Sie können eine neue APIs-Hierarchie über den Node \"Other Hierarchies\" in der Foundations Project hierarchy erstellen.",
                     "updated": 1636813227032
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не можете найти узел с помощью поля поиска, возможно, он не существует в активной рабочей области. Иерархия API включена по умолчанию только в рабочее пространство Getting Started («Начало работы»). Вы можете создать новую иерархию API из узла Other Hierarchies в иерархии проекта Superalgos.",
+                    "updated": 1637947958205
                 }
             ]
         },
@@ -337,6 +470,11 @@
                     "language": "DE",
                     "text": "username: Geben Sie Ihren GitHub.com-Benutzernamen ein.",
                     "updated": 1636813245695
+                },
+                {
+                    "language": "RU",
+                    "text": "username: ваше имя пользователя GitHub.com.",
+                    "updated": 1637948021453
                 }
             ]
         },
@@ -349,6 +487,11 @@
                     "language": "DE",
                     "text": "token: Fügen Sie das von Ihnen erstellte Token ein.",
                     "updated": 1636813265485
+                },
+                {
+                    "language": "RU",
+                    "text": "token: вставьте созданный токен.",
+                    "updated": 1637948052508
                 }
             ]
         },
@@ -361,6 +504,11 @@
                     "language": "DE",
                     "text": "Sie können den Befehl jederzeit ausführen, nachdem Sie Änderungen vorgenommen und gespeichert haben.",
                     "updated": 1636813300417
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете запустить команду в любое время после внесения и сохранения изменений.",
+                    "updated": 1637948076224
                 }
             ]
         },
@@ -373,6 +521,11 @@
                     "language": "DE",
                     "text": "Fehlerbehebung bei Authentifizierungsproblemen",
                     "updated": 1636813315620
+                },
+                {
+                    "language": "RU",
+                    "text": "Устранение проблем с авторизацией",
+                    "updated": 1637948109232
                 }
             ]
         },
@@ -385,6 +538,11 @@
                     "language": "DE",
                     "text": "Einige Probleme können auftreten, wenn Sie mehr als eine Git-Installation in Ihrem Betriebssystem aktiv haben.",
                     "updated": 1636813483077
+                },
+                {
+                    "language": "RU",
+                    "text": "Некоторые проблемы могут возникнуть, если в вашей ОС установлено более одной установки Git.",
+                    "updated": 1637948128618
                 }
             ]
         },
@@ -396,6 +554,11 @@
                     "language": "DE",
                     "text": "Wenn Sie zum Beispiel den folgenden Authentifizierungsbildschirm sehen, bedeutet dies, dass eine ältere Version von Git versucht, die Authentifizierung durchzuführen:",
                     "updated": 1636813517718
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, если вы видите следующий экран аутентификации, это означает, что более старая версия Git пытается справиться с аутентификацией:",
+                    "updated": 1637948161857
                 }
             ]
         },
@@ -413,6 +576,11 @@
                     "language": "DE",
                     "text": "Der derzeitige Authentifizierungsbildschirm sieht stattdessen ähnlich aus wie dieser:",
                     "updated": 1636813625546
+                },
+                {
+                    "language": "RU",
+                    "text": "Текущий экран аутентификации похож на этот:",
+                    "updated": 1637948183927
                 }
             ]
         },
@@ -430,6 +598,11 @@
                     "language": "DE",
                     "text": "Wenn Sie vor der Installation von Superalgos nicht die neueste Version von Git installiert haben, dann ist das wahrscheinlich der Grund, warum die Authentifizierung nicht funktioniert. Die neueste Version von Git ist erforderlich.",
                     "updated": 1636813687527
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не установили последнюю версию Git перед установкой Superalgos, то, скорее всего, это причина того, что аутентификация не работает. Требуется последняя версия Git.",
+                    "updated": 1637948211168
                 }
             ]
         },
@@ -442,6 +615,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Git installiert haben und das oben beschriebene Problem auftritt, kann ein Neustart des PCs helfen, das Problem zu beheben.",
                     "updated": 1636813720650
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы установили Git и у вас возникла проблема, описанная выше, перезагрузка компьютера может помочь разобраться.",
+                    "updated": 1637948235147
                 }
             ]
         },
@@ -466,6 +644,11 @@
                     "language": "DE",
                     "text": "Geben Sie Ihr persönliches Authentifizierungs-Token (PAT) anstelle Ihres Passworts ein und drücken Sie die Eingabetaste (Enter).",
                     "updated": 1636813892055
+                },
+                {
+                    "language": "RU",
+                    "text": "Введите свой личный токен аутентификации (PAT) вместо пароля и нажмите Enter.",
+                    "updated": 1637948259055
                 }
             ]
         },
@@ -478,6 +661,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Ihr Token nicht ständig eingeben wollen, können Sie Ihre Anmeldedaten von Git zwischenspeichern lassen:",
                     "updated": 1636813912653
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не хотите продолжать вводить свой токен, вы можете использовать git cach для своих учетных данных:",
+                    "updated": 1637948285639
                 }
             ]
         },

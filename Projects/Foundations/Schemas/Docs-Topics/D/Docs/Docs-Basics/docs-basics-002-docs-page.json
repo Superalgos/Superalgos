@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Eine Docs-Seite ist letztendlich eine JSON-Datei, die auf der Festplatte gespeichert ist.",
                 "updated": 1633805247812
+            },
+            {
+                "language": "RU",
+                "text": "Страница документации - это, в конечном итоге, файл JSON, хранящийся на диске.",
+                "updated": 1637932063212
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Die Docs sind eine Sammlung von Seiten, die jeweils als JSON-Datei unter dem folgenden Pfad gespeichert werden:",
                     "updated": 1633805308812
+                },
+                {
+                    "language": "RU",
+                    "text": "Документы - это набор страниц, каждая из которых сохраняется в виде файла JSON по следующему пути:",
+                    "updated": 1637932134476
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "DE",
                     "text": "Es folgt eine Verzeichnisstruktur, wobei jeder Ordner eine Docs-Kategorie enthält:",
                     "updated": 1633805513174
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже представлена ​​структура каталогов, в каждой папке указана категория страницы документов Docs Page Category:",
+                    "updated": 1637932266217
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "text": "> Docs-Books\n> Docs-Concepts\n> Docs-Nodes\n> Docs-Reviews\n> Docs-Topics\n> Docs-Tutorials",
                     "updated": 1613858683058,
                     "style": "Json"
+                },
+                {
+                    "language": "RU",
+                    "text": "\n> Docs-Books\n> Docs-Concepts\n> Docs-Nodes\n> Docs-Reviews\n> Docs-Topics\n> Docs-Tutorials",
+                    "updated": 1637932159714
                 }
             ]
         }

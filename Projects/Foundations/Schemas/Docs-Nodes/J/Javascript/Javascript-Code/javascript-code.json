@@ -1,7 +1,14 @@
 {
     "type": "Javascript Code",
     "definition": {
-        "text": "The JavaScript code node may hold any snippet of valid JavaScript."
+        "text": "The JavaScript code node may hold any snippet of valid JavaScript.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел JavaScript Code может содержать любой действительный фрагмент кода JavaScript.",
+                "updated": 1638972934906
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The system allows developers great flexibility as all valid JavaScript code is allowed."
+            "text": "The system allows developers great flexibility as all valid JavaScript code is allowed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система предоставляет разработчикам большую гибкость, так как разрешен весь допустимый код JavaScript.",
+                    "updated": 1638972960809
+                }
+            ]
         }
     ]
 }

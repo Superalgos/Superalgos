@@ -18,6 +18,11 @@
                 "updated": 1636624628502
             },
             {
+                "language": "RU",
+                "text": "Процесс обновления успешно завершен. Была загружена новая версия Superalgos, заменяющая текущую. Чтобы изменения вступили в силу, необходимо перезапустить клиент и обновить страницу пользовательского интерфейса.",
+                "updated": 1638270962944
+            },
+            {
                 "language": "DE",
                 "text": "Der Aktualisierungsvorgang wurde erfolgreich abgeschlossen. Es wurde eine neue Version von Superalgos heruntergeladen, die die aktuelle Version ersetzt. Damit die Änderungen wirksam werden, müssen Sie den Client neu starten und die UI (Benutzeroberfläche) aktualisieren.",
                 "updated": 1638037815569
@@ -42,6 +47,11 @@
                     "updated": 1636625028143
                 },
                 {
+                    "language": "RU",
+                    "text": "Теперь у вас есть последняя версия Superalgos. Просто не забудьте перезапустить клиент (Client) и UI. Если у вас есть запущенные задачи, вы должны сначала остановить задачи, а затем перезапустить клиент , чтобы вы могли снова запускать эти задачи, используя обновленную кодовую базу.",
+                    "updated": 1638271112734
+                },
+                {
                     "language": "DE",
                     "text": "Sie haben nun die neueste Version von Superalgos. Denken Sie nur daran, den Client und die Benutzeroberfläche neu zu starten. Wenn Sie Tasks laufen haben, sollten Sie zuerst die Tasks stoppen und dann den Client neu starten, damit Sie diese Tasks wieder mit der aktualisierten Codebasis ausführen können.",
                     "updated": 1638037876325
@@ -62,6 +72,11 @@
                     "language": "ES",
                     "text": "La actualización que ha hecho solo afecta al cliente al cual está conectado a través de http usando su navegador. Si tiene más Clientes ejecutándose como parte de una Red, también deberá actualizarlos, ya sea manualmente usando Git, o navegando con su navegador a su URL y ejecutando el comano de App Update ahí.",
                     "updated": 1636625003204
+                },
+                {
+                    "language": "RU",
+                    "text": "Выполненное вами обновление влияет только на Client, к которому вы подключены через http в браузере. Если у вас есть больше клиентов, работающих как часть сети, вам также нужно будет обновить их либо вручную с помощью Git, либо перейдя в браузере по их URL-адресу и запустив там команду App Update Command.",
+                    "updated": 1638271248790
                 },
                 {
                     "language": "DE",

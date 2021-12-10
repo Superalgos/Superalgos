@@ -4,58 +4,214 @@
     "type": "Fundamental Superalgos Concepts",
     "definition": {
         "text": "Superalgos breaks up complexity and describes the fundamental concepts that make up trading intelligence in hierarchies of nodes. Nodes may reference other nodes to access information in other hierarchies.",
-        "updated": 1609943915544
+        "updated": 1609943915544,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos разделяет сложность и описывает фундаментальные концепции, составляющие торговый интеллект в иерархиях узлов. Узлы могут ссылаться на другие узлы для доступа к информации в других иерархиях.",
+                "updated": 1637936649473
+            },
+            {
+                "language": "EL",
+                "text": "Το Superalgos διασπά την πολυπλοκότητα και εξηγεί τις θεμελιώδεις έννοιες που συνθέτουν την τεχνητή νοημοσύνη συναλλαγών σε ιεραρχίες κόμβων. Οι κόμβοι μπορεί να παραπέμπουν σε άλλους κόμβους για πρόσβαση σε πληροφορίες από άλλες ιεραρχίες.",
+                "updated": 1638960620231
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Algorithmic trading is a data-driven application. It is the superior ability to derive intelligence from data—above all—that gives automated trading an edge over trading manually.",
-            "updated": 1609943931550
+            "updated": 1609943931550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Алгоритмическая торговля - это приложение, управляемое данными. Именно превосходная способность извлекать аналитические данные, прежде всего, дает автоматическому трейдингу преимущество перед торговлей вручную.",
+                    "updated": 1637936885572
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι αλγοριθμικές συναλλαγές είναι μια εφαρμογή που βασίζεται σε δεδομένα. Είναι η δυνατότητα άντλησης νοημοσύνης από δεδομένα - πάνω απ 'όλα - που δίνει στις αυτοματοποιημένες συναλλαγές ένα πλεονέκτημα έναντι των χειροκίνητων συναλλαγών.",
+                    "updated": 1638791621774
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, it would be simplistic to assume that trading intelligence emerges from data alone."
+            "text": "However, it would be simplistic to assume that trading intelligence emerges from data alone.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако было бы упрощением предполагать, что торговая информация исходит только из данных.",
+                    "updated": 1637936986123
+                },
+                {
+                    "language": "EL",
+                    "text": "Ωστόσο, θα ήταν απλοϊκό να υποθέσουμε ότι οι συναλλαγές  τεχνητής νοημοσύνης προκύπτουν μόνο από δεδομένα.",
+                    "updated": 1638791925499
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Trading intelligence emerges from harnessing the interactions of multiple complex concepts."
+            "text": "Trading intelligence emerges from harnessing the interactions of multiple complex concepts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговая аналитика возникает из взаимодействия нескольких сложных концепций.",
+                    "updated": 1637937446660
+                },
+                {
+                    "language": "EL",
+                    "text": "Trading intelligence (Τεχνητή νοημοσύνη συναλλαγών) προκύπτει από την αξιοποίηση των αλληλεπιδράσεων πολλαπλών πολύπλοκων εννοιών.",
+                    "updated": 1638799861812
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is a software infrastructure that contributes to harnessing those concepts and interactions by breaking complexity into small units of information called nodes and arranging them into larger data structures called hierarchies."
+            "text": "Superalgos is a software infrastructure that contributes to harnessing those concepts and interactions by breaking complexity into small units of information called nodes and arranging them into larger data structures called hierarchies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это программная инфраструктура, которая способствует использованию этих концепций и взаимодействий, разбивая сложность на небольшие единицы информации, называемые узлами, и упорядочивая их в более крупные структуры данных, называемые иерархиями.",
+                    "updated": 1637938069788
+                },
+                {
+                    "language": "EL",
+                    "text": "Το Superalgos είναι μια υποδομή λογισμικού που συμβάλλει στην αξιοποίηση αυτών των εννοιών και αλληλεπιδράσεων σπάζοντας την πολυπλοκότητα σε μικρές μονάδες πληροφοριών που ονομάζονται κόμβοι και τακτοποιώντας τις σε μεγαλύτερες δομές δεδομένων που ονομάζονται ιεραρχίες.",
+                    "updated": 1638799982753
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A hierarchy is a data structure representing an overarching, top-level concept, resulting in a long chain of nodes, usually with many ramifications. The system manages different types of hierarchies, each of them with a specific focus. For example, crypto ecosystem, data mines, or charting space."
+            "text": "A hierarchy is a data structure representing an overarching, top-level concept, resulting in a long chain of nodes, usually with many ramifications. The system manages different types of hierarchies, each of them with a specific focus. For example, crypto ecosystem, data mines, or charting space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия - это структура данных, представляющая всеобъемлющую концепцию верхнего уровня, приводящую к длинной цепочке узлов, обычно с множеством ответвлений. Система управляет разными типами иерархий, каждая из которых имеет определенную направленность. Например, криптоэкосистема, сбор данных или графическое пространство.",
+                    "updated": 1637938445084
+                },
+                {
+                    "language": "EL",
+                    "text": "Η ιεραρχία είναι μια δομή δεδομένων που αντιπροσωπεύει μια γενική έννοια ανώτατου επιπέδου, έχοντας ως αποτέλεσμα μια μακρά αλυσίδα κόμβων, συνήθως με πολλές διακλαδώσεις. Το σύστημα διαχειρίζεται διαφορετικούς τύπους ιεραρχιών, καθένας από αυτούς με μια συγκεκριμένη εστίαση. Για παράδειγμα, οικοσύστημα κρυπτογράφησης, εξορύκτες δεδομένων ή χώρος χαρτογράφησης.",
+                    "updated": 1638800075019
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A node is a small data structure containing information that may be related to market information, trading intelligence, the operation of the system, or other concepts. They are visually represented by icons in the design space."
+            "text": "A node is a small data structure containing information that may be related to market information, trading intelligence, the operation of the system, or other concepts. They are visually represented by icons in the design space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел - это небольшая структура данных, содержащая информацию, которая может иметь отношение к рыночной информации, торговой информации, работе системы или другим концепциям. Они визуально представлены иконками в пространстве дизайна.",
+                    "updated": 1637938473696
+                },
+                {
+                    "language": "EL",
+                    "text": "Ένας κόμβος είναι μια μικρή δομή δεδομένων που περιέχει πληροφορίες που μπορεί να σχετίζονται με πληροφορίες της αγοράς, πληροφορίες συναλλαγών, τη λειτουργία του συστήματος ή άλλες έννοιες. Αντιπροσωπεύονται οπτικά με εικονίδια στον χώρο σχεδιασμού.",
+                    "updated": 1638800085009
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The design space is the visual environment that hosts all system and user definitions. In practical terms, it is the black space below the slider that splits the screen horizontally, separating the design space in the bottom from the charting space on top. As a hierarchy, it features nodes that enable user-control over certain aspects of the look, feel, and behavior of the space."
+            "text": "The design space is the visual environment that hosts all system and user definitions. In practical terms, it is the black space below the slider that splits the screen horizontally, separating the design space in the bottom from the charting space on top. As a hierarchy, it features nodes that enable user-control over certain aspects of the look, feel, and behavior of the space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пространство дизайна - это визуальная среда, в которой размещены все системные и пользовательские определения. На практике это пространство под слайдером, которое разделяет экран по горизонтали, отделяя пространство дизайна внизу от пространства диаграммы вверху. Оно включает узлы, которые позволяют пользователю управлять определенными аспектами внешнего вида.",
+                    "updated": 1637938673092
+                },
+                {
+                    "language": "EL",
+                    "text": "Ο χώρος σχεδιασμού είναι το οπτικό περιβάλλον που φιλοξενεί όλους τους ορισμούς του συστήματος και των χρηστών. Πρακτικά, είναι ο μαύρος χώρος κάτω από το ρυθμιστικό που χωρίζει την οθόνη οριζόντια, διαχωρίζοντας τον χώρο σχεδιασμού στο κάτω μέρος από τον χώρο χαρτογράφησης στο επάνω μέρος. Ως ιεραρχία, διαθέτει κόμβους που επιτρέπουν τον έλεγχο από τον χρήστη σε ορισμένες πτυχές της εμφάνισης, της αίσθησης και της συμπεριφοράς του χώρου.",
+                    "updated": 1638810133832
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In other words, nodes arranged in hierarchical data structures describe the top-level concepts that make up trading intelligence in a way that helps users visualize and better understand them."
+            "text": "In other words, nodes arranged in hierarchical data structures describe the top-level concepts that make up trading intelligence in a way that helps users visualize and better understand them.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, узлы, организованные в иерархические структуры данных, описывают концепции верхнего уровня, составляющие торговый интеллект, таким образом, чтобы помочь пользователям их визуализировать и лучше понимать.",
+                    "updated": 1637938732238
+                },
+                {
+                    "language": "EL",
+                    "text": "Με άλλα λόγια, οι κόμβοι που είναι διατεταγμένοι σε ιεραρχικές δομές δεδομένων περιγράφουν τις έννοιες ανώτατου επιπέδου που συνθέτουν την τεχνητή νοημοσύνη συναλλαγών με τρόπο που βοηθά τους χρήστες να τις οπτικοποιήσουν και να τις κατανοήσουν καλύτερα.",
+                    "updated": 1638810270963
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These top-level concepts described as hierarchies interact with other concepts, that is, with other hierarchies. Interactions among hierarchies are called references."
+            "text": "These top-level concepts described as hierarchies interact with other concepts, that is, with other hierarchies. Interactions among hierarchies are called references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти концепции верхнего уровня, описанные как иерархии, взаимодействуют с другими концепциями, то есть с другими иерархиями. Взаимодействия между иерархиями называются ссылками.",
+                    "updated": 1637938774303
+                },
+                {
+                    "language": "EL",
+                    "text": "Αυτές οι έννοιες ανώτατου επιπέδου που περιγράφονται ως ιεραρχίες αλληλοεπιδρούν με άλλες έννοιες, δηλαδή με άλλες ιεραρχίες. Οι αλληλεπιδράσεις μεταξύ των ιεραρχιών ονομάζονται αναφορές.",
+                    "updated": 1638960743058
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one."
+            "text": "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ссылка - это механизм, с помощью которого информация в узле связана с другими узлами или доступна для них. Способность узла устанавливать ссылку с другим узлом позволяет первому получить доступ к информации или функциям, связанным со вторым.",
+                    "updated": 1637938804544
+                },
+                {
+                    "language": "EL",
+                    "text": "Μια αναφορά είναι ένας μηχανισμός μέσω του οποίου οι πληροφορίες σε έναν κόμβο σχετίζονται ή προσπελάζονται από άλλους κόμβους. Η ικανότητα ενός κόμβου να δημιουργήσει μια αναφορά με έναν άλλο κόμβο επιτρέπει στον πρώτο να έχει πρόσβαση στις πληροφορίες ή τα χαρακτηριστικά που περιλαμβάνονται στον δεύτερο.",
+                    "updated": 1638810339361
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To organize all of this information, Superalgos manages the concept of workspaces. A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file."
+            "text": "To organize all of this information, Superalgos manages the concept of workspaces. A workspace is an entity storing all system and user-generated information, excluding the state and contents of plugins. In technical terms, a workspace is a JSON file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы организовать всю эту информацию, Superalgos управляет концепцией рабочих пространств. Рабочая область - это объект, в котором хранится вся системная и пользовательская информация, за исключением состояния и содержимого подключаемых модулей. С технической точки зрения рабочая область - это файл JSON.",
+                    "updated": 1637938840496
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να οργανώσει όλες αυτές τις πληροφορίες, το Superalgos χρησιμοποιεί την έννοια των χώρων εργασίας. Ο χώρος εργασίας είναι μια οντότητα που αποθηκεύει όλες τις πληροφορίες που δημιουργούνται από το σύστημα και τους χρήστες, εξαιρουμένης της κατάστασης και των περιεχομένων των προσθηκών. Από τεχνική άποψη, ένας χώρος εργασίας είναι ένα αρχείο JSON.",
+                    "updated": 1638810903488
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The Bots page brings these conceptual definitions down to earth and offers an overview of how what these top-level concepts are and how they interact with each other.",
-            "updated": 1637697607949
+            "updated": 1637697607949,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На странице «Боты» эти концептуальные определения представлены на земле и предлагается обзор того, каковы эти концепции верхнего уровня и как они взаимодействуют друг с другом.",
+                    "updated": 1637938913546
+                },
+                {
+                    "language": "EL",
+                    "text": "Η σελίδα των ρομπότ γειώνει αυτούς τους εννοιολογικούς ορισμούς και προσφέρει μια επισκόπηση του πώς είναι αυτές οι έννοιες ανώτατου επιπέδου και πώς αλληλοεπιδρούν μεταξύ τους.",
+                    "updated": 1638965781544
+                }
+            ]
         }
     ]
 }

@@ -1230,7 +1230,8 @@ function newUiObject() {
         Finally, if the node we are pointing to does not have a config or does not have a list of 
         alternativeIcons, we will just use that node's icon for the current node.
         */
-        if (schemaDocument.alternativeIcons !== undefined) {
+        if (schemaDocument.alternativeIcons !== undefined && schemaDocument.alternativeIcons !== 'Use External Github Icon') {
+
             let nodeToUse = thisObject.payload.node
             if (schemaDocument.alternativeIcons === 'Use Parent') {
                 if (thisObject.payload.node.payload.parentNode !== undefined) {
@@ -1287,6 +1288,15 @@ function newUiObject() {
                         icon = newIcon
                     }
                 }
+            }
+        } else if (schemaDocument.alternativeIcons === 'Use External Github Icon' && icon !== undefined) {
+
+            let config = JSON.parse(thisObject.payload.node.config)
+            let url = 'https://www.github.com/' + config.codeName + '.png'
+            let image = UI.projects.foundations.spaces.designSpace.getIconByExternalSource(thisObject.payload.node.project, url)
+
+            if (image.canDrawIcon === true) {
+                icon = image
             }
         }
 
@@ -2366,13 +2376,6 @@ function newUiObject() {
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
 
-                // If this UiObject is being loaded then display at half opacity
-                if(thisObject.payload.isLoading === true) {
-                    browserCanvasContext.globalAlpha = 0.5
-                } else {
-                    browserCanvasContext.globalAlpha = 1
-                }
-
                 let additionalImageSize = 0
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
@@ -2401,6 +2404,39 @@ function newUiObject() {
                     }
                 }
 
+                // If this UiObject is using an External Icon, apply a Mask to keep it Circular
+                if (schemaDocument.alternativeIcons === 'Use External Github Icon') {
+
+                    let radius = totalImageSize / 2
+
+                    let visiblePosition = {
+                        x: thisObject.container.frame.position.x,
+                        y: thisObject.container.frame.position.y
+                    }
+
+                    visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
+
+                    if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                        visiblePosition = UI.projects.foundations.spaces.floatingSpace.transformPointToMap(visiblePosition)
+                    } else {
+                        visiblePosition = thisObject.fitFunction(visiblePosition)
+                    }
+
+                    browserCanvasContext.save()
+
+                    browserCanvasContext.beginPath()
+                    browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, radius, 0, Math.PI * 2, true)
+                    browserCanvasContext.closePath()
+                    browserCanvasContext.clip()
+                }
+
+                // If this UiObject is being loaded then display at half opacity
+                if(thisObject.payload.isLoading === true) {
+                    browserCanvasContext.globalAlpha = 0.5
+                } else {
+                    browserCanvasContext.globalAlpha = 1
+                }
+
                 browserCanvasContext.drawImage(
                     icon, position.x - totalImageSize / 2,
                     position.y - totalImageSize / 2,
@@ -2408,6 +2444,10 @@ function newUiObject() {
                     totalImageSize)
 
                 browserCanvasContext.globalAlpha = 1
+
+                if (schemaDocument.alternativeIcons === 'Use External Github Icon') {
+                    browserCanvasContext.restore()
+                }
             }
         }
 

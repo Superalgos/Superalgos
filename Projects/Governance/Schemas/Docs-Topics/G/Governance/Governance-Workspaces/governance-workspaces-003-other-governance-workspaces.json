@@ -4,21 +4,49 @@
     "type": "Other Governance Workspaces",
     "definition": {
         "text": "The term refers to project-specific Governance Workspaces, as opposed to the main Token Distribution Superalgos Governance Workspace. Project-specific workspaces have a similar layout, as different projects usually have the same kinds of Assets, Features, Positions, and Pools categories.",
-        "updated": 1630597429410
+        "updated": 1630597429410,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот термин относится к рабочим пространствам Governance Workspaces для конкретного проекта, в отличие от основной рабочего пространства Token Distribution Superalgos Governance Workspace. Рабочие пространства для конкретных проектов имеют схожую компоновку, поскольку разные проекты обычно имеют одинаковые типы категорий Assets, Features, Positions и Pools.",
+                "updated": 1639028790397
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "User Profiles",
-            "updated": 1630580093825
+            "updated": 1630580093825,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Профили пользователей",
+                    "updated": 1639028832251
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Core Team members only, to keep the workspaces light."
+            "text": "Core Team members only, to keep the workspaces light.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Только для команды Core Team, чтобы рабочие места оставались легкими.",
+                    "updated": 1639028955776
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Scope of Definitions"
+            "text": "Scope of Definitions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Область определений",
+                    "updated": 1639028973206
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -26,17 +54,38 @@
         },
         {
             "style": "List",
-            "text": "Superalgos Pools hierarchy (present in all Governance Workspaces for usability reasons)."
+            "text": "Superalgos Pools hierarchy (present in all Governance Workspaces for usability reasons).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия Superalgos Pools (присутствует во всех рабочих областях управления Governance Workspaces для удобства использования)",
+                    "updated": 1639029067732
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A project-specific Pools hierarchy (for instance, Foundation-Project or Education-Project) defining pools for the main areas of the software, including pools for assets, features, positions, bug fixes, and improvements.",
-            "updated": 1630580570265
+            "updated": 1630580570265,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия Pools для конкретного проекта (например, Foundation-Project или Education-Project), определяющая пулы для основных областей программного обеспечения, включая пулы для активов, функций, должностей, исправлений ошибок и улучшений.",
+                    "updated": 1639029368417
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A project-specific Pools hierarchy for assets (for instance, Foundations-Project-Assets or Education-Project-Assets), providing a more granular definition of various pools for several categories of assets, such as user interface, task server, app schemas, custom code, education, multi media,, and plugins.",
-            "updated": 1630581068210
+            "text": "A project-specific Pools hierarchy for assets (for instance, Foundations-Project-Assets or Education-Project-Assets), providing a more granular definition of various pools for several categories of assets, such as user interface, task server, app schemas, custom code, education, multi media and plugins.",
+            "updated": 1638830984138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия пулов для конкретных проектов для активов (например, Foundations-Project-Assets или Education-Project-Assets), обеспечивающая более детальное определение различных пулов для нескольких категорий активов, таких как пользовательский интерфейс, сервер задач, схемы приложений, собственный код, образование, мультимедиа и плагины.",
+                    "updated": 1639029312209
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -44,7 +93,14 @@
         },
         {
             "style": "List",
-            "text": "A project-specific Positions hierarchy (for instance Foundation-Project or Education-Project) defining positions such as the project's lead developer or bug hunters."
+            "text": "A project-specific Positions hierarchy (for instance Foundation-Project or Education-Project) defining positions such as the project's lead developer or bug hunters.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия должностей для конкретного проекта (например, Foundation-Project или Education-Project), определяющая такие должности, как ведущий разработчик проекта или специалисты по поиску ошибок.",
+                    "updated": 1639029347531
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -52,7 +108,14 @@
         },
         {
             "style": "List",
-            "text": "A project-specific Features hierarchy (for instance, Foundation-Project or Education-Project) usually defining project-specific features."
+            "text": "A project-specific Features hierarchy (for instance, Foundation-Project or Education-Project) usually defining project-specific features.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия функций для конкретного проекта (например, Foundation-Project или Education-Project), обычно определяющая функции для конкретного проекта.",
+                    "updated": 1639029391736
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -60,7 +123,14 @@
         },
         {
             "style": "Text",
-            "text": "Several project-specific Assets hierarchies defining multiple categories of assets, such as:"
+            "text": "Several project-specific Assets hierarchies defining multiple categories of assets, such as:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Несколько иерархий ресурсов для конкретных проектов, определяющих несколько категорий ресурсов, например:",
+                    "updated": 1639029440130
+                }
+            ]
         },
         {
             "style": "List",

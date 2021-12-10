@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "Diese Seite listet Textausschnitte auf, die auf mehreren Seiten benötigt werden. Die Aufbewahrung von Snippets an einem zentralen Ort erleichtert die Pflege und vermeidet die Duplizierung von Inhalten. Jedes Snippet ist unter einem Block angeordnet, der denselben Namen trägt wie der Titel, der vor dem Snippet angezeigt wird. Um diese Snippets zu verwenden, fügen Sie den entsprechenden Block auf der Zielseite ein.",
                 "updated": 1634293291023
+            },
+            {
+                "language": "RU",
+                "text": "На этой странице перечислены фрагменты текста, необходимые для нескольких страниц. Централизованное хранение фрагментов упрощает обслуживание и позволяет избежать дублирования контента. Каждый фрагмент размещается в блоке с тем же именем, что и заголовок, отображаемый перед фрагментом. Чтобы использовать эти фрагменты, включите соответствующий блок на целевой странице.",
+                "updated": 1638293987162
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Diese Seite behandelt die Top-Level-Informationen über den Abschnitt der Hierarchie, der in der folgenden Tabelle dargestellt ist. Klicken Sie auf einen der Knoten, um die Details zu erfahren, einschließlich der Angaben zur Konfiguration, falls zutreffend.",
                     "updated": 1634293316369
+                },
+                {
+                    "language": "RU",
+                    "text": "На этой странице обсуждается информация верхнего уровня о разделе иерархии, представленной в таблице ниже. Щелкните любой из узлов, чтобы получить подробную информацию, в том числе сведения об их конфигурации, если применимо.",
+                    "updated": 1638293965409
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf einen der Knoten, um die Details zu erfahren, gegebenenfalls auch Einzelheiten zu ihrer Konfiguration.",
                     "updated": 1634293331744
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните любой из узлов, чтобы получить подробную информацию, в том числе сведения об их конфигурации, если применимо.",
+                    "updated": 1638293952800
                 }
             ]
         },
@@ -82,6 +97,11 @@
                     "language": "DE",
                     "text": "Die Durchführung einer Live-Sitzung erfordert die Einrichtung einer Schlüsselreferenz im Task. Außerdem ist ein Live-Datenfeed erforderlich, d. h. die entsprechende Sensor Bot Instance muss zusammen mit allen Indikatoren, die vom referenzierten Trading System verwendet werden, betriebsbereit sein. Schließlich sind für eine Live-Sitzung auch mindestens 48 Stunden historischer Marktdaten erforderlich. Beachten Sie, dass das Trading System je nach den verwendeten Indikatoren möglicherweise noch mehr historische Marktdaten benötigt, um den Markt richtig zu analysieren.",
                     "updated": 1634293415385
+                },
+                {
+                    "language": "RU",
+                    "text": "Для запуска живого сеанса требуется установка ключевой ссылки в Task. Для этого также требуется поток данных в реальном времени, а это означает, что соответствующий экземпляр Sensor Bot Instance, а также все индикаторы, используемые указанной торговой системой (Trading System), должны быть запущены и работать. Наконец, для живой сессии также требуется не менее 48 часов исторических рыночных данных. Имейте в виду, что торговая система может потребовать еще больше исторических рыночных данных для правильного анализа рынка в зависимости от используемых индикаторов.",
+                    "updated": 1638293935900
                 }
             ]
         },
@@ -112,6 +132,11 @@
                     "language": "DE",
                     "text": "Das Löschen dieses Knotens führt dazu, dass die Skripte zur Marktinstallation und -deinstallation nicht mehr funktionieren, selbst wenn der Knoten nach dem Löschen neu erstellt wird.",
                     "updated": 1634293427532
+                },
+                {
+                    "language": "RU",
+                    "text": "Удаление этого узла приводит к тому, что рыночные сценарии установки и удаления перестают работать, даже если узел создается заново после удаления.",
+                    "updated": 1638293776509
                 }
             ]
         },
@@ -139,6 +164,11 @@
                     "language": "DE",
                     "text": "Der Handel, der Handel mit Bots und der Handel mit von der Community freigegebenen Handelssystemen sind mit Risiken verbunden. Lesen Sie unbedingt die gesamte Seite, einschließlich der Warnhinweise am Ende der Seite. Sie sollten die Funktionsweise dieses Handelssystems vollständig verstehen, damit Sie Ihre eigenen fundierten Entscheidungen über seine Verwendung treffen können. Die Nutzung dieses Handelssystems erfolgt auf eigenes Risiko.",
                     "updated": 1634293480146
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговля, торговля с помощью ботов и торговля торговыми системами, распространяющимися сообществом, влечет за собой риски. Убедитесь, что вы прочитали всю страницу, включая предупреждения внизу страницы. Вы должны полностью понимать, как работает эта торговая система, чтобы вы могли принимать собственные обоснованные решения о том, как ее использовать. Используйте эту торговую систему на свой страх и риск.",
+                    "updated": 1638293760424
                 }
             ]
         },
@@ -166,6 +196,11 @@
                     "language": "DE",
                     "text": "Superalgos ist ein Stück Computer-Software. Wie bei jeder Software können jederzeit Fehler auftreten, auch solche, durch die Sie Geld verlieren können. Sie sind dafür verantwortlich, alle Vorsichtsmaßnahmen zu treffen, die Sie für angemessen halten, bevor Sie live handeln. Selbst wenn Sie alle möglichen Vorsichtsmaßnahmen ergreifen, kann immer noch etwas schief gehen und es können Fehler auftreten. Indem Sie diese Software trotz der Warnungen für den Live-Handel verwenden, erkennen Sie an, dass Sie sich der inhärenten Risiken des Handels und der Verwendung von Software für diesen Zweck bewusst sind. Das Superalgos-Projekt bietet die Software so an, wie sie ist, ohne ausdrückliche oder stillschweigende Garantien jeglicher Art. Das Projekt, die Software, die Website superalgos.org, diese Dokumentation und die Community bieten keine Finanzberatung. Obwohl die Strategien, die mit dem System geliefert werden, voll funktionsfähig sind, gibt Superalgos keine ausdrückliche oder stillschweigende Empfehlung ab, wie Sie sie verwenden sollten. Wir stellen die Strategien nur zu Bildungszwecken zur Verfügung. Handeln Sie auf eigene Verantwortung und auf eigenes Risiko. Die Nutzung der Software unterliegt den Bedingungen der <a href='https://github.com/Superalgos/Superalgos/blob/master/LICENSE'>LICENSE</a>.",
                     "updated": 1634293625788
+                },
+                {
+                    "language": "RU",
+                    "text": "Используя это ПО для торговли в реальном времени, несмотря на предупреждения, вы подтверждаете, что знаете о рисках, присущих торговле и использованию ПО для этой цели. Проект Superalgos предлагает прогаммное обеспечение КАК ЕСТЬ, без каких-либо явных или подразумеваемых гарантий. Проект, ПО, сайт superalgos.org, эта документация, и Community не дает финансовых советов. Хотя стратегии, поставляемые с системой, могут быть полностью функциональными, Superalgos не дает никаких явных или подразумеваемых рекомендаций относительно того, как вы должны их использовать. Мы делимся стратегиями только в образовательных целях. Торгуйте под вашу ответственность и на свой страх и риск. Использование ПО регулируется условиями лицензии <a href='https://github.com/Superalgos/Superalgos/blob/master/LICENSE'>LICENSE</a>.",
+                    "updated": 1638293394828
                 }
             ]
         },
@@ -193,6 +228,11 @@
                     "language": "DE",
                     "text": "DIES IST KEINE FINANZIELLE BERATUNG. AUCH WENN DIE MIT SUPERALGOS VERSANDTEN STRATEGIEN VOLL FUNKTIONSFÄHIG SIND, GIBT SUPERALGOS KEINE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE EMPFEHLUNG AB, WIE SIE SIE VERWENDEN SOLLTEN. WIR TEILEN DIE STRATEGIEN NUR ZU LEHRZWECKEN. HANDELN SIE AUF IHR EIGENES RISIKO.<br><br><b>Die Performance im Backtesting ist kein Hinweis auf die Performance im Live-Handel.</b> Die Live-Performance kann im Verhältnis zur Backtesting-Performance variieren, zum Guten oder zum Schlechten, höchstwahrscheinlich zum Schlechten. Dies liegt daran, dass die Entwicklung von Handelsstrategien im Nachhinein erfolgt, d. h. im Nachhinein, wenn man weiß, was in einem bestimmten Marktbereich passiert ist. Die Muster, auf die sich die Strategien stützen, können immer wieder auftreten oder auch nicht. Handelsstrategien versuchen, Muster zu interpretieren und vorherzusagen, was folgen könnte, aber sie sind weit davon entfernt, perfekt oder genau zu sein. Im günstigsten Fall liegt eine Strategie öfter richtig als falsch.<br><br><b>Die aktuelle Leistung ist kein Hinweis auf die künftige Leistung.</b> Auch wenn eine Strategie im Live-Handel eine bestimmte Leistung erbracht hat, gibt es keine Garantie dafür, welche Leistung die Strategie in Zukunft erzielen wird. Live-Performance-Ergebnisse sind sicherlich wertvoller als Backtesting oder simulierte Performance, können aber dennoch nicht die Zukunft vorhersagen.<br><br><b>Handelsstrategien verlieren mit der Zeit an Effektivität.</b> Wie viel Zeit? Das weiß niemand. Die Märkte entwickeln sich, verändern sich, durchlaufen verschiedene Zyklen, sowohl lang- als auch kurzfristige, von denen einige vielleicht noch nicht getestet wurden. Das gilt für alle Märkte, ganz zu schweigen von den Kryptomärkten, die ein sehr junger Markt sind, der sich noch in einem sehr frühen Stadium befindet. Kryptomärkte verändern sich dramatisch schnell, wenn die Marktgröße steigt, mehr Profi-Händler in den Markt eintreten, mehr intelligentes Geld größere Summen investiert, mehr Bots den Betrieb von immer größeren Volumina übernehmen, das Ökosystem durch die Verfügbarkeit von Derivatemärkten komplexer wird und so weiter.",
                     "updated": 1634293787716
+                },
+                {
+                    "language": "RU",
+                    "text": "ЭТО НЕ ФИНАНСОВАЯ КОНСУЛЬТАЦИЯ. ХОТЯ СТРАТЕГИЯ ДОСТАВКИ С SUPERALGOS МОЖЕТ БЫТЬ ПОЛНОСТЬЮ ФУНКЦИОНАЛЬНОЙ, SUPERALGOS НЕ ДАЕТ НИКАКИХ ЯВНЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ РЕКОМЕНДАЦИЙ, КАК ВЫ ДОЛЖНЫ ИХ ИСПОЛЬЗОВАТЬ. МЫ ДЕЛИМСЯ СТРАТЕГИЯМИ ТОЛЬКО ДЛЯ ОБРАЗОВАТЕЛЬНЫХ ЦЕЛЕЙ. ТОРГОВАТЬ НА СВОЙ СОБСТВЕННЫЙ РИСК.<br><br><b>Результаты бэктестинга не являются показателем реальных торговых результатов.</b> Производительность в реальном времени может варьироваться в зависимости от производительности при тестировании на истории, в лучшую или в худшую сторону, скорее всего, в худшую сторону. Это происходит потому, что разработка торговых стратегий делается постфактум, с учетом того, что произошло в определенном диапазоне рынка. Паттерны, на которых могут быть основаны стратегии, могут повторяться или нет. Торговые стратегии пытаются интерпретировать закономерности и предсказать, что может последовать за ними, но они далеки от совершенства или точности. В лучшем случае стратегия чаще бывает правильной, чем неправильной.<br><br><b>Производительность в реальном времени не является показателем будущих результатов.</b> Точно так же, даже если стратегия принесла определенную результативную торговлю в реальном времени, нет никаких гарантий, каких результатов может достичь стратегия в будущем. Результаты работы в реальном времени, безусловно, более ценны, чем бэктесты или моделирование производительности, но все же не могут предсказать будущее.<br><br><b>Торговые стратегии со временем теряют эффективность.</b> Сколько времени? Никто не знает. Рынки развиваются, меняются, проходят разные циклы, как долгосрочные, так и краткосрочные, некоторые из которых, возможно, не были протестированы. Это верно для всех рынков, не говоря уже о криптографии, которая является очень молодым рынком, все еще находящимся на очень ранних стадиях. Криптовалютные рынки меняются очень быстро, поскольку рыночная капитализация увеличивается, на рынок выходит все больше профессиональных трейдеров, более умные деньги вливают более крупные капиталы, все больше ботов берут на себя операции с постоянно растущими объемами, экосистема усложняется с появлением деривативных рынков и так далее.",
+                    "updated": 1638294460380
                 }
             ]
         },
@@ -215,7 +255,11 @@
             "updated": 1620501837377
         },
         {
-            "style": "Note",
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Text",
             "text": "All contributions to the Docs and Plugins must be submitted to the Plugins-Docs branch. All contributions to the code base must be submitted to the Develop branch. Make sure you update to the latest version in new branch and that everything you are submitting works properly in that version.",
             "updated": 1620501903096,
             "translations": [
@@ -223,23 +267,49 @@
                     "language": "DE",
                     "text": "Alle Beiträge zu den Docs und Plugins müssen im Plugins-Docs Branch eingereicht werden. Alle Beiträge zur Codebasis müssen im Develop Branch eingereicht werden. Stellen Sie sicher, dass Sie auf die neueste Version im neuen Zweig aktualisieren und dass alles, was Sie einreichen, in dieser Version korrekt funktioniert.",
                     "updated": 1634294150617
+                },
+                {
+                    "language": "RU",
+                    "text": "Все вклады в исходный код должны быть отправлены в ветку Develop. Убедитесь, что вы обновились до последней версии в новой ветке и что все, что вы отправляете, работает правильно в этой версии.",
+                    "updated": 1638296052202
                 }
             ]
         },
         {
-            "style": "Subtitle",
-            "text": "Switch Branches",
-            "updated": 1620501916113
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups.",
+            "updated": 1638831064656
         },
         {
             "style": "Text",
-            "text": "To switch to the plugins-docs or the develop branch:",
-            "updated": 1620501928162,
+            "text": ""
+        },
+        {
+            "style": "Subtitle",
+            "text": "Switch Branches",
+            "updated": 1620501916113,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переключение веток",
+                    "updated": 1638294933739
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To switch to the plugins-docs(-outdated) or the develop branch:",
+            "updated": 1638831170834,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Um in den Branch plugins-docs oder den Branch develop zu wechseln:",
                     "updated": 1634294172533
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы переключиться в ветку разработки:",
+                    "updated": 1638294977472
                 }
             ]
         },
@@ -251,30 +321,45 @@
                     "language": "DE",
                     "text": "Gehen Sie zur Fußzeile dieser Seite.",
                     "updated": 1634294184016
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейти в нижний колонтитул этой страницы.",
+                    "updated": 1638294992609
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Select Plugins-Docs or Develop under the Contributions Branch title.",
-            "updated": 1620501942290,
+            "text": "Select Develop or master(only if you get specifically told to switch into master branch) under the Contributions Branch title.",
+            "updated": 1638831120115,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Wählen Sie Plugins-Docs oder Develop unter dem Titel Contributions Branch.",
                     "updated": 1634294206303
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Develop под заголовком Contributions Branch.",
+                    "updated": 1638295021031
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Then select Plugins-Docs or Develop under the Choose the Current Branch title.",
-            "updated": 1620501951286,
+            "text": "Then select Develop or master(only if you get specifically told to switch into master branch) under the Choose the Current Branch title.",
+            "updated": 1638831147506,
             "translations": [
                 {
                     "language": "DE",
                     "text": "Wählen Sie dann Plugins-Docs oder Develop unter dem Titel Choose the Current Branch.",
                     "updated": 1634294219034
+                },
+                {
+                    "language": "RU",
+                    "text": "Затем выберите Develop под заголовком Choose the Current Branch.",
+                    "updated": 1638295062350
                 }
             ]
         },
@@ -287,12 +372,24 @@
                     "language": "DE",
                     "text": "Folgen Sie den Anweisungen zum Schließen und Neustarten der Anwendung.",
                     "updated": 1634294225801
+                },
+                {
+                    "language": "RU",
+                    "text": "Следуйте инструкциям, чтобы закрыть и перезапустить приложение.",
+                    "updated": 1638295087147
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Update to the Latest Version"
+            "text": "Update to the Latest Version",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обновление до последней версии",
+                    "updated": 1638295108523
+                }
+            ]
         },
         {
             "style": "List",
@@ -303,6 +400,11 @@
                     "language": "DE",
                     "text": "Führen Sie den App Update Command aus, indem Sie ihn in das Suchfeld oben in den Docs eingeben",
                     "updated": 1634294256578
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустите команду App Update Command, введя ее в поле поиска в верхней части документов.",
+                    "updated": 1638295176725
                 }
             ]
         },
@@ -318,12 +420,24 @@
                     "language": "DE",
                     "text": "Schließen Sie die Anwendung und starten Sie sie neu.",
                     "updated": 1634294268406
+                },
+                {
+                    "language": "RU",
+                    "text": "Закройте приложение и перезапустите.",
+                    "updated": 1638295242408
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Beyond the Basics Tutorial"
+            "text": "Beyond the Basics Tutorial",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "За пределами учебного пособия",
+                    "updated": 1638295260739
+                }
+            ]
         },
         {
             "style": "Text",
@@ -334,6 +448,11 @@
                     "language": "DE",
                     "text": "Bevor Sie weitermachen, sollten Sie das Tutorial \"Beyond the Basics\" im Workspace des Plugins \"Getting Started\" durcharbeiten, damit Sie die Grundlagen für den Umgang mit Beiträgen innerhalb der App erlernen. Das Tutorial hilft Ihnen bei der richtigen Einrichtung, damit die Beiträge reibungslos funktionieren.",
                     "updated": 1634294294775
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем идти дальше, ознакомьтесь с учебником Beyond the Basics в рабочей области плагина Getting Started, чтобы изучить основы работы с вкладом из приложения. Учебное пособие поможет вам правильно настроить вашу работу, чтобы ваши вклады были безупречными.",
+                    "updated": 1638295369933
                 }
             ]
         },

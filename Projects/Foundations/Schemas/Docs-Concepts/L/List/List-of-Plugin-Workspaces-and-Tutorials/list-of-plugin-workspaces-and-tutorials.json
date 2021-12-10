@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Los tutoriales existen dentro de workspaces específicos. Esta es una lista de los espacios de workspaces que se envían con Superalgosy los tutoriales que cada uno de ellos configura.",
                 "updated": 1636718450838
+            },
+            {
+                "language": "RU",
+                "text": "Учебные пособия существуют в определенных рабочих областях. Это список рабочих пространств, поставляемых с Superalgos, и обучающих программ, которые есть в каждом из них.",
+                "updated": 1638285607452
             }
         ]
     },

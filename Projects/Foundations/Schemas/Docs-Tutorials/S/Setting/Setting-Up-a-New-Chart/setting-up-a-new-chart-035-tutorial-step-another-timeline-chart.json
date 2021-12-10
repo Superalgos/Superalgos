@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Para conectar con nuestro Trading System Nosotros necesitaremos otro Timeline Chart ¡Sigamos adelante y agreguemos!",
                 "updated": 1628731520938
+            },
+            {
+                "language": "RU",
+                "text": "Для связи с нашей торговой системой (Trading System) нам понадобится еще один графикr (Timeline Chart). Давайте продолжим и добавим его!",
+                "updated": 1639083760701
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Ve a buscar tu Time Machine y agrega un nuevo Timeline Chart.",
                     "updated": 1628731576747
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите свою машину времени (Time Machine) и добавьте новую временную диаграмму (Timeline Chart).",
+                    "updated": 1639083692495
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Recuerda ponerle un nombre para reconocerlo fácilmente. Si lo nombramos según tipo de mina o dato. Un buen nombre sería:",
                     "updated": 1628731601507
+                },
+                {
+                    "language": "RU",
+                    "text": "Не забудьте дать ему имя для удобства распознавания. Если мы назовем его в соответствии с типом шахты или данных. Хорошее имя было бы:",
+                    "updated": 1639083638355
                 }
             ]
         },

@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Мы пока не собираемся проводить Live Trading Session, поэтому на данный момент нет смысла продолжать наш интеллектуальный анализ данных.",
                 "updated": 1636195299595
+            },
+            {
+                "language": "NL",
+                "text": "We gaan nog niet een Live Trading Session starten, dus heeft het geen zin om data mining te blijven uitvoeren.",
+                "updated": 1638779733396
             }
         ]
     },
@@ -84,6 +89,11 @@
                     "language": "RU",
                     "text": "Для выполнения Data Tasks существует два основных варианта использования:",
                     "updated": 1636195344198
+                },
+                {
+                    "language": "NL",
+                    "text": "Twee belangrijke situaties om Data Tasks uit te voeren:",
+                    "updated": 1638780094753
                 }
             ]
         },
@@ -125,6 +135,11 @@
                     "language": "RU",
                     "text": "Для обработки исторических данных: Вам может понадобится обработать диапазон дат и времени для любого данного Market, чтобы запустить Backtesting Session или обработать новые индикаторы.",
                     "updated": 1636195747856
+                },
+                {
+                    "language": "NL",
+                    "text": "Om historische data te verwerken: je wilt een tijdsperiode voor een Market verwerken om een Backtesting Session te draaien, of om nieuwe indicators te verwerken.",
+                    "updated": 1638780213369
                 }
             ]
         },
@@ -166,6 +181,11 @@
                     "language": "RU",
                     "text": "Для запуска сессии в реальном времени: сессии бывают разных типов: Paper Trading Session, Forward Testing Session и Live Trading Session - это все, что необходимо для потока рынка в реальном времени.",
                     "updated": 1636195795182
+                },
+                {
+                    "language": "NL",
+                    "text": "Om een live sessie te draaien: Een live sessie zoals een Paper Trading Session, Forward Testing Session, of Live Trading Session, hebben een een live market feed nodig.",
+                    "updated": 1638780229514
                 }
             ]
         },
@@ -206,6 +226,11 @@
                     "language": "RU",
                     "text": "Когда все процессы будут обновлены, выберите \"Stop All Tasks\" в узле Market Data Tasks. Обратите внимание, что мы можем остановить задачи с другого узла, чем тот, который мы использовали для их запуска!",
                     "updated": 1636196044706
+                },
+                {
+                    "language": "NL",
+                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. We stoppen de taken vanuit een andere node dan we ze starten!",
+                    "updated": 1638780188048
                 }
             ],
             "updated": 1622197433719

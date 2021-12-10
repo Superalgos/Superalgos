@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Yönetişimde yer almak değerli bir katkıdır! Bu nedenle, Airdrop Programı ( Airdrop Program ) her sürümde sizi tokenlar ile ödüllendirir!",
                 "updated": 1637439852932
+            },
+            {
+                "language": "RU",
+                "text": "Участие в управлении - ценный вклад! Таким образом, программа Airdrop Program награждает вас токенами за каждый выпуск!",
+                "updated": 1639048242253
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Biz airdropların hayranı değiliz. Ancak, Superalgos'u öğrenmek ve Kullanıcı Profilinizi ( User Profile ) oluşturmak için zaman ayırdığınızdan, bir ödülü hak ediyorsunuz!",
                     "updated": 1637439908256
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы не фанаты бессмысленных аирдропов. Однако, поскольку вы потратили время на изучение Superalgos и создание своего профиля пользователя User Profile, вы заслуживаете награды!",
+                    "updated": 1639048290612
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Onboarding Programs düğümünde Airdrop Programı Ekle'ye (Add Airdrop Program) tıklayın.",
                     "updated": 1637439969490
+                },
+                {
+                    "language": "RU",
+                    "text": "В узле Onboarding Programs нажмите Add Airdrop Program.",
+                    "updated": 1639048326142
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "İpucu: Yalnızca programı dağıtarak, Kullanıcı Profilinizi göndermeniz koşuluyla, bir sonraki Dağıtım Etkinliğinde ( Distribution Event ) ve gelecekteki her sürümde 1.000 adede kadar SA Jetonu almaya hazırsınız!",
                     "updated": 1637440216341
+                },
+                {
+                    "language": "RU",
+                    "text": "Просто развернув программу, вы все настроите для получения до 1000 токенов SA на следующем Distribution Event и при каждом следующем выпуске при условии, что вы отправите свой профиль пользователя User Profile!",
+                    "updated": 1639048415520
                 }
             ]
         }

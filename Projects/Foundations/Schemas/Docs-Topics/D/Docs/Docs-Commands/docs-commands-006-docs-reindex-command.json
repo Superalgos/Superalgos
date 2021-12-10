@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Befehl, um alle Seiten der Docs sowie alle Knoten im aktuellen Arbeitsbereich neu zu indizieren (re-index). Änderungen, die Sie am Inhalt vorgenommen haben, werden nach Ausführung des Befehls über die Suche verfügbar.",
                 "updated": 1633894480507
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду, чтобы повторно проиндексировать все страницы документов Docs вместе со всеми узлами в текущей рабочей области. Изменения, внесенные вами в контент, становятся доступными через поиск после выполнения команды.",
+                "updated": 1638465019032
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1609157772210
+            "updated": 1609157772210,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1638465033912
+                }
+            ]
         },
         {
             "style": "Json",
@@ -33,6 +45,11 @@
                     "language": "DE",
                     "text": "Hinweis: Die Neuindizierung aller Seiten und Arbeitsbereichsknoten kann ein oder zwei Minuten dauern. Wenn Ihr Arbeitsbereich sehr groß ist, kann es sogar noch länger dauern.",
                     "updated": 1633894701501
+                },
+                {
+                    "language": "RU",
+                    "text": "Переиндексация всех страниц и узла рабочей области может занять минуту или две. Если ваше рабочее пространство очень большое, ожидайте, что оно займет еще больше времени.",
+                    "updated": 1638465085470
                 }
             ]
         }

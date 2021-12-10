@@ -1,13 +1,27 @@
 {
     "type": "Initial Targets",
     "definition": {
-        "text": "The initial targets node holds the most basic definitions about the position to be taken: the target rate and the target size."
+        "text": "The initial targets node holds the most basic definitions about the position to be taken: the target rate and the target size.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Initial Targets содержит самые основные определения занимаемой позиции: Target Rate и Target Size.",
+                "updated": 1638970316023
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Both definitions are required.",
-            "updated": 1609595544643
+            "updated": 1609595544643,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Требуются оба определения.",
+                    "updated": 1638970334536
+                }
+            ]
         }
     ]
 }

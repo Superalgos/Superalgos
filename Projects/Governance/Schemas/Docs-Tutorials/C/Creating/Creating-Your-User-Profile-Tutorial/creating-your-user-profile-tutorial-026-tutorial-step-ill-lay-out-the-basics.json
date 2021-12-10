@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Tüm Topluluk Oluşturma Programlarının ( Community Building Programs ) iki yerleşik teşvik türü vardır: bir Token Bonusu ( Token Bonus ) ve program tarafından Verilen Jetonlar ( Tokens Awarded ).",
                 "updated": 1637443563586
+            },
+            {
+                "language": "RU",
+                "text": "Все программы Community Building Programs имеют два встроенных типа стимулов: Tokens Bonus и Tokens Awarded, присуждаемые программой.",
+                "updated": 1639049840996
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Genel olarak, bu şöyle çalışır:",
                     "updated": 1637443596180
+                },
+                {
+                    "language": "RU",
+                    "text": "В общих чертах, как это работает:",
+                    "updated": 1639049852150
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "Token Bonusu: Programa katılmak için bir teşviktir. Bu jetonları sadece katılım kurallarını yerine getirerek kazanırsınız.",
                     "updated": 1637443634860
+                },
+                {
+                    "language": "RU",
+                    "text": "Tokens Bonus: Это стимул к участию в программе. Вы зарабатываете эти токены, просто выполняя правила участия.",
+                    "updated": 1639049883391
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "Tokens Awarded: Bu programlar kullanıcılardan beklenen davranışları teşvik eder. Topluluğa yapıcı bir şekilde katılırsanız, daha fazla jeton kazanırsınız!",
                     "updated": 1637443737752
+                },
+                {
+                    "language": "RU",
+                    "text": "Tokens Awarded: Эти программы стимулируют желаемое поведение. Если вы конструктивно участвуете в сообществе Community, то заработаете больше токенов!",
+                    "updated": 1639049924634
                 }
             ]
         },
@@ -92,6 +112,11 @@
                     "language": "TR",
                     "text": "Bu programlarla ilgili ilginç olan şey, işbirlikleri zincirlerini ödüllendirmeleridir! Haydi bu konsepti Referans Programında ( Referral Program ) inceleyelim!",
                     "updated": 1637443792247
+                },
+                {
+                    "language": "RU",
+                    "text": "Что интересно в этих программах, так это то, что они вознаграждают за цепочки сотрудничества! Давайте исследуем эту концепцию в рамках реферальной программы Referral Program!",
+                    "updated": 1639049949974
                 }
             ]
         }

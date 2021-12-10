@@ -191,7 +191,7 @@ function newGovernanceFunctionLibraryTokenPower() {
 
                         let percentage = getPercentage(childNode)
 
-                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                             totalPercentage = totalPercentage + percentage
                         } else {
                             totalNodesWithoutPercentage++
@@ -208,7 +208,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                                 let percentage = getPercentage(childNode)
-                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++
@@ -244,7 +244,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                         if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                         let percentage = getPercentage(childNode)
-                        if (percentage === undefined || isNaN(percentage) === true) {
+                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
                         distributeTokenPower(
@@ -265,7 +265,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                                 let percentage = getPercentage(childNode)
-                                if (percentage === undefined || isNaN(percentage) === true) {
+                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
                                 distributeTokenPower(

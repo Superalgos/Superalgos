@@ -2,7 +2,14 @@
     "type": "Token Power Flows",
     "definition": {
         "text": "Token Power flows cascading down from the User Profile node to the Token Power Switch node, to its offspring, and so on, following the structure of the hierarchy.",
-        "updated": 1630215880089
+        "updated": 1630215880089,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Token Power передается каскадно от узла User Profile к узлу Token Power Switch, к его потомкам и т. д., следуя структуре иерархии.",
+                "updated": 1639123598603
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,19 +19,47 @@
         },
         {
             "style": "Text",
-            "text": "How Token Power flows depends on the following:"
+            "text": "How Token Power flows depends on the following:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Передача Token Power зависит от следующего:",
+                    "updated": 1639123739862
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "By default, Token Power flows in equal proportion to each direct offspring node."
+            "text": "By default, Token Power flows in equal proportion to each direct offspring node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По умолчанию Power пердается в равной пропорции к каждому прямому дочернему узлу.",
+                    "updated": 1639123793839
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each offspring. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the offspring for which there is no definition."
+            "text": "You may override the defaults by explicitly defining the percentage of the Token Power you wish to allocate to each offspring. If you define less than a total of 100%, then the remaining Token Power is distributed evenly across the offspring for which there is no definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете изменить значения по умолчанию, явно указав процент Token Power, который вы хотите выделить каждому потомству. Если вы определяете менее 100%, оставшаяся Token Power распределяется равномерно между потомками, для которых нет определения.",
+                    "updated": 1639123851222
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the format of the configuration you may use on each of the programs:"
+            "text": "This is the format of the configuration you may use on each of the programs:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это формат конфигурации, которую вы можете использовать в каждой из программ:",
+                    "updated": 1639123867587
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,16 +69,37 @@
         {
             "style": "Text",
             "text": "For example, let's say you have 1,000 Token Power flowing into your Token Power Switch node. Let's say you spawn the Onboarding Programs, Community Building Programs, Votes And Claims Programs, and Financial Programs nodes.",
-            "updated": 1630436060757
+            "updated": 1630436060757,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, предположим, что у вас есть 1000 Token Power, входящий в ваш узел Token Power Switch. Допустим, вы создали узлы Onboarding Programs, Community Building Programs, Votes And Claims Programs, и Financial Programs.",
+                    "updated": 1639124001445
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "As soon as you deploy these four offspring of the Token Power Switch node, you will see that each of the nodes gets 25% of the Token Power by default.",
-            "updated": 1630436087763
+            "updated": 1630436087763,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только вы развернете эти четыре потомка узла Token Power Switch, вы увидите, что каждый из узлов по умолчанию получает 25% Token Power.",
+                    "updated": 1639124017703
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "But you wish to limit the Token Power flowing into the Onboarding Programs to zero, as those programs do not require Token Power. To do that, you set up the following in the Onboarding Programs node configuration:"
+            "text": "But you wish to limit the Token Power flowing into the Onboarding Programs to zero, as those programs do not require Token Power. To do that, you set up the following in the Onboarding Programs node configuration:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Но вы если вы хотите ограничить Token Power, поступающий в Onboarding Programs до нуля, поскольку эти программы не требуют Token Power. Для этого в конфигурации узла Onboarding Programs необходимо добавить следующее:",
+                    "updated": 1639124388315
+                }
+            ]
         },
         {
             "style": "Json",
@@ -52,12 +108,26 @@
         },
         {
             "style": "Callout",
-            "text": "Once the configuration is in place, you will notice that the Onboarding Programs node shows 0% and 0 Token Power flowing into the node. You will also notice that the rest of the nodes are getting 33.33% of the Token Power each."
+            "text": "Once the configuration is in place, you will notice that the Onboarding Programs node shows 0% and 0 Token Power flowing into the node. You will also notice that the rest of the nodes are getting 33.33% of the Token Power each.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После этого вы заметите, что узел Onboarding Programs показывает, что в узел поступает 0% и 0 Token Power. Вы также заметите, что остальные узлы получают по 33,33% Token Power каждый.",
+                    "updated": 1639124279142
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now let's say you wish to use only 10% of your Token Power in the Community Building Programs. So you set up the following config:",
-            "updated": 1630436162265
+            "updated": 1630436162265,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь предположим, что вы хотите использовать только 10% своего Token Power в Community Building Programs. Итак, вы настроили следующую конфигурацию:",
+                    "updated": 1639124367395
+                }
+            ]
         },
         {
             "style": "Json",
@@ -67,12 +137,26 @@
         {
             "style": "Callout",
             "text": "As a result, 10% of the Token Power flows into the Community Building Programs, while the remaining nodes get 45% of the Token Power each.",
-            "updated": 1630436168281
+            "updated": 1630436168281,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В результате 10% Token Power поступает в программы Community Building Programs, в то время как остальные узлы получают по 45% Token Power каждый.",
+                    "updated": 1639124468935
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "One more thing! When Token Power flows into a specific program, it turns into a specific form of power associated with the said program! For example, Token Power that flows into the Support Program turns into Support Power. In the Voting Program, it turns into Voting Power. Notice that this is just a change in the name, as all these forms of powers behave in the same manner throughout the User Profile hierarchy.",
-            "updated": 1630436471069
+            "updated": 1630436471069,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Еще кое-что! Когда Token Power перетекает в конкретную программу, он превращается в определенную форму, связанную с указанной программой! Например, Token Power, который поступает в программу Support Program, превращается в силу поддержки. В программе Voting Program он превращается в силу голоса. Обратите внимание, что это просто изменение названия, поскольку все эти формы полномочий ведут себя одинаково во всей иерархии профилей пользователей.",
+                    "updated": 1639124740467
+                }
+            ]
         }
     ]
 }

@@ -2,7 +2,14 @@
     "type": "Tokens Mined",
     "definition": {
         "text": "The Tokens Mined node features the total number of tokens you will get, adding all Token Rewards and Tokens Bonus from the programs you participate in.",
-        "updated": 1630090191493
+        "updated": 1630090191493,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Tokens Mined показывает общее количество токенов, которые вы получите, добавляя все вознаграждения Token Rewards и бонусы Tokens Bonus за токены из программ, в которых вы участвуете.",
+                "updated": 1639126859031
+            }
+        ]
     },
     "paragraphs": [
         {

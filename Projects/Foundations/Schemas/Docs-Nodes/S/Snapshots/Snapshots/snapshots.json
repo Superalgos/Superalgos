@@ -1,7 +1,14 @@
 {
     "type": "Snapshots",
     "definition": {
-        "text": "Snapshots are CSV files output by the trading bot listing every trade in a backtesting session. The snapshots parameter determines whether snapshots shall be produced, and how."
+        "text": "Snapshots are CSV files output by the trading bot listing every trade in a backtesting session. The snapshots parameter determines whether snapshots shall be produced, and how.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Snapshots - это файлы CSV, выводимые торговым ботом со списком каждой сделки в сеансе тестирования на истории. Параметр snapshots определяет, должны ли создаваться снимки и как.",
+                "updated": 1639147875726
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Learn more about snapshots and check the configuration file to control if and how snapshots are produced."
+            "text": "Learn more about snapshots and check the configuration file to control if and how snapshots are produced.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о Snapshots и проверьте файл конфигурации, чтобы определить, они создаются или нет и как они создаются.",
+                    "updated": 1639147986628
+                }
+            ]
         },
         {
             "style": "Block",
@@ -19,20 +33,48 @@
         {
             "style": "Title",
             "text": "Snapshots Configuration",
-            "updated": 1609676701303
+            "updated": 1609676701303,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Snapshots",
+                    "updated": 1639148017611
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609676706067
+            "updated": 1609676706067,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639148025361
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "strategy determines whether to take a snapshot at the trigger on event or not; possible values are true or false."
+            "text": "strategy determines whether to take a snapshot at the trigger on event or not; possible values are true or false.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "стратегия определяет, делать снимок при срабатывании триггера по событию или нет; возможные значения - true (истина) или false (ложь).",
+                    "updated": 1639148085904
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "position determines whether to take a snapshot at the take position event or not; possible values are true or false."
+            "text": "position determines whether to take a snapshot at the take position event or not; possible values are true or false.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "позиция определяет, делать ли снимок в событии взятия позиции или нет; возможные значения - true (истина) или false (ложь).",
+                    "updated": 1639148141685
+                }
+            ]
         }
     ]
 }

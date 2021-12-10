@@ -17,7 +17,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
         web3 = undefined
     }
 
-    async function broadcastSignal(node) {
+    async function broadcastSignal(node, context) {
         if (node === undefined) { return }
         if (node.outgoingSignals === undefined) { return }
         if (node.outgoingSignals.signalReferences === undefined) { return }
@@ -54,7 +54,8 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                     source: {
                         tradingSystem: {
                             node: {
-                                type: node.type
+                                type: node.type,
+                                context: context
                             }
                         }
                     },

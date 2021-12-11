@@ -135,10 +135,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     let strategy = tradingSystem.tradingStrategies[j]
                     let triggerStage = strategy.triggerStage
 
-                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
-                    tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signal)
-
                     if (triggerStage !== undefined) {
+
+                        let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOn)
+                        tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signal)
+
                         if (triggerStage.triggerOn !== undefined) {
                             for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
                                 let situation = triggerStage.triggerOn.situations[k]
@@ -191,9 +192,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                tradingSystem.evalConditions(strategy, 'Trigger Off Event')
-
                 if (triggerStage !== undefined) {
+
+                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
+                    tradingSystem.evalConditions(triggerStage, 'Trigger Off Event', signal)
+
                     if (triggerStage.triggerOff !== undefined) {
 
                         for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
@@ -235,10 +238,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                tradingSystem.evalConditions(strategy, 'Take Position Event')
-                await tradingSystem.evalFormulas(strategy, 'Take Position Event')
-
                 if (triggerStage !== undefined) {
+
+                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.takePosition)
+                    tradingSystem.evalConditions(triggerStage, 'Take Position Event', signal)
+                    await tradingSystem.evalFormulas(triggerStage, 'Take Position Event')
+                    
                     if (triggerStage.takePosition !== undefined) {
                         for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
                             let situation = triggerStage.takePosition.situations[k]

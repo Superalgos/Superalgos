@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "На открытой стадии рассматриваются определения, которые составляют логику входа в позицию, включая целевую ставку и размер, а также выполнение ордеров.",
                 "updated": 1637756161148
+            },
+            {
+                "language": "TR",
+                "text": "Açık aşama, hedef oran,  büyüklük ve emir yürütme dahil olmak üzere bir pozisyona girme mantığını oluşturan tanımlardır.",
+                "updated": 1639224861043
             }
         ]
     },

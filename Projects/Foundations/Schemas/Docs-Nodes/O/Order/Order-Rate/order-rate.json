@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Order Rate определяет цену лимитных ордеров.",
                 "updated": 1638784862039
+            },
+            {
+                "language": "TR",
+                "text": "Emir oranı düğümü, limit emirlerinin oranını tanımlar.",
+                "updated": 1639222556842
             }
         ]
     },

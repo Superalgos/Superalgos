@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Quoted Asset - это актив, по которому на рынке выражена цена базового актива. Обычно это второй актив в паре, указанный биржей.",
                 "updated": 1639142702346
+            },
+            {
+                "language": "TR",
+                "text": "Kote edilmiş varlık, baz varlığın fiyatının piyasada belirlendiği varlıktır. Genellikle borsa tarafından listelendiği gibi çiftteki ikinci varlıktır.",
+                "updated": 1639225881576
             }
         ]
     },

@@ -7,7 +7,14 @@
             "project": "Foundations",
             "name": "javascript-code"
         },
-        "text": "Select Add Condition on the situation's menu and paste the code in the Javascript Code node!"
+        "text": "Select Add Condition on the situation's menu and paste the code in the Javascript Code node!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wählen Sie Bedingung hinzufügen (Add Condition) im Menü der Situation und fügen Sie den Code in den Javascript-Code Knoten ein!",
+                "updated": 1639265553683
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -16,12 +23,26 @@
         },
         {
             "style": "Callout",
-            "text": "Label the condition node 24H Not Side and label the situation as Downtrend to keep things tidy!"
+            "text": "Label the condition node 24H Not Side and label the situation as Downtrend to keep things tidy!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beschriften Sie den Bedingungsknoten 24H Not Side und beschriften Sie die Situation als Downtrend, um die Dinge ordentlich zu halten!",
+                    "updated": 1639265564098
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "We could have chosen to write the two conditions in one by using the && operator. I'll tell you why that is not a good idea in the next step!",
-            "updated": 1610470019656
+            "updated": 1610470019656,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir hätten die beiden Bedingungen auch in eine einzige schreiben können, indem wir den Operator && verwenden. Warum das keine gute Idee ist, erkläre ich Ihnen im nächsten Schritt!",
+                    "updated": 1639265579723
+                }
+            ]
         }
     ]
 }

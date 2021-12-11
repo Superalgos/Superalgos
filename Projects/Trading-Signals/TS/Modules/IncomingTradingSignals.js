@@ -20,13 +20,13 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
     async function checkForSignals(node) {
         if (node === undefined) { return }
         if (node.incomingSignals === undefined) { return }
-        if (node.incomingSignals.signalReferences === undefined) { return }
+        if (node.incomingSignals.incomingSignalReferences === undefined) { return }
 
-        for (let i = 0; i < node.incomingSignals.signalReferences.length; i++) {
+        for (let i = 0; i < node.incomingSignals.incomingSignalReferences.length; i++) {
             /*
             Run some validations
             */
-            let signalReference = node.incomingSignals.signalReferences[i]
+            let signalReference = node.incomingSignals.incomingSignalReferences[i]
             if (signalReference.referenceParent === undefined) { return }
             let signalDefinition = signalReference.referenceParent
 

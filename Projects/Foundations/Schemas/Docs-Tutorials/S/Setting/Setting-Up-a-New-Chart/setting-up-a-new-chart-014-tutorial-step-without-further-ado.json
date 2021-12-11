@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Я знаю, что готов настроить некоторые графики. А вы? Давайте проследим, как добавить фундаментальные узлы, которые нам нужны для начала нашей диаграммы.",
                 "updated": 1637938801829
+            },
+            {
+                "language": "DE",
+                "text": "Ich weiß, dass ich bereit bin, einige Diagramme anzupassen. Sind Sie es auch? Lassen Sie uns durchgehen, wie wir die grundlegenden Knoten hinzufügen, die wir für die Erstellung unseres Diagramms benötigen.",
+                "updated": 1639104087816
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Первое, что нам нужно сделать, это добавить свежую панель приборов.",
                     "updated": 1637938814690
+                },
+                {
+                    "language": "DE",
+                    "text": "Als Erstes müssen wir ein neues Dashboard hinzufügen.",
+                    "updated": 1639104125679
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Переместитесь по узлу Project Dashboards node и нажмите кнопку Add Dashboard.",
                     "updated": 1637938884068
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über den Knoten Project Dashboards  und klicken Sie auf <I>Add Dashboard.</I>",
+                    "updated": 1639104267774
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Обязательно назовите новую приборную панель (Dashboard) так, чтобы ее можно было узнать. Хорошей практикой именования является ссылка на тип среды (живая торговля, бэктестинг и т.д.) и что-то отличительное о графиках, которые вы планируете добавить. Для нас это было бы так:",
                     "updated": 1637939089832
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie Ihrem neuen Dashboard einen Namen, den Sie wiedererkennen werden. Es empfiehlt sich, bei der Namensgebung auf die Art der Umgebung (Live-Handel, Backtesting usw.) zu verweisen und die Charts, die Sie hinzufügen möchten, zu kennzeichnen. Für uns wäre das zum Beispiel:",
+                    "updated": 1639104397267
                 }
             ]
         },

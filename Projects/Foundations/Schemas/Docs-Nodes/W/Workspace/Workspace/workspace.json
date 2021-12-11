@@ -438,6 +438,11 @@
                 "language": "RU",
                 "text": "Workspace - это объект, хранящий всю системную и пользовательскую информацию, за исключением состояния и содержимого плагинов. С технической точки зрения рабочее пространство - это файл JSON.",
                 "updated": 1638344554135
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma alanı, eklentilerin durumu ve içeriği hariç, sistem ve kullanıcı tarafından oluşturulan bilgileri depolayan bir alandır. Teknik açıdan, çalışma alanı bir JSON dosyasıdır.",
+                "updated": 1639233230804
             }
         ]
     }

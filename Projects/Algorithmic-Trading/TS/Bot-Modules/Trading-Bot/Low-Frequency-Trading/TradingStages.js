@@ -50,6 +50,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         tradingEpisodeModuleObject.initialize()
         outgoingTradingSignalsModuleObject.initialize()
         incomingTradingSignalsModuleObject.initialize()
+        portfolioManagerClient.initialize()
     }
 
     function finalize() {
@@ -80,6 +81,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
         incomingTradingSignalsModuleObject.finalize()
         incomingTradingSignalsModuleObject = undefined
+
+        portfolioManagerClient.finalize()
+        portfolioManagerClient = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -243,7 +247,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.takePosition)
                     tradingSystem.evalConditions(triggerStage, 'Take Position Event', signal)
                     await tradingSystem.evalFormulas(triggerStage, 'Take Position Event')
-                    
+
                     if (triggerStage.takePosition !== undefined) {
                         for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
                             let situation = triggerStage.takePosition.situations[k]

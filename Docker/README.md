@@ -111,8 +111,8 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
+  -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```

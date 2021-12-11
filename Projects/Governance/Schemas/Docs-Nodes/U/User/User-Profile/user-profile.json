@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Token Power fmínimos en cascada desde el nodo Perfil de usuario hasta el nodo  Token Power Switch, a su descendencia, y así sucesivamente, siguiendo la estructura de la jerarquía.",
                 "updated": 1637851334389
+            },
+            {
+                "language": "RU",
+                "text": "Token Power перетекает каскадно от узла User Profile к узлу Token Power Switch, к его потомкам и т. д., согласно структуре иерархии.",
+                "updated": 1639040549453
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Como se explica en la página Building Your Profile, su perfil de usuario está emparejado con su Governance Address. Los tokens que tiene en esta dirección le confieren Token Power que puede utilizar para influir en la forma en que Superalgos distribuye los tokens asignados a cada lanzamiento.",
                     "updated": 1637851209460
+                },
+                {
+                    "language": "RU",
+                    "text": "Как объясняется на странице Building Your Profile, ваш профиль пользователя User Profile связан с вашим административным адресом Governance Address. Токены, которые вы держите в этом адресе, наделяют вас полномочиями Token Power, которую вы можете использовать, чтобы влиять на то, как Superalgos распределяет токены, выделенные для каждого выпуска.",
+                    "updated": 1639040313012
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Después de crear su perfil, debería ver su Token Powerfluyendo al nodo de Token Power Switch, tel primer vástago del jefe de la jerarquía. Este principio se mantiene en toda la jerarquía:Token Power fluye hacia los nodos descendientes, a través de cada sección de la jerarquía.",
                     "updated": 1637851292698
+                },
+                {
+                    "language": "RU",
+                    "text": "После создания профиля вы должны увидеть, как ваш Token Power перетекает к узлу Token Power Switch, первому потомку главы иерархии. Этот принцип поддерживается во всей иерархии: Token Power передается дочерним узлам через каждый раздел иерархии.",
+                    "updated": 1639040408859
                 }
             ]
         },

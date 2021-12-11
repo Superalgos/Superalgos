@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El quoted asset es el asset en el que el precio del asset base está denominado en el mercado. Por lo general, es el segundo asset del par, según lo enumerado por el exchange.",
                 "updated": 1624496795206
+            },
+            {
+                "language": "TR",
+                "text": "Kote edilmiş varlık, baz varlığın fiyatının piyasada belirlendiği varlıktır. Genellikle borsa tarafından listelendiği gibi çiftteki ikinci varlıktır.",
+                "updated": 1639225881576
             }
         ]
     },

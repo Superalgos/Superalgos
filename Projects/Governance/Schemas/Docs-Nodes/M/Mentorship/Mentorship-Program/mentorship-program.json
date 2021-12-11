@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Llegar a ser lo suficientemente competente con Superalgos hasta el punto en que pueda producir contribuciones valiosas puede ser un proceso largo. El programa de mentores incentiva la colaboración profunda, el aprendizaje y la formación de Colaboradores.",
                 "updated": 1637848935693
+            },
+            {
+                "language": "RU",
+                "text": "Стать достаточно опытным в работе с Superalgos до такой степени, чтобы вы могли внести ценный вклад, может быть длительным процессом. Программа наставничества стимулирует глубокое сотрудничество, обучение и формирование участников.",
+                "updated": 1638985712720
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "ES",
                     "text": "Con este programa, puede ganar Superalgos SA Tokens por cada usuario que mentoree, ¡y también por los usuarios a los que ellos mentoreen!",
                     "updated": 1637849011950
+                },
+                {
+                    "language": "RU",
+                    "text": "С помощью этой программы вы можете зарабатывать токены Superalgos SA Token за каждого пользователя, которого вы наставляете, а также за пользователей, которых они наставляют!",
+                    "updated": 1638985744682
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "ES",
                     "text": "Para participar, debe desplegar el  Mentorship Program ( programa de mentoría) y declarar sus mentores. Para hacer esto, agregue el nodo del User Mentor yuselo para establecer una referencia al User Profile de la persona que le ha mentoreado. Si tiene más de un mentor, agregue más nodos de User Mentor!",
                     "updated": 1637849198793
+                },
+                {
+                    "language": "RU",
+                    "text": "Для участия вы должны запустить программу наставничества Mentorship Program и объявить своих наставников. Для этого добавьте узел User Mentor и используйте его, чтобы установить ссылку на профиль пользователя человека, который вас наставлял. Если у вас более одного наставника, добавьте больше узлов User Mentor!",
+                    "updated": 1638985805015
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "language": "ES",
                     "text": "Superalgos está destinado a convertirse en una colaboración global masiva. ¡Para hacer eso, el proyecto necesita un grupo cada vez mayor de Colaboradores!",
                     "updated": 1637849221755
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos призван превратиться в крупномасштабное глобальное сотрудничество. Для этого проекту нужна постоянно растущая группа авторов!",
+                    "updated": 1638985832260
                 }
             ]
         },
@@ -70,7 +90,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638985856893
+                }
+            ]
         }
     ]
 }

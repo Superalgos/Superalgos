@@ -15,6 +15,11 @@
                 "text": "¡Pongamos manos a la obra! Usaremos el comando app.contribute para enviar tu perfil.",
                 "updated": 1630899120379,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Погнали! Мы будем использовать команду app.contribute для отправки вашего профиля.",
+                "updated": 1639053568479
             }
         ]
     },
@@ -29,13 +34,25 @@
                     "text": "Copia el comando reemplazando el marcador de posición con tu nombre de usuario de Github, pégualo en el cuadro de búsqueda y clic en Enter.",
                     "updated": 1630899305591,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте команду, убедившись, что вы заменили заполнитель своим именем пользователя Github, вставьте его в поле поиска и нажмите Enter.",
+                    "updated": 1639053625713
                 }
             ]
         },
         {
             "style": "Json",
             "text": "app.contribute User Profile [add your name]",
-            "updated": 1630751329550
+            "updated": 1630751329550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "app.contribute User Profile [добавьте ваше имя профиля]",
+                    "updated": 1639053676246
+                }
+            ]
         },
         {
             "style": "Text",
@@ -47,6 +64,11 @@
                     "text": "Si todo está configurado correctamente, deberías ver un mensaje que indica que se ha enviado tu solicitud de extracción. ¡Esto significa que su perfil ha sido enviado al repositorio principal de Superalgos y se fusionará automáticamente en solo unos minutos!",
                     "updated": 1630899224657,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если все настроено правильно, вы должны увидеть сообщение о том, что ваш запрос на перенос был отправлен. Это означает, что ваш профиль был отправлен в основной репозиторий Superalgos и будет автоматически объединен в течение нескольких часов!",
+                    "updated": 1639053703579
                 }
             ]
         },

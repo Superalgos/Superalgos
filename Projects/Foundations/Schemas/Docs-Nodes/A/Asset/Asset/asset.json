@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Узел Asset - это определение актива в Superalgos.",
                 "updated": 1638622145471
+            },
+            {
+                "language": "TR",
+                "text": "Varlık düğümü, Superalgos'taki bir varlığın tanımıdır.",
+                "updated": 1639221932300
             }
         ]
     },

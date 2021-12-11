@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Forward Testing Session - это торговый режим, в котором экземпляр торгового бота выполняет реальную торговлю с определенной пользователем долей доступного капитала.",
                 "updated": 1638602442107
+            },
+            {
+                "language": "TR",
+                "text": "İleriye dönük test oturumu, ticaret botu örneğinin, mevcut sermayenin kullanıcı tanımlı bir bölümü ile canlı ticaret gerçekleştirdiği bir ticaret modudur.",
+                "updated": 1639144756986
             }
         ]
     },

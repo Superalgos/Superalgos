@@ -28,9 +28,6 @@
         "config": true
     },
     "level": 3,
-    "referencingRules": {
-        "compatibleTypes": "->Exchange Account Asset->"
-    },
     "attachingRules": {
         "compatibleTypes": "->Trading Parameters->Portfolio Parameters->"
     },

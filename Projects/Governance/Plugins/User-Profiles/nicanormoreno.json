@@ -1,0 +1,281 @@
+{
+    "type": "User Profile",
+    "name": "nicanormoreno",
+    "config": "{\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e9\",\n        \"s\": \"0x47f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca83\",\n        \"signature\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e947f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca831c\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "id": "fd148eb4-f5db-4d23-9051-c18afcd0e130",
+        "savedPayload": {
+            "position": {
+                "x": 14006.000000000002,
+                "y": 5839.05830753354
+            },
+            "targetPosition": {
+                "x": 13706.000000000002,
+                "y": 5839.05830753354
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "04919bc3-b4c3-4006-96ff-651e8963feca",
+        "savedPayload": {
+            "position": {
+                "x": 13556.000000000002,
+                "y": 6098.865928668872
+            },
+            "targetPosition": {
+                "x": 13706.000000000002,
+                "y": 5839.05830753354
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "signingAccounts": {
+        "type": "Signing Accounts",
+        "name": "New Signing Accounts",
+        "project": "Governance",
+        "signingAccounts": [
+            {
+                "type": "Signing Account",
+                "name": "New Signing Account",
+                "config": "{\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e9\",\n        \"s\": \"0x47f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca83\",\n        \"signature\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e947f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca831c\"\n    }\n}",
+                "project": "Governance",
+                "signingAccountChild": {
+                    "type": "P2P Network Node",
+                    "name": "P2P Network Node # 1",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31248\",\n    \"webSocketsPort\": \"18042\"\n}",
+                    "project": "Governance",
+                    "id": "87b7f44d-4e78-4951-8466-86fa9004eba4",
+                    "savedPayload": {
+                        "position": {
+                            "x": 13036.38475772934,
+                            "y": 5879.250686398208
+                        },
+                        "targetPosition": {
+                            "x": 13296.19237886467,
+                            "y": 5729.250686398208
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "4271bbcd-417b-46d6-80f6-330db51d9d99",
+                "savedPayload": {
+                    "position": {
+                        "x": 13296.19237886467,
+                        "y": 5729.250686398208
+                    },
+                    "targetPosition": {
+                        "x": 13556.000000000002,
+                        "y": 5579.250686398208
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            {
+                "type": "Signing Account",
+                "name": "New Signing Account",
+                "config": "{\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e9\",\n        \"s\": \"0x47f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca83\",\n        \"signature\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e947f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca831c\"\n    }\n}",
+                "project": "Governance",
+                "signingAccountChild": {
+                    "type": "Social Trading Desktop App",
+                    "name": "Social Trading Desktop App # 1",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}",
+                    "project": "Governance",
+                    "id": "32eaa80c-6720-4761-83eb-5370ed913cc3",
+                    "savedPayload": {
+                        "position": {
+                            "x": 13256.000000000002,
+                            "y": 5059.635444127544
+                        },
+                        "targetPosition": {
+                            "x": 13406.000000000002,
+                            "y": 5319.443065262876
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "b0e46466-a8e2-4b55-82f0-d6b4c03c00c7",
+                "savedPayload": {
+                    "position": {
+                        "x": 13406.000000000002,
+                        "y": 5319.443065262876
+                    },
+                    "targetPosition": {
+                        "x": 13556.000000000002,
+                        "y": 5579.250686398208
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            {
+                "type": "Signing Account",
+                "name": "New Signing Account",
+                "config": "{\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e9\",\n        \"s\": \"0x47f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca83\",\n        \"signature\": \"0x58302219e01483dbaad554a02bbd90582dc05467d2a28ff17ea6a934bd3d61e947f2c62e34868b59f8bf6c8de7f29a0fb12758bb76413b948288efce3751ca831c\"\n    }\n}",
+                "project": "Governance",
+                "signingAccountChild": {
+                    "type": "Social Trading Server App",
+                    "name": "Social Trading Server App # 1",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"host\": \"localhost\",\n    \"webSocketsPort\": \"16042\"\n}",
+                    "project": "Governance",
+                    "id": "4c88d67a-906d-46d5-bb55-b6e35f124ae6",
+                    "savedPayload": {
+                        "position": {
+                            "x": 14075.615242270664,
+                            "y": 5279.250686398208
+                        },
+                        "targetPosition": {
+                            "x": 13815.807621135333,
+                            "y": 5429.250686398208
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "52b76124-0878-432e-9ce5-ebc7cc1fa528",
+                "savedPayload": {
+                    "position": {
+                        "x": 13815.807621135333,
+                        "y": 5429.250686398208
+                    },
+                    "targetPosition": {
+                        "x": 13556.000000000002,
+                        "y": 5579.250686398208
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            }
+        ],
+        "id": "51f74fa2-76c3-43c0-a03e-9b38ca84faac",
+        "savedPayload": {
+            "position": {
+                "x": 13556.000000000002,
+                "y": 5579.250686398208
+            },
+            "targetPosition": {
+                "x": 13706.000000000002,
+                "y": 5839.05830753354
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "74c2608a-f28b-4dc3-b753-cd2172aa8b65",
+    "savedPayload": {
+        "position": {
+            "x": 13706.000000000002,
+            "y": 5839.05830753354
+        },
+        "targetPosition": {
+            "x": 13706.000000000002,
+            "y": 5839.05830753354
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

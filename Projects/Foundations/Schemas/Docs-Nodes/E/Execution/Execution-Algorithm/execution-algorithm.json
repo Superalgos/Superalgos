@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Execution Algorithm - это набор инструкций, используемых для размещения и управления ордерами на бирже.",
                 "updated": 1638785781426
+            },
+            {
+                "language": "TR",
+                "text": "Yürütme algoritması, borsada sipariş vermek ve yönetmek için kullanılan bir dizi talimattır.",
+                "updated": 1639222248452
             }
         ]
     },

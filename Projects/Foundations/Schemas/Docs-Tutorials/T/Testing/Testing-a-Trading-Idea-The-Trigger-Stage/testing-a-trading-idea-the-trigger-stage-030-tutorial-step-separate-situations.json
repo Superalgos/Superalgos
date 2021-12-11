@@ -7,18 +7,39 @@
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "Think of it in this way: we have identified two different market situations that would invalidate this idea!"
+        "text": "Think of it in this way: we have identified two different market situations that would invalidate this idea!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Stellen Sie es sich so vor: Wir haben zwei verschiedene Marktsituationen identifiziert, die diese Idee entkräften würden!",
+                "updated": 1639265844556
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We will set up each condition in separate situation!",
-            "updated": 1610470622189
+            "updated": 1610470622189,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden jede Bedingung in einer separaten Situation einrichten!",
+                    "updated": 1639265851505
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Set up the first condition in the existing situation, and the second condition in a new situation (add a Situation using the menu of the Trigger Off Event).",
-            "updated": 1617190943631
+            "updated": 1617190943631,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Richten Sie die erste Bedingung in der bestehenden Situation und die zweite Bedingung in einer neuen Situation ein (fügen Sie eine Situation über das Menü des Trigger Off Event hinzu).",
+                    "updated": 1639265871809
+                }
+            ]
         },
         {
             "style": "Javascript",

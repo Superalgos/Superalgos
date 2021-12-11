@@ -7,17 +7,38 @@
             "project": "Foundations",
             "name": "run"
         },
-        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!"
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nun, da Sie die Auswirkungen dieser Data-Mining-Operation verstanden haben, können wir loslegen!",
+                "updated": 1639254691946
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "If you didn't do the second tutorial in the series, select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
-            "updated": 1622462310245
+            "updated": 1622462310245,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das zweite Tutorial der Serie nicht gemacht haben, wählen Sie \"Run All Project Data Tasks\" im Data Tasks node Menü!",
+                    "updated": 1639254741699
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!"
+            "text": "If you are doing this tutorial after doing other tutorials, chances are you may already have part of the data required, which may make things faster! Either way, no need to wait for the data mining to get to the present time... you may keep going with the tutorial!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie dieses Lernprogramm nach anderen Lernprogrammen durchführen, haben Sie vielleicht schon einen Teil der benötigten Daten, was die Sache beschleunigen kann! In jedem Fall brauchen Sie nicht zu warten, bis die Datenerfassung zum jetzigen Zeitpunkt abgeschlossen ist... Sie können mit dem Lernprogramm fortfahren!",
+                    "updated": 1639254750312
+                }
+            ]
         }
     ]
 }

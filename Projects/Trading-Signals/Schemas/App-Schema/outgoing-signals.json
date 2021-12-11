@@ -8,7 +8,7 @@
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Trading-Signals",
             "actionProject": "Visual-Scripting"
-        },
+        },       
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",

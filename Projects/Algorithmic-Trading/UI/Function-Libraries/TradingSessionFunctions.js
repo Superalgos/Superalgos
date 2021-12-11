@@ -118,7 +118,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Market Order->Limit Order->' +
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
             'User Defined Code->Javascript Code->' +
-            'Outgoing Signals->Incoming Signals->Signal Reference->' +
+            'Outgoing Signals->Incoming Signals->Signal Reference->Signal Context Formula->' +
             'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
             'Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
             'Create Order Signal->Cancel Order Signal->' +

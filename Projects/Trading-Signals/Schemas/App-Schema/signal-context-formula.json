@@ -1,5 +1,5 @@
 {
-    "type": "Formula",
+    "type": "Signal Context Formula",
     "menuItems": [
         {
             "action": "Edit",
@@ -25,11 +25,11 @@
         "formula": true
     },
     "initialValues": {
-        "code": "// Type your formula"
+        "code": "// Type your formula code here. You are expected to return an object representing the context information attached to the outgoing signal."
     },
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->Social Bot Command->Ask Portfolio Formula Manager->"
+        "compatibleTypes": "->Signal Reference->"
     },
-    "propertyNameAtParent": "formula"
+    "propertyNameAtParent": "signalContextFormula"
 }

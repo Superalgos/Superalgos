@@ -153,10 +153,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
 
         portfolioManagerClient.finalize()
         portfolioManagerClient = undefined
-                
+
         incomingTradingSignalsModuleObject.finalize()
         incomingTradingSignalsModuleObject = undefined
-        
+
         outgoingTradingSignalsModuleObject.finalize()
         outgoingTradingSignalsModuleObject = undefined
 
@@ -423,7 +423,28 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             users will be able to use the signal at their formula, including value of the
             formula that triggered this signal. 
 
-            Usage Example: signal.source.tradingSystem.node.context.formula.value
+            Usage Example of Formula Value:
+
+            if (signal !== undefined) {
+                signal.source.tradingSystem.node.formula.value
+            } else {
+                0
+            }
+            
+            Usage Example of Signal Context:
+
+            if (signal !== undefined) {
+                signal.source.tradingSystem.node.context.roi
+            } else {
+                0
+            }
+
+            When the Signal Context Formula was:
+
+            {
+                roi: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value
+            }              
+          
             */
             let signal = await incomingTradingSignalsModuleObject.checkForSignals(parentNode)
             /*
@@ -440,7 +461,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             Now we actually have the final value. We will check if we need to broadcast a signal
             with this value as context or not.
             */
-            await outgoingTradingSignalsModuleObject.broadcastSignal(parentNode, { formula: { value: value } })
+            await outgoingTradingSignalsModuleObject.broadcastSignal(parentNode, value)
 
         } catch (err) {
             /*

@@ -7949,7 +7949,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -7972,8 +7972,8 @@
                                         "id": "875aafc1-3d0d-469b-8e01-c873e253fd87",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34399.94303981549,
-                                                "y": 19215.155778074757
+                                                "x": 34398.01882125605,
+                                                "y": 19234.692696971728
                                             },
                                             "targetPosition": {
                                                 "x": 34697.37649822763,
@@ -8000,8 +8000,36 @@
                                         "id": "1f93ec2d-8399-42e3-8608-97cc7580e228",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34420.212638474244,
-                                                "y": 19139.508606031246
+                                                "x": 34407.59875034091,
+                                                "y": 19176.667922210014
+                                            },
+                                            "targetPosition": {
+                                                "x": 34697.37649822763,
+                                                "y": 19254.31363574077
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 4,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "orderRateSignal": {
+                                        "type": "Order Rate Signal",
+                                        "name": "New Order Rate Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "7634104b-1091-436b-bbfa-11bf28340658",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34428.314675767826,
+                                                "y": 19121.62702867507
                                             },
                                             "targetPosition": {
                                                 "x": 34697.37649822763,
@@ -8033,7 +8061,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -8056,8 +8084,8 @@
                                         "id": "046631c9-395b-4aa5-9f68-1e7abd0dc611",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34464.77749042577,
-                                                "y": 19039.414309724532
+                                                "x": 34456.91020986915,
+                                                "y": 19057.40040751407
                                             },
                                             "targetPosition": {
                                                 "x": 34735.55307573073,
@@ -8084,8 +8112,36 @@
                                         "id": "5d9643e9-7ce4-43f0-98b3-1bd27999025b",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34507.43128605072,
-                                                "y": 18973.733224267966
+                                                "x": 34483.9519053471,
+                                                "y": 19005.175928262513
+                                            },
+                                            "targetPosition": {
+                                                "x": 34735.55307573073,
+                                                "y": 19168.56763876702
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 4,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "orderRateSignal": {
+                                        "type": "Order Rate Signal",
+                                        "name": "New Order Rate Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "57ba466a-36ba-4a0b-9363-791067d2a94f",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34520.66249270333,
+                                                "y": 18959.230500814516
                                             },
                                             "targetPosition": {
                                                 "x": 34735.55307573073,
@@ -8117,7 +8173,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -8140,8 +8196,8 @@
                                         "id": "2a641114-dccb-4844-8a05-ca1ab845bd95",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34580.745817495714,
-                                                "y": 18892.309188126314
+                                                "x": 34567.70557917737,
+                                                "y": 18906.983860240263
                                             },
                                             "targetPosition": {
                                                 "x": 34798.3581287994,
@@ -8168,8 +8224,36 @@
                                         "id": "b9550eac-e566-4ab2-8d4d-87220ad47e3f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34641.608559384615,
-                                                "y": 18843.023511528212
+                                                "x": 34609.56201148445,
+                                                "y": 18865.67177239735
+                                            },
+                                            "targetPosition": {
+                                                "x": 34798.3581287994,
+                                                "y": 19098.81556083444
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 4,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "orderRateSignal": {
+                                        "type": "Order Rate Signal",
+                                        "name": "New Order Rate Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "0c6fdf1c-1eeb-4c0f-bf16-8f28f64be3ed",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34658.67377270187,
+                                                "y": 18833.319269595526
                                             },
                                             "targetPosition": {
                                                 "x": 34798.3581287994,
@@ -8201,7 +8285,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -8224,8 +8308,8 @@
                                         "id": "1e207109-e042-4d84-b2a4-2e557ad45820",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34736.49623317288,
-                                                "y": 18788.24008752378
+                                                "x": 34719.55950647608,
+                                                "y": 18798.166874811177
                                             },
                                             "targetPosition": {
                                                 "x": 34879.64386125076,
@@ -8252,8 +8336,36 @@
                                         "id": "be358431-9808-4373-adec-8878b1506c5f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34809.61025209399,
-                                                "y": 18760.174245203067
+                                                "x": 34772.13347638717,
+                                                "y": 18771.81109337321
+                                            },
+                                            "targetPosition": {
+                                                "x": 34879.64386125076,
+                                                "y": 19051.88522132237
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 4,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "orderRateSignal": {
+                                        "type": "Order Rate Signal",
+                                        "name": "New Order Rate Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "246cf122-89e3-40f4-9fd2-80e0afe3bec2",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34828.83901009605,
+                                                "y": 18756.218403604948
                                             },
                                             "targetPosition": {
                                                 "x": 34879.64386125076,
@@ -8285,7 +8397,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -8308,8 +8420,8 @@
                                         "id": "45363865-4fb4-4c0c-9f35-8b030b5f1462",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34916.78280159383,
-                                                "y": 18737.39401657597
+                                                "x": 34897.607471332776,
+                                                "y": 18741.60121593313
                                             },
                                             "targetPosition": {
                                                 "x": 34971.45345924147,
@@ -8336,8 +8448,36 @@
                                         "id": "ee7ac49a-11d9-460a-87f4-dbe238bb8634",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 34994.99118795982,
-                                                "y": 18733.295288725218
+                                                "x": 34955.75267236859,
+                                                "y": 18732.781628418787
+                                            },
+                                            "targetPosition": {
+                                                "x": 34971.45345924147,
+                                                "y": 19032.370488845158
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 4,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "orderRateSignal": {
+                                        "type": "Order Rate Signal",
+                                        "name": "New Order Rate Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "cb64d622-010d-479c-8808-3c8107bff352",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 35014.50124583882,
+                                                "y": 18735.475072799258
                                             },
                                             "targetPosition": {
                                                 "x": 34971.45345924147,
@@ -8369,7 +8509,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0
@@ -8412,12 +8552,12 @@
                                             }
                                         }
                                     },
-                                    "cancelOrderSignal": {
-                                        "type": "Cancel Order Signal",
-                                        "name": "New Cancel Order Signal",
+                                    "orderRateSignal": {
+                                        "type": "Order Rate Signal",
+                                        "name": "New Order Rate Signal",
                                         "config": "{}",
                                         "project": "Trading-Signals",
-                                        "id": "be260c77-1346-40c2-88a6-6597ebcca5ed",
+                                        "id": "45f49e96-1cf9-4b3f-af5d-2adb42043928",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 35179.60498935464,
@@ -8453,7 +8593,7 @@
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
-                                            "isCollapsed": false,
+                                            "isCollapsed": true,
                                             "angleToParent": 2,
                                             "distanceToParent": 3,
                                             "arrangementStyle": 0

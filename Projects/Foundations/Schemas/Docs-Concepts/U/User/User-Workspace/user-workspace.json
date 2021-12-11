@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Относится к рабочей области Workspace, созданной пользователем и хранящейся локально в папке My-Workspaces.",
                 "updated": 1638300169287
+            },
+            {
+                "language": "TR",
+                "text": "Bir kullanıcı tarafından oluşturulan ve yerel olarak My-Workspaces klasöründe depolanan bir Çalışma Alanına  ( Workspace ) atıfta bulunur.",
+                "updated": 1639232992091
             }
         ]
     },

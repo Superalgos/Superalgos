@@ -441,9 +441,13 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
 
             When the Signal Context Formula was:
 
-            {
+            let context = {
+                profitLoss: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value,
+                hitFail: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value,
                 roi: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value
-            }              
+            }
+
+            context // return the context object         
           
             */
             let signal = await incomingTradingSignalsModuleObject.checkForSignals(parentNode)

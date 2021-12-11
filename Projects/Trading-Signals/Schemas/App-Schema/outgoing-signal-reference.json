@@ -1,5 +1,5 @@
 {
-    "type": "Signal Reference",
+    "type": "Outgoing Signal Reference",
     "menuItems": [
         {
             "action": "Configure",
@@ -49,7 +49,7 @@
             "autoAdd": false
         }
     ],
-    "propertyNameAtParent": "signalReferences",
+    "propertyNameAtParent": "outgoingSignalReferences",
     "title": [
         "Use Reference Parent Parent",
         "Use Reference Parent"

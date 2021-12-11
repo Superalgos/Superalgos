@@ -23,15 +23,15 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
     async function broadcastSignal(node, formulaValue) {
         if (node === undefined) { return }
         if (node.outgoingSignals === undefined) { return }
-        if (node.outgoingSignals.signalReferences === undefined) { return }
+        if (node.outgoingSignals.outgoingSignalReferences === undefined) { return }
         /*
         A single event might trigger multiple signals. That's fine. 
         */
-        for (let i = 0; i < node.outgoingSignals.signalReferences.length; i++) {
+        for (let i = 0; i < node.outgoingSignals.outgoingSignalReferences.length; i++) {
             /*
             Run some validations
             */
-            let signalReference = node.outgoingSignals.signalReferences[i]
+            let signalReference = node.outgoingSignals.outgoingSignalReferences[i]
             if (signalReference.referenceParent === undefined) { return }
             let signalDefinition = signalReference.referenceParent
             let socialTradingBot = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(signalDefinition, 'Social Trading Bot')

@@ -29,7 +29,7 @@
     },
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Signal Reference->"
+        "compatibleTypes": "->Outgoing Signal Reference->"
     },
     "propertyNameAtParent": "signalContextFormula"
 }

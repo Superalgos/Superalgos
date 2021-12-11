@@ -47,15 +47,17 @@
             try {
                 drawSplashText()
                 loadSuperalgos()
-                window.api.receive('fromMaster', (data) => {
-                    if(data.newUser){
-                        UI.projects.foundations.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(data.newUser[0], data.newUser[1])
-                    }else if(data.submit){
-                        UI.projects.governance.spaces.reportsSpace.commandInterface.command = data.submit[0]
-                        UI.projects.governance.spaces.reportsSpace.commandInterface.detectCommands()
-                        //const element = document.getElementsByClassName("governance-filter-input")[0]
-                  }  
-                })
+                if (window.api !== undefined) {
+                    window.api.receive('fromMaster', (data) => {
+                        if (data.newUser) {
+                            UI.projects.foundations.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(data.newUser[0], data.newUser[1])
+                        } else if (data.submit) {
+                            UI.projects.governance.spaces.reportsSpace.commandInterface.command = data.submit[0]
+                            UI.projects.governance.spaces.reportsSpace.commandInterface.detectCommands()
+                            //const element = document.getElementsByClassName("governance-filter-input")[0]
+                        }
+                    })
+                }
             } catch (err) {
                 console.log("[ERROR] UI can not be started. Please check that WebServer is running.", err);
             }

@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Контролируемое обучение - это задача машинного\nобучения по изучению функции, которая направляет входные данные с выходными на основе пар ввода-вывода. Она вводит функцию из помеченных обучающих данных, состоящих из набора обучающих примеров. В обучении под наблюдением каждый пример представляет пару, состоящую из входного объекта (обычно вектора) и желаемого выходного значения (также называемого управляющий сигналом)",
                 "updated": 1636748807235
+            },
+            {
+                "language": "TR",
+                "text": "Denetimli öğrenme, örnek girdi-çıktı çiftlerine dayalı olarak bir girdiyi bir çıktıya eşleyen bir işlevi öğrenmenin makine öğrenimi görevidir. Bir dizi eğitim örneğinden oluşan etiketli eğitim verilerinden bir işlev çıkarır. Denetimli öğrenmede, her örnek bir girdi nesnesinden (tipik olarak bir vektör) ve istenen bir çıktı değerinden (denetleme sinyali olarak da adlandırılır) oluşan bir çifttir.",
+                "updated": 1639220558905
             }
         ]
     },

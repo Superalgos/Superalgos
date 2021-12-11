@@ -82,6 +82,11 @@
                 "language": "RU",
                 "text": "Testing Trading Tasks организует торговые сессии, включающие тестирование торговых систем.",
                 "updated": 1638356449582
+            },
+            {
+                "language": "TR",
+                "text": "Testing Trading Tasks (Ticaret Görevlerini Test)  düğümü, ticaret sistemlerinin test edilmesini içeren ticaret oturumlarını düzenler.",
+                "updated": 1639118908067
             }
         ]
     }

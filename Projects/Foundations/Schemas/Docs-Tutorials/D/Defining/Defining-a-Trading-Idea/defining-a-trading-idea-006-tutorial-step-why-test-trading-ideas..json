@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Configurar, probar e implementar una estrategia de trading requiere tiempo y esfuerzo. Nosotros testeamos ideas de  trading para no desperdiciar recursos.",
                 "updated": 1636724590963
+            },
+            {
+                "language": "DE",
+                "text": "Das Einrichten, Testen und Umsetzen einer Handelsstrategie erfordert Zeit und Mühe. Wir testen Handelsideen, um die Verschwendung von Ressourcen zu vermeiden.",
+                "updated": 1639251612335
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Para probar una idea comercial, necesitamos formalizarla en una hipótesis que:",
                     "updated": 1636724614580
+                },
+                {
+                    "language": "DE",
+                    "text": "Um eine Handelsidee zu testen, müssen wir sie zu einer Hypothese formulieren, die:",
+                    "updated": 1639251621101
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "proponga un proceso de trading,",
                     "updated": 1636724682086
+                },
+                {
+                    "language": "DE",
+                    "text": "einen Handelsprozess vorschlägt,",
+                    "updated": 1639251630170
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "seleccione el contexto adecuado;",
                     "updated": 1636724687795
+                },
+                {
+                    "language": "DE",
+                    "text": "den geeigneten Kontext auswählt;",
+                    "updated": 1639251636822
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "ES",
                     "text": "defina las reglas de entrada básicas;",
                     "updated": 1636724711247
+                },
+                {
+                    "language": "DE",
+                    "text": "die wichtigsten Einstiegsregeln definiert;",
+                    "updated": 1639251643224
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "ES",
                     "text": "prediga una salida específica;",
                     "updated": 1636724748969
+                },
+                {
+                    "language": "DE",
+                    "text": "ein bestimmtes Ergebnis vorhersagt;",
+                    "updated": 1639251649474
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "ES",
                     "text": "ofereza un mecanismo de testeo específico.",
                     "updated": 1636724784337
+                },
+                {
+                    "language": "DE",
+                    "text": "einen spezifischen Testmechanismus bietet.",
+                    "updated": 1639251656458
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "ES",
                     "text": "Ampliemos cada uno de estos temas para que podamos establecer objetivos claros para definir una idea de trading.",
                     "updated": 1636724820325
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns auf jedes dieser Themen eingehen, damit wir uns klare Ziele für die Definition einer Handelsidee setzen können.",
+                    "updated": 1639251662428
                 }
             ]
         }

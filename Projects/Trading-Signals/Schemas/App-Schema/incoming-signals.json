@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->"
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->Order Rate->"
     },
     "childrenNodesProperties": [
         {

@@ -18,7 +18,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
 
     return thisObject
 
-    function createDependencyFilter(defaultExchange, defaultMarket, tradingSystem) {
+    function createDependencyFilter(defaultExchange, defaultMarket, tradingSystem, userDefinedParameters) {
         let filters = {
             market: {
                 list: new Map()
@@ -30,7 +30,10 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 timeFrames: new Map()
             }
         }
-        recursiveFilter(tradingSystem)
+
+
+        let sessionParameters = JSON.parse(userDefinedParameters)
+        recursiveFilter(tradingSystem, sessionParameters)
 
         /* Transform the Map into arrays */
         filters.market.list = Array.from(filters.market.list.keys())
@@ -42,9 +45,9 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
 
         return filters
 
-        function recursiveFilter(node) {
+        function recursiveFilter(node, sessionParameters) {
             if (node.type === 'Javascript Code' || node.type === 'Formula' || node.type === 'Feature Formula' || node.type === 'Data Formula') {
-                filter(node.code)
+                filter(node.code, sessionParameters)
             }
 
             let schemaDocument = getSchemaDocument(node)
@@ -55,24 +58,26 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                         let property = schemaDocument.childrenNodesProperties[i]
 
                         switch (property.type) {
-                            case 'node': {
-                                if (property.name !== previousPropertyName) {
-                                    if (node[property.name] !== undefined) {
-                                        recursiveFilter(node[property.name])
+                            case 'node':
+                                {
+                                    if (property.name !== previousPropertyName) {
+                                        if (node[property.name] !== undefined) {
+                                            recursiveFilter(node[property.name], sessionParameters)
+                                        }
+                                        previousPropertyName = property.name
                                     }
-                                    previousPropertyName = property.name
                                 }
-                            }
                                 break
-                            case 'array': {
-                                let nodePropertyArray = node[property.name]
-                                if (nodePropertyArray !== undefined) {
-                                    for (let j = 0; j < nodePropertyArray.length; j++) {
-                                        let nodeProperty = nodePropertyArray[j]
-                                        recursiveFilter(nodeProperty)
+                            case 'array':
+                                {
+                                    let nodePropertyArray = node[property.name]
+                                    if (nodePropertyArray !== undefined) {
+                                        for (let j = 0; j < nodePropertyArray.length; j++) {
+                                            let nodeProperty = nodePropertyArray[j]
+                                            recursiveFilter(nodeProperty, sessionParameters)
+                                        }
                                     }
                                 }
-                            }
                                 break
                         }
                     }
@@ -80,7 +85,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             }
         }
 
-        function filter(code) {
+        function filter(code, sessionParameters) {
             if (code === undefined) { return }
             /*
             We will clean the code from symbols that we do not need during our dependency analysis.
@@ -96,24 +101,55 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             code = code.replaceAll('>', '')
             code = code.replaceAll('=', '')
             code = code.replaceAll('\n', ' ')
-            /*
-            We will analyze each instruction of the code.
-            */
+                /*
+                We will analyze each instruction of the code.
+                */
+
             let instructionsArray = code.split(' ')
+            let userVariableCount = (code.match(/\[sessionParameters.userDefinedParameters.config./g) || []).length
+
+            //replace a code variable with the contents of the variable, and add all timeframes if this is in the variable
+            if (userVariableCount > 0) {
+
+                for (let i = 0; i < instructionsArray.length; i++) {
+                    let instruction = instructionsArray[i]
+                    let userVariableInInstructionCount = (instruction.match(/\[sessionParameters.userDefinedParameters.config./g) || []).length
+                    if (userVariableInInstructionCount > 0) {
+                        //this instruction contains a user defined parameter
+                        let endUserParamName = instruction.slice(instruction.indexOf('[sessionParameters.userDefinedParameters.config.') + 48, instruction.indexOf(']'))
+                        if (sessionParameters[endUserParamName].indexOf('at') === 0 && instruction.indexOf('chart[sessionParameters.userDefinedParameters.config.') === 0) {
+                            // Time Frame is in the variable, so we need all timeframes of that instruction in the filter
+                            let allTimeFramesArray = dailyTimeFramesArray.concat(marketTimeFramesArray)
+                            for (let i = 0; i < allTimeFramesArray.length; i++) {
+                                let label = "at" + allTimeFramesArray[i][1].replace("-", "")
+                                if (i === 0) {
+                                    instructionsArray[i] = instruction.replace("[sessionParameters.userDefinedParameters.config." + endUserParamName + "]", "." + label)
+                                } else {
+                                    instructionsArray.push(instruction.replace("[sessionParameters.userDefinedParameters.config." + endUserParamName + "]", "." + label))
+                                }
+                            }
+                        } else {
+                            //not sure what is in the variable, so we just replace it
+                            instructionsArray[i] = instruction.replace("[sessionParameters.userDefinedParameters.config." + endUserParamName + "]", "." + sessionParameters[endUserParamName])
+                        }
+
+                    }
+                }
+            }
             for (let i = 0; i < instructionsArray.length; i++) {
                 let instruction = instructionsArray[i]
-                /*
-                The first kind of instruction we will handle are the ones
-                related to the chart structure. For that we need the 
-                instruction to start with the keyword 'chart'.
-                */
-                if (instruction.indexOf('chart') === 0) {  // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
+                    /*
+                    The first kind of instruction we will handle are the ones
+                    related to the chart structure. For that we need the 
+                    instruction to start with the keyword 'chart'.
+                    */
+                if (instruction.indexOf('chart') === 0) { // Example: chart.at01hs.popularSMA.sma200 - chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
                     let product = parts[2]
-                    /*
-                    From the instruction syntax we will get the timeFrame
-                    */
+                        /*
+                        From the instruction syntax we will get the timeFrame
+                        */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
@@ -129,15 +165,15 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 related to the market data structure. For that we need
                 the instruction to start with the keyword 'market'
                 */
-                if (instruction.indexOf('market') === 0) {  // Example: market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
+                if (instruction.indexOf('market') === 0) { // Example: market.BTC.USDT.chart.at01hs.popularSMA.sma200 - market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let baseAsset = parts[1]
                     let quotedAsset = parts[2]
                     let timeFrame = parts[4]
                     let product = parts[5]
-                    /*
-                    From the instruction syntax we will get the timeFrame
-                    */
+                        /*
+                        From the instruction syntax we will get the timeFrame
+                        */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }
@@ -153,16 +189,16 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
                 related to the exchange data structure. For that we need
                 the instruction to start with the keyword 'market'
                 */
-                if (instruction.indexOf('exchange') === 0) {  // Example: exchange.binance.market.BTC.USDT.chart.at01hs.popularSMA.sma200 - exchange.poloniex.market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
+                if (instruction.indexOf('exchange') === 0) { // Example: exchange.binance.market.BTC.USDT.chart.at01hs.popularSMA.sma200 - exchange.poloniex.market.ETC.USDT.chart.at01hs.popularSMA.sma100  < 10
                     let parts = instruction.split('.')
                     let exchange = parts[1]
                     let baseAsset = parts[3]
                     let quotedAsset = parts[4]
                     let timeFrame = parts[6]
                     let product = parts[7]
-                    /*
-                    From the instruction syntax we will get the timeFrame
-                    */
+                        /*
+                        From the instruction syntax we will get the timeFrame
+                        */
                     if (timeFrame !== 'atAnyTimeFrame') {
                         timeFrame = timeFrame.substring(2, 4) + '-' + timeFrame.substring(4, 7)
                     }

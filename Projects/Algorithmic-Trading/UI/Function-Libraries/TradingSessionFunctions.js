@@ -2,7 +2,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     let thisObject = {
         synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
-        stopSession: stopSession
+        stopSession: stopSession,
     }
 
     return thisObject
@@ -105,6 +105,10 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
             'Situation->Condition->Javascript Code->' +
+            'Outgoing Signals->Incoming Signals->Signal Reference->' +
+            'Trigger On Signal->Trigger Off Signal->Take Position Signal->Trigger Stage Signals->' +
+            'Available Signals->Social Trading Bot->Signing Account->' +
+            'Create Order Signal->Cancel Order Signal->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
             'Open Execution->Close Execution->' +
@@ -180,14 +184,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
 
         let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
-            + '-' +
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName') +
+            '-' +
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
             defaultMarket,
-            node.tradingSystemReference.payload.referenceParent
+            node.tradingSystemReference.payload.referenceParent,
+            node.tradingParameters.userDefinedParameters.config
         )
 
         /* Raise event to run the session */
@@ -355,4 +360,5 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
 
         return result
     }
+
 }

@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "¡Reserva algunos fondos!",
                 "updated": 1629349159115
+            },
+            {
+                "language": "IT",
+                "text": "Mettiamoci dei soldi!",
+                "updated": 1639077184428
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "El evento Trigger On consiste en reservar (bloquear) sus fondos y ponerlos a disposición del bot.",
                     "updated": 1629349408557
+                },
+                {
+                    "language": "IT",
+                    "text": "L'evento Trigger On riguarda la prenotazione (o impegno) dei fondi e la loro messa a disposizione del bot.",
+                    "updated": 1639077246072
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "language": "ES",
                     "text": "Lo que necesito hacer es:",
                     "updated": 1629349429401
+                },
+                {
+                    "language": "IT",
+                    "text": "Ecco cosa dobbiamo fare:",
+                    "updated": 1639077270454
                 }
             ]
         },
@@ -77,6 +92,11 @@
                     "language": "ES",
                     "text": "Definir el TF",
                     "updated": 1629349443558
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire il Time Frame",
+                    "updated": 1639077285379
                 }
             ]
         },
@@ -94,6 +114,11 @@
                     "language": "ES",
                     "text": "Definir el SMA50/200 cross",
                     "updated": 1629349524087
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire l'incrocio SMA50/200 in modo che il nostro bot possa interpretarlo",
+                    "updated": 1639077326773
                 }
             ]
         },
@@ -111,16 +136,35 @@
                     "language": "ES",
                     "text": "Para definir una cruz utilizo 2 condiciones:",
                     "updated": 1629351309083
+                },
+                {
+                    "language": "IT",
+                    "text": "Per identificare l'incrocio desiderato tra le 2 medie uso il seguente codice:",
+                    "updated": 1639077415308
                 }
             ]
         },
         {
             "style": "Javascript",
-            "text": "chart.at04hs.popularSMA.sma50 > chart.at04hs.popularSMA.sma200"
+            "text": "chart.at04hs.popularSMA.sma50 > chart.at04hs.popularSMA.sma200",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "chart.at04hs.popularSMA.sma50>chart.at04hs.popularSMA.sma200",
+                    "updated": 1639079242198
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "chart.at04hs.popularSMA.previous.sma50 < chart.at04hs.popularSMA.previous.sma200"
+            "text": "chart.at04hs.popularSMA.previous.sma50 < chart.at04hs.popularSMA.previous.sma200",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "chart.at04hs.popularSMA.previous.sma50<chart.at04hs.popularSMA.previous.sma200",
+                    "updated": 1639079273435
+                }
+            ]
         },
         {
             "style": "Text",

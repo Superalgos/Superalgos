@@ -152,7 +152,7 @@
             'Market Base Asset->Market Quoted Asset->Asset->' +
             'Project Data Tasks->Project Trading Tasks->Project Portfolio Tasks->Project Learning Tasks->Project Definition->' +
             'Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Live Portfolio Session->' +
-            'Back Learning Session->Live Learning Session->Managed Sessions->Session Reference->' +
+            'Back Learning Session->Live Learning Session->Managed Sessions->Session Reference->Live Trading Session->Backtesting Session->Forward Testing Session->Paper Trading Session->' +
             'Process Definition->' +
             'Process Output->' +
             'Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->Output Dataset Folder->' +
@@ -209,7 +209,7 @@
             'Task Manager->Managed Tasks->Task Reference->Task->' +
             'Indicator Bot Instance->Sensor Bot Instance->API Data Fetcher Bot Instance->Trading Bot Instance->Portfolio Bot Instance->Learning Bot Instance->' +
             'Indicator Process Instance->Sensor Process Instance->API Data Fetcher Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
-            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Live Portfolio Session->Back Learning Session->Live Learning Session->Managed Sessions->' +
+            'Paper Trading Session->Forward Testing Session->Backtesting Session->Live Trading Session->Live Portfolio Session->Back Learning Session->Live Learning Session->' +
             'API Map Reference->' +
             'Market->' +
             'Process Definition->'
@@ -223,8 +223,7 @@
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->Portfolio Mine Tasks->' +
             'Market Trading Tasks->Market Data Tasks->Market Learning Tasks->Market Portfolio Tasks->' +
-            'Market->Exchange Markets->Crypto Exchange->Crypto Exchanges->exchange Markets->Market->' +
-            'Portfolio Process Instance->Live Portfolio Session->Portfolio Parameters->Portfolio Engine Reference->Portfolio System Reference->Managed Sessions->Session Reference->Live Trading Session->Backtesting Session->Forward Testing Session->Live Portfolio Session->Back Learning Session->Paper Trading Session->Trading Parameters->Trading Engine Reference->'
+            'Market->Exchange Markets->Crypto Exchange->Crypto Exchanges->exchange Markets->Market->' 
 
         let managedTasksDefinition =
             UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, managedTasksLightingPath);

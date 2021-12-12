@@ -39,7 +39,7 @@ exports.newTaskServer = function newTaskServer() {
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
-                            TS.projects.foundations.utilities.miscellaneousFunctions.getManagedSessions(TS.projects.foundations.globals.taskConstants.MANAGED_TASKS);
+                            TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Session Reference')
                             bootingProcess();
                         } catch (err) {
                             console.log('[ERROR] Task Server -> Task -> preLoader -> eventReceived -> ' + err.stack)
@@ -53,12 +53,17 @@ exports.newTaskServer = function newTaskServer() {
             else {
 
                 try {
+                    /*
+                    When the user starts the task at the UI using the DEBUG menu item, it runs from here, intead of from above.
+                    */
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
                     function startDebugging(message) {
                         try {
                             setUpAppSchema(JSON.parse(message.event.projectSchemas))
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
+                            TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
+                            TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE, 'Session Reference')
                             bootingProcess()
 
                         } catch (err) {

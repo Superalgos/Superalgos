@@ -7,21 +7,49 @@
             "project": "Foundations",
             "name": "task"
         },
-        "text": "This is going to be quick as we are testing a few months on the 24H time frame."
+        "text": "This is going to be quick as we are testing a few months on the 24H time frame.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies wird schnell gehen, da wir ein paar Monate auf dem 24-Stunden-Zeitrahmen testen.",
+                "updated": 1639266116357
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Remember that running a trading task is similar to running a data task. The difference is that after running the task you also need to run the trading session."
+            "text": "Remember that running a trading task is similar to running a data task. The difference is that after running the task you also need to run the trading session.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass die Ausführung einer Handelsaufgabe der Ausführung einer Datenaufgabe ähnelt. Der Unterschied besteht darin, dass Sie nach der Ausführung der Aufgabe auch die Handelssitzung ausführen müssen.",
+                    "updated": 1639266129381
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Select Run on the BB Breakdown Task menu and then select Run on the Backtesting Session menu.",
-            "updated": 1617191181250
+            "updated": 1617191181250,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wählen Sie im Menü BB Breakdown Task die Option Run und dann im Menü Backtesting Session die Option  Run .",
+                    "updated": 1639266181462
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When the progress notice of the Trading Process Instance gets to the 100% mark, stop the task and click Next."
+            "text": "When the progress notice of the Trading Process Instance gets to the 100% mark, stop the task and click Next.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Fortschrittsanzeige der Handelsprozessinstanz die 100 %-Marke erreicht, beenden Sie die Aufgabe und klicken Sie auf Weiter.",
+                    "updated": 1639266190443
+                }
+            ]
         }
     ]
 }

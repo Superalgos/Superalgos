@@ -7,20 +7,48 @@
             "name": "User\\user-defined-statistic",
             "project": "Foundations"
         },
-        "text": "It's not like we're trying to divine the future and will get graded on our accuracy! The prediction is more like an expectation!"
+        "text": "It's not like we're trying to divine the future and will get graded on our accuracy! The prediction is more like an expectation!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es ist nicht so, dass wir versuchen, die Zukunft vorherzusagen und nach unserer Genauigkeit benotet werden! Die Vorhersage ist eher eine Erwartung!",
+                "updated": 1639253706435
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Prediction: We expect either of these ideas to trade at least twice per month, with a 50% hit ratio."
+            "text": "Prediction: We expect either of these ideas to trade at least twice per month, with a 50% hit ratio.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir erwarten, dass eine dieser Ideen mindestens zweimal pro Monat gehandelt wird, mit einer Trefferquote von 50%.",
+                    "updated": 1639253716157
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Testing: For uptrends, we will set these targets: stop loss at 3% and take profit at 5%. For downtrends we should be more optimistic as the strategy aims to capture big market moves: we will set a 3% stop loss and 10% take profit targets."
+            "text": "Testing: For uptrends, we will set these targets: stop loss at 3% and take profit at 5%. For downtrends we should be more optimistic as the strategy aims to capture big market moves: we will set a 3% stop loss and 10% take profit targets.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Testen: Für Aufwärtstrends setzen wir folgende Ziele: Stop Loss bei 3% und Take Profit bei 5%. Bei Abwärtstrends sollten wir optimistischer sein, da die Strategie darauf abzielt, große Marktbewegungen zu erfassen: Wir setzen einen Stop Loss von 3 % und einen Take Profit von 10 % an.",
+                    "updated": 1639253730091
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Remember! This doesn't mean that is how we would manage the positions! It's just to evaluate the entry points!"
+            "text": "Remember! This doesn't mean that is how we would manage the positions! It's just to evaluate the entry points!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran! Das bedeutet nicht, dass wir die Positionen so verwalten würden! Es geht nur darum, die Einstiegspunkte zu bewerten!",
+                    "updated": 1639253736278
+                }
+            ]
         }
     ]
 }

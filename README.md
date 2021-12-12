@@ -1,4 +1,4 @@
-# Superalgos 1.0.0
+# Superalgos 1.0.1
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -88,9 +88,9 @@ Also on windows, there is a more traditional installer that installs the applica
 
 #### MacOS Image
 
-Users of MacOS have the option of downloading a DMG package. Installation is as simple as downloading the DMG file and copying it into your Applications folder!
+Users of MacOS have the option of downloading a DMG package. Installation is as simple as downloading the DMG file, copying it into your Applications folder, and run `xattr -rd com.apple.quarantine Superalgos.app` from the Terminal (Intel/M1) or allow the app in `System Preferences > Security & Privacy > General > Open Anyway` (Intel only)!
 
-Currently, there are two types of DMG packages. The x64 variant (for Intel based Mac only), as well as the ARM64 variant for the newer Apple Silicon (M1) based machines. All data is stored in the documents folder under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
+Currently, there are two types of DMG packages. The x64 variant (for Intel based Mac only), as well as the ARM64 variant for the newer Apple Silicon (M1) based machines. All data is stored in the user's Documents folder under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
 
 For a more detailed walk through of the ins and outs of Superalgos packaged installations see this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102).
 
@@ -98,11 +98,7 @@ For a more detailed walk through of the ins and outs of Superalgos packaged inst
 
 The packaged applications are by far the easiest way to install the Superalgos Platform. All of the day to day functionality of the platform is readily available, as well as the ability to create and submit a User Profile to the Governance system! 
 
-The main draw back for this type of installation comes with limitations on the ablity to add contributions.  Submitting a review, editing and translating the docs, or any kind of code contribution is not possible from a packaged installation.   
-
-> **Important Development Notes:**
-> 
-> - Please note that the ARM64 release is currently an alpha release (not fully tested). If you have one of these machines, do join us on our [developer channel](https://t.me/superalgosdevelop) to help us fully test this release! 
+The main draw back for this type of installation comes with limitations on the ablity to add contributions. Submitting a review, editing and translating the docs, or any kind of code contribution is not possible from a packaged installation.   
 
 ### Docker Installations
 

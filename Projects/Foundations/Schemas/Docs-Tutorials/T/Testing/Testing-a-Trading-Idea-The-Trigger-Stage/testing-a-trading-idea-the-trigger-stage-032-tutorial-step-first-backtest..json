@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Now that we have these basic definitions in place, we may do a first backtest."
+        "text": "Now that we have these basic definitions in place, we may do a first backtest.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nachdem wir nun diese grundlegenden Definitionen festgelegt haben, können wir einen ersten Backtest durchführen.",
+                "updated": 1639265981764
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We are not ready to the test the idea as we've only defined the trigger on and trigger off events. We just want to make sure we got the definitions right."
+            "text": "We are not ready to the test the idea as we've only defined the trigger on and trigger off events. We just want to make sure we got the definitions right.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir sind noch nicht so weit, die Idee zu testen, da wir nur die Ereignisse Trigger on und Trigger off definiert haben. Wir wollen nur sicherstellen, dass wir die richtigen Definitionen haben.",
+                    "updated": 1639265995934
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Although the strategy will eventually include logic relating to the 1H chart, the current definitions involve the 24H chart only."
+            "text": "Although the strategy will eventually include logic relating to the 1H chart, the current definitions involve the 24H chart only.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Obwohl die Strategie später eine Logik für den 1H-Chart enthalten wird, beziehen sich die aktuellen Definitionen nur auf den 24H-Chart.",
+                    "updated": 1639266008422
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We are going to run a backtesting session between January 1st and October 1st, 2020, on the 24H time frame. Take a look at the Time Range and Time Frame parameters and make sure they match the above!"
+            "text": "We are going to run a backtesting session between January 1st and October 1st, 2020, on the 24H time frame. Take a look at the Time Range and Time Frame parameters and make sure they match the above!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden eine Backtesting-Sitzung zwischen dem 1. Januar und dem 1. Oktober 2020 auf dem 24-Stunden-Zeitrahmen durchführen. Schauen Sie sich die Parameter Time Range und Time Frame an und vergewissern Sie sich, dass sie mit den obigen Angaben übereinstimmen!",
+                    "updated": 1639266019938
+                }
+            ]
         }
     ]
 }

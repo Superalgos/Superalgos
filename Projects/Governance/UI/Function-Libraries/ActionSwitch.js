@@ -33,9 +33,14 @@ function newGovernanceActionSwitch() {
                     UI.projects.governance.functionLibraries.claimsProgram.installMissingClaims(action.node, action.rootNodes)
                     break
                 }
-            case 'Build Profile':
+            case 'Build Profile Wallet':
                 {
-                    UI.projects.governance.functionLibraries.profileConstructor.buildProfile(action.node, action.rootNodes)
+                    UI.projects.governance.functionLibraries.profileConstructor.buildProfileWallet(action.node, action.rootNodes)
+                    break
+                }
+            case 'Build Profile Mnemonic':
+                {
+                    UI.projects.governance.functionLibraries.profileConstructor.buildProfileMnemonic(action.node, action.rootNodes, 'mnemonic')
                     break
                 }
             case 'Build Profile WalletConnect':

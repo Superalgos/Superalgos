@@ -2,7 +2,14 @@
     "type": "Delegate Power Switch",
     "definition": {
         "text": "Use this switch as an organizational device, and spawn User Delegate nodes.",
-        "updated": 1630421941682
+        "updated": 1630421941682,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот переключатель в качестве организационного устройства и создавайте узлы делегирования User Delegate.",
+                "updated": 1639139926960
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,15 +19,36 @@
         },
         {
             "style": "Text",
-            "text": "You may use this switch for two different purposes:"
+            "text": "You may use this switch for two different purposes:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать этот переключатель для двух разных целей:",
+                    "updated": 1639139938164
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "As an organizational device: You may create arbitrary arrangements, spawning more switches and User Delegate nodes."
+            "text": "As an organizational device: You may create arbitrary arrangements, spawning more switches and User Delegate nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве организационного устройства: вы можете создавать произвольные схемы, порождая больше переключателей и узлов User Delegate.",
+                    "updated": 1639139991779
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "As a switch: You may control the flow of Delegate Power, pretty much like with a Token Power Switch, but within the Delegation Program. If you need a reminder, read about how Token Power Flows."
+            "text": "As a switch: You may control the flow of Delegate Power, pretty much like with a Token Power Switch, but within the Delegation Program. If you need a reminder, read about how Token Power Flows.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве переключателя: вы можете управлять потоком Delegate Power, во многом как с помощью Token Power Switch, но в рамках программы Delegation Program. Если вам нужно напоминание, прочитайте пояснения Token Power Flow.",
+                    "updated": 1639140099455
+                }
+            ]
         },
         {
             "style": "Block",
@@ -28,7 +56,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639140110873
+                }
+            ]
         }
     ]
 }

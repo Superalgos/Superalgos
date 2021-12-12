@@ -10,13 +10,25 @@
                 "language": "ES",
                 "text": "Este workspace lo guiará a través de todo lo que necesita saber sobre la configuración de gráficos personalizados dentro del Design Space. ( espacio de diseño) Los tutorialse Su objetivo es ofrecer una guía paso a paso que lo lleve de principiante a experto en gráficos.",
                 "updated": 1636560253593
+            },
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство проведет вас через все, что вам нужно знать о настройке пользовательских диаграмм в пространстве Design Space. Учебные пособия призваны предложить пошаговые инструкции, которые проведут вас от новичка в области построения графиков до эксперта в области построения графиков.",
+                "updated": 1639056750290
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Tutorials"
+            "text": "Tutorials",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639056760525
+                }
+            ]
         },
         {
             "style": "List",
@@ -32,7 +44,14 @@
         },
         {
             "style": "Title",
-            "text": "Maintainer"
+            "text": "Maintainer",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056785533
+                }
+            ]
         },
         {
             "style": "List",

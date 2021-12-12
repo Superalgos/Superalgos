@@ -4,11 +4,25 @@
         {
             "style": "Note",
             "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
-            "updated": 1609667560990
+            "updated": 1609667560990,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos организует структуры данных в сети Network по проектам для обеспечения масштабируемости.",
+                    "updated": 1639149933756
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Project Trading Products node is an organizational device grouping all Bot Products corresponding to the same project.",
-        "updated": 1609668000292
+        "updated": 1609668000292,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Project Trading Products - это организационное устройство, объединяющее все продукты ботов Bot Products, соответствующие одному проекту.",
+                "updated": 1639149863473
+            }
+        ]
     }
 }

@@ -17,6 +17,11 @@
                 "language": "DE",
                 "text": "Die data building procedure verarbeitet die Informationen, die den Eigenschaften (properties) zugeführt werden, die im Ausgabedatensatz (output dataset) gespeichert sind.",
                 "updated": 1637588171931
+            },
+            {
+                "language": "TR",
+                "text": "Veri oluşturma prosedürü, çıktı veri kümesinde depolanan özelliklere beslenecek bilgileri işler.",
+                "updated": 1639215023786
             }
         ]
     },

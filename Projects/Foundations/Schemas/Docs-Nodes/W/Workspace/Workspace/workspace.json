@@ -558,6 +558,11 @@
                 "language": "DE",
                 "text": "Ein Workspace (=Arbeitsbereich) ist eine Entität, in der alle System- und benutzergenerierten Informationen gespeichert werden, mit Ausnahme des Status und der Inhalte von Plugins. Technisch gesehen ist ein Arbeitsbereich eine JSON-Datei.",
                 "updated": 1639344118881
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma alanı, eklentilerin durumu ve içeriği hariç, sistem ve kullanıcı tarafından oluşturulan bilgileri depolayan bir alandır. Teknik açıdan, çalışma alanı bir JSON dosyasıdır.",
+                "updated": 1639233230804
             }
         ]
     }

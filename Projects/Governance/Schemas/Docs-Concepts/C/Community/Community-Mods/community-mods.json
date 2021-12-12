@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Si tiene la habilidad de explicar las cosas amorosamente, disfruta de ayudar a la gente, y desea devolver al proyecto convitiéndose en un Community Mod ( moderador de la comunidad) puede ser muy bueno para usted y para el proyecto!",
                 "updated": 1633524089504
+            },
+            {
+                "language": "RU",
+                "text": "Если вы умеете хрошо объяснять вещи, находите удовольствие в помощи людям и хотите внести свой вклад в проект, то находится в рядах Community Mod может быть большим для вас и для проекта!",
+                "updated": 1639129046263
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Para convertirse en un  Community Mod, debe ir más profundo al meollo de la cuestión, estudie los Docs y los tutoriales, y comience a usar el sistema. Conlleva un entendimiento más profundo de como funcionan las cosas antes de que esté en condiciones de explicarle a alguién más. Dicho esto, no se necesita demaciado para ayudar a las preguntas más faciles de los recién llegados. Puede comprometerse y participar en el Community Group y el Support Group, y, en algún momento, lo invitaremos a formar parte del equipo!",
                     "updated": 1633524555342
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы вступить в Community Mod, вы должны углубиться в кроличью нору, изучить документацию и руководства и начать использовать систему. Требуется глубокое понимание того, как все работает, прежде чем вы сможете объяснить это кому-то еще. Тем не менее, не нужно много помогать новичкам с более простыми вопросами. Вы можете принять участие в работе Community Group и Support Group, и в какой-то момент мы пригласим вас присоединиться к команде!",
+                    "updated": 1639129191346
                 }
             ]
         }

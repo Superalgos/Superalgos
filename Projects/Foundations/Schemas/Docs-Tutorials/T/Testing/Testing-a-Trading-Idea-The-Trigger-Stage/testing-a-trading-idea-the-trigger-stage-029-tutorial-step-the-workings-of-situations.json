@@ -7,21 +7,49 @@
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner!"
+        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist ein Schlüsselkonzept, das Sie verstehen müssen, damit Sie die Logik auf die richtige Weise organisieren können!",
+                "updated": 1639265748621
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "A situation validates true when all conditions within validate true. Think of this as if conditions within a situation were bound by the && (and) operator. If all of them are true at the same time, then the situation is true as well."
+            "text": "A situation validates true when all conditions within validate true. Think of this as if conditions within a situation were bound by the && (and) operator. If all of them are true at the same time, then the situation is true as well.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Situation gilt als wahr, wenn alle darin enthaltenen Bedingungen als wahr gelten. Stellen Sie sich das so vor, als wären die Bedingungen innerhalb einer Situation durch den Operator && (and) verbunden. Wenn alle Bedingungen gleichzeitig wahr sind, ist auch die Situation wahr.",
+                    "updated": 1639265795196
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered!"
+            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Ereignis gilt als wahr, wenn eine der Situationen innerhalb des Ereignisses als wahr gilt. Es ist so, als ob Situationen innerhalb eines Ereignisses durch den Operator || (or) gebunden wären! Wenn eine der Situationen zu einem bestimmten Zeitpunkt wahr ist, dann wird das Ereignis ausgelöst!",
+                    "updated": 1639265804598
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Can you tell how to set up this definition?",
-            "updated": 1610445299181
+            "updated": 1610445299181,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Können Sie sagen, wie man diese Definition einrichtet?",
+                    "updated": 1639265812426
+                }
+            ]
         }
     ]
 }

@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "В будущем нас ждет еще больше. Но это все еще в процессе работы!",
                 "updated": 1637937598065
+            },
+            {
+                "language": "DE",
+                "text": "Die Zukunft hält noch mehr bereit. Aber es ist noch viel zu tun!",
+                "updated": 1639102618123
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "В конечном счете, приборные панели будут использоваться для объединения нескольких машин времени в полезные конфигурации в пространстве диаграмм (Charting Space). Подумайте о нескольких графиках, сконфигурированных в замысловатые дисплеи бок о бок! Но на данный момент они помогают нам оставаться организованными.",
                     "updated": 1637937667673
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließlich werden Dashboards verwendet, um mehrere Time Machines in nützlichen Konfigurationen innerhalb des Charting Space zusammenzubringen. Stellen Sie sich mehrere Diagramme vor, die in komplizierten, nebeneinander liegenden Anzeigen konfiguriert sind! Aber im Moment helfen sie uns, den Überblick zu behalten.",
+                    "updated": 1639102647785
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Superalgos - это проект сообщества. Если вы являетесь разработчиком, который хотел бы увидеть эту функцию в реальности, вы можете помочь сделать это!",
                     "updated": 1637937717128
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist ein Gemeinschaftsprojekt. Wenn Sie ein Entwickler sind, der diese Funktion gerne zum Leben erwecken möchte, können Sie helfen, sie zu verwirklichen!",
+                    "updated": 1639102720708
                 }
             ]
         }

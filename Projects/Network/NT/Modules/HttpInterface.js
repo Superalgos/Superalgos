@@ -51,17 +51,17 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 if (bodyString === undefined) {
                                     return
                                 }
-    
+
                                 let signalMessage = JSON.parse(bodyString)
-       
+
                                 let response = await thisObject.incomingSignals.newSignal(signalMessage)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
-        
+
                             } catch (err) {
                                 console.log('[ERROR] P2P Node -> httpInterface -> Method call produced an error.')
                                 console.log('[ERROR] P2P Node -> httpInterface -> err.stack = ' + err.stack)
                                 console.log('[ERROR] P2P Node -> httpInterface -> Body Received = ' + bodyString)
-    
+
                                 let error = {
                                     result: 'Fail Because',
                                     message: err.message,
@@ -74,6 +74,11 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 }
                             }
                         }
+                    }
+                    break
+                case 'Ping':
+                    {
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
                     }
                     break
                 case 'Stats':

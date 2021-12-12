@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Ситуация относится к определенному состоянию, в котором должно произойти определенное событие, поределяемое любым количеством условий.",
                 "updated": 1637756401865
+            },
+            {
+                "language": "TR",
+                "text": "Durum, herhangi bir sayıda koşulla tanımlanabilecek bir olayın gerçekleşmesi beklenen piyasa durumunu ifade eder.",
+                "updated": 1639222488073
             }
         ]
     },

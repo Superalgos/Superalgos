@@ -11,6 +11,11 @@
                 "text": "La gobernanza del proyecto de Superalgos está distribuída entre todos los miembros de la comunidad que estén dispuestos a participar. Puede comprometerse de múltiples maneras, ayudar a dirigir el desarrollo en las direcciones deseadas, y contribuir a nutrir una comunidad saludable.",
                 "updated": 1633345029161,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Управление проектом Superalgos Project распределяется между всеми членами Community, желающими участвовать. Вы можете использовать разные манеры, помогать развитию в желаемых направлениях и способствовать формированию здорового сообщества.",
+                "updated": 1638974998112
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "Para participar en la gobernanza, los miembros de la comunidad apalancan su tenencia de  Superalgos SA Token, ejerciendo influencia proporcional a su Token Power y a su Reputation. La inlfuencia combinada de todos los tenedores de token que  participan en la gobernancia determinan, entre otras cosas:",
                     "updated": 1633345582953,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Для участия в управлении члены сообщества используют свои токены Superalgos SA, оказывая влияние, пропорциональное их силе токенов Token Power и их репутации Reputation. Совместное влияние всех держателей токенов, участвующих в управлении, среди прочего определяет:",
+                    "updated": 1638975114183
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "text": "Que Positions, Features, Assets, o actividades de desarrollo de proyectos, en general, están incentivados y cómo.",
                     "updated": 1633348402852,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Какие Positions, Features, Assets или деятельность по разработке проектов в целом стимулируются и как.",
+                    "updated": 1639029551142
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "text": "Que contribuyentes son pagados por cuales contribuciones.",
                     "updated": 1633345751024,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Какие вкладчики получают компенсацию за какие вклады.",
+                    "updated": 1638975506518
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "text": "Qué programas se financian y cómo",
                     "updated": 1633345784026,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Какие программы финансируются и как.",
+                    "updated": 1638975522835
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "text": "Puede ejercer su influencia de forma dinámica, ya que puede redirigir su Token Power en cualquier momento. La distribución de Token Power en cada lanzamiento del software — atado al correspondiente Superalgos SA Token Distribution Event — determina cómo se distribuyen los tokens asignados al lanzamiento.",
                     "updated": 1633345986132,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Распределение сил Token Power при каждом выпуске программного обеспечения — привязанное к соответствующему событию распределения токенов Superalgos SA — определяет, как распределяются токены, выделенные для выпуска.",
+                    "updated": 1638975766065
                 }
             ]
         },
@@ -85,6 +115,11 @@
                     "text": "El Governance Project está diseñado como un sistema flexible que permite a la comunidad ejercer influencia en direcciones arbitrarias de manera dinámica. Permite que la gobernanza evolucione con el proyecto. también promueve la innovación sin permiso, ya que los Colaboradores pueden proponer nuevas áreas de desarrollo y conducir a la comunidad incentivar expansion a lo largo de lineas nuevas.",
                     "updated": 1633346387045,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Проект управления Governance Project разработан как гибкая система, которая позволяет cообществу Community динамически направлять влияние в произвольных направлениях. Это позволяет управлению развиваться вместе с проектом. Это также поощряет неразрешенные инновации, поскольку авторы могут предлагать новые области развития и сплотить Community, чтобы стимулировать расширение по новым направлениям.",
+                    "updated": 1638975914629
                 }
             ]
         },
@@ -97,12 +132,24 @@
                     "text": "Una comunidad comprometida con la gobernanza es fundamental para el desarrollo del proyecto, por lo tanto se incentiva la participación, en otras palabras, ganará Superalgos SA Tokens si forma parte de la gobernanza de Superalgos.",
                     "updated": 1633346519203,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Сообщество, вовлеченное в управление, имеет решающее значение для развития проекта, поэтому участие поощряется. Другими словами, вы будете зарабатывать токены Superalgos SA, если примете участие в управлении Superalgos.",
+                    "updated": 1638975941760
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Governance Infrastructure"
+            "text": "Governance Infrastructure",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Инфраструктура управления",
+                    "updated": 1638975956666
+                }
+            ]
         },
         {
             "style": "Text",
@@ -113,6 +160,11 @@
                     "text": "El sistema de gobernanza se implementa con Superalgos, haciendo uso de los mismos recursos de secuencias de comandos visuale, estructuras de datos jerárquicos, y conceptos tales como referencias que conforman el paradigma de Superalgos con el que está familiarizado.",
                     "updated": 1633346787559,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Система управления реализована в Superalgos как проект управления с использованием тех же ресурсов визуальных сценариев, иерархических структур данных и таких концепций, как ссылки, которые составляют знакомую вам парадигму Superalgos.",
+                    "updated": 1638975978383
                 }
             ]
         },
@@ -125,6 +177,11 @@
                     "text": "Como tal, la gobernanza no requiere el uso de contratos inteligentes para hacer cumplir reglas inmutables. Por el contrario, en Superalgos, la gobernanza es una noción en constante evolución, muy parecida al resto del proyecto. ",
                     "updated": 1633346878247,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Таким образом, управление не требует использования смарт-контрактов для обеспечения неизменных правил. Напротив, в Superalgos управление - это постоянно развивающееся понятие, во многом как и в остальном проекте.",
+                    "updated": 1638975997161
                 }
             ]
         },
@@ -138,6 +195,11 @@
                     "text": "Esta flexibilidad es una característica crucial que nos permitirá hacer evolucionar el sistema de gobernanza, adaptar la teoría del juego detrás de él y corregir cualquier vulnerabilidad que los malos actores puedan encontrar con el tiempo",
                     "updated": 1633346945113,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта гибкость является важной особенностью, которая позволит нам развивать систему управления, адаптировать лежащую в ее основе теорию игр и исправлять любые эксплойты, которые со временем могут обнаружить злоумышленники.",
+                    "updated": 1638976297717
                 }
             ]
         },
@@ -151,6 +213,11 @@
                     "text": "La gobernanza está definida a través de múltiples Governance Workspaces que los usuarios pueden cargar y contribuir con. Estos espacios de trabajo presentan las definiciones de varias jerarquías que determinan la relación de todos los conceptos que afectan la gobernanza.",
                     "updated": 1633347120583,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Управление определяется несколькими рабочими пространствами управления Governance Workspaces, которые пользователи могут загружать и вносить в них. Эти рабочие пространства содержат определения нескольких иерархий, которые определяют взаимосвязь всех концепций, влияющих на управление.",
+                    "updated": 1638976411661
                 }
             ]
         },
@@ -164,6 +231,11 @@
                     "text": "Para participar en la gobernanaza, los usuarios deben configurar y enviar un User Profile plugin que define cómo pretenden ejercer la influencia conferida por sus tenencias de Superalgos SA Token. La inlfuencia y participación está definida mediante diferentes tipos de programas, votos y declaraciones.",
                     "updated": 1633347353982,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы участвовать в управлении, пользователи должны настроить и отправить плагин профиля пользователя User Profile, определяющий, как они намереваются оказывать влияние, предоставляемое их токенами Superalgos SA Token. Влияние и участие определяется через различные типы программ, голосований и требований.",
+                    "updated": 1638976748865
                 }
             ]
         },
@@ -177,6 +249,11 @@
                     "text": "El sistema de gobernanza computa los votos y las declaraciones en tiempo real, mostrando una vista previa de lo que la distribucion showing a preview of what the distribution puede parecer, en el UI.",
                     "updated": 1633347466937,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Система управления Governance System подсчитывает голоса и заявки в реальном времени, показывая предварительный просмотр того, как может выглядеть распределение, в пользовательском интерфейсе UI.",
+                    "updated": 1638976562534
                 }
             ]
         },
@@ -191,7 +268,14 @@
         },
         {
             "style": "Title",
-            "text": "Transparency and Auditability"
+            "text": "Transparency and Auditability",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прозрачность и контролируемость",
+                    "updated": 1638976613208
+                }
+            ]
         },
         {
             "style": "Text",
@@ -202,6 +286,11 @@
                     "text": "Porque las definiciones que afectan a la gobernanza envia como plugin con el software, el proceso es transparente y auditable.",
                     "updated": 1633347687363,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку все определения, влияющие на управление, поставляются в виде подключаемых модулей к программному обеспечению, этот процесс прозрачен и поддается проверке.",
+                    "updated": 1638976631373
                 }
             ]
         },
@@ -215,6 +304,11 @@
                     "text": "cualquier usuario puede, en cualquier momento, cargar el correspondiente Plugin Workspaces y visualizar and visualizecómo la influencia está siendo ejercida por todos participantes titulares de Superalgos SA Token..",
                     "updated": 1633347841894,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Любой пользователь может в любой момент загрузить соответствующие рабочие области подключаемых модулей Plugin Workspaces и визуализировать влияние всех участвующих держателей токенов Superalgos SA Token.",
+                    "updated": 1638976735618
                 }
             ]
         },
@@ -227,6 +321,11 @@
                     "text": "Cualquier usuario puede verificar Any user may verify todas las métricas gestionadas por el  Governance Project en las tablas desplegadas en el Governace Tab.",
                     "updated": 1633347961533,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Любой пользователь может проверить все показатели, управляемые проектом Governance Project, в таблицах, отображаемых на вкладке Governance.",
+                    "updated": 1638976978206
                 }
             ]
         },
@@ -239,6 +338,11 @@
                     "text": "Cualquier usuario puede hacer correr una simulación de el proceso de distribución de Superalgos SA Token y verificar verify cómo se distribuirán los tokens asignados a la próxima versión.",
                     "updated": 1633348037956,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Любой пользователь может запустить моделирование процесса распределения токенов Superalgos SA Token и проверить, как будут распределяться токены, выделенные для следующего выпуска.",
+                    "updated": 1638977022872
                 }
             ]
         },
@@ -252,6 +356,11 @@
                     "text": "Cualquier usuario puede obtener (mediante GitHub) y cargar versiones históricas del software, y hacer correr una simulación de Superalgos SA Token Distribution Event para verificar como los tokens han sido distribuidos ten lanzamientos anteriores. Note quet, en este caso, el número absoluto de votos puede no ser válido ya que las tenencias de token habrán variado, de todas maneras, cualquier usuario puede validar la distribución relativa.",
                     "updated": 1633531601031,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Любой пользователь может получить (из GitHub) и загрузить исторические версии программного обеспечения, а также запустить моделирование события распределения токенов Superalgos SA Token, чтобы проверить, как токены были распределены в прошлых выпусках. Обратите внимание, что в этом случае абсолютное количество голосов может быть недействительным, поскольку владение токенами будет изменяться; тем не мение, любой пользователь может проверить относительное распределение.",
+                    "updated": 1638977085559
                 }
             ]
         }

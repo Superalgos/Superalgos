@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo para referenciar un nodo de Feature (Función) en una jerarquía de funciones para establecer una Feature Contribution Claim( Solicitud de Contrución de Función). Esta solicitud significa que declara que ha trabajado en una función, ya sea creándola o mejorándola, y que espera ser recompensado consecuentemente!",
                 "updated": 1636281996936
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел, чтобы ссылаться на узел Feature в одной из иерархий Features, чтобы установить Feature Contribution Claim. Это означает, что вы заявляете, что работали над этим Feature, создавая или улучшая ее, и ожидаете соответствующего вознаграждения!",
+                "updated": 1639134017230
             }
         ]
     },
@@ -28,7 +33,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639133721209
+                }
+            ]
         }
     ]
 }

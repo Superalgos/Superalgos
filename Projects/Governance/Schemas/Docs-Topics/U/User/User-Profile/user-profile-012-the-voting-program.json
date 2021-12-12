@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Ayúdenos a decidir cómo y qué areas del desarrollo del proyecto incentivar, y ayúdenos a validar Contribution Claims ( Solicitudes de Cntribución)!",
                 "updated": 1636282368889
+            },
+            {
+                "language": "RU",
+                "text": "В целом, Claim Votes позволяет вам поддерживать претензии других пользователей. Термин «Claim Votes» является обобщением, относящимся к одному или ко всем существующим типам узлов: Position Claim Vote, Feature Claim Vote и Asset Claim Vote.",
+                "updated": 1639136670173
             }
         ]
     },
@@ -26,7 +31,14 @@
         {
             "style": "Title",
             "text": "Votes Switch Node",
-            "updated": 1624734967309
+            "updated": 1624734967309,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Votes Switch",
+                    "updated": 1639136936174
+                }
+            ]
         },
         {
             "style": "Include",
@@ -41,7 +53,14 @@
         {
             "style": "Title",
             "text": "About Claim Votes",
-            "updated": 1630497203825
+            "updated": 1630497203825,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Понятие Claim Votes",
+                    "updated": 1639137831201
+                }
+            ]
         },
         {
             "style": "Include",
@@ -65,7 +84,14 @@
         {
             "style": "Subtitle",
             "text": "Three Types of Claim Votes",
-            "updated": 1630497351240
+            "updated": 1630497351240,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три типа Claim Votes",
+                    "updated": 1639138280004
+                }
+            ]
         },
         {
             "style": "Include",
@@ -98,7 +124,14 @@
         {
             "style": "Title",
             "text": "About Weight Votes",
-            "updated": 1630497602868
+            "updated": 1630497602868,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Понятие Weight Votes",
+                    "updated": 1639137817799
+                }
+            ]
         },
         {
             "style": "Include",
@@ -126,7 +159,14 @@
         {
             "style": "Subtitle",
             "text": "Three Types of Weight Votes",
-            "updated": 1630498074833
+            "updated": 1630498074833,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три типа Weight Votes",
+                    "updated": 1639138306003
+                }
+            ]
         },
         {
             "style": "Include",
@@ -163,7 +203,14 @@
         {
             "style": "Title",
             "text": "About User Profile Votes",
-            "updated": 1630498579196
+            "updated": 1630498579196,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Понятие Profile Votes",
+                    "updated": 1639139573996
+                }
+            ]
         },
         {
             "style": "Include",

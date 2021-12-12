@@ -31,5 +31,4 @@ exports.newFoundationsUtilitiesMiscellaneousFunctions = function () {
 
         return promise
     }
-
 }

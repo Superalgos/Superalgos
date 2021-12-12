@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "До сих пор Вы были ограничены только темной стороной Superalgos. Приготовьтесь к тому, что Вас ждет яркая сторона: Charting Space.",
                 "updated": 1636197684784
+            },
+            {
+                "language": "NL",
+                "text": "Tot nu toe was je aan de donkere kant van Superlgos. Maak je klaar voor de lichte kant: de Charting Space.",
+                "updated": 1638781129195
             }
         ]
     },
@@ -84,6 +89,11 @@
                     "language": "RU",
                     "text": "Пространство построения графиков расположено поверх пространства дизайна, разделенного бирюзовыим ползунком. Как Вы и ожидаете от Superalgos, оно является настраиваемым и очень гибким. Все, что там происходит, определено в иерархии Charting Space.",
                     "updated": 1636197912680
+                },
+                {
+                    "language": "NL",
+                    "text": "De Charting Space bevind zich boven de Design Space, gescheiden door een turquoise schuifbalk. Zoals je gewend bent van Superalgos is de ruimte van de grafieken zeer flexibel en te configureren. Alles wat daar gebeurt is gedefinieerd in de Charting Space hiërarchie.",
+                    "updated": 1638781441406
                 }
             ]
         },
@@ -124,6 +134,11 @@
                     "language": "RU",
                     "text": "Пространство постороения графиков известно тем, что будоражит умы людей. Пожалуйста, воздержитесь от продолжения изучения этого материала, если в настоящий момент Вы находитесь под воздействием психоактивных веществ.",
                     "updated": 1636198131426
+                },
+                {
+                    "language": "NL",
+                    "text": "De ruimte voor de grafieken staat er om bekend om mensen versteld te doen staan. Ga niet verder met deze tutorial als je op dit moment onder invloed bent van psychoactieve stoffen.",
+                    "updated": 1638781673970
                 }
             ],
             "updated": 1616416552336

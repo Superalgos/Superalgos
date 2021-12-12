@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Token tutmak, Superlagos'a bağlılık göstermekten fazlasını yapar. SA Token'ları size ayrıca Token Gücü verir! ( Token Power! )",
                 "updated": 1637147203152
+            },
+            {
+                "language": "RU",
+                "text": "Хранение токенов это нечто большее, чем просто демонстрация обязательств. Токены SA также наделяют Token Power!",
+                "updated": 1639044921538
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Ne kadar çok token tutarsanız, projenin yönü üzerinde o kadar fazla etkiye sahip olabilirsiniz. Bu, SA tokenlarına sahip olarak, sistemin hangi bölümlerinin geliştirileceği ve topluluğun nasıl gelişeceği üzerinde etki uygulamak için bu tokenları kullanma gücüne sahip olduğunuz anlamına gelir.",
                     "updated": 1637147395621
+                },
+                {
+                    "language": "RU",
+                    "text": "Чем больше у вас токенов, тем большее влияние вы можете иметь на направление проекта. Это означает, что, владея токенами SA, вы имеете право использовать эти токены для оказания влияния на то, какие части системы будут развиваться и как будет развиваться сообщество.",
+                    "updated": 1639044961113
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "\" Not: Bu bir döngü içinde çalışır. Ne kadar çok katkıda bulunursanız, o kadar çok token kazanırsınız, o kadar çok söz hakkınız olur! \"",
                     "updated": 1637147430858
+                },
+                {
+                    "language": "RU",
+                    "text": "Это работает в цикле. Чем больше вы вносите, тем больше токенов вы зарабатываете, тем больше у вас репутации!",
+                    "updated": 1639044978300
                 }
             ]
         }

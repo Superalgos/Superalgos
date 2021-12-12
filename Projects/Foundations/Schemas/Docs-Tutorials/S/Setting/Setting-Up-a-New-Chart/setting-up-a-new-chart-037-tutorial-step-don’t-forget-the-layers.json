@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Has hecho esto antes! Asegúrate de agregar esas capas. Los gráficos en blanco no son divertidos.",
                 "updated": 1628732128941
+            },
+            {
+                "language": "RU",
+                "text": "Вы уже делали это раньше! Убедитесь, что вы добавили эти слои. Пустые таблицы - это не весело.",
+                "updated": 1639084120513
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Coloca el cursor sobre el Layer Manager y clic Add All Mine Layers.",
                     "updated": 1628732152359
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор на Менеджер слоев (Layer Manager) и нажмите Add All Mine Layers(Добавить все слои шахты).",
+                    "updated": 1639084185006
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Este es un paso fácil de olvidar pero muy importante. Si no hay capas debajo del administrador de capas, no aparecerá nada por mucho que lo intentes.",
                     "updated": 1628732171501
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот шаг легко забыть, но он очень важен! Если в менеджере слоев нет ни одного слоя, ничего не отобразится, как бы вы ни старались.",
+                    "updated": 1639084203715
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "ES",
                     "text": "Cuando las capas comienzan a apilarse, las cosas pueden salirse un poco de control. Es una buena idea tomarse un tiempo y organizar y contraer los nodos de capa y las carpetas para ayudar a que las cosas se vean limpias.",
                     "updated": 1628732203453
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда слои начинают накапливаться, все может выйти из-под контроля. Это хорошая идея - потратить некоторое время и упорядочить и свернуть узлы слоев и папки, чтобы все выглядело чисто.",
+                    "updated": 1639084219158
                 }
             ]
         }

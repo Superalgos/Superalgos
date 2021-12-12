@@ -8,13 +8,25 @@
                 "language": "ES",
                 "text": "\nUna colección de fragmentos de texto reutilizables que se utilizarán en el Governance Project.",
                 "updated": 1636284706815
+            },
+            {
+                "language": "RU",
+                "text": "Коллекция многократно используемых фрагментов текста для повторного использования в рамках проекта управления Governance Project.",
+                "updated": 1639037044022
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Computational Limitations"
+            "text": "Computational Limitations",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вычислительные ограничения",
+                    "updated": 1639037176398
+                }
+            ]
         },
         {
             "style": "Title",
@@ -33,6 +45,11 @@
                     "language": "ES",
                     "text": "El sistema de gobernanza realiza todos los cálculos de forma dinámica, en tiempo real, con cada cambio en las definiciones, y calcula todas las jerarquías cargadas en el Current Workspace ( espacio de trabajo actual).",
                     "updated": 1636284761335
+                },
+                {
+                    "language": "RU",
+                    "text": "Система управления выполняет все вычисления динамически, в реальном времени, с каждым изменением определений, и вычисляет все иерархии, загруженные в текущую рабочее пространство Current Workspace.",
+                    "updated": 1639037165743
                 }
             ]
         },
@@ -44,6 +61,11 @@
                     "language": "ES",
                     "text": "Lo anterior significa que los cálculos que ve desde dentro de cualquier Espacio de trabajo determinado es un cálculo parcial dentro del alcance del Current Workspace solamente. Definiciones, solicitudes, votos, y lo demás,que existan en otros workspaces o plugins ( enchufes) no se computan.",
                     "updated": 1636284903141
+                },
+                {
+                    "language": "RU",
+                    "text": "Вышеупомянутое означает, что вычисления, которые вы видите в любом заданном рабочем пространстве Workspace, являются частичным расчетом в пределах только текущего рабочего пространства. Определения, претензии, голоса и т. д., Существующие в других рабочих пространствах или надстройках, не вычисляются.",
+                    "updated": 1639037359059
                 }
             ]
         },
@@ -61,6 +83,11 @@
                     "language": "ES",
                     "text": "Si emite votos o presenta solicitudes en más de un Governance Workspace, no podrá ver de qué se tratan algunas de sus solicitudes y votos — en particular, auqellos que viven en otro workspace que no sea el Current Workspace.",
                     "updated": 1636285332446
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы подаете голоса или размещаете заявки в нескольких Governance Workspace, вы не сможете увидеть, что представляют собой некоторые из ваших заявок и голосов - в частности, те, которые находятся в рабочем пространстве, не являющемся Current Workspace.",
+                    "updated": 1639037631162
                 }
             ]
         },
@@ -73,6 +100,11 @@
                     "language": "ES",
                     "text": "Si desea ver un panorama más claro de todos sus votos y solicitudes puede desear establecer un nuevo workspace que incluya todas las jerarquías que necesita para interactuar. De este modo, le será posible ver todos sus votos y slicitudes  al mismo tiempo. Para hacer esto, grabe un nuevoworkspace derivado de uno de los Governance Workspaces y suba los plugins que necesite.",
                     "updated": 1636285539916
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите иметь более четкое представление обо всех ваших голосах и претензиях, вы можете создать новое рабочее пространство, которое включает в себя все иерархии, с которыми вам нужно взаимодействовать. Таким образом, вы сможете видеть все свои голоса и заявки одновременно. Для этого нужно сохранить новое рабочее пространство, полученное из одного из рабочих пространств Governance Workspaces, и загрузить необходимые плагины.",
+                    "updated": 1639037750495
                 }
             ]
         },
@@ -85,6 +117,11 @@
                     "language": "ES",
                     "text": "Incluso si hace lo sugerido anteriormente, los cálculos que ve en términos deToken Rewards, Tokens Awarded, Tokens Bonus, etcétera, son aún parciales. Los cálculos del actual Distribution Event ( evento de distribución) involucra cómputos de Project Definition Hierarchies ( las jeraquías de definición del proyecto), incluyendo todas las jerarquías de los User Profile ( perfil de usuarios) participando en la gobernanza.",
                     "updated": 1636285818138
+                },
+                {
+                    "language": "RU",
+                    "text": "Даже если вы сделаете то, что было предложено выше, вычисления, которые вы видите в отношении Token Rewards, Tokens Awarded, Tokens Bonus и т. д., Все равно будут частичными. Фактический Distribution Event включает вычисление всех иерархий Project Definition Hierarchies, включая все иерархии User Profile, участвующих в управлении.",
+                    "updated": 1639037980486
                 }
             ]
         },
@@ -100,7 +137,14 @@
         {
             "style": "Title",
             "text": "Deep in Governance",
-            "updated": 1630574167914
+            "updated": 1630574167914,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Глубокое погружение в управление",
+                    "updated": 1639038678662
+                }
+            ]
         },
         {
             "style": "Block",
@@ -115,6 +159,11 @@
                     "language": "ES",
                     "text": "Si ha contribuido con el trabajo o desea profundizar en su participación en la gobernanza, lo más probable es que necesite interactuar con uno o más de los proyectos específicos. de Governance Workspaces. Para hacer esto, suba su User Profile en los workspaces correspondientes para que pueda establecer las referencias para colocar Contribution Claims ( solicitudes de contribución)y emitir Weight Votes ( votos de peso).",
                     "updated": 1636285975614
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы внесли свой вклад или хотите углубить в свое участие в управлении, вам, скорее всего, потребуется взаимодействовать с одним или несколькими рабочими пространствами Governance Workspaces для конкретного проекта. Для этого загрузите свой профиль пользователя User Profile в соответствующие рабочее пространство, чтобы вы могли установить ссылки для Contribution Claims и распределения Weight Votes.",
+                    "updated": 1639038374443
                 }
             ]
         },
@@ -125,7 +174,14 @@
         },
         {
             "style": "Title",
-            "text": "Featuring Tokens Bonus"
+            "text": "Featuring Tokens Bonus",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Участие в Tokens Bonus",
+                    "updated": 1639038694497
+                }
+            ]
         },
         {
             "style": "Block",
@@ -141,6 +197,11 @@
                     "language": "ES",
                     "text": "La Participación en este programa es incentivado con un Tokens Bonus( bono de tokens), lo que significa que ganará tokens solo por  participar! Lea más acerca de  Tokens Bonus para aprender más!",
                     "updated": 1636286109976
+                },
+                {
+                    "language": "RU",
+                    "text": "Участие в этой программе стимулируется бонусом Tokens Bonus, то есть вы зарабатываете токены, просто участвуя! Прочтите о Tokens Bonus, чтобы узнать больше!",
+                    "updated": 1639038588476
                 }
             ]
         },
@@ -151,7 +212,14 @@
         },
         {
             "style": "Title",
-            "text": "Community Building Programs"
+            "text": "Community Building Programs",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Программы построения сообщества",
+                    "updated": 1639038749325
+                }
+            ]
         },
         {
             "style": "Block",
@@ -166,6 +234,11 @@
                     "language": "ES",
                     "text": "Leer acerca de Community Building Programs ( Progamas para construir comunidades) para aprender como este programa calcula los Tokens Awarded (Tokens otorgados).",
                     "updated": 1636286206288
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочтите о Community Building Programs, чтобы узнать, как эта программа рассчитывает Tokens Awarded.",
+                    "updated": 1639038826355
                 }
             ]
         },
@@ -177,7 +250,14 @@
         {
             "style": "Title",
             "text": "Claims Content",
-            "updated": 1630325166381
+            "updated": 1630325166381,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Содержание претензий",
+                    "updated": 1639038863176
+                }
+            ]
         },
         {
             "style": "Block",
@@ -186,11 +266,25 @@
         {
             "style": "Important",
             "text": "Make sure you're driving enough Claim Power to the node so that you may get the reward you deserve! And remember to ask the people who know your work to vouch for your claims with their Claim Votes. That is how your contribution gets validated and how you get the associated rewards.",
-            "updated": 1630325171869
+            "updated": 1630325171869,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что вы передаете узлу достаточно Claim Power, чтобы получить заслуженную награду! И не забудьте попросить людей, знакомых с вашей работой, поручиться за ваши претензии, отдав за них свой голос Claim Votes. Вот как подтверждается ваш вклад и как вы получаете соответствующие награды.",
+                    "updated": 1639039006972
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Learn more about How Claims are Resolved!"
+            "text": "Learn more about How Claims are Resolved!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как разрешаются претензии How Claims are Resolved!",
+                    "updated": 1639039036648
+                }
+            ]
         },
         {
             "style": "Block",
@@ -200,7 +294,14 @@
         {
             "style": "Title",
             "text": "Claim Votes Content",
-            "updated": 1630350592141
+            "updated": 1630350592141,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Содержимое Claim Votes",
+                    "updated": 1639039074441
+                }
+            ]
         },
         {
             "style": "Block",
@@ -210,11 +311,25 @@
         {
             "style": "Important",
             "text": "The Claim Support Power you drive into Claim Votes nodes is significant, as it is a measure of your support to the claim. The ideal case scenario for the party placing the claim is that the claim gets enough Claim Votes with enough Claim Support Power to match the Claim Power the claim carries.",
-            "updated": 1630356135160
+            "updated": 1630356135160,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Claim Support Power, который вы вкладываете в узлы Claim Votes, является значительным, поскольку он является мерой вашей поддержки заявки. Идеальный сценарий для стороны, подающей заявку, состоит в том, что заявка получает достаточно голосов Claim Votes с достаточной Claim Support Power, чтобы соответствовать Claim Power, который несет заявка.",
+                    "updated": 1639039322272
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "You may want to learn more about How Claims are Resolved!"
+            "text": "You may want to learn more about How Claims are Resolved!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы захотите узнать больше о том, как разрешаются претензии How Claims are Resolved!",
+                    "updated": 1639039393596
+                }
+            ]
         },
         {
             "style": "Block",

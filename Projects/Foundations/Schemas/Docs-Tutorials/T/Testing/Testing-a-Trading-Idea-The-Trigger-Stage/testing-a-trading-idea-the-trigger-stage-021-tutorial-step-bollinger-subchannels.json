@@ -7,16 +7,37 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "The slope provides an indication of how steep the MA curve is... that is, how pronounced is the decline or ascent of the MA!"
+        "text": "The slope provides an indication of how steep the MA curve is... that is, how pronounced is the decline or ascent of the MA!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Steigung gibt an, wie steil die MA-Kurve ist... das heißt, wie ausgeprägt der Rückgang oder Anstieg des MA ist!",
+                "updated": 1639263150888
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Read the description of the indicator in the documentation. Then scroll down and get to the Bollinger SubChannels Products & Properties section."
+            "text": "Read the description of the indicator in the documentation. Then scroll down and get to the Bollinger SubChannels Products & Properties section.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie die Beschreibung des Indikators in der Dokumentation. Scrollen Sie dann nach unten und gehen Sie zum Abschnitt Bollinger SubChannels Products & Properties.",
+                    "updated": 1639263159240
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "The kind of information you find on this page is available for every indicator shipping with the system."
+            "text": "The kind of information you find on this page is available for every indicator shipping with the system.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Art von Informationen, die Sie auf dieser Seite finden, ist für jeden Indikator verfügbar, der mit dem System ausgeliefert wird.",
+                    "updated": 1639263165561
+                }
+            ]
         }
     ]
 }

@@ -2,44 +2,107 @@
     "type": "API Response Field Reference",
     "definition": {
         "text": "This node allow users to reference an API Data Field from a Record Property. In other words it allows to link each piece of data the user wants to be saved locally to the field at the API Map that will hold the data at runtime.",
-        "updated": 1621022976968
+        "updated": 1621022976968,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел позволяет пользователям ссылаться на API Data Field из свойства Record Property. Другими словами, он позволяет связать каждый фрагмент данных, который пользователь хочет сохранить локально, с полем в API Map, которое будет хранить данные во время выполнения.",
+                "updated": 1638630539146
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Once created, you need to reference an API Data Field.",
-            "updated": 1621023087914
+            "updated": 1621023087914,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После создания вам необходимо указать API Data Field.",
+                    "updated": 1638630567160
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "All references originating at the same Record Definition must be to API Data Field s living at the same API Endpoint."
+            "text": "All references originating at the same Record Definition must be to API Data Field s living at the same API Endpoint.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все ссылки, происходящие из одного и того же Record Definition, должны относиться к полям API Data Field, находящимся в одной конечной точке API Endpoint.",
+                    "updated": 1638630640726
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Record Property Configuration"
+            "text": "Record Property Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Record Property",
+                    "updated": 1638630663178
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638630672214
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "nodePath is a property that is required when the API Response Field referenced is not under the Data Root object within the response structure.",
-            "updated": 1621969132831
+            "updated": 1621969132831,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "nodePath - это свойство, которое требуется, когда указанное поле API Response Field не находится под объектом Data Root в структуре ответа.",
+                    "updated": 1638630719045
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The response from the API Server might include some header type of data and the actual data requested. Since the response is a JSON object, then the actual data might be located somewhere within the structure of that object. The API Response Schema node has a property nodePath that allows users to declare the path to the actual data requested, so as to jump the header-like information. We call the API Response Field where the data is held, the Data Root. "
+            "text": "The response from the API Server might include some header type of data and the actual data requested. Since the response is a JSON object, then the actual data might be located somewhere within the structure of that object. The API Response Schema node has a property nodePath that allows users to declare the path to the actual data requested, so as to jump the header-like information. We call the API Response Field where the data is held, the Data Root. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ответ от сервера API может включать данные некоторого типа заголовка и фактические запрошенные данные. Поскольку ответ представляет собой объект JSON, фактические данные могут находиться где-нибудь в структуре этого объекта. Узел API Response Schema имеет свойство nodePath, которое позволяет пользователям объявлять путь к фактическим запрошенным данным, чтобы перейти к информации, подобной заголовку. Мы называем поле ответа API Response Field, в котором хранятся данные, корнем данных Data Root.",
+                    "updated": 1638630860912
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In order to extract individual values for each Record Property, the API Data Fetcher Bot needs to dynamically discover the nodePath for each Record Property at the response data structure and can do it as long as the API Response Field referenced is under the Data Root. To auto discover the nodePath it uses the API Response Schema nodePath to locate the Data Root, and then it follows the reference from the API Response Field Reference node to the API Response Field and climbs upwards until it reach the API Response Schema. While climbing upwards it discovers the nodePath that it needs to grab the value from the response data structure. That is how it works.",
-            "updated": 1622372741883
+            "updated": 1622372741883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы извлечь отдельные значения для каждого свойства Record Property, бот API Data Fetcher Bot должен динамически обнаруживать nodePath для каждого свойства Record Property в структуре данных ответа API Response Schema и может это делать, пока указанное поле ответа Response Field находится в корне данных Data Root. Для автоматического обнаружения nodePath он использует nodePath схемы ответа API для определения местоположения корня данных, а затем следует ссылке из узла ссылки на поле ответа API на поле ответа API и поднимается вверх, пока не достигнет схемы ответа API. Поднимаясь вверх, он обнаруживает nodePath, в котором ему нужно получить значение из структуры данных ответа. Вот как это работает.",
+                    "updated": 1638631120866
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When the referenced API Response Field is outside the scope of the Data Root, the process is not able to auto discover this path and need users to manually define the nodePath (from the API Response Schema to the API Response Field that holds the value) and set it in this property. That happens for instance when the API Response Field is part of the header of the API Server response.",
-            "updated": 1621972505639
+            "updated": 1621972505639,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда указанный API Response Field выходит за пределы области Data Root, процесс не может автоматически обнаружить этот путь, и пользователям необходимо вручную определить nodePath (от API Response Schema к API Response Field, содержащему значение) и установите его в этом свойстве. Это происходит, например, когда API Response Field является частью заголовка ответа сервера API.",
+                    "updated": 1638631329811
+                }
+            ]
         },
         {
             "style": "Text",

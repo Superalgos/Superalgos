@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un nodo crypto exchange contiene las definiciones de assets y mercados en un exchange.",
                 "updated": 1636383115048
+            },
+            {
+                "language": "RU",
+                "text": "Crypto Exchange содержит определения активов и рынков конкретной биржи.",
+                "updated": 1638648355387
             }
         ]
     },
@@ -18,7 +23,14 @@
         {
             "style": "Title",
             "text": "Tested Exchanges",
-            "updated": 1615200855230
+            "updated": 1615200855230,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверенные биржи",
+                    "updated": 1638648375474
+                }
+            ]
         },
         {
             "style": "Text",
@@ -29,6 +41,11 @@
                     "language": "ES",
                     "text": "En teoría, Superalgos soporta docenas de exchanges. De todas formas, cada exchange debe ir a través de un proceso de testeo, ya que no todos ellos están conformados  bajo los estándares propuestos por la  biblioteca CCXT.",
                     "updated": 1636383259902
+                },
+                {
+                    "language": "RU",
+                    "text": "Теоретически Superalgos поддерживает десятки бирж. Однако каждый обмен должен проходить процесс тестирования, так как не все из них соответствуют стандарту, предложенному библиотекой CCXT.",
+                    "updated": 1638648390810
                 }
             ]
         },
@@ -78,7 +95,14 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Exchange Configuration"
+            "text": "Crypto Exchange Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Crypto Exchange",
+                    "updated": 1638648412109
+                }
+            ]
         },
         {
             "style": "Text",
@@ -89,13 +113,25 @@
                     "language": "ES",
                     "text": "Cada exchange puede requerir una configuración muy específica. Esta se determina durante el proceso de testeo del exchange. Consulta la página de cada exchange como está listado aquí arriba. Si está interesado en testear un nuevo exchange, ve a la página de How to Test New Exchanges ( como testear un nuevo exchange).",
                     "updated": 1636383451633
+                },
+                {
+                    "language": "RU",
+                    "text": "Для каждой биржи может потребоваться очень специфическая конфигурация. Это определяется в процессе тестирования биржи. Проконсультируйтесь со страницей каждой биржи, как указано выше. Если вы заинтересованы в тестировании новой биржи, перейдите на страницу Test New Exchanges.",
+                    "updated": 1638648473771
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609771684679
+            "updated": 1609771684679,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638648483805
+                }
+            ]
         },
         {
             "style": "List",
@@ -105,20 +141,46 @@
                     "language": "ES",
                     "text": "codeName es el nombre del exchange como se maneja en el código del sistema.",
                     "updated": 1636383499342
+                },
+                {
+                    "language": "RU",
+                    "text": "codeName - это название биржи, которое обрабатывается в коде системы.",
+                    "updated": 1638648511499
                 }
             ]
         },
         {
             "style": "List",
-            "text": "sandBox setting this parameter to true allows SuperAlgos to perform live trading on the exchanges sandbox or testnet if one is available."
+            "text": "sandBox setting this parameter to true allows SuperAlgos to perform live trading on the exchanges sandbox or testnet if one is available.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "sandBox установка этого параметра в значение true позволяет Superego осуществлять реальную торговлю в песочнице бирж или тестовой сети, если таковая доступна.",
+                    "updated": 1638648591939
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to save the data more often allowing for the data mining to move forward."
+            "text": "maxRate sets the maximum number of OHCLV that is pulled before the data is saved. This is only to be used when the exchange is kicking out the data-mine randomly and alows the user to save the data more often allowing for the data mining to move forward.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maxRate устанавливает максимальное количество OHCLV, которое извлекается перед сохранением данных. Это должно использоваться только тогда, когда биржа случайным образом запускает извлчение данных и позволяет пользователю сохранять данные чаще, что позволяет продвигать интеллектуальный анализ данных.",
+                    "updated": 1638648664286
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library."
+            "text": "API holds a series of definitions used only in the case in which the sensor bot fetches trades (using the Historic-Trades process) instead of the OHLCV process that fetches one-minute candles and is the current default. In such a case, finding the right set of parameters to work with a specific exchange may be challenging, nd involves understanding how the exchanges API and the CCXT Library API work. In other words, there is no hard rule as of what each of the values should be. Determining each of this values requires exploring the exchange's API documentation, as well as the documentation of the CCXT Library.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "API содержит ряд определений, используемых только в том случае, когда бот-датчик выбирает сделки (используя процесс исторических сделок) вместо процесса OHLCV, который выбирает одноминутные свечи и является текущим значением по умолчанию. В таком случае поиск правильного набора параметров для работы с конкретным обменом может оказаться сложной задачей и требует понимания того, как работают API exchange и API библиотеки CCXT. Другими словами, нет жесткого правила относительно того, какой должна быть каждая из ценностей. Для определения каждого из этих значений требуется изучить документацию API биржи, а также документацию библиотеки CCXT.",
+                    "updated": 1638648888938
+                }
+            ]
         }
     ]
 }

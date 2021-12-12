@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Achten Sie darauf, dass Sie das \":\" an der richtigen Stelle verwenden.",
                 "updated": 1633897375895
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что вы используете \":\" в нужном месте.",
+                "updated": 1638529839586
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Syntax des Befehls, den Sie ausführen, und sehen Sie nach, wo das Zeichen für den Doppelpunkt \":\" zu platzieren ist. Das Zeichen wird möglicherweise nicht erkannt, wenn es nicht von einem Leerzeichen gefolgt wird.",
                     "updated": 1633897527864
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте синтаксис выполняемой команды и посмотрите, где разместить символ двоеточия «:». Символ может быть не обнаружен, если за ним не стоит пробел.",
+                    "updated": 1638529863188
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633897535054
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529874404
                 }
             ]
         },
@@ -58,10 +73,6 @@
             "style": "List",
             "text": "Docs Add Command",
             "updated": 1609177427004
-        },
-        {
-            "style": "List",
-            "text": "Docs Delete Command"
         },
         {
             "style": "List",

@@ -105,9 +105,6 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Managed Stop Loss->Managed Take Profit->' +
             'Phase->Formula->Next Phase Event->Move To Phase Event->Phase->' +
             'Situation->Condition->Javascript Code->' +
-            'Outgoing Signals->Incoming Signals->Signal Reference->' +
-            'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
-            'Create Order Signal->Cancel Order Signal->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
             'Open Execution->Close Execution->' +
@@ -120,7 +117,14 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Market Order->Limit Order->' +
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
-            'User Defined Code->Javascript Code->'
+            'User Defined Code->Javascript Code->' +
+            'Outgoing Signals->Incoming Signals->Outgoing Signal Reference->Incoming Signal Reference->Signal Context Formula->' +
+            'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
+            'Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
+            'Create Order Signal->Cancel Order Signal->Order Rate Signal->' +
+            'Limit Sell Order Signals->Limit Buy Order Signals->Market Sell Order Signals->Market Buy Order Signals->' +
+            'Trigger Stage Signals->Open Stage Signals->Manage Stage Signals->Close Stage Signals->' +
+            'Available Signals->Social Trading Bot->Signing Account->'
 
         let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

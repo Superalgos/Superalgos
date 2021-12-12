@@ -52,10 +52,12 @@ SA.nodeModules = {
     simpleGit: require('simple-git'),
     lookpath: require('lookpath'),
     process: require('process'),
-    childProcess: require('child_process')
+    childProcess: require('child_process'),
+    twitter: require('twitter-api-v2'),
+    slack: require('@slack/web-api')
 }
 
-SA.version = require('./package.json').version    
+SA.version = require('./package.json').version
 /*
 Check if we are starting from a particular workspace.
 */

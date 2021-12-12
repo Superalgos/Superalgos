@@ -7,13 +7,27 @@
             "name": "Data\\dataset-definition",
             "project": "Foundations"
         },
-        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way!"
+        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden mehrere Themen behandeln! Lassen Sie uns eine kurze Liste erstellen, die Ihnen als Leitfaden dient!",
+                "updated": 1639254529126
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "The Trigger Stage with it's three events (Trigger On Event, Trigger Off Event, and Take Position Event).",
-            "updated": 1610382946451
+            "updated": 1610382946451,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Trigger Stage mit ihren drei Events (Trigger On Event, Trigger Off Event und Take Position Event).",
+                    "updated": 1639254545619
+                }
+            ]
         },
         {
             "style": "List",
@@ -21,19 +35,47 @@
         },
         {
             "style": "List",
-            "text": "Syntax, or how to write conditions and formulas."
+            "text": "Syntax, or how to write conditions and formulas.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Syntax, oder wie man Bedingungen und Formeln schreibt.",
+                    "updated": 1639254566357
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Indicator properties and how to use them."
+            "text": "Indicator properties and how to use them.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indikatoreigenschaften und deren Verwendung.",
+                    "updated": 1639254600203
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Open, Manage, and Close Stages basics."
+            "text": "Open, Manage, and Close Stages basics.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Grundlagen der Open, Manage und Close Stages.",
+                    "updated": 1639254591072
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Have you read about these topics? No worries... you will!"
+            "text": "Have you read about these topics? No worries... you will!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Haben Sie schon über diese Themen gelesen? Keine Sorge... das werden Sie!",
+                    "updated": 1639254609348
+                }
+            ]
         }
     ]
 }

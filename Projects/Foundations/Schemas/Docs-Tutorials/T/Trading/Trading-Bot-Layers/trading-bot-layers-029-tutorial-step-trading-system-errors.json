@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "bullet-error"
         },
-        "text": "When writing conditions and formulas, you may make mistakes. Remember conditions must evaluate to true or false and formulas to a number?"
+        "text": "When writing conditions and formulas, you may make mistakes. Remember conditions must evaluate to true or false and formulas to a number?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Beim Schreiben von Bedingungen und Formeln können Ihnen Fehler unterlaufen. Erinnern Sie sich daran, dass Bedingungen als wahr oder falsch und Formeln als Zahl ausgewertet werden müssen?",
+                "updated": 1639145384055
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Well, if they don't, you will get an error! Turning on this layer when you're going back and forth crafting and testing a strategy is a must!"
+            "text": "Well, if they don't, you will get an error! Turning on this layer when you're going back and forth crafting and testing a strategy is a must!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn das nicht der Fall ist, erhalten Sie eine Fehlermeldung! Es ist ein Muss, diese Ebene einzuschalten, wenn Sie eine Strategie entwickeln und testen!",
+                    "updated": 1639145425324
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "There are no errors in this trading system, but I just planted a fake one so that you may see how they are reported! Look at the Formula on the left!"
+            "text": "There are no errors in this trading system, but I just planted a fake one so that you may see how they are reported! Look at the Formula on the left!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt keine Fehler in diesem Trading System, aber ich habe gerade einen gefälschten eingefügt, damit Sie sehen können, wie sie gemeldet werden! Sehen Sie sich die Formel auf der linken Seite an!",
+                    "updated": 1639145438062
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?<br/>Let's run a quick test! Collapse the Initial Targets node!"
+            "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?<br/>Let's run a quick test! Collapse the Initial Targets node!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?Let's run a quick test! Collapse the Initial Targets node!",
+                    "updated": 1639145512639
+                }
+            ]
         }
     ]
 }

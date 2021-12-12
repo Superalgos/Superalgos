@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Шкала временных рамок управляет настройкой временных рамок, т.е. периодом, представленным каждой свечой, либо машины времени, либо графика временной шкалы, в зависимости от месторасположения узла.",
                 "updated": 1636561017281
+            },
+            {
+                "language": "TR",
+                "text": "Zaman çerçevesi ölçeği, zaman çerçevesi ayarını, yani düğümün bulunduğu yere bağlı olarak zaman makinesinin veya zaman çizelgesi grafiğinin her bir mum tarafından temsil edilen periyodu kontrol eder.Kısaca Grafiği hangi zaman diliminde görmek istiyorsak , o zaman dilimine ayarlamamızı sağlar. (Örn. 1dk, 5dk, 1s,  4s vb.) ",
+                "updated": 1639214358968
             }
         ]
     },

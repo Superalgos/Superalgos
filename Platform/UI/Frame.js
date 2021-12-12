@@ -188,7 +188,7 @@ function newFrame() {
 
     function isThisPointHere(point, outsideViewPort, dontTransform, padding) {
         // The second parameter is useful when you want to check a point that you already know is outside the viewport.
-        // The padding is a distance to the borders of the container. Can be either negative (outside, to increase the container size) or positive (inside to decrease the cointainer size)
+        // The padding is a distance to the borders of the container. Can be either negative (outside, to increase the container size) or positive (inside to decrease the container size)
 
         if (padding === undefined) { padding = 0 }
 

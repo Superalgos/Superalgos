@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El nodo exchange accounts agrupa las diferentes cuentas que el usuario pueda tener con el correspondiente exchange.",
                 "updated": 1628205361106
+            },
+            {
+                "language": "RU",
+                "text": "Узел Exchange Accounts группирует различные учетные записи, которые пользователь может иметь на соответствующей бирже.",
+                "updated": 1638783009961
             }
         ]
     },
@@ -18,7 +23,14 @@
         },
         {
             "style": "Text",
-            "text": "This section of the Crypto Ecosystem hierarchy deals with concepts related to the user."
+            "text": "This section of the Crypto Ecosystem hierarchy deals with concepts related to the user.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этом разделе иерархии Crypto Ecosystem рассматриваются концепции, связанные с пользователем.",
+                    "updated": 1638783080691
+                }
+            ]
         }
     ]
 }

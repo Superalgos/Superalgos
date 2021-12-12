@@ -12,7 +12,7 @@ exports.newFoundationsGlobalsTaskConstants = function () {
         P2P_NETWORK: undefined,   
         TASK_HEARTBEAT_INTERVAL_HANDLER: undefined,
         MANAGED_TASKS: undefined,
-        MANAGED_SESSIONS_MAP: new Map()  // Naming convention => Key: name-type-id, Value:PMCommunicationModule
+        MANAGED_SESSIONS_REFERENCES: undefined                           // If there are managed sessions we will store them here.
     }
 
     return thisObject

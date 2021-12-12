@@ -4,14 +4,7 @@
     "type": "Testing Trading Tasks Section",
     "definition": {
         "text": "The testing environment organizes your strategy-testing resources, grouping tasks and associated backtesting and paper trading sessions",
-        "updated": 1610098745062,
-        "translations": [
-            {
-                "language": "RU",
-                "text": "Среда тестирования организует ресурсы для тестирования стратегии, группирует задачи и связанные с ними бэктестирование и бумажные торговые сессии.",
-                "updated": 1638374389987
-            }
-        ]
+        "updated": 1610098745062
     },
     "paragraphs": [
         {
@@ -130,7 +123,7 @@
                 {
                     "language": "RU",
                     "text": "Торговые задачи запускают экземпляры торгового бота, который может запускать четыре различных типа торговых сессий. Мы изучим их на следующих нескольких страницах.",
-                    "updated": 1638378082335
+                    "updated": 1638601234744
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Referans Programı ( Referral Program ), makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla ağızdan ağza veya “topluca” projenin tanıtımını teşvik eder!",
                 "updated": 1637444132208
+            },
+            {
+                "language": "RU",
+                "text": "Реферальная программа Referral Program стимулирует продвижение проекта из уст в уста или «массово» через статьи, сообщения в социальных сетях, видео и другие формы влиятельного маркетинга!",
+                "updated": 1639050000505
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Topluluk Oluşturma Programları ( Community Building Programs ) düğümüne gidin ve Referans Programı Ekle'yi ( Add Referral Program ) tıklayın.",
                     "updated": 1637444420032
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в узел Community Building Programs и нажмите Add Referral Program.",
+                    "updated": 1639050045885
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Öncelikle, Token Bonusunuzu ( Tokens  Bonus ) kazanmak için hangi kuralları yerine getirmeniz gerektiğini açıklayalım!",
                     "updated": 1637445298630
+                },
+                {
+                    "language": "RU",
+                    "text": "Во-первых, давайте выясним, какие правила вы должны выполнить, чтобы заработать свой бонус в виде токенов!",
+                    "updated": 1639050059573
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "Programı dağıtmalısınız: Bitti!",
                     "updated": 1637445330084
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны развернуть программу: Готово!",
+                    "updated": 1639050074195
                 }
             ]
         },
@@ -93,6 +113,11 @@
                     "language": "TR",
                     "text": "Seni Superalgos'ayönlendireni beyan etmelisin: Onu sonra yapacağız!",
                     "updated": 1637445418801
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны указать своего реферера: мы сделаем это дальше!",
+                    "updated": 1639050089422
                 }
             ]
         },
@@ -111,6 +136,11 @@
                     "language": "TR",
                     "text": "Token Gücünü ( Token Power ) programa yönlendirmelisiniz: Wayy... jeton gücü...Kulağa hoş geliyor...",
                     "updated": 1637445579392
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны вбить Token Power в программу: Ух ... сила токена ... звучит аккуратно? Вы делаете ставку!",
+                    "updated": 1639050128437
                 }
             ]
         }

@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Estamos en una buena racha! Espero que estés listo para ver tu Trading System en acción a continuación!",
                 "updated": 1628726073887
+            },
+            {
+                "language": "RU",
+                "text": "Мы в ударе! Надеюсь, вы готовы увидеть свою торговую систему (Trading System) в действии дальше!",
+                "updated": 1639080261066
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Lo siguiente que querrás conectar con la mayoría de los gráficos son los resultados de tus trading sessions. En su mayor parte, esto es lo mismo que conectarse a un Data Mine. Hay algunas diferencias que te explicaré. Una diferencia importante es que cada Time Machine solo puede hacer referencia a un Trading Session. Por ejemplo, un Backtesting Session que está asociado con un Trading System. Esto ayuda a mantener tus gráficos limpios y legibles. ¡Sería confuso ver órdenes de compra de dos sistemas comerciales diferentes a la vez! Esto significa que para conectar un gráfico necesitamos establecer dos referencias para que las cosas funcionen.",
                     "updated": 1628727113714
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующее, что вы захотите связать с большинством графиков, - это результаты ваших торговых сессий. По большей части это то же самое, что и подключение к шахте данных (Data Mine). Я расскажу вам о нескольких отличиях. Одно из основных отличий заключается в том, что каждая машина времени (Time Machine)может ссылаться только на одну торговую сессию (Trading Session). Например, одна сессия бэктестинга (Backtesting Session) связанная с одной торговой системой (Trading System). Это поможет сохранить ваши диаграммы чистыми и читаемыми. Было бы непонятно видеть ордера на покупку от двух разных торговых систем одновременно! Для подключения графика это означает, что нам необходимо установить две ссылки для того, чтобы все работало.",
+                    "updated": 1639080477529
                 }
             ]
         }

@@ -16,7 +16,7 @@ function newSocialBotsActionSwitch() {
         /* Nothing to initialize since a Function Library does not hold any state. */
     }
 
-    async function executeAction(action) {
+    function executeAction(action) {
         switch (action.name) {
             case 'Send Telegram Test Message':
                 {
@@ -30,12 +30,16 @@ function newSocialBotsActionSwitch() {
                 break
             case 'Send Slack Test Message':
                 {
-                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node)
+                        .then(action.callBackFunction)
+                        .catch(action.callBackFunction)
                 }
                 break
             case 'Send Twitter Test Message':
                 {
-                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendTwitterTestMessage(action.node, action.callBackFunction)
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendTwitterTestMessage(action.node)
+                        .then(action.callBackFunction)
+                        .catch(action.callBackFunction)
                 }
                 break
 

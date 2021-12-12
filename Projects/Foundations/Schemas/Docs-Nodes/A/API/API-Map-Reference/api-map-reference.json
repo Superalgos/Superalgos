@@ -2,17 +2,38 @@
     "type": "API Map Reference",
     "definition": {
         "text": "This node allows users to define a reference to an API Map. When the bot is run, it will use the referenced API Map to extract data from the API.",
-        "updated": 1622896481536
+        "updated": 1622896481536,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел позволяет пользователям определять ссылку на API Map. Когда бот запущен, он будет использовать указанную API Map для извлечения данных из API.",
+                "updated": 1638627316773
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "For this node to be correctly installed and a reference established to the API Data Mine using the Install New Market procedure, both the Data Mine and the API Data Map needs to have exactly the same config property codeName, otherwise, this node will be created but you will have to establish the reference manually.",
-            "updated": 1622896540326
+            "updated": 1622896540326,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы этот узел был правильно установлен и была установлена ​​ссылка на API Data Mine с помощью процедуры Install New Market, Data Mine и API Data Map должны иметь точно такое же свойство конфигурации codeName, в противном случае этот узел будет создан, но Вам придется установить ссылку вручную.",
+                    "updated": 1638627386496
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For a more indepth description of what an API Map is please see the API Map page."
+            "text": "For a more indepth description of what an API Map is please see the API Map page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Более подробное описание того, что такое API Map, смотрите на странице API Map.",
+                    "updated": 1638627614020
+                }
+            ]
         }
     ]
 }

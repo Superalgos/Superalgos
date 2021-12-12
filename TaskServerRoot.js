@@ -6,12 +6,12 @@ load all node dependencies and get them ready to the actual App.
 */
 
 /* 
-The TS object is accesible everywhere at the Superalgos Platform Client. 
+The TS object is accessible everywhere at the Superalgos Platform Client.
 It provides access to all modules built for the Task Server.
 */
 global.TS = {}
 /* 
-The SA object is accesible everywhere at the Superalgos Desktop App. 
+The SA object is accessible everywhere at the Superalgos Desktop App.
 It provides access to all modules built for Superalgos in general.
 */
 global.SA = {}
@@ -53,7 +53,26 @@ SA.nodeModules = {
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),
-    twitter: require('twitter')
+    twitter: require('twitter-api-v2')
+}
+/*
+Setting up Secrets.
+*/
+try {
+    SA.secrets = {
+        array: require('./My-Secrets/Secrets.json').secrets,
+        map: new Map()
+    }
+} catch(err) {
+    SA.secrets = {
+        array: [],
+        map: new Map()
+    }
+}
+
+for (let i = 0; i < SA.secrets.array.length; i++) {
+    let secret = SA.secrets.array[i]
+    SA.secrets.map.set(secret.nodeCodeName, secret)
 }
 
 run()

@@ -21,6 +21,16 @@
                 "text": "Aquí es donde configuras tu Exchange Account Key para el Live Trading Session del Lightning Strike Trading System.",
                 "updated": 1624473031635,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Hier konfigurieren Sie Ihren Exchange Account Key für die Live Trading Session des Lightning Strike Trading Systems.",
+                "updated": 1634244424767
+            },
+            {
+                "language": "TR",
+                "text": "Lightning Strike Alım Satım Sisteminin Canlı Alım Satım Oturumu ( Live Trading Session ) için Borsa Hesap Anahtarınızı ( Exchange Acoount Key ) burada yapılandırabilirsiniz.",
+                "updated": 1636571154270
             }
         ]
     },
@@ -41,6 +51,16 @@
                     "text": "En la configuración ingresa cuidadosamente la clave pública API y la clave secreta API.",
                     "updated": 1624479173958,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration auf und geben Sie sorgfältig den API Pubilic Key und den API Secret Key ein.",
+                    "updated": 1634244438606
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapılandırmaya (Configure) erişin ve API Genel Anahtarını ve API gizli anahtarını dikkatlice girin.",
+                    "updated": 1636571181921
                 }
             ]
         },
@@ -59,6 +79,16 @@
                     "text": "Elimina el texto predeterminado para cada parámetro, para que ningún carácter se mezcle con las claves.",
                     "updated": 1625928654592,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie zuerst die Standard-Textzeichenfolge für jeden Parameter, damit keine fremden Zeichen mit den Schlüsseln verwechselt werden.",
+                    "updated": 1634244452387
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiçbir yabancı karakterin karışmaması için önce her parametre için varsayılan metin dizesini silin.",
+                    "updated": 1636571210360
                 }
             ]
         },
@@ -78,6 +108,16 @@
                     "text": "La Exchange Account Key se almacena en el User Workspace, sin cifrar para autenticarse con el exchange. Nunca se envía ni se almacena en otro lugar. No compartas este espacio de trabajo hasta que aprendas cómo hacerlo de forma segura en el siguiente tutorial.",
                     "updated": 1624479154981,
                     "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Exchange Account Key wird unverschlüsselt in der User Workspace Datei gespeichert. Er wird für die Authentifizierung bei der Börse verwendet. Er wird niemals an andere Stellen gesendet oder gespeichert. Geben Sie diesen Workspace nicht weiter, bis Sie im nächsten Tutorial lernen, wie Sie ihn sicher verwenden können.",
+                    "updated": 1634244462521
+                },
+                {
+                    "language": "TR",
+                    "text": "Borsa Hesap Anahtarı ( Exchange Acoount Key ), şifrelenmemiş olarak Kullanıcı Çalışma Alanı ( User Workspace ) dosyasında saklanır. Borsada kimlik doğrulamak için kullanılır. Asla başka bir yere gönderilmez veya saklanmaz. Bir sonraki öğreticide nasıl güvenli bir şekilde yapılacağını öğrenene kadar bu çalışma alanını paylaşmayın.",
+                    "updated": 1636571296174
                 }
             ]
         }

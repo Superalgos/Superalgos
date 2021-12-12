@@ -152,6 +152,178 @@
         ]
     },
     {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Portfolio Session Functions",
+                    "propertyName": "portfolioSessionFunctions",
+                    "functionName": "newPortfolioManagementFunctionLibraryPortfolioSessionFunctions"
+                }
+            ]
+        },
+        "TS": {
+            "modules": [
+                {
+                    "name": "Portfolio Manager Client",
+                    "propertyName": "portfolioManagerClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerClient",
+                    "fileName": "PortfolioManagerClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Client",
+                    "propertyName": "portfolioManagerEventsClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsClient",
+                    "fileName": "PortfolioManagerEventsClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Interface",
+                    "propertyName": "portfolioManagerEventsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
+                    "fileName": "PortfolioManagerEventsInterface.js"
+                }
+            ],
+            "botModules": [
+                {
+                    "name": "Single Market Portfolio Bot",
+                    "propertyName": "singleMarketPortfolioBot",
+                    "functionName": "newPortfolioManagementBotModulesSingleMarketPortfolioBot",
+                    "fileName": "SingleMarketPortfolioBot.js",
+                    "folderName": "Portfolio-Bot",
+                    "botType": "Portfolio Bot"
+                },
+                {
+                    "name": "Portfolio Session",
+                    "propertyName": "portfolioSession",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSession",
+                    "fileName": "PortfolioSession.js",
+                    "folderName": "Portfolio-Bot"
+                },
+                {
+                    "name": "Portfolio Process",
+                    "propertyName": "portfolioProcess",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioProcess",
+                    "fileName": "PortfolioProcess.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Engine",
+                    "propertyName": "portfolioEngine",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEngine",
+                    "fileName": "PortfolioEngine.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Output",
+                    "propertyName": "portfolioOutput",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioOutput",
+                    "fileName": "PortfolioOutput.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Simulation",
+                    "propertyName": "portfolioSimulation",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSimulation",
+                    "fileName": "PortfolioSimulation.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Episode",
+                    "propertyName": "portfolioEpisode",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEpisode",
+                    "fileName": "PortfolioEpisode.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Records",
+                    "propertyName": "portfolioRecords",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioRecords",
+                    "fileName": "PortfolioRecords.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio System",
+                    "propertyName": "portfolioSystem",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSystem",
+                    "fileName": "PortfolioSystem.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Stages",
+                    "propertyName": "portfolioStages",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioStages",
+                    "fileName": "PortfolioStages.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Strategy",
+                    "propertyName": "portfolioStrategy",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioStrategy",
+                    "fileName": "PortfolioStrategy.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Execution",
+                    "propertyName": "portfolioExecution",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioExecution",
+                    "fileName": "PortfolioExecution.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Position",
+                    "propertyName": "portfolioPosition",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioPosition",
+                    "fileName": "PortfolioPosition.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Snapshots",
+                    "propertyName": "snapshots",
+                    "functionName": "newPortfolioManagementBotModulesSnapshots",
+                    "fileName": "Snapshots.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Orders",
+                    "propertyName": "portfolioOrders",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioOrders",
+                    "fileName": "PortfolioOrders.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Orders Simulations",
+                    "propertyName": "ordersSimulations",
+                    "functionName": "newPortfolioManagementBotModulesOrdersSimulations",
+                    "fileName": "OrdersSimulations.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Orders Calculations",
+                    "propertyName": "ordersCalculations",
+                    "functionName": "newPortfolioManagementBotModulesOrdersCalculations",
+                    "fileName": "OrdersCalculations.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newPortfolioManagementBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio/APIs"
+                }
+            ]
+        },
+        "plugins": [
+            "Portfolio Mines",
+            "Portfolio Systems",
+            "Portfolio Engines"
+        ],
+        "tasks": [
+            "Portfolio Tasks"
+        ]
+    },
+    {
         "name": "Machine-Learning",
         "propertyName": "machineLearning",
         "UI": {
@@ -241,6 +413,106 @@
         ]
     },
     {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Shortcut Keys",
+                    "propertyName": "shortcutKeys",
+                    "functionName": "newVisualScriptingFunctionLibraryShortcutKeys"
+                },
+                {
+                    "name": "Reference Attach Detach",
+                    "propertyName": "attachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
+                },
+                {
+                    "name": "Chain Attach Detach",
+                    "propertyName": "chainAttachDetach",
+                    "functionName": "newVisualScriptingFunctionLibraryChainAttachDetach"
+                },
+                {
+                    "name": "Node Deleter",
+                    "propertyName": "nodeDeleter",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeDeleter"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeChildren"
+                },
+                {
+                    "name": "Ui Objects From Nodes",
+                    "propertyName": "uiObjectsFromNodes",
+                    "functionName": "newVisualScritingFunctionLibraryUiObjectsFromNodes"
+                },
+                {
+                    "name": "Protocol Node",
+                    "propertyName": "protocolNode",
+                    "functionName": "newVisualScriptingFunctionLibraryProtocolNode"
+                },
+                {
+                    "name": "Node Cloning",
+                    "propertyName": "nodeCloning",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeCloning"
+                },
+                {
+                    "name": "On Focus",
+                    "propertyName": "onFocus",
+                    "functionName": "newVisualScriptingFunctionLibraryOnFocus"
+                },
+                {
+                    "name": "Node Path",
+                    "propertyName": "nodePath",
+                    "functionName": "newVisualScriptingFunctionLibraryNodePath"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Branches",
+                    "propertyName": "branches",
+                    "functionName": "newVisualScriptingUtilitiesBranches"
+                },
+                {
+                    "name": "Hierarchy",
+                    "propertyName": "hierarchy",
+                    "functionName": "newVisualScriptingUtilitiesHierarchy"
+                },
+                {
+                    "name": "Load Save Frame",
+                    "propertyName": "loadSaveFrame",
+                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
+                },
+                {
+                    "name": "Meshes",
+                    "propertyName": "meshes",
+                    "functionName": "newVisualScriptingUtilitiesMeshes"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
+                },
+                {
+                    "name": "Node Config",
+                    "propertyName": "nodeConfig",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Node Functions",
+                    "propertyName": "nodeFunctions",
+                    "functionName": "newVisualScriptingUtilitiesNodeFunctions",
+                    "fileName": "NodeFunctions.js"
+                }
+            ]
+        }
+    },
+    {
         "name": "Foundations",
         "propertyName": "foundations",
         "UI": {
@@ -253,46 +525,6 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Reference Attach Detach",
-                    "propertyName": "attachDetach",
-                    "functionName": "newFoundationsFunctionLibraryReferenceAttachDetach"
-                },
-                {
-                    "name": "Chain Attach Detach",
-                    "propertyName": "chainAttachDetach",
-                    "functionName": "newFoundationsFunctionLibraryChainAttachDetach"
-                },
-                {
-                    "name": "Node Deleter",
-                    "propertyName": "nodeDeleter",
-                    "functionName": "newFoundationsFunctionLibraryNodeDeleter"
-                },
-                {
-                    "name": "Ui Objects From Nodes",
-                    "propertyName": "uiObjectsFromNodes",
-                    "functionName": "newFoundationsFunctionLibraryUiObjectsFromNodes"
-                },
-                {
-                    "name": "Protocol Node",
-                    "propertyName": "protocolNode",
-                    "functionName": "newFoundationsFunctionLibraryProtocolNode"
-                },
-                {
-                    "name": "Node Cloning",
-                    "propertyName": "nodeCloning",
-                    "functionName": "newFoundationsFunctionLibraryNodeCloning"
-                },
-                {
-                    "name": "Shortcut Keys",
-                    "propertyName": "shortcutKeys",
-                    "functionName": "newFoundationsFunctionLibraryShortcutKeys"
-                },
-                {
-                    "name": "On Focus",
-                    "propertyName": "onFocus",
-                    "functionName": "newFoundationsFunctionLibraryOnFocus"
-                },
-                {
                     "name": "Webhook Functions",
                     "propertyName": "webhookFunctions",
                     "functionName": "newFoundationsFunctionLibraryWebhookFunctions"
@@ -303,11 +535,6 @@
                     "functionName": "newFoundationsFunctionLibraryDependenciesFilter"
                 },
                 {
-                    "name": "Node Path",
-                    "propertyName": "nodePath",
-                    "functionName": "newFoundationsFunctionLibraryNodePath"
-                },
-                {
                     "name": "Task Functions",
                     "propertyName": "taskFunctions",
                     "functionName": "newFoundationsFunctionLibraryTaskFunctions"
@@ -316,6 +543,11 @@
                     "name": "Crypto Ecosystem Functions",
                     "propertyName": "cryptoEcosystemFunctions",
                     "functionName": "newFoundationsFunctionLibraryCryptoEcosystemFunctions"
+                },
+                {
+                    "name": "Product Functions",
+                    "propertyName": "productFunctions",
+                    "functionName": "newFoundationsFunctionLibraryProductFunctions"
                 },
                 {
                     "name": "Data Storage Functions",
@@ -331,19 +563,9 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
-                },
-                {
-                    "name": "Social Bots Functions",
-                    "propertyName": "socialBotsFunctions",
-                    "functionName": "newFoundationsFunctionLibrarySocialBotsFunctions"
                 }
             ],
             "utilities": [
-                {
-                    "name": "Branches",
-                    "propertyName": "branches",
-                    "functionName": "newFoundationsUtilitiesBranches"
-                },
                 {
                     "name": "Clipboard",
                     "propertyName": "clipboard",
@@ -375,16 +597,6 @@
                     "functionName": "newFoundationsUtilitiesDrawPrint"
                 },
                 {
-                    "name": "Hierarchy",
-                    "propertyName": "hierarchy",
-                    "functionName": "newFoundationsUtilitiesHierarchy"
-                },
-                {
-                    "name": "Load Save Frame",
-                    "propertyName": "loadSaveFrame",
-                    "functionName": "newFoundationsUtilitiesLoadSaveFrame"
-                },
-                {
                     "name": "Tutorial",
                     "propertyName": "tutorial",
                     "functionName": "newFoundationsUtilitiesTutorial"
@@ -393,21 +605,6 @@
                     "name": "Menu",
                     "propertyName": "menu",
                     "functionName": "newFoundationsUtilitiesMenu"
-                },
-                {
-                    "name": "Meshes",
-                    "propertyName": "meshes",
-                    "functionName": "newFoundationsUtilitiesMeshes"
-                },
-                {
-                    "name": "Node Children",
-                    "propertyName": "nodeChildren",
-                    "functionName": "newFoundationsUtilitiesNodeChildren"
-                },
-                {
-                    "name": "Node Config",
-                    "propertyName": "nodeConfig",
-                    "functionName": "newFoundationsUtilitiesNodeConfig"
                 },
                 {
                     "name": "Folders",
@@ -441,7 +638,7 @@
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
                     "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 4,
+                    "onMouseClickIndex": 7,
                     "onMouseDownIndex": 6
                 },
                 {
@@ -505,7 +702,7 @@
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 5,
-                    "onMouseClickIndex": 5,
+                    "onMouseClickIndex": 8,
                     "onMouseDownIndex": 5
                 },
                 {
@@ -518,7 +715,7 @@
                     "animationDrawIndex": 6,
                     "onMouseWheelIndex": 2,
                     "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 6,
+                    "onMouseClickIndex": 4,
                     "onMouseDownIndex": 0
                 },
                 {
@@ -531,14 +728,27 @@
                     "animationDrawIndex": 7,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 0
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 7
                 },
                 {
                     "name": "Chat Space",
                     "folderName": "Chat-Space",
                     "propertyName": "chatSpace",
                     "functionName": "newFoundationsChatSpace"
+                },
+                {
+                    "name": "Code Editor Space",
+                    "folderName": "CodeEditor-Space",
+                    "propertyName": "codeEditorSpace",
+                    "functionName": "newFoundationsCodeEditorSpace",
+                    "initializationIndex": 8,
+                    "animationPhysicsIndex": 8,
+                    "animationDrawIndex": 8,
+                    "onMouseWheelIndex": 7,
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 8
                 }
             ]
         },
@@ -657,12 +867,6 @@
             ],
             "utilities": [
                 {
-                    "name": "Node Functions",
-                    "propertyName": "nodeFunctions",
-                    "functionName": "newFoundationsUtilitiesNodeFunctions",
-                    "fileName": "NodeFunctions.js"
-                },
-                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
                     "functionName": "newFoundationsUtilitiesDateTimeFunctions",
@@ -738,50 +942,6 @@
                     "functionName": "newFoundationsProcessModulesProcessOutput",
                     "fileName": "ProcessOutput.js"
                 }
-            ],
-            "botModules": [
-                {
-                    "name": "Announcements",
-                    "propertyName": "announcements",
-                    "functionName": "newFoundationsBotModulesAnnouncements",
-                    "fileName": "Announcements.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Social Bots",
-                    "propertyName": "socialBots",
-                    "functionName": "newFoundationsBotModulesSocialBots",
-                    "fileName": "SocialBots.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Telegram Bot",
-                    "propertyName": "telegramBot",
-                    "functionName": "newFoundationsBotModulesTelegramBot",
-                    "fileName": "TelegramBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Discord Bot",
-                    "propertyName": "discordBot",
-                    "functionName": "newFoundationsBotModulesDiscordBot",
-                    "fileName": "DiscordBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Slack Bot",
-                    "propertyName": "slackBot",
-                    "functionName": "newFoundationsBotModulesSlackBot",
-                    "fileName": "SlackBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Twitter Bot",
-                    "propertyName": "twitterBot",
-                    "functionName": "newFoundationsBotModulesTwitterBot",
-                    "fileName": "TwitterBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                }
             ]
         },
         "PL": {
@@ -807,6 +967,12 @@
                     "propertyName": "timeConstants",
                     "functionName": "newFoundationsGlobalsTimeConstants",
                     "fileName": "TimeConstants.js"
+                },
+                {
+                    "name": "Schemas",
+                    "propertyName": "schemas",
+                    "functionName": "newFoundationsGlobalsSchemas",
+                    "fileName": "Schemas.js"
                 }
             ],
             "utilities": [
@@ -839,6 +1005,11 @@
         "plugins": [
             "Tutorials",
             "API Maps"
+        ],
+        "products": [
+            "Data Products",
+            "Trading Products",
+            "Learning Products"
         ]
     },
     {
@@ -998,6 +1169,12 @@
                     "propertyName": "plugins",
                     "functionName": "newPluginsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Nodes",
+                    "propertyName": "nodes",
+                    "functionName": "newPluginsUtilitiesNodes",
+                    "fileName": "Nodes.js"
                 }
             ]
         },
@@ -1109,7 +1286,13 @@
                     "functionName": "newEducationGlobalsDocs"
                 }
             ],
-            "functionLibraries": [],
+            "functionLibraries": [
+                {
+                    "name": "Docs Statistics Functions",
+                    "propertyName": "docsStatisticsFunctions",
+                    "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Languages",
@@ -1266,6 +1449,11 @@
                     "functionName": "newGovernanceFunctionLibraryStakingProgram"
                 },
                 {
+                    "name": "Liquidity Program",
+                    "propertyName": "liquidityProgram",
+                    "functionName": "newGovernanceFunctionLibraryLiquidityProgram"
+                },
+                {
                     "name": "Profile Constructor",
                     "propertyName": "profileConstructor",
                     "functionName": "newGovernanceFunctionLibraryProfileConstructor"
@@ -1371,42 +1559,110 @@
         "name": "Network",
         "propertyName": "network",
         "NT": {
-            "globals": [],
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
             "modules": [
                 {
                     "name": "Web Sockets Interface",
                     "propertyName": "webSocketsInterface",
                     "functionName": "newNetworkModulesWebSocketsInterface",
                     "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newNetworkModulesHttpInterface",
+                    "fileName": "HttpInterface.js"
+                },
+                {
+                    "name": "Incoming Signals",
+                    "propertyName": "incomingSignals",
+                    "functionName": "newNetworkModulesIncomingSignals",
+                    "fileName": "IncomingSignals.js"
                 }
             ],
             "utilities": []
         },
         "SA": {
-            "globals": [],
-            "modules": [
+            "globals": [
                 {
-                    "name": "Web Sockets Client",
-                    "propertyName": "webSocketsClient",
-                    "functionName": "newNetworkModulesWebSocketsClient",
-                    "fileName": "WebSocketsClient.js"
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
                 }
             ],
-            "utilities": []
+            "modules": [
+                {
+                    "name": "Web Sockets Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
+                    "fileName": "WebSocketsNetworkClient.js"
+                },
+                {
+                    "name": "Http Network Client",
+                    "propertyName": "webHttpNetworkClient",
+                    "functionName": "newNetworkModulesHttpNetworkClient",
+                    "fileName": "HttpNetworkClient.js"
+                },
+                {
+                    "name": "User Profiles",
+                    "propertyName": "userProfiles",
+                    "functionName": "newNetworkModulesUserProfiles",
+                    "fileName": "UserProfiles.js"
+                },
+                {
+                    "name": "P2P Network",
+                    "propertyName": "p2pNetwork",
+                    "functionName": "newNetworkModulesP2PNetwork",
+                    "fileName": "P2PNetwork.js"
+                },
+                {
+                    "name": "P2P Network Node",
+                    "propertyName": "p2pNetworkNode",
+                    "functionName": "newNetworkModulesP2PNetworkNode",
+                    "fileName": "P2PNetworkNode.js"
+                },
+                {
+                    "name": "P2P Network Peers",
+                    "propertyName": "p2pNetworkPeers",
+                    "functionName": "newNetworkModulesP2PNetworkPeers",
+                    "fileName": "P2PNetworkPeers.js"
+                },
+                {
+                    "name": "P2P Network Head",
+                    "propertyName": "p2pNetworkStart",
+                    "functionName": "newNetworkModulesP2PNetworkStart",
+                    "fileName": "P2PNetworkStart.js"
+                },
+                {
+                    "name": "P2P Network Client Identity",
+                    "propertyName": "p2pNetworkClientIdentity",
+                    "functionName": "newNetworkModulesP2PNetworkClientIdentity",
+                    "fileName": "P2PNetworkClientIdentity.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "App Client Network Node Picker",
+                    "propertyName": "appClientNetworkNodePicker",
+                    "functionName": "newAppClientNetworkNetworkNodePicker",
+                    "fileName": "AppClientNetworkNodePicker.js"
+                }
+            ]
         }
     },
     {
         "name": "Social-Trading",
         "propertyName": "socialTrading",
         "NT": {
-            "globals": [
-                {
-                    "name": "Memory",
-                    "propertyName": "memory",
-                    "functionName": "newSocialTradingGlobalsMemory",
-                    "fileName": "Memory.js"
-                }
-            ],
+            "globals": [],
             "modules": [
                 {
                     "name": "User Profiles",
@@ -1463,34 +1719,10 @@
                     "fileName": "Queries/Events.js"
                 },
                 {
-                    "name": "User Profile",
-                    "propertyName": "socialGraphUserProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
-                    "fileName": "Social-Graph/UserProfile.js"
-                },
-                {
-                    "name": "Bot Profile",
-                    "propertyName": "socialGraphBotProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
-                    "fileName": "Social-Graph/BotProfile.js"
-                },
-                {
-                    "name": "Post",
-                    "propertyName": "socialGraphPost",
-                    "functionName": "newSocialTradingModulesSocialGraphPost",
-                    "fileName": "Social-Graph/Post.js"
-                },
-                {
                     "name": "Social Graph",
                     "propertyName": "socialGraph",
                     "functionName": "newSocialTradingModulesSocialGraph",
                     "fileName": "SocialGraph.js"
-                },
-                {
-                    "name": "Bootstrap",
-                    "propertyName": "bootstrap",
-                    "functionName": "newSocialTradingModulesBootstrap",
-                    "fileName": "Bootstrap.js"
                 },
                 {
                     "name": "Query",
@@ -1503,6 +1735,12 @@
                     "propertyName": "event",
                     "functionName": "newSocialTradingModulesEvent",
                     "fileName": "Event.js"
+                },
+                {
+                    "name": "Signal",
+                    "propertyName": "signal",
+                    "functionName": "newSocialTradingModulesSignal",
+                    "fileName": "Signal.js"
                 },
                 {
                     "name": "Client Interface",
@@ -1533,6 +1771,32 @@
             ]
         },
         "SA": {
+            "modules": [
+                {
+                    "name": "User Profile",
+                    "propertyName": "socialGraphUserProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
+                    "fileName": "Social-Graph/UserProfile.js"
+                },
+                {
+                    "name": "Bot Profile",
+                    "propertyName": "socialGraphBotProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
+                    "fileName": "Social-Graph/BotProfile.js"
+                },
+                {
+                    "name": "Post",
+                    "propertyName": "socialGraphPost",
+                    "functionName": "newSocialTradingModulesSocialGraphPost",
+                    "fileName": "Social-Graph/Post.js"
+                },
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                }
+            ],
             "globals": [
                 {
                     "name": "Query Constants",
@@ -1551,6 +1815,24 @@
                     "propertyName": "eventTypes",
                     "functionName": "newSocialTradingGlobalsEventTypes",
                     "fileName": "EventTypes.js"
+                },
+                {
+                    "name": "Signal Types",
+                    "propertyName": "signalTypes",
+                    "functionName": "newSocialTradingGlobalsSignalTypes",
+                    "fileName": "SignalTypes.js"
+                },
+                {
+                    "name": "Post Types",
+                    "propertyName": "postTypes",
+                    "functionName": "newSocialTradingGlobalsPostTypes",
+                    "fileName": "PostTypes.js"
+                },
+                {
+                    "name": "Reaction Types",
+                    "propertyName": "reactionTypes",
+                    "functionName": "newSocialTradingGlobalsReactionTypes",
+                    "fileName": "ReactionTypes.js"
                 }
             ]
         },
@@ -1561,7 +1843,7 @@
                     "name": "Http Interface",
                     "propertyName": "httpInterface",
                     "functionName": "newDesktopModulesHttpInterface",
-                    "fileName": "httpInterface.js"
+                    "fileName": "HttpInterface.js"
                 },
                 {
                     "name": "Web Sockets Interface",
@@ -1587,11 +1869,117 @@
         "UI": {
             "modules": [
                 {
-                    "name": "Web Sockets Client",
-                    "propertyName": "webSocketsClient",
-                    "functionName": "newSocialTradingModulesWebSocketsClient",
-                    "fileName": "WebSocketsClient.js"
+                    "name": "Web Sockets WebApp Client",
+                    "propertyName": "webSocketsWebAppClient",
+                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
+                    "fileName": "WebSocketsWebAppClient.js"
                 }
+            ]
+        }
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Social Bots Functions",
+                    "propertyName": "socialBotsFunctions",
+                    "functionName": "newSocialBotsFunctionLibrarySocialBotsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "SA": {
+            "botModules": [
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSocialBotsBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newSocialBotsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newSocialBotsBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Social Bots",
+                    "propertyName": "socialBots",
+                    "functionName": "newSocialBotsBotModulesSocialBots",
+                    "fileName": "SocialBots.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Telegram Bot",
+                    "propertyName": "telegramBot",
+                    "functionName": "newSocialBotsBotModulesTelegramBot",
+                    "fileName": "TelegramBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "UI": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Signals Functions",
+                    "propertyName": "tradingSignalsFunctions",
+                    "functionName": "newSocialBotsFunctionLibraryTradingSignalsFunctions"
+                }
+            ],
+            "utilities": []
+        },
+        "TS": {
+            "modules": [
+                {
+                    "name": "Outgoing Trading Signals",
+                    "propertyName": "outgoingTradingSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingTradingSignals",
+                    "fileName": "OutgoingTradingSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Trading Signals",
+                    "propertyName": "incomingTradingSignals",
+                    "functionName": "newTradingSignalsModulesIncomingTradingSignals",
+                    "fileName": "IncomingTradingSignals.js",
+                    "folderName": ""
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signal Validations",
+                    "propertyName": "signalValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
+                    "fileName": "SignalValidations.js" 
+                } 
             ]
         }
     }

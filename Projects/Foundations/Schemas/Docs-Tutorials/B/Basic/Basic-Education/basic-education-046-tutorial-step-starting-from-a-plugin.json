@@ -5,8 +5,8 @@
     "definition": {
         "text": "Let's look into the first scenario: a typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "updated": 1629908121952,
         "translations": [
@@ -21,6 +21,11 @@
                 "text": "Miremos el primer escenario: un caso típico es cuando desea introducir cambios a una estrategia incluída en el sistema para comenzar con una configuración probada.",
                 "updated": 1633283150203,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Schauen wir uns das erste Szenario an: Ein typischer Fall ist, dass Sie Änderungen an einer Strategie vornehmen möchten, die mit dem System ausgeliefert wird, um mit einem bewährten Setup zu beginnen!",
+                "updated": 1634589005531
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Digamos que está listo para comenzar a jugar con una estrategia.. Quiere comenzar con una existente o introducir modificaciones para entender como trabajan las cosas. No tiene intensiones de contribuir con los cambios. Solo desea jugar con esto y cambiarlo a su gusto! Entonces, haga lo siguiente:",
                     "updated": 1633283766269,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie sind bereit, mit einer Strategie zu spielen. Sie möchten mit einer bestehenden Strategie beginnen und Änderungen einführen, um zu verstehen, wie die Dinge funktionieren. Sie haben nicht die Absicht, die Änderungen einzubringen. Sie wollen einfach nur damit spielen und sie nach Ihren Wünschen anpassen! Dann gehen Sie wie folgt vor:",
+                    "updated": 1634589029922
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Borre el nodo Plugin File correspondiente al Trading System y restablezca el plugin file original en (\\Plugins\\Trading-Systems folder) como si fuera un a backup: arrastre el archivo y suéltelo en el Design Space! La estrategia ahora vive en el workspace y puede modificarlo y grabarlo.",
                     "updated": 1633283708150,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie den Knoten der Plugin File, die dem Trading System entspricht, und stellen Sie die ursprüngliche Plugin-Datei (im Ordner \\Plugins\\Trading-Systems) wieder her, als ob es sich um eine Sicherungskopie handeln würde: Ziehen Sie die Datei und legen Sie sie im Design Space ab! Die Strategie befindet sich nun im Workspace und Sie können sie ändern und speichern!",
+                    "updated": 1634589037277
                 }
             ]
         }

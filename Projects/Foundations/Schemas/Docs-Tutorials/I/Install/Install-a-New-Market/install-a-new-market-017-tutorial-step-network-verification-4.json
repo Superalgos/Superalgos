@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Verifica que los nodo Data Storage para el Market correspondiente se crearon con éxito.",
                 "updated": 1629249917009
+            },
+            {
+                "language": "DE",
+                "text": "Überprüfen Sie, ob die Datenspeicherknoten für den entsprechenden Market erfolgreich erstellt wurden.",
+                "updated": 1636469629780
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Busque las siguientes estructuras de datos:",
                     "updated": 1629249952621
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie nach den folgenden Datenstrukturen:",
+                    "updated": 1636469658454
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Un nodo Market Data Products  bajo Data Mines Data, con un nodo Data Mine Products para cada Data Mine en el espacio de trabajo.",
                     "updated": 1629250030704
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten Market Data Products unter Data Mines Data, mit einem Knoten Data Mine Products  für jede Data Mine  im Arbeitsbereich.",
+                    "updated": 1636469847598
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "Un nodo Market Trading Products bajo Trading Mines Data, con un Trading Session Reference para cada sesión de trading en los entornos de prueba y producción.",
                     "updated": 1629250105046
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten Market Trading Products unter Trading Mines Data, mit einer Trading Session Reference für jede Handelssitzung in den Test- und Produktionsumgebungen.",
+                    "updated": 1636469864913
                 }
             ]
         }

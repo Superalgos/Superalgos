@@ -1,0 +1,60 @@
+{
+    "type": "Telegram Bot",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Social Bot Command",
+            "relatedUiObject": "Social Bot Command",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Social-Bots"
+        },
+        {
+            "action": "Send Telegram Test Message",
+            "label": "Send Telegram Test Message",
+            "iconPathOn": "test-entity",
+            "iconPathOff": "test-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Social-Bots"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"botToken\": \"Paste the bot token obtained from Telegram Bot Father\",\n\"chatId\": \"Type or paste the chat or group id -a number with no quotes- where announcements are going to be sent to\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Social Bots->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "socialBotCommand",
+            "type": "array",
+            "childType": "Social Bot Command",
+            "autoAdd": false,
+            "project": "Social-Bots"
+        }
+    ],
+    "propertyNameAtParent": "telegramBots"
+}

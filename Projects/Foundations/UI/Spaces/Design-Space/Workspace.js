@@ -10,7 +10,6 @@ function newWorkspace() {
         workspaceNode: undefined,
         container: undefined,
         enabled: false,
-        nodeChildren: undefined,
         eventsServerClients: new Map(),
         replaceWorkspaceByLoadingOne: replaceWorkspaceByLoadingOne,
         save: saveWorkspace,
@@ -43,8 +42,6 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
-
-    thisObject.nodeChildren = newNodeChildren()
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0
@@ -79,17 +76,40 @@ function newWorkspace() {
                     }
                 }
 
-                /* Check which was the last workspace. */
+                const browserURL = new URLSearchParams(window.location.search);
+                const queryString = Object.fromEntries(browserURL.entries());
+                /* 
+                By default, we will load the last used workspace.
+                */
                 let lastUsedWorkspace = window.localStorage.getItem('Last Used Workspace')
 
-                if (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) {
+                if (
+                    (lastUsedWorkspace !== 'undefined' && lastUsedWorkspace !== null && lastUsedWorkspace !== undefined) ||
+                    (queryString.initialWorkspaceName !== undefined)
+                ) {
+                    let webCommand
+                    if (queryString.initialWorkspaceType !== undefined) {
+                        /*
+                        We get here when the workspace to lead comes at the URL 
+                        */
+                        UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + queryString.initialWorkspaceName + "...")
+                        if (queryString.initialWorkspaceType !== 'My-Workspaces') {
+                            webCommand = 'LoadPlugin' + '/' + queryString.initialWorkspaceProject + '/' + 'Workspaces' + '/' + queryString.initialWorkspaceName + '.json'
+                        } else {
+                            webCommand = 'LoadMyWorkspace' + '/' + queryString.initialWorkspaceName
+                        }
+                    } else {
+                        /*
+                        We get here when the workspace to lead is the last saved workspace.
+                        */
+                        UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
+                        webCommand = 'LoadMyWorkspace' + '/' + lastUsedWorkspace
+                    }
 
-                    UI.projects.foundations.utilities.statusBar.changeStatus("Loading Workspace " + lastUsedWorkspace + "...")
-
-                    httpRequest(undefined, 'LoadMyWorkspace' + '/' + lastUsedWorkspace, onFileReceived)
+                    httpRequest(undefined, webCommand, onFileReceived)
                     function onFileReceived(err, text, response) {
                         if (err && err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the last Workspace used, called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
+                            UI.projects.foundations.spaces.cockpitSpace.setStatus('Could not load the Workspace called "' + lastUsedWorkspace + '". Will switch to the default Workspace instead.', 500, UI.projects.foundations.spaces.cockpitSpace.statusTypes.WARNING)
                             thisObject.workspaceNode = getWorkspace() // This is the default workspace that comes with the system.
                             thisObject.workspaceNode.project = 'Foundations'
                             recreateWorkspace()
@@ -107,7 +127,7 @@ function newWorkspace() {
 
                 function recreateWorkspace() {
                     UI.projects.foundations.utilities.statusBar.changeStatus("Connecting all the workspace nodes...")
-                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Foundations', callBackFunction: finishInitialization })
+                    executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Visual-Scripting', callBackFunction: finishInitialization })
                 }
 
                 function finishInitialization() {
@@ -135,9 +155,10 @@ function newWorkspace() {
     }
 
     function runTasksAndSessions() {
-        executeAction({ name: 'Syncronize Tasks', project: 'Foundations' })
-        executeAction({ name: 'Syncronize Trading Sessions', project: 'Foundations' })
-        executeAction({ name: 'Syncronize Learning Sessions', project: 'Foundations' })
+        executeAction({ name: 'Syncronize Tasks', project: 'Visual-Scripting' })
+        executeAction({ name: 'Syncronize Trading Sessions', project: 'Visual-Scripting' })
+        executeAction({ name: 'Syncronize Portfolio Sessions', project: 'Visual-Scripting' })
+        executeAction({ name: 'Syncronize Learning Sessions', project: 'Visual-Scripting' })
     }
 
     function setupEventsServerClients() {
@@ -159,6 +180,10 @@ function newWorkspace() {
     }
 
     async function saveWorkspace(callBackFunction) {
+        if (UI.environment.DEMO_MODE === true) {
+            return
+        }
+
         let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
@@ -253,9 +278,9 @@ function newWorkspace() {
                             for (let k = 0; k < childNode.pluginFiles.length; k++) {
                                 let pluginFile = childNode.pluginFiles[k]
 
-                                let saveWithWorkspace = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
+                                let saveWithWorkspace = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'saveWithWorkspace')
                                 if (saveWithWorkspace === true) {
-                                    UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
+                                    UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
                                 }
                             }
                         }
@@ -287,7 +312,7 @@ function newWorkspace() {
     }
 
     async function getNodeById(nodeId) {
-        return await executeAction({ name: 'Get Node By Id', project: 'Foundations', relatedNodeId: nodeId })
+        return await executeAction({ name: 'Get Node By Id', project: 'Visual-Scripting', relatedNodeId: nodeId })
     }
 
     function physics() {
@@ -323,6 +348,7 @@ function newWorkspace() {
 
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
+                    UI.projects.foundations.spaces.codeEditorSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2
                     break
@@ -337,11 +363,11 @@ function newWorkspace() {
                             thisObject.isInitialized = false
                             UI.projects.education.spaces.tutorialSpace.stop()
 
-                            let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Foundations', callBackFunction: onDeleted })
+                            let result = await executeAction({ node: thisObject.workspaceNode, name: 'Delete Workspace', project: 'Visual-Scripting', callBackFunction: onDeleted })
                             if (result === false) {
                                 console.log('[ERROR] Could not replace the current workspace because there was a problem removing one node from memory.')
                                 console.log('[ERROR] The system is at an inconsistent state and your workspace is partially deleted. Saving has been disabled to prevent data loss.')
-                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reaload the previously saved workspace again.')
+                                console.log('[ERROR] The only thing you can do now is to fix the APP SCHEMA and refresh the page to reload the previously saved workspace again.')
                                 workingAtTask = 0
                                 return
                             }
@@ -398,7 +424,7 @@ function newWorkspace() {
                         workingAtTask = 0
 
                         function takeAction() {
-                            executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Foundations', callBackFunction: finishInitialization })
+                            executeAction({ node: thisObject.workspaceNode, name: 'Recreate Workspace', project: 'Visual-Scripting', callBackFunction: finishInitialization })
                             function finishInitialization() {
                                 setupEventsServerClients()
                                 workingAtTask = 7
@@ -426,7 +452,7 @@ function newWorkspace() {
 
                         UI.projects.governance.spaces.reportsSpace.reset()
                         UI.projects.governance.spaces.userProfileSpace.reset()
-
+                        UI.projects.foundations.spaces.codeEditorSpace.reset()
                         await UI.projects.education.spaces.docsSpace.reset()
                         await UI.projects.education.spaces.tutorialSpace.reset()
 
@@ -448,7 +474,7 @@ function newWorkspace() {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
 
             if (rootNode.isPlugin !== true) {
-                let node = await executeAction({ node: rootNode, name: 'Get Node Data Structure', project: 'Foundations', extraParameter: removePersonalData })
+                let node = await executeAction({ node: rootNode, name: 'Get Node Data Structure', project: 'Visual-Scripting', extraParameter: removePersonalData })
                 stringifyReadyNodes.push(node)
             }
         }
@@ -494,6 +520,14 @@ function newWorkspace() {
                             lanNetworkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                             lanNetworkNode.productionTradingTasks.payload.uiObject.menu.internalClick('Stop All Exchange Trading Tasks')
                         }
+                        if (lanNetworkNode.testingPortfolioTasks !== undefined && lanNetworkNode.testingPortfolioTasks.payload !== undefined) {
+                            lanNetworkNode.testingPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                            lanNetworkNode.testingPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                        }
+                        if (lanNetworkNode.productionPortfolioTasks !== undefined && lanNetworkNode.productionPortfolioTasks.payload !== undefined) {
+                            lanNetworkNode.productionPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                            lanNetworkNode.productionPortfolioTasks.payload.uiObject.menu.internalClick('Stop All Exchange Portfolio Tasks')
+                        }
                     }
                 }
             }
@@ -504,7 +538,7 @@ function newWorkspace() {
         if (thisObject.workspaceNode === undefined) { return }
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let node = await executeAction({ node: rootNode, name: 'Get Node By Shortcut Key', project: 'Foundations', extraParameter: searchingKey })
+            let node = await executeAction({ node: rootNode, name: 'Get Node By Shortcut Key', project: 'Visual-Scripting', extraParameter: searchingKey })
             if (node !== undefined) { return node }
         }
     }
@@ -513,7 +547,7 @@ function newWorkspace() {
         if (thisObject.workspaceNode === undefined) { return }
         for (let i = 0; i < thisObject.workspaceNode.rootNodes.length; i++) {
             let rootNode = thisObject.workspaceNode.rootNodes[i]
-            let node = await executeAction({ node: rootNode, name: 'Get Node On Focus', project: 'Foundations' })
+            let node = await executeAction({ node: rootNode, name: 'Get Node On Focus', project: 'Visual-Scripting' })
             if (node !== undefined) { return node }
         }
     }
@@ -575,7 +609,7 @@ function newWorkspace() {
         if (hierarchyHeads === undefined) { return }
         for (let i = 0; i < hierarchyHeads.length; i++) {
             let hierarchyHead = hierarchyHeads[i]
-            let hierarchyHeadCodeName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
+            let hierarchyHeadCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(hierarchyHead.payload, 'codeName')
             if (hierarchyHeadCodeName === codeName && hierarchyHead.type === nodeType) {
                 return hierarchyHead
             } else if (hierarchyHead.name === codeName && hierarchyHead.type === nodeType) {
@@ -617,7 +651,7 @@ function newWorkspace() {
             let hierarchyHead = hierarchyHeads[i]
             if (hierarchyHead.type === hierarchyHeadsType) {
 
-                let nodeArray = UI.projects.foundations.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
+                let nodeArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(hierarchyHead, nodeType)
                 resultArray = resultArray.concat(nodeArray)
             }
         }
@@ -669,7 +703,7 @@ function newWorkspace() {
                 return
             }
 
-            /* It does not exist, so we recreeate it respecting the inner state of each object. */
+            /* It does not exist, so we recreate it respecting the inner state of each object. */
             let positionOffset = {
                 x: spawnPosition.x,
                 y: spawnPosition.y
@@ -681,8 +715,11 @@ function newWorkspace() {
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)
-            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Foundations', extraParameter: positionOffset })
-            executeAction({ name: 'Connect Children to Reference Parents', project: 'Foundations' })
+            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
+            executeAction({ name: 'Connect Children to Reference Parents', project: 'Visual-Scripting' })
+
+            // Recreate autocomplete models
+            UI.projects.foundations.spaces.codeEditorSpace.editorPage.reset()
 
             droppedNode = undefined
         } catch (err) {
@@ -699,7 +736,7 @@ function newWorkspace() {
         action.relatedNodeId : It is the id of a node related to the action.
         action.relatedNodeType : It is the type of the node related to the action.
         action.callBackFunction : A callback function to call when the action is complete.
-        action.extraParameter : A parameter to send unusual info to the fnction processing the action.
+        action.extraParameter : A parameter to send unusual info to the function processing the action.
 
         We add rootNodes property here.
         */

@@ -1,13 +1,13 @@
 function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     let thisObject = {
-        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
+        synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession
     }
 
     return thisObject
 
-    function syncronizeSessionWithBackEnd(node) {
+    function synchronizeSessionWithBackEnd(node) {
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -42,6 +42,15 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     }
 
     function runSession(node, resume, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not execute Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -74,18 +83,18 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Layers API->Core API->' +
             'Sequential Model->Functional Model->' +
             'Data Reporting->' +
-            'Input Layer->Sequential layer->Output Layer->'+
+            'Input Layer->Sequential layer->Output Layer->' +
             'Input Features->Data Feature->Feature Formula->Input Shape->Batch Input Shape->Feature Preprocessing->MinMax Scaler->Standard Scaler->Collection Condition->' +
             'Output Labels->Data Label->Label Formula->' +
             'Advanced Activation Layers->Basic Layers->Convolutional Layers->' +
             'Conv 1D Layer->Conv 2D Layer->Conv 2D Transpose Layer->Conv 3D Layer->Cropping 2D Layer->Depthwise Convo 2D Layer->Separable Convo 2D Layer->Up Sampling 2D Layer->' +
             'Activation Layer->Dense Layer->Dropout Layer->Embedding Layer->Flatten Layer->Permutable Layer->Rrepeat Vector Layer->Reshape Layer->Spatial Dropout 1D Layer->' +
-            'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->'+
+            'Elu Layer->Leaky Relu Layer->Prelu Layer->Relu Layer->Softmax Layer->Thresholded Relu Layer->' +
             'Dimensionality Units->Activation Function->Dtype->Trainable->Weights->Tensor->Kernel->Bias->' +
             'Kernel Initializer->Kernel Constraint->Kernel Regularizer->' +
             'Bias Initializer->Bias Constraint->Bias Regularizer->'
 
-        let learningSystem = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let learningSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.learningSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Learning Engine->' +
@@ -121,11 +130,11 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' +
-            'Features->Feature->Begin->End->Feature Value->'+
-            'Labels->Label->Begin->End->Label Value->'+
+            'Features->Feature->Begin->End->Feature Value->' +
+            'Labels->Label->Begin->End->Label Value->' +
             'Predictions->Prediction->Begin->End->Prediction Value->'
 
-        let learningEngine = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let learningEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.learningEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Back Learning Session->Live Learning Session->' +
@@ -133,13 +142,13 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             'Learning Algorithm->Time Range->Time Frame->Heartbeats->User Defined Parameters->' +
             'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot ->'
 
-        let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+        let session = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
+        let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
             + '-' +
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
@@ -169,6 +178,15 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not STOP Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -240,7 +258,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
             return
         }
 
-        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.learningSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Learning System Reference.')
@@ -275,7 +293,7 @@ function newMachineLearningFunctionLibraryLearningSessionFunctions() {
         }
 
         if (result.market.payload.parentNode.payload.parentNode === undefined) {
-            node.payload.uiObject.setErrorMessage('Exchange Markets neeed to be a child of Crypto Exchange.')
+            node.payload.uiObject.setErrorMessage('Exchange Markets need to be a child of Crypto Exchange.')
             return
         }
 

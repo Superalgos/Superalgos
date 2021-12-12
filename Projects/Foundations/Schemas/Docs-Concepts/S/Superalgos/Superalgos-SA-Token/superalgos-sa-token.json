@@ -2,17 +2,38 @@
     "type": "Superalgos SA Token",
     "definition": {
         "text": "It is BEP20 token in the Binance Smart Chain that will be used as the medium of exchange by Superalgos users while paying for products or services they buy and sell to each other.",
-        "updated": 1618832011639
+        "updated": 1618832011639,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это токен BEP20 в сети Binance Smart Chain, который будет использоваться в качестве средства обмена пользователями Superalgos при оплате товаров или услуг, которые они покупают и продают друг другу.",
+                "updated": 1638298808232
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1614853617940
+            "updated": 1614853617940,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Характеристики",
+                    "updated": 1638298836264
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The SA Token has the following properties:"
+            "text": "The SA Token has the following properties:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Токен SA имеет следующие свойства:",
+                    "updated": 1638298880619
+                }
+            ]
         },
         {
             "style": "List",
@@ -38,12 +59,26 @@
         {
             "style": "Title",
             "text": "Distribution",
-            "updated": 1614853604174
+            "updated": 1614853604174,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Распределение",
+                    "updated": 1638298919420
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The token was deployed in March 2021 and all tokens were deposited in the project's Treasury Account. The tokens are distributed to contributors from this account, on a per-release basis.",
-            "updated": 1618832423365
+            "updated": 1618832423365,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Токен был развернут в марте 2021 года, и все токены были депонированы на казначейском счете проекта. Токены распределяются среди участников из этой учетной записи для каждого выпуска.",
+                    "updated": 1638298947085
+                }
+            ]
         },
         {
             "style": "List",
@@ -52,7 +87,14 @@
         },
         {
             "style": "Success",
-            "text": "Learn more about the Superalgos SA Token on the website."
+            "text": "Learn more about the Superalgos SA Token on the website.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о токене Superalgos SA на веб-сайте.",
+                    "updated": 1638298987604
+                }
+            ]
         }
     ]
 }

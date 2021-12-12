@@ -31,7 +31,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the Client:"
+            "text": "The following is the Error Message of the Exception that occurred at the Client:"
         },
         {
             "style": "Placeholder",
@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the Client:"
+            "text": "The following is the Error Stack of the Exception that occurred at the Client:"
         },
         {
             "style": "Placeholder",
@@ -55,7 +55,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the Client:"
+            "text": "The following is the Error Code of the Exception that occurred at the Client:"
         },
         {
             "style": "Placeholder",
@@ -67,7 +67,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the Client:"
+            "text": "The following are all the Error details of the Exception that occurred at the Client:"
         },
         {
             "style": "Placeholder",

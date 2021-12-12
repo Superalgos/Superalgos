@@ -21,6 +21,16 @@
                 "text": "Escuché que mi amigo el Welcome Tutorial te mostró todo y te hipnotizó con algunos trucos baratos... ¡Qué presumido!",
                 "updated": 1625934965685,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Ich habe gehört, dass mein Freund, das Willkommens-Tutorial, dich herumgeführt und mit ein paar billigen Tricks hypnotisiert hat... Was für eine Angeber!",
+                "updated": 1634296891537
+            },
+            {
+                "language": "TR",
+                "text": "Arkadaşım Hoş Geldiniz dersinin size etrafı gösterdiğini ve birkaç ucuz numarayla sizi büyülediğini duydum... Ne gösteriş! :-)",
+                "updated": 1636698021188
             }
         ]
     },
@@ -41,6 +51,16 @@
                     "text": "Bueno, ¡ahora es el momento de trabajar!",
                     "updated": 1625934949953,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun, jetzt ist es an der Zeit zu arbeiten!",
+                    "updated": 1634296898849
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi çalışma zamanı!",
+                    "updated": 1636698045347
                 }
             ]
         },
@@ -59,6 +79,16 @@
                     "text": "¡Aprender Superalgos es todo un esfuerzo! No porque sea difícil, sino porque el sistema es vasto, extremadamente flexible y está construido sobre un nuevo paradigma que al principio no es obvio...",
                     "updated": 1627322852878,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos zu lernen ist ein ziemliches Unterfangen! Nicht, weil es schwierig ist, sondern weil das System sehr umfangreich, extrem flexibel und auf einem neuen Paradigma aufgebaut ist, das am Anfang nicht offensichtlich ist...",
+                    "updated": 1634296907253
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'u öğrenmek oldukça zahmetli bir iştir! Zor olduğu için değil, sistem çok geniş, son derece esnek ve yeni bir paradigma üzerine kurulu olduğu için...",
+                    "updated": 1636698298697
                 }
             ]
         },
@@ -78,6 +108,16 @@
                     "text": "¡Pero no te preocupes! Si prestas atención y haces todos los tutoriales disponibles, ¡podrás afrontar la curva de aprendizaje como un campeón! Aún así, ten cuidado... ¡la mayoría de la gente hace los tutoriales más de una vez!",
                     "updated": 1625935125952,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aber keine Sorge! Wenn Sie aufmerksam sind und alle verfügbaren Tutorials absolvieren, werden Sie die Lernkurve wie ein Champion meistern! Aber seien Sie gewarnt... die meisten Leute machen die Tutorials mehr als einmal!",
+                    "updated": 1634296988459
+                },
+                {
+                    "language": "TR",
+                    "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır!",
+                    "updated": 1636698446384
                 }
             ]
         }

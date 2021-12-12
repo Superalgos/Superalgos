@@ -250,7 +250,7 @@ exports.newMachineLearningBotModulesLearningSystem = function (processIndex) {
 
         } catch (err) {
             /* 
-            If an error ocurred during execution, it was alreeady logged and
+            If an error occurred during execution, it was already logged and
             included at the errors array. That means we need to do nothing here,
             just prevent the execution to be halted for not handling exceptions.
             */
@@ -266,14 +266,14 @@ exports.newMachineLearningBotModulesLearningSystem = function (processIndex) {
     function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
         if (node === undefined) { return }
 
-        /* Verify if this node is decendent of the specified node type */
+        /* Verify if this node is descendant of the specified node type */
         if (isDescendent !== true) {
             if (node.type === descendentOfNodeType) {
                 isDescendent = true
             }
         }
 
-        /* Here we check if there is a codition to be evaluated */
+        /* Here we check if there is a condition to be evaluated */
         if ((node.type === 'Condition' || node.type === 'Collection Condition') && evaluating === 'Conditions') {
             /* We will eval this condition */
             if (isDescendent === true) {
@@ -292,11 +292,11 @@ exports.newMachineLearningBotModulesLearningSystem = function (processIndex) {
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 

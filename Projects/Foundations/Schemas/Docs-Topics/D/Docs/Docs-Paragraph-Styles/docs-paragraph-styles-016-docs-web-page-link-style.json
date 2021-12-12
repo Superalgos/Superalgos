@@ -3,12 +3,36 @@
     "pageNumber": 16,
     "type": "Docs Web Page Link Style",
     "definition": {
-        "text": "Applying this style to a paragraph is the way to create a link to an external website."
+        "text": "Applying this style to a paragraph is the way to create a link to an external website.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Anwendung dieses Stils auf einen Absatz ist der Weg, um einen Link zu einer externen Website zu erstellen.",
+                "updated": 1633956920062
+            },
+            {
+                "language": "RU",
+                "text": "Применение этого стиля к абзацу - это способ создать ссылку на внешний веб-сайт.",
+                "updated": 1638540801018
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "There is an specific syntax to follow if you want to create a link to an external web site. The syntax is:"
+            "text": "There is an specific syntax to follow if you want to create a link to an external web site. The syntax is:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt eine bestimmte Syntax, die Sie befolgen müssen, wenn Sie einen Link zu einer externen Website erstellen möchten. Die Syntax lautet:",
+                    "updated": 1633956942436
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите создать ссылку на внешний веб-сайт, необходимо соблюдать следующий синтаксис:",
+                    "updated": 1638540845123
+                }
+            ]
         },
         {
             "style": "Json",
@@ -16,7 +40,19 @@
         },
         {
             "style": "Title",
-            "text": "Example:"
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1633956953359
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638540855547
+                }
+            ]
         },
         {
             "style": "Json",
@@ -24,7 +60,19 @@
         },
         {
             "style": "Text",
-            "text": "produces the following html link to Google's home page:"
+            "text": "produces the following html link to Google's home page:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "erzeugt den folgenden HTML-Link zur Homepage von Google:",
+                    "updated": 1633956975459
+                },
+                {
+                    "language": "RU",
+                    "text": "создает следующую HTML-ссылку на главную страницу Google:",
+                    "updated": 1638540872431
+                }
+            ]
         },
         {
             "style": "Link",
@@ -32,7 +80,19 @@
         },
         {
             "style": "Note",
-            "text": "It is not possible to have any other text at the same paragraph."
+            "text": "It is not possible to have any other text at the same paragraph.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist nicht möglich, weiteren Text im selben Absatz zu verwenden.",
+                    "updated": 1633957006238
+                },
+                {
+                    "language": "RU",
+                    "text": "Невозможно иметь какой-либо другой текст в том же абзаце.",
+                    "updated": 1638540947173
+                }
+            ]
         },
         {
             "style": "Text",

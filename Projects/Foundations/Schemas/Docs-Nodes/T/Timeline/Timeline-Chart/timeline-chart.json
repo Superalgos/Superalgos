@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Un timeline chart representa un gráfico dentro de una Time Machine, que puede tener escalas de marco de tiempo y tasa independientes, así como capas particulares.",
                 "updated": 1624406893262
+            },
+            {
+                "language": "RU",
+                "text": "График временной шкалы представляет собой диаграмму в машине времени, которая может иметь независимые шкалы скорости и временных рамок, а также определенные слои.",
+                "updated": 1636201374720
+            },
+            {
+                "language": "TR",
+                "text": "Zaman çizelgesi grafiği, belirli katmanların yanı sıra bağımsız hız ve zaman çerçevesi ölçeklerine sahip olabilen bir zaman makinesi içindeki bir grafiği temsil eder.",
+                "updated": 1639214465794
             }
         ]
     },

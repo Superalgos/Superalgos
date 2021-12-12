@@ -2,7 +2,7 @@
     const MODULE_NAME = "Multi Time Frame Market"
     /*
     This module deals with Market Files, that are data files for Time Frames of 1 hour and above.
-    It also assumes that the data dependencias are in Market Files, one file for each Time Frame.
+    It also assumes that the data dependencies are in Market Files, one file for each Time Frame.
     */
     let thisObject = {
         initialize: initialize,
@@ -46,7 +46,7 @@
                 timeFramesLoop()
 
                 function timeFramesLoop() {
-                    /* We will iterate through all posible timeFrames.*/
+                    /* We will iterate through all possible timeFrames.*/
                     n = 0   // loop Variable representing each possible period as defined at the timeFrames array.
                     timeFramesLoopBody()
                 }
@@ -151,7 +151,7 @@
 
             function writeTimeFramesFiles(callBack) {
                 let outputDatasets =
-                    TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+                    SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()
 

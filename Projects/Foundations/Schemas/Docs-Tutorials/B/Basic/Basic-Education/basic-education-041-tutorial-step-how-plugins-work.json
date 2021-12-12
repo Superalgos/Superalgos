@@ -3,12 +3,12 @@
     "pageNumber": 41,
     "type": "Tutorial Step - How Plugins Work",
     "definition": {
-        "text": "Find the Plugin Trading Systems node and expand it! Note the Plugin File node named Masters-Lightning-Strike...",
+        "text": "Find the Plugin Trading Systems node inside the Algorithmic Trading project and expand it! Note the Plugin File node named Masters-Lightning-Strike...",
         "icon": {
             "name": "expand-structure-of-nodes",
             "project": "Foundations"
         },
-        "updated": 1615919140092,
+        "updated": 1636303001726,
         "translations": [
             {
                 "language": "IT",
@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Encuentra el nodo Plugin Trading Systemsy y expandelo! Nota el nodo del archivo Plugin llamado Masters-Lightning-Strike...",
-                "updated": 1626641150426
+                "updated": 1626641150426,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Suchen Sie den Knoten Plugin Trading Systems und erweitern Sie ihn! Beachten Sie den Plugin-Datei-Knoten namens Masters-Lightning-Strike...",
+                "updated": 1634588528149
             }
         ]
     },
@@ -38,7 +44,13 @@
                 {
                     "language": "ES",
                     "text": "Lightning Strike es la demo Trading System con la que has estado jugando durante el Welcome tutorial. Se ha colocado como plugin en este workspace!",
-                    "updated": 1626642058733
+                    "updated": 1626642058733,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lightning Strike ist das Demo Trading System, mit dem Sie während des Willkommens-Tutorials gespielt haben. Es wurde als Plugin in diesem Workspace platziert!",
+                    "updated": 1634588533500
                 }
             ]
         },
@@ -56,7 +68,13 @@
                 {
                     "language": "ES",
                     "text": "Sige la línea de puntos naranja hacia abajo hasta que encuentre el nodo al que se conecta. Usa el truco del teclado Ctrl + flechas para ir más rápido!",
-                    "updated": 1626642159336
+                    "updated": 1626642159336,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Folgen Sie der orange gepunkteten Linie nach unten, bis Sie den Knoten finden, mit dem es verbunden ist! Benutzen Sie den Tastaturtrick Ctrl + Pfeile, um schneller zu werden!",
+                    "updated": 1634588564331
                 }
             ]
         },
@@ -74,7 +92,13 @@
                 {
                     "language": "ES",
                     "text": "¡Eso es! Encontraste el nodo Lightning Strike Trading System. Si lo arrastras hacia un lado, encontrarás el nodo Plugin File Position debajo.",
-                    "updated": 1626642259700
+                    "updated": 1626642259700,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das war's! Sie haben den Knoten Lightning Strike Trading System gefunden. Wenn Sie ihn zur Seite ziehen, finden Sie darunter den Knoten Plugin File Position.",
+                    "updated": 1634588578954
                 }
             ]
         }

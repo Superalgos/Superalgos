@@ -20,6 +20,21 @@
                 "text": "Dejando atrás las escalas, echemos un vistazo a cómo el sistema hace que los datos estén disponibles en los gráficos.",
                 "updated": 1624409028040,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Lassen wir die Skalen hinter uns und schauen wir uns an, wie das System Daten in den Diagrammen verfügbar macht.",
+                "updated": 1634217725509
+            },
+            {
+                "language": "TR",
+                "text": "Ölçekleri geride bırakarak, sistemin verileri grafiklerde nasıl kullanılabilir hale getirdiğine bir göz atalım.",
+                "updated": 1636096145748
+            },
+            {
+                "language": "RU",
+                "text": "Оставив весы позади, давайте посмотрим, как система делает данные доступными на графиках.",
+                "updated": 1636564273949
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "text": "Cada Timeline Chart tiene un Layer Manager asociado, que se representa como un menú desplegable que enumera varias capas.",
                     "updated": 1624409085765,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Jedem Timeline Chart ist ein Layer Manager zugeordnet, der in Form eines Drop-Down-Menüs mit mehreren Layern dargestellt wird.",
+                    "updated": 1634217734286
+                },
+                {
+                    "language": "TR",
+                    "text": "Her Zaman Çizelgesi ( Timeline Chart ) Grafiği, birden çok katmanı listeleyen bir açılır menü olarak temsil edilen ilişkili bir Katman Yöneticisine ( Layer Manager ) sahiptir.",
+                    "updated": 1636096050983
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый Timeline Chart имеет соответствующий Layer Manager, который представлен в виде раскрывающегося меню со списком нескольких слоев.",
+                    "updated": 1636564352556
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "text": "Para abrir un Layers Manager, desplaza la rueda del mouse en su encabezado. ¡También usa la rueda del mouse para desplazarte por su contenido!",
                     "updated": 1627309278146,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Ebenenmanager zu öffnen, fahren Sie mit dem Mausrad über seine Kopfzeile. Verwenden Sie das Mausrad auch, um durch den Inhalt zu blättern!",
+                    "updated": 1634217743759
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir katman yöneticisi (sol üstteki siyah kutular) açmak için farenin tekerleğini başlığında kaydırın. İçeriğinde gezinmek için de farenin tekerleğini kullanın!",
+                    "updated": 1636096113075
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы открыть менеджер слоев, прокрутите колесико мыши на его заголовке. Таким же способом можете прокручивать и его содержимое.",
+                    "updated": 1636565702384
                 }
             ]
         },
@@ -75,6 +120,21 @@
                     "text": "Ve el video en el siguiente paso para mayor claridad ...",
                     "updated": 1624409230888,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zur Verdeutlichung sehen Sie sich das Video im nächsten Schritt an...",
+                    "updated": 1634217753499
+                },
+                {
+                    "language": "TR",
+                    "text": "Netlik için bir sonraki adımdaki videoyu izleyin...",
+                    "updated": 1636096131626
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите видео на следующем шаге для большей ясности...",
+                    "updated": 1636565759888
                 }
             ]
         }

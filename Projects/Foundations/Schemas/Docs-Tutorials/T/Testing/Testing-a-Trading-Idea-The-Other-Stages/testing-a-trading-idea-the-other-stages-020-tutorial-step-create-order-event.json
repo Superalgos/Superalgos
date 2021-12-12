@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Create Order Event",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "create-order-event"
+            "name": "Order\\create-order-event",
+            "project": "Foundations"
         },
         "text": "This event is self-explanatory and works like the rest of the events you're already familiar with, with situations and conditions."
     },

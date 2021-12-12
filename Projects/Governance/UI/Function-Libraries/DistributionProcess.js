@@ -6,8 +6,8 @@ function newGovernanceFunctionLibraryDistributionProcess() {
     }
 
     const DISTRIBUTION_PROCESS_RECALCULATION_DELAY = 5000
-    let loop  
-    
+    let loop
+
     return thisObject
 
     function initialize() {
@@ -18,7 +18,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
     function finalize() {
         loop = false
     }
- 
+
     function calculate() {
 
         let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
@@ -36,7 +36,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         )
         /*
         Here we will run the Delegation Program, so that all the tokens
-        that are going to be delegated, are transfered to the Delegate's User Profile.
+        that are going to be delegated, are transferred to the Delegate's User Profile.
         */
         UI.projects.governance.functionLibraries.delegationProgram.calculate(
             pools,
@@ -89,7 +89,7 @@ function newGovernanceFunctionLibraryDistributionProcess() {
             userProfiles
         )
         /*
-        Run the Influencer Program
+        Run the Influenced Program
         */
         UI.projects.governance.functionLibraries.influencerProgram.calculate(
             pools,
@@ -108,6 +108,29 @@ function newGovernanceFunctionLibraryDistributionProcess() {
         UI.projects.governance.functionLibraries.stakingProgram.calculate(
             pools,
             userProfiles
+        )
+        /*
+        Run the Liquidity Program: One per SA Token Market
+        */
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'BTCB'
+        )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'BNB'
+        )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'BUSD'
+        )
+        UI.projects.governance.functionLibraries.liquidityProgram.calculate(
+            pools,
+            userProfiles,
+            'ETH'
         )
         /*
         Run the Claims Program

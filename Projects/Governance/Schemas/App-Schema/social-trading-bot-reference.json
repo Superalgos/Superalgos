@@ -1,0 +1,27 @@
+{
+    "type": "Social Trading Bot Reference",
+    "menuItems": [
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "title": [
+        "Use Reference Parent"
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Bot Instance->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Social Trading Bot->"
+    },
+    "propertyNameAtParent": "socialTradingBotReference"
+}

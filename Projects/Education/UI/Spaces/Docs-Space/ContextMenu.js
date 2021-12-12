@@ -311,7 +311,7 @@ function newFoundationsDocsContextMenu() {
             return false
         }
         /*
-        Get the dimenssions of the current paragraph to help us to define the dimenssions of the text area.
+        Get the dimensions of the current paragraph to help us to define the dimensions of the text area.
         */
         UI.projects.education.spaces.docsSpace.contextMenu.selectedParagraph = paragraphNode
         selectedParagraphHeight = paragraphNode.getClientRects()[0].height
@@ -349,7 +349,7 @@ function newFoundationsDocsContextMenu() {
             return true
         }
         /*
-        Remeber the Selected Paragraph Index
+        Remember the Selected Paragraph Index
         */
         let splittedId = paragraphNode.id.split('-')
         selectedParagraphIndex = splittedId[splittedId.length - 2]

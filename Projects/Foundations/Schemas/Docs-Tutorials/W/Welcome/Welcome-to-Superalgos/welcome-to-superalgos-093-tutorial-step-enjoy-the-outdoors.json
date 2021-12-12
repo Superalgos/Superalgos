@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Enjoy the Outdoors!",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "crypto-ecosystem"
         },
         "text": "The Crypto Ecosystem hierarchy is where you configure which exchanges and markets you work with, your accounts with exchanges, API keys, and so on...",
@@ -19,7 +19,18 @@
             {
                 "language": "ES",
                 "text": "La jerarquía Crypto Ecosystem es donde configuras con qué exchanges y mercados trabajas, cuentas con exchanges claves API, etc.",
-                "updated": 1624472702090
+                "updated": 1624472702090,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In der Crypto Ecosystem Hierarchie konfigurieren Sie, mit welchen Börsen und Märkten Sie arbeiten, Ihre Konten bei den Börsen, API-Schlüssel und so weiter...",
+                "updated": 1634244211627
+            },
+            {
+                "language": "TR",
+                "text": "Kripto Ekosistem ( Crypto Ecosystem ) hiyerarşisi, hangi borsalar ve pazarlarla birlikte çalıştığınızı, borsalardaki hesaplarınızı, API anahtarlarını vb. yapılandırdığınız yerdir...",
+                "updated": 1636568910692
             }
         ]
     },
@@ -38,7 +49,18 @@
                 {
                     "language": "ES",
                     "text": "Hablando de claves API, cuando cree su clave API Exchange en el exchange, considere lo siguiente:",
-                    "updated": 1624472510571
+                    "updated": 1624472510571,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Apropos API-Schlüssel: Wenn Sie Ihren Exchange-API-Schlüssel bei der Börse erstellen, sollten Sie Folgendes beachten:",
+                    "updated": 1634244215737
+                },
+                {
+                    "language": "TR",
+                    "text": "API Anahtarlarından bahsetmişken, Exchange API anahtarınızı borsada oluşturduğunuzda aşağıdakileri göz önünde bulundurun:",
+                    "updated": 1636568945947
                 }
             ]
         },
@@ -56,7 +78,18 @@
                 {
                     "language": "ES",
                     "text": "Exclusive for Superalgos: Crea una clave para usar excusivamente con Superalgos. Te ayudará a rastrear lo que Superalgos hace con tu cuenta y evitar conflictos con otros bots que puedas estar usando.",
-                    "updated": 1624472659237
+                    "updated": 1624472659237,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Exklusiv für Superalgos: Erstellen Sie einen Schlüssel, den Sie ausschließlich mit Superalgos verwenden. So können Sie verfolgen, was Superalgos mit Ihrem Konto macht, und Konflikte mit anderen Bots, die Sie möglicherweise verwenden, vermeiden.",
+                    "updated": 1634244244822
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a Özel: Yalnızca Superalgos ile kullanmak için bir anahtar oluşturun. Bu, Superalgos'un hesabınızla ne yaptığını izlemenize ve kullanıyor olabileceğiniz diğer botlarla çakışmaları önlemenize yardımcı olacaktır.",
+                    "updated": 1636568972458
                 }
             ]
         },
@@ -74,7 +107,18 @@
                 {
                     "language": "ES",
                     "text": "No IP Restrictions: Es para evitar problemas al realizar el tutorial; puedes agregar restricciones más adelante, cuando sepas cómo funciona el sistema.",
-                    "updated": 1624472927607
+                    "updated": 1624472927607,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Keine IP-Beschränkungen: Dies dient dazu, Probleme während des Tutorials zu vermeiden - Sie können später Einschränkungen hinzufügen, sobald Sie wissen, wie das System funktioniert.",
+                    "updated": 1634244254394
+                },
+                {
+                    "language": "TR",
+                    "text": "IP Kısıtlaması Yok: Bu, öğreticiyi yaparken sorunlardan kaçınmak içindir - sistemin nasıl çalıştığını öğrendikten sonra kısıtlamalar ekleyebilirsiniz.",
+                    "updated": 1636569004935
                 }
             ]
         },
@@ -92,7 +136,18 @@
                 {
                     "language": "ES",
                     "text": "No Withdrawals: Superalgos aún no maneja transferencias de fondos, por lo que no tiene sentido permitir retiros. Eliminar retiros por razones de seguridad.",
-                    "updated": 1624472633689
+                    "updated": 1624472633689,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Keine Abhebungen: Superalgos wickelt noch keine Geldtransfers ab, so dass es keinen Sinn macht, Auszahlungen zuzulassen. Entfernen Sie Abhebungen aus Sicherheitsgründen.",
+                    "updated": 1634244261064
+                },
+                {
+                    "language": "TR",
+                    "text": "Para Çekme Yok: Superalgos henüz para transferlerini işlememektedir, bu nedenle para çekme işlemlerine izin vermenin bir anlamı yoktur. Güvenlik nedeniyle para çekme işlemlerini kaldırın.",
+                    "updated": 1636569041603
                 }
             ]
         }

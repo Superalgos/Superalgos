@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Here's The Thing!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-order"
+            "name": "Market\\market-order",
+            "project": "Foundations"
         },
         "text": "The system doesn't know which arrangement of execution algorithms and orders you are going to create!"
     },

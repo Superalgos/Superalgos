@@ -5,7 +5,7 @@ function newPluginsUtilitiesPlugins() {
         addMissingPluginFiles: addMissingPluginFiles,
         addMissingPluginFile: addMissingPluginFile,
         getProjectName: getProjectName,
-        savePluginFile: savePluginFile
+        savePluginFileAtClient: savePluginFileAtClient
     }
 
     return thisObject
@@ -33,8 +33,8 @@ function newPluginsUtilitiesPlugins() {
     }
 
     function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
-        if (UI.projects.foundations.utilities.nodeChildren.isMissingChildrenByName(node, fileName) === true) {
-            let child = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
+        if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenByName(node, fileName) === true) {
+            let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
             child.name = fileName
             child.config = JSON.stringify({
                 project: project,
@@ -73,6 +73,15 @@ function newPluginsUtilitiesPlugins() {
             case 'Trading System': {
                 return 'Trading-Systems'
             }
+            case 'Portfolio Engine': {
+                return 'Portfolio-Engines'
+            }
+            case 'Portfolio Mine': {
+                return 'Portfolio-Mines'
+            }
+            case 'Portfolio System': {
+                return 'Portfolio-Systems'
+            }
             case 'Assets': {
                 return 'Assets'
             }
@@ -110,11 +119,11 @@ function newPluginsUtilitiesPlugins() {
         return config.codeName
     }
 
-    function savePluginFile(pluginFile) {
-        let project = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
-        let fileName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
-        let folderName = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
-        let nodeType = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'nodeType')
+    function savePluginFileAtClient(pluginFile) {
+        let project = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'project')
+        let fileName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
+        let folderName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'folderName')
+        let nodeType = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'nodeType')
 
         if (
             project === undefined ||
@@ -136,7 +145,7 @@ function newPluginsUtilitiesPlugins() {
             return
         }
         let fileContent = JSON.stringify(
-            UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
+            UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
             undefined,
             4)
 

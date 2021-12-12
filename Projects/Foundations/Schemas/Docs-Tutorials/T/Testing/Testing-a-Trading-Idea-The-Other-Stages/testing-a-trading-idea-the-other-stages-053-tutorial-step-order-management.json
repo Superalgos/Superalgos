@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Order Management",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-bot-instance"
+            "name": "Trading\\trading-bot-instance",
+            "project": "Foundations"
         },
         "text": "Most warnings happen when the trading bot is handling orders, syncing with the exchange, or simulating the synchronization."
     },

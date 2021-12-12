@@ -1,7 +1,14 @@
 {
     "type": "Plotter Module",
     "definition": {
-        "text": "A plotter module is a device within a plotter that contains the definitions to create the visualization for a product definition."
+        "text": "A plotter module is a device within a plotter that contains the definitions to create the visualization for a product definition.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein \"plotter module\" ist ein Modul innerhalb eines Plotters, das die Definitionen zur Erstellung der Visualisierung für eine \"product definition\" enthält.",
+                "updated": 1636659770379
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,12 +17,26 @@
         },
         {
             "style": "Text",
-            "text": "A single plotter may have several modules. Different modules may be used to plot each product of the bot, or as best suits the expected use-pattern."
+            "text": "A single plotter may have several modules. Different modules may be used to plot each product of the bot, or as best suits the expected use-pattern.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein einzelner Plotter kann mehrere Module haben. Für jedes Produkt des Bots können verschiedene Module verwendet werden, je nachdem, wie es dem erwarteten Nutzungsmuster am besten entspricht.",
+                    "updated": 1636659901038
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "For a bot to use a plotter, the corresponding Product Definition must establish a reference with the plotter module built to interpret the dataset.",
-            "updated": 1609790272500
+            "updated": 1609790272500,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Damit ein Bot einen Plotter verwenden kann, muss die entsprechende Produktdefinition eine reference zu dem Plottermodul herstellen, das zur Interpretation des Datensatzes gebaut wurde.",
+                    "updated": 1636659964219
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,7 +45,14 @@
         },
         {
             "style": "Title",
-            "text": "Plotter Module Configuration"
+            "text": "Plotter Module Configuration",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Konfiguration des Plottermoduls:",
+                    "updated": 1636659978962
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -33,16 +61,31 @@
         },
         {
             "style": "List",
-            "text": "codeName is the name used in the code to refer to the module."
+            "text": "codeName is the name used in the code to refer to the module.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Name, der im Code verwendet wird, um auf das Modul zu verweisen.",
+                    "updated": 1636660003241
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "isLegacy is true for plotters modules developed entirely in JavaScript, and is false or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy."
+            "text": "isLegacy is true for plotters modules developed entirely in JavaScript, and is false or doesn't show in the configuration for plotters built with the tools featured in the data mine hierarchy.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "isLegacy ist wahr für Plotter-Module, die vollständig in JavaScript entwickelt wurden, und ist falsch oder wird in der Konfiguration nicht angezeigt für Plotter, die mit den in der Data-Mine-Hierarchie enthaltenen Tools erstellt wurden.",
+                    "updated": 1636660060029
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "icon is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
-            "updated": 1609852182210
+            "style": "List",
+            "text": "<code class=\"docs-code\">icon</code> is the name of the image that illustrates the corresponding layer in the Layers Panel. In case the icon is not specified, the default idon is used. Possible values are...",
+            "updated": 1636672891580
         },
         {
             "style": "Javascript",
@@ -51,22 +94,50 @@
         },
         {
             "style": "Text",
-            "text": "Custom images may be added too. To do that:"
+            "text": "Custom images may be added too. To do that:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es können auch eigene Bilder hinzugefügt werden. Um das zu tun:",
+                    "updated": 1636660314385
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "1. Name the image in the following format: image-name.png;",
-            "updated": 1609852305205
+            "updated": 1609852305205,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "1. Benennen Sie das Bild in folgendem Format: bild-name.png;",
+                    "updated": 1636660337014
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "2. Place images in the WebServer\\Images\\Icons folder;",
-            "updated": 1609852315978
+            "updated": 1609852315978,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "2. Legen Sie die Bilder in den Ordner WebServer\\Images\\Icons;",
+                    "updated": 1636660361650
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "3. In the configuration of the module, use the name as is (e.g.: \"icon\": \"image-name\")",
-            "updated": 1609852322876
+            "updated": 1609852322876,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "3. In der Konfiguration des Moduls ist der Name unverändert zu verwenden (z. B.: \"icon\": \"image-name\")",
+                    "updated": 1636660481504
+                }
+            ]
         }
     ]
 }

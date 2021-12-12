@@ -1,0 +1,59 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 15,
+    "type": "OKEX Test Status",
+    "definition": {
+        "text": "Passed Live Trading Test but limited Historical Data ",
+        "updated": 1636810465259
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1636811142009
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: No. The ability to fetch historical data for backtesting purposes is not possible.",
+            "updated": 1636811644277
+        },
+        {
+            "style": "List",
+            "text": "Market History: From that day you to start mining historical data",
+            "updated": 1636811635789
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes The ability to place market orders, create and cancel limit orders in a live-trading mode has been verified.",
+            "updated": 1636811869127
+        },
+        {
+            "style": "List",
+            "text": "Comments: Raw Data mining is limited to a few minutes due to exchange restrictions on their API that limit the number of data it can be requested via Rest API",
+            "updated": 1636812202662
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"okex\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "updated": 1636811208143
+        },
+        {
+            "style": "Title",
+            "text": "User Exchange Account Configuration",
+            "updated": 1636811329265
+        },
+        {
+            "style": "Title",
+            "text": ""
+        },
+        {
+            "style": "Note",
+            "text": "That your PASSPHRASE is your password in the user exchanger account configuration",
+            "updated": 1636811457247
+        }
+    ]
+}

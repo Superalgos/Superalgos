@@ -6,8 +6,8 @@
         "text": "If you haven't yet, go ahead and establish a reference from the Trading System Reference to the Lightning Strike Trading System!",
         "updated": 1615808208398,
         "icon": {
-            "name": "Trading\\trading-system",
-            "project": "Foundations"
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
         },
         "translations": [
             {
@@ -21,6 +21,11 @@
                 "text": "Si aún no lo ha hecho, sigue adelante y estableze una referencia del Trading System Reference al Lightning Strike Trading System!",
                 "updated": 1626541349340,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie es noch nicht getan haben, stellen Sie einen Trading System Reference zum  Lightning Strike Trading System her!",
+                "updated": 1634334724601
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Puedes encontrar que esta técnica para establecer una referencia sea un poco torpe o poco práctica. Si tiene una idea mejor o sabe cómo mejorarla, no dude en abrir un problema de solicitud de función. Asegúrese de tener en cuenta lo siguiente:",
                     "updated": 1626541405664,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht finden Sie diese Methode, einen Verweis zu erstellen, etwas ungeschickt oder unpraktisch. Wenn Sie eine bessere Idee haben oder wissen, wie man sie verbessern kann, können Sie gerne eine Funktionsanfrage stellen. Beachten Sie bitte Folgendes:",
+                    "updated": 1634334734634
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "En un espacio de trabajo complejo, puede haber cientos de nodos que puedan aceptar una referencia.",
                     "updated": 1626541444738,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "In einem komplexen Workspace kann es Hunderte von Knoten geben, die eine Referenz akzeptieren können.",
+                    "updated": 1634334744672
                 }
             ]
         },
@@ -78,6 +93,11 @@
                     "text": "La referencia debe establecerse inequívocamente desde un nodo específico a otro nodo específico.",
                     "updated": 1626542624855,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Referenz muss eindeutig von einem bestimmten Knoten zu einem anderen bestimmten Knoten hergestellt werden.",
+                    "updated": 1634334760002
                 }
             ]
         },
@@ -96,6 +116,11 @@
                     "text": "¡No es tan difícil una vez que lo haces un par de veces!",
                     "updated": 1626541754980,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Zwischenzeit kann ich Ihnen versichern, dass es gar nicht so schwer ist, wenn Sie es ein paar Mal gemacht haben!",
+                    "updated": 1634334766682
                 }
             ]
         },

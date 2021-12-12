@@ -2,7 +2,7 @@
     const MODULE_NAME = "Multi Time Frame Daily"
     /*
     This module deals with Daily Files, that are data files for Time Frames below 1 hour.
-    It also assumes that the data dependencias are in Daily Files, one file for each Time Frame.
+    It also assumes that the data dependencies are in Daily Files, one file for each Time Frame.
     */
     let thisObject = {
         initialize: initialize,
@@ -58,11 +58,11 @@
                     let thisReport
                     let statusReport
                     /*
-                    We look first for the bot who knows the begining of the market in order to get when the market starts.
+                    We look first for the bot who knows the beginning of the market in order to get when the market starts.
                     */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get("Market Starting Point")
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Market Starting Point -> Status Report does not exist or Market Starting Point not defined. Retrying Later. ")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -114,7 +114,7 @@
                     */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get("Market Ending Point")
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Market Ending Point -> Status Report does not exist or Market Ending Point not defined. Retrying Later. ")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -149,7 +149,7 @@
                     /* Finally we get our own Status Report. */
                     statusReport = statusDependenciesModule.reportsByMainUtility.get("Self Reference")
 
-                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the begining of a month.
+                    if (statusReport === undefined) { // This means the status report does not exist, that could happen for instance at the beginning of a month.
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[WARN] start -> getContextVariables -> Self Reference -> Status Report does not exist or Self Reference not defined or badly configured. Check that at the Status Dependency you have chosen Self Reference at the config. Retrying Later. ")
                         callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_RETRY_RESPONSE)
@@ -169,7 +169,7 @@
 
                         beginingOfMarket = new Date(thisReport.beginingOfMarket)
 
-                        if (beginingOfMarket.valueOf() !== contextVariables.dateBeginOfMarket.valueOf()) { // Reset Mechanism for Begining of the Market
+                        if (beginingOfMarket.valueOf() !== contextVariables.dateBeginOfMarket.valueOf()) { // Reset Mechanism for Beginning of the Market
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                                 "[INFO] start -> getContextVariables -> Reset Mechanism for Begining of the Market Activated.")
 
@@ -185,7 +185,7 @@
                     } else {
 
                         /*
-                        In the case when there is no status report, we assume like the last processed file is the one on the date of Begining of Market.
+                        In the case when there is no status report, we assume like the last processed file is the one on the date of Beginning of Market.
                         */
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             "[INFO] start -> getContextVariables -> Starting from the begining of the market because own status report not found or lastFile was undefined.")
@@ -209,7 +209,7 @@
                         */
                         interExecutionMemoryArray = []
                         /*
-                        Also, we will remember that we are bootstrapping the process, this will allow us, to advanceTime if necesary.
+                        Also, we will remember that we are bootstrapping the process, this will allow us, to advanceTime if necessary.
                         It can happen that a process depends on data from another process that does not produce a file during the first day, or even more days,
                         in that situation we want the process not to just wait for that data that will never arrive, but to advance time until it finds valid data.
                         */
@@ -242,7 +242,7 @@
                 let botNeverRan = true;
 
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME =
-                    new Date(contextVariables.lastFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the begining of the loop.
+                    new Date(contextVariables.lastFile.valueOf() - SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) // Go back one day to start well when we advance time at the beginning of the loop.
                 let fromDate = new Date(TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).DAILY_FILES_PROCESS_DATETIME.valueOf())
                 let lastDate = TS.projects.foundations.utilities.dateTimeFunctions.removeTime(new Date())
 
@@ -297,7 +297,7 @@
 
                 function timeFramesLoop() {
                     /*
-                    We will iterate through all posible timeFrames.
+                    We will iterate through all possible timeFrames.
                     */
                     n = 0   // loop Variable representing each possible period as defined at the timeFrames array.
                     timeFramesLoopBody()
@@ -375,8 +375,8 @@
                             function onFileReceived(err, text) {
                                 if ((err.message === "File does not exist." && botNeverRan === true) || err.code === 'The specified key does not exist.') {
                                     /*
-                                    Sometimes one of the dependencies of an indicator for some reasons are not calculated from the begining of the market.
-                                    When that happens we can not find those files. What we do in this situation is to move the time fordward until we can find
+                                    Sometimes one of the dependencies of an indicator for some reasons are not calculated from the beginning of the market.
+                                    When that happens we can not find those files. What we do in this situation is to move the time forward until we can find
                                     all the dependencies and the first run of the bot is successful.
     
                                     After that, we will not accept more missing files on any of the dependencies, and if any is missing we will abort the processing.
@@ -429,7 +429,7 @@
                                     if (bootstrappingTheProcess === true) {
                                         /*
                                         In the special situation where we are running this process for the first time (no status report found),
-                                        we will consider the possibility that a depanant process does not produce a file during the first day of the market,
+                                        we will consider the possibility that a dependant process does not produce a file during the first day of the market,
                                         or even more than one day. That is why we are going to advance time here.
                                         */
                                         advanceTime()
@@ -513,7 +513,7 @@
             }
 
             function writeDataRanges(callBack) {
-                let outputDatasets = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(
+                let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
                     TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
                 let outputDatasetIndex = -1;
                 controlLoop()

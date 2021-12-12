@@ -4,8 +4,8 @@
     "type": "Tutorial Step - This is it!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "market-order"
+            "name": "Market\\market-order",
+            "project": "Foundations"
         },
         "text": "This is the node you have to create the reference to: Market Buy Order #1."
     },

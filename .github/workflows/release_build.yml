@@ -1,0 +1,39 @@
+name: Build/release Binaries
+
+
+on: 
+  release:
+    types: 
+      - published
+
+  workflow_dispatch:
+
+jobs:
+  build-release:
+    runs-on: ${{ matrix.os }}
+    strategy:
+        matrix:
+          os: [windows-latest, macos-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      
+      - name: Get version
+        id: vars
+        run:  echo "::set-output name=tag::$(node -p "require('./package.json').version")"
+
+      - name: Build/release Electron app
+        uses: samuelmeuli/action-electron-builder@v1
+        with:
+          # GitHub token, automatically provided to the action
+          # (No need to define this secret in the repo settings)
+          github_token: ${{ secrets.github_token }}
+          args: "-c.extraMetadata.version=${{ steps.vars.outputs.tag }} -c build/electron-builder.json -p always"
+          release: true
+

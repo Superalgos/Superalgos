@@ -14,17 +14,18 @@
             "label": "Add Missing Plugin Types",
             "relatedUiObject": "Plugins",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Community-Plugins"
+            "actionProject": "Community-Plugins",
+            "relatedUiObjectProject": "Community-Plugins"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionFunction": "payload.executeAction"
         }
     ],
     "initialValues": {
@@ -53,6 +54,12 @@
             "autoAdd": false
         },
         {
+            "name": "pluginPortfolioMines",
+            "type": "node",
+            "childType": "Plugin Portfolio Mines",
+            "autoAdd": false
+        },
+        {
             "name": "pluginLearningMines",
             "type": "node",
             "childType": "Plugin Learning Mines",
@@ -65,6 +72,12 @@
             "autoAdd": false
         },
         {
+            "name": "pluginPortfolioSystems",
+            "type": "node",
+            "childType": "Plugin Portfolio Systems",
+            "autoAdd": false
+        },
+        {
             "name": "pluginLearningSystems",
             "type": "node",
             "childType": "Plugin Learning Systems",
@@ -74,6 +87,12 @@
             "name": "pluginTradingEngines",
             "type": "node",
             "childType": "Plugin Trading Engines",
+            "autoAdd": false
+        },
+        {
+            "name": "pluginPortfolioEngines",
+            "type": "node",
+            "childType": "Plugin Portfolio Engines",
             "autoAdd": false
         },
         {

@@ -3,12 +3,12 @@
     "pageNumber": 9,
     "type": "Tutorial Step - Repository Branches",
     "definition": {
-        "text": "The Superalgos repository features three main branches: master, develop, and the one we're looking for, plugins-docs.",
+        "text": "The Superalgos repository features two main branches: master and develop.",
         "icon": {
             "name": "github",
             "project": "Foundations"
         },
-        "updated": 1618143614949,
+        "updated": 1636912658939,
         "translations": [
             {
                 "language": "IT",
@@ -25,7 +25,19 @@
             {
                 "language": "ES",
                 "text": "El repositorio de Superalgos presenta tres ramas principales: master, develop, y el que estamos buscando, plugins-docs.",
-                "updated": 1628121680964
+                "updated": 1628121680964,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Das Superalgos-Repository hat zwei Hauptzweige: master und develop.",
+                "updated": 1638832363730,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Особенностью репозитория Superalgos является подразделение его на три основных разновидности: мастер, разработка и одно поисковое подразделение - плагины-документы.\n",
+                "updated": 1635515254111
             }
         ]
     },
@@ -50,7 +62,19 @@
                 {
                     "language": "ES",
                     "text": "Puede que haya más, ¡pero estos son los principales!",
-                    "updated": 1628121700843
+                    "updated": 1628121700843,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt vielleicht noch mehr, aber das sind die wichtigsten!",
+                    "updated": 1634821022072,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Их может быть и больше, но эти самые основные!",
+                    "updated": 1635581904616
                 }
             ]
         },
@@ -73,14 +97,26 @@
                 {
                     "language": "ES",
                     "text": "Master Branch: Es la versión estable del software. ¡Nunca envíes contribuciones a esta rama!",
-                    "updated": 1628121827428
+                    "updated": 1628121827428,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Master Branch: Enthält die stabile Version der Software. Reichen Sie niemals Beiträge für diesen Zweig ein!",
+                    "updated": 1634821032083,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Master Branch: Features имеет устойчивую версию программного обеспечения. Никогда не размещайте материалы в этом подразделении.",
+                    "updated": 1635516502634
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase.",
-            "updated": 1618143744374,
+            "text": "Develop Branch: Features the version currently in development. Submit contributions of code affecting the codebase, translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
+            "updated": 1636912699736,
             "translations": [
                 {
                     "language": "IT",
@@ -97,30 +133,19 @@
                 {
                     "language": "ES",
                     "text": "Develop Branch: Presenta la versión actualmente en desarrollo. Envía contribuciones de código que afecten al código base.",
-                    "updated": 1628121811043
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Plugins-Docs Branch: Features the version in the master branch plus the latest changes in the Docs and Plugins. Submit contributions of translations, improvements in the Docs, tutorials, and plugins such as data mines, trading systems, and so on!",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Plugins-Docs Branch: contiene la versione del master branch più le ultime modifiche a Docs e Plugins. Presenta qui i contributi a Docs, tutorial e plugins, come Data Mines, Trading Systems e così via!",
-                    "updated": 1619633285534,
+                    "updated": 1628121811043,
                     "style": "List"
                 },
                 {
-                    "language": "FR",
-                    "text": "Plugins-Docs Branch: Features la version de la branche Master plus les derniers changements dans les docs et plugins, pour soumettez des contributions concernant traductions, améliorations de la documentation, didacticiels et de plugins, tels que des mines de données, des systèmes de négociation, etc.",
-                    "updated": 1623953153649,
+                    "language": "DE",
+                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis, Übersetzungen,Verbesserungen der Docs, Tutorials, plugins sowie Data-Mines, trading systems und so weiter betreffen.",
+                    "updated": 1638831914823,
                     "style": "List"
                 },
                 {
-                    "language": "ES",
-                    "text": "Plugins-Docs Branch: Es la versión en la rama maestra más los últimos cambios en los Documentos y Complementos. Envía contribuciones de traducciones, mejoras en los docs, tutoriales y plugins, como minas de datos, Trading Systems, etc.",
-                    "updated": 1628121938452
+                    "language": "RU",
+                    "text": "Develop Branch: Features имеет версию, которая на данный момент находится в разработке. Размещайте материалы кода, влияющие на кодовую базу.",
+                    "updated": 1635515640752
                 }
             ]
         }

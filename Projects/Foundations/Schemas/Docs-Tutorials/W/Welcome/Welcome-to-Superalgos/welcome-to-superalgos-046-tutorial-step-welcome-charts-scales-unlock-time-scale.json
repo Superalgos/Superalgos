@@ -10,6 +10,21 @@
                 "text": "Questo step eseguirà il video in modalità schermo intero.",
                 "updated": 1614893704588,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634217018735
+            },
+            {
+                "language": "TR",
+                "text": "Zaman skalasının üzerine gelin ve fare tekerleğini birkez çevirin.",
+                "updated": 1636093721117
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636206314181
             }
         ]
     },

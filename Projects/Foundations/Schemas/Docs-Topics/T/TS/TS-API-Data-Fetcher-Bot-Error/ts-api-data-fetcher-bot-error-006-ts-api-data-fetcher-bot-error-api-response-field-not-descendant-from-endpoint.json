@@ -3,7 +3,7 @@
     "pageNumber": "6",
     "type": "TS API Data Fetcher Bot Error - API Response Field Not Descendant From Endpoint",
     "definition": {
-        "text": "Every API Response Field Node needs to descend from an API Endpoint node. Check this node's parent node, and it's parent, and continue until you find the API Endpoint. Find the place where the chain is broken and fix it in order for the API Data Fetcher Bot to be able to preccedd.",
+        "text": "Every API Response Field Node needs to descend from an API Endpoint node. Check this node's parent node, and it's parent, and continue until you find the API Endpoint. Find the place where the chain is broken and fix it in order for the API Data Fetcher Bot to be able to proceed.",
         "updated": 1621860822884
     },
     "paragraphs": [
@@ -31,7 +31,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Message of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -43,7 +43,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Stack of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -55,7 +55,7 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following is the Error Code of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",
@@ -67,7 +67,7 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occured at the API Data Fetcher Bot:"
+            "text": "The following are all the Error details of the Exception that occurred at the API Data Fetcher Bot:"
         },
         {
             "style": "Placeholder",

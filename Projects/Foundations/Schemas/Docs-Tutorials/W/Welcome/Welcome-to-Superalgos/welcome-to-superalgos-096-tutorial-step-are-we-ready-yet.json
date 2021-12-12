@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Are We Ready Yet?",
     "definition": {
         "icon": {
-           "project": "Foundations",
+            "project": "Foundations",
             "name": "indicator-process-instance"
         },
         "text": "Resistances and Supports Multi-Time-Frame-Daily to the left is the last of the processes to finish, so keep an eye on it!",
@@ -19,7 +19,18 @@
             {
                 "language": "ES",
                 "text": "Resistances and Supports Multi-Time-Frame-Daily a la izquierda está el último de los procesos en terminar, ¡así que mantén un ojo en él!",
-                "updated": 1624483264968
+                "updated": 1624483264968,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Resistenzen und Unterstützungen Multi-Time-Frame-Daily auf der linken Seite ist der letzte der Prozesse zu beenden, so behalten Sie sie im Auge!",
+                "updated": 1634244857267
+            },
+            {
+                "language": "TR",
+                "text": "işlemlerin en son aşaması olan Dirençler ve Destekler (Resistance And Support) bittiğinde hazır olacağız. Bu yüzden gözünüz üzerinde olsun!",
+                "updated": 1636573001616
             }
         ]
     },
@@ -37,7 +48,18 @@
                 {
                     "language": "ES",
                     "text": "Si este proceso está al 100%, estamos listos para comenzar.",
-                    "updated": 1624483281714
+                    "updated": 1624483281714,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn dieser Prozess bei 100 % ist, können wir loslegen.",
+                    "updated": 1634244866274
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlem %100 ise, o zaman gitmeye hazırız.",
+                    "updated": 1636573018130
                 }
             ]
         },
@@ -54,7 +76,18 @@
                 {
                     "language": "ES",
                     "text": "De cualquier manera, no ocurre nada catastrófico si intenta ejecutar una sesión de negociación en vivo cuando los indicadores requeridos no están actualizados. Habría un error y se le notificará el motivo. ¡Así que no es gran cosa!",
-                    "updated": 1624483313088
+                    "updated": 1624483313088,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "In jedem Fall passiert nichts Schlimmes, wenn Sie versuchen, eine Live Trading Session zu starten, während die erforderlichen Indikatoren nicht auf dem neuesten Stand sind. Es würde ein Fehler auftreten, und Sie würden über den Grund informiert werden. Also, keine große Sache!",
+                    "updated": 1634244877404
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekli göstergeler güncel olmadan Canlı İşlem Oturumu ( Live Trading Session ) çalıştırmayı denerseniz, felaketle sonuçlanan hiçbir şey olmaz. Bir hata olur ve nedeni size bildirilir. Yani, önemli değil!",
+                    "updated": 1636573076891
                 }
             ]
         },
@@ -72,7 +105,18 @@
                 {
                     "language": "ES",
                     "text": "Ahora, te pediré que inicies el Task y y el Live Trading Sesion. Si decides no hacerlo, continúa con el tutorial como si lo hubieras hecho...",
-                    "updated": 1624483457452
+                    "updated": 1624483457452,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Schritt fordere ich Sie auf, den Task und die Live Trading Session zu starten. Wenn Sie dies nicht tun, fahren Sie mit dem Tutorial fort, als ob Sie es getan hätten...",
+                    "updated": 1634244884476
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki adımda, Görevi ( Tasks ) ve Canlı İşlem Oturumunu ( Live Trading Session ) başlatmanızı isteyeceğim. Yapmak istemiyorsanız, eğitime devam etmişsiniz gibi devam edin...",
+                    "updated": 1636573159432
                 }
             ]
         }

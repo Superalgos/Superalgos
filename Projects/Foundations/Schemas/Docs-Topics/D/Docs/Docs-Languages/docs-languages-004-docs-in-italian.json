@@ -11,6 +11,11 @@
                 "text": "I Docs di Superalgos e degli altri progetti integrati sono scritti originariamente in inglese. Il sistema permette agli utenti di cercare e navigare tra le pagine anche in altri linguaggi, purché qualche collaboratore abbia precedentemente inserito le traduzioni corrispondenti.",
                 "updated": 1614709804639,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Die Docs-Seiten von Superalgos und anderen integrierten Projekten sind ursprünglich in Englisch verfasst. Das System ermöglicht es den Nutzern, die Seiten auch in anderen Sprachen zu suchen und zu durchsuchen, sofern die Nutzer zuvor die entsprechenden Übersetzungen beigetragen haben.",
+                "updated": 1636750109773
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "text": "L'inglese é considerata la lingua predefinita. Quando si seleziona un linguaggio differente, il sistema cerca di mostrare il contenuto nel linguaggio selezionato. Se la traduzione non é disponibile, allora verrà mostrata comunque la versione in lingua inglese.",
                     "updated": 1614710023015,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Englisch gilt als Standardsprache. Wenn Sie zu einer anderen Sprache wechseln, versucht das System, den Inhalt in der neuen Sprache anzuzeigen. Wenn die Übersetzung jedoch noch nicht verfügbar ist, wird stattdessen die englische Version angezeigt.",
+                    "updated": 1636750147739
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "text": "I tipi di nodo, i nomi di variabile, il titolo delle pagine dei Docs e alcuni altri elementi di Superalgos non vengono tradotti, in quanto sono identificatori unici di questi elementi all'interno del sistema. Verranno quindi sempre mostrati in inglese.",
                     "updated": 1614710301759,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Node types, variable names, der Titel von Seiten in den Docs und einige weitere Elemente von Superalgos werden nicht übersetzt, da sie eindeutige Bezeichner der genannten Elemente sind. Sie erhalten diese immer auf Englisch.",
+                    "updated": 1636750157611
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "text": "Se vuoi contribuire alle traduzioni, leggi la pagina How to Contribute Translations.",
                     "updated": 1614710364389,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
+                    "updated": 1636750175388
                 }
             ]
         },
@@ -62,32 +82,47 @@
                     "text": "Il contenuto dei Docs può essere tradotto da chiunque desideri contribuire. Ciò aiuta gli utenti a leggere il contenuto dei Docs nella loro lingua madre. ",
                     "updated": 1614710559720,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Inhalt der Docs kann von jedem übersetzt werden, der bereit ist, etwas Zeit dafür aufzuwenden. Das hilft den Nutzern, die Inhalte der Docs in ihrer Muttersprache zu lesen.",
+                    "updated": 1636750252283
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "To switch languages, click on the flags on the footer of the Docs.",
-            "updated": 1613820592771,
+            "text": "Users can switch between languages using the links/Flags provided at the footer of every page at the Docs.",
+            "updated": 1636749218784,
             "translations": [
                 {
                     "language": "IT",
                     "text": "Per cambiare la lingua, é sufficiente cliccare sulle bandiere che si trovano in fondo a ogni pagina dei Docs.",
                     "updated": 1614710684503,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
+                    "updated": 1636750268351
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "You may only add or delete pages to the Docs when the language is set to English.",
-            "updated": 1613820648230,
+            "text": "You may only add or delete pages to the Docs when the language is set to English. For the translation you have to select the language you want to translate into. (In this case italian)",
+            "updated": 1636749237058,
             "translations": [
                 {
                     "language": "IT",
                     "text": "É possible aggiungere o cancellare pagine dei Docs solamente quando la lingua di visualizzazione é in inglese.",
                     "updated": 1614710793433,
                     "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können nur Seiten zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten. ",
+                    "updated": 1636750280116
                 }
             ]
         }

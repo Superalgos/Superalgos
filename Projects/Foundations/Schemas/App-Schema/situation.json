@@ -5,7 +5,9 @@
             "action": "Add UI Object",
             "label": "Add Condition",
             "relatedUiObject": "Condition",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Add UI Object",
@@ -13,10 +15,13 @@
             "propertyToCheckFor": "formula",
             "label": "Add Formula",
             "relatedUiObject": "Formula",
-            "actionFunction": "payload.executeAction"
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -28,7 +33,7 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->"
+        "compatibleTypes": "->Take Position Event->Trigger On Event->Trigger Off Event->Next Phase Event->Move To Phase Event->Create Order Event->Cancel Order Event->Close Stage Event->Confirm Event Reference->Raise Event Reference->"
     },
     "childrenNodesProperties": [
         {

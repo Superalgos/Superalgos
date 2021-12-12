@@ -10,7 +10,7 @@
         },
         {
             "style": "Text",
-            "text": "Serial numbers start at 1 and increment by 1 with each intance of the object that is opened."
+            "text": "Serial numbers start at 1 and increment by 1 with each instance of the object that is opened."
         },
         {
             "style": "Block",

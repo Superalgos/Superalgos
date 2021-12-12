@@ -179,7 +179,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 // Skipping current loop if we are before initial candle:
                 if (checkInitialDatetime() === false) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toUTCString())
+                        '[INFO] runSimulation -> loop -> Candle Before the Initial Date Time @ ' + (new Date(candle.begin)).toUTCString())
                     continue
                 }
 
@@ -194,7 +194,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
 
                 /* 
                 Do the stuff needed previous to the run like 
-                Episode Counters and Statistics update. Mantaince is done
+                Episode Counters and Statistics update. Maintenance is done
                 once per simulation candle.
                 */
                 learningSystemModuleObject.mantain() /* ***NOTE*** Currently empty */
@@ -252,7 +252,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 function checkIfWeNeedToStopBetweenCycles() {
                     if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
+                            '[INFO] runSimulation -> controlLoop -> We are going to stop here because we were requested to stop processing this session.')
                         updateEpisode('Session Stopped')
                         breakLoop = true
                         return
@@ -260,7 +260,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
 
                     if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
+                            '[INFO] runSimulation -> controlLoop -> We are going to stop here because we were requested to stop processing this task.')
                         updateEpisode('Task Stopped')
                         breakLoop = true
                         return
@@ -337,7 +337,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.newInternalLoop(currentDate, percentage)
                             }
 
-                            /* Date only hearbeat */
+                            /* Date only heartbeat */
                             if (sessionParameters.heartbeats.config.date === true && sessionParameters.heartbeats.config.candleIndex === false) {
                                 hartbeatText = hartbeatText + currentDateString
                                 TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
@@ -363,7 +363,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
 
             function positionDataStructuresAtCurrentCandle() {
                 /*
-                In conditions and Formulas, we want users to have an easy sintax to refer to indicators. In order to achieve that, we need the user to have
+                In conditions and Formulas, we want users to have an easy syntax to refer to indicators. In order to achieve that, we need the user to have
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
                 For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
                 */
@@ -381,8 +381,8 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 }
 
                 function positionChart(chart) {
-                    let dataDependencies = TS.projects.foundations.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
-                    dataDependencies = TS.projects.foundations.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
+                    let dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+                    dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
                     /* Finding the Current Element on Market Files */
                     if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
@@ -492,7 +492,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 Note: for Daily Files, this means that the last candle of each day will never be processed.
 
                 The first +1 is because array indexes are based on 0. 
-                The second +1 is because we need to compare the next candle (remember that the loops allways avoid the
+                The second +1 is because we need to compare the next candle (remember that the loops always avoid the
                 last candle of the dataset available.)
                 */
                 if (learningEngine.learningCurrent.learningEpisode.candle.index.value + 1 + 1 === candles.length) {

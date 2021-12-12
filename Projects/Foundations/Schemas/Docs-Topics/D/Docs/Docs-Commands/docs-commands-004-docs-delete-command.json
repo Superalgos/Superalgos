@@ -4,13 +4,32 @@
     "type": "Docs Delete Command",
     "definition": {
         "text": "Use this command to delete a page from the Docs.",
-        "updated": 1609151920518
+        "updated": 1609151920518,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwenden Sie diesen Befehl, um eine Seite aus den Docs zu löschen.",
+                "updated": 1633893956478
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду, чтобы удалить страницу из документов Docs.",
+                "updated": 1638528236486
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Single-Page Syntax",
-            "updated": 1613765905233
+            "updated": 1613765905233,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одностраничный синтаксис",
+                    "updated": 1638528262362
+                }
+            ]
         },
         {
             "style": "Json",
@@ -20,7 +39,19 @@
         {
             "style": "Subtitle",
             "text": "Examples",
-            "updated": 1613766032848
+            "updated": 1613766032848,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893968452
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638528284766
+                }
+            ]
         },
         {
             "style": "Json",
@@ -40,7 +71,14 @@
         {
             "style": "Title",
             "text": "Page-Collection Syntax",
-            "updated": 1613766298709
+            "updated": 1613766298709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис коллекции страниц",
+                    "updated": 1638528305804
+                }
+            ]
         },
         {
             "style": "Json",
@@ -50,7 +88,19 @@
         {
             "style": "Subtitle",
             "text": "Examples",
-            "updated": 1613766391018
+            "updated": 1613766391018,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1633893976480
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638528317029
+                }
+            ]
         },
         {
             "style": "Json",
@@ -69,22 +119,70 @@
         },
         {
             "style": "Title",
-            "text": "Parameters"
+            "text": "Parameters",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Parameter",
+                    "updated": 1633894005892
+                },
+                {
+                    "language": "RU",
+                    "text": "Параметры",
+                    "updated": 1638528330539
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Project: It's the project where the page is defined.",
-            "updated": 1613764968224
+            "updated": 1613764968224,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
+                    "updated": 1633894025155
+                },
+                {
+                    "language": "RU",
+                    "text": "Project: Это проект, в котором определена страница.",
+                    "updated": 1638528344689
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Category: One of the available categories.",
-            "updated": 1613764977861
+            "updated": 1613764977861,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Category: Eine der verfügbaren Kategorien.",
+                    "updated": 1633894046298
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Category: Одна из доступных категорий.",
+                    "updated": 1638528356480
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Docs Page Name: The name of the page.",
-            "updated": 1613764988027
+            "updated": 1613764988027,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Docs Page Name: Der Name der Seite.",
+                    "updated": 1633894059389
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Name: Название страницы",
+                    "updated": 1638528375725
+                }
+            ]
         }
     ]
 }

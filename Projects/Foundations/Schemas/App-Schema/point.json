@@ -20,10 +20,13 @@
             "propertyToCheckFor": "pointFormula",
             "actionFunction": "payload.executeAction",
             "label": "Add Point Formula",
-            "relatedUiObject": "Point Formula"
+            "relatedUiObject": "Point Formula",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
         },
         {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "actionFunction": "payload.executeAction",

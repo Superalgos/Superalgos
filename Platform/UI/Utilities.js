@@ -1,4 +1,4 @@
-function getSchemaDocument (node, project) {
+function getSchemaDocument(node, project) {
   if (node === null || node === undefined) {
     console.log('[ERROR] Can not get the schema document of a null or undefined node ')
     return
@@ -7,13 +7,35 @@ function getSchemaDocument (node, project) {
 
   let APP_SCHEMA = SCHEMAS_BY_PROJECT.get(project)
   if (APP_SCHEMA !== undefined) {
-    return SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(node.type)
+
+    let schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(node.type)
+    /*
+    As of today, we are still splitting the codebase into multiple projects and there are Menu Actions which do not
+    have a well defined relatedUIObjectProject. There are a few techniques in place to try to guess it, but 
+    even those can fail. For that reason, we will temporally see if we can find the schema document at any of the 
+    available projects.
+
+    TODO: We need to explicitly declare the project of a relatedUIObject in order to avoid potential name collision
+    between nodes belonging to more than one project.
+    */
+
+    if (schemaDocument === undefined) {
+      for (let j = 0; j < PROJECTS_SCHEMA.length; j++) {
+        let project = PROJECTS_SCHEMA[j].name
+        schemaDocument = SCHEMAS_BY_PROJECT.get(project).map.appSchema.get(node.type)
+        if (schemaDocument !== undefined) {
+          break
+        }
+      }
+    }
+
+    return schemaDocument
   } else {
-    console.log('[ERROR] Could not get APP Scchema for project ' + node.project)
+    console.log('[ERROR] Could not get APP Schema for project ' + node.project)
   }
 }
 
-function dynamicDecimals (value, minDecimals) {
+function dynamicDecimals(value, minDecimals) {
   if (minDecimals === undefined) {
     minDecimals = 0
   }
@@ -26,7 +48,7 @@ function dynamicDecimals (value, minDecimals) {
   return returnValue
 }
 
-function convertTimeFrameToName (pTimeFrame) {
+function convertTimeFrameToName(pTimeFrame) {
   for (let i = 0; i < dailyTimeFramesArray.length; i++) {
     let period = dailyTimeFramesArray[i]
     if (period[0] === pTimeFrame) {
@@ -42,7 +64,7 @@ function convertTimeFrameToName (pTimeFrame) {
   }
 }
 
-function nextPorwerOf10 (number) {
+function nextPorwerOf10(number) {
   for (let i = -10; i <= 10; i++) {
     if (number < Math.pow(10, i)) {
       return Math.pow(10, i)
@@ -50,18 +72,18 @@ function nextPorwerOf10 (number) {
   }
 }
 
-function pad (str, max) {
+function pad(str, max) {
   str = str.toString()
   return str.length < max ? pad('0' + str, max) : str
 }
 
-function moveToUserPosition (container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition, fitFunction) {
+function moveToUserPosition(container, currentDate, currentRate, coordinateSystem, ignoreX, ignoreY, mousePosition, fitFunction) {
   let targetPoint = {
     x: currentDate.valueOf(),
     y: currentRate
   }
 
-    /* Put this point in the coordinate system of the UI.projects.foundations.spaces.chartingSpace.viewport */
+  /* Put this point in the coordinate system of the UI.projects.foundations.spaces.chartingSpace.viewport */
   targetPoint = coordinateSystem.transformThisPoint(targetPoint)
   targetPoint = UI.projects.foundations.utilities.coordinateTransformations.transformThisPoint(targetPoint, container)
 
@@ -81,7 +103,7 @@ function moveToUserPosition (container, currentDate, currentRate, coordinateSyst
   container.displace(displaceVector)
 }
 
-function removeTime (datetime) {
+function removeTime(datetime) {
   if (datetime === undefined) { return }
 
   let dateOnly = new Date(Math.trunc(datetime.valueOf() / ONE_DAY_IN_MILISECONDS) * ONE_DAY_IN_MILISECONDS)
@@ -89,14 +111,14 @@ function removeTime (datetime) {
   return dateOnly
 }
 
-function newUniqueId () {
+function newUniqueId() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8)
     return v.toString(16)
   })
 }
 
-function splitTextIntoPhrases (text, wordsPerLine) {
+function splitTextIntoPhrases(text, wordsPerLine) {
   try {
     if (text.split === undefined) {
       return []
@@ -128,7 +150,7 @@ function splitTextIntoPhrases (text, wordsPerLine) {
   }
 }
 
-function getTextWidth (text) {
+function getTextWidth(text) {
   var metrics = browserCanvasContext.measureText(text)
   return metrics.width
 }

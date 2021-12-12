@@ -26,6 +26,29 @@
                 "text": "Hay una herramienta más que puede resultarte útil para manipular el espacio-tiempo. La función nativa de zoom del navegador.",
                 "updated": 1618436075914,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt noch ein weiteres nützliches Werkzeug, um die Raumzeit zu manipulieren! \nDie Zoomfunktion des Browsers!",
+                "updated": 1634164815326,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Er is nog een hulpmiddel dat je wellicht nuttig vindt om de ruimtetijd te manipuleren! De zoom functie van de browser!",
+                "updated": 1635180926329,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Есть еще один инструмент, который может оказаться полезным для управлением временным простарнством! Встроенная функция масштабирования браузера!",
+                "updated": 1635609923705,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Uzay-zamanı manipüle etmek için yararlı bulabileceğiniz bir araç daha var! Yerel tarayıcı yakınlaştırma işlevi!",
+                "updated": 1635951488270
             }
         ]
     },
@@ -52,6 +75,29 @@
                     "text": "A veces es posible que desee visualizar secciones más grandes del Design Space de lo que permite su pantalla.",
                     "updated": 1618436141915,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Manchmal möchten Sie vielleicht einen größeren Ausschnitt des Design Space visualisieren, als Ihr Bildschirm erlaubt.",
+                    "updated": 1634164830952,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Soms wil je grotere delen van de Design Space te visualiseren dan het scherm toelaat.",
+                    "updated": 1635181009086,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": " Может, у Вас возникнет желание визуализировать большие участки Design Space , чем позволяет Ваш экран.",
+                    "updated": 1635610025598,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bazen Tasarım Alanının ( Design Space )ekranınızın izin verdiğinden daha büyük bölümlerini görselleştirmek isteyebilirsiniz.",
+                    "updated": 1635951580747
                 }
             ]
         },
@@ -62,21 +108,44 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Clicca Ctrl e scorri con la rotella del mouse su Windows o usa ⌘ e - oppure + su Mac.",
+                    "text": "Clicca Ctrl e scorri con la rotella del mouse su Windows o usa <kbd>⌘</kbd> e <kbd>-</kbd> oppure <kbd>+</kbd> su Mac.",
                     "updated": 1614789231899,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Tekan Ctrl dan scroll mouse wheel di Windows atau ⌘ dan - atau + di Mac.",
+                    "text": "Tekan Ctrl dan scroll mouse wheel di Windows atau <kbd>⌘</kbd> dan <kbd>-</kbd> atau <kbd>+</kbd> di Mac.",
                     "updated": 1616699557574,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Pulsa Ctrl y desplaza la rueda del ratón en Windows o ⌘ y - o + en Mac.",
+                    "text": "Pulsa Ctrl y desplaza la rueda del ratón en Windows o <kbd>⌘</kbd> y <kbd>-</kbd> o <kbd>+</kbd> en Mac.",
                     "updated": 1618436175073,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl und scrollen Sie das Mausrad unter Windows oder <kbd>⌘</kbd> und <kbd>-</kbd> oder <kbd>+</kbd> unter Mac.",
+                    "updated": 1634164874266,
+                    "style": "Callout"
+                },
+                {
+                    "language": "NL",
+                    "text": "Druk Ctrl in en scroll met je muiswiel op Windows of ⌘ en - of + op Mac.",
+                    "updated": 1635181100849,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl и прокрутите колесико мыши в Windows или нажмите ⌘ и \"+\" или \"-\" на Mac.",
+                    "updated": 1635610153211,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Windows'ta Ctrl'ye basın ve fare tekerleği le büyürün küçültün. Yada Mac'te ⌘ ve - veya +'yı kullanın.",
+                    "updated": 1635951641013
                 }
             ]
         },
@@ -106,6 +175,29 @@
                     "text": "Chrome indica el nivel de zoom en la esquina superior derecha. Al acercar o alejar el zoom, el Desing Space vuelve al centro. Utiliza el mapa para volver a donde estabas.",
                     "updated": 1618436232576,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Chrome zeigt die Zoomstufe in der oberen rechten Ecke an. Beim Vergrößern oder Verkleinern wird der Designbereich auf dem Bildschirm zentriert. Verwenden Sie die Karte des Designbereichs, um dorthin zurückzukehren, wo Sie waren.",
+                    "updated": 1634164919327,
+                    "style": "Success"
+                },
+                {
+                    "language": "NL",
+                    "text": "Chrome geeft het zoomniveau aan in de rechterbovenhoek. Wanneer je in- of uitzoomt, wordt de ontwerpruimte gecentreerd op het scherm. Gebruik de kaart van de ontwerpruimte om terug te gaan naar waar je was gebleven.",
+                    "updated": 1635181242967,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Chrome указывает уровень масштабирования в правом верхнем углу. Когда Вы увеличиваете или уменьшаете масштаб, пространство дизайна центрируется на экране. Используйте карту пространства дизайна, чтобы вернуться туда, где Вы были.",
+                    "updated": 1635610570380,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Chrome, sağ üst köşedeki yakınlaştırma düzeyini gösterir. Yakınlaştırırken veya uzaklaştırırken, tasarım alanı ekranda ortalanır. Bulunduğunuz yere geri dönmek için tasarım alanı haritasını kullanın.",
+                    "updated": 1635951707385
                 }
             ]
         }

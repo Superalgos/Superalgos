@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Lo hiciste! Sabía que podías. Has agregado correctamente su primer gráfico personalizado. ¡Espero que te hayas divertido tanto como yo!",
                 "updated": 1628732594182
+            },
+            {
+                "language": "RU",
+                "text": "Ты сделал это! Я знал, что ты можешь. Вы успешно добавили свой первый пользовательский график. Надеюсь, вам было так же весело, как и мне!",
+                "updated": 1639084604572
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "¡Felicitaciones, tu gráfico personalizado ahora está conectado y funcionando! Puedes repetir los mismos pasos, agregando más Timeline Charts, para conectar cualquier combinación de datos que desees. Solo un recordatorio rápido, los tres tipos de nodos a los que puede conectar un Timeline Chart’s Layer Manager son:",
                     "updated": 1628732779748
+                },
+                {
+                    "language": "RU",
+                    "text": "Поздравляем, ваш пользовательский график теперь подключен и работает! Теперь вы знаете основные этапы создания графика. Вы можете повторить те же шаги, добавляя больше временных диаграмм, чтобы соединить любую комбинацию данных, которую вы хотите. Небольшое напоминание: три типа узлов, к которым можно подключить менеджер слоев временной диаграммы (Timeline Chart’s Layer Manager) следующие:",
+                    "updated": 1639084668034
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Data Mine Products – para Market Data e indicadores.",
                     "updated": 1628732687448
+                },
+                {
+                    "language": "RU",
+                    "text": "Data Mine Products – для получения рыночных данных (Market Data) и индикаторов.",
+                    "updated": 1639084719551
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "ES",
                     "text": "Trading Mine Products– para resultados de un Trading System’s Backtesting Session o Live Trading Session.",
                     "updated": 1628732744101
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Mine Products– для результатов сессии торговой системы (Trading System’s) бэктестинга (Backtesting Session) реальной торговой сессии (Live Trading Session).",
+                    "updated": 1639084838280
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "ES",
                     "text": "Learning Mine Products – para la salida de datos de algoritmos de aprendizaje.",
                     "updated": 1628732726276
+                },
+                {
+                    "language": "RU",
+                    "text": "Learning Mine Products – для данных, выводимых алгоритмами обучения.",
+                    "updated": 1639084851586
                 }
             ]
         }

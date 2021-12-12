@@ -4,17 +4,25 @@
     "type": "Trading System Hierarchy",
     "definition": {
         "text": "A Trading System carries the trading logic implemented by the Trading Bot during a trading session.",
-        "updated": 1610138743003
+        "updated": 1610138743003,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ein Trading System trägt die vom Trading Bot implementierte Handelslogik während einer trading session (Handelssitzung).",
+                "updated": 1636658786831
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Definition",
-            "updated": 1610138679068
+            "text": "Algorithmic-Trading->Node->Trading System->Definition",
+            "updated": 1636540615102
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Content"
+            "text": "Algorithmic-Trading->Node->Trading System->Content",
+            "updated": 1636540640617
         }
     ]
 }

@@ -6,15 +6,16 @@ load all node dependencies and get them ready to the actual App.
 */
 
 /* 
-The PL object is accesible everywhere at the Superalgos Platform Client. 
+The PL object is accessible everywhere at the Superalgos Platform Client.
 It provides access to all modules built for this Client.
 */
 global.PL = {}
 /* 
-The SA object is accesible everywhere at the Superalgos Desktop App. 
+The SA object is accessible everywhere at the Superalgos Desktop App.
 It provides access to all modules built for Superalgos in general.
 */
 global.SA = {}
+
 /* Load Environment Variables */
 let ENVIRONMENT = require('./Environment.js');
 let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
@@ -47,14 +48,49 @@ SA.nodeModules = {
     http: require('http'),
     ccxt: require('ccxt'),
     octokit: require("@octokit/rest"),
+    graphql: require("@octokit/graphql"),
     simpleGit: require('simple-git'),
-    lookpath: require('lookpath')
+    lookpath: require('lookpath'),
+    process: require('process'),
+    childProcess: require('child_process'),
+    twitter: require('twitter-api-v2'),
+    slack: require('@slack/web-api')
 }
 
-run()
+SA.version = require('./package.json').version
+/*
+Check if we are starting from a particular workspace.
+*/
+let initialWorkspace = {}
 
-async function run() {
+for (let i = 0; i < process.argv.length; i++) {
+    let arg = process.argv[i]
+
+    if (arg === 'noBrowser') { continue }
+    if (arg === 'minMemo') { continue }
+    if (arg.indexOf(':') >= 0) { continue }
+    if (arg.indexOf('/') >= 0) { continue }
+
+    if (initialWorkspace.project === undefined) {
+        if (arg !== 'My-Workspaces') {
+            initialWorkspace.type = 'Plugin'
+            initialWorkspace.project = arg
+        } else {
+            initialWorkspace.type = 'My-Workspaces'
+            initialWorkspace.project = ''
+        }
+    } else {
+        initialWorkspace.name = arg
+    }
+}
+
+run(initialWorkspace)
+
+async function run(initialWorkspace) {
     PL.app = require('./Platform/PlatformApp.js').newPlatformApp()
-    await PL.app.run()
+    await PL.app.run(initialWorkspace)
     console.log('Superalgos Platform App is Running!')
+    if(process.send) {
+        process.send("Running")
+    }
 }

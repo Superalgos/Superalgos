@@ -1,0 +1,83 @@
+{
+    "topic": "Heikin Data Mine",
+    "pageNumber": 3,
+    "type": "Heikin Ashi Supertrend - Heikin Indicator",
+    "definition": {
+        "text": "Produce the supertrend indicator using the Heikin Ashi Candles as a basis for its calcuations.",
+        "updated": 1636853769
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Heikin Ashi Supertrend On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "A supertrend is a trend following indicator similar to moving averages. It is plotted on price and the current trend can simply be determined by its placement; a green lin below the price action is an uptrend, and a red line above the price action is a downtrend."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/heikin-superTrend-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "This supertrend indicator uses Heikin Ashi candles instead of standard candles to calculate the average true range (ATR) before calculating the final trend values."
+        },
+		{
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under \"Super Trend Heikin\" Product Definition. The two configurable parameters are:"
+        },
+		{
+            "style": "List",
+            "text": "Nperiod: the ATR length"
+        },
+		{
+            "style": "List",
+            "text": "multiplier: the ATR multiplier"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/heikin-supertrend-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "Heikin Super Trend Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "There are five properties available:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Super Trend Heikin | HeikinsuperTrend | trend, uptrend, downtrend, atrNPeriod, trueRange |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1636853769
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.HeikinsuperTrend.trend == 1",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Trend is downward, and price action remains under the trendline:",
+            "updated": 1636853769
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at15min.HeikinsuperTrend.trend == -1 && ( chart.at15min.candle.max < chart.at15min.HeikinsuperTrend.downtrend)",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

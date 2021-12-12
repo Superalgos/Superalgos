@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Let's Hunt For Errors!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-error"
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
         },
         "text": "Even when you are getting the results you expect, you may still have errors lurking around!"
     },

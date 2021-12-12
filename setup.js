@@ -23,11 +23,11 @@ if (process.argv.includes("noShortcuts")) {
         console.log('')
         console.log(err)
         console.log('')
-
+        process.exit(1)
     }
 }
 
-// Create Operating System compatable paths to each node_modules directory.
+// Create Operating System compatible paths to each node_modules directory.
 let nodeModulesDirs = [
     path.join( process.cwd(), "Platform"),
     path.join( process.cwd(), "Projects", "Foundations", "TS", "Bot-Modules", "Sensor-Bot", "Exchange-Raw-Data"),
@@ -89,7 +89,7 @@ for (let dir of nodeModulesDirs) {
                     console.log("There was an error installing some dependencies error: ");
                     console.log('');
                     console.log( error );
-                    return;
+                    process.exit(1)
                 }
                 console.log('');
                 console.log( stdout );
@@ -113,7 +113,7 @@ exec( command,
             if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
                 tfjsWinInstall();
             }
-            return;
+            process.exit(1)
         }
         console.log('');
         console.log( stdout );

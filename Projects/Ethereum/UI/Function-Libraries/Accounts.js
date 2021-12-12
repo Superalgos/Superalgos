@@ -7,7 +7,7 @@ function newEthereumFunctionLibraryAccounts() {
 
     function createWalletAccount(node) {
 
-        let walletAccountNode = UI.projects.foundations.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Wallet Account')
+        let walletAccountNode = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Wallet Account')
 
         let params = {
             method: 'createWalletAccount',

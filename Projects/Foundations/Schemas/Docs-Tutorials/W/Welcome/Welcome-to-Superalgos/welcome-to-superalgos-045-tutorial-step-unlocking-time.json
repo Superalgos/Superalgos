@@ -20,6 +20,21 @@
                 "text": "No puedes moverte porque las escalas están bloqueadas en el modo automático para que puedas encontrar fácilmente los datos después de tu primera operación de minería de datos.",
                 "updated": 1624404740730,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Grund, warum Sie sich nicht bewegen können, ist, dass die Skalen im automatischen Modus gesperrt sind, damit Sie die Daten nach Ihrer ersten Data-Mining-Operation leicht finden können.",
+                "updated": 1634216885238
+            },
+            {
+                "language": "TR",
+                "text": "Hareket edememenizin nedeni, ilk veri madenciliği işleminizden sonra verileri kolayca bulabilmeniz için skalanın otomatik modda kilitli olmasıdır.",
+                "updated": 1636093218029
+            },
+            {
+                "language": "RU",
+                "text": "Причина, по которой Вы не можете перемещаться заключатеся в том, что весы заблокированы в автоматическом режиме, чтобы Вы могли легко найти данные после первой операции интеллектуального анализа данных.",
+                "updated": 1636205935534
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "text": "Fijar el Time Scale en automático fuerza todo el rango de fecha y hora de los datos disponibles al gráfico.",
                     "updated": 1624404973090,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Time Scale im automatischen Modus einstellen, wird der gesamte Zeitbereich der verfügbaren Daten in das Diagramm gezwungen.",
+                    "updated": 1634216894224
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Ölçeğini ( Time Scale ) otomatik modda ayarlamak, mevcut verilerin tümünün tarih-saat aralığında gösterilmesine zorlar.",
+                    "updated": 1636093070726
+                },
+                {
+                    "language": "RU",
+                    "text": "Установка Time Scale в автоматическом режиме приводит к тому, что на диаграмме отображается весь диапазон доступных данных по дате и времени.",
+                    "updated": 1636205990780
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "text": "Para alternar entre los modos automáticos y el manual, presiona Shift y haz un suave giro de un paso con la rueda del mouse en la parte superior del cuadro de escala de tiempo. O bien, también puedes colocar el mouse sobre el cuadro de escala y presionar ↑ ↓.",
                     "updated": 1624405351031,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Um zwischen den verschiedenen automatischen Modi und dem manuellen Modus hin- und herzuschalten, drücken Sie die Umschalttaste und bewegen Sie das Mausrad über dem Time Scale-Feld in einem Schritt. Alternativ können Sie auch den Mauszeiger auf das Skalenfeld setzen und die Pfeiltasten ↑ ↓ drücken.",
+                    "updated": 1634216938054
+                },
+                {
+                    "language": "TR",
+                    "text": "Otomatik mod ve manuel mod arasında geçiş yapmak için Shift 'e basın ve farenizin tekerleği ile zaman ölçeği kutusunun üzerinde birkez döndürün. Alternatif olarak, fare işaretçisini ölçek kutusunun üzerine getirebilir ve yukarı ve aşağı ok tuşlarına ↑ ↓ basabilirsiniz.",
+                    "updated": 1636093154603
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы переключаться между различным автоматическим и ручным режимами, нажмите Shift и сделайте плавный одношаговый поворот колесиком мыши в верхней части окна шкалы времени. Кроме того, Вы также можете поместить указатель мыши на окно масштаба и нажать клавиши со стрелками ↑ ↓.",
+                    "updated": 1636206214736
                 }
             ],
             "updated": 1622199287763
@@ -77,6 +122,21 @@
                     "text": "Ahora deberías poder moverte libremente en el eje X, es decir, el eje de tiempo del gráfico.",
                     "updated": 1624405847740,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten sich nun frei auf der X-Achse, das heißt der Zeitachse des Diagramms, bewegen können.",
+                    "updated": 1634216981937
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık X ekseninde , yani grafiğin zaman ekseninde serbestçe hareket edebilmeniz gerekir.",
+                    "updated": 1636093193714
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь Вы должны иметь возможность сободно перемещаться по оси Х, т.е. по временной оси графика.",
+                    "updated": 1636206261878
                 }
             ]
         }

@@ -1,6 +1,6 @@
 exports.newMachineLearningBotModulesLearningEngine = function (processIndex) {
     /*
-    We call the Learning Engine to the data structure that is needed in order to exevute the
+    We call the Learning Engine to the data structure that is needed in order to execute the
     learning protocol with the specific rules defined at the Learning System.
     */
     let thisObject = {
@@ -30,7 +30,7 @@ exports.newMachineLearningBotModulesLearningEngine = function (processIndex) {
 
         if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true) {
             /* 
-            Here we will go through all the nodes in the Learning Engine hiriarchy and
+            Here we will go through all the nodes in the Learning Engine hierarchy and
             apply the initial value to the value property when needed 
              */
             initializeNode(learningEngine)
@@ -111,11 +111,11 @@ exports.newMachineLearningBotModulesLearningEngine = function (processIndex) {
         destinationNode.value = originNode.value
 
         /* Now we go down through all the children  of the origin node, assuming the destination node has the same children structure*/
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(originNode.project + '-' + originNode.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(originNode.project + '-' + originNode.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -150,11 +150,11 @@ exports.newMachineLearningBotModulesLearningEngine = function (processIndex) {
         nodesMap.set(node.id, node)
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
@@ -193,11 +193,11 @@ exports.newMachineLearningBotModulesLearningEngine = function (processIndex) {
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
-            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoind counting each property of those as individual children.
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 

@@ -1,0 +1,12 @@
+{
+    "type": "Trading",
+    "definition": {
+        "text": "Write the definition for this Node."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Right click and select the pencil button to enter edit mode."
+        }
+    ]
+}

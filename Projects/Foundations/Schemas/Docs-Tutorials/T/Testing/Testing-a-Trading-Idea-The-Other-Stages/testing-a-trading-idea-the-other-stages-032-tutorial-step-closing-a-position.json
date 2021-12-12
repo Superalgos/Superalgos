@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Closing a Position",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "close-stage"
+            "name": "Close\\close-stage",
+            "project": "Foundations"
         },
         "text": "Let's do some quick reading about the Close Stage! Take a look at this page!"
     },

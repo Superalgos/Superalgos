@@ -15,6 +15,11 @@
                 "text": "¡Lo hiciste! ¡Ahora estás participando oficialmente en el gobierno de Superalgos! ¿Qué es lo siguiente?",
                 "updated": 1630899371726,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Ты сделал это! Теперь вы официально принимаете участие в управлении Superalgos! Ну и что дальше?",
+                "updated": 1639053732625
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Si generaste un nuevo Governance Address utilizando el Profile Constructor, es posible que desees conectarlo a una billetera de software para que tengas el control de tus tokens.",
                     "updated": 1630899427730,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы сгенерировали новый адрес управления Governance Address с помощью конструктора профилей Profile Constructor, вы можете подключить его к программному кошельку, чтобы иметь контроль над своими токенами.",
+                    "updated": 1639053795526
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Ve el \"Import Private Key in a Wallet\" sección de esta página de Documentos a la derecha. Explica cómo hacerlo con Trust Wallet. ¡Echale un vistazo!",
                     "updated": 1630899460693,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Смотрите раздел Import Private Key in a Wallet на этой странице документов Docs page справа. В нем объясняется, как это сделать с помощью кошелька Trust Wallet. Проверьте это!",
+                    "updated": 1639053976753
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Siéntate libre de usar cualquier otra billetera que admita tokens BEP20 en el Binance Smart Chain.",
                     "updated": 1630899484668,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь использовать любой другой кошелек, который поддерживает токены BEP20 в Binance Smart Chain.",
+                    "updated": 1639053992756
                 }
             ]
         }

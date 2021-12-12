@@ -4,8 +4,8 @@
     "type": "Tutorial Step - How Do We Go About It?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "target-rate"
+            "name": "Target\\target-rate",
+            "project": "Foundations"
         },
         "text": "Remember we are taking the position at the close of the 1H candle, whenever the take position event validates true."
     },

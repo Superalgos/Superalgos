@@ -19,7 +19,13 @@
             {
                 "language": "ES",
                 "text": "Ahora que mencioné probar exchanges, hablemos un poco sobre cómo Superalgos los maneja y cuáles puede usar...",
-                "updated": 1628014366400
+                "updated": 1628014366400,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir alle haben unsere bevorzugten Börsen... lassen Sie uns ein wenig darüber sprechen, wie Superalgos mit ihnen umgeht und welche Sie verwenden können...",
+                "updated": 1634589422384
             }
         ]
     },
@@ -38,14 +44,27 @@
                 {
                     "language": "ES",
                     "text": "Superalgos usa CCXT, una biblioteca de código abierto que propone un estándar para las comunicaciones de API del mercado. El sistema funciona con intercambios que cumplen con el estándar:",
-                    "updated": 1628014486689
+                    "updated": 1628014486689,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos verwendet CCXT, eine Open-Source-Bibliothek, die einen Standard für die API-Kommunikation von Börsen vorschlägt. Das System arbeitet mit Börsen, die diesen Standard einhalten:",
+                    "updated": 1634589429073
                 }
             ]
         },
         {
             "style": "Link",
             "text": "List of Exchanges Pledging Compliance With CCXT->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
-            "updated": 1616001030925
+            "updated": 1616001030925,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Liste der Börsen, die sich zur Einhaltung von CCXT verpflichtet haben ->github.com/ccxt/ccxt/wiki/Exchange-Markets?r=Superalgos",
+                    "updated": 1634589471287
+                }
+            ]
         },
         {
             "style": "Note",
@@ -61,7 +80,13 @@
                 {
                     "language": "ES",
                     "text": "¡Aparecer en la lista no es suficiente! ¡Muchos exchanges no cumplen! Como resultado, hay un esfuerzo comunitario continuo para probar los exchanges y documentar qué se puede usar con Superalgos y cómo.  Mira el TOC para encontrar qué intercambios se han probado y en qué medida.",
-                    "updated": 1628014928782
+                    "updated": 1628014928782,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Aufnahme in die Liste ist jedoch nicht ausreichend! Viele Börsen halten sich nicht wirklich daran! Daher gibt es laufende Bemühungen der Community, Börsen zu testen und zu dokumentieren, welche mit Superalgos verwendet werden können und wie! Dies ist das Thema in den Docs, das diese Bemühungen abdeckt. Schauen Sie sich das TOC an, um herauszufinden, welche Börsen getestet wurden und in welchem Umfang.",
+                    "updated": 1634589436559
                 }
             ]
         }

@@ -2,7 +2,19 @@
     "type": "Claims Program",
     "definition": {
         "text": "When you contribute to Superalgos, you must produce a claim for your contribution, and you must harness the support of people working close to you, who will vouch or vote for your claims.",
-        "updated": 1630256293740
+        "updated": 1630256293740,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "cuando contribuye con Superalgos, debe producir una solicitud por dicha contribución, y debeand you must aprovechar el apoyo de las personas que trabajan cerca de usted, quienes responderá o votará por sus solicitudes.",
+                "updated": 1636041066589
+            },
+            {
+                "language": "RU",
+                "text": "Когда вы вносите свой вклад в Superalgos, вы должны подать заявку на свой вклад и заручиться поддержкой близких вам людей, которые подтвердят или проголосуют за это.",
+                "updated": 1638990396697
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,15 +25,51 @@
         {
             "style": "Important",
             "text": "Governance is decentralized. There is no central authority controlling who contributes what or what rewards contributors get. Instead, the project delegates in the Community the capacity to establish the value of contributions and to determine who contributed what.",
-            "updated": 1630256982050
+            "updated": 1630256982050,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La gobernanza es descentralizada. No hay una autoridad central controlando quien contribuye queo que recompensas  reciben los contribuyentes. En lugar de eso, el proyecto delega en la comunidad la capacidad de establecer el valor de las contribuciones y de determinar quien contribuye que.",
+                    "updated": 1636041621066
+                },
+                {
+                    "language": "RU",
+                    "text": "Управление децентрализовано. Нет никакого центрального органа, контролирующего, кто вносит вклад и какие вознаграждения получают участники. Вместо этого проект делегирует сообществу возможность устанавливать ценность вкладов и определять, кто и что внес.",
+                    "updated": 1638990470744
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As such, governance is a social system. When you get involved with Superalgos, you interact with the Community and find ways to contribute. While doing so, you relate to or associate with community members that have similar interests or are focused on the same areas of the project you may be working in. It is these people that will vouch for your claims!"
+            "text": "As such, governance is a social system. When you get involved with Superalgos, you interact with the Community and find ways to contribute. While doing so, you relate to or associate with community members that have similar interests or are focused on the same areas of the project you may be working in. It is these people that will vouch for your claims!",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como tal, la gobernanza es un sistema social. Cuando se involucra con Superalgos,  interactúa con la comunidad y encuentra modos de contribuir. Mientras hace eso, entra en relación o se asocia con miembros de la comunidad que tienen intereses similares o que están focalizados en las mismas áreas del proyecto en las que está trabajando. Esta es la gente que los respaldará en sus solicitudes!",
+                    "updated": 1636041930754
+                },
+                {
+                    "language": "RU",
+                    "text": "Как таковое, управление - это социальная система. Когда вы участвуете в Superalgos, вы взаимодействуете с Сообществом и находите способы внести свой вклад. При этом вы общаетесь или общаетесь с членами сообщества, которые имеют схожие интересы или сосредоточены на тех же областях проекта, в котором вы, возможно, работаете. Именно эти люди подтвердят ваши заявления!",
+                    "updated": 1638990541765
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three different types of claims you may place: "
+            "text": "There are three different types of claims you may place: ",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Hay tres tipos diferentes de solicitudes que puede realizar:",
+                    "updated": 1636041961553
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует три различных типа претензий, которые вы можете подать:",
+                    "updated": 1638990572805
+                }
+            ]
         },
         {
             "style": "List",
@@ -38,7 +86,19 @@
         },
         {
             "style": "Text",
-            "text": "There are also three different folder types of nodes that act as organizational devices from which you may spawn the above claim nodes:"
+            "text": "There are also three different folder types of nodes that act as organizational devices from which you may spawn the above claim nodes:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "También hay tres tipos de carpetas de nodos diferentes que actúan como dispositivos organizativos a partir de los cuales puede generar los nodos de solicitudes anteriores.:",
+                    "updated": 1636042005643
+                },
+                {
+                    "language": "RU",
+                    "text": "Также существует три различных типа папок узлов, которые действуют как организационные устройства, из которых вы можете создавать указанные выше узлы заявок:",
+                    "updated": 1638990598227
+                }
+            ]
         },
         {
             "style": "List",
@@ -56,7 +116,19 @@
         },
         {
             "style": "Text",
-            "text": "These three types of claims match the three types of definition hierarchies used to describe the project:"
+            "text": "These three types of claims match the three types of definition hierarchies used to describe the project:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Estos tres tipos de declaraciones coinciden con los tres tipos de jerarquías de definición que se utilizan para describir el proyecto:",
+                    "updated": 1636042035723
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти три типа заявлений соответствуют трем типам иерархий определений, используемых для описания проекта:",
+                    "updated": 1638990642149
+                }
+            ]
         },
         {
             "style": "List",
@@ -73,35 +145,119 @@
         {
             "style": "Callout",
             "text": "To place a claim, use the appropriate type of contribution claim node to reference the matching type of definition. For example, use an Asset Contribution Claim node to reference an Asset node within an Assets hierarchy. When you do that, you are effectively placing a claim on that asset.",
-            "updated": 1630323960334
+            "updated": 1630323960334,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para colocar un reclamo, use el tipo apropiado de nodo de reclamo de contribución para hacer referencia al tipo de definición coincidente.Por ejemplo, use un nodo de Asset Contribution Claim para referenciar un nodo de Asset node con una jerarquía Assets. Cuando hace esto, está efectivamente colocando una solicituda en dicho asset.",
+                    "updated": 1636042322243
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы разместить заявку, используйте соответствующий тип узла заявки на взнос для ссылки на соответствующий тип определения. Например, используйте узел Asset Contribution Claim для ссылки на узел Asset в иерархии Assets. Когда вы это делаете, вы фактически предъявляете претензию на этот ресурс.",
+                    "updated": 1638991185571
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This claim means that you declare that you have worked on that asset, either creating or improving it, and that you expect to be rewarded accordingly."
+            "text": "This claim means that you declare that you have worked on that asset, either creating or improving it, and that you expect to be rewarded accordingly.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Esta afirmación significa que declara que ha trabajado en ese activo, ya sea creándolo o mejorándolo, y que espera ser recompensado en consecuencia.",
+                    "updated": 1636042350532
+                },
+                {
+                    "language": "RU",
+                    "text": "Это означает, что вы заявляете, что работали над этим ресурсом, создавая или улучшая его, и ожидаете соответствующего вознаграждения.",
+                    "updated": 1638991248603
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "How a claim is resolved depends on three interelated concepts:",
-            "updated": 1630256564789
+            "text": "How a claim is resolved depends on three interrelated concepts:",
+            "updated": 1630256564789,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La forma en que se resuelve una reclamación depende de tres conceptos interrelacionados:",
+                    "updated": 1636042384399
+                },
+                {
+                    "language": "RU",
+                    "text": "Порядок разрешения претензии зависит от трех взаимосвязанных концепций:",
+                    "updated": 1638991270692
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Claim Power you drive into the node that places the claim.",
-            "updated": 1630256658386
+            "updated": 1630256658386,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Claim Power que dirija hacia el nodo que coloca la solicitud.",
+                    "updated": 1636042424716
+                },
+                {
+                    "language": "RU",
+                    "text": "Claim Power, который вы вбиваете в узел, который размещает заявку.",
+                    "updated": 1638991498259
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Claim Votes your claim gets from other users, and the Voting Power they drive into those votes."
+            "text": "The Claim Votes your claim gets from other users, and the Voting Power they drive into those votes.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Claim Votes que su solicitud obtenga de otros usuarios, y el Voting Power ellos dirijen a esos votos.",
+                    "updated": 1636042491572
+                },
+                {
+                    "language": "RU",
+                    "text": "Claim Votes, который ваша заявка получает от других пользователей, и Voting Power, который они вкладывают в эти голоса.",
+                    "updated": 1638991475900
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Token Rewards available within the definition node you are claiming.",
-            "updated": 1630256728009
+            "updated": 1630256728009,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "LasToken Rewards disponibles con la definición del nodo que ha presentado la solicitud.",
+                    "updated": 1636042546324
+                },
+                {
+                    "language": "RU",
+                    "text": "Token Rewards, доступные в узле определения, на который вы претендуете.",
+                    "updated": 1638991542338
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To learn all the details about claims resolution, read the How Claims are Resolved page in the Governance Flow topic of The Governance Project book.",
-            "updated": 1630257166423
+            "updated": 1630257166423,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para aprender estos detalles acerca de las claims resolution, leer la página How Claims are Resolved (como se resuelven las solicitudes)en el topico del flujo de gobernanza del libro Governance Project.",
+                    "updated": 1636042664873
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать все подробности о разрешении претензий, прочтите страницу How Claims are Resolved в разделе Governance Flow книги The Governance Project.",
+                    "updated": 1638991638290
+                }
+            ]
         },
         {
             "style": "Text",
@@ -113,7 +269,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638991651989
+                }
+            ]
         }
     ]
 }

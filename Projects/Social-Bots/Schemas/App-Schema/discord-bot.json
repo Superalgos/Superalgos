@@ -1,0 +1,44 @@
+{
+    "type": "Discord Bot",
+    "editors": {
+        "config": true
+    },
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Send Discord Test Message",
+            "label": "Send Discord Test Message",
+            "iconPathOn": "test-entity",
+            "iconPathOff": "test-entity",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Social-Bots"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "initialValues": {
+        "config": "{\n\"webhookURL\": \"Paste the webhook url obtained from Discord > Channel Settings > Integrations > Webhooks > New Webhook\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Social Bots->"
+    },
+    "childrenNodesProperties": [],
+    "propertyNameAtParent": "discordBots"
+}

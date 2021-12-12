@@ -1,0 +1,67 @@
+{
+    "type": "Production Portfolio Tasks",
+    "menuItems": [
+        {
+            "action": "Run All Project Portfolio Tasks",
+            "label": "Run All Project Portfolio Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Run",
+            "workDoneLabel": "Run Request Sent",
+            "iconPathOn": "run",
+            "iconPathOff": "run",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Stop All Project Portfolio Tasks",
+            "label": "Stop All Project Portfolio Tasks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Stop",
+            "workDoneLabel": "Stop Request Sent",
+            "iconPathOn": "stop",
+            "iconPathOff": "stop",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Project Portfolio Tasks",
+            "relatedUiObject": "Project Portfolio Tasks",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Missing Project Portfolio Tasks",
+            "label": "Add Missing Projects",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Project Portfolio Tasks",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 0,
+    "attachingRules": {
+        "compatibleTypes": "->LAN Network Node->"
+    },
+    "propertyNameAtParent": "productionPortfolioTasks",
+    "childrenNodesProperties": [
+        {
+            "name": "projectPortfolioTasks",
+            "type": "array",
+            "childType": "Project Portfolio Tasks",
+            "monitorChildrenRunning": true
+        }
+    ]
+}

@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Este es un paso fácil de olvidar pero muy importante. ¡Agrega esas capas para que podamos ver los datos en nuestro gráfico!",
                 "updated": 1628725473598
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг легко забыть, но он так важен. Добавьте эти слои, чтобы мы могли видеть данные на нашем графике!",
+                "updated": 1639079324934
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "El último paso es colocar el cursor sobre el Layer Manager y clic Add All Mine Layers. ¡Asegúrate de confirmar después de hacer clic en el botón!",
                     "updated": 1628725516397
+                },
+                {
+                    "language": "RU",
+                    "text": "Последний шаг - наведите курсор на Менеджер слоев (Layer Manager) и нажмите Добавить все слои шахты (Add All Mine Layers). После нажатия кнопки обязательно подтвердите!",
+                    "updated": 1639079390661
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Esto agregará automáticamente referencias a todas las capas individuales producidas por el Data Mine.",
                     "updated": 1628725533579
+                },
+                {
+                    "language": "RU",
+                    "text": "Это автоматически добавит ссылки на все отдельные слои, созданные в Data Mine.",
+                    "updated": 1639079409140
                 }
             ]
         },

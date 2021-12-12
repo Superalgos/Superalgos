@@ -12,7 +12,7 @@
         },
         {
             "action": "Delete UI Object",
-            "actionProject": "Foundations",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -25,14 +25,20 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webSocketsPort\": \"15042\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Signing Account->"
+        "compatibleTypes": "->Mobile Apps->"
     },
     "childrenNodesProperties": [
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        }
     ],
-    "propertyNameAtParent": "assignedTo"
+    "propertyNameAtParent": "socialTradingMobileApps"
 }

@@ -4,43 +4,106 @@
     "type": "References",
     "definition": {
         "text": "A reference is a mechanism by which information in a node is related to, or accessed by, other nodes. The ability of a node to establish a reference with another node enables the first to access the information or features entailed in the second one.",
-        "updated": 1609950165954
+        "updated": 1609950165954,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Чтобы установить ссылку, щелкните правой кнопкой мыши первый узел и перетащите его ближе к целевому узлу. Чтобы удалить ссылку, используйте кнопку удаления ссылки в меню.",
+                "updated": 1638275608891
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Direction"
+            "text": "Direction",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Направление ",
+                    "updated": 1638274544071
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "References have a direction property relative to each of the nodes involved in the reference: the node establishing the reference sets an outgoing reference, while the one accepting the reference sets an incoming reference."
+            "text": "References have a direction property relative to each of the nodes involved in the reference: the node establishing the reference sets an outgoing reference, while the one accepting the reference sets an incoming reference.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ссылки имеют свойство направления относительно каждого из узлов, участвующих в ссылке: узел, устанавливающий ссылку, устанавливает исходящую ссылку, а тот, который принимает ссылку, устанавливает входящую ссылку.",
+                    "updated": 1638274581454
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example, a Backtesting Session establishes an outgoing reference with a Trading System. This allows the session to access the information within the whole trading system hierarchy, including strategies. At the trading system level, the same reference is viewed as an incoming reference.",
-            "updated": 1615795085518
+            "updated": 1615795085518,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, Backtesting Session устанавливает исходящую ссылку с Trading System. Это позволяет сеансу получать доступ к информации внутри всей иерархии торговой системы, включая стратегии. На уровне торговой системы та же ссылка рассматривается как входящая.",
+                    "updated": 1638274749386
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "A node may produce only one outgoing reference, however, it may take several incoming references."
+            "text": "A node may produce only one outgoing reference, however, it may take several incoming references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел может создавать только одну исходящую ссылку, однако может принимать несколько входящих ссылок.",
+                    "updated": 1638274777302
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Scope"
+            "text": "Scope",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Область видимости",
+                    "updated": 1638274815389
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A reference established between nodes of any particular structure within a hierarchy is said to be an internal reference relative to the said structure of nodes. Similarly, a reference established with a node outside of the said structure, that is, in a different part of the hierarchy or in another hierarchy, is said to be an external reference."
+            "text": "A reference established between nodes of any particular structure within a hierarchy is said to be an internal reference relative to the said structure of nodes. Similarly, a reference established with a node outside of the said structure, that is, in a different part of the hierarchy or in another hierarchy, is said to be an external reference.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ссылка, установленная между узлами любой конкретной структуры в иерархии, называется внутренней ссылкой по отношению к указанной структуре узлов. Точно так же ссылка, установленная для узла вне указанной структуры, то есть в другой части иерархии или в другой иерархии, называется внешней ссылкой.",
+                    "updated": 1638274847075
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples of internal references may be found in the Data Mine and Crypto Ecosystem hierarchies. For example, let’s briefly look into one such case within a Plotter Module.",
-            "updated": 1615795128743
+            "updated": 1615795128743,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры внутренних ссылок можно найти в иерархиях Data Mine и Crypto Ecosystem. Например, давайте кратко рассмотрим один такой случай в модуле плоттера.",
+                    "updated": 1638274908334
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The capture below shows the Shapes node and several offspring nodes: on one hand, several Polygon nodes; on the other hand, the Chart Points node.",
-            "updated": 1615795168459
+            "updated": 1615795168459,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На снимке ниже показан узел Shapes и несколько дочерних узлов: с одной стороны, несколько узлов Polygon; с другой стороны, узел Chart Points.",
+                    "updated": 1638275031050
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -49,27 +112,62 @@
         },
         {
             "style": "Text",
-            "text": "Notice that vertices under each polygon reference to points under the chart points node."
+            "text": "Notice that vertices under each polygon reference to points under the chart points node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что вершины под каждым многоугольником ссылаются на точки под узлом точек диаграммы.",
+                    "updated": 1638275444310
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This means that the node Shapes features several internal references.",
-            "updated": 1620493425376
+            "updated": 1620493425376,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что узел Shapes имеет несколько внутренних ссылок.",
+                    "updated": 1638275462704
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The backup, clone and share operations make different uses of the properties of references. We will cover the three of them extensively so that you may make the most of these features.",
-            "updated": 1615796558622
+            "updated": 1615796558622,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В операциях резервного копирования, клонирования и совместного использования свойства ссылок используются по-разному. Мы подробно рассмотрим три из них, чтобы вы могли максимально использовать эти функции.",
+                    "updated": 1638275489284
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Graphical Representation",
-            "updated": 1615796579270
+            "updated": 1615796579270,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Графическое представление",
+                    "updated": 1638275511142
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "References are graphically represented with faint grey dotted lines, but they are not visible by default. References become visible when you hover the mouse pointer on a node that has a reference, or when activating the display of all references with the following key combination: ",
-            "updated": 1615827008604
+            "updated": 1615827008604,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ссылки графически представлены слабыми серыми пунктирными линиями, но по умолчанию они не видны. Ссылки становятся видимыми, когда вы наводите указатель мыши на узел, который имеет ссылку, или при активации отображения всех ссылок с помощью следующей комбинации клавиш:",
+                    "updated": 1638275541325
+                }
+            ]
         },
         {
             "style": "Text",
@@ -78,7 +176,14 @@
         {
             "style": "Note",
             "text": "For references to be visible, both nodes involved in the reference must be visible.",
-            "updated": 1615796621593
+            "updated": 1615796621593,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы ссылки были видимыми, должны быть видны оба узла, участвующие в ссылке.",
+                    "updated": 1638275561318
+                }
+            ]
         },
         {
             "style": "Anchor",
@@ -87,7 +192,14 @@
         },
         {
             "style": "Title",
-            "text": "How to Estabish and Remove References"
+            "text": "How to Estabish and Remove References",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как создавать и удалять ссылки",
+                    "updated": 1638275580020
+                }
+            ]
         },
         {
             "style": "Include",

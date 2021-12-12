@@ -2,7 +2,14 @@
     "type": "Asset",
     "definition": {
         "text": "An Asset is an artifact, mostly in a digital format, that belongs to a Project. It may be a code file, a documentation or tutorial page, an image, a video, a social media account or even a post, marketing collateral, and more. To incentivize the production and maintenance of Assets, the node may receive Weight Votes. It may also receive Contribution Claims from Contributors involved in their production and maintenance.",
-        "updated": 1630435180948
+        "updated": 1630435180948,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Asset - это изделие, в основном в цифровом формате, который принадлежит проекту Project. Это может быть файл кода, страница документации или учебника, изображение, видео, учетная запись в социальных сетях или даже сообщение, маркетинговое обеспечение и многое другое. Чтобы стимулировать производство и обслуживание изделий, узел может получать весовые голоса Weight Votes. Он также может получать требования о взносах Contribution Claims от участников Contributors, участвующих в их производстве и обслуживании.",
+                "updated": 1638606457884
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,12 +20,26 @@
         {
             "style": "Text",
             "text": "You may cast Weight Votes on individual Asset nodes to incentivize the improvement, development, and maintenance of the said asset.",
-            "updated": 1630435190635
+            "updated": 1630435190635,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете отдавать голоса Weight Votes по отдельным узлам изделия, чтобы стимулировать улучшение, развитие и обслуживание указанного изделия.",
+                    "updated": 1638606543678
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you are involved in the development or maintenance of the said asset, you may place an Asset Contribution Claim and rally the Community to support your claim so that you may be rewarded for your work.",
-            "updated": 1630435212758
+            "updated": 1630435212758,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы участвуете в разработке или обслуживании указанного изделия, вы можете подать заявление об Asset Contribution Claim и сплотить сообщество для поддержки вашего требования, чтобы вы могли быть вознаграждены за свою работу.",
+                    "updated": 1638606669194
+                }
+            ]
         },
         {
             "style": "Block",
@@ -26,7 +47,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638606682435
+                }
+            ]
         },
         {
             "style": "Text",

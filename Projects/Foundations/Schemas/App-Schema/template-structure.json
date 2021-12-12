@@ -3,6 +3,7 @@
     "menuItems": [
         {
             "action": "Delete UI Object",
+"actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -33,6 +34,11 @@
             "name": "tradingSessionReferences",
             "type": "node",
             "childType": "Trading Session Reference"
+        },
+        {
+            "name": "portfolioSessionReferences",
+            "type": "node",
+            "childType": "Portfolio Session Reference"
         },
         {
             "name": "timeMachines",

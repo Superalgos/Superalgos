@@ -4,21 +4,49 @@
     "type": "Syncing With the Exchange",
     "definition": {
         "text": "Syncing with the exchange involves calculating the actual size, the actual rate, the percentage filled, the fees paid, and the size filled, to update the trading engine data structure so that it matches with the actual situation of the order at the exchange.",
-        "updated": 1610221056957
+        "updated": 1610221056957,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La sincronización con el intercambio implica calcular el tamaño real, la tasa real, el porcentaje cumplimentado, las tarifas pagadas y el tamaño llenado, para actualizar la estructura de datos del motor de trading de modo que coincida con la situación real de la orden en el intercambio.",
+                "updated": 1636385740651
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The process of synchronizing the data in the trading engine with what actually happens at the exchange is crucial to monitoring and controlling a live trading operation from within Superalgos. It is this process that allows users to access the information at the exchange throughout the life cycle of each order, on the fly.",
-            "updated": 1610221245028
+            "updated": 1610221245028,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El proceso de sincronizar los datos en el motor de trading con lo que realmente sucede en el intercambio es crucial para monitorear y controlar una operación comercial en vivo desde Superalgos. Es este proceso el que permite a los usuarios acceder a la información en el intercambio a lo largo del ciclo de vida de cada pedido, sobre la marcha.",
+                    "updated": 1636385801690
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is when all calculations involving the actual size, actual rate, actual fees, and so on are made. We will closely look into each of the calculations."
+            "text": "This is when all calculations involving the actual size, actual rate, actual fees, and so on are made. We will closely look into each of the calculations.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Aquí es cuando se realizan todos los cálculos relacionados con el tamaño real, la tasa real, las tarifas reales, etc. Examinaremos de cerca cada uno de los cálculos.",
+                    "updated": 1636385835284
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the synchronization is done, the bot does the accounting (see Accounting), to keep the rest of the variables—like balances and the stage size—up to date with the reality of orders."
+            "text": "Once the synchronization is done, the bot does the accounting (see Accounting), to keep the rest of the variables—like balances and the stage size—up to date with the reality of orders.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Una vez que se realiza la sincronización, el bot hace la contabilidad (see Accounting), para mantener el resto de variables —como los saldos y el tamaño del escenario— al día con la realidad de los pedidos.",
+                    "updated": 1636385933973
+                }
+            ]
         },
         {
             "style": "Block",
@@ -30,16 +58,37 @@
         },
         {
             "style": "Text",
-            "text": "While users may define the target size of the stage in either the base asset or the quoted asset, the size of orders is always denominated in the base asset, as per the CCXT Library API, and—likely—most exchange’s APIs."
+            "text": "While users may define the target size of the stage in either the base asset or the quoted asset, the size of orders is always denominated in the base asset, as per the CCXT Library API, and—likely—most exchange’s APIs.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si bien los usuarios pueden definir el tamaño objetivo de la etapa en el activo base o en el activo cotizado, el tamaño de las órdenes siempre se denomina en el activo base, según la blibioteca CCXT API, y, probablemente, la mayoría de los APIs de los  exchanges.",
+                    "updated": 1636386024768
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "It is a common occurrence that exchanges change the size slightly, for whatever reason, including issues with the precision of decimal places, for example. This is why the size of the order as defined by the user may need to be updated, synchronizing it with the actual size determined by the exchange.",
-            "updated": 1610221270715
+            "updated": 1610221270715,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es una ocurrencia común que los intercambios cambian ligeramente el tamaño, por cualquier motivo, incluidos problemas con la precisión de los lugares decimales, por ejemplo. Es por eso que el tamaño del pedido definido por el usuario puede necesitar ser actualizado, sincronizándolo con el tamaño real determinado por el intercambio.",
+                    "updated": 1636386104243
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When the actual size of the order as reported by the exchange is different than the size defined by the user, the trading bot makes the adjustments described below."
+            "text": "When the actual size of the order as reported by the exchange is different than the size defined by the user, the trading bot makes the adjustments described below.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando el tamaño real de la orden según lo informado por el iexchange es diferente al tamaño definido por el usuario, el robot comercial realiza los ajustes que se describen a continuación.",
+                    "updated": 1636386148631
+                }
+            ]
         },
         {
             "style": "Subtitle",

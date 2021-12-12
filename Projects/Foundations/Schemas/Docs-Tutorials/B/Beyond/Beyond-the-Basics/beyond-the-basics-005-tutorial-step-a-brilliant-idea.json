@@ -21,6 +21,11 @@
                 "text": "¡Superalgos es gratis para todos porque queremos tu ayuda! ¡Queremos que las mejores mentes nos ayuden a construir la plataforma de automatización trading definitiva!",
                 "updated": 1628116911425,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist für jeden kostenlos, weil wir Ihre Hilfe wollen! Wir möchten, dass die besten Köpfe in diesem Bereich uns helfen, die ultimative Handelsautomatisierungsplattform zu bauen!",
+                "updated": 1634820114946
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "¡Tu primera contribución es tu feedback!",
                     "updated": 1628116797218,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr erster Beitrag ist Ihr Feedback!",
+                    "updated": 1634820120530
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": " ¡Queremos tener tu primera impresión, fresca de la experiencia reciente! Y queremos que sus comentarios iniciales sean la primera de muchas contribuciones al proyecto.",
                     "updated": 1628117475146,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie haben wahrscheinlich Stunden damit verbracht, Superalgos zu entdecken. Wir möchten Ihren ersten Eindruck haben, frisch aus der jüngsten Erfahrung! Und wir möchten, dass Ihr erstes Feedback der erste von vielen Beiträgen zu diesem Projekt ist.",
+                    "updated": 1634820126153
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "No necesitas ser un programador estrella o un trader profesional para contribuir. ¡Se espera que cada usuario retribuya! ¡Te diré cómo!",
                     "updated": 1628118458317,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen kein Starprogrammierer oder professioneller Händler sein, um einen Beitrag zu leisten. Von jedem Nutzer wird erwartet, dass er etwas zurückgibt! Ich sage Ihnen wie!",
+                    "updated": 1634820132090
                 }
             ]
         }

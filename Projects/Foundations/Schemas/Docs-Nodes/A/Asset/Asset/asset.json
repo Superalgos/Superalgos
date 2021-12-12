@@ -2,7 +2,19 @@
     "type": "Asset",
     "definition": {
         "text": "An asset node is the definition of an asset in Superalgos.",
-        "updated": 1609771995506
+        "updated": 1609771995506,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Asset - это определение актива в Superalgos.",
+                "updated": 1638622145471
+            },
+            {
+                "language": "TR",
+                "text": "Varlık düğümü, Superalgos'taki bir varlığın tanımıdır.",
+                "updated": 1639221932300
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +25,14 @@
         {
             "style": "Text",
             "text": "Assets defined under the Exchange Assets node may then be used to define markets, or to define holdings denominated in these assets under the User Assets node.",
-            "updated": 1609772147353
+            "updated": 1609772147353,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Активы, определенные в узле Exchange Assets, могут затем использоваться для определения рынков или для определения холдингов, выраженных в этих активах в узле User Assets.",
+                    "updated": 1638622172298
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,21 +46,49 @@
         {
             "style": "Title",
             "text": "Asset Configuration",
-            "updated": 1609772023763
+            "updated": 1609772023763,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Asset",
+                    "updated": 1638622102884
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609772168896
+            "updated": 1609772168896,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638622111242
+                }
+            ]
         },
         {
             "style": "List",
             "text": "codeName is the ticker of the asset as listed by the exchange (i.e. BTC, BTH, ETH, LTC, BNB, USDT, USD, etc.)",
-            "updated": 1609772199109
+            "updated": 1609772199109,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это тикер актива, указанный биржей (например, BTC, BTH, ETH, LTC, BNB, USDT, USD и т. д.)",
+                    "updated": 1638622191695
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When a configured asset is within the system's icon catalog, the standard asset icon is replaced with the logotype of the corresponding asset."
+            "text": "When a configured asset is within the system's icon catalog, the standard asset icon is replaced with the logotype of the corresponding asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда настроенный актив находится в каталоге значков системы, стандартный значок актива заменяется логотипом соответствующего актива.",
+                    "updated": 1638622213836
+                }
+            ]
         }
     ]
 }

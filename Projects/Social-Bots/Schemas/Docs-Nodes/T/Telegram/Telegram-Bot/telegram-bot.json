@@ -1,0 +1,124 @@
+{
+    "type": "Telegram Bot",
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Telegram Bot node is used to define the botToken and chatId parameters which are required by Superalgos to interact with the Telegram API.",
+            "updated": 1618224117691,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Telegram Bot node wird verwendet, um die Parameter botToken und chatId zu definieren, die von Superalgos für die Interaktion mit der Telegram-API benötigt werden.",
+                    "updated": 1634059030457,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The botToken parameter is provided by the Telegram Bot @BotFather. It is a 10 digit number, followed by a colon and then a 35 character (alpha-numeric but can also containing dash - and underscore _) string.",
+            "updated": 1618224138149,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Parameter botToken wird vom Telegram Bot @BotFather bereitgestellt. Bei dem Parameter handelt es sich um eine 10-stellige Zahl, gefolgt von einem Doppelpunkt und einer 35-stelligen Zeichenkette (alphanumerisch, kann aber auch Bindestriche -  und Unterstriche _ enthalten).",
+                    "updated": 1634059280643,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It should be contained within quotes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Parameter sollte in Anführungszeichen gesetzt werden.",
+                    "updated": 1634059303110,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1618223886054,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1634059309030,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "\"1234567890:aBCdE_FG4hij0kLMnoP9qrsTUvw25-xyz31\"",
+            "updated": 1618223916419
+        },
+        {
+            "style": "Text",
+            "text": "The chatId parameter is provided by the Telegram Bot @myidbot using the /getgroupid command. It is a negative 9 digit numeric number. It should be entered without quotes.",
+            "updated": 1618224061206,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Parameter chatId wird vom Telegram Bot @myidbot mit dem Befehl /getgroupid bereitgestellt. Es handelt sich um eine negative 9-stellige numerische Zahl. Sie sollte ohne Anführungszeichen eingegeben werden.",
+                    "updated": 1634059649334,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Example:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiel:",
+                    "updated": 1634059318798,
+                    "style": "Text"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "-123456789"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example Configuration:",
+            "updated": 1634064610204,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispielkonfiguration:",
+                    "updated": 1634064911645,
+                    "style": "Subtitle"
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "{\n\t\"botToken\": \"1234567890:aBCdE_FG4hij0kLMnoP9qrsTUvw25-xyz31\",\n\t\"chatId\": -123456789\n }",
+            "updated": 1618224233921
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ],
+    "definition": {
+        "text": "The Telegram Bot node is used to define the parameters used to connect to the Telegram API. This allows Superalgos to interact with Telegram to send announcements and receive incoming commands.",
+        "updated": 1618220722404,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Telegram Bot Node wird verwendet, um die Parameter für die Verbindung mit der Telegram API zu definieren. Dies ermöglicht es Superalgos, mit Telegram zu interagieren, um Ankündigungen zu senden und eingehende Befehle zu empfangen. Ins deutsche übersetzt von gitforkgit.",
+                "updated": 1634133854316,
+                "style": "Definition"
+            }
+        ]
+    }
+}

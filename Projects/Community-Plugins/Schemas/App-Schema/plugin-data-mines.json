@@ -14,19 +14,33 @@
             "actionProject": "Community-Plugins"
         },
         {
+            "action": "Add Specified Plugin Data Mine",
+            "label": "Add Specified Plugin Data Mine",
+            "iconPathOn": "data-mine",
+            "iconPathOff": "data-mine",
+            "iconProject": "Data-Mining",
+            "actionProject": "Community-Plugins",
+            "relatedUiObject": "Data Mine",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
             "iconPathOn": "delete-entity",
             "iconPathOff": "delete-entity",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Foundations"
+            "actionFunction": "payload.executeAction"
         }
     ],
     "addLeftIcons": true,
     "level": 1,
     "propertyNameAtParent": "pluginDataMines",
+    "editors": {
+        "list": true
+    },
     "attachingRules": {
         "compatibleTypes": "->Plugin Project->"
     },

@@ -1,0 +1,96 @@
+{
+    "topic": "Gov Commands Messages",
+    "pageNumber": "7",
+    "type": "Gov Message - Starting Automated User Profile Contribution",
+    "definition": {
+        "text": "Hold on while your user profile is uploaded to GitHub.com. You will get a new message when the operation is complete.",
+        "updated": 1611002766659,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Tunggu sebentar perubahan yang dilakukan sedang diupload ke GitHub.com dan Pull Request sedang dibuat. Anda akan mendapatkan pesan baru setelah penguploadtan selesai.",
+                "updated": 1613891008401,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Warten Sie, während die Änderungen auf GitHub.com hochgeladen werden und ein Pull Request erstellt wird. Sie werden eine neue Nachricht erhalten, wenn der Vorgang abgeschlossen ist.",
+                "updated": 1634163736599
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "What's next?",
+            "updated": 1609940971059,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Lalu Selanjutnya ?",
+                    "updated": 1613891025030,
+                    "style": "Title"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie geht es nun weiter?",
+                    "updated": 1634163743036
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "No further action from you is required. Someone will review your Pull Request and merge it into the latest version of the software should everything be in order. If your changes are rejected for any reason, you will have to follow up with the issue at Github.com.",
+            "updated": 1611128895749,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Tidak perlu melakukan tindakan lebih lanjut. Seseorang akan meninjau Pull Request anda dan menggabungkannya ke perangkat lunak versi terbaru setelah semuanya selesai. Jika perubahan anda ditolak karena alasan apa pun, anda harus follow up masalah tersebut ke Github.com.",
+                    "updated": 1613891172587,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist keine weitere Aktion von Ihnen erforderlich. Jemand wird Ihren Pull Request überprüfen und ihn in die neueste Version der Software einfügen, wenn alles in Ordnung ist. Wenn Ihre Änderungen aus irgendeinem Grund abgelehnt werden, müssen Sie das Thema auf Github.com weiterverfolgen.",
+                    "updated": 1634163822210
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you submit more contributions while the Pull Request is under review, they will be automatically appended to the open Pull Request.",
+            "updated": 1611002870980,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Jika Anda mengirimkan lebih dari satu kontribusi saat Pull Request sedang direview, Hal tersebut akan secara otomatis ditambahkan ke Pull Request terbuka.",
+                    "updated": 1613891268456,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sollten Sie weitere Beiträge einreichen, während der Pull Request geprüft wird, werden diese automatisch an den offenen Pull Request angehängt.",
+                    "updated": 1634163831841
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "You should receive an email from Github.com when changes are merged, or if the reviewer makes comments or reject the changes. You may manage your email suscription settings at GitHub.com.",
+            "updated": 1611002949297,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Anda akan menerima email dari Github.com ketika perubahan dimerger, atau jika para peninjau memberikan komentar bahkan penolakan dalam perubahan. Anda dapat mengelola pengaturan berlangganan email anda di GitHub.com.",
+                    "updated": 1613891399207,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten eine E-Mail von Github.com erhalten, wenn Änderungen zusammengeführt werden, oder wenn der Prüfer Kommentare abgibt oder die Änderungen ablehnt. Sie können Ihre E-Mail-Einstellungen auf GitHub.com verwalten.",
+                    "updated": 1634163842377
+                }
+            ]
+        }
+    ]
+}

@@ -2,17 +2,38 @@
     "type": "Task Server",
     "definition": {
         "text": "The Task Server is one of the 3 main software components of Superalgos. The purpose of the Task Server is to run a Task. Tasks are defined at a Workspace at the UI. For running a Task, the Task Server receives at runtime all the needed definitions from the UI.",
-        "updated": 1621954996474
+        "updated": 1621954996474,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Task Server - один из трех основных программных компонентов Superalgos. Назначение сервера задач - запустить задачу Task. Задачи определяются в рабочей области Workspace пользовательского интерфейса UI. Для выполнения задачи сервер задач Task Server получает во время выполнения все необходимые определения из пользовательского интерфейса UI. ",
+                "updated": 1638299320450
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "For developers: When reading through the code you should notice extensive use of the TS object. The TS object  is the root object of a data structure available at runtime within the Task Server.",
-            "updated": 1622896987189
+            "updated": 1622896987189,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для разработчиков: при чтении кода вы должны заметить широкое использование объекта TS. Объект TS - это корневой объект структуры данных, доступной во время выполнения на сервере задач Task Server.",
+                    "updated": 1638299361366
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For a description of how to debug a task being run on the task server please see the Debugging a Task page."
+            "text": "For a description of how to debug a task being run on the task server please see the Debugging a Task page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Описание того, как отлаживать задачу, выполняемую на сервере задач Task Server, смотрите на странице Debugging a Task.",
+                    "updated": 1638299471652
+                }
+            ]
         }
     ]
 }

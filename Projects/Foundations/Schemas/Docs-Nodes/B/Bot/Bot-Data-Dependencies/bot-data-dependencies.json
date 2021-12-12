@@ -1,7 +1,14 @@
 {
     "type": "Bot Data Dependencies",
     "definition": {
-        "text": "A bot data dependencies node is an organizational device used to arrange data dependencies corresponding to a specific bot."
+        "text": "A bot data dependencies node is an organizational device used to arrange data dependencies corresponding to a specific bot.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Bot Data Dependencies - это организационное устройство, используемое для упорядочивания зависимостей данных, соответствующих конкретному боту.",
+                "updated": 1638644765947
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The device exists as an offspring of a data mine data dependencies node, and does not require a reference to a bot in the given data mine."
+            "text": "The device exists as an offspring of a data mine data dependencies node, and does not require a reference to a bot in the given data mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Устройство существует как потомок узла зависимостей данных хранилища данных и не требует ссылки на бота в данном хранилище данных.",
+                    "updated": 1638644891455
+                }
+            ]
         },
         {
             "style": "Block",
@@ -18,11 +32,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Bot Data Dependencies"
+            "text": "Configuring Bot Data Dependencies",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурция Bot Data Dependencies",
+                    "updated": 1638644905981
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню, чтобы получить доступ к настройкам.",
+                    "updated": 1638644958399
+                }
+            ]
         }
     ]
 }

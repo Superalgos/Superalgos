@@ -4,6 +4,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         calculateDelegatedPower: calculateDelegatedPower
     }
 
+    const OPAQUE_NODES_TYPES = ['Tokens Mined', 'Signing Accounts', 'Onboarding Programs', 'Liquidity Programs']
     return thisObject
 
     function calculateTokenPower(
@@ -89,7 +90,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         if (userProfile.payload === undefined) { return }
         if (userProfile.payload.blockchainTokens === undefined) { return }
         /*
-        The tokenPower is comming from blockchainTokens.
+        The tokenPower is coming from blockchainTokens.
         */
         let tokenPower = userProfile.payload.blockchainTokens
         /*
@@ -99,7 +100,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             userProfile.payload.uiObject.setErrorMessage(
                 "You need to have a Token Power Switch child node.",
                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                )
+            )
             return
         }
         distributeTokenPower(
@@ -115,7 +116,7 @@ function newGovernanceFunctionLibraryTokenPower() {
         if (userProfile.payload.blockchainTokens === undefined) { return }
         if (userProfile.payload.delegationProgram === undefined) { return }
         /*
-        The Deletated Power is already accumilated at userProfile.payload.tokenPower
+        The Delegated Power is already accumulated at userProfile.payload.tokenPower
         */
         let tokenPower = userProfile.payload.delegationProgram.programPower
         /*
@@ -125,7 +126,7 @@ function newGovernanceFunctionLibraryTokenPower() {
             userProfile.payload.uiObject.setErrorMessage(
                 "You need to have a Token Power Switch child node.",
                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                )
+            )
             return
         }
         distributeTokenPower(
@@ -186,12 +187,11 @@ function newGovernanceFunctionLibraryTokenPower() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
-                        if (childNode.type === "Tokens Mined") { continue }
-                        if (childNode.type === "Signing Accounts") { continue }
+                        if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                         let percentage = getPercentage(childNode)
 
-                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                             totalPercentage = totalPercentage + percentage
                         } else {
                             totalNodesWithoutPercentage++
@@ -205,11 +205,10 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
-                                if (childNode.type === "Tokens Mined") { continue }
-                                if (childNode.type === "Signing Accounts") { continue }
+                                if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                                 let percentage = getPercentage(childNode)
-                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++
@@ -224,7 +223,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                 node.payload.uiObject.setErrorMessage(
                     'Token Power Switching Error. Total Percentage of children nodes is grater that 100.',
                     UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
+                )
                 return
             }
             let defaultPercentage = 0
@@ -242,11 +241,10 @@ function newGovernanceFunctionLibraryTokenPower() {
                         let childNode = node[property.name]
                         if (childNode === undefined) { continue }
                         if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
-                        if (childNode.type === "Tokens Mined") { continue }
-                        if (childNode.type === "Signing Accounts") { continue }
+                        if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                         let percentage = getPercentage(childNode)
-                        if (percentage === undefined || isNaN(percentage) === true) {
+                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                             percentage = defaultPercentage
                         }
                         distributeTokenPower(
@@ -264,11 +262,10 @@ function newGovernanceFunctionLibraryTokenPower() {
                                 let childNode = propertyArray[m]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === "Delegation Program" && excludeDelegationProgram === true) { continue }
-                                if (childNode.type === "Tokens Mined") { continue }
-                                if (childNode.type === "Signing Accounts") { continue }
+                                if (OPAQUE_NODES_TYPES.includes(childNode.type)) { continue }
 
                                 let percentage = getPercentage(childNode)
-                                if (percentage === undefined || isNaN(percentage) === true) {
+                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
                                 distributeTokenPower(
@@ -287,7 +284,7 @@ function newGovernanceFunctionLibraryTokenPower() {
     }
 
     function getPercentage(node) {
-        return UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
+        return UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'percentage')
     }
 
     function drawTokenPower(node, tokenPower, percentage) {
@@ -316,7 +313,7 @@ function newGovernanceFunctionLibraryTokenPower() {
                 node.payload.uiObject.percentageAngleOffset = 180
                 node.payload.uiObject.percentageAtAngle = true
                 node.payload.uiObject.setPercentage(percentage.toFixed(2),
-                UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
+                    UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
                 )
             }
         }

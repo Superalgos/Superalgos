@@ -120,7 +120,7 @@ function newEducationUtilitiesDocs() {
         if (UI.projects.education.spaces.docsSpace.language === UI.projects.education.globals.docs.DEFAULT_LANGUAGE) {
             if (paragraph.text !== text) {
 
-                /* This will make the Client to save this in a file overwritting the previous version*/
+                /* This will make the Client to save this in a file overwriting the previous version*/
                 UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
 
                 paragraph.text = text
@@ -145,7 +145,7 @@ function newEducationUtilitiesDocs() {
             if (translation.language === UI.projects.education.spaces.docsSpace.language) {
                 if (translation.text !== text) {
 
-                    /* This will make the Client to save this in a file overwritting the previous version*/
+                    /* This will make the Client to save this in a file overwriting the previous version*/
                     UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
 
                     translation.text = text
@@ -161,7 +161,7 @@ function newEducationUtilitiesDocs() {
         }
         paragraph.translations.push(translation)
 
-        /* This will make the Client to save this in a file overwritting the previous version*/
+        /* This will make the Client to save this in a file overwriting the previous version*/
         UI.projects.education.spaces.docsSpace.documentPage.docsSchemaDocument.updated = true
         return
     }
@@ -523,7 +523,7 @@ function newEducationUtilitiesDocs() {
 
     function addToolTips(text, excludedType) {
 
-        const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip">TYPE_LABEL<span class="docs-tooltiptext">DEFINITION</span></div>'
+        const TOOL_TIP_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-tooltip" id="tooltip-container" data-tippy-content="DEFINITION">TYPE_LABEL</div>'
         const LINK_ONLY_HTML = '<div onClick="UI.projects.education.spaces.docsSpace.navigateTo(\'PROJECT\', \'CATEGORY\', \'TYPE\')" class="docs-link">TYPE_LABEL<span class="docs-tooltiptext"></span></div>'
 
         let resultingText = ''
@@ -613,7 +613,7 @@ function newEducationUtilitiesDocs() {
     function tagDefinedTypes(text, excludedType) {
         const MAX_NUMBER_OF_WORDS = 10
         text = text.trim()
-        let cleanText = text.replace(/'/g, ' AMPERSAND ') // scaping ampersands, separating them from other words
+        let cleanText = text.replace(/'/g, ' AMPERSAND ') // escaping ampersands, separating them from other words
             .replaceAll(':', ' :')
             .replaceAll(',', ' ,')
             .replaceAll('.', ' .')

@@ -1,8 +1,7 @@
 exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface() {
-
     /*
     This module represent the HTTP API of the 
-    Desktop App. All HTTP request are processed
+    Desktop App Client. All HTTP request are processed
     by this module.
     */
     let thisObject = {
@@ -16,15 +15,16 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
     }
 
     function initialize() {
+        let port = DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort
         /*
         We will create an HTTP Server and leave it running forever.
         */
-        SA.nodeModules.http.createServer(onHttpRequest).listen(global.env.DESKTOP_HTTP_INTERFACE_PORT)
+        SA.nodeModules.http.createServer(onHttpRequest).listen(port)
         /* Starting the browser now is optional */
         if (process.argv.includes("noBrowser")) {
             //Running Client only with no UI.
         } else {
-            SA.nodeModules.open('http://localhost:' + global.env.DESKTOP_HTTP_INTERFACE_PORT)
+            SA.nodeModules.open('http://localhost:' + port)
         }
     }
 
@@ -38,6 +38,18 @@ exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface
                 case 'Environment':
                     {
                         SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.env), httpResponse)
+                    }
+                    break
+                case 'ClientNode':
+                    {
+                        let clientNode = {
+                            name: DK.desktopApp.p2pNetworkClientIdentity.node.name,
+                            type: DK.desktopApp.p2pNetworkClientIdentity.node.type,
+                            id: DK.desktopApp.p2pNetworkClientIdentity.node.id,
+                            project: DK.desktopApp.p2pNetworkClientIdentity.node.project,
+                            config: JSON.stringify(DK.desktopApp.p2pNetworkClientIdentity.node.config)                            
+                        }
+                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(clientNode), httpResponse)
                     }
                     break
                 case 'ProjectsSchema':

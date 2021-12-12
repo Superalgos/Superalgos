@@ -82,7 +82,7 @@ function newLayersPanel() {
         }
 
         thisObject.container.frame.position = position
-        UI.projects.foundations.utilities.loadSaveFrame.loadFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.visualScripting.utilities.loadSaveFrame.loadFrame(thisObject.payload, thisObject.container.frame)
 
         thisObject.upDownButton = newUpDownButton()
         thisObject.upDownButton.parentContainer = thisObject.container
@@ -114,7 +114,7 @@ function newLayersPanel() {
     }
 
     function saveObjectStateVisibleLayers() {
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'visibleLayers', desiredVisibleLayers)
     }
 
     function saveObjectStatePanelLocation() {
@@ -122,13 +122,13 @@ function newLayersPanel() {
             upOrDown: thisObject.upDownButton.status,
             leftOrRight: thisObject.leftRightButton.status
         }
-        UI.projects.foundations.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'panelLocation', panelLocation)
+        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(thisObject.payload, 'panelLocation', panelLocation)
     }
 
     function readObjectState() {
         let storedValue
 
-        storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'visibleLayers')
+        storedValue = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'visibleLayers')
 
         if (isNaN(storedValue) || storedValue === null || storedValue === undefined) {
             // not using this value
@@ -147,7 +147,7 @@ function newLayersPanel() {
             }
         }
 
-        storedValue = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'panelLocation')
+        storedValue = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(thisObject.payload, 'panelLocation')
 
         if (storedValue === null || storedValue === undefined) {
             // not using this value
@@ -386,14 +386,14 @@ function newLayersPanel() {
 
         thisObject.upDownButton.physics()
         thisObject.leftRightButton.physics()
-        UI.projects.foundations.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
+        UI.projects.visualScripting.utilities.loadSaveFrame.saveFrame(thisObject.payload, thisObject.container.frame)
         syncWithConfigPhysics()
 
         /*
-        The overall idea here is that we need to keep syncronized the panel with the layers that are
+        The overall idea here is that we need to keep synchronized the panel with the layers that are
         defined at the Designer. Users can connect or disconnect any objext resulting in changes in which
         are valid layers and which not at any point in time. So what we do here is trying to keep the panel
-        only with the layers that are connected to the Charting Space hiriarcy.
+        only with the layers that are connected to the Charting Space hierarchy.
     
         To achieve this, first we are going to move all session related cards to a local array. Then we are
         going to check for layers at the designer, and will move back the cards which still have layers well
@@ -408,14 +408,14 @@ function newLayersPanel() {
         moveToLocalLayers()
         syncWithDesignerLayers()
 
-        /* At this poins all the cards still at the local array need to be removed from the panel. */
+        /* At this points all the cards still at the local array need to be removed from the panel. */
         turnOffUnusedLayers()
         calculateVisbleLayers()
 
         function syncWithDesignerLayers() {
             if (thisObject.payload.node === undefined) { return }
             let layerManager = thisObject.payload.node
-            let layers = UI.projects.foundations.utilities.branches.nodeBranchToArray(layerManager, 'Layer')
+            let layers = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(layerManager, 'Layer')
             for (let p = 0; p < layers.length; p++) {
                 let layerNode = layers[p]
 

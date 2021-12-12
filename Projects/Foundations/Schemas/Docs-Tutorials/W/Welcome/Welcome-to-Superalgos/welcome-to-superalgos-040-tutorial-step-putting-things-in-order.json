@@ -26,6 +26,22 @@
                 "text": "Una cosa más antes de sumergirnos en los gráficos. ¡Necesitas saber cómo poner la casa en orden!",
                 "updated": 1624383691146,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir in die Tabellen eintauchen, noch eine Sache. Sie müssen wissen, wie Sie das Haus in Ordnung bringen können!",
+                "updated": 1634206589741,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Tablolara girmeden önce bir şey daha var. Bu alanı nasıl düzene sokacağını bilmelisin!",
+                "updated": 1636035747714
+            },
+            {
+                "language": "RU",
+                "text": "Еще одна вещь, прежде чем мы погрузимся в графики: Вам необходимо знать, как привести рабочее пространство в порядок.",
+                "updated": 1636203040872
             }
         ]
     },
@@ -51,6 +67,22 @@
                     "text": "Llegará el momento en que quizás estes trabajando con decenas de gráficos. Ya sabes cómo cambiar su formato. Ahora necesita aprender a moverlos para poder crear los arreglos que necesite. Es bastante sencillo:",
                     "updated": 1624383763312,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird die Zeit kommen, in der Sie vielleicht mit Dutzenden von Diagrammen arbeiten werden. Sie wissen bereits, wie Sie deren Format ändern können. Jetzt müssen Sie lernen, wie Sie die Diagramme verschieben können, damit Sie die gewünschten Arrangements erstellen können. Das ist ganz einfach:",
+                    "updated": 1634206671224,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Onlarca çizelge ile çalışmanız gereken zamanar gelecek. Biçimlerini nasıl değiştireceğinizi öğrenmiştik. Şimdi, ihtiyaç duyduğunuz düzenlemeleri oluşturabilmeniz için onları nasıl hareket ettireceğinizi öğrenmeniz gerekiyor. Oldukça kolay:",
+                    "updated": 1636035803888
+                },
+                {
+                    "language": "RU",
+                    "text": "Придет время, когда Вы, возможно, будете работать с десятками графиков. Вы уже знаете, как изменить их формат. Теперь необходимо научиться перемещать их так, чтобы Вы могли создавать любые необходимые Вам расположения. Это довольно просто:",
+                    "updated": 1636203598832
                 }
             ],
             "updated": 1616416902513
@@ -77,6 +109,22 @@
                     "text": "¡Pulsa Shift, clic con el botón izquierdo y arrastra!",
                     "updated": 1624494466055,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie die Shift, klicken Sie mit der linken Maustaste, und ziehen Sie!",
+                    "updated": 1634206723517,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Shift 'e basın, sol tıklayın ve sürükleyin!",
+                    "updated": 1636035874767
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Shift, щелкните левой кнопокй мыши и перетащите!",
+                    "updated": 1636203698066
                 }
             ]
         },
@@ -101,6 +149,22 @@
                     "text": "Creo que hemos cubierto todo sobre cómo administrar Charting Space. ¡Es hora de sumergirse en los gráficos!",
                     "updated": 1624383921501,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich glaube, wir haben jetzt alles über die Verwaltung des Charting Space gesagt. Jetzt ist es Zeit, in die Diagramme einzutauchen!",
+                    "updated": 1634206736658,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanını nasıl yöneteceğimizle ilgili her şeyi ele aldığımıza inanıyorum. Grafiklere dalmanın zamanı geldi!",
+                    "updated": 1636035867318
+                },
+                {
+                    "language": "RU",
+                    "text": "Я полагаю, что мы рассмотрели все о том, как управлять пространством для построенрия графиков. Пришло время погрузиться в диаграммы!",
+                    "updated": 1636203782409
                 }
             ]
         }

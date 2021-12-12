@@ -4,15 +4,29 @@
     "type": "Tutorial Step - Wouldn't It Be Nice?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-candles"
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
         },
-        "text": "How cool would it be to be able to predict the continuation of a downturn once the trend is already established?"
+        "text": "How cool would it be to be able to predict the continuation of a downturn once the trend is already established?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wie cool wäre es, die Fortsetzung eines Abschwungs vorhersagen zu können, wenn der Trend bereits etabliert ist?",
+                "updated": 1639253233680
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Predicting the reversal of a well-established trend is a very tricky task. The analysis we just did for April 10th is a good example: while the breakdown in the 1H and 4H time frames marked a trend reversal in the intermediate-term, the long-term trend remained intact."
+            "text": "Predicting the reversal of a well-established trend is a very tricky task. The analysis we just did for April 10th is a good example: while the breakdown in the 1H and 4H time frames marked a trend reversal in the intermediate-term, the long-term trend remained intact.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Vorhersage der Umkehrung eines gut etablierten Trends ist eine sehr schwierige Aufgabe. Die Analyse, die wir gerade für den 10. April durchgeführt haben, ist ein gutes Beispiel: Während der Zusammenbruch im 1H- und 4H-Zeitrahmen eine mittelfristige Trendumkehr markierte, blieb der langfristige Trend intakt.",
+                    "updated": 1639253247472
+                }
+            ]
         },
         {
             "style": "Callout",

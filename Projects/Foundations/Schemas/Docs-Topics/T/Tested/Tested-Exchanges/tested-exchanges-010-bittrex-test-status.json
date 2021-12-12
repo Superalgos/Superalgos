@@ -1,0 +1,49 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 10,
+    "type": "Bittrex Test Status",
+    "definition": {
+        "text": "Bittrex passed all tests.",
+        "updated": 1637964636009
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1615143100216
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes. The ability to fetch historic data for backtesting purposes has been verified.",
+            "updated": 1634135432569
+        },
+        {
+            "style": "List",
+            "text": "Market History: Tested from 2020-01-01",
+            "updated": 1634135568527
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability [**]: Yes. The ability to run strategies in live-trading mode has been verified.",
+            "updated": 1637964666144
+        },
+        {
+            "style": "List",
+            "text": "Comments: KYC needed before using the platform. Google Authenticator needed to create API keys",
+            "updated": 1637964814435
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{ \n\"codeName\": \"bittrex\",\n \n\"sandBox\": \"false\"\n}",
+            "updated": 1637964874756
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

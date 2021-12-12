@@ -9,7 +9,18 @@
             {
                 "language": "ES",
                 "text": "Un simple moving average (SMA) calcula el promedio de un rango seleccionado de precios, generalmente precios de cierre, por el número de períodos en ese rango.",
-                "updated": 1629579640550
+                "updated": 1629579640550,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Простая скользящая средняя (SMA) вычисляет среднее значение выбранного диапазона цен, обычно цен закрытия, по количеству периодов в этом диапазоне.",
+                "updated": 1635594765100
+            },
+            {
+                "language": "TR",
+                "text": "Basit hareketli ortalama (SMA), seçilen bir fiyat aralığında, genellikle kapanış fiyatlarının ortalamasını, bu aralıktaki dönem sayısına göre hesaplar.",
+                "updated": 1639142421942
             }
         ]
     },

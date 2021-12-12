@@ -4,12 +4,26 @@
     "type": "Node Missing",
     "definition": {
         "text": "You will get this type of errors every time a Node is expected as a child of another Node but it is not found. To avoid this type of errors, add the missing Node as a child of the Node where this type of error pops up.",
-        "updated": 1611652119353
+        "updated": 1611652119353,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы будете получать этот тип ошибок каждый раз, когда ожидается, что узел Node будет дочерним по отношению к другому узлу, но он не найден. Чтобы избежать ошибок этого типа, добавьте отсутствующий узел как дочерний для узла, на котором возникает ошибка этого типа.",
+                "updated": 1638553091492
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чт��бы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
+                    "updated": 1638553104796
+                }
+            ]
         }
     ]
 }

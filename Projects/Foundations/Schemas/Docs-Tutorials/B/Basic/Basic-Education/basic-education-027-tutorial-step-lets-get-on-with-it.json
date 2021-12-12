@@ -6,7 +6,7 @@
         "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
         "updated": 1616098998366,
         "icon": {
-            "name": "Mouse\\mouse-right-click",
+            "name": "mouse-right-click",
             "project": "Foundations"
         },
         "translations": [
@@ -21,6 +21,11 @@
                 "text": "¿Qué pasa si los nodos están muy lejos unos de otros, tal vez incluso en diferentes jerarquías? ¡Mira el video y aprende algunos trucos!",
                 "updated": 1626540840863,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Was tun, wenn die Knoten weit voneinander entfernt sind, vielleicht sogar in verschiedenen Hierarchien? Sehen Sie sich das Video an und lernen Sie ein paar Tricks!",
+                "updated": 1634334595517
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Estos trucos UI pueden facilitarle la vida:",
                     "updated": 1626540682262,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese UI-Tricks können Ihnen das Leben leichter machen:",
+                    "updated": 1634334609357
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "text": "Utiliza el mapa del espacio de diseño para encontrar tu camino de nodo en nodo.",
                     "updated": 1626541152202,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie die Design Space Map so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
+                    "updated": 1634334613516
                 }
             ]
         },
@@ -77,6 +92,11 @@
                     "text": "Fije el nodo que va a mover a través del espacio de diseño, de modo que pueda soltarlo en cualquier punto para verificar las direcciones en el mapa del espacio de diseño.",
                     "updated": 1626540729452,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Heften Sie den Knoten, den Sie verschieben möchten, an den Entwurfsraum, damit Sie ihn an jedem beliebigen Punkt loslassen können, um die Entwurfsraumkarte auf Richtungen zu überprüfen.",
+                    "updated": 1634334621202
                 }
             ]
         },
@@ -96,6 +116,11 @@
                     "text": "Usa Ctrl / Cmd + teclas de flecha para arrastrar el nodo por la pantalla después de hacer clic en él con el mouse. ¡Mantén las teclas presionadas y el nodo vuela!",
                     "updated": 1626540759534,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ziehen Sie den Knoten mit Ctrl / Cmd + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
+                    "updated": 1634334644137
                 }
             ]
         },
@@ -114,6 +139,11 @@
                     "text": "Retira el pin una vez que se establezca la referencia para que el nodo vuelva a su lugar.",
                     "updated": 1626540795482,
                     "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
+                    "updated": 1634334653385
                 }
             ]
         }

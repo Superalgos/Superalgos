@@ -7,7 +7,7 @@
     }
 
     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE =
-        TS.projects.foundations.botModules.socialBots.newFoundationsBotModulesSocialBots(processIndex)
+        TS.projects.socialBots.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
 
     return thisObject;
 
@@ -21,7 +21,7 @@
                 return;
             }
             /* 
-            We will store here the session key, which we will need everytine
+            We will store here the session key, which we will need everytime
             we need to emit an event related to the session itself.
             */
             let VARIABLES_BY_PROCESS_INDEX = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex)
@@ -42,7 +42,7 @@
             }
             /* 
             We will store all session keys on a map so as to be able to send an event to all 
-            of them when the task stops. 
+            of them when the task stops.
             */
             TS.projects.foundations.globals.taskVariables.SESSION_MAP.set(
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY,
@@ -109,7 +109,7 @@
                         return
                     }
 
-                    /* We are going to initialize here these constants whose values are comming at the event. */
+                    /* We are going to initialize here these constants whose values are coming at the event. */
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_SYSTEM_NODE = JSON.parse(message.event.tradingSystem)
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_NODE = JSON.parse(message.event.tradingEngine)
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE = JSON.parse(message.event.session)
@@ -512,6 +512,7 @@
             }
 
             function startBackTesting(message) {
+                
                 return true
             }
 
@@ -580,6 +581,10 @@
             }
 
             function startLiveTrading() {
+                /* Testing to be removed  @PLUV: */
+                /*TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE.beginListening();
+                TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE.getQuoteAssetBalance();*/
+                /* End Testing */
                 return checkKey()
             }
 

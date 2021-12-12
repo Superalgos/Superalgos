@@ -4,27 +4,62 @@
     "type": "Tutorial Step - March 7th to March 12th",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer-bands"
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
         },
-        "text": "Back in the 1H time frame, let's take a look at what happened between these dates in the context of a daily downtrend."
+        "text": "Back in the 1H time frame, let's take a look at what happened between these dates in the context of a daily downtrend.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Zurück im 1H-Zeitrahmen, lassen Sie uns einen Blick darauf werfen, was zwischen diesen Daten im Kontext eines täglichen Abwärtstrends geschah.",
+                "updated": 1639253393145
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "March 7th, 17 hs: A breakdown after a two-day-long volatility squeeze triggers a downtrend."
+            "text": "March 7th, 17 hs: A breakdown after a two-day-long volatility squeeze triggers a downtrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "7. März, 17 Uhr: Ein Zusammenbruch nach einem zweitägigen Volatilitäts-Squeeze löst einen Abwärtstrend aus.",
+                    "updated": 1639253406227
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "March 8th, 15 hs: Further breakdowns accelerate the downturn."
+            "text": "March 8th, 15 hs: Further breakdowns accelerate the downturn.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "8. März, 15 Uhr: Weitere Zusammenbrüche beschleunigen den Abwärtstrend.",
+                    "updated": 1639253413244
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "March 12th, 07 hs: Five hours before the biggest market crash in recent history, a series of breakdowns trigger a new downturn after three days of ranging price action."
+            "text": "March 12th, 07 hs: Five hours before the biggest market crash in recent history, a series of breakdowns trigger a new downturn after three days of ranging price action.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "12. März, 07 Uhr: Fünf Stunden vor dem größten Börsencrash der jüngeren Geschichte löst eine Reihe von Zusammenbrüchen einen neuen Abwärtstrend aus, nachdem sich die Kurse drei Tage lang in einer Bandbreite bewegt haben.",
+                    "updated": 1639253420383
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Do you see the pattern? Can you formulate a hypothesis that we can test?"
+            "text": "Do you see the pattern? Can you formulate a hypothesis that we can test?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erkennen Sie das Muster? Können Sie eine Hypothese formulieren, die wir testen können?",
+                    "updated": 1639253430255
+                }
+            ]
         }
     ]
 }

@@ -1,13 +1,13 @@
 function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     let thisObject = {
-        syncronizeSessionWithBackEnd: syncronizeSessionWithBackEnd,
+        synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession
     }
 
     return thisObject
 
-    function syncronizeSessionWithBackEnd(node) {
+    function synchronizeSessionWithBackEnd(node) {
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -42,6 +42,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     }
 
     function runSession(node, resume, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not RUN Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -108,9 +117,16 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Market Order->Limit Order->' +
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
-            'User Defined Code->Javascript Code->'
+            'User Defined Code->Javascript Code->' +
+            'Outgoing Signals->Incoming Signals->Outgoing Signal Reference->Incoming Signal Reference->Signal Context Formula->' +
+            'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
+            'Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
+            'Create Order Signal->Cancel Order Signal->Order Rate Signal->' +
+            'Limit Sell Order Signals->Limit Buy Order Signals->Market Sell Order Signals->Market Buy Order Signals->' +
+            'Trigger Stage Signals->Open Stage Signals->Manage Stage Signals->Close Stage Signals->' +
+            'Available Signals->Social Trading Bot->Signing Account->'
 
-        let tradingSystem = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Trading Engine->' +
@@ -149,7 +165,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Index->Situation Name->Formula->Periods->' +
             'User Defined Variables->User Defined Variable->'
 
-        let tradingEngine = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
+        let tradingEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
@@ -159,13 +175,13 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'
 
-        let session = UI.projects.foundations.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
+        let session = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, lightingPath)
 
-        let defaultExchange = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
+        let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
-            + '-' + 
-            UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
+            + '-' +
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
@@ -195,6 +211,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     }
 
     function stopSession(node, callBackFunction) {
+
+        if (UI.environment.DEMO_MODE === true) {
+            if (window.location.hostname !== 'localhost') {
+                node.payload.uiObject.setWarningMessage('Superalgos is running is DEMO MODE. This means that you can not STOP Sessions.', 5)
+                callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
+                return
+            }
+        }
+
         let validationsResult = validations(node)
         if (validationsResult === undefined) {
             /* If something fails at validations we just quit. */
@@ -266,7 +291,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        result.lanNetworkNode = UI.projects.foundations.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
+        result.lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(result.taskManager, 'LAN Network Node', undefined, true, false, true, false)
 
         if (node.tradingSystemReference === undefined) {
             node.payload.uiObject.setErrorMessage('Session needs a child Trading System Reference.')

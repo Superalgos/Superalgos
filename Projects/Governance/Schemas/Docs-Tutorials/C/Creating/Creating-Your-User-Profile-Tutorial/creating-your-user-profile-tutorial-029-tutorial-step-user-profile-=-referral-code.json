@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "¡Esto es importante para cuando salgas a promocionar Superalgos! ¡Asegúrate de que la gente sepa cómo encontrarte!",
                 "updated": 1632025337077
+            },
+            {
+                "language": "RU",
+                "text": "Это важно, когда вы собираетесь продвигать Superalgos! Убедитесь, что вы даете людям знать, как вас найти!",
+                "updated": 1639050310402
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "¡Deja que las personas sepan tu nombre de User Profile para que puedan encontrarte fácilmente!",
                     "updated": 1632025446729
+                },
+                {
+                    "language": "RU",
+                    "text": "Сообщите людям ваше имя в профиле пользователя User Profile, чтобы они могли легко вас найти!",
+                    "updated": 1639050367232
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "¿Qué pasa si ninguna persona te refirió a Superalgos? Nos encontraste de alguna manera, ¿verdad? Estos son algunos escenarios comunes y el perfil que lo refirió:",
                     "updated": 1632025548369
+                },
+                {
+                    "language": "RU",
+                    "text": "Что, если ни один конкретный человек не направил вас в Superalgos? Ну ... ты как-то нашёл нас, да? Вот несколько распространенных сценариев и профиль, который вас рекомендовал:",
+                    "updated": 1639050542139
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "ES",
                     "text": "Artículos de Blog: Some by Julian-Molina, Luis-Fernando-Molina,... Por favor, comprueba el autor!",
                     "updated": 1632025647858
+                },
+                {
+                    "language": "RU",
+                    "text": "Blog Articles: Некоторые из авторов Julian-Molina, Luis-Fernando-Molina, ... пожалуйста, проверьте автора!",
+                    "updated": 1639050576838
                 }
             ]
         },

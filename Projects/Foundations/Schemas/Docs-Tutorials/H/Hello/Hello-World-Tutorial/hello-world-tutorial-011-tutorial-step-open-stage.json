@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Open Stage is where bot take position!",
         "icon": {
-            "name": "Open\\open-stage",
+            "name": "open-stage",
             "project": "Foundations"
         },
         "updated": 1614260398081,
@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "El Open Stage es donde el bot toma posición!",
                 "updated": 1629356240122
+            },
+            {
+                "language": "IT",
+                "text": "Nell'Open Stage il bot prende posizione!",
+                "updated": 1639078616544
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "La estrategia que quiero hacer backtesting se basa en 4h TF y la estrategia es Long. Esto significa que el bot Buy el asset para después Sell (¡a un mejor precio esperamos!). Para simplificar las cosas, todo lo que tengo que hacer es indicar el TF en el nodo Target Rate usando todo mi saldo en el Target Size en Quoted Asset.",
                     "updated": 1629356415752
+                },
+                {
+                    "language": "IT",
+                    "text": "La strategia che voglio testare è basata su un TF di 4h e sono \"Long\" cioè compro un asset. Ciò significa che il bot comprerà l'asset per poi venderlo (a un prezzo migliore speriamo!). Per semplificare le cose, tutto ciò che devo fare è indicare il TF nel nodo Target Rate e utilizzare il mio saldo totale nel nodo Target Size.",
+                    "updated": 1639078819030
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "ES",
                     "text": "Si nuestro mercado es BTC/USDT entonces la Quoted Asset is USDT y Base Asset es BTC",
                     "updated": 1629356454601
+                },
+                {
+                    "language": "IT",
+                    "text": "Se il nostro mercato è BTC/USDT, l'asset quotato è USDT e l'asset base è BTC",
+                    "updated": 1639078846301
                 }
             ]
         }

@@ -26,6 +26,22 @@
                 "text": "¿Qué tal darle forma a la máquina del tiempo con la relación de aspecto exacta de tu pantalla?",
                 "updated": 1624383053610,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Wie wäre es, die Time Machine genau an das Seitenverhältnis Ihres Bildschirms anzupassen?",
+                "updated": 1634206350448,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Zaman makinesini ekranınızın tam en boy oranına göre şekillendirmeye ne dersiniz?",
+                "updated": 1636035470271
+            },
+            {
+                "language": "RU",
+                "text": "Как насчет того, чтобы настроить по форме машину времени в соответствии с правильным соотношение сторон Вашего экрана?",
+                "updated": 1636202464425
             }
         ]
     },
@@ -51,6 +67,22 @@
                     "text": "¡Hacer coincidir la relación de aspecto de tus máquinas del tiempo con la relación de aspecto de su pantalla es crucial para que los gráficos se ajusten perfectamente a tu pantalla al hacer zoom!",
                     "updated": 1624494074907,
                     "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Anpassung des Seitenverhältnisses Ihrer Zeitmaschinen an das Seitenverhältnis Ihres Bildschirms ist entscheidend dafür, dass die Diagramme beim Heranzoomen genau auf Ihren Bildschirm passen!",
+                    "updated": 1634206368643,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman makinelerinizin en boy oranını ekranınızın en boy oranıyla eşleştirmek, yakınlaştırırken grafiklerin ekranınıza sığabilmesi için çok önemlidir!",
+                    "updated": 1636035504803
+                },
+                {
+                    "language": "RU",
+                    "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба!",
+                    "updated": 1636202715136
                 }
             ],
             "updated": 1622198491208
@@ -77,6 +109,22 @@
                     "text": "Dirije tu mouse a una de las máquinas del tiempo y presiona Ctrl + Shift + Key-A. ¡Haz lo mismo con la otra!",
                     "updated": 1624383472672,
                     "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Richten Sie Ihre Maus auf eine der Time Machines und drücken Sie Ctrl + Shift + Alt + Key-A. Machen Sie dasselbe mit der anderen Maschine!",
+                    "updated": 1634206401027,
+                    "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın. Aynısını diğeriyle yapın!",
+                    "updated": 1636035527567
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор мыши на одну из машин времени и нажмите Ctrl + Shift + Alt + A. Сделайте то же самое с другой машиной времени.",
+                    "updated": 1636202757134
                 }
             ]
         },
@@ -102,6 +150,22 @@
                     "text": "¡Deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla de ahora en adelante!",
                     "updated": 1624383547817,
                     "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie die beiden Time Machines von nun an auf das Seitenverhältnis Ihres Bildschirms abgestimmt!",
+                    "updated": 1634206411265,
+                    "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu andan itibaren ekranınızın en boy oranıyla eşleşen iki zaman makinesini görmen lazım.",
+                    "updated": 1636035706936
+                },
+                {
+                    "language": "RU",
+                    "text": "С этого момента оставьте две машины времени, соответствующие соотношению сторон Вашего экрана.",
+                    "updated": 1636202904158
                 }
             ]
         }

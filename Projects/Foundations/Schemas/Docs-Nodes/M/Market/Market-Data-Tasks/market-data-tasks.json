@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "El nodo market data task agrupa tareas de minería de datos que operan en un mercado específico.",
                 "updated": 1624379923791
+            },
+            {
+                "language": "RU",
+                "text": "Узел Задачи рыночных данных группирует задачи интеллектуального анализа данных, работающие на определенном рынке.",
+                "updated": 1636195923570
+            },
+            {
+                "language": "TR",
+                "text": "Market Data Tasks, belirli bir işlem çiftinde (BTC/USDT gibi) faaliyet gösteren veri madenciliği görevlerini gruplandırır.",
+                "updated": 1639144208436
             }
         ]
     },

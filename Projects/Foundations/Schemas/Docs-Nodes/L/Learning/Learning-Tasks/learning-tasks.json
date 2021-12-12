@@ -4,11 +4,25 @@
         {
             "style": "Important",
             "text": "The infrastructure for Machine Learning algorithms is currently being implemented.",
-            "updated": 1609666442120
+            "updated": 1609666442120,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время реализуется инфраструктура для алгоритмов машинного обучения Machine Learning.",
+                    "updated": 1638355526174
+                }
+            ]
         }
     ],
     "definition": {
         "text": "Learning tasks&mdash;once implemented&mdash;will control Learning Bots running a reinforcement learning algorithm.",
-        "updated": 1609666371163
+        "updated": 1609666371163,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Learning Tasks - после их выполнения - будут управлять обучающими ботами, выполняющими алгоритм обучения с подкреплением.",
+                "updated": 1638356503064
+            }
+        ]
     }
 }

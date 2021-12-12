@@ -45,7 +45,7 @@ function newDailyFiles() {
     }
   }
 
-  function initialize(pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction) {
+  function initialize(pMine, pBot, pSession, pProduct, pDataset, pExchange, pMarket, pDatetime, pTimeFrame, pHost, pPort, pEventsServerClient, callBackFunction, scheme='http') {
     try {
       callBackWhenFileReceived = callBackFunction
 
@@ -55,7 +55,7 @@ function newDailyFiles() {
       let timeFrames
 
       fileCloud = newFileCloud()
-      fileCloud.initialize(pBot, pHost, pPort)
+      fileCloud.initialize(pBot, pHost, pPort, scheme)
 
       /* Config Validations */
       if (pDataset.config.validTimeFrames === undefined) {

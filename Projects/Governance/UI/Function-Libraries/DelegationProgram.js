@@ -144,7 +144,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                 }
                 /*
                 If there is a reference parent defined, this means that the delegate power is 
-                transfered to it and not distributed among children.
+                transferred to it and not distributed among children.
                 */
                 if (
                     node.payload.referenceParent !== undefined &&
@@ -183,8 +183,8 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++
@@ -198,8 +198,8 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
                                             totalNodesWithoutPercentage++
@@ -232,8 +232,8 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                 let childNode = node[property.name]
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
-                                let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage) === true) {
+                                let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
@@ -252,8 +252,8 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                                         let childNode = propertyArray[m]
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
-                                        let percentage = UI.projects.foundations.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage === undefined || isNaN(percentage) === true) {
+                                        let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
+                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                             percentage = defaultPercentage
                                         }
                                         distributeProgramPower(
@@ -322,7 +322,7 @@ function newGovernanceFunctionLibraryDelegationProgram() {
                     node.payload.uiObject.percentageAngleOffset = 180
                     node.payload.uiObject.percentageAtAngle = true
 
-                    node.payload.uiObject.setPercentage(percentage,
+                    node.payload.uiObject.setPercentage(percentage.toFixed(2),
                         UI.projects.governance.globals.designer.SET_PERCENTAGE_COUNTER
                         )
 

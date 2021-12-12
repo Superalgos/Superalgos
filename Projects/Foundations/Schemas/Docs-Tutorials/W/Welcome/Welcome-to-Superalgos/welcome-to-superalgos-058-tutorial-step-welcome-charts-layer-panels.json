@@ -10,6 +10,21 @@
                 "text": "Questo step eseguirà un video in modalità schermo intero.",
                 "updated": 1615964155592,
                 "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634218191658
+            },
+            {
+                "language": "TR",
+                "text": "Bu videoda Plotter'ın ne olduğunu ve kullanımını görüyorsun.",
+                "updated": 1636096787151
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
+                "updated": 1636567631982
             }
         ]
     },

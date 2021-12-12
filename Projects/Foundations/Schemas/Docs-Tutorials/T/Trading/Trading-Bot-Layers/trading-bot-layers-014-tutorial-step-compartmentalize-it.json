@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Compartmentalize It!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bot-layers"
+            "name": "Layer/bot-layers",
+            "project": "Foundations"
         },
         "text": "The reason why the access to values in the hierarchy is compartmentalized in layers is that layers correspond to data products output by the bot.",
         "translations": [

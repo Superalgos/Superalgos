@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Task - это устройство, используемое для управления экземплярами ботов, то есть для запуска и остановки ботов, включая датчики, индикаторы и торгового бота.",
                 "updated": 1638359758562
+            },
+            {
+                "language": "TR",
+                "text": "Görev, bot olaylarını kontrol etmek, yani sensörler, göstergeler ve ticaret botu dahil olmak üzere botları başlatmak ve durdurmak için kullanılan cihazdır.",
+                "updated": 1639118778935
             }
         ]
     },

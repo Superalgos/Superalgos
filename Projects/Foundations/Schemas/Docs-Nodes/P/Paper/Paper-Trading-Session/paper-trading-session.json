@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Paper Trading Session - это режим торговли, при котором экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, и генерирует торговую симуляцию.",
                 "updated": 1638602155000
+            },
+            {
+                "language": "TR",
+                "text": "Kağıt ticaret oturumu, ticaret botu örneğinin canlı bir piyasa veri akışını okuduğu, ilgili ticaret sisteminde tanımlanan kuralları uyguladığı ve bir ticaret simülasyonu oluşturduğu bir ticaret modudur.",
+                "updated": 1639144710958
             }
         ]
     },

@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Live Trading Session - это режим торговли, с помощью которого экземпляр торгового бота считывает поток рыночных данных в реальном времени, применяет правила, определенные в соответствующей торговой системе, размещает заданные ордера на соответствующей бирже и сохраняет определенные продукты данных.",
                 "updated": 1638950102673
+            },
+            {
+                "language": "TR",
+                "text": "Canlı ticaret oturumu, ticaret botu'nun bir canlı piyasa verisi beslemesini okuduğu, ilgili ticaret sisteminde tanımlanan kuralları uyguladığı, ilgili emirleri ilgili borsaya yerleştirdiği ve tanımlanan veri ürünlerini depoladığı bir ticaret modudur.",
+                "updated": 1639119865083
             }
         ]
     },

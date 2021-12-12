@@ -95,15 +95,22 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Bu konulardan herhangi biri hakkında bir hatırlatmaya ihtiyacınız olursa...",
-                    "updated": 1635952719290
+                    "text": "Bu konulardan herhangi biri hakkında bir hatırlatmaya ihtiyacınız olursa, herhangi bir Eğitim Konusunu veya Eğitim Adımını tekrar oynatabilirsiniz.",
+                    "updated": 1639142764045
                 }
             ],
             "updated": 1636910771339
         },
         {
             "style": "Text",
-            "text": "You may find me on the bottom-left corner of the design space, browse through the hierarchy of topics and steps, and click Play on any of them. Topics are arranged in a clockwise direction, starting from the right-hand side of the main Tutorial node."
+            "text": "You may find me on the bottom-left corner of the design space, browse through the hierarchy of topics and steps, and click Play on any of them. Topics are arranged in a clockwise direction, starting from the right-hand side of the main Tutorial node.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
+                    "updated": 1639142707800
+                }
+            ]
         },
         {
             "style": "Callout",

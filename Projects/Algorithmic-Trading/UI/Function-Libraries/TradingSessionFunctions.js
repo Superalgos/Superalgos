@@ -3,10 +3,6 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
         synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
         stopSession: stopSession,
-        remoteRunSession: remoteRunSession,
-        changeFormulaInNode: changeFormulaInNode,
-        changeConfigInNode: changeConfigInNode,
-        RunremoteParentSession: RunremoteParentSession
     }
 
     return thisObject
@@ -357,87 +353,4 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
         return result
     }
 
-    function remoteRunSession(nodeId) {
-
-        let node = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.getNodeById(nodeId)
-
-        runSession(node, false, callback)
-
-        let result = "succes"
-
-        return result
-
-        function callback(result, event) {
-            // result handler?
-            if (event !== undefined) {
-                // if (event.type === 'Secondary Action Already Executed') {
-                //     stopSession(node)
-                // }
-                // function finishFunction(result, event) {
-                // console.log(result)
-                // console.log(event)
-                if (result === "Ok") {
-
-                }
-
-            }
-        }
-
-    }
-
-    function RunremoteParentSession(nodeId) {
-
-        let node = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.getNodeById(nodeId)
-
-        UI.projects.foundations.functionLibraries.taskFunctions.runTask(node, false, callback)
-
-        let result = "succes"
-
-        return result
-
-        function callback(result, event) {
-            // result handler?
-            if (event !== undefined) {
-                // if (event.type === 'Secondary Action Already Executed') {
-                //     stopSession(node)
-                // }
-                // function finishFunction(result, event) {
-                // console.log(result)
-                // console.log(event)
-                if (result === "Ok") {
-
-                }
-
-            }
-        }
-
-    }
-
-    function changeFormulaInNode(nodeId, NewFormula) {
-
-
-        let node = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.getNodeById(nodeId)
-
-        node.code = NewFormula
-        UI.projects.foundations.spaces.designSpace.workspace.save()
-
-        let result = "succes"
-
-        return result
-
-    }
-
-    function changeConfigInNode(nodeId, NewFormula) {
-
-
-        let node = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.getNodeById(nodeId)
-
-        node.config = NewFormula
-        UI.projects.foundations.spaces.designSpace.workspace.save()
-
-        let result = "succes"
-
-        return result
-
-    }
 }

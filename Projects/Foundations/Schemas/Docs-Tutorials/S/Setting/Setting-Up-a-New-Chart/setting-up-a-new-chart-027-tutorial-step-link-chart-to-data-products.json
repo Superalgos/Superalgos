@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "Ahora consigamos tu Time Machine en posición de conectarse a algunos Data Products.",
                 "updated": 1628724341266
+            },
+            {
+                "language": "RU",
+                "text": "Теперь давайте приведем вашу машину времени (Time Machine) в состояние, позволяющее подключиться к некоторым продуктам данных!",
+                "updated": 1639076402163
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "Lo primero que debemos hacer es arrastrar nuestro Time Machine a la jerarquía Data Storage.",
                     "updated": 1628724393947
+                },
+                {
+                    "language": "RU",
+                    "text": "Первое, что нам нужно сделать, это перетащить нашу Time Machine  в иерархию хранилища данных.",
+                    "updated": 1639076445839
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Encuentra tu camino hacia el Time Machine que creaste anteriormente, anclarlo y arrastrarlo a los nodos Data Mine Products que encontraste en el paso anterior.",
                     "updated": 1628724592372
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите путь к Time Machine созданной ранее, прикрепите ее, сверните и перетащите к узлам Data Mine Products которые вы нашли на предыдущем шаге.",
+                    "updated": 1639076520063
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "ES",
                     "text": "No olvides Ctrl + ← → ↑ ↓. ¡Es una como una caminata!",
                     "updated": 1628724523333
+                },
+                {
+                    "language": "RU",
+                    "text": "Не забывайте Ctrl + ← → ↑ ↓. Это как прогулка!",
+                    "updated": 1639076636555
                 }
             ]
         }

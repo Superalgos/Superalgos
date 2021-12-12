@@ -2,7 +2,19 @@
     "type": "Weight Votes",
     "definition": {
         "text": "Weight Votes are a type of vote within the Voting Program used to confer Weight to different types of nodes in the multiple Project Definition Hierarchies. The Weight that Asset, Feature, Position, and Pool nodes get from Weight Votes cast by the Community determines the Token Rewards available as incentives for those nodes. The term Weight Votes is a generalization describing any or all of the types of weight vote nodes, namely Pool Weight Vote, Position Weight Vote, Feature Weight Vote, and Asset Weight Vote.",
-        "updated": 1630498313646
+        "updated": 1630498313646,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Weight Votes - это тип голосования в программе голосования Voting Program, используемый для присвоения веса Weight различным типам узлов в нескольких иерархиях Project Definition Hierarchies. Вес, который получают узлы Asset, Feature, Position и Pool от голосов Weight Votes, поданных сообществом, определяет награды в виде токенов Token Rewards, доступные в качестве стимулов для этих узлов. Термин Weight Votes является обобщением, описывающим любой или все типы узлов голосования по весу, а именно голосование по весу пула, голосование по весу позиции, голосование по весу характеристик и голосование по весу ресурсов.",
+                "updated": 1638621005020
+            },
+            {
+                "language": "ES",
+                "text": "Los votos por peso son un tipo de voto dentro del Voting Program usado para conferir Weight ( peso)a diferentes tipos de nodos en las múltiples Project Definition Hierarchies (Jerarquías de definición de proyectos). El Weight que los nodos de Asset (activo), Feature (función), Position (posición) y Pool obtienen del Weight Votes emitido por la Community determina la Token Rewards (recompensa en token)  disponible como incentivos para esos nodos. El término Weight Votes es una generalización que describe cualquiera o todos los tipos de nodos de voto de peso, a saber Pool Weight Vote, Position Weight Vote, Feature Weight Vote, y Asset Weight Vote.",
+                "updated": 1639135810108
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,12 +25,36 @@
         {
             "style": "Important",
             "text": "The Weight Power you drive into Weight Votes nodes is significant, as it is a measure of how much you wish to incentivize the referenced node. Nodes in Project Definition Hierarchies get Token Rewards proportional to the Weight Power they get from all Weight Votes they receive!",
-            "updated": 1630355171054
+            "updated": 1630355171054,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El Weight Power que dirija a los nodos de Weight Votes es significativo, ya que es una medida de cuánto desea incentivar el nodo referenciado. Nodos en las Project Definition Hierarchies obtienen Token Rewards proporcional al Weight Power que ellos obtienen de todos los Weight Votes que reciben",
+                    "updated": 1639135994083
+                },
+                {
+                    "language": "RU",
+                    "text": "Weight Power, который вы вводите в узлы Weight Votes, имеет большое значение, поскольку это мера того, насколько вы хотите стимулировать указанный узел. Узлы в иерархиях Project Definition Hierarchies получают Token Rewards, пропорционально Weight Power, который они получают от всех получаемых Weight Votes!",
+                    "updated": 1639138505009
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You may want to learn more about Token Rewards and Voting Power Flow! The page explains how Token Rewards are allocated to each node in the Project Definition Hierarchies depending on the Weight they get from Weight Votes.",
-            "updated": 1630498497344
+            "updated": 1630498497344,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Es posible que desee obtener más información sobre Token Rewards y Voting Power Flow! La página explica cómo Token Rewards se asignan a cada nodo en el  Project Definition Hierarchies dependiendo del Weight que btengan de los Weight Votes.",
+                    "updated": 1639136097027
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы захотите узнать больше о Token Rewards и Voting Power Flow! На странице объясняется, как награды Token Rewards распределяются между каждым узлом в иерархиях Project Definition Hierarchies в зависимости от веса, который они получают в результате голосования по весу Weight Votes.",
+                    "updated": 1639138682734
+                }
+            ]
         }
     ]
 }

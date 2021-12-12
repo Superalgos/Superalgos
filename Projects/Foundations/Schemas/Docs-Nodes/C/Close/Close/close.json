@@ -1,7 +1,14 @@
 {
     "type": "Close",
     "definition": {
-        "text": "Close is the rate at the datetime of the end property, as provided by the exchange. That is, the rate at the close of the candle."
+        "text": "Close is the rate at the datetime of the end property, as provided by the exchange. That is, the rate at the close of the candle.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Close - это курс на момент закрытия свечи.",
+                "updated": 1638646593241
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1638646609689
+                }
+            ]
         }
     ]
 }

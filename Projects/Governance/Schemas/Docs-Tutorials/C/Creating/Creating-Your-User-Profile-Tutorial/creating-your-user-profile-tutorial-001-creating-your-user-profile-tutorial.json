@@ -4,12 +4,26 @@
     "type": "Creating Your User Profile Tutorial",
     "definition": {
         "text": "This Tutorial walks you through the steps to create a User Profile and begin the journey to participating in Superalgos Governance.",
-        "updated": 1629146822189
+        "updated": 1629146822189,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В этом учебном пособии вы пройдете этапы создания профиля пользователя User Profile и начнете путь к участию в управлении Superalgos.",
+                "updated": 1639043159492
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "About This Tutorial"
+            "text": "About This Tutorial",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом руководстве",
+                    "updated": 1639043171547
+                }
+            ]
         },
         {
             "style": "List",

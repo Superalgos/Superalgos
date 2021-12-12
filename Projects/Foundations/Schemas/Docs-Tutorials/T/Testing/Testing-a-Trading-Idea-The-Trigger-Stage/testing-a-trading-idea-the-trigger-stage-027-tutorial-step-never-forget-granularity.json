@@ -7,24 +7,59 @@
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "Superalgos strives to keep things simple, and so should you, as it is the best way to handle mounting complexity!"
+        "text": "Superalgos strives to keep things simple, and so should you, as it is the best way to handle mounting complexity!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Superalgos strebt danach, die Dinge einfach zu halten, und das sollten Sie auch tun, denn das ist der beste Weg, um die zunehmende Komplexität zu bewältigen!",
+                "updated": 1639265605790
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Conditions should be as granular as possible because:"
+            "text": "Conditions should be as granular as possible because:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bedingungen sollten so einfach (granular) wie möglich sein, weil:",
+                    "updated": 1639265632592
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "It makes it easier to debug the syntax: when you pile up logic in a single condition, it's hard to find bugs you may have introduced."
+            "text": "It makes it easier to debug the syntax: when you pile up logic in a single condition, it's hard to find bugs you may have introduced.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es erleichtert die Fehlersuche in der Syntax: Wenn Sie die Logik in einer einzigen Bedingung anhäufen, ist es schwer, Fehler zu finden, die Sie möglicherweise eingeführt haben.",
+                    "updated": 1639265643416
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "It makes it easier to debug the strategy: if you keep logic segregated in different conditions, you will then be able to see precisely what part of the logic validates true or false."
+            "text": "It makes it easier to debug the strategy: if you keep logic segregated in different conditions, you will then be able to see precisely what part of the logic validates true or false.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es erleichtert die Fehlersuche in der Strategie: Wenn Sie die Logik in verschiedene Bedingungen aufteilen, können Sie genau sehen, welcher Teil der Logik wahr oder falsch ist.",
+                    "updated": 1639265656108
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "It makes the strategy easier to maintain and upgrade: granular conditions make everything easier to understand and follow."
+            "text": "It makes the strategy easier to maintain and upgrade: granular conditions make everything easier to understand and follow.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Strategie ist leichter zu pflegen und zu aktualisieren: Granulare Bedingungen machen alles einfacher zu verstehen und nachzuvollziehen.",
+                    "updated": 1639265661578
+                }
+            ]
         }
     ]
 }

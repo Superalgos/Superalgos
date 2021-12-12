@@ -1,7 +1,14 @@
 {
     "type": "Identifier",
     "definition": {
-        "text": "Identifier is a unique alphanumeric string by which the object represented by the parent node may be unequivocally identified."
+        "text": "Identifier is a unique alphanumeric string by which the object represented by the parent node may be unequivocally identified.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Identifier - это уникальная буквенно-цифровая строка, с помощью которой можно однозначно идентифицировать объект, представленный родительским узлом.",
+                "updated": 1638968744853
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The property is what would be used to access a specific known record."
+            "text": "The property is what would be used to access a specific known record.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Property - это то, что будет использоваться для доступа к определенной известной записи.",
+                    "updated": 1638968794353
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Identifier Configuration",
-            "updated": 1609880046865
+            "updated": 1609880046865,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Identifier",
+                    "updated": 1638968826330
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638968836475
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638968858803
+                }
+            ]
         }
     ]
 }

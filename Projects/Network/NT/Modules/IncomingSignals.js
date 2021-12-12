@@ -25,11 +25,23 @@ exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSig
         */
 
         let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signalMessage)
+        /*
+        Broadcast the Signal to all clients connected to this Network Node.
+        */
+        let messageHeader = {
+            payload: JSON.stringify({ signalMessage: JSON.stringify(signalMessage) })
+        }
+        if (NT.networkNode.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
+            response = {
+                result: 'Error',
+                message: 'Signal Could Not be Broadcasted to Network Clients.'
+            }
+        }
 
         if (response === undefined) {
             response = {
                 result: 'Ok',
-                message: 'Signal Accepted.'
+                message: 'Signal Accepted & Broadcasted.'
             }
         }
         return response

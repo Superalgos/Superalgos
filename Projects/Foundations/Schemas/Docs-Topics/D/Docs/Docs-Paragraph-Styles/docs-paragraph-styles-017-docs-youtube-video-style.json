@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Es ist möglich, YouTube-Videos in eine Docs-Seite einzubetten. Alles, was Sie dazu wissen müssen, ist, die YouTube-Video-ID zu kopieren und in einen Absatz mit dem Youtube-Stil einzufügen.",
                 "updated": 1633957183556
+            },
+            {
+                "language": "RU",
+                "text": "На страницу документов можно встраивать видео с YouTube. Все, что вам нужно знать, это скопировать и вставить идентификатор видео YouTube в абзац в стиле Youtube.",
+                "updated": 1638542483088
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Die Syntax zum Einbetten eines YouTube-Videos in eine Docs-Seite lautet wie folgt:",
                     "updated": 1633957198374
+                },
+                {
+                    "language": "RU",
+                    "text": "Синтаксис для встраивания видео YouTube на страницу следующий:",
+                    "updated": 1638542518164
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Wenn Sie möchten, dass das Video automatisch abgespielt wird, d. h. dass die Wiedergabe ohne Benutzereingriff beginnt, wie bei einem animierten GIF, fügen Sie die folgende Zeichenfolge unmittelbar nach der videoId ein:",
                     "updated": 1633957228484
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите, чтобы видео воспроизводилось автоматически, то есть чтобы видео начиналось без вмешательства пользователя, как это сделал бы анимированный GIF, добавьте следующую строку сразу после videoId:",
+                    "updated": 1638542559313
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633957244489
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638542570388
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "language": "DE",
                     "text": "Dies würde das folgende Video wiedergeben:",
                     "updated": 1633957260647
+                },
+                {
+                    "language": "RU",
+                    "text": "Это приведет к воспроизведению следующего видео:",
+                    "updated": 1638542640415
                 }
             ]
         },
@@ -84,6 +109,11 @@
                     "language": "DE",
                     "text": "Um den Absatz eines YouTube-Videos zu bearbeiten, klicken Sie mit der rechten Maustaste etwas oberhalb des oberen Randes des Videos, nicht auf das Video selbst.",
                     "updated": 1633957388424
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы отредактировать абзац видео YouTube, щелкните правой кнопкой мыши немного выше верхней границы видео, а не на самом видео.",
+                    "updated": 1638542661727
                 }
             ]
         }

@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Et Voilà!",
     "definition": {
         "icon": {
-            "name": "trading-current",
+            "name": "Trading/trading-current",
             "project": "Foundations"
         },
         "text": "So, we turned on the \"Trading Episode Counters\" and the \"Current Episode\" layers... let's take a look at the hierarchy...",

@@ -15,6 +15,11 @@
                 "text": "¡La configuración de cada nodo donde pueda entrar Token Power actúa como una compuerta! Así es como controlas Token Power Flows!",
                 "updated": 1630897279661,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Конфигурация каждого узла, в который может входить Token Power, действует как шлюз! Вот как вы управляете потоками токенов Token Power Flows!",
+                "updated": 1639051361085
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Vuelve al nodo Onboarding Programs. ¿Adivina qué? Esos programas no necesitan Token Power, ¡así que cerraremos la compuerta!",
                     "updated": 1630897321614,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вернитесь в узел Onboarding Programs. Знаешь, что? Этим программам не нужен Token Power, поэтому мы закроем шлюз!",
+                    "updated": 1639051493624
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Copie la siguiente configuración y péguela en la configuración del nodo Onboarding Programs.",
                     "updated": 1630897367644,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте приведенную ниже конфигурацию и вставьте ее в конфигурацию узла Onboarding Programs!",
+                    "updated": 1639051532113
                 }
             ]
         },

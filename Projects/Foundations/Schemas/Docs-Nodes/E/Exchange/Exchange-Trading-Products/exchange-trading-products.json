@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El exchange trading products node ( nodo de productos de trading del exchange) organiza datos de minado de trading por el exchange. Esto es, cada exchange instalado en el sistema tiene un nodo de productos comerciales del exchange que agrupa todas las referencias de sesión correspondientes a dicho exchange.",
                 "updated": 1637232089942
+            },
+            {
+                "language": "RU",
+                "text": "Узел Exchange Trading Products организует торговые данные по биржам. То есть каждая биржа, установленная в системе, имеет узел торговых продуктов биржи, группирующий все ссылки на сеансы, соответствующие упомянутой бирже.",
+                "updated": 1638785613751
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "El nodo de productos detrading del exchange debe referenciar al exchange de elección Esta referencia limita el resto de las definiciones al contexto de dicho exchange.",
                     "updated": 1637232209076
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел торговых продуктов биржи должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом упомянутой биржи.",
+                    "updated": 1638785674140
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "Al representar un exchange aparece en la biblioteca de iconos del sistema, el ícono  estándar de los porductos de trading del exchange es reemplazado por el logo del exchange.",
                     "updated": 1637232310775
+                },
+                {
+                    "language": "RU",
+                    "text": "При представлении биржи, представленной в библиотеке значков системы, стандартный значок биржевых торговых продуктов заменяется логотипом биржи.",
+                    "updated": 1638785685676
                 }
             ]
         }

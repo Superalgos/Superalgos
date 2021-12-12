@@ -1,7 +1,14 @@
 {
     "type": "Days",
     "definition": {
-        "text": "Days counts the number of days through which the trading bot has cycled since the object represented by the parent node was open."
+        "text": "Days counts the number of days through which the trading bot has cycled since the object represented by the parent node was open.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Days подсчитывают количество дней, в течение которых торговый бот прошел цикл с момента открытия объекта, представленного родительским узлом.",
+                "updated": 1638732030680
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "In the context of an episode, it counts the number of days in the episode."
+            "text": "In the context of an episode, it counts the number of days in the episode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте эпизода подсчитывается количество дней в эпизоде.",
+                    "updated": 1638732045690
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of a position, it counts the number of days a position has been open."
+            "text": "In the context of a position, it counts the number of days a position has been open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте позиции он подсчитывает количество дней, в течение которых позиция была открыта.",
+                    "updated": 1638732056501
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,17 +45,38 @@
         {
             "style": "Title",
             "text": "Days Configuration",
-            "updated": 1609925075455
+            "updated": 1609925075455,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Days",
+                    "updated": 1638732070412
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638732077043
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638732087728
+                }
+            ]
         }
     ]
 }

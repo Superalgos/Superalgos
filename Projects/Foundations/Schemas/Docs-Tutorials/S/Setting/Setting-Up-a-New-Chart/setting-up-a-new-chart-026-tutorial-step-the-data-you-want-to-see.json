@@ -14,6 +14,11 @@
                 "language": "ES",
                 "text": "En Superalgos, controlas el flujo de datos. ¡Habla de control!",
                 "updated": 1628723580912
+            },
+            {
+                "language": "RU",
+                "text": "В Superalgos вы контролируете поток данных. Поговорим о контроле!",
+                "updated": 1639075167672
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ES",
                     "text": "¿Notas alguna similitud con las otras partes de Superalgos que has visto? ¡Así es! La jerarquía está organizada según el Project, Exchange, Market, y Data Mine. Esta es la misma organización básica que encontrarás con todos los datos aquí en Superalgos.",
                     "updated": 1628723707036
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы замечаете любое сходство с другими частями Superalgos, которые вы видели? Верно! Иерархия организована в соответствии с проектом (Project), биржевым рынком (Market), и шахтами данных (Data Mine). Это та же базовая организация, которую вы найдете со всеми данными здесь, в Superalgos.",
+                    "updated": 1639075372816
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "ES",
                     "text": "Esta granularidad significa que puede acceder al Data Products en cualquier combinación.¿Quieres ver datos de dos exchangesen el mismo mercado? Fácilmente posible. ¿Quiere ver datos de dos mercados similares uno al lado del otro? Las combinaciones de datos que puedes ver en sus gráficos dependen realmente de tu imaginación.",
                     "updated": 1628724240511
+                },
+                {
+                    "language": "RU",
+                    "text": "Такая детализация означает, что вы можете получить доступ к Продуктам данных в любой комбинации. Вы хотите увидеть данные с двух разных бирж по одному и тому же рынку? Легко возможно. Вы хотите увидеть данные двух похожих рынков рядом друг с другом? Кусок торта! Комбинации данных, которые вы можете просматривать в своих диаграммах, зависят от вашего воображения.",
+                    "updated": 1639075154918
                 }
             ]
         }

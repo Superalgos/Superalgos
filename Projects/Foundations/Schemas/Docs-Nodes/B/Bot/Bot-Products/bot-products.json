@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Un nodo bot products es un dispositivo organizativo que se utiliza para organizar los productos de datos correspondientes a un bot específico.",
                 "updated": 1628902888224
+            },
+            {
+                "language": "RU",
+                "text": "Узел Bot Products - это организационное устройство, используемое для организации продуктов данных, соответствующих конкретному боту.",
+                "updated": 1638645086501
             }
         ]
     },
@@ -17,11 +22,25 @@
         },
         {
             "style": "Text",
-            "text": "The device exists as an offspring of a data or trading mine products node, and does not require a reference to a bot in the given data or trading mine."
+            "text": "The device exists as an offspring of a data or trading mine products node, and does not require a reference to a bot in the given data or trading mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Устройство существует как потомок узла данных или хранилища торговых продуктов и не требует ссылки на бота.",
+                    "updated": 1638645309497
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The use of the bot products node is optional, as data products may also exist outside of bot products."
+            "text": "The use of the bot products node is optional, as data products may also exist outside of bot products.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование узла Bot Products необязательно, так как продукты данных также могут существовать за пределами продуктов ботов.",
+                    "updated": 1638645454646
+                }
+            ]
         }
     ]
 }

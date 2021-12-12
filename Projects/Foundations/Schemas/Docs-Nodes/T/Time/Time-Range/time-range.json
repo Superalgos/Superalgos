@@ -1,7 +1,14 @@
 {
     "type": "Time Range",
     "definition": {
-        "text": "The time range parameter determines the period of time on which the trading session is run."
+        "text": "The time range parameter determines the period of time on which the trading session is run.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Параметр Time Range определяет период времени, в течение которого выполняется торговая сессия.",
+                "updated": 1639142828691
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The parameter offers precise control over the duration, starting and ending points of the session. Several options are available, and there are differences in how backtesting and the rest of the types of trading sessions function in this regard."
+            "text": "The parameter offers precise control over the duration, starting and ending points of the session. Several options are available, and there are differences in how backtesting and the rest of the types of trading sessions function in this regard.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр предлагает точный контроль над продолжительностью, начальной и конечной точками сеанса. Доступно несколько вариантов, и есть различия в том, как работают бэктестинг и остальные типы торговых сессий в этом отношении.",
+                    "updated": 1639142851513
+                }
+            ]
         },
         {
             "style": "Block",
@@ -19,12 +33,26 @@
         {
             "style": "Title",
             "text": "Time Range Configuration",
-            "updated": 1610120685734
+            "updated": 1610120685734,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Time Range",
+                    "updated": 1639142864937
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "On Backtesting Sessions",
-            "updated": 1610120720887
+            "updated": 1610120720887,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В сеансах бэктестинга",
+                    "updated": 1639142883627
+                }
+            ]
         },
         {
             "style": "Json",
@@ -33,16 +61,37 @@
         },
         {
             "style": "List",
-            "text": "initialDatetime is the datetime the session starts at."
+            "text": "initialDatetime is the datetime the session starts at.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialDatetime - это дата и время начала сеанса.",
+                    "updated": 1639142900664
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "finalDatetime is the datetime the session finishes at. If you don't set a finalDatetime* at the level of the testing session or the trading system, then the session runs for one year."
+            "text": "finalDatetime is the datetime the session finishes at. If you don't set a finalDatetime* at the level of the testing session or the trading system, then the session runs for one year.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "finalDatetime - это дата и время завершения сеанса. Если вы не установите finalDatetime * на уровне сеанса тестирования или торговой системы, то сеанс будет длиться один год.",
+                    "updated": 1639142925545
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "On Paper Trading, Forward Testing and Live Trading Sessions",
-            "updated": 1610120775806
+            "updated": 1610120775806,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "О торгах на бумаге, форвардном тестировании и торговых сессиях в реальном времени",
+                    "updated": 1639142941133
+                }
+            ]
         },
         {
             "style": "Json",
@@ -51,19 +100,47 @@
         },
         {
             "style": "Text",
-            "text": "By default, paper trading, forward testing and live trading sessions start at the datetime the session is run, that is, the present time. Such a behavior is in accordance with the most common use case, by which a user starting a new live trading session usually wishes the session to start at that moment."
+            "text": "By default, paper trading, forward testing and live trading sessions start at the datetime the session is run, that is, the present time. Such a behavior is in accordance with the most common use case, by which a user starting a new live trading session usually wishes the session to start at that moment.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По умолчанию торговля на бумаге, форвард-тестирование и торговые сессии в реальном времени начинаются в день начала сеанса, то есть в настоящее время. Такое поведение соответствует наиболее распространенному варианту использования, при котором пользователь, начинающий новую торговую сессию в реальном времени, обычно желает, чтобы сессия началась в этот момент.",
+                    "updated": 1639142965175
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, users have requested to be allowed to start live sessions in the past. Such a feature may be useful, for example, to take an opportunity that was just missed for whatever reason, including technical ones."
+            "text": "However, users have requested to be allowed to start live sessions in the past. Such a feature may be useful, for example, to take an opportunity that was just missed for whatever reason, including technical ones.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако в прошлом пользователи запрашивали разрешение на запуск сеансов в реальном времени. Такая функция может быть полезна, например, чтобы воспользоваться возможностью, которую просто упустили по какой-либо причине, в том числе по техническим причинам.",
+                    "updated": 1639142987089
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialDatetime, in combination with the allowStartingFromThePast parameter, is a hack to allow a live session to start from a date in the past. If there is a valid initialDatetime and allowStartingFromThePast is true, then the live session effectively starts from the specified date in the past. If allowStartingFromThePast is false the initialDatetime is ignored and the session starts from the present time."
+            "text": "initialDatetime, in combination with the allowStartingFromThePast parameter, is a hack to allow a live session to start from a date in the past. If there is a valid initialDatetime and allowStartingFromThePast is true, then the live session effectively starts from the specified date in the past. If allowStartingFromThePast is false the initialDatetime is ignored and the session starts from the present time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialDatetime в сочетании с параметром allowStartingFromThePast - это хитрость, позволяющая активному сеансу начинаться с даты в прошлом. Если существует допустимое значение initialDatetime и параметр allowStartingFromThePast имеет значение true, то активный сеанс фактически начинается с указанной даты в прошлом. Если allowStartingFromThePast имеет значение false, initialDatetime игнорируется, и сеанс начинается с настоящего времени.",
+                    "updated": 1639143027466
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "allowStartingFromThePast may be true or false."
+            "text": "allowStartingFromThePast may be true or false.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "allowStartingFromThePast может иметь значение true или false.",
+                    "updated": 1639143045016
+                }
+            ]
         }
     ]
 }

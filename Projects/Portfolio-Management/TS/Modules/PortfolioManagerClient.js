@@ -10,14 +10,17 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         finalize: finalize
     }
 
+    let portfolioManagerEventsClient = TS.projects.portfolioManagement.modules.portfolioManagerEventsClient.newPortfolioManagementModulesPortfolioManagerEventsClient(processIndex)
+
     return thisObject
 
     function initialize() {
-
+        portfolioManagerEventsClient.initialize()
     }
 
     function finalize() {
-
+        portfolioManagerEventsClient.finalize()
+        portfolioManagerEventsClient = undefined
     }
 
     async function askPortfolioEventsManager(eventNode, eventStatus) {

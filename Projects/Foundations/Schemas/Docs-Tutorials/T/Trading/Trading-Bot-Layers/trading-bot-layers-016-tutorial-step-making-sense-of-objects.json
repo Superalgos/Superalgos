@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Making Sense of Objects",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer"
+            "name": "Layer/layer",
+            "project": "Foundations"
         },
         "text": "The layers in the Simulation Objects layer manager feature visual representations of the data that makes up simulations.",
         "translations": [

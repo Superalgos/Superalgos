@@ -4,13 +4,27 @@
     "type": "API Data Fetcher Bot Demo Plugin Workspace",
     "definition": {
         "text": "This workspace features an example of how to build a new API Data Fetche Bot.",
-        "updated": 1622625013055
+        "updated": 1622625013055,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В этом рабочем пространстве представлен пример создания нового бота для извлечения данных через API.",
+                "updated": 1639057382639
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1622625028937
+            "updated": 1622625028937,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639057392740
+                }
+            ]
         },
         {
             "style": "Link",

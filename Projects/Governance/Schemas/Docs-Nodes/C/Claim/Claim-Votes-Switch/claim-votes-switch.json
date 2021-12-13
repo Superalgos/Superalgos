@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este switch abrir tipos diferentes de Claim Votes, y para referenciar tipos de nodos Claims Folder incluídos en el Claims Program en la sección de la jerarquía del User Profilepara mapear grandes estructuras de solicitudess.",
                 "updated": 1636039814895
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот переключатель для создания различных типов Claim Votes и для ссылки на типы узлов Claims Folder в разделе Claims Program иерархии профиля пользователя для сопоставления больших структур утверждений.",
+                "updated": 1639134336701
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Puede usar este interruptor para tres propósitos diferentes:",
                     "updated": 1636039855908
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать этот переключатель для трех разных целей:",
+                    "updated": 1639134350579
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "ES",
                     "text": "Como un dispositivo organizacional: puede crear arbitrariamente arreglos de votos, desplegando más switches y votos.",
                     "updated": 1636040002945
+                },
+                {
+                    "language": "RU",
+                    "text": "В качестве организационного устройства: вы можете создавать произвольные схемы голосов, порождая больше переключателей и голосов.",
+                    "updated": 1639134379562
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "ES",
                     "text": "Como un switch: Ypuede controlar el flujo del Claim Support Power, muy parecido al Token Power Switch, pero sin el Voting Program. Si necesita un recordatorio, lea como fluye el Token Power Flows.",
                     "updated": 1636040127007
+                },
+                {
+                    "language": "RU",
+                    "text": "В качестве переключателя: вы можете управлять потоком Claim Support Power, почти так же, как с помощью Token Power Switch, но в рамках программы Voting Program. Если вам нужно напоминание, прочитайте пояснения Token Power Flows.",
+                    "updated": 1639134540761
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "ES",
                     "text": "Como mapeador de estructuras de datos: Use el nodo para referir  Claims Foldertipo de nodo para mapear estructuras enteras de solicitudes, en otra jerarquía del User Profile.",
                     "updated": 1636040291714
+                },
+                {
+                    "language": "RU",
+                    "text": "В качестве средства сопоставления структуры данных: используйте узел для ссылки на типы узлов Claims Folder, чтобы сопоставить целые структуры утверждений с другими иерархиями профилей пользователей.",
+                    "updated": 1639134594315
                 }
             ]
         },
@@ -74,6 +99,11 @@
                     "language": "ES",
                     "text": "Los primeros dos casos de uso  son autoexplicativo. Exploremos el tercer caso con más detalle.",
                     "updated": 1636040377996
+                },
+                {
+                    "language": "RU",
+                    "text": "Первые два варианта использования не требуют пояснений. Рассмотрим третий подробнее.",
+                    "updated": 1639134609926
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "ES",
                     "text": "Use un nodo Claim Votes Switch para establecer la referencia de Claims Folde con un tipo de nodo — Position Claims Folder, Feature Claims Folder, o Asset Claims Folder — incluídos en la sección de Claims Program en el nodo del User Profile de un colega. Entonces use la opción de Install Missing Votes en el menú del Claim Votes Switch para mapear por completo el Claims Folder!",
                     "updated": 1636040586880
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте узел Claim Votes Switch, чтобы установить ссылку на тип узла Claims Folder — Position Claims Folder, Feature Claims Folder или Asset Claims Folder — в разделе Claims Program узла User Profile вашего коллеги. Затем используйте опцию Install Missing Votes в меню Claim Votes Switch, чтобы сопоставить всю папку Claims Folder!",
+                    "updated": 1639135007910
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "ES",
                     "text": "El proceso crea un Claim Votes Switch para cada Claims Folder, y emparejando Claim Votes fpara cada Asset Contribution Claim, Feature Contribution Claim, o Position Contribution Claim definida en cada carpeta.",
                     "updated": 1636040713515
+                },
+                {
+                    "language": "RU",
+                    "text": "Процесс создает переключатель Claim Votes Switch для каждой папки Claims Folder и  соответствующие Claim Votes для каждого Asset Contribution Claim, Feature Contribution Claim или Position Contribution Claim, определенных в каждой папке.",
+                    "updated": 1639135246581
                 }
             ]
         },
@@ -109,6 +149,11 @@
                     "language": "ES",
                     "text": "Si algo cambia del lado de las definiciones, puede siempre retroceder yhacer correr nuevamente el proceso de Install Missing Votes . E proceso remapeará la estructura con los votos y los switches adecuados.",
                     "updated": 1636040878722
+                },
+                {
+                    "language": "RU",
+                    "text": "Если что-то изменится в определениях, вы всегда можете вернуться к процессу Install Missing Votes еще раз. Процесс изменит отображение структуры с соответствующими голосами и переключателями.",
+                    "updated": 1639135447582
                 }
             ]
         },
@@ -118,7 +163,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639135473603
+                }
+            ]
         }
     ]
 }

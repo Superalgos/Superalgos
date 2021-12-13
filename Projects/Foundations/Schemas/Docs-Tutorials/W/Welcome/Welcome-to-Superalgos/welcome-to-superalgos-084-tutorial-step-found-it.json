@@ -57,8 +57,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Her veri parçasının bir yolu vardır ve bu yol ile  bir Ticaret Stratejisindeki ( Trading Strategy ) herhangi bir Formül ( Formula ) veya Koşuldan ( Condition ) verilere erişebilirsiniz. Hızlı bir kontrol yapalım:",
-                    "updated": 1636377357897
+                    "text": "Her veri parçasının bir yolu vardır ve bu yol ile bir Ticaret Stratejisindeki ( Trading Strategy ) herhangi bir Formül ( Formula ) veya Koşuldan ( Condition ) verilere erişebilirsiniz. Hızlı bir kontrol yapalım:",
+                    "updated": 1639225101766
                 }
             ]
         },
@@ -85,8 +85,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate ) menüsünü açın ve Düğüm Yolunu ( Path) Kopyala'ya tıklayın. Şimdi bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
-                    "updated": 1636377404627
+                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın. Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
+                    "updated": 1639225333761
                 }
             ],
             "updated": 1636911911813

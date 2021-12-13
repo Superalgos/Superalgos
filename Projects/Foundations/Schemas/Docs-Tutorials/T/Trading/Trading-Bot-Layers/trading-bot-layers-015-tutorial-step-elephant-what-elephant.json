@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Elephant? What Elephant?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "strategy"
+            "name": "Strategy/strategy",
+            "project": "Foundations"
         },
         "text": "Will someone please acknowledge the elephant in the room? Why did those counters point to one or two strategies and one position?",
         "translations": [

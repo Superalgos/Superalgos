@@ -2,7 +2,14 @@
     "type": "Liquid Democracy",
     "definition": {
         "text": "The form of Liquid Democracy in Superalgos utilizes elements of direct and representative democracy. Users have the right to vote directly, like in a direct democracy, but also have the option to delegate their Voting Power for someone else to vote on their behalf, like in a representative democracy. ",
-        "updated": 1630396811020
+        "updated": 1630396811020,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Форма Liquid Democracy в Superalgos использует элементы прямой и представительной демократии. Пользователи имеют право голосовать напрямую, как в прямой демократии, но также имеют возможность делегировать свой Voting Power кому-то другому, чтобы голосовать от их имени, как в представительной демократии.",
+                "updated": 1639139763870
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Text",
-            "text": "The form of Liquid Democracy in Superalgos utilizes elements of direct and representative democracy. Users have the right to vote directly, like in a direct democracy, but also have the option to delegate their Voting Power for someone else to vote on their behalf, like in a representative democracy."
+            "text": "The form of Liquid Democracy in Superalgos utilizes elements of direct and representative democracy. Users have the right to vote directly, like in a direct democracy, but also have the option to delegate their Voting Power for someone else to vote on their behalf, like in a representative democracy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Форма Liquid Democracy в Superalgos использует элементы прямой и представительной демократии. Пользователи имеют право голосовать напрямую, как в прямой демократии, но также имеют возможность делегировать свой Voting Power кому-то другому, чтобы голосовать от их имени, как в представительной демократии.",
+                    "updated": 1639139759622
+                }
+            ]
         }
     ]
 }

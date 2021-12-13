@@ -7,16 +7,37 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "We will use the slope property of the Bollinger Subchannels indicator to confirm that a trend is a trend!"
+        "text": "We will use the slope property of the Bollinger Subchannels indicator to confirm that a trend is a trend!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden die Neigungseigenschaft des Bollinger Subchannels-Indikators verwenden, um zu bestätigen, dass ein Trend ein Trend ist!",
+                "updated": 1639264098758
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Slide the pointer of the mouse over different subchannels and notice their reported slope in the plotter panel."
+            "text": "Slide the pointer of the mouse over different subchannels and notice their reported slope in the plotter panel.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über verschiedene Subkanäle und beachten Sie deren gemeldete Neigung im Plotter-Panel.",
+                    "updated": 1639264110148
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Notice that when the market is trending, the subchannel slope is almost never Side. And that's to be expected, as the Side slope represents the shallower slope possible in the MA. On the other hand, the periods on which the market is ranging, although the direction may go back and forth between Up and Down, the slope is mostly Side."
+            "text": "Notice that when the market is trending, the subchannel slope is almost never Side. And that's to be expected, as the Side slope represents the shallower slope possible in the MA. On the other hand, the periods on which the market is ranging, although the direction may go back and forth between Up and Down, the slope is mostly Side.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass die Neigung der Subkanäle bei einem Trend fast nie seitlich ist. Das ist auch zu erwarten, da die seitliche Steigung die geringste mögliche Steigung im MA darstellt. In den Perioden, in denen der Markt schwankt, kann die Richtung zwar zwischen Aufwärts- und Abwärtsbewegungen hin und her wechseln, aber die Neigung ist meistens seitlich.",
+                    "updated": 1639264117122
+                }
+            ]
         }
     ]
 }

@@ -7,20 +7,48 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "Let's try an indicator that brings an additional dimension to the information we are getting from this one!"
+        "text": "Let's try an indicator that brings an additional dimension to the information we are getting from this one!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lassen Sie uns einen Indikator ausprobieren, der den Informationen, die wir von diesem Indikator erhalten, eine zusätzliche Dimension verleiht!",
+                "updated": 1639262583659
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn off the Bollinger Channels Objects layer! Now turn on the Bollinger SubChannels Objects layer!"
+            "text": "Turn off the Bollinger Channels Objects layer! Now turn on the Bollinger SubChannels Objects layer!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie den Bollinger Channels Objects Layer aus! Schalten Sie nun die Bollinger SubChannels Objects-Layer ein!",
+                    "updated": 1639262626749
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There's still a lot of back and forth with the Up and Down directions... but!"
+            "text": "There's still a lot of back and forth with the Up and Down directions... but!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es geht immer noch viel hin und her mit den Auf- und Abwärtsrichtungen... aber!",
+                    "updated": 1639262638903
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Slide the mouse pointer over the chart and look at the Slope property in the plotter panel of the indicator! Switch it on in case it's off!"
+            "text": "Slide the mouse pointer over the chart and look at the Slope property in the plotter panel of the indicator! Switch it on in case it's off!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über den Chart und sehen Sie sich die Eigenschaft Slope im Plotter-Panel des Indikators an! Schalten Sie sie ein, falls sie ausgeschaltet ist!",
+                    "updated": 1639262646318
+                }
+            ]
         }
     ]
 }

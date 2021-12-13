@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Искуственные нейронные сети основаны на наборе cоединенных блоков или узлов, называемых искуственными нейронами, которые свободно моделируют нейроны в биологическом мозге. Каждое соедининие, подобно синапсам в биологическом мозге, может передавать сигнал другим нейронам. Искуственный нейрон, который получает сизгнал, обрабатывает его и может передавать сигналы нейронам, подключенным к нему.\n",
                 "updated": 1636749291371
+            },
+            {
+                "language": "TR",
+                "text": "ANN, biyolojik bir beyindeki nöronları gevşek bir şekilde modelleyen, yapay nöronlar adı verilen bağlantılı birimler veya düğümler koleksiyonudur. Her bağlantı, biyolojik bir beyindeki sinapslar gibi, diğer nöronlara bir sinyal iletebilir. Bir sinyali alan yapay bir nöron daha sonra onu işler ve kendisine bağlı nöronlara sinyal gönderebilir.",
+                "updated": 1639221396544
             }
         ]
     },

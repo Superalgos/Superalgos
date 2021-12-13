@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Лимитный ордер - это приказ на покупку или продажу ценной бумаги по определенной цене или выше. Лимитный ордер на покупку может быть исполнен только по предельной цене или ниже, а лимитный ордер на продажу может быть исполнен только по предельной цене или выше.",
                 "updated": 1636987786529
+            },
+            {
+                "language": "TR",
+                "text": "Limit emri, bir menkul kıymeti belirli bir fiyattan veya daha iyi bir fiyattan almak veya satmak için verilen bir emirdir. Bir limit alış emri sadece limit fiyat veya daha düşük bir fiyattan gerçekleştirilebilir ve bir satış limit emri sadece limit fiyat veya daha yüksek bir fiyattan gerçekleştirilebilir.",
+                "updated": 1639222048680
             }
         ],
         "updated": 1636987695057

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - 1, 2, 3, Counting!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-episode-counters"
+            "name": "Trading/trading-episode-counters",
+            "project": "Foundations"
         },
         "text": "Let's test the first Layer in the Trading Engine Layer Manager: \"Trading Episode Counters\".",
         "updated": 1622541030903,

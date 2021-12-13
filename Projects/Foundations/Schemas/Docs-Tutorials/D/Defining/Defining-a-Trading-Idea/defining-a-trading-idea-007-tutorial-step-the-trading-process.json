@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "La primera dimensión que debemos definir es a qué tipo de estrategia se dirige la hipótesis.",
                 "updated": 1636724926593
+            },
+            {
+                "language": "DE",
+                "text": "Die erste Dimension, die wir definieren sollten, ist die Art der Strategie, auf die die Hypothese ausgerichtet ist.",
+                "updated": 1639251677275
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Una regla empírica simple es determinar si es una estrategia scalping, day-trading, swing trading, o position trading",
                     "updated": 1636724992046
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine einfache Faustregel ist die Feststellung, ob es sich um eine Scalping-, Daytrading-, Swingtrading- oder Positionshandelsstrategie handelt.",
+                    "updated": 1639251689695
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Esta definición proporciona una noción del período de tenencia esperado, es decir, el rango de tiempo promedio esperado para que cada posición esté abierta.",
                     "updated": 1636725015797
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Definition liefert eine Vorstellung von der erwarteten Haltedauer, d. h. der durchschnittlichen Zeitspanne, die für jede offene Position erwartet wird.",
+                    "updated": 1639251697939
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "ES",
                     "text": "El valor de tal definición es que proporciona una guía sobre qué marcos de tiempo analizar para determinar la existencia de tendencias.",
                     "updated": 1636725046243
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Wert einer solchen Definition besteht darin, dass sie einen Leitfaden dafür liefert, welche Zeitrahmen zu analysieren sind, um das Vorhandensein von Trends festzustellen.",
+                    "updated": 1639251706996
                 }
             ]
         }

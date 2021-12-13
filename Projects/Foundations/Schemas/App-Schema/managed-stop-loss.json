@@ -11,7 +11,7 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Ask Portfolio Formula Manager",
+            "label": "Add Ask Portfolio Manager",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "askPortfolioFormulaManager",
             "relatedUiObject": "Ask Portfolio Formula Manager",

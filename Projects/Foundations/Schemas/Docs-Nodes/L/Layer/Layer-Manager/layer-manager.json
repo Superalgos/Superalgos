@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Layer Manager определяет, какие слои будут видны на соответствующей временной диаграмме.",
                 "updated": 1638973542784
+            },
+            {
+                "language": "TR",
+                "text": "Katman yöneticisi, ilgili zaman çizelgesi grafiğinde hangi katmanların görüneceğini belirler.",
+                "updated": 1639214497057
             }
         ]
     },

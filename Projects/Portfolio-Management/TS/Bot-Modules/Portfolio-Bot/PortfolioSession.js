@@ -111,7 +111,7 @@
                     Run the Events Interface.
                     */
                     portfolioManagerEventsInterface.run()
-                    return
+                    //return
 
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
                     if (
@@ -140,7 +140,7 @@
 
                     let allGood
                     switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
-                        case 'Backtesting Session': {
+                        case 'Backtesting Portfolio Session': {
                             allGood = startBackTesting(message)
                             break
                         }
@@ -317,7 +317,7 @@
                 let aYearAgo = today - SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 let aYearFromNow = today + SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
-                    case 'Backtesting Session': {
+                    case 'Backtesting Portfolio Session': {
                         useDefaultDatetimes(aYearAgo, today)
                         break
                     }
@@ -594,11 +594,6 @@
             }
 
             function startLivePortfolio() {
-                /* Testing to be removed:  @PLUV */
-                /*for (let key of TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.keys()) {
-                    TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.get(key).beginListening();
-                }*/
-                /* End Testing */
                 return checkKey()
             }
 
@@ -627,6 +622,10 @@
             }
 
             function startPaperPortfolio(message) {
+                return true
+            }
+
+            function startBacktestingPortfolio(message) {
                 return true
             }
 

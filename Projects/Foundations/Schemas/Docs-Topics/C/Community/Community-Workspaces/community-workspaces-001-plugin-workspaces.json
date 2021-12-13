@@ -35,6 +35,11 @@
                     "text": "Cada plugin workspace incluído en Superalgos ha sido cnstruido para un propósito específico.",
                     "updated": 1633281831625,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждое рабочее пространство плагина, поставляемое с Superalgos, было создано с определенной целью.",
+                    "updated": 1639055532864
                 }
             ]
         }

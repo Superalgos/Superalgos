@@ -26,7 +26,14 @@
         {
             "style": "Title",
             "text": "Three Types of Claim Folders",
-            "updated": 1630496493305
+            "updated": 1630496493305,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три типа Claim Folders",
+                    "updated": 1639133107079
+                }
+            ]
         },
         {
             "style": "Include",
@@ -62,7 +69,14 @@
         {
             "style": "Title",
             "text": "Three Types of Contribution Claims",
-            "updated": 1630496650088
+            "updated": 1630496650088,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три типа Contribution Claims",
+                    "updated": 1639133414363
+                }
+            ]
         },
         {
             "style": "Include",

@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Ты получил это. Создание ссылок - это кусок пирога. Давайте сделаем связь!",
                 "updated": 1639078956290
+            },
+            {
+                "language": "DE",
+                "text": "Sie haben es erfasst. Das Erstellen von Referenzen ist ein Kinderspiel. Lassen Sie uns die Verbindung herstellen!",
+                "updated": 1639275952869
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Из трех доступных узлов Data Mine Products, мы собираемся связать наш график с Candles Data Mine.",
                     "updated": 1639079114291
+                },
+                {
+                    "language": "DE",
+                    "text": "Von den drei verfügbaren Data Mine Products Knoten werden wir unser Diagramm mit dem Candles Data Mine verknüpfen.",
+                    "updated": 1639276049917
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Найдите Менеджер слоев (Layer Manager) под диаграммой временной шкалы, которую вы добавили ранее. Затем установите ссылку от него на узел Candles Data Mine Products .",
                     "updated": 1639079226902
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie den Layer Manager unter dem Timeline Chart, das Sie zuvor hinzugefügt haben. Stellen Sie dann einen Verweis von diesem auf den Knoten Candles Data Mine Products her.",
+                    "updated": 1639276151360
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Если все подключено правильно, название шахты данных должно появиться над менеджером слоев.",
                     "updated": 1639079253592
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alles richtig angeschlossen ist, sollte der Name der Datenmine über dem Ebenenmanager erscheinen.",
+                    "updated": 1639276219407
                 }
             ]
         }

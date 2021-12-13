@@ -1,6 +1,7 @@
 function newGovernanceFunctionLibraryProfileConstructor() {
     let thisObject = {
-        buildProfile: buildProfile,
+        buildProfileWallet: buildProfile,
+        buildProfileMnemonic: buildProfile,
         installSigningAccounts: installSigningAccounts,
         buildProfileWalletConnect: buildProfileWalletConnect
     }
@@ -9,7 +10,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
     function buildProfile(
         node,
-        rootNodes
+        rootNodes,
+        type
     ) {
         /*
         Some validations first...
@@ -20,6 +22,14 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         if (githubUsername === undefined || githubUsername === "") {
             node.payload.uiObject.setErrorMessage(
                 "githubUsername config property missing.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
+            return
+        }
+
+        if (type === 'mnemonic' && (mnemonic === undefined || mnemonic === "")) {
+            node.payload.uiObject.setErrorMessage(
+                "mnemonic config property missing.",
                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
             )
             return
@@ -85,7 +95,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 signUserProfileData(response.address, response.privateKey)
             }
         }
-
+        
         function signUserProfileData(address, privateKey) {
 
             let request = {
@@ -96,9 +106,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     data: githubUsername
                 }
             }
-
+    
             httpRequest(JSON.stringify(request.params), request.url, onResponse)
-
+    
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -108,9 +118,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     )
                     return
                 }
-
+    
                 let response = JSON.parse(data)
-
+    
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     node.payload.uiObject.setErrorMessage(
@@ -125,7 +135,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
-
+    
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
                 /*
                 Set up a basic profile to start receiving benefits
@@ -133,15 +143,15 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let finServices = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
                 finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 finServices.payload.uiObject.menu.internalClick("Add Financial Program")
-
+    
                 let stakeProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
                 stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
-
+    
                 let liquidProgs = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
                 liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
-
+    
                 let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
@@ -179,6 +189,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             }
         }
     }
+
 
     function installSigningAccounts(
         node,

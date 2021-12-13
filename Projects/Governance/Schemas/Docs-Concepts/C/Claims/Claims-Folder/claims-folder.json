@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Los diferentes tipos de nodos de Claims Folder (carpeta de solicitudes) sirven como dispositivos organizacionales. Ellos también permiten mapear secciones enteras de las jerarquías de definición del proyecto para colocar varias solicitudes al mismo tiempo.",
                 "updated": 1636109869528
+            },
+            {
+                "language": "RU",
+                "text": "Различные типы узлов Claims Folder служат в качестве организационных устройств. Они также позволяют отображать целые разделы иерархии определений проекта для одновременного размещения нескольких требований.",
+                "updated": 1639129539766
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Project Definition Hierarchies ( jerarquías de definición de proyecto) tiene 4 tipos de clases de nodos que sirven como dispositivos organizacionales:",
                     "updated": 1636109968314
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархии Project Definition Hierarchies имеют четыре типа узлов классов, которые служат организационными устройствами:",
+                    "updated": 1639129605807
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "ES",
                     "text": "De forma similar, el Claims Program (programa de solicitudes) un conjunto coincidente de dispositivos organizacionales:",
                     "updated": 1636110069861
+                },
+                {
+                    "language": "RU",
+                    "text": "Точно так же программа Claims Program включает соответствующий набор организационных устройств:",
+                    "updated": 1639129659809
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "language": "ES",
                     "text": "Note que no puede colocar solicitudes en un Pool entero. Puede colocar solicitudes solamente en definiciones granulares. Este es el porqué no hay un pool claims folders o pool claims en ese sentido.",
                     "updated": 1636110260349
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что вы не можете предъявить претензии ко всему пулу. Вы можете подавать заявки только на подробные определения. Вот почему в этом отношении нет ни папок заявлений пула, ни заявлений пула.",
+                    "updated": 1639129706760
                 }
             ]
         },
@@ -91,6 +111,11 @@
                     "language": "ES",
                     "text": "Puede usar estos nodos de carpetas para organizar sus solicitudes en arreglos arbitrarios, pero también puede hacer un uso más sofisticado de ellos!",
                     "updated": 1636110356848
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать эти узлы папок для организации ваших требований в произвольном порядке, но вы также можете использовать их более изощренно!",
+                    "updated": 1639129749359
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "ES",
                     "text": "Use un nodo Claims Folder para establecer una referencia con el correspondiente tipo de clase de nodo. Entonces use la opción de Install Missing Claims (Instalar solicitudes faltantes) del menú de  Claims Folderpara mapear la clase entera! El porceso crea un Claims Folder para cada clase, y una solicitud para cada Asset, Feature, o Position definido en cada clase.",
                     "updated": 1636110581415
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте узел папки утверждений Claims Folder, чтобы установить ссылку с соответствующим типом узла Class. Затем используйте опцию Install Missing Claims в меню папки утверждений, чтобы сопоставить весь класс! Процесс создает папку Claims Folder для каждого класса и утверждение для каждого Asset, Feature или Position определенной в каждом классе.",
+                    "updated": 1639129892887
                 }
             ]
         },
@@ -114,6 +144,11 @@
                     "language": "ES",
                     "text": "Si algo cambia del lado de las definiciones, puede siempre regresar y hacer correr el proceso Install Missing Claims nevamente. El proceso remapeará la estructura con las solicitudes y carpetas adecuadas.",
                     "updated": 1636110709352
+                },
+                {
+                    "language": "RU",
+                    "text": "Если что-то изменится в определениях, вы всегда можете вернуться, чтобы снова запустить процесс Install Missing Claims. Процесс перестроит структуры с соответствующими утверждениями и папками.",
+                    "updated": 1639129989719
                 }
             ]
         }

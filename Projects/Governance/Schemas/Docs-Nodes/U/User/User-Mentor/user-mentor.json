@@ -2,7 +2,14 @@
     "type": "User Mentor",
     "definition": {
         "text": "A User Mentor node must establish a reference with the User Profile of your mentor. If you have more than one mentor, add more nodes! This is how you establish who your mentors are.",
-        "updated": 1630232933516
+        "updated": 1630232933516,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел User Mentor должен установить ссылку на профиль пользователя вашего наставника. Если у вас более одного наставника, добавьте больше узлов! Так вы определяете своих наставников.",
+                "updated": 1639129307731
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Warning",
             "text": "Declaring at least one User Mentor is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
-            "updated": 1630232958240
+            "updated": 1630232958240,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заявление хотя бы одного User Mentor является обязательным условием для участия в программе. Если вы не заявите хотя бы один, вы не имеете права на получение бонусов Tokens Bonus.",
+                    "updated": 1639129353758
+                }
+            ]
         },
         {
             "style": "Block",
@@ -21,7 +35,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639129363094
+                }
+            ]
         }
     ]
 }

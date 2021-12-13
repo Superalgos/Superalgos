@@ -47,7 +47,6 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         tradingSystem.formulas = new Map()
 
         tradingStagesModuleObject.initialize()
-        portfolioManagerClient.initialize()
         incomingTradingSignalsModuleObject.initialize()
         outgoingTradingSignalsModuleObject.initialize()
 

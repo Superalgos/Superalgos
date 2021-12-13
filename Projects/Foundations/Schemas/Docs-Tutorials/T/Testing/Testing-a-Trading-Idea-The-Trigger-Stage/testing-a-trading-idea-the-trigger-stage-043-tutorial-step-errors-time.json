@@ -7,16 +7,37 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Errors are always tied to a point in time, that is, to a specific candle! Like in this case, more than one error may happen at a time!"
+        "text": "Errors are always tied to a point in time, that is, to a specific candle! Like in this case, more than one error may happen at a time!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Fehler sind immer an einen Zeitpunkt, d.h. an eine bestimmte Kerze gebunden! Wie in diesem Fall kann mehr als ein Fehler gleichzeitig auftreten!",
+                "updated": 1639267360171
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When the Trading Bot runs a trading session, it applies the definitions in the Trading System candle by candle, one at a time. The bot doesn't know what's next... it only knows the current candle—the one being evaluated."
+            "text": "When the Trading Bot runs a trading session, it applies the definitions in the Trading System candle by candle, one at a time. The bot doesn't know what's next... it only knows the current candle—the one being evaluated.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn der Trading Bot eine Handelssitzung durchführt, wendet er die Definitionen im Trading System Kerze für Kerze an, eine nach der anderen. Der Bot weiß nicht, was als Nächstes kommt... er kennt nur die aktuelle Kerze - die, die gerade ausgewertet wird.",
+                    "updated": 1639267371193
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "When an error occurs, it is saved with the timestamp of the corresponding candle. If more than one error happens on the same candle, each error is plotted below the previous one, with bullets decreasing in size. This is how you know exactly what errors happened when."
+            "text": "When an error occurs, it is saved with the timestamp of the corresponding candle. If more than one error happens on the same candle, each error is plotted below the previous one, with bullets decreasing in size. This is how you know exactly what errors happened when.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn ein Fehler auftritt, wird er mit dem Zeitstempel der entsprechenden Kerze gespeichert. Wenn mehr als ein Fehler bei derselben Kerze auftritt, wird jeder Fehler unter dem vorherigen aufgezeichnet, wobei die Kugeln immer kleiner werden. Auf diese Weise wissen Sie genau, welche Fehler wann aufgetreten sind.",
+                    "updated": 1639267380172
+                }
+            ]
         }
     ]
 }

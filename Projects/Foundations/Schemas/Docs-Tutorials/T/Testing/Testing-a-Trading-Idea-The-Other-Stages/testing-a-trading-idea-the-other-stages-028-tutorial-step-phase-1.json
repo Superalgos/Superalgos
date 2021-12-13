@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "phase-0"
         },
-        "text": "There is enormous depth to the concept of managing positions and Superalgos offers robust and flexible tools for that matter!"
+        "text": "There is enormous depth to the concept of managing positions and Superalgos offers robust and flexible tools for that matter!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das Konzept der Positionsverwaltung hat eine enorme Tiefe, und Superalgos bietet dafür robuste und flexible Werkzeuge!",
+                "updated": 1639400014179
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "However, we don't need to get into the details at this point, as&mdash;for the sake of our test&mdash;all we need to do is set up initial targets."
+            "text": "However, we don't need to get into the details at this point, as&mdash;for the sake of our test&mdash;all we need to do is set up initial targets.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir brauchen an dieser Stelle jedoch nicht ins Detail zu gehen, denn für unseren Test müssen wir nur die ersten Ziele festlegen.",
+                    "updated": 1639400020435
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Initial targets are set on Phase #1"
+            "text": "Initial targets are set on Phase #1",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Anfängliche Ziele werden in Phase #1 festgelegt",
+                    "updated": 1639400038785
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Later on, you will learn that you may manage your positions in phases, each with its formulas and events to switch back and forth to other phases."
+            "text": "Later on, you will learn that you may manage your positions in phases, each with its formulas and events to switch back and forth to other phases.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Später werden Sie lernen, dass Sie Ihre Positionen in Phasen verwalten können, jede mit ihren eigenen Formeln und Ereignissen, um zu anderen Phasen hin und her zu wechseln.",
+                    "updated": 1639400050908
+                }
+            ]
         }
     ]
 }

@@ -2,7 +2,14 @@
     "type": "User Referrer",
     "definition": {
         "text": "A User Referrer node must establish a reference with the User Profile of your referrer. If you have more than one referrer, add more nodes! This is how you establish who your referrers are.",
-        "updated": 1630232566550
+        "updated": 1630232566550,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел User Referrer должен установить ссылку с профилем пользователя вашего реферера. Если у вас более одного реферера, добавьте больше узлов! Вот как вы устанавливаете, кто ваши рефереры.",
+                "updated": 1639127964342
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Warning",
             "text": "Declaring at least one User Referrer is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
-            "updated": 1630232662165
+            "updated": 1630232662165,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заявление хотя бы одного User Referrer является обязательным условием для участия в программе. Если вы не заявите хотя бы один, вы не имеете права на получение бонусов Tokens Bonus.",
+                    "updated": 1639128030162
+                }
+            ]
         },
         {
             "style": "Block",

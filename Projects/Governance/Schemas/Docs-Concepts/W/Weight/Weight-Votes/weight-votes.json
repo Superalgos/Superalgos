@@ -31,6 +31,11 @@
                     "language": "ES",
                     "text": "El Weight Power que dirija a los nodos de Weight Votes es significativo, ya que es una medida de cuánto desea incentivar el nodo referenciado. Nodos en las Project Definition Hierarchies obtienen Token Rewards proporcional al Weight Power que ellos obtienen de todos los Weight Votes que reciben",
                     "updated": 1639135994083
+                },
+                {
+                    "language": "RU",
+                    "text": "Weight Power, который вы вводите в узлы Weight Votes, имеет большое значение, поскольку это мера того, насколько вы хотите стимулировать указанный узел. Узлы в иерархиях Project Definition Hierarchies получают Token Rewards, пропорционально Weight Power, который они получают от всех получаемых Weight Votes!",
+                    "updated": 1639138505009
                 }
             ]
         },
@@ -43,6 +48,11 @@
                     "language": "ES",
                     "text": "Es posible que desee obtener más información sobre Token Rewards y Voting Power Flow! La página explica cómo Token Rewards se asignan a cada nodo en el  Project Definition Hierarchies dependiendo del Weight que btengan de los Weight Votes.",
                     "updated": 1639136097027
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы захотите узнать больше о Token Rewards и Voting Power Flow! На странице объясняется, как награды Token Rewards распределяются между каждым узлом в иерархиях Project Definition Hierarchies в зависимости от веса, который они получают в результате голосования по весу Weight Votes.",
+                    "updated": 1639138682734
                 }
             ]
         }

@@ -7818,6 +7818,64 @@
                             "name": "New Manage Stage Signals",
                             "config": "{}",
                             "project": "Trading-Signals",
+                            "managedStopLossSignals": {
+                                "type": "Managed Stop Loss Signals",
+                                "name": "New Managed Stop Loss Signals",
+                                "config": "{}",
+                                "project": "Trading-Signals",
+                                "phaseSignals": [
+                                    {
+                                        "type": "Phase Signal",
+                                        "name": "New Phase Signal",
+                                        "config": "{}",
+                                        "project": "Trading-Signals",
+                                        "id": "35af4c65-a61a-4a7c-9435-e596f2561907",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 34339.86111982707,
+                                                "y": 19121.858345707165
+                                            },
+                                            "targetPosition": {
+                                                "x": 34591.46229021069,
+                                                "y": 19285.250056211673
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "7c0f5123-1df7-42dc-9b1e-39347395e980",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 34591.46229021069,
+                                        "y": 19285.250056211673
+                                    },
+                                    "targetPosition": {
+                                        "x": 34843.06346059432,
+                                        "y": 19448.64176671618
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            },
                             "id": "6319c0ae-81ac-457c-9ff1-213c99c432f2",
                             "savedPayload": {
                                 "position": {
@@ -8675,7 +8733,7 @@
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": false,
+                                    "isCollapsed": true,
                                     "angleToParent": 2,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0

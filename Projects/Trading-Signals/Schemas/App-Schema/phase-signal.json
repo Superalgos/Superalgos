@@ -1,5 +1,5 @@
 {
-    "type": "Manage Stage Signals",
+    "type": "Phase Signal",
     "menuItems": [
         {
             "action": "Configure",
@@ -7,16 +7,6 @@
             "label": "Configure",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedStopLossSignals",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Managed Stop Loss Signals",
-            "relatedUiObject": "Managed Stop Loss Signals",
-            "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Delete UI Object",
@@ -38,15 +28,8 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Available Signals->"
+        "compatibleTypes": "->Managed Stop Loss Signals->"
     },
-    "propertyNameAtParent": "manageStageSignals",
-    "childrenNodesProperties": [
-        {
-            "name": "managedStopLossSignals",
-            "type": "node",
-            "childType": "Managed Stop Loss Signals",
-            "autoAdd": false
-        }
-    ]
+    "propertyNameAtParent": "phaseSignals",
+    "childrenNodesProperties": []
 }

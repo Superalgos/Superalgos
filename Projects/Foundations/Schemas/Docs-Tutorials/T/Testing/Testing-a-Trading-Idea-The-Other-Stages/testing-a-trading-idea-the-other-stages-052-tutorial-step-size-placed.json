@@ -7,19 +7,17 @@
             "project": "Foundations",
             "name": "size-placed"
         },
-        "text": "Dies ist das Stage Quoted Asset Bit der Strategy Open Stage. Wenn sich die tatsächliche Größe ändert, was passiert dann mit der platzierten Größe?",
-        "updated": 1639408844269
+        "text": "This is the Stage Quoted Asset bit of the Strategy Open Stage. If the actual size changes, what happens with the Size Placed?"
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Berühren Sie den dritten Fehler am 28. Februar und lesen Sie!",
-            "updated": 1639408850745
+            "text": "Touch the third error on Feb 28th and read!",
+            "updated": 1622557953891
         },
         {
             "style": "Note",
-            "text": "Im Zusammenhang mit der Open Stage oder der Close Stage ist die platzierte Größe eine Variable, die die gesamte platzierte Größe während der Stage akkumuliert, sie muss also ebenfalls angepasst werden!",
-            "updated": 1639408857507
+            "text": "In the context of either the open stage or the close stage, size placed is a variable that accumulates the total size placed during the stage, so it must be adjusted too!"
         }
     ]
 }

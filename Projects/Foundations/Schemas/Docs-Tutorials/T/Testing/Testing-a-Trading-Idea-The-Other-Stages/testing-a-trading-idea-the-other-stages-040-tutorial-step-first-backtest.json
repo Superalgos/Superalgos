@@ -7,24 +7,20 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Nun, da wir die grundlegenden Definitionen in allen Phasen haben, können wir einen ersten Backtest durchführen!",
-        "updated": 1639407969571
+        "text": "Now that we have the basic definitions in all stages, we may do a first backtest!"
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Wir werden die gleichen Parameter verwenden, die wir am Ende des vorherigen Tutorials verwendet haben. Probieren Sie es einfach aus!",
-            "updated": 1639407976214
+            "text": "We'll be using the same parameters we ended up with at the end of the previous tutorial. Feel free to go and check!"
         },
         {
             "style": "Callout",
-            "text": "Starten Sie die Aufgabe für BB Breakdown 2 und starten Sie auch die entsprechende Backtesting-Session!",
-            "updated": 1639407986064
+            "text": "Start the task for BB Breakdown 2 and start the corresponding backtesting session too!"
         },
         {
             "style": "Note",
-            "text": "Ich gehe davon aus, dass Sie über die Daten verfügen, die wir in der vorherigen Anleitung ausgewertet haben! Wenn Sie diese nicht haben, wird es wahrscheinlich nicht funktionieren!",
-            "updated": 1639407995606
+            "text": "I'm assuming you have the data we mined during the previous tutorial! If you don't this is unlikely to work!"
         }
     ]
 }

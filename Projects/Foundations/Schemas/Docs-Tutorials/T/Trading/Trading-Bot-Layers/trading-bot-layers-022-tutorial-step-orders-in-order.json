@@ -4,24 +4,52 @@
     "type": "Tutorial Step - Orders in Order",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-market-sell-order"
+            "name": "Bullet/bullet-market-sell-order",
+            "project": "Foundations"
         },
-        "text": "You're familiar with the visualization of limit orders from the Welcome tutorial. It's time for market orders to shine!"
+        "text": "You're familiar with the visualization of limit orders from the Welcome tutorial. It's time for market orders to shine!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sie sind mit der Visualisierung von Limit-Orders aus dem Willkommenstutorial vertraut. Jetzt ist es an der Zeit, dass Market Orders zum Zuge kommen!",
+                "updated": 1639144530656
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Weak-hands Buster V.2&mdash;born with earlier versions of the system&mdash;uses single market orders to get in and out of positions. Let's see how those look over the charts..."
+            "text": "Weak-hands Buster V.2&mdash;born with earlier versions of the system&mdash;uses single market orders to get in and out of positions. Let's see how those look over the charts...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Weak-hands Buster V.2 - geboren mit früheren Versionen des Systems - verwendet einzelne Marktaufträge, um in Positionen ein- und auszusteigen. Schauen wir uns an, wie diese in den Charts aussehen...",
+                    "updated": 1639144552378
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Find the \"Market Buy Orders\" and \"Market Sell Orders\" layers and turn them on!",
-            "updated": 1622541873433
+            "updated": 1622541873433,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Ebenen \"Market Buy Orders\" und \"Market Sell Orders\" und aktivieren Sie sie!",
+                    "updated": 1639144566762
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Like with limit orders, a red bullet means a sell order, and a green bullet means a buy order."
+            "text": "Like with limit orders, a red bullet means a sell order, and a green bullet means a buy order.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie bei Limit-Orders bedeutet ein roter Punkt einen Verkaufsauftrag und ein grüner Punkt einen Kaufauftrag.",
+                    "updated": 1639144575562
+                }
+            ]
         }
     ]
 }

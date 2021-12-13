@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "На узле Data Storage хранятся все важные данные, над созданием которых так усердно работают ваши боты. Считайте, что это ваш личный сундук с сокровищами, полный данных.",
                 "updated": 1639074450030
+            },
+            {
+                "language": "DE",
+                "text": "Der Data Storage Knoten enthält alle wichtigen Daten, die Ihre Bots so fleißig produzieren. Betrachten Sie ihn als Ihre eigene persönliche Schatztruhe voller Daten.",
+                "updated": 1639273936024
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Все продукты данных, которые вы захотите визуализировать в своих диаграммах, хранятся в узле Хранилище данных. Для начала давайте потренируемся находить, где хранятся нужные нам данные.. Помните, что мы хотим подключить наш график к шахте данных (Candles Data Mine). Доступ к этим продуктам позволит нам визуализировать индикаторы и другие рыночные данные (Market Data).",
                     "updated": 1639074600572
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Data Products, die Sie in Ihren Diagrammen visualisieren möchten, werden im Knoten Data Storage gespeichert. Lassen Sie uns zunächst ein wenig üben, um herauszufinden, wo die gewünschten Daten gespeichert sind. Erinnern Sie sich daran, dass wir unser Diagramm mit der Candles Data Mine verbinden wollen. Der Zugriff auf diese Produkte ermöglicht uns die Visualisierung von Indikatoren und anderen Market Data.",
+                    "updated": 1639274032904
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Одна из замечательных особенностей Superalgos заключается в том, что он использует последовательную логику во всей системе. Для нас это означает, что как только вы научитесь привязывать график к одному типу данных, вы будете знать основные шаги для привязки графиков к чему угодно!",
                     "updated": 1639074625764
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine großartige Sache an Superalgos ist, dass es eine einheitliche Logik im gesamten System verwendet. Für uns bedeutet das, dass Sie, sobald Sie gelernt haben, ein Diagramm mit einer bestimmten Art von Daten zu verknüpfen, die grundlegenden Schritte kennen, um Ihre Diagramme mit allen gewünschten Daten zu verknüpfen!",
+                    "updated": 1639274099800
                 }
             ]
         }

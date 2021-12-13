@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": "trigger-on-event"
         },
-        "text": "The main entry rules were the focus of the analysis we did on the charts, but let's add a couple more considerations."
+        "text": "The main entry rules were the focus of the analysis we did on the charts, but let's add a couple more considerations.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die wichtigsten Einstiegsregeln standen im Mittelpunkt der Analyse der Charts, aber wir wollen noch ein paar weitere Überlegungen hinzufügen.",
+                "updated": 1639253648661
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We found that a breakdown in the 1H chart may predict an intermediate-term reversal when on a daily uptrend,  and&mdash;when on a daily downtrend&mdash;an acceleration of the downturn. However, we also noticed several breakdowns that didn't produce either. This means that we should take a breakdown as a signal, not as a confirmation in and of itself."
+            "text": "We found that a breakdown in the 1H chart may predict an intermediate-term reversal when on a daily uptrend,  and&mdash;when on a daily downtrend&mdash;an acceleration of the downturn. However, we also noticed several breakdowns that didn't produce either. This means that we should take a breakdown as a signal, not as a confirmation in and of itself.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir haben festgestellt, dass ein Zusammenbruch im 1H-Chart eine mittelfristige Umkehr vorhersagen kann, wenn es sich um einen täglichen Aufwärtstrend handelt, und - wenn es sich um einen täglichen Abwärtstrend handelt - eine Beschleunigung des Abwärtstrends. Wir haben jedoch auch mehrere Zusammenbrüche festgestellt, die weder das eine noch das andere zur Folge hatten. Dies bedeutet, dass wir einen Durchbruch als Signal und nicht als Bestätigung für sich selbst betrachten sollten.",
+                    "updated": 1639253663877
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Our confirmation is a second consecutive breakdown in the 1H chart!"
+            "text": "Our confirmation is a second consecutive breakdown in the 1H chart!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Unsere Bestätigung ist ein zweiter Durchbruch in Folge im 1H-Chart!",
+                    "updated": 1639253669972
+                }
+            ]
         }
     ]
 }

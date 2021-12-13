@@ -32,7 +32,7 @@
         }
     ],
     "initialValues": {
-        "config": "{\n\"webhookURL\": \"https://hooks.slack.com/services/abc/abc/abc\"\n}"
+        "config": "{\n\"token\": \"BotUserOauthToken\",\n\"conversationId\": \"#channelOrDmId\"\n}"
     },
     "addLeftIcons": true,
     "level": 3,

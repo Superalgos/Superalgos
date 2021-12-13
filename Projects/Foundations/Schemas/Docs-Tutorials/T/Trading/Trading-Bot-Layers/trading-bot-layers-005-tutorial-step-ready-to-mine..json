@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Ready to Mine.....?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "data-tasks"
+            "name": "Data/data-tasks",
+            "project": "Foundations"
         },
         "text": "We'll do some data mining so that we may then run a quick Backtesting Session and explore the resulting simulation...",
         "translations": [

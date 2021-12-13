@@ -7,36 +7,92 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis!"
+        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Was wir haben, ist eine vage Definition des Kontexts und der Regeln für den Einstiegspunkt! Wir müssen unsere Hypothese noch formalisieren!",
+                "updated": 1639253523489
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Remember, our trading idea should:"
+            "text": "Remember, our trading idea should:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, unsere Handelsidee sollte:",
+                    "updated": 1639253531517
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "propose a trading process, "
+            "text": "propose a trading process, ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "einen Handelsprozess vorschlagen,",
+                    "updated": 1639253539666
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "select the appropriate context; "
+            "text": "select the appropriate context; ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "den geeigneten Kontext auswählen;",
+                    "updated": 1639253545355
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "define the main entry rules; "
+            "text": "define the main entry rules; ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "die wichtigsten Einstiegsregeln definieren;",
+                    "updated": 1639253551107
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "predict a specific outcome; "
+            "text": "predict a specific outcome; ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ein bestimmtes Ergebnis vorhersagen;",
+                    "updated": 1639253557228
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "offer a specific testing mechanism! "
+            "text": "offer a specific testing mechanism! ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "einen spezifischen Testmechanismus anbieten!",
+                    "updated": 1639253564191
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Let's proceed with fulfilling those requirements!"
+            "text": "Let's proceed with fulfilling those requirements!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns mit der Erfüllung dieser Anforderungen fortfahren!",
+                    "updated": 1639253572715
+                }
+            ]
         }
     ]
 }

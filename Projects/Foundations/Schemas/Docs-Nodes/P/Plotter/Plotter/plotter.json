@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Плоттер - это устройство, используемое для создания графического представления набора данных, сгенерированных ботами.",
                 "updated": 1637657371222
+            },
+            {
+                "language": "TR",
+                "text": "Bir çizici, botlar tarafından oluşturulan veri kümelerinin grafik üzerine aktarılması için kullanılan bir cihazdır.",
+                "updated": 1639214672803
             }
         ]
     },

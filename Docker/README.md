@@ -101,7 +101,7 @@ We'll need to expose some ports so we can actually connect to it from our browse
 
 ```shell
 # create the data directories
-mkdir -p Data-Storage Log-Files My-Workspaces
+mkdir -p My-Data-Storage My-Log-Files My-Workspaces
 
 # run the container with the extra options
 docker run \
@@ -111,8 +111,8 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
+  -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```
@@ -135,8 +135,8 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
+  -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```
@@ -169,8 +169,8 @@ services:
       - '34248:34248'
       - '18041:18041'
     volumes:
-      - ./Data-Storage:/app/Platform/Data-Storage
-      - ./Log-Files:/app/Platform/Log-Files
+      - ./My-Data-Storage:/app/Platform/My-Data-Storage
+      - ./My-Log-Files:/app/Platform/My-Log-Files
       - ./My-Workspaces:/app/Platform/My-Workspaces
     restart: on-failure
 ```
@@ -178,7 +178,7 @@ services:
 You can see we have the same ports and volumes mapped. We also get a few extra settings like `command`, `environment`, and `restart`.
 
 - `command` adds an extra setting to the main startup, so the application ends up running with the full command `node platform noBrowser minMemo`. The base of that command is defined as the `ENTRYPOINT` in the `Dockerfile` that builds the container.
-- `user` defines the UID and GID the container should run as so that the data can be persisted with the correct permissions in the Data-Storage, Log-Files, and My-Workspaces directories that we created on the host. If you leave this out, the container will use the built in `superalgos` user which has `uid: 1001` and `gid: 1001`.  Instead of using variables, you could also hard-code these UID and GID numbers into the configuration.
+- `user` defines the UID and GID the container should run as so that the data can be persisted with the correct permissions in the My-Data-Storage, My-Log-Files, and My-Workspaces directories that we created on the host. If you leave this out, the container will use the built in `superalgos` user which has `uid: 1001` and `gid: 1001`.  Instead of using variables, you could also hard-code these UID and GID numbers into the configuration.
 - `restart` tells Docker to restart the container if an error occurs.
 
 Save the file and exit the editor. If you are using `vim`, hit escape and then type `:wq!` or press `shift + Z + Z` (two capital Z's).
@@ -187,7 +187,7 @@ Now, start the container with `docker-compose up`. This will start the container
 
 ```shell
 # some preliminary configuration to set up the persistent data directories
-mkdir -p Data-Storage Log-Files My-Workspaces
+mkdir -p My-Data-Storage My-Log-Files My-Workspaces
 export UID=$(id -u)
 export GID=$(id -g)
 

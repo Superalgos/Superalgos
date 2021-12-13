@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let's build the mother of all strategies!",
         "icon": {
-            "name": "Strategy\\strategy",
+            "name": "strategy",
             "project": "Foundations"
         },
         "updated": 1614241902261,
@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "¡Construyamos la madre de todas las estrategias!",
                 "updated": 1629347747877
+            },
+            {
+                "language": "IT",
+                "text": "Costruiamo la nostra strategia!",
+                "updated": 1639073736630
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "Para realizar una prueba retrospectiva de una estrategia, primero debemos escribirla o tenerla clara en nuestra mente. Así que estas son las piedras angulares en las que se basa nuestra prueba:",
                     "updated": 1629347848333
+                },
+                {
+                    "language": "IT",
+                    "text": "Per testare una strategia, prima dobbiamo scriverla o averla chiaramente in mente:",
+                    "updated": 1639074134645
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "ES",
                     "text": "Strategy usa SMA50 y SMA200",
                     "updated": 1629347862168
+                },
+                {
+                    "language": "IT",
+                    "text": "La strategia usa 2 medie mobili semplici, rispettivamente SMA50 e SMA200",
+                    "updated": 1639073807049
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "ES",
                     "text": "Strategy está basado en 4H TF",
                     "updated": 1629347891997
+                },
+                {
+                    "language": "IT",
+                    "text": "Il Time Frame usato è di 4H",
+                    "updated": 1639073824134
                 }
             ]
         },
@@ -90,6 +110,11 @@
                     "language": "ES",
                     "text": "El bot comprará el asset cuando SMA50 cruzar hasta SMA200",
                     "updated": 1629347952235
+                },
+                {
+                    "language": "IT",
+                    "text": "Il bot compra a market l'asset scelto quando la SMA50 incrocia verso l'alto la SMA200",
+                    "updated": 1639074531653
                 }
             ]
         },
@@ -107,6 +132,11 @@
                     "language": "ES",
                     "text": "Stop Loss está fijado en 20% desde la entrada",
                     "updated": 1629348020213
+                },
+                {
+                    "language": "IT",
+                    "text": "Lo Stop Loss è settato al 20%",
+                    "updated": 1639073940750
                 }
             ]
         },
@@ -124,6 +154,11 @@
                     "language": "ES",
                     "text": "Take Profit está fijado en 100% o en SMA50 cruzar abajo SMA200",
                     "updated": 1629348082752
+                },
+                {
+                    "language": "IT",
+                    "text": "Il Take Profit è settato al 100% ma può  funzionare anche da Stop Loss in quanto la posizione viene chiusa se la SMA50 incrocia verso il basso la SMA200",
+                    "updated": 1639074585392
                 }
             ]
         }

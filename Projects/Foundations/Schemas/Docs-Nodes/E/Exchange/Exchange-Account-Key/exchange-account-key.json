@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Exchange Account Key содержит определение имени и секрета ключа, предоставленного соответствующей биржей для доступа к учетной записи пользователя через API биржи.",
                 "updated": 1638782702254
+            },
+            {
+                "language": "TR",
+                "text": "Borsa hesabı anahtarı, API anahtarı aracılığıyla kullanıcı hesabına erişmek için ilgili borsa tarafından sağlanan anahtar adının ve secret key tanımını tutar.",
+                "updated": 1639225828819
             }
         ]
     },

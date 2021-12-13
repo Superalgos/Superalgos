@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Un trading strategy es la descripción de un conjunto de acciones o eventos que se ejecutan en etapas. Los eventos se desencadenan tras la validación de condiciones precisas que describen situaciones específicas del mercado. Los trading strategies están diseñados para lograr un objetivo específico dentro del plan más amplio de un Trading System mediante la toma y gestión de posiciones.",
                 "updated": 1624496418243
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret stratejisi, aşamalar halinde yürütülen bir dizi eylem veya olaydır. Olaylar, belirli piyasa durumlarını tanımlayan kesin koşulların doğrulanması üzerine tetiklenir. Ticaret stratejileri, pozisyon almak ve yönetmek yoluyla bir ticaret sisteminin daha geniş planı içinde belirli bir hedefe ulaşmak için tasarlanmıştır.",
+                "updated": 1639225031870
             }
         ]
     },

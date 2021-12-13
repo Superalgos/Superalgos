@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Диаграмма временной шкалы (Timeline Chart) дает вам полный контроль над слоями, доступными на вашем графике.",
                 "updated": 1639073028021
+            },
+            {
+                "language": "DE",
+                "text": "Mit dem Timeline Chart haben Sie die volle Kontrolle über die in Ihrem Diagramm verfügbaren Ebenen.",
+                "updated": 1639152667476
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Как я уже упоминал ранее, одной из главных особенностей Charting Space является возможность объединить множество различных типов данных в одном месте. Временная диаграмма (Timeline Chart) дает вам этот контроль! Каждая временная диаграмма позволяет собирать данные, которые вы хотите видеть, под менеджером слоев (Layer Manager). Как вы, возможно, помните, менеджер слоев позволяет включать и выключать различные слои внутри Time Machine.",
                     "updated": 1639073294957
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie ich bereits erwähnt habe, ist eine der wichtigsten Funktionen des Charting Space die Möglichkeit, viele verschiedene Datentypen an einem Ort zu kombinieren. Der Timeline Chart gibt Ihnen diese Kontrolle! In jedem Zeitachsendiagramm können Sie die Daten, die Sie sehen möchten, unter einem Layer Manager sammeln. Wie Sie sich vielleicht erinnern, können Sie mit dem Ebenenmanager verschiedene Ebenen in einer Time Machine ein- und ausschalten.",
+                    "updated": 1639152836399
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "ES",
                     "text": "Cuando conectamos Data Products a las capas en poder de un layer manager obtenemos acceso a esos datos dentro de nuestro gráfico.",
                     "updated": 1628647319101
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn wir Data Products mit den Layers eines Ebenenmanager verbinden, erhalten wir Zugriff auf diese Daten in unserem Diagramm!",
+                    "updated": 1639152973211
                 }
             ]
         },

@@ -7,26 +7,61 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Even when you are getting the results you expect, you may still have errors lurking around!"
+        "text": "Even when you are getting the results you expect, you may still have errors lurking around!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Selbst wenn Sie die erwarteten Ergebnisse erhalten, können sich noch Fehler einschleichen!",
+                "updated": 1639267285566
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Some errors may be innocuous, and some may have hard-to-notice consequences."
+            "text": "Some errors may be innocuous, and some may have hard-to-notice consequences.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Einige Fehler können harmlos sein, andere können schwer zu bemerkende Folgen haben.",
+                    "updated": 1639267295008
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Go to the Trading System layer manager and turn on the \"Trading System Errors\" layer!",
-            "updated": 1622488220992
+            "updated": 1622488220992,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Layer-Manager Trading System und schalten Sie den Layer \"Trading System Errors\" ein!",
+                    "updated": 1639267310481
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Pan the charts to the left until you get to the first days of January. Do you see the error bullets below candles?",
-            "updated": 1617191460214
+            "updated": 1617191460214,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verschieben Sie die Charts nach links, bis Sie zu den ersten Januartagen gelangen. Sehen Sie die Fehleraufzählungen unter den Kerzen?",
+                    "updated": 1639267325336
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Feel free to turn off some layers if needed."
+            "text": "Feel free to turn off some layers if needed.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können bei Bedarf einige Ebenen ausschalten.",
+                    "updated": 1639267333268
+                }
+            ]
         }
     ]
 }

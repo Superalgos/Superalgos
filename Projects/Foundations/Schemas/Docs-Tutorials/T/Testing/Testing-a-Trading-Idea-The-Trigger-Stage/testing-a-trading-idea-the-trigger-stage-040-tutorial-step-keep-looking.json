@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "This visual check helps you mentally connect the dots of what you see on a simulation with the definitions you produce!"
+        "text": "This visual check helps you mentally connect the dots of what you see on a simulation with the definitions you produce!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Diese visuelle Überprüfung hilft Ihnen, die Punkte, die Sie in der Simulation sehen, mit den von Ihnen erstellten Definitionen gedanklich zu verbinden!",
+                "updated": 1639267200208
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a few more minutes to explore the trigger off event of the strategy, as well as the rest of the triggers occurring over the period tested."
+            "text": "Take a few more minutes to explore the trigger off event of the strategy, as well as the rest of the triggers occurring over the period tested.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich noch ein paar Minuten Zeit, um das auslösende Ereignis der Strategie sowie die übrigen Auslöser zu untersuchen, die während des Testzeitraums auftreten.",
+                    "updated": 1639267208838
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Take a moment to internalize the fact that events are triggered only once all the conditions in a given situation are met, and that conditions are evaluated over closed candles only!"
+            "text": "Take a moment to internalize the fact that events are triggered only once all the conditions in a given situation are met, and that conditions are evaluated over closed candles only!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich einen Moment Zeit, um die Tatsache zu verinnerlichen, dass Ereignisse nur ausgelöst werden, wenn alle Bedingungen in einer bestimmten Situation erfüllt sind, und dass Bedingungen nur über geschlossene Kerzen ausgewertet werden!",
+                    "updated": 1639267218657
+                }
+            ]
         }
     ]
 }

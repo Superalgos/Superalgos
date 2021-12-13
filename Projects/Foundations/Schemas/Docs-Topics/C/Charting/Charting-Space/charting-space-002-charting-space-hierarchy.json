@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Hierarchie des Charting Space organisiert die Diagramme im Viewport und steuert ihr Verhalten.",
                 "updated": 1634486807958
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия Charting Space организует диаграммы на Viewport и контролирует их поведение.",
+                "updated": 1639375906816
             }
         ]
     },

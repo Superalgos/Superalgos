@@ -7,25 +7,60 @@
             "name": "Learning\\learning-bot",
             "project": "Foundations"
         },
-        "text": "Let's do a quick recap on the matter of the syntax! I'll push this until you learn it!"
+        "text": "Let's do a quick recap on the matter of the syntax! I'll push this until you learn it!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lassen Sie uns eine kurze Wiederholung der Syntax machen! Ich werde das so lange vorantreiben, bis Sie es gelernt haben!",
+                "updated": 1639261940684
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "FIRST: The time frame! (i.e.: chart.at24hs)"
+            "text": "FIRST: The time frame! (i.e.: chart.at24hs)",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ERSTENS: Der Zeitrahmen! (d.h.: chart.at24hs)",
+                    "updated": 1639261971493
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "SECOND: Each segment of the instruction is separated by dots! (i.e.: like.this)"
+            "text": "SECOND: Each segment of the instruction is separated by dots! (i.e.: like.this)",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "ZWEITENS: Jedes Segment der Anweisung wird durch Punkte getrennt! (z.B.: like.this)",
+                    "updated": 1639261992571
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "THIRD: Product name and property name are determined by the indicator you are using. No need to memorize them, as you may copy and paste them from the docs when you need them!"
+            "text": "THIRD: Product name and property name are determined by the indicator you are using. No need to memorize them, as you may copy and paste them from the docs when you need them!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "DRITTENS: Produktname und Eigenschaftsname werden durch den verwendeten Indikator bestimmt. Sie müssen sie nicht auswendig lernen, denn Sie können sie aus den Dokumenten kopieren und einfügen, wenn Sie sie brauchen!",
+                    "updated": 1639262007009
+                }
+            ]
         },
         {
             "style": "List",
             "text": "FOURTH: Compound words in the product and property name are written in camel case, that is, altogether, with the first word in lowercase and the rest of the words capitalized! (forExampleLikeThis)",
-            "updated": 1610384140775
+            "updated": 1610384140775,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "VIERTENS: Zusammengesetzte Wörter im Produkt- und Eigenschaftsnamen werden in Kleinbuchstaben geschrieben, d. h. das erste Wort wird klein geschrieben, die restlichen Wörter werden groß geschrieben!  (zumBeispielWieDiesHier)",
+                    "updated": 1639262054728
+                }
+            ]
         }
     ]
 }

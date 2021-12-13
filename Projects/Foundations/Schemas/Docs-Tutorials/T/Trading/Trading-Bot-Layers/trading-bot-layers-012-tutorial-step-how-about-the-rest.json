@@ -4,7 +4,7 @@
     "type": "Tutorial Step - How About the Rest?",
     "definition": {
         "icon": {
-            "name": "trading-episode",
+            "name": "Trading/trading-episode",
             "project": "Foundations"
         },
         "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?",

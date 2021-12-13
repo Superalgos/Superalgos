@@ -7,13 +7,27 @@
             "project": "Foundations",
             "name": "trigger-off-event"
         },
-        "text": "Now that we have defined when the strategy should be triggered on, let's consider when the idea should be invalidated."
+        "text": "Now that we have defined when the strategy should be triggered on, let's consider when the idea should be invalidated.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nachdem wir nun festgelegt haben, wann die Strategie ausgelöst werden soll, müssen wir uns überlegen, wann die Idee außer Kraft gesetzt werden soll.",
+                "updated": 1639265679941
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We don't want to trade with this strategy when there is no downtrend. So, we'll reverse the logic of the trigger on event! Find conditions 1 and 2 below:",
-            "updated": 1610470163153
+            "updated": 1610470163153,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir wollen nicht mit dieser Strategie handeln, wenn es keinen Abwärtstrend gibt. Also kehren wir die Logik des Trigger-Ereignisses um! Die Bedingungen 1 und 2 finden Sie unten:",
+                    "updated": 1639265690802
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -27,7 +41,14 @@
         },
         {
             "style": "Text",
-            "text": "We should trigger off the strategy when either of these conditions validate true. How?"
+            "text": "We should trigger off the strategy when either of these conditions validate true. How?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir sollten die Strategie auslösen, wenn eine dieser Bedingungen als true gilt. Aber wie?",
+                    "updated": 1639265729133
+                }
+            ]
         }
     ]
 }

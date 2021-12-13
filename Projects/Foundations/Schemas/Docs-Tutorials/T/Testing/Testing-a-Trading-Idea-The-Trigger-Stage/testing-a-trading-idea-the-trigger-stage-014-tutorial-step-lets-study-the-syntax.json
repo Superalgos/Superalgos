@@ -7,21 +7,49 @@
             "name": "Text\\text",
             "project": "Foundations"
         },
-        "text": "The syntax to write conditions and formulas follows a few basic rules that will soon seem obvious!"
+        "text": "The syntax to write conditions and formulas follows a few basic rules that will soon seem obvious!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Syntax zum Schreiben von Bedingungen und Formeln folgt ein paar grundlegenden Regeln, die bald offensichtlich sein werden!",
+                "updated": 1639261890018
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It may take some time to master the syntax, particularly if you are not a technical person, but experience shows that Superalgos users get used to it while building their first strategy!"
+            "text": "It may take some time to master the syntax, particularly if you are not a technical person, but experience shows that Superalgos users get used to it while building their first strategy!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es kann einige Zeit dauern, bis Sie die Syntax beherrschen, besonders wenn Sie kein technischer Mensch sind, aber die Erfahrung zeigt, dass Superalgos-Benutzer sich daran gewöhnen, während sie ihre erste Strategie erstellen!",
+                    "updated": 1639261902627
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Please, read this page carefully!"
+            "text": "Please, read this page carefully!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte lesen Sie diese Seite sorgfältig durch!",
+                    "updated": 1639261910620
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Don't worry if it seems hard to grasp... We'll practice a lot along this tutorial series!",
-            "updated": 1617190556168
+            "updated": 1617190556168,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Machen Sie sich keine Sorgen, wenn es schwer zu begreifen scheint... Wir werden in dieser Tutorial-Serie viel üben!",
+                    "updated": 1639261919684
+                }
+            ]
         }
     ]
 }

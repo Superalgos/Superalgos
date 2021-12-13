@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "BB Top Bounce presenta un enfoque interesante: define la idea comercial con tres condiciones simples.",
                 "updated": 1629591593112
+            },
+            {
+                "language": "DE",
+                "text": "BB Top Bounce bietet einen interessanten Ansatz: Es definiert die Handelsidee mit drei einfachen Bedingungen.",
+                "updated": 1639147933267
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Estás mirando el Trigger On Event de la primera estrategia. Observa las tres primeras condiciones definidas...",
                     "updated": 1629591638723
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sehen hier das Trigger On Event der ersten Strategie. Beachten Sie die ersten drei definierten Bedingungen...",
+                    "updated": 1639147944190
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "ES",
                     "text": "Ahora ve y mira el desencadenante de cualquiera de las otras estrategias ... ¿Qué ves?",
                     "updated": 1629591679346
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich nun das Trigger On Event einer der anderen Strategien an... Was sehen Sie?",
+                    "updated": 1639147953176
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "ES",
                     "text": "¡Exactamente! Todas las estrategias presentan las mismas tres primeras condiciones en el desencadenante del evento. Esto muestra que todas las estrategias se basan en la misma idea de trading. Ahora... ¿en qué se diferencian?",
                     "updated": 1629591763135
+                },
+                {
+                    "language": "DE",
+                    "text": "Ganz genau! Alle Strategien weisen die gleichen ersten drei Bedingungen für das Trigger On Event auf. Das zeigt, dass alle Strategien auf der gleichen Handelsidee basieren. Wie unterscheiden sie sich nun?",
+                    "updated": 1639147966445
                 }
             ]
         }

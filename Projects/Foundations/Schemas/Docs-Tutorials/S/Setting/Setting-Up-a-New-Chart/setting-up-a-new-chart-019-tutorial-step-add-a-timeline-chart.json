@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Теперь, когда у нас есть, где хранить графики, давайте добавим их!",
                 "updated": 1638175613264
+            },
+            {
+                "language": "DE",
+                "text": "Nun, da wir etwas haben, um unsere Diagramme zu halten, lassen Sie uns fortfahren und eines hinzufügen!",
+                "updated": 1639113757053
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Наведите курсор на машину времени (Time Machine) и нажмите Add Timeline Chart.",
                     "updated": 1638175724101
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über Ihre Time Machine und klicken Sie auf <I>Add Timeline Chart.</I>",
+                    "updated": 1639113871259
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Дать полезное название временной диаграмме (Timeline Chart) очень важно. Хорошей практикой именования является ссылка на Шахту данных (Data Mine) или Продукт данных (Data Product) с которым он будет связан. Сейчас мы будем добавлять данные Candles (Data Mine) на этот график временной шкалы. Полезное название:",
                     "updated": 1638175906721
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist wichtig, einem Timeline Chart einen hilfreichen Namen zu geben. Es empfiehlt sich, bei der Benennung auf die Data Mine oder das Data Product zu verweisen, mit dem es verbunden werden soll. Im Moment werden wir diesem Zeitachsendiagramm die Daten des Candles Data Mine hinzufügen. Ein hilfreicher Name wäre:",
+                    "updated": 1639114333775
                 }
             ]
         },
@@ -76,6 +91,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что ваш заголовок короткий! Скоро вы поймете, почему.",
                     "updated": 1638175920414
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie darauf, dass Ihr Titel kurz ist! Sie werden gleich sehen, warum.",
+                    "updated": 1639114388299
                 }
             ]
         },

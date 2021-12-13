@@ -29,7 +29,7 @@
     "addLeftIcons": true,
     "level": 2,
     "referencingRules": {
-        "compatibleTypes": "->Trigger On Signal->Trigger Off Signal->Take Position Signal->Create Order Signal->Cancel Order Signal->Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->Order Rate Signal->Phase Signal->"
+        "compatibleTypes": "->Trigger On Signal->Trigger Off Signal->Take Position Signal->Create Order Signal->Cancel Order Signal->Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->Order Rate Signal->Phase Signal->Next Phase Signal->Move To Phase Signal->"
     },
     "childrenNodesProperties": [],
     "propertyNameAtParent": "incomingSignalReferences",

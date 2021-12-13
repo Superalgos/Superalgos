@@ -7829,6 +7829,64 @@
                                         "name": "New Phase Signal",
                                         "config": "{}",
                                         "project": "Trading-Signals",
+                                        "nextPhaseSignal": {
+                                            "type": "Next Phase Signal",
+                                            "name": "New Next Phase Signal",
+                                            "config": "{}",
+                                            "project": "Trading-Signals",
+                                            "id": "c89edf06-dd31-47ef-9963-dd15f162f9b4",
+                                            "savedPayload": {
+                                                "position": {
+                                                    "x": 34040.27225940069,
+                                                    "y": 19106.157558834282
+                                                },
+                                                "targetPosition": {
+                                                    "x": 34339.86111982707,
+                                                    "y": 19121.858345707165
+                                                },
+                                                "floatingObject": {
+                                                    "isPinned": false,
+                                                    "isFrozen": false,
+                                                    "isCollapsed": false,
+                                                    "angleToParent": 2,
+                                                    "distanceToParent": 3,
+                                                    "arrangementStyle": 0
+                                                },
+                                                "uiObject": {
+                                                    "isRunning": false
+                                                }
+                                            }
+                                        },
+                                        "moveToPhaseSignals": [
+                                            {
+                                                "type": "Move To Phase Signal",
+                                                "name": "New Move To Phase Signal",
+                                                "config": "{}",
+                                                "project": "Trading-Signals",
+                                                "id": "57b71386-c4c5-4dde-a110-67df120e4ef6",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 34203.6639699052,
+                                                        "y": 18854.556388450656
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 34339.86111982707,
+                                                        "y": 19121.858345707165
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    }
+                                                }
+                                            }
+                                        ],
                                         "id": "35af4c65-a61a-4a7c-9435-e596f2561907",
                                         "savedPayload": {
                                             "position": {

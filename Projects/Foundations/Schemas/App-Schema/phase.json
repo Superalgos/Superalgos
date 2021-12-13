@@ -82,16 +82,6 @@
             "autoAdd": true
         },
         {
-            "name": "nextPhaseEvent",
-            "type": "node",
-            "childType": "Next Phase Event"
-        },
-        {
-            "name": "moveToPhaseEvents",
-            "type": "array",
-            "childType": "Move To Phase Event"
-        },
-        {
             "name": "outgoingSignals",
             "type": "node",
             "childType": "Outgoing Signals",
@@ -102,7 +92,17 @@
             "type": "node",
             "childType": "Incoming Signals",
             "project": "Trading-Signals"
-        },        
+        },          
+        {
+            "name": "nextPhaseEvent",
+            "type": "node",
+            "childType": "Next Phase Event"
+        },
+        {
+            "name": "moveToPhaseEvents",
+            "type": "array",
+            "childType": "Move To Phase Event"
+        },      
         {
             "name": "announcements",
             "type": "array",

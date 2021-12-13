@@ -7,30 +7,72 @@
             "project": "Foundations",
             "name": "balance"
         },
-        "text": "I hope you found it on your own, but don't worry if you didn't! We'll go through the whole reasoning once again!"
+        "text": "I hope you found it on your own, but don't worry if you didn't! We'll go through the whole reasoning once again!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich hoffe, ihr habt sie selbst gefunden, aber keine Sorge, falls nicht! Wir werden die ganze Argumentation noch einmal durchgehen!",
+                "updated": 1639398216948
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The goal is that you learn how to find the data you need in the confines of the Trading Engine, which is structured logically... Make sure you read the tooltips!"
+            "text": "The goal is that you learn how to find the data you need in the confines of the Trading Engine, which is structured logically... Make sure you read the tooltips!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Ziel ist, dass Sie lernen, wie Sie die Daten finden, die Sie in der logisch aufgebauten Trading Engine benötigen... Achten Sie darauf, die Tooltips zu lesen!",
+                    "updated": 1639398231556
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Current because we need the balance at the moment of evaluation!",
-            "updated": 1617196763109
+            "updated": 1617196763109,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Current, weil wir den Saldo im Moment der Auswertung brauchen!",
+                    "updated": 1639398243555
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Episode because is the running balance kept along the whole trading session!",
-            "updated": 1617196769560
+            "updated": 1617196769560,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Episode, weil dies der laufende Saldo ist, der während der gesamten Handelssitzung gehalten wird!",
+                    "updated": 1639398254533
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Episode Base Asset because it's consistent with the rest of our definitions!"
+            "text": "Episode Base Asset because it's consistent with the rest of our definitions!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Episode Base Asset, weil es mit dem Rest unserer Definitionen übereinstimmt!",
+                    "updated": 1639398266710
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Balance because it's what we wanted!"
+            "text": "Balance because it's what we wanted!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Balance, weil es das ist, was wir wollten!",
+                    "updated": 1639398276174
+                }
+            ]
         }
     ]
 }

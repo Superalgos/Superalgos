@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Разрывает отношения родитель-потомок, которые удерживают узел привязанным к своему родителю. После отсоединения узел больше не вычисляется как часть иерархии, к которой он был присоединен.",
                 "updated": 1638282948759
+            },
+            {
+                "language": "TR",
+                "text": "Düğümü ebeveynine bağlı tutan ilişkiyi keser. Ayrıldıktan sonra, düğüm artık bağlı olduğu hiyerarşinin bir parçası olarak hesaplanmaz.",
+                "updated": 1639397708720
             }
         ]
     },

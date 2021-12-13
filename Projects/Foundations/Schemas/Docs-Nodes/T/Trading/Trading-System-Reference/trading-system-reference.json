@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "A trading engine la referencia determina cual trading system será evaluado por el bot de trading para ejecutar la sesión trading.",
                 "updated": 1628034798275
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret motoru referansı, ticaret oturumunu çalıştırmak için ticaret botu tarafından hangi ticaret sisteminin değerlendirileceğini belirler.",
+                "updated": 1639394298377
             }
         ]
     },

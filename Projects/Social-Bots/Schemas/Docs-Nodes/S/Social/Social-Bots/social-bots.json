@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Un nodo Social Bots se utiliza para definir los bots para cada aplicación de mensajería. Estos bots de mensajería se utilizan para enviar anuncios y recibir comandos que se utilizan para interactuar con Superalgos.",
                 "updated": 1628035119134
+            },
+            {
+                "language": "TR",
+                "text": "Her mesajlaşma uygulamasına özel olarak,kullanılacak botları tanımlamak için bir Sosyal Botlar düğümü kullanılır. Bu mesajlaşma botları, duyuruları göndermek ve Superalgos ile etkileşim kurmak için kullanılan komutları alır.",
+                "updated": 1639397446439
             }
         ]
     }

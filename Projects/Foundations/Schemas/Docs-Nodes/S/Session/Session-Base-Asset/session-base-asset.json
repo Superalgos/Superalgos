@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El base asset es el asset cuyo precio lo determina el mercado. Por lo general, es el primer activo del par, según lo enumerado por el intercambio.",
                 "updated": 1628034596123
+            },
+            {
+                "language": "TR",
+                "text": "Baz varlık, fiyatı piyasa tarafından belirlenen varlıktır. Genellikle borsa tarafından listelendiği gibi çiftteki ilk varlıktır (Örn. BTC/USDT çiftinde BTC)",
+                "updated": 1639394195277
             }
         ]
     },

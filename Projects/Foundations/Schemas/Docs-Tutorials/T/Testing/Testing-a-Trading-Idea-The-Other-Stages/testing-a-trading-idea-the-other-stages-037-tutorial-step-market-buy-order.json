@@ -7,24 +7,59 @@
             "name": "Market\\market-buy-order",
             "project": "Foundations"
         },
-        "text": "Just like for the open stage, I created the execution algorithm and the market buy order..."
+        "text": "Just like for the open stage, I created the execution algorithm and the market buy order...",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Genau wie für die Open Stage habe ich den Ausführungsalgorithmus und den Marktkaufauftrag erstellt...",
+                "updated": 1639417994313
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's take care of a couple of things before we move on:"
+            "text": "Let's take care of a couple of things before we move on:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor wir weitermachen, müssen wir noch ein paar Dinge erledigen:",
+                    "updated": 1639418002782
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Delete the Simulated Exchange Events node! We are not going to use it for the time being..."
+            "text": "Delete the Simulated Exchange Events node! We are not going to use it for the time being...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<i>Löschen</i> Sie den Simulated Exchange Events Konten! Wir werden ihn vorerst nicht verwenden...",
+                    "updated": 1639418010968
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter true in the JavaScript Code node of the Create Order Event condition."
+            "text": "Enter true in the JavaScript Code node of the Create Order Event condition.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Geben Sie  true  in den JavaScript Code Knoten der Bedingung \"Create Order Event \" ein.",
+                    "updated": 1639418028676
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Now you have to create the reference from the Market Buy Order node to the Market Order in the trading engine. I will show you which one in the next step!"
+            "text": "Now you have to create the reference from the Market Buy Order node to the Market Order in the trading engine. I will show you which one in the next step!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jetzt müssen Sie den Verweis vom Knoten Market Buy Order auf die Market Order in der Trading Engine erstellen. Welche das ist, zeige ich Ihnen im nächsten Schritt!",
+                    "updated": 1639418036873
+                }
+            ]
         }
     ]
 }

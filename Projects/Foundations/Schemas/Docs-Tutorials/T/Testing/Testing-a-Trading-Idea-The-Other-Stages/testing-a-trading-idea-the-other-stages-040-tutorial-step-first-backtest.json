@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Now that we have the basic definitions in all stages, we may do a first backtest!"
+        "text": "Now that we have the basic definitions in all stages, we may do a first backtest!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nun, da wir die grundlegenden Definitionen in allen Phasen haben, können wir einen ersten Backtest durchführen!",
+                "updated": 1639418146020
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We'll be using the same parameters we ended up with at the end of the previous tutorial. Feel free to go and check!"
+            "text": "We'll be using the same parameters we ended up with at the end of the previous tutorial. Feel free to go and check!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden die gleichen Parameter verwenden, die wir am Ende des vorherigen Tutorials verwendet haben. Probieren Sie es einfach aus!",
+                    "updated": 1639418152942
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Start the task for BB Breakdown 2 and start the corresponding backtesting session too!"
+            "text": "Start the task for BB Breakdown 2 and start the corresponding backtesting session too!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Starten Sie die Aufgabe für BB Breakdown 2 und starten Sie auch die entsprechende Backtesting-Session!",
+                    "updated": 1639418159855
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "I'm assuming you have the data we mined during the previous tutorial! If you don't this is unlikely to work!"
+            "text": "I'm assuming you have the data we mined during the previous tutorial! If you don't this is unlikely to work!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich gehe davon aus, dass Sie über die Daten verfügen, die wir in der vorherigen Anleitung ausgewertet haben! Wenn Sie diese nicht haben, wird es wahrscheinlich nicht funktionieren!",
+                    "updated": 1639418167383
+                }
+            ]
         }
     ]
 }

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Superalgos organisiert Daten in Datasets (Datensätze). Diese Datensätze sind systemübergreifend durch unterschiedliche Typdefinitionen standardisiert.",
                 "updated": 1634586751277
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos организует данные в наборы данных Dataset. Эти наборы данных стандартизированы по всей системе с использованием различных определений типов.",
+                "updated": 1639392223361
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "DE",
                     "text": "Datensatz-Typen:",
                     "updated": 1634586996444
+                },
+                {
+                    "language": "RU",
+                    "text": "Типы Dataset",
+                    "updated": 1639392241096
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "DE",
                     "text": "Dies ist die vollständige Liste der derzeit vom System unterstützten Dataset Typen:",
                     "updated": 1634587492613
+                },
+                {
+                    "language": "RU",
+                    "text": "Это полный список типов Dataset, которые в настоящее время поддерживаются системой:",
+                    "updated": 1639392305644
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "DE",
                     "text": "Single-File (Einzeldatei): Wie der Name schon sagt, besteht dieses Dataset aus nur einer Datei, die alle Daten enthält. Dieser Dataset-Typ kann geplottet werden und seine Daten können von und in Handelsstrategien verwendet werden. Der API Data Fetcher Bot kann bei Bedarf auch Rohdaten in diesem Dataset-Typ speichern.",
                     "updated": 1634588065048
+                },
+                {
+                    "language": "RU",
+                    "text": "Single-File: Как следует из названия, этот набор данных состоит только из одного файла, содержащего все данные. Этот тип набора данных может быть нанесен на график, а его данные могут использоваться торговыми стратегиями и внутри них. Бот API Data Fetcher Bot также может сохранять необработанные данные в этом типе набора данных, если это необходимо.",
+                    "updated": 1639392365511
                 }
             ]
         },
@@ -63,6 +83,11 @@
                     "language": "DE",
                     "text": "Der Datentyp \"Single-File Dataset\" wird nicht häufig verwendet. Derzeit wird dieser Datentyp zum Speichern von Daten verwendet, die von Webhooks stammen. Er wird auf diese Weise gespeichert, weil davon ausgegangen wird, dass nicht viele Daten über diese Leitung eingehen, sondern nur Signale, die von externen Systemen erzeugt werden. Es wird erwartet, dass sich die Webhooks-Funktion in Zukunft weiterentwickelt und die eingehenden Daten in einem anderen Dataset-Typ verwaltet werden. In Superalgos ist ein Dataset eine Sammlung von JSON-/Textdateien, die auf eine bestimmte Weise organisiert sind.",
                     "updated": 1634997365650
+                },
+                {
+                    "language": "RU",
+                    "text": "Тип Single-File используется нечасто. В настоящее время это тип набора данных, используемый для хранения данных, поступающих от Webhooks. Он хранится таким образом, потому что предполагается, что по этому каналу будет проходить не много данных, а только сигналы, производимые внешними системами. Ожидается, что в будущем функция Webhooks будет развиваться, управляя входящими данными в другом типе набора данных.",
+                    "updated": 1639392509026
                 }
             ]
         },
@@ -75,6 +100,11 @@
                     "language": "DE",
                     "text": "One-Min-Daily: Dieser Datase type organisiert die Daten in einer Datei pro Tag und erwartet, wie der Name schon sagt, dass die Daten selbst zu Zeitrahmen von einer Minute gehören. Dieser Datentyp kann nicht geplottet werden und seine Daten können nicht von Trading Strategies verwendet werden.",
                     "updated": 1634998583947
+                },
+                {
+                    "language": "RU",
+                    "text": "One-Min-Daily: Этот тип набора данных организует данные в один файл в день и, как следует из названия, ожидает, что сами данные будут принадлежать таймфрейму в одну минуту. Этот тип набора данных не может быть нанесен на график или его данные не могут быть использованы торговыми стратегиями.",
+                    "updated": 1639392567661
                 }
             ]
         },
@@ -87,6 +117,11 @@
                     "language": "DE",
                     "text": "Multi-Time-Frame-Daily: Dieses Dataset type organisiert Daten in einer Datei pro Tag für jeden Zeitrahmen von 1 Minute bis 45 Minuten. Die Daten dieses Datentyps können geplottet und von Trading Strategies verwendet werden.",
                     "updated": 1634998574997
+                },
+                {
+                    "language": "RU",
+                    "text": "Multi-Time-Frame-Daily: Этот тип набора данных организует данные в один файл в день для каждого временного интервала в диапазоне от 1 до 45 минут. Данные этого типа набора данных могут быть нанесены на график и могут быть использованы торговыми стратегиями.",
+                    "updated": 1639392587801
                 }
             ]
         },
@@ -99,6 +134,11 @@
                     "language": "DE",
                     "text": "Multi-Time-Frame-Market: Dieser Dataset type organisiert Daten in nur einer Datei für jeden Zeitrahmen von 1 Stunde bis 24 Stunden. Das bedeutet, dass der gesamte Marktverlauf in einer einzigen Datei für jeden Zeitrahmen gespeichert wird. Zum Beispiel werden Kerzen von 1 Stunde für einen bestimmten Markt in einer einzigen Datei gespeichert. Die Daten dieses Datentyps können geplottet und von trading strategies verwendet werden.",
                     "updated": 1634998739206
+                },
+                {
+                    "language": "RU",
+                    "text": "Multi-Time-Frame-Market: Этот тип набора данных организует данные только в один файл для каждого временного интервала от 1 часа до 24 часов. Это означает, что вся рыночная история будет храниться в одном файле для каждого временного интервала. Например, свечи на 1 час для определенного рынка будут храниться в одном файле. Данные этого типа набора данных могут быть нанесены на график и могут быть использованы торговыми стратегиями.",
+                    "updated": 1639392623533
                 }
             ]
         },
@@ -110,6 +150,11 @@
                     "language": "DE",
                     "text": "Die bei weitem verbreiteste Datensatztypen sind \"Multi-Time-Frame-Daily\" und \"Multi-Time-Frame-Market\".",
                     "updated": 1634998870033
+                },
+                {
+                    "language": "RU",
+                    "text": "Безусловно, самые популярные типы наборов данных - Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
+                    "updated": 1639392668594
                 }
             ]
         }

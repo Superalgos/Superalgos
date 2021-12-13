@@ -7,16 +7,37 @@
             "name": "Close\\close-stage-event",
             "project": "Foundations"
         },
-        "text": "We are not going to use the Close Stage Event either, so go ahead and delete it too!"
+        "text": "We are not going to use the Close Stage Event either, so go ahead and delete it too!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden auch das Ereignis \" Close Stage Event \" nicht verwenden, also löschen Sie auch dieses!",
+                "updated": 1639399088049
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The open stage closes automatically once the target size is filled, or when the stop loss or take profit targets are hit. The former is what we expect to happen in our case, as we are using a single market order to take the position, and it is placed as soon as the take position event is triggered. It is safe to assume that the order will get filled immediately."
+            "text": "The open stage closes automatically once the target size is filled, or when the stop loss or take profit targets are hit. The former is what we expect to happen in our case, as we are using a single market order to take the position, and it is placed as soon as the take position event is triggered. It is safe to assume that the order will get filled immediately.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Open Stage wird automatisch geschlossen, wenn die Zielgröße erreicht ist oder wenn die Stop Loss- oder Take Profit-Ziele erreicht sind. In unserem Fall erwarten wir, dass Ersteres geschieht, da wir eine einzelne Marktorder verwenden, um die Position zu übernehmen, und diese platziert wird, sobald das Take-Position-Ereignis ausgelöst wird. Es ist davon auszugehen, dass die Order sofort ausgeführt wird.",
+                    "updated": 1639399098711
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The close stage event offers&mdash;again&mdash;an additional level of control! For example, when the position is taken with multiple orders, you may want to stop placing orders under certain circumstances."
+            "text": "The close stage event offers&mdash;again&mdash;an additional level of control! For example, when the position is taken with multiple orders, you may want to stop placing orders under certain circumstances.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Ereignis \"Close Stage\" bietet - wieder einmal - eine zusätzliche Ebene der Kontrolle! Wenn die Position beispielsweise mit mehreren Aufträgen übernommen wird, können Sie unter bestimmten Umständen die Auftragserteilung stoppen.",
+                    "updated": 1639399104451
+                }
+            ]
         }
     ]
 }

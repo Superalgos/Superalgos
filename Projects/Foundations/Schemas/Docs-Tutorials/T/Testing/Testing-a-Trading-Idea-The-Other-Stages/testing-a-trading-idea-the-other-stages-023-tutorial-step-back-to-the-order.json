@@ -7,20 +7,48 @@
             "name": "Market\\market-order",
             "project": "Foundations"
         },
-        "text": "There's one more thing we need to take care of before we move on to the definitions in the manage stage!"
+        "text": "There's one more thing we need to take care of before we move on to the definitions in the manage stage!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Bevor wir zu den Definitionen in der Manage Stage übergehen, müssen wir uns noch um eine Sache kümmern!",
+                "updated": 1639399149008
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Trading Bot keeps track of each order at all times and saves the corresponding information in a specific structure of nodes in the Trading Engine."
+            "text": "The Trading Bot keeps track of each order at all times and saves the corresponding information in a specific structure of nodes in the Trading Engine.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Trading Bot verfolgt jede Order zu jeder Zeit und speichert die entsprechenden Informationen in einer bestimmten Struktur von Knoten in der Trading Engine.",
+                    "updated": 1639399157023
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Expand the Market Sell Order #1 node and take a look inside."
+            "text": "Expand the Market Sell Order #1 node and take a look inside.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erweitern Sie den Knoten Market Sell Order #1 und werfen Sie einen Blick hinein.",
+                    "updated": 1639399163727
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Because each order has a life of it's own, the bot stores information about each order in separate structures of nodes, one per order."
+            "text": "Because each order has a life of it's own, the bot stores information about each order in separate structures of nodes, one per order.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Da jeder Auftrag ein Eigenleben hat, speichert der Bot die Informationen über jeden Auftrag in separaten Knotenstrukturen, eine pro Auftrag.",
+                    "updated": 1639399172402
+                }
+            ]
         }
     ]
 }

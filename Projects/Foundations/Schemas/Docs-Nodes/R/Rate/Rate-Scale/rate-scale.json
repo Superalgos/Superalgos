@@ -10,8 +10,8 @@
             },
             {
                 "language": "RU",
-                "text": "Шкала ставок управляет масштабом вертикальной оси, т.е. масштабом действующего актива, либо машины времени, либо диаграммы временной шкалы, в зависимости от того, где расположен узел.",
-                "updated": 1636206834295
+                "text": "Rate Scale управляет масштабом вертикальной оси, т.е. масштабом действующего актива, либо машины времени, либо диаграммы временной шкалы, в зависимости от того, где расположен узел.",
+                "updated": 1639379614347
             }
         ]
     },
@@ -22,67 +22,172 @@
         },
         {
             "style": "Text",
-            "text": "Rate scales may exist both at the level of a time machine and at the level of a timeline chart, each affecting the corresponding concept."
+            "text": "Rate scales may exist both at the level of a time machine and at the level of a timeline chart, each affecting the corresponding concept.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шкалы Rate могут существовать как на уровне машины времени Time Mshine, так и на уровне временной шкалы Time Scale, каждая из которых влияет на соответствующую концепцию.",
+                    "updated": 1639380493637
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When set at the level of the time machine, the scale settings affect all charts within the time machine. When set at the level of the timeline chart, the settings override the rate scale at the time machine level.",
-            "updated": 1616512866155
+            "updated": 1616512866155,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При установке на уровне машины времени настройки масштаба влияют на все графики в машине времени. При установке на уровне временной шкалы настройки имеют приоритет над шкалой ставок на уровне машины времени.",
+                    "updated": 1639380511738
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "This allows having multiple charts on the same time machine, each with a different rate scales. This is the way to set up indicators the are designed for a scale different than that of the rate of the assets in the market. For example, the RSI and Percentage Bandwidth indicators oscillate between 0 and 100.",
-            "updated": 1616512886656
+            "updated": 1616512886656,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это позволяет иметь несколько графиков на одной машине времени, каждая с разными шкалами ставок. Это способ настройки индикаторов, которые предназначены для шкалы, отличной от шкалы курса активов на рынке. Например, индикаторы RSI и Percentage Bandwidth колеблются между 0 и 100.",
+                    "updated": 1639380594317
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Scale Minimum and Maximum Values"
+            "text": "Scale Minimum and Maximum Values",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Минимальные и максимальные значения шкалы",
+                    "updated": 1639380608134
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A rate scale has a minimum and a maximum value. The minimum value is the value at bottom of the chart. The maximum, is the value at the top of the chart."
+            "text": "A rate scale has a minimum and a maximum value. The minimum value is the value at bottom of the chart. The maximum, is the value at the top of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шкала ставок имеет минимальное и максимальное значение. Минимальное значение - это значение внизу диаграммы. Максимум - это значение в верхней части диаграммы.",
+                    "updated": 1639380620689
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan the charts vertically, you are directly affecting the minimum and maximum scale values. That said, the actual scale may change dynamically or not, depending on the scale-automation settings.",
-            "updated": 1616512946283
+            "updated": 1616512946283,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С технической точки зрения, минимальные и максимальные значения шкалы постоянно меняются, поскольку всякий раз, когда вы панорамируете диаграммы по вертикали, вы напрямую влияете на минимальные и максимальные значения шкалы. При этом фактический масштаб может меняться динамически или нет, в зависимости от настроек автоматизации масштабирования.",
+                    "updated": 1639380635575
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Automatic Scale"
+            "text": "Automatic Scale",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Автоматическое масштабирование",
+                    "updated": 1639380670893
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, on both, or on none (manual mode).",
-            "updated": 1616513013651
+            "updated": 1616513013651,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Plugin Workspaces. Шкала может быть автоматической по минимальному значению, по максимальному значению, по обоим параметрам или по отсутствию (ручной режим).",
+                    "updated": 1639380722929
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the scale is automatic in the minimum value, the scale is adjusted so that no piece of information in the span of the chart ever remains below the bottom of the chart. As a result, the lowest data point aligns with the bottom of the chart."
+            "text": "When the scale is automatic in the minimum value, the scale is adjusted so that no piece of information in the span of the chart ever remains below the bottom of the chart. As a result, the lowest data point aligns with the bottom of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда шкала устанавливается автоматически на минимальное значение, масштаб настраивается таким образом, чтобы никакая часть информации в диапазоне диаграммы никогда не оставалась ниже ее нижнего края. В результате самая низкая точка данных совпадает с нижней частью диаграммы.",
+                    "updated": 1639380734826
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the scale is automatic in the maximum value, the scale is adjusted so that no piece of information in the span of the chart ever remains above the top of the chart. As a result, the highest data point aligns with the top of the chart."
+            "text": "When the scale is automatic in the maximum value, the scale is adjusted so that no piece of information in the span of the chart ever remains above the top of the chart. As a result, the highest data point aligns with the top of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда шкала устанавливается автоматически на максимальное значение, масштаб настраивается таким образом, чтобы никакая часть информации в диапазоне диаграммы никогда не оставалась выше ее верха. В результате самая высокая точка данных совпадает с верхней частью диаграммы.",
+                    "updated": 1639380747076
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The scale may be automated on either, or both minimum and maximum values at the same time. In the later case, no data point in the span of the chart ever remains out of the visible area of the chart, as the lowest data point aligns with the bottom of the chart and the highest aligns with the top."
+            "text": "The scale may be automated on either, or both minimum and maximum values at the same time. In the later case, no data point in the span of the chart ever remains out of the visible area of the chart, as the lowest data point aligns with the bottom of the chart and the highest aligns with the top.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шкала может быть автоматизирована по одному или по минимальному и максимальному значениям одновременно. В последнем случае ни одна точка данных в диапазоне диаграммы никогда не остается вне видимой области диаграммы, так как самая низкая точка данных совпадает с нижней частью диаграммы, а самая высокая - с верхней.",
+                    "updated": 1639380761446
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Manual Scale"
+            "text": "Manual Scale",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ручное масштабирование",
+                    "updated": 1639380774026
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The system also features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning across a chart. This design feature allows comparing different periods using the same scale, which may be valuable in many cases."
+            "text": "The system also features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning across a chart. This design feature allows comparing different periods using the same scale, which may be valuable in many cases.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В системе также есть ручной режим. В ручном режиме масштаб не меняется, даже если минимальное и максимальное значения меняются при перемещении по графику. Эта конструктивная особенность позволяет сравнивать разные периоды с использованием одной и той же шкалы, что во многих случаях может оказаться полезным.",
+                    "updated": 1639380787439
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Scale Offset"
+            "text": "Scale Offset",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Смещение шкалы",
+                    "updated": 1639380852063
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The offset is a feature of the rate scale by which the scale may be shifted upwards or downwards. As a result, charts aligned on the vertical axis&mdash;synchronized in datetime by a shared time machine&mdash;may be put one above the other. In technical terms, what happens is that the scale is shifted upwards or downwards."
+            "text": "The offset is a feature of the rate scale by which the scale may be shifted upwards or downwards. As a result, charts aligned on the vertical axis&mdash;synchronized in datetime by a shared time machine&mdash;may be put one above the other. In technical terms, what happens is that the scale is shifted upwards or downwards.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Смещение - это особенность шкалы ставок, с помощью которой шкала может быть сдвинута вверх или вниз. В результате диаграммы, выровненные по вертикальной оси, синхронизированные по дате и времени общей машиной времени, могут располагаться одна над другой. С технической точки зрения, происходит смещение шкалы вверх или вниз.",
+                    "updated": 1639380844864
+                }
+            ]
         },
         {
             "style": "Block",
@@ -91,7 +196,14 @@
         },
         {
             "style": "Title",
-            "text": "Rate Scale at the Charts"
+            "text": "Rate Scale at the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Rate Scale на графиках",
+                    "updated": 1639380898533
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -101,32 +213,81 @@
         {
             "style": "Text",
             "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time machine or timeline chart rate box, press the Shift key and slowly scroll the wheel of the mouse. The action cycles through different possible scale automation settings. ",
-            "updated": 1616513170991
+            "updated": 1616513170991,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить настройки автоматического масштабирования, наведите указатель мыши на соответствующую машину времени или поле скорости графика временной шкалы, нажмите клавишу Shift и медленно прокрутите колесико мыши. Действие циклически перебирает различные возможные настройки автоматизации масштабирования.",
+                    "updated": 1639380911381
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may also place the mouse pointer on the scale box and use the side arrows ← → to toggle through the different automation settings.",
-            "updated": 1616513210816
+            "updated": 1616513210816,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете поместить указатель мыши на рамку шкалы и использовать боковые стрелки ← → для переключения между различными настройками автоматизации.",
+                    "updated": 1639380920263
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Notice a tiny green triangle below and/or above the rate scale icon."
+            "text": "Notice a tiny green triangle below and/or above the rate scale icon.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на крошечный зеленый треугольник под и / или над значком шкалы ставок.",
+                    "updated": 1639380932607
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A triangle pointing up means that the maximum value of the scale is automatic."
+            "text": "A triangle pointing up means that the maximum value of the scale is automatic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Треугольник, направленный вверх, означает, что максимальное значение шкалы установлено автоматически.",
+                    "updated": 1639380945547
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A triangle pointing down means that the minimum value of the scale is automatic."
+            "text": "A triangle pointing down means that the minimum value of the scale is automatic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Треугольник, направленный вниз, означает, что минимальное значение шкалы установлено автоматически.",
+                    "updated": 1639380955238
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Both triangles present at the same time means that both minimum and maximum values are automatic."
+            "text": "Both triangles present at the same time means that both minimum and maximum values are automatic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наличие обоих треугольников одновременно означает, что и минимальное, и максимальное значения устанавливаются автоматически.",
+                    "updated": 1639380965285
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "No triangle means that both minimum and maximum values are in manual mode."
+            "text": "No triangle means that both minimum and maximum values are in manual mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсутствие треугольника означает, что и минимальное, и максимальное значения указаны в ручном режиме.",
+                    "updated": 1639380976657
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -136,20 +297,48 @@
         {
             "style": "Text",
             "text": "To adjust the scale, make sure either or both minimum and maximum values are in manual mode. Place the mouse pointer over the corresponding time machine or timeline chart rate box and scroll the wheel of the mouse. The scale will increase or decrease accordingly, depending on which values are set to manual.",
-            "updated": 1616513228715
+            "updated": 1616513228715,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы настроить шкалу, убедитесь, что одно или оба минимального и максимального значений указаны в ручном режиме. Наведите указатель мыши на соответствующую машину времени или поле скорости графика шкалы времени и прокрутите колесико мыши. Масштаб будет соответственно увеличиваться или уменьшаться в зависимости от того, какие значения установлены вручную.",
+                    "updated": 1639380990310
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Alternatively, you may also place the mouse pointer on the scale box and use the vertical arrows ↑ ↓ to affect the scale.",
-            "updated": 1616513309746
+            "updated": 1616513309746,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как вариант, вы также можете поместить указатель мыши на рамку шкалы и использовать вертикальные стрелки ↑ ↓, чтобы изменить масштаб.",
+                    "updated": 1639381001347
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Notice that, while changing the scale, a number is displayed replacing the actual rate. This is a reference value of the scale, that may serve for comparison purposes, with scales in other charts."
+            "text": "Notice that, while changing the scale, a number is displayed replacing the actual rate. This is a reference value of the scale, that may serve for comparison purposes, with scales in other charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что при изменении шкалы отображается число, заменяющее фактический курс. Это эталонное значение шкалы, которое может служить для целей сравнения со шкалами на других диаграммах.",
+                    "updated": 1639381034339
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This action has no effect when both minimum and maximum values are set to automatic mode."
+            "text": "This action has no effect when both minimum and maximum values are set to automatic mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это действие не имеет эффекта, если как минимальное, так и максимальное значения установлены в автоматический режим.",
+                    "updated": 1639381070320
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -159,11 +348,25 @@
         {
             "style": "Text",
             "text": "To shift or offset a timeline chart on the vertical axis, place the mouse pointer on the rate box, left-click and drag upwards or downwards, as desired. The timeline chart will shift in the specified direction while the remaining charts stay in the same position.",
-            "updated": 1616513340914
+            "updated": 1616513340914,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы сдвинуть или сместить временную шкалу по вертикальной оси, поместите указатель мыши на поле скорости, щелкните левой кнопкой мыши и перетащите вверх или вниз по желанию. График временной шкалы сместится в указанном направлении, в то время как остальные графики останутся в том же положении.",
+                    "updated": 1639381096649
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Setting an offset in a timeline chart only makes sense in the context of a time machine with multiple charts. That is, if you are browsing a single chart, an offset behaves the same as moving the single chart up or down."
+            "text": "Setting an offset in a timeline chart only makes sense in the context of a time machine with multiple charts. That is, if you are browsing a single chart, an offset behaves the same as moving the single chart up or down.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установка смещения на временной шкале имеет смысл только в контексте машины времени с несколькими диаграммами. То есть, если вы просматриваете одну диаграмму, смещение ведет себя так же, как перемещение одной диаграммы вверх или вниз.",
+                    "updated": 1639381114042
+                }
+            ]
         },
         {
             "style": "Block",
@@ -173,28 +376,70 @@
         {
             "style": "Title",
             "text": "Rate Scale Configuration",
-            "updated": 1609783329574
+            "updated": 1609783329574,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Rate Scale",
+                    "updated": 1639381130182
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639381136449
+                }
+            ]
         },
         {
             "style": "List",
             "text": "minValue is a numerical value that represents the value of the scale at the bottom of the chart.",
-            "updated": 1609783389883
+            "updated": 1609783389883,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "minValue - это числовое значение, представляющее значение шкалы в нижней части диаграммы.",
+                    "updated": 1639381146369
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "maxValue is a numerical value that represents the value of the scale at the top of the chart."
+            "text": "maxValue is a numerical value that represents the value of the scale at the top of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maxValue - это числовое значение, представляющее значение шкалы в верхней части диаграммы.",
+                    "updated": 1639381157641
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
+            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "autoMinScale устанавливает режим шкалы по минимальному значению; true устанавливает значение автоматически, false устанавливает значение вручную.",
+                    "updated": 1639381175780
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
+            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "autoMaxScale устанавливает режим шкалы на максимальное значение; true устанавливает значение автоматически, false устанавливает значение вручную.",
+                    "updated": 1639381185257
+                }
+            ]
         }
     ]
 }

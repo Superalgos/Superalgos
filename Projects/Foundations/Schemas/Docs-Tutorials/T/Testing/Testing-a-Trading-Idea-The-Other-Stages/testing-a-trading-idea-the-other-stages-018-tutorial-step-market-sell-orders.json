@@ -7,21 +7,49 @@
             "name": "Market\\market-sell-order",
             "project": "Foundations"
         },
-        "text": "We'll use a single execution algorithm handling 100% of the size we defined earlier! Time to learn a bit about orders!"
+        "text": "We'll use a single execution algorithm handling 100% of the size we defined earlier! Time to learn a bit about orders!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden einen einzigen Ausführungsalgorithmus verwenden, der 100 % der zuvor definierten Größe verarbeitet! Zeit, ein wenig über Aufträge zu lernen!",
+                "updated": 1639398581888
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "There is quite a bit of depth on the matter of how orders work! We'll get into the details on a tutorial focusing on the nuances of order execution. But for the time being, we'll keep it simple:"
+            "text": "There is quite a bit of depth on the matter of how orders work! We'll get into the details on a tutorial focusing on the nuances of order execution. But for the time being, we'll keep it simple:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Funktionsweise von Aufträgen ist sehr umfangreich! Wir werden in einem Tutorial, das sich mit den Feinheiten der Auftragsausführung beschäftigt, ins Detail gehen. Aber für den Moment wollen wir es einfach halten:",
+                    "updated": 1639398594569
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "A market sell order is an instruction sent to the exchange to sell the base asset, for immediate execution at current market prices.",
-            "updated": 1622547845887
+            "updated": 1622547845887,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Market-Sell-Order ist eine an die Börse gesendete Anweisung zum Verkauf des Basiswertes, die sofort zu den aktuellen Marktpreisen ausgeführt wird.",
+                    "updated": 1639398605166
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Check the configuration of the sell order!"
+            "text": "Check the configuration of the sell order!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie die Konfiguration des Verkaufsauftrags!",
+                    "updated": 1639398611453
+                }
+            ]
         }
     ]
 }

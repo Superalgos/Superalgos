@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Este workspace incluye una serie de tutoriales sobre el diseño de sistemas comerciales. Es el primer paso que los usuarios deben dar para aprender a construir estrategias después de completar su educación básica.",
                 "updated": 1636560802341
+            },
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство содержит серию руководств по проектированию торговых систем. Это первый шаг, который пользователи должны сделать, чтобы узнать о стратегиях построения после завершения базового образования.",
+                "updated": 1639055690791
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Tutorials",
-            "updated": 1616151265546
+            "updated": 1616151265546,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639055705011
+                }
+            ]
         },
         {
             "style": "List",
@@ -65,12 +77,26 @@
         },
         {
             "style": "Important",
-            "text": "This series must keep growing to cover trade execution and trade management with specific examples."
+            "text": "This series must keep growing to cover trade execution and trade management with specific examples.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта серия должна продолжать расти, чтобы на конкретных примерах освещать исполнение сделок и управление торговлей.",
+                    "updated": 1639055727339
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1616151252550
+            "updated": 1616151252550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639055864074
+                }
+            ]
         },
         {
             "style": "Link",

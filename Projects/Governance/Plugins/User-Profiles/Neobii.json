@@ -166,11 +166,11 @@
                         "id": "9cc692bd-cddb-4e17-bd76-1bf0f9fd4f66",
                         "savedPayload": {
                             "position": {
-                                "x": 8372.984285743618,
-                                "y": 19292.971176265637
+                                "x": 7957.8020342125965,
+                                "y": 19383.484255307943
                             },
                             "targetPosition": {
-                                "x": 8505.235967509425,
+                                "x": 8163.349762182182,
                                 "y": 19475
                             },
                             "floatingObject": {
@@ -207,11 +207,11 @@
                     "id": "917d7999-c67b-4f14-8d44-67898eaa4240",
                     "savedPayload": {
                         "position": {
-                            "x": 8687.264791243788,
-                            "y": 19342.748318234193
+                            "x": 8254.865506874237,
+                            "y": 19269.452272030416
                         },
                         "targetPosition": {
-                            "x": 8505.235967509425,
+                            "x": 8163.349762182182,
                             "y": 19475
                         },
                         "floatingObject": {
@@ -234,11 +234,11 @@
                     "id": "060aeb0a-c9c7-4a41-bb84-4a6a5a9a649e",
                     "savedPayload": {
                         "position": {
-                            "x": 8564.014492738672,
-                            "y": 19555.901699437494
+                            "x": 8254.704307946442,
+                            "y": 19515.67366430758
                         },
                         "targetPosition": {
-                            "x": 8505.235967509425,
+                            "x": 8163.349762182182,
                             "y": 19475
                         },
                         "floatingObject": {
@@ -257,7 +257,7 @@
                 "id": "b1ad6efe-12fc-4e8d-96c2-17aeae30a8ed",
                 "savedPayload": {
                     "position": {
-                        "x": 8505.235967509425,
+                        "x": 8163.349762182182,
                         "y": 19475
                     },
                     "targetPosition": {
@@ -270,6 +270,170 @@
                         "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 2,
+                        "arrangementStyle": 4
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "influencerProgram": {
+                "type": "Influencer Program",
+                "name": "New Influencer Program",
+                "config": "{}",
+                "project": "Governance",
+                "userInfluencers": [
+                    {
+                        "type": "User Influencer",
+                        "name": "ssplatt",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "d1566909-b5d6-423a-9974-b8f5e213696e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 8846.411130441076,
+                                "y": 19310.288568297
+                            },
+                            "targetPosition": {
+                                "x": 8621.411130441076,
+                                "y": 19700
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": true,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "ssplatt",
+                                "id": "56600855-7a91-49e8-8a58-2fa28d07efd1"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "ssplatt",
+                                    "User Profile",
+                                    "Governance",
+                                    "56600855-7a91-49e8-8a58-2fa28d07efd1"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Influencer",
+                        "name": "Luis-Fernando-Molina",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "cc8fcb5b-e2a0-4870-8b8c-ed3cfcdbd10e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 9032.506586380247,
+                                "y": 19516.96851061589
+                            },
+                            "targetPosition": {
+                                "x": 8621.411130441076,
+                                "y": 19700
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Luis-Fernando-Molina",
+                                "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Luis-Fernando-Molina",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "9b0e267d-4e3c-4fce-b86f-0a83697d9641",
+                    "savedPayload": {
+                        "position": {
+                            "x": 9061.57755077129,
+                            "y": 19793.56026086799
+                        },
+                        "targetPosition": {
+                            "x": 8621.411130441076,
+                            "y": 19700
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "b772959b-f1ef-484b-b483-db9514f0411e",
+                    "savedPayload": {
+                        "position": {
+                            "x": 8922.519903302562,
+                            "y": 20034.41517146483
+                        },
+                        "targetPosition": {
+                            "x": 8621.411130441076,
+                            "y": 19700
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "c457748c-97af-46ec-b069-81b49c402cc9",
+                "savedPayload": {
+                    "position": {
+                        "x": 8621.411130441076,
+                        "y": 19700
+                    },
+                    "targetPosition": {
+                        "x": 8668.70803631063,
+                        "y": 19250
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
                         "arrangementStyle": 4
                     },
                     "uiObject": {

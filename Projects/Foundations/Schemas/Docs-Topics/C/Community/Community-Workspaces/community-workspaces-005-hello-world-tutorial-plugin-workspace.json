@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Este workspace sirve como demostración de cómo construir una estrategia muy simple, complementando la educación brindada por el Trading System Design Tutorials Plugin Workspace, con un enfoque diferente.",
                 "updated": 1636725234290
+            },
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство служит демонстрацией того, как построить очень простую стратегию, дополняя обучение, предоставляемое учебником Trading System Design Tutorials Plugin Workspace, с другим подходом.",
+                "updated": 1639056308603
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Tutorials",
-            "updated": 1616151478524
+            "updated": 1616151478524,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639056327304
+                }
+            ]
         },
         {
             "style": "List",

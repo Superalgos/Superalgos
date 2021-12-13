@@ -27,7 +27,12 @@
     "@octokit/rest": "^18.12.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@reduxjs/toolkit": "^1.6.2",
+<<<<<<< HEAD
     "@svgr/webpack": "^6.1.1",
+=======
+    "@slack/web-api": "^6.5.1",
+    "@svgr/webpack": "5.5.0",
+>>>>>>> eaaca3d5e2993d7f23dacff1bed53c29405cb2ca
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "axios": "^0.24.0",

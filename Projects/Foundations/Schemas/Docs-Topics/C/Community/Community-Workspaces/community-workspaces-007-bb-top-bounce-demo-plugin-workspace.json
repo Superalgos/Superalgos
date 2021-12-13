@@ -4,13 +4,27 @@
     "type": "BB Top Bounce Demo Plugin Workspace",
     "definition": {
         "text": "This workspace features the BTC-USDT - BB Top Bounce - BBTB Trading System setup for backtesting in Binance and the USDT/BTC market.",
-        "updated": 1616149302461
+        "updated": 1616149302461,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В этом рабочем пространстве представлена ​​настройка торговой системы BTC-USDT - BB Top Bounce - BBTB для тестирования на истории на Binance и на рынке USDT / BTC.",
+                "updated": 1639056454335
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "Learn about the BTC-USDT - BB Top Bounce - BBTB strategy before using this workspace!",
-            "updated": 1616149471944
+            "updated": 1616149471944,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте о стратегии BTC-USDT - BB Top Bounce - BBTB, прежде чем использовать это рабочее пространство!",
+                    "updated": 1639056468497
+                }
+            ]
         },
         {
             "style": "Include",
@@ -19,7 +33,14 @@
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1616153683894
+            "updated": 1616153683894,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056486690
+                }
+            ]
         },
         {
             "style": "Link",

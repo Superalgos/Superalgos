@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo como un dispositivo organizacional, para abrir nodos Feature Contribution Claim (solicitud de  contribución  de función), y para mapear estructuras enteras en una jerarquía de  Feature (función) y colocar múltiples solicitudes de Contribution Claims al mismo tiempo.",
                 "updated": 1636112015354
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы Feature Contribution Claim и отображать целые структуры в иерархии Features для одновременного размещения нескольких Contribution Claims.",
+                "updated": 1639133874436
             }
         ]
     },
@@ -23,7 +28,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639133257953
+                }
+            ]
         }
     ]
 }

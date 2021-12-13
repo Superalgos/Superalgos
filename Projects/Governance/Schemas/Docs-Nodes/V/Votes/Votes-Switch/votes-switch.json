@@ -2,7 +2,14 @@
     "type": "Votes Switch",
     "definition": {
         "text": "The Votes Switch node channels Voting Power downwards in the hierarchy. It is a top-level switch used as an organizational device to spawn and arrange other types of switches.",
-        "updated": 1624729506328
+        "updated": 1624729506328,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Votes Switch направляет полномочия голосования вниз по иерархии. Это переключатель верхнего уровня, используемый в качестве организационного устройства для создания и размещения других типов переключателей.",
+                "updated": 1639136378777
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Important",
-            "text": "This node can not reference “class” or “folder” types of nodes on other hierarchies. It is merely an organizational device."
+            "text": "This node can not reference “class” or “folder” types of nodes on other hierarchies. It is merely an organizational device.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот узел не может ссылаться на типы узлов “class” или “folder” в других иерархиях. Это просто организационное устройство.",
+                    "updated": 1639136432510
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,7 +34,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639136444763
+                }
+            ]
         }
     ]
 }

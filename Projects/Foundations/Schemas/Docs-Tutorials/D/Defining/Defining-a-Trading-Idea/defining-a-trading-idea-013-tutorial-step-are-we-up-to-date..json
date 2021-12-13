@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "indicator-process-instance"
         },
-        "text": "By now, all processes should be at 100%. We need the data to be ready so that we can go and do some work on the charts!"
+        "text": "By now, all processes should be at 100%. We need the data to be ready so that we can go and do some work on the charts!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Inzwischen sollten alle Prozesse auf 100 % stehen. Die Daten müssen fertig sein, damit wir mit den Diagrammen arbeiten können!",
+                "updated": 1639252044935
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Look around and see if all processes are at 100%. If all of them are, then stop the data mining!"
+            "text": "Look around and see if all processes are at 100%. If all of them are, then stop the data mining!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich um und prüfen Sie, ob alle Prozesse bei 100 % sind. Wenn das der Fall ist, beenden Sie das Data Mining!",
+                    "updated": 1639252053189
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Wait until all processes reach the 100% mark before continuing!"
+            "text": "Wait until all processes reach the 100% mark before continuing!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Warten Sie, bis alle Prozesse die 100%-Marke erreicht haben, bevor Sie fortfahren!",
+                    "updated": 1639252062570
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "In the next step we are going to the charts to check the Bollinger Bands so that we can discuss the trading idea we will test!"
+            "text": "In the next step we are going to the charts to check the Bollinger Bands so that we can discuss the trading idea we will test!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Schritt gehen wir zu den Charts, um die Bollinger Bands zu überprüfen, damit wir die Handelsidee diskutieren können, die wir testen werden!",
+                    "updated": 1639252083855
+                }
+            ]
         }
     ]
 }

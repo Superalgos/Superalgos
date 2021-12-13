@@ -7,20 +7,48 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Whenever you are working on and testing definitions in a trading system, you should be in troubleshooting mode!"
+        "text": "Whenever you are working on and testing definitions in a trading system, you should be in troubleshooting mode!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wann immer Sie an einem Trading System arbeiten und Definitionen testen, sollten Sie auf Fehlersuche gehen!",
+                "updated": 1639267237424
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "There are so many things involved in running a trading session that errors may occur for a wide assortment of reasons. The trading bot evaluates the definitions in the trading system and applies them by evaluating the data sets referenced in the definitions."
+            "text": "There are so many things involved in running a trading session that errors may occur for a wide assortment of reasons. The trading bot evaluates the definitions in the trading system and applies them by evaluating the data sets referenced in the definitions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt so viele Dinge, die bei der Ausführung einer Handelssitzung eine Rolle spielen, dass Fehler aus den unterschiedlichsten Gründen auftreten können. Der Trading Bot wertet die Definitionen im Trading System aus und wendet sie an, indem er die Datensätze auswertet, auf die in den Definitionen verwiesen wird.",
+                    "updated": 1639267245526
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Errors in the data or the definitions are common."
+            "text": "Errors in the data or the definitions are common.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fehler in den Daten oder in den Definitionen sind keine Seltenheit.",
+                    "updated": 1639267252309
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It's not likely that a data set is calculated with errors. However, if you haven't calculated the data set by running the corresponding data task, you will get errors!"
+            "text": "It's not likely that a data set is calculated with errors. However, if you haven't calculated the data set by running the corresponding data task, you will get errors!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist unwahrscheinlich, dass ein Datensatz mit Fehlern berechnet wird. Wenn Sie jedoch den Datensatz nicht durch Ausführen der entsprechenden Datenaufgabe berechnet haben, werden Sie Fehler erhalten!",
+                    "updated": 1639267258612
+                }
+            ]
         }
     ]
 }

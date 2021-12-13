@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Close Stage имеет дело с определениями, которые составляют логику закрытия позиции, включая целевую ставку и размер, а также исполнение ордера.",
                 "updated": 1638646936617
+            },
+            {
+                "language": "TR",
+                "text": "Kapanış aşaması, hedef oran ve boyut ve emir yürütme dahil olmak üzere bir pozisyonu kapatma mantığını oluşturan tanımlardır.",
+                "updated": 1639222650415
             }
         ]
     },

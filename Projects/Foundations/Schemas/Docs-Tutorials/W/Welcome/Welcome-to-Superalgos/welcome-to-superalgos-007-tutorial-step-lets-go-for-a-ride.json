@@ -35,8 +35,8 @@
             },
             {
                 "language": "TR",
-                "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\"(Lan Network)",
-                "updated": 1633268337360,
+                "text": "Menünün geri kalanını göstermeden önce, başka bir hiyerarşiye bir göz atalım: \"Ağ.\"   (Lan Network)",
+                "updated": 1639118613577,
                 "style": "Definition"
             },
             {
@@ -89,8 +89,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme           ( Testing Trading Tasks ) ve Ticaret Görevlerinizi ( Production Trading Tasks ) kontrol ettiğiniz yerdir.",
-                    "updated": 1633268830564,
+                    "text": "Ağ hiyerarşisi, sistemin kontrol odasıdır.Burası Veri Görevlerinizi ( Data Task ), Ticaret Görevlerini Test Etme ( Testing Trading Tasks ) ve Ticaret Görevlerinizi ( Production Trading Tasks ) kontrol ettiğiniz yerdir.",
+                    "updated": 1639118839690,
                     "style": "Text"
                 },
                 {

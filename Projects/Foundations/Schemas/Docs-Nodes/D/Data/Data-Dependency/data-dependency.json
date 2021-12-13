@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Data Dependency - это ссылки, установленные с определениями наборов данных других ботов, определяющие, какие наборы данных процесс, устанавливающий ссылку, использует в качестве входных.",
                 "updated": 1638729798621
+            },
+            {
+                "language": "TR",
+                "text": "Veri bağımlılıkları, referansı oluşturan sürecin hangi veri kümelerini girdi olarak kullanacağını belirleyen, diğer botların veri kümesi tanımlarıyla oluşturulan referanslardır.",
+                "updated": 1639142451353
             }
         ]
     },

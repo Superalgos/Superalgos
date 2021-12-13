@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "El quoted asset es el asset en el que el precio del asset base está denominado en el mercado. Por lo general, es el segundo asset del par, según lo enumerado por el exchange.",
                 "updated": 1624496795206
+            },
+            {
+                "language": "RU",
+                "text": "Quoted Asset - это актив, по которому на рынке выражена цена базового актива. Обычно это второй актив в паре, указанный биржей.",
+                "updated": 1639142702346
+            },
+            {
+                "language": "TR",
+                "text": "Kote edilmiş varlık, baz varlığın fiyatının piyasada belirlendiği varlıktır. Genellikle borsa tarafından listelendiği gibi çiftteki ikinci varlıktır.",
+                "updated": 1639225881576
             }
         ]
     },
@@ -18,12 +28,26 @@
         {
             "style": "Text",
             "text": "The parameter allows defining an initial balance for the corresponding asset, which may be used for trading with the corresponding trading system and trading session.",
-            "updated": 1610120612671
+            "updated": 1610120612671,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр позволяет определить начальный баланс для соответствующего актива, который может использоваться для торговли с соответствующей торговой системой и торговой сессией.",
+                    "updated": 1639142716411
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Notice that the initial balance may be defined on either or both assets in the market.",
-            "updated": 1610120649770
+            "updated": 1610120649770,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что начальный баланс может быть определен для одного или обоих активов на рынке.",
+                    "updated": 1639142729892
+                }
+            ]
         },
         {
             "style": "Text",
@@ -36,15 +60,36 @@
         },
         {
             "style": "Title",
-            "text": "Session Quoted Asset Configuration"
+            "text": "Session Quoted Asset Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Session Quoted Asset",
+                    "updated": 1639142745655
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639142752298
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialBalance is the amount of capital you wish to allocate to the trading system."
+            "text": "initialBalance is the amount of capital you wish to allocate to the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialBalance - это сумма капитала, которую вы хотите выделить торговой системе.",
+                    "updated": 1639142772667
+                }
+            ]
         }
     ]
 }

@@ -2,7 +2,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
     let thisObject = {
         synchronizeSessionWithBackEnd: synchronizeSessionWithBackEnd,
         runSession: runSession,
-        stopSession: stopSession
+        stopSession: stopSession,
     }
 
     return thisObject
@@ -107,7 +107,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Outgoing Signals->Incoming Signals->Signal Reference->' +
             'Trigger On Signal->Trigger Off Signal->Take Position Signal->Trigger Stage Signals->' +
-            'Available Signals->Social Trading Bot->Signing Account->' + 
+            'Available Signals->Social Trading Bot->Signing Account->' +
             'Create Order Signal->Cancel Order Signal->' +
             'Close Stage->' +
             'Initial Targets->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Formula->' +
@@ -121,7 +121,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Situation->Condition->Javascript Code->' +
             'Market Order->Limit Order->' +
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
-            'User Defined Code->Javascript Code->'
+            'User Defined Code->Javascript Code->' +
+            'Outgoing Signals->Incoming Signals->Outgoing Signal Reference->Incoming Signal Reference->Signal Context Formula->' +
+            'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
+            'Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
+            'Create Order Signal->Cancel Order Signal->Order Rate Signal->' +
+            'Limit Sell Order Signals->Limit Buy Order Signals->Market Sell Order Signals->Market Buy Order Signals->' +
+            'Trigger Stage Signals->Open Stage Signals->Manage Stage Signals->Close Stage Signals->' +
+            'Available Signals->Social Trading Bot->Signing Account->' +
+            'Ask Portfolio Events Manager->Confirm Event->Raise Event->Ask Portfolio Formula Manager->Set Formula->Confirm Forumula->'
 
         let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
@@ -176,14 +184,15 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
 
         let defaultExchange = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.exchange.payload, 'codeName')
         let defaultMarket =
-            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName')
-            + '-' +
+            UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.baseAsset.payload.referenceParent.payload, 'codeName') +
+            '-' +
             UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(validationsResult.market.quotedAsset.payload.referenceParent.payload, 'codeName')
 
         let dependencyFilter = UI.projects.foundations.functionLibraries.dependenciesFilter.createDependencyFilter(
             defaultExchange,
             defaultMarket,
-            node.tradingSystemReference.payload.referenceParent
+            node.tradingSystemReference.payload.referenceParent,
+            node.tradingParameters.userDefinedParameters.config
         )
 
         /* Raise event to run the session */
@@ -351,4 +360,5 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
 
         return result
     }
+
 }

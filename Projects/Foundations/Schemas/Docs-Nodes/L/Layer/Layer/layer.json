@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Layer представляет собой ссылку на продукт данных в узле хранения данных сетевой иерархии. Концептуально это означает, что определенный продукт данных, который существует в определенном месте в сети, содержит данные для отображения на диаграммах.",
                 "updated": 1638973075325
+            },
+            {
+                "language": "TR",
+                "text": "Katman, ağ hiyerarşisinin veri depolama düğümündeki bir veri ürününe bir referansı temsil eder. Kavramsal olarak, ağ üzerinde belirli bir konumda bulunan belirli bir veri ürününün grafiklerde oluşturulacak verileri tutması anlamına gelir.",
+                "updated": 1639214583860
             }
         ]
     },

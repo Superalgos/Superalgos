@@ -51,7 +51,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         let signals = signalsBySignalDefinitionId.get(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id)
         if (signals === undefined) { signals = [] }
         signals.push(signalMessage.signal)
-        signalsBySignalDefinitionId.set(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id, signalMessage.signal)
+        signalsBySignalDefinitionId.set(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id, signals)
     }
 
     function getNextSignal(signalDefinitionId) {
@@ -68,7 +68,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         If we do have a signal to return, we will remove it from the array where it was stored
         so that we can not give it again in a next call.
         */ 
-        signal.splice(0, 1)
+        signals.splice(0, 1)
         return signal
     }
 }

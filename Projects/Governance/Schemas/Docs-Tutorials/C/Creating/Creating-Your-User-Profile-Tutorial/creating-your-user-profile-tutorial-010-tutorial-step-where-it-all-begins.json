@@ -82,6 +82,11 @@
                     "language": "DE",
                     "text": "Positionieren Sie nun die resultierende Profile Constructor Node an einer Stelle, an der sie leicht zu sehen und zu bearbeiten ist.",
                     "updated": 1637873567603
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь разместите получившийся узел Profile Constructor так, чтобы его было легко увидеть и с которым можно было работать.",
+                    "updated": 1639067170733
                 }
             ]
         },

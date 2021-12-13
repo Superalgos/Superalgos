@@ -2,7 +2,14 @@
     "type": "Weight Votes Switch",
     "definition": {
         "text": "Use this switch to spawn different types of Weight Votes, and to reference Class types of nodes within any of the Project Definition Hierarchies to map large structures of definitions.",
-        "updated": 1630356971950
+        "updated": 1630356971950,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот переключатель для создания различных типов Weight Votes и для ссылки на типы узлов класса в любой из иерархий Project Definition для сопоставления больших структур определений.",
+                "updated": 1639137065780
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,37 +19,93 @@
         },
         {
             "style": "Text",
-            "text": "You may use this switch for three different purposes:"
+            "text": "You may use this switch for three different purposes:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать этот переключатель для трех разных целей:",
+                    "updated": 1639137077505
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes."
+            "text": "As an organizational device: You may create arbitrary arrangements of votes, spawning more switches and votes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве организационного устройства: вы можете создавать произвольные схемы голосов, порождая больше переключателей и голосов.",
+                    "updated": 1639137104002
+                }
+            ]
         },
         {
             "style": "List",
             "text": "As a switch: You may control the flow of Weight Power, pretty much like with a Token Power Switch, but within the Voting Program. If you need a reminder, read about how Token Power Flows.",
-            "updated": 1630394709837
+            "updated": 1630394709837,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве переключателя: вы можете управлять потоком Weight Power, почти так же, как с помощью переключателя Token Power Switch, но в рамках программы Voting Program. Если вам нужно напоминание, прочитайте пояснения Token Power Flows.",
+                    "updated": 1639137292102
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "As a data-structure mapper: Use the node to reference Class types of nodes within Project Definition Hierarchies to map entire structures of definitions."
+            "text": "As a data-structure mapper: Use the node to reference Class types of nodes within Project Definition Hierarchies to map entire structures of definitions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве средства отображения структуры данных: используйте узел для ссылки на типы узлов классов в иерархиях Project Definition Hierarchies для отображения целых структур определений.",
+                    "updated": 1639137355275
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first two use cases are self-explanatory. Let's explore the third one in more detail."
+            "text": "The first two use cases are self-explanatory. Let's explore the third one in more detail.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первые два варианта использования не требуют пояснений. Рассмотрим третий подробнее.",
+                    "updated": 1639137367996
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Use a Weight Votes Switch node to establish a reference with a Class type of node — Pool Class, Position Class, Feature Class, or Asset Class — within Project Definition Hierarchies. Then use the Install Missing Votes option on the menu of the Weight Votes Switch to map the entire Class section of the hierarchy! ",
-            "updated": 1630498028825
+            "updated": 1630498028825,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте узел Weight Votes Switch, чтобы установить ссылку на узел типа Class — Pool Class, Position Class, Feature Class или Asset Class — в иерархиях Project Definition Hierarchies. Затем используйте опцию Install Missing Votes в меню переключателя Weight Votes Switch, чтобы отобразить весь раздел «Class» в иерархии!",
+                    "updated": 1639137558513
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The process creates a Weight Votes Switch for each Class type of node, and matching Weight Votes for each Asset, Feature, Position, or Pool defined within each Class node."
+            "text": "The process creates a Weight Votes Switch for each Class type of node, and matching Weight Votes for each Asset, Feature, Position, or Pool defined within each Class node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процесс создает Weight Votes Switch для каждого узла типа Class и соответствующие Weight Votes для каждого Asset, Feature, Position или Pool, определенных в каждом узле Class.",
+                    "updated": 1639137705778
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Votes process again. The process will remap the structure with the appropriate votes and switches."
+            "text": "If something changes on the side of the definitions, you may always go back a run the Install Missing Votes process again. The process will remap the structure with the appropriate votes and switches.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если что-то изменится в определениях, вы всегда можете вернуться к процессу Install Missing Votes еще раз. Процесс изменит отображение структуры с соответствующими голосами и переключателями.",
+                    "updated": 1639137749014
+                }
+            ]
         },
         {
             "style": "Block",
@@ -51,7 +114,14 @@
         {
             "style": "Title",
             "text": "Configuration",
-            "updated": 1624729681447
+            "updated": 1624729681447,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639137759609
+                }
+            ]
         }
     ]
 }

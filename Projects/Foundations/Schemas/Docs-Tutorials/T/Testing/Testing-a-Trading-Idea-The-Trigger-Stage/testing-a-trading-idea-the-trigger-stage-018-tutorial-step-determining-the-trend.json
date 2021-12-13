@@ -7,21 +7,49 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective!"
+        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv!",
+                "updated": 1639262329481
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We'll take an arbitrary and rather simple approach based on the 20-periods moving average (MA) built in the Bollinger Bands."
+            "text": "We'll take an arbitrary and rather simple approach based on the 20-periods moving average (MA) built in the Bollinger Bands.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden einen willkürlichen und recht einfachen Ansatz wählen, der auf dem gleitenden 20-Perioden-Durchschnitt (MA) basiert, der in den Bollinger-Bands integriert ist.",
+                    "updated": 1639262362976
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Go to the Bollinger Data Layer Manager and turn on the \"Bollinger Channels Objects\" Layer!",
-            "updated": 1622480213561
+            "updated": 1622480213561,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\"!",
+                    "updated": 1639262459995
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This indicator derives the direction of the MA and draws a green channel when the MA is going Up and a red channel when it's going Down."
+            "text": "This indicator derives the direction of the MA and draws a green channel when the MA is going Up and a red channel when it's going Down.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieser Indikator leitet die Richtung des MA ab und zeichnet einen grünen Kanal, wenn der MA nach oben geht und einen roten Kanal, wenn er nach unten geht.",
+                    "updated": 1639262472467
+                }
+            ]
         }
     ]
 }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Во время торговой сессии серверная часть связывается с клиентской частью посредством тактовых импульсов, чтобы сообщить клиентской части о статусе сеанса. Параметр определяет, какая информация предоставляется пользователю через интерфейс.",
                 "updated": 1638965654160
+            },
+            {
+                "language": "DE",
+                "text": "\nWährend einer trading session kommuniziert das Backend mit dem Frontend über Heartbeats, um das Frontend über den Status der session (Sitzung) zu informieren. Der Parameter steuert, welche Informationen dem Nutzer über das Frontend zur Verfügung gestellt werden.\nWährend einer trading session kommuniziert das Backend mit dem Frontend über Heartbeats, um das Frontend über den Status der session (Sitzung) zu informieren. Der Parameter steuert, welche Informationen dem Nutzer über das Frontend zur Verfügung gestellt werden.",
+                "updated": 1639341922551
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Конфигурация Heartbeats",
                     "updated": 1638965831355
+                },
+                {
+                    "language": "DE",
+                    "text": "Heartbeats Konfiguration",
+                    "updated": 1639342011272
                 }
             ]
         },

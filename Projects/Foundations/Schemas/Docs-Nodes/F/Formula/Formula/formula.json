@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Formula - это математическое выражение, предназначенное для определения числового значения, которое будет динамически применяться к определенному свойству.",
                 "updated": 1638964280985
+            },
+            {
+                "language": "TR",
+                "text": "Formül, belirli bir özelliğe dinamik olarak uygulanacak sayısal bir değer belirlemeyi amaçlayan matematiksel bir ifadedir.",
+                "updated": 1639222589278
             }
         ]
     },

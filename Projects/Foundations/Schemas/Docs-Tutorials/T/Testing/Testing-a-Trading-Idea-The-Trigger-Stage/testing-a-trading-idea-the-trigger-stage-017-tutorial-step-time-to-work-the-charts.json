@@ -7,21 +7,49 @@
             "project": "Foundations",
             "name": "trigger-on-event"
         },
-        "text": "We are going to do some work on the charts, placing the focus on the Trigger On Event!"
+        "text": "We are going to do some work on the charts, placing the focus on the Trigger On Event!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden nun die Charts bearbeiten und dabei den Schwerpunkt auf das Trigger On Event legen!",
+                "updated": 1639262218264
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Bear in mind that the trigger on event on each strategy within a trading system is what determines which of the strategies is going to trade in the current context. In our case, we'll eventually have at least two strategies, and we want each of them to specialize on different trends."
+            "text": "Bear in mind that the trigger on event on each strategy within a trading system is what determines which of the strategies is going to trade in the current context. In our case, we'll eventually have at least two strategies, and we want each of them to specialize on different trends.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass das Trigger-On-Ereignis bei jeder Strategie innerhalb eines Trading Systems bestimmt, welche der Strategien im aktuellen Kontext gehandelt wird. In unserem Fall werden wir mindestens zwei Strategien haben, und wir wollen, dass jede von ihnen auf verschiedene Trends spezialisiert ist.",
+                    "updated": 1639262228333
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "The first concern is with determining the trend! How do we go about this?",
-            "updated": 1622480137957
+            "updated": 1622480137957,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das erste Problem besteht darin, den Trend zu bestimmen! Wie gehen wir dabei vor?",
+                    "updated": 1639262240587
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "We'll work on something around the Bollinger Bands, as you may imagine!"
+            "text": "We'll work on something around the Bollinger Bands, as you may imagine!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie Sie sich vielleicht vorstellen können, werden wir uns mit den Bollinger Bands beschäftigen!",
+                    "updated": 1639262255755
+                }
+            ]
         }
     ]
 }

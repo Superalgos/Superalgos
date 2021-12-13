@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "The Delegation Program ( el programa de Delegación) le permite delegar Token Power para empoderar otros miembros de la  Community, dándoles una voz más influeyente en la gobernanza. El Token Power que delega puede ser usado por el receptor de cualquier Governance Program, sin restricciones.",
                 "updated": 1637845810465
+            },
+            {
+                "language": "RU",
+                "text": "Программа делегирования позволяет вам делегировать полномочия Token Power для расширения возможностей других членов сообщества, давая им более громкий голос в управлении. Полномочия токенов, которые вы делегируете, могут быть использованы получателем в любой программе Governance Program без ограничений.",
+                "updated": 1638992798080
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "ES",
                     "text": "Cuando delega Voting Power a través del Voting Program, el destinatario solo puede usar el poder delegado dentro del Voting Program. IEn vexz de ello, el  Delegation Program le permite delegar Token Power, que puede ser utilizado por el destinatario en cualquier programa.",
                     "updated": 1637845952973
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы делегируете Voting Power через программу голосования Voting Program, получатель может использовать делегированные полномочия только в рамках программы голосования Voting Program. Вместо этого программа делегирования Delegation Program позволяет вам делегировать полномочия Token Power, которые могут быть использованы получателем в любой программе.",
+                    "updated": 1638992977147
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "ES",
                     "text": "Sólo 10% del Token Power que envíe al nodo User Delegate llega al receptor del User Profile. TEl suyo es desincentivar las conductas fraudulentas que puedan surgir en declaraciones circulares, perfiles falsos o intercambio de votos.",
                     "updated": 1637846057133
+                },
+                {
+                    "language": "RU",
+                    "text": "Только 10% Token Power, которую вы вводите в узел User Delegate, достигает профиля пользователя получателя User Profile. Это сделано для предотвращения мошенничества, которое может возникнуть, связанного с циркулярными декларациями, поддельными профилями или торговлей голосами.",
+                    "updated": 1638993072446
                 }
             ]
         },
@@ -50,7 +65,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638993084194
+                }
+            ]
         }
     ]
 }

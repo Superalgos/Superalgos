@@ -17,6 +17,11 @@
                 "language": "DE",
                 "text": "Ein Indikator-Bot ist ein Algorithmus, der Informationen verarbeitet, die andere Bots generiert haben, und umfangreiche Datensätze erstellt, die von anderen genutzt werden können.",
                 "updated": 1636658543393
+            },
+            {
+                "language": "TR",
+                "text": "Gösterge botu, diğer botların oluşturduğu bilgileri işleyen ve diğerlerinin kullanabilmesi için ayrıntılı veri kümeleri üreten bir algoritmadır.",
+                "updated": 1639144364847
             }
         ]
     },

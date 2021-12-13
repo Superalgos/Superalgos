@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo para referenciar un nodo de Asset (Activo) en una de las jerarquías de Assets para establecer una Asset Contribution Claim.( Solicitud de Contribución de Activo) Est solicitud significa que declara que ha trabajado en un activo, ya sea creándolo o mejorándolo, y que espera ser recompensado consecuentemente!",
                 "updated": 1636283349685
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел для ссылки на узел Asset в одной из иерархий Assets, чтобы установить Asset Contribution Claim. Это заявление означает, что вы заявляете, что работали над этим Asset, создавая или улучшая его, и ожидаете соответствующего вознаграждения!",
+                "updated": 1639133533054
             }
         ]
     },
@@ -28,7 +33,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639133552344
+                }
+            ]
         }
     ]
 }

@@ -8,20 +8,48 @@
             "project": "Foundations"
         },
         "text": "Now that you understand what conditions and situations are, let's pose a question: how do we define the Trigger On Event ?",
-        "updated": 1617190454094
+        "updated": 1617190454094,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Da Sie nun wissen, was Bedingungen und Situationen sind, stellen wir uns eine Frage: Wie definieren wir das Trigger On Event?",
+                "updated": 1639261814762
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Because the trigger on event determines which strategy is selected to trade, the definition of the context of our hypothesis should be the main thing to consider!"
+            "text": "Because the trigger on event determines which strategy is selected to trade, the definition of the context of our hypothesis should be the main thing to consider!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Da das Trigger-On-Ereignis bestimmt, welche Strategie für den Handel ausgewählt wird, sollte die Definition des Kontextes unserer Hypothese der wichtigste Punkt sein, den es zu berücksichtigen gilt!",
+                    "updated": 1639261844410
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The strategy should trade when there is a downtrend in the 24H time frame."
+            "text": "The strategy should trade when there is a downtrend in the 24H time frame.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Strategie sollte handeln, wenn es einen Abwärtstrend im 24-Stunden-Zeitrahmen gibt.",
+                    "updated": 1639261851598
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Our job is to write a set of conditions that mathematically describe the market situation of a downtrend in the 24H chart!"
+            "text": "Our job is to write a set of conditions that mathematically describe the market situation of a downtrend in the 24H chart!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Unsere Aufgabe ist es, eine Reihe von Bedingungen zu schreiben, die die Marktsituation eines Abwärtstrends im 24-Stunden-Chart mathematisch beschreiben!",
+                    "updated": 1639261865002
+                }
+            ]
         }
     ]
 }

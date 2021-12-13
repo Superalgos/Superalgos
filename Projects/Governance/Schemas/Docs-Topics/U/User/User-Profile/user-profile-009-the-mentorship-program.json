@@ -25,7 +25,14 @@
         },
         {
             "style": "Title",
-            "text": "Your Mentors"
+            "text": "Your Mentors",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваши наставники",
+                    "updated": 1639129246702
+                }
+            ]
         },
         {
             "style": "Include",

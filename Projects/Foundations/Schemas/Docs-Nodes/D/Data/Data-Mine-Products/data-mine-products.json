@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Data Mine Products - это ссылки, установленные с помощью хранилищ данных, для облегчения установления ссылок на продукты данных с несколькими продуктами в данном хранилище данных.",
                 "updated": 1638730619082
+            },
+            {
+                "language": "TR",
+                "text": "Veri madeni ürünleri, belirlenen veri madeninde birden fazla ürünle veri ürünü referanslarının oluşturulmasını kolaylaştırmak için veri madenleriyle oluşturulan referanslardır.",
+                "updated": 1639214920185
             }
         ]
     },

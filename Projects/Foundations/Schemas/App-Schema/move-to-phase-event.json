@@ -11,7 +11,7 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Ask Portfolio Events Manager",
+            "label": "Add Ask Portfolio Manager",
             "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "askPortfolioEventsManager",
             "relatedUiObject": "Ask Portfolio Events Manager",

@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "situation-name"
         },
-        "text": "Try to keep up with the good practice of giving relevant names or labels to the nodes holding definitions!"
+        "text": "Try to keep up with the good practice of giving relevant names or labels to the nodes holding definitions!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Versuchen Sie, die gute Praxis beizubehalten, den Knoten, die Definitionen enthalten, entsprechende Namen oder Bezeichnungen zu geben!",
+                "updated": 1639265931417
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Consider that the strategy will grow in complexity as we advance! It's good to be able to identify conditions and situations without checking the code!"
+            "text": "Consider that the strategy will grow in complexity as we advance! It's good to be able to identify conditions and situations without checking the code!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bedenken Sie, dass die Komplexität der Strategie mit dem Fortschritt zunehmen wird! Es ist gut, wenn Sie Bedingungen und Situationen erkennen können, ohne den Code zu überprüfen!",
+                    "updated": 1639265940339
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "You'll also be able to identify which situation triggered the event directly from the charts!"
+            "text": "You'll also be able to identify which situation triggered the event directly from the charts!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie werden auch in der Lage sein, die Situation, die das Ereignis ausgelöst hat, direkt in den Diagrammen zu erkennen!",
+                    "updated": 1639265952036
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "You may label the first situation and the first condition with the same name, 24H Up, and the second with the following: 24H Side."
+            "text": "You may label the first situation and the first condition with the same name, 24H Up, and the second with the following: 24H Side.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können die erste Situation und die erste Bedingung mit demselben Namen bezeichnen, 24H Up, und die zweite mit dem folgenden: 24H Seite.",
+                    "updated": 1639265958681
+                }
+            ]
         }
     ]
 }

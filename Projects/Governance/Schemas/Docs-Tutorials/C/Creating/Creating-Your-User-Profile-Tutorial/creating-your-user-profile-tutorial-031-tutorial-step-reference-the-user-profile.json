@@ -15,6 +15,11 @@
                 "text": "Ahora que tienes el objetivo User Profile en el espacio de trabajo, todo lo que queda es establecer la referencia de tu nodo User Referrer al User Profile.",
                 "updated": 1630896187960,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда у вас есть целевой профиль пользователя User Profile в рабочем пространстве, все, что осталось, - это установить ссылку из вашего узла реферера пользователя User Referrer на профиль пользователя User Profile.",
+                "updated": 1639050815957
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "En caso de que no seas competente con las referencias, aquí tienes un recordatorio rápido de cómo funcionan las referencias.",
                     "updated": 1630896216270,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "На всякий случай, если вы не разбираетесь в ссылках, вот краткое напоминание о том, как работают ссылки!",
+                    "updated": 1639050842288
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Si crees que tiene más de un referente, ¡no dude en agregar nodos de User Referrer y configurar las referencias con tus perfiles!",
                     "updated": 1630896311540,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Кстати, если вы чувствуете, что у вас более одного реферера, не стесняйтесь добавлять узлы User Referrer и настраивать ссылки с их профилями!",
+                    "updated": 1639050860139
                 }
             ]
         },

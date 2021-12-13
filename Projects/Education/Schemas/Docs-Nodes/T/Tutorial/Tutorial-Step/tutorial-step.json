@@ -12,6 +12,11 @@
                 "language": "ES",
                 "text": "Un paso de tutorial es un tipo de nodo dentro de un tutorial que puede no tener descendencia. Como tal, es la unidad de información más pequeña de la jerarquía.",
                 "updated": 1636719725988
+            },
+            {
+                "language": "TR",
+                "text": "Öğretici adım, bir öğreticinin alt düğümleri olmayan , bir düğüm tür olabilir. Bu nedenle, hiyerarşideki en küçük bilgi birimidir.",
+                "updated": 1639142857774
             }
         ]
     },

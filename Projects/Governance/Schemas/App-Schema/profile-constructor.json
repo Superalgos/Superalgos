@@ -20,6 +20,17 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Build Profile WalletConnect",
+            "actionProject": "Governance",
+            "label": "Build Profile WalletConnect",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
             "action": "Install Signing Accounts",
             "actionProject": "Governance",
             "label": "Install Signing Accounts",

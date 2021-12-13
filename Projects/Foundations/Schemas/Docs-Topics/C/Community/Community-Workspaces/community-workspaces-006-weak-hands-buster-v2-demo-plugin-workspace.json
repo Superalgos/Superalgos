@@ -4,13 +4,27 @@
     "type": "Weak-Hands Buster v2 Demo Plugin Workspace",
     "definition": {
         "text": "This workspace features the BTC-USDT - Weak-hands Buster - WHB Trading System setup for backtesting in Binance and the USDT/BTC market.",
-        "updated": 1616149302461
+        "updated": 1616149302461,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство включает настройку торговой системы BTC-USDT - Weak-hands Buster - WHB для тестирования на истории на Binance и на рынке USDT / BTC.",
+                "updated": 1639056381662
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "Learn about the BTC-USDT - Weak-hands Buster - WHB strategy before using this workspace!",
-            "updated": 1616149471944
+            "updated": 1616149471944,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем использовать это рабочее пространство, узнайте о стратегии BTC-USDT - Weak-hands Buster - WHB!",
+                    "updated": 1639056415876
+                }
+            ]
         },
         {
             "style": "Include",
@@ -19,7 +33,14 @@
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1616153657727
+            "updated": 1616153657727,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1639056429669
+                }
+            ]
         },
         {
             "style": "Link",

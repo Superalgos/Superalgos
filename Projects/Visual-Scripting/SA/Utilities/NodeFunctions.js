@@ -29,12 +29,16 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
             }
 
             if (schemaDocument.childrenNodesProperties === undefined) { return }
+            let previousPropertyName // Since there are cases where there are many properties with the same name,because they can hold nodes of different types but only one at the time, we have to avoid counting each property of those as individual children.
             for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
                 let property = schemaDocument.childrenNodesProperties[i]
 
                 switch (property.type) {
                     case 'node': {
-                        scanNodeBranch(startingNode[property.name])
+                        if (property.name !== previousPropertyName) {
+                            scanNodeBranch(startingNode[property.name])
+                            previousPropertyName = property.name
+                        }
                     }
                         break
                     case 'array': {
@@ -51,7 +55,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         }
     }
 
-    function findNodeInNodeMesh (node, nodeType) {
+    function findNodeInNodeMesh(node, nodeType) {
         /*
         This function scans a node mesh for a certain node type and 
         returns the first instance found. 
@@ -105,7 +109,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         }
     }
 
-    function nodeMeshToPathArray (node, nodeId) {
+    function nodeMeshToPathArray(node, nodeId) {
         /*
         This function scans a node mesh for a certain node id and 
         returns an array with the path within that mesh to the
@@ -175,7 +179,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         }
     }
 
-    function findNodeInNodeArray (nodeArray, nodeType) {
+    function findNodeInNodeArray(nodeArray, nodeType) {
         for (let i = 0; i < nodeArray.length; i++) {
             let node = nodeArray[i]
             if (node.type === nodeType) {
@@ -184,7 +188,7 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         }
     }
 
-    function filterOutNodeWihtoutReferenceParentFromNodeArray (nodeArray) {
+    function filterOutNodeWihtoutReferenceParentFromNodeArray(nodeArray) {
         let filteredNodeArray = []
         for (let i = 0; i < nodeArray.length; i++) {
             let arrayItem = nodeArray[i]

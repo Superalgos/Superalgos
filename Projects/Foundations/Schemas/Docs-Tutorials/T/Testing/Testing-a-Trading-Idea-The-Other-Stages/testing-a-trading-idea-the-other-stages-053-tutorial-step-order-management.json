@@ -7,22 +7,24 @@
             "name": "Trading\\trading-bot-instance",
             "project": "Foundations"
         },
-        "text": "Most warnings happen when the trading bot is handling orders, syncing with the exchange, or simulating the synchronization."
+        "text": "Die meisten Warnungen treten auf, wenn der Trading-Bot Aufträge bearbeitet, mit der Börse synchronisiert oder die Synchronisierung simuliert.",
+        "updated": 1639408875380
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Those operations feature great depth and some intricacy, which we'll cover in future tutorials. In this one, we're just scratching the surface!"
+            "text": "Diese Vorgänge sind sehr umfangreich und kompliziert und werden in zukünftigen Tutorials behandelt. In diesem Tutorial kratzen wir nur an der Oberfläche!",
+            "updated": 1639408889115
         },
         {
             "style": "Callout",
-            "text": "If you wish to get to the bone on this matter, you should read the twelve pages on the Order Management topic of the Documentation.",
-            "updated": 1612715667430
+            "text": "Wenn Sie es ganz genau wissen wollen, sollten Sie die zwölf Seiten zum Thema Auftragsverwaltung in der Dokumentation lesen.",
+            "updated": 1639408900094
         },
         {
             "style": "Success",
-            "text": "You don't need to read it now, but feel free to dive into it if so you wish! ",
-            "updated": 1612715638597
+            "text": "Sie müssen sie nicht sofort lesen, aber Sie können sich gerne damit beschäftigen, wenn Sie es wünschen!",
+            "updated": 1639408908873
         }
     ]
 }

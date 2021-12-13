@@ -7,24 +7,29 @@
             "name": "Target\\target-size",
             "project": "Foundations"
         },
-        "text": "The answer is Size Filled minus Fees Paid! I'll explain why none of the other nodes fit the bill!"
+        "text": "Die Antwort lautet: Größe der Gefüllten Position minus gezahlte Gebühren ( Size Filled minus Fees Paid ) ! Ich erkläre, warum keiner der anderen Knotenpunkte passt!",
+        "updated": 1639407301953
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Target Size: no, because this is just the target we defined!"
+            "text": "Target Size: nein, denn dies ist nur das Ziel, das wir definiert haben!",
+            "updated": 1639407333133
         },
         {
             "style": "List",
-            "text": "Size Placed: closer, but no, because the order won't necessarily fill for the exact amount placed, due to decimal roundings or other reasons!"
+            "text": "Size Placed: näher dran, aber nein, denn der Auftrag wird nicht unbedingt für den exakten Betrag ausgeführt, der platziert wurde, aufgrund von Dezimalrundungen oder anderen Gründen!",
+            "updated": 1639407339346
         },
         {
             "style": "List",
-            "text": "Size Filled: yes! But remember the exchange takes its cut too, so you must subtract the fees!"
+            "text": "Size Filled: ja! Aber denken Sie daran, dass die Börse auch ihren Anteil nimmt, also müssen Sie die Gebühren abziehen!",
+            "updated": 1639407345335
         },
         {
             "style": "Success",
-            "text": "Can you produce the correct syntax for the formula? Remember you can copy the paths of the nodes holding the data we need!"
+            "text": "Können Sie die korrekte Syntax für die Formel erstellen? Denken Sie daran, dass Sie die Pfade der Knoten kopieren können, die die benötigten Daten enthalten!",
+            "updated": 1639407383445
         }
     ]
 }

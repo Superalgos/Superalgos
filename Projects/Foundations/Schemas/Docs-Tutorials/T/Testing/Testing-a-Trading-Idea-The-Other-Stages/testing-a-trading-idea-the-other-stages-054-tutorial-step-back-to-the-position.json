@@ -7,20 +7,24 @@
             "project": "Foundations",
             "name": "fails"
         },
-        "text": "Back to this first trade, we discussed how stages work and mentioned that the price tagged the stop loss target."
+        "text": "Zurück zu diesem ersten Handel: Wir haben besprochen, wie Phasen funktionieren, und erwähnt, dass der Preis das Stop Loss-Ziel markiert hat.",
+        "updated": 1639408927942
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "That means that this first position is a fail!"
+            "text": "Das bedeutet, dass diese erste Position ein Fehlschlag ist!",
+            "updated": 1639408939042
         },
         {
             "style": "Text",
-            "text": "To be fair, the trade went in our favor up to about 3%, but we didn't take profit and let it slip through our fingers. The entry wasn't awful and it may make sense once we start thinking about position management."
+            "text": "Fairerweise muss man sagen, dass der Handel bis zu etwa 3 % zu unseren Gunsten verlief, aber wir haben den Gewinn nicht mitgenommen und ihn uns durch die Lappen gehen lassen. Der Einstieg war nicht schlecht, und er könnte sinnvoll sein, wenn wir anfangen, über das Positionsmanagement nachzudenken.",
+            "updated": 1639408957279
         },
         {
             "style": "Success",
-            "text": "Let's take a little tour along the period tested and make a quick assessment of the rest of the positions taken!"
+            "text": "Machen wir einen kleinen Rundgang durch den getesteten Zeitraum und nehmen wir eine kurze Bewertung der übrigen eingegangenen Positionen vor!",
+            "updated": 1639408966020
         }
     ]
 }

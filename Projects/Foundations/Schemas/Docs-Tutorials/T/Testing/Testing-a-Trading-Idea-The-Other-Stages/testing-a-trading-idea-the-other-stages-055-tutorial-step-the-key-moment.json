@@ -7,20 +7,24 @@
             "project": "Foundations",
             "name": "hits"
         },
-        "text": "This is the key moment in the period tested. March 2020 saw a clear downtrend that ended with a huge market crash!"
+        "text": "Dies ist der Schlüsselmoment im Testzeitraum. Im März 2020 gab es einen klaren Abwärtstrend, der mit einem großen Marktabsturz endete!",
+        "updated": 1639408996261
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The good news is that, as we'd seen in the previous tutorial, two good entries anticipated the crash, with the very simple rules we defined. If you ask me, this looks promising, but judge for yourself!"
+            "text": "Die gute Nachricht ist, dass, wie wir im vorherigen Tutorial gesehen haben, zwei gute Einstiege den Absturz vorweggenommen haben, mit den sehr einfachen Regeln, die wir definiert haben. Wenn Sie mich fragen, sieht das vielversprechend aus, aber urteilen Sie selbst!",
+            "updated": 1639409017100
         },
         {
             "style": "Callout",
-            "text": "Take some time to fiddle with these positions! Start thinking about how you may manage these trades."
+            "text": "Nehmen Sie sich etwas Zeit, um mit diesen Positionen zu experimentieren! Machen Sie sich Gedanken darüber, wie Sie diese Trades verwalten können.",
+            "updated": 1639409027832
         },
         {
             "style": "Success",
-            "text": "Once you're done feasting your eyes, we'll take a quick look at the rest of the period tested!"
+            "text": "Wenn Sie mit dem Augenschmaus fertig sind, werfen wir noch einen kurzen Blick auf den Rest des Testzeitraums!",
+            "updated": 1639409033854
         }
     ]
 }

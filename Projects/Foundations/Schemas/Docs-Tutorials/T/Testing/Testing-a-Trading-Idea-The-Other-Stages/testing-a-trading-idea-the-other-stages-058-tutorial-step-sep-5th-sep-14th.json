@@ -7,20 +7,24 @@
             "project": "Foundations",
             "name": "fails"
         },
-        "text": "These are the last few trades in the period tested, and all three of them are clear fails."
+        "text": "Dies sind die letzten Abschlüsse im Testzeitraum, und alle drei sind eindeutig fehlgeschlagen.",
+        "updated": 1639409155948
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Time to check the context in the 24H time frame!"
+            "text": "Zeit, den Kontext im 24-Stunden-Zeitrahmen zu überprüfen!",
+            "updated": 1639409168054
         },
         {
             "style": "Note",
-            "text": "To me, it looks unclear whether the context is suitable for a swing short or not!"
+            "text": "Für mich sieht es unklar aus, ob der Kontext für einen Swing-Short geeignet ist oder nicht!",
+            "updated": 1639409174641
         },
         {
             "style": "Success",
-            "text": "So, what do we make of this first test? Let's compare the results with the hypothesis' predictions."
+            "text": "Was soll man von diesem ersten Test halten? Vergleichen wir die Ergebnisse mit den Vorhersagen der Hypothese.",
+            "updated": 1639409180312
         }
     ]
 }

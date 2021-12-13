@@ -7,37 +7,39 @@
             "name": "Trading\\trading-strategy",
             "project": "Foundations"
         },
-        "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!"
+        "text": "Wir befinden uns in einem neuen Chart! Richten wir ihn so ein, dass wir die Ergebnisse des Backtests sehen können!",
+        "updated": 1639408014895
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Turn on the following layers in each of the layer managers (fell free to close all plotter panels):",
-            "updated": 1622549690952
+            "text": "Schalten Sie die folgenden Ebenen in den Ebenenmanagern ein (Sie können auch alle Plotter-Panels schließen):",
+            "updated": 1639408025084
         },
         {
             "style": "List",
-            "text": "Candles Data: \"Candles\".",
-            "updated": 1622549387433
+            "text": "Candles Data: \"Kerzen\".",
+            "updated": 1639408036831
         },
         {
             "style": "List",
-            "text": "Bollinger Data: \"Bollinger Bands\".",
-            "updated": 1622549394686
+            "text": "Bollinger Data: \"Bollinger Bänder\".",
+            "updated": 1639408044257
         },
         {
             "style": "List",
-            "text": "Simulation Objects: \"Strategies\", \"Market Buy Orders\", \"Market Sell Orders\", \"Position Base Asset\", \"Stop Loss\", and \"Take Profit\".",
-            "updated": 1622549420151
+            "text": "Simulation Objects: \"Strategies\", \"Market Buy Orders\", \"Market Sell Orders\", \"Position Base Asset\", \"Stop Loss\", und \"Take Profit\".",
+            "updated": 1639408062955
         },
         {
             "style": "List",
-            "text": "Trading System: \"Trading System Errors\" and \"Trading System Warnings\".",
-            "updated": 1622549431740
+            "text": "Trading System: \"Trading System Errors\" und \"Trading System Warnings\".",
+            "updated": 1639408072556
         },
         {
             "style": "Success",
-            "text": "The next step shows what you should see!"
+            "text": "Der nächste Schritt zeigt, was Sie sehen sollten!",
+            "updated": 1639408081148
         }
     ]
 }

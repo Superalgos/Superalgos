@@ -1,5 +1,5 @@
 {
-    "type": "Manage Stage Signals",
+    "type": "Managed Take Profit Signals",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,21 +11,9 @@
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedStopLossSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Managed Stop Loss Signals",
-            "relatedUiObject": "Managed Stop Loss Signals",
-            "relatedUiObjectProject": "Trading-Signals"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedTakeProfilSignals",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Managed Take Profit Signals",
-            "relatedUiObject": "Managed Take Profit Signals",
+            "label": "Add Phase Signal",
+            "relatedUiObject": "Phase Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
@@ -48,20 +36,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Available Signals->"
+        "compatibleTypes": "->Manage Stage Signals->"
     },
-    "propertyNameAtParent": "manageStageSignals",
+    "propertyNameAtParent": "managedTakeProfitSignals",
     "childrenNodesProperties": [
         {
-            "name": "managedStopLossSignals",
-            "type": "node",
-            "childType": "Managed Stop Loss Signals",
-            "autoAdd": false
-        },
-        {
-            "name": "managedTakeProfilSignals",
-            "type": "node",
-            "childType": "Managed Take Profit Signals",
+            "name": "phaseSignals",
+            "type": "array",
+            "childType": "Phase Signal",
             "autoAdd": false
         }
     ]

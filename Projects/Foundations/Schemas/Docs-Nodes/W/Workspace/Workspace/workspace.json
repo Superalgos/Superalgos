@@ -14,6 +14,11 @@
                     "language": "RU",
                     "text": "В рабочей области хранится информация:",
                     "updated": 1638344605651
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Workspace enthält Daten über:",
+                    "updated": 1639344135929
                 }
             ]
         },
@@ -31,6 +36,11 @@
                     "language": "RU",
                     "text": "Любая иерархия, не включенная в качестве плагина.",
                     "updated": 1638344601117
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede Hierarchie, die nicht als Plugin enthalten ist.",
+                    "updated": 1639344152746
                 }
             ]
         },
@@ -48,6 +58,11 @@
                     "language": "RU",
                     "text": "Узлы, которые могут находиться в плавающем состоянии, отделены от иерархий.",
                     "updated": 1638344663875
+                },
+                {
+                    "language": "DE",
+                    "text": "Nodes, die sich losgelöst von Hierarchien im Umlauf befinden können.",
+                    "updated": 1639344198115
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Информация о физическом положении и состоянии всех узлов в пространстве дизайна Design Space, даже тех, которые отделены от иерархий.",
                     "updated": 1638344705517
+                },
+                {
+                    "language": "DE",
+                    "text": "Informationen über die physische Position und den Zustand aller Knoten innerhalb des Entwurfsraums(design space), auch derjenigen, die von Hierarchien losgelöst sind.",
+                    "updated": 1639344266368
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Рабочее пространство не является частью какой-либо иерархии; вместо этого он их содержит.",
                     "updated": 1638344728568
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Workspace ist nicht Teil einer der Hierarchien, sondern enthält sie.",
+                    "updated": 1639344339043
                 }
             ]
         },
@@ -100,6 +125,11 @@
                     "language": "RU",
                     "text": "Загрузка Workspace",
                     "updated": 1638344760638
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces laden",
+                    "updated": 1639344347107
                 }
             ]
         },
@@ -117,6 +147,11 @@
                     "language": "RU",
                     "text": "Пользователи могут управлять несколькими рабочими пространствами, но в любой момент в систему может быть загружено только одно рабочее пространство.",
                     "updated": 1638344784954
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzer können mehrere workspaces verwalten, aber es kann immer nur ein workspace im System geladen sein.",
+                    "updated": 1639344394941
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "RU",
                     "text": "Чтобы загрузить рабочее пространство, щелкните вкладку Workspaces в левой части экрана и выберите один из доступных файлов.",
                     "updated": 1638344838274
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Workspace zu laden, klicken Sie auf die Registerkarte \"Workspaces\" auf der linken Seite des Bildschirms und wählen eine der verfügbaren Dateien aus.",
+                    "updated": 1639344445509
                 }
             ]
         },
@@ -147,6 +187,11 @@
                     "language": "RU",
                     "text": "Чтобы загрузить рабочее пространство, полученное от третьего лица, вы можете поместить файл в папку My-Workspaces, чтобы его можно было открывать на вкладке Worcspaces. Вы также можете перетащить файл в область дизайна.",
                     "updated": 1638344920643
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Workspace zu laden, den Sie von einem \"Drittanbieter\" erhalten haben, können Sie die Datei im Ordner My-Workspaces ablegen, so dass Sie sie über die Registerkarte Workspaces öffnen können. Sie können die Datei auch in den Design Space ziehen und dort ablegen.",
+                    "updated": 1639344555403
                 }
             ]
         },
@@ -159,6 +204,11 @@
                     "language": "RU",
                     "text": "Не рекомендуется запускать несколько экземпляров пользовательского интерфейса UI на отдельных вкладках браузера для одновременной загрузки разных рабочих пространств. Система не подготовлена ​​к такому типу использования и, как следствие, может работать нестабильно.",
                     "updated": 1638344959315
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wird nicht empfohlen, mehrere Instanzen der Benutzeroberfläche(UI) in separaten Browser-Tabs zu starten, um verschiedene Workspaces gleichzeitig zu laden. Das System ist auf diese Art der Nutzung nicht vorbereitet und kann sich infolgedessen fehlerhaft verhalten.",
+                    "updated": 1639344694210
                 }
             ]
         },
@@ -180,6 +230,11 @@
                     "language": "RU",
                     "text": "Сохранение Workspace",
                     "updated": 1638344990478
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces speichern",
+                    "updated": 1639344719336
                 }
             ]
         },
@@ -198,6 +253,11 @@
                     "language": "RU",
                     "text": "Любая рабочая область, сохраненная пользователем, является пользовательской рабочей областью.",
                     "updated": 1638345038084
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder Workspace, der vom Benutzer gespeichert wird, ist ein User Workspace",
+                    "updated": 1639344751205
                 }
             ]
         },
@@ -216,6 +276,11 @@
                     "language": "RU",
                     "text": "Пользовательские рабочие области имеют фиолетовый фон на вкладке рабочих пространств.",
                     "updated": 1638345054880
+                },
+                {
+                    "language": "DE",
+                    "text": "User workspaces haben einen violetten Hintergrund auf der Registerkarte Workspaces.",
+                    "updated": 1639344782730
                 }
             ]
         },
@@ -234,6 +299,11 @@
                     "language": "RU",
                     "text": "Рабочие области сохраняются в виде файлов JSON в папке My-Workspaces.",
                     "updated": 1638345077867
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces werden als JSON-Dateien im Ordner My-Workspaces gespeichert.",
+                    "updated": 1639344889249
                 }
             ]
         },
@@ -252,6 +322,11 @@
                     "language": "RU",
                     "text": "Вы можете сохранить рабочее пространство вручную, используя следующую комбинацию горячих клавиш:",
                     "updated": 1638345094211
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können einen Workspace manuell mit der folgenden Tastenkombination speichern:",
+                    "updated": 1639344930505
                 }
             ]
         },
@@ -310,6 +385,11 @@
                     "language": "RU",
                     "text": "Superalgos поставляется с несколькими рабочими областями плагинов Plugin Workspaces. Это предварительно настроенные рабочие пространства, созданные для определенных целей, например, для размещения учебных пособий, демонстрационных стратегий, конкретных проектов и т. д.",
                     "updated": 1638345229136
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos wird mit mehreren Plugin-Workspaces ausgeliefert. Dies sind vorkonfigurierte Workspaces, die für bestimmte Zwecke erstellt wurden, z. B. um Tutorials, Demostrategien, bestimmte Projekte usw. zu hosten.",
+                    "updated": 1639345052372
                 }
             ]
         },
@@ -328,6 +408,11 @@
                     "language": "RU",
                     "text": "На вкладке \"Workspaces\" отмечены словами «Plugin Workspaces» и имеют черный фон, чтобы вы могли отличить их от ваших собственных рабочих пространств.",
                     "updated": 1638345341385
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf der Registerkarte \"Workspaces\" sind Plugin Workspaces mit den Worten \"Plugin Workspace\" gekennzeichnet und haben einen schwarzen Hintergrund, damit Sie sie von Ihren eigenen Workspaces unterscheiden können.",
+                    "updated": 1639345123503
                 }
             ]
         },
@@ -346,6 +431,11 @@
                     "language": "RU",
                     "text": "Когда вы загружаете, изменяете и сохраняете Plugin Workspace, фактический файл плагина остается нетронутым, то есть плагин не изменяется. Вместо этого в папке «My-Workspaces» создается новый файл. Этот файл является копией рабочей области плагина с внесенными вами изменениями. Копия сохраняется с именем узла Workspace, имя обычно совпадает с названием плагина. Чтобы сохранить рабочую область под другим именем, необходимо изменить имя узла рабочей области и сохранить.",
                     "updated": 1638345532766
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Plugin Workspace laden, ändern und speichern, bleibt die eigentliche Plugin-Datei intakt, d. h. das Plugin wird nicht geändert. Stattdessen wird eine neue Datei im Ordner My-Workspaces erstellt. Diese Datei ist eine Kopie des Plugin-Arbeitsbereichs mit den von Ihnen vorgenommenen Änderungen. Die Kopie wird unter dem Namen der Node  Workspace gespeichert, der in der Regel derselbe ist wie der Name des Plugins. Um den Workspace unter einem anderen Namen zu speichern, müssen Sie den Namen der Workspace Node ändern und speichern.",
+                    "updated": 1639345443024
                 }
             ]
         },
@@ -363,6 +453,11 @@
                     "language": "RU",
                     "text": "Создание Workspace",
                     "updated": 1638345553252
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces erstellen:",
+                    "updated": 1639346933048
                 }
             ]
         },
@@ -374,6 +469,11 @@
                     "language": "RU",
                     "text": "Чтобы создать новое рабочее пространство, переименуйте любое из существующих рабочих пространств, изменив метку узла рабочего пространства, и сохраните его, как описано выше. После изменения метки и сохранения рабочего пространства (любым из обычных способов) новый файл сохраняется в папке My-Workspaces.",
                     "updated": 1638345612276
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen neuen Workspace zu erstellen, benennen Sie einen der vorhandenen Workspaces um, indem Sie die Bezeichnung der Workspace Node ändern, und speichern Sie ihn wie oben beschrieben. Nach dem Ändern der Bezeichnung und dem Speichern des Workspaces (auf einem der üblichen Wege) wird eine neue Datei im Ordner My-Workspaces gespeichert.",
+                    "updated": 1639347021732
                 }
             ]
         },
@@ -386,6 +486,11 @@
                     "language": "RU",
                     "text": "Для начала лучше всего использовать шаблон Blank Template Plugin Workspace, если вы хотите создать свою собственную настройку.",
                     "updated": 1638345758533
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Blank Template Plugin Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
+                    "updated": 1639347042936
                 }
             ]
         },
@@ -403,6 +508,11 @@
                     "language": "RU",
                     "text": "Удаление Workspace",
                     "updated": 1638345770499
+                },
+                {
+                    "language": "DE",
+                    "text": "Workspaces löschen",
+                    "updated": 1639347055020
                 }
             ]
         },
@@ -420,6 +530,11 @@
                     "language": "RU",
                     "text": "Чтобы удалить рабочее пространство, удалите соответствующий файл рабочего пространства из приложения файловой системы вашей операционной системы.",
                     "updated": 1638345786254
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Workspace zu löschen, löschen Sie die entsprechende workspace datei in der Dateisystemanwendung(Datei verwaltung/File system) Ihres Betriebssystems.",
+                    "updated": 1639347139221
                 }
             ]
         }
@@ -438,6 +553,11 @@
                 "language": "RU",
                 "text": "Workspace - это объект, хранящий всю системную и пользовательскую информацию, за исключением состояния и содержимого плагинов. С технической точки зрения рабочее пространство - это файл JSON.",
                 "updated": 1638344554135
+            },
+            {
+                "language": "DE",
+                "text": "Ein Workspace (=Arbeitsbereich) ist eine Entität, in der alle System- und benutzergenerierten Informationen gespeichert werden, mit Ausnahme des Status und der Inhalte von Plugins. Technisch gesehen ist ein Arbeitsbereich eine JSON-Datei.",
+                "updated": 1639344118881
             },
             {
                 "language": "TR",

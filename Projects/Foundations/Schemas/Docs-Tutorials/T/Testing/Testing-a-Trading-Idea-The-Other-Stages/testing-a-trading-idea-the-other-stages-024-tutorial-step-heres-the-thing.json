@@ -7,20 +7,48 @@
             "name": "Market\\market-order",
             "project": "Foundations"
         },
-        "text": "The system doesn't know which arrangement of execution algorithms and orders you are going to create!"
+        "text": "The system doesn't know which arrangement of execution algorithms and orders you are going to create!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das System weiß nicht, welche Anordnung von Ausführungsalgorithmen und Aufträgen Sie erstellen werden!",
+                "updated": 1639399241608
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "For that reason, it doesn't know what kind of data structure you will need at the trading engine to keep track of all your orders!"
+            "text": "For that reason, it doesn't know what kind of data structure you will need at the trading engine to keep track of all your orders!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aus diesem Grund weiß es auch nicht, welche Art von Datenstruktur Sie in der Handelsmaschine benötigen, um alle Ihre Aufträge zu verwalten!",
+                    "updated": 1639399244616
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "For the time being, there is a manual process that is required to tell Superalgos what orders you need to keep track of, and where the information should be stored! And that is what we need to do next!"
+            "text": "For the time being, there is a manual process that is required to tell Superalgos what orders you need to keep track of, and where the information should be stored! And that is what we need to do next!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zur Zeit ist ein manueller Prozess erforderlich, um Superalgos mitzuteilen, welche Aufträge Sie im Auge behalten müssen und wo die Informationen gespeichert werden sollen! Und das ist es, was wir als nächstes tun müssen!",
+                    "updated": 1639399255224
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Don't worry, it's no big deal! As it's often the case, it takes longer to explain than to do it!"
+            "text": "Don't worry, it's no big deal! As it's often the case, it takes longer to explain than to do it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Keine Sorge, das ist keine große Sache! Wie so oft dauert es länger, es zu erklären, als es zu tun!",
+                    "updated": 1639399261655
+                }
+            ]
         }
     ]
 }

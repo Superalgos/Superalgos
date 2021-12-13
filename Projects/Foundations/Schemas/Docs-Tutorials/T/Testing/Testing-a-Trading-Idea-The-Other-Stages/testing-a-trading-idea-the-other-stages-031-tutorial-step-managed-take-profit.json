@@ -7,13 +7,27 @@
             "project": "Foundations",
             "name": "managed-take-profit"
         },
-        "text": "Now that we have a formula for a fixed stop loss target, it shouldn't be hard to come up with the formula for the take profit target!"
+        "text": "Now that we have a formula for a fixed stop loss target, it shouldn't be hard to come up with the formula for the take profit target!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Da wir nun eine Formel für ein festes Stop Loss-Ziel haben, sollte es nicht schwer sein, die Formel für das Take Profit-Ziel zu finden!",
+                "updated": 1639400256559
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We just need to subtract 10% to the entry target rate node's value:",
-            "updated": 1610472925103
+            "updated": 1610472925103,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir müssen lediglich 10 % vom Wert des Knotens für die Einstiegszielrate abziehen:",
+                    "updated": 1639400263529
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -22,12 +36,26 @@
         {
             "style": "Callout",
             "text": "Use is for the Phase #1 take profit formula!",
-            "updated": 1610472948413
+            "updated": 1610472948413,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie dies für die Take Profit-Formel der Phase #1!",
+                    "updated": 1639400277534
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "We are done with the Manage Stage!",
-            "updated": 1610472960123
+            "updated": 1610472960123,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir sind fertig mit der Manage Stage!",
+                    "updated": 1639400283440
+                }
+            ]
         }
     ]
 }

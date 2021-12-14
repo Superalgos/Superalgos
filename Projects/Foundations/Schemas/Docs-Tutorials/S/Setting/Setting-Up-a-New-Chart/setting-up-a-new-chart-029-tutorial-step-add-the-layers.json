@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Этот шаг легко забыть, но он так важен. Добавьте эти слои, чтобы мы могли видеть данные на нашем графике!",
                 "updated": 1639079324934
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Schritt wird leicht vergessen, ist aber sehr wichtig. Fügen Sie diese Ebenen hinzu, damit wir die Daten in unserem Diagramm sehen können!",
+                "updated": 1639276287504
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Последний шаг - наведите курсор на Менеджер слоев (Layer Manager) и нажмите Добавить все слои шахты (Add All Mine Layers). После нажатия кнопки обязательно подтвердите!",
                     "updated": 1639079390661
+                },
+                {
+                    "language": "DE",
+                    "text": "Der letzte Schritt besteht darin, den Mauszeiger über den Layer Manager zu bewegen und auf <I>Add All Mine Layers</I>. zu klicken. Stellen Sie sicher, dass Sie nach dem Klicken auf die Schaltfläche bestätigen!",
+                    "updated": 1639276449610
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Это автоматически добавит ссылки на все отдельные слои, созданные в Data Mine.",
                     "updated": 1639079409140
+                },
+                {
+                    "language": "DE",
+                    "text": "Dadurch werden automatisch Verweise auf alle einzelnen von der Data Mine erzeugten Ebenen hinzugefügt.",
+                    "updated": 1639276509467
                 }
             ]
         },

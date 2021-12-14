@@ -1,5 +1,5 @@
 {
-    "type": "Live Portfolio Session",
+    "type": "Backtesting Portfolio Session",
     "menuItems": [
         {
             "action": "Run Portfolio Session",
@@ -62,9 +62,9 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Switch To Backtesting Portfolio",
-            "label": "Switch To Backtesting Portfolio",
-            "relatedUiObject": "Backtesting Portfolio Session",
+            "action": "Switch To Live Portfolio",
+            "label": "Switch To Live Portfolio",
+            "relatedUiObject": "Live Portfolio Session",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"
         },

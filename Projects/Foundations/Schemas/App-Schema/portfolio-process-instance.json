@@ -14,6 +14,16 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "session",
+            "label": "Add Backtesting Portfolio Session",
+            "relatedUiObject": "Backtesting Portfolio Session",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "executionStartedEvent",
             "label": "Add Execution Started Event",
             "relatedUiObject": "Execution Started Event",
@@ -50,6 +60,11 @@
             "name": "session",
             "type": "node",
             "childType": "Live Portfolio Session"
+        },
+        {
+            "name": "session",
+            "type": "node",
+            "childType": "Backtesting Portfolio Session"
         },
         {
             "name": "executionStartedEvent",

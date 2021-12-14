@@ -97,7 +97,7 @@
             ]
         },
         {
-            "style": "List",
+            "style": "Link",
             "text": "Here's a link for your convenience! Thank you!->github.com/Superalgos/Superalgos",
             "updated": 1611584996191,
             "translations": [
@@ -112,6 +112,11 @@
                     "text": "Hier ist ein Link für Sie! Ich danke Ihnen!->github.com/Superalgos/Superalgos",
                     "updated": 1634590878814,
                     "style": "Link"
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte size kolaylık sağlamak için bir bağlantı! Teşekkürler!->github.com/Superalgos/Superalgos",
+                    "updated": 1639387216997
                 }
             ]
         }

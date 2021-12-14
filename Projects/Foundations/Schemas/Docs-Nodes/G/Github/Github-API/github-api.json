@@ -1,12 +1,28 @@
 {
     "type": "Github API",
     "definition": {
-        "text": "Write the definition for this Node."
+        "text": "In this Node your github credentials get saved. ",
+        "updated": 1639496509727,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In dieser Node werden Ihre Github Anmeldedaten(Credentials) gespeichert.",
+                "updated": 1639496666814
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "You add your username between the qoutes after \"username\":  . You add your custom github api token between the quotes after: \"token\":  . These credentials are for example needed for updating your local branch.",
+            "updated": 1639496514451,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie fügen Ihren Benutzernamen zwischen den Anführungszeichen nach \"username\" : ein. Sie fügen Ihr benutzerdefiniertes Github-Api-Token zwischen den Anführungszeichen nach: \"token\": ein. Diese Anmeldeinformationen werden zum Beispiel für die Aktualisierung Ihrer lokalen branch benötigt.",
+                    "updated": 1639496733626
+                }
+            ]
         }
     ]
 }

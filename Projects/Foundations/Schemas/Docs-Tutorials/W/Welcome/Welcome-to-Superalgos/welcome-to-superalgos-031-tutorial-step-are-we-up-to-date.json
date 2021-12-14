@@ -40,8 +40,8 @@
             },
             {
                 "language": "RU",
-                "text": "К этому моменту все процессы должны работать на 100%. Когда это происходит, мы называем операцию интеллектиуального анализа данных \"актуальной\".",
-                "updated": 1636193865762
+                "text": "К этому моменту все процессы должны отработать на 100%. Когда это происходит, мы называем операцию интеллектуального анализа данных \"актуальной\".",
+                "updated": 1639493818799
             },
             {
                 "language": "NL",
@@ -177,8 +177,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "...To run a Live Trading Session, you need a constant feed of information from the exchange processed in realtime so that the Trading Bot may apply the rules of your Trading System to make live trading decisions.",
-                    "updated": 1636194159296
+                    "text": "...Чтобы запустить живую торговую сессию (Live Trading Session), вам нужна постоянная подача информации из биржи, обрабатываемой в реальном времени, так что торговый бот может применять правила вашей торговой системы, чтобы принимать в живые торговые решения.",
+                    "updated": 1639494033248
                 },
                 {
                     "language": "NL",

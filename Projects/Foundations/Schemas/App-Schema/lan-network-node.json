@@ -52,6 +52,16 @@
         {
             "action": "Add UI Object",
             "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "testingPortfolioTasks",
+            "label": "Add Testing Portfolio Tasks",
+            "relatedUiObject": "Testing Portfolio Tasks",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "productionPortfolioTasks",
             "label": "Add Production Portfolio Tasks",
             "relatedUiObject": "Production Portfolio Tasks",
@@ -115,6 +125,12 @@
             "name": "productionTradingTasks",
             "type": "node",
             "childType": "Production Trading Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "testingPortfolioTasks",
+            "type": "node",
+            "childType": "Testing Portfolio Tasks",
             "autoAdd": true
         },
         {

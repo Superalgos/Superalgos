@@ -7,20 +7,48 @@
             "name": "Trading\\trading-strategy",
             "project": "Foundations"
         },
-        "text": "We are a few steps away from being able to fully test the first trading idea! You need to learn a thing or two first!"
+        "text": "We are a few steps away from being able to fully test the first trading idea! You need to learn a thing or two first!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir sind nur noch wenige Schritte davon entfernt, die erste Handelsidee vollständig testen zu können! Aber vorher müssen Sie noch ein oder zwei Dinge lernen!",
+                "updated": 1639394888158
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In the third tutorial in the series, we covered the definitions and nuances of the Trigger Stage."
+            "text": "In the third tutorial in the series, we covered the definitions and nuances of the Trigger Stage.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im dritten Tutorial dieser Reihe haben wir die Definitionen und Feinheiten der Trigger Stage behandelt.",
+                    "updated": 1639394915299
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In this tutorial, we will complete the basic definitions of the rest of the stages so that we may finally test our hypothesis!"
+            "text": "In this tutorial, we will complete the basic definitions of the rest of the stages so that we may finally test our hypothesis!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In diesem Tutorium werden wir die grundlegenden Definitionen der übrigen Phasen vervollständigen, damit wir unsere Hypothese endlich testen können!",
+                    "updated": 1639394923042
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "I highly recommend you do the first three tutorials in the series before doing this one! The story is carried from one to the next!"
+            "text": "I highly recommend you do the first three tutorials in the series before doing this one! The story is carried from one to the next!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich empfehle Ihnen dringend, die ersten drei Tutorien der Reihe zu lesen, bevor Sie dieses Tutorial bearbeiten! Die Geschichte wird von einem zum nächsten weitergeführt!",
+                    "updated": 1639394931304
+                }
+            ]
         }
     ]
 }

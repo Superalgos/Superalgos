@@ -15,5 +15,6 @@
         "**/Deprecated-Code": true,
         "**/My-Social-Trading-Data": true
     },
-    "search.maintainFileSearchCache": true
+    "search.maintainFileSearchCache": true,
+    "editor.mouseWheelZoom": true
 }

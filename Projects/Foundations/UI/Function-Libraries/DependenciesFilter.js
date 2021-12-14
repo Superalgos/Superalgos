@@ -31,7 +31,7 @@ function newFoundationsFunctionLibraryDependenciesFilter() {
             }
         }
 
-
+        if (userDefinedParameters === undefined) { userDefinedParameters = "{}"}
         let sessionParameters = JSON.parse(userDefinedParameters)
         recursiveFilter(tradingSystem, sessionParameters)
 

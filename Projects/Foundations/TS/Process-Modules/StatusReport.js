@@ -48,7 +48,7 @@
             }
 
             if (statusDependencyNode.referenceParent.parentNode.config.codeName === undefined) {
-                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition witn no codeName defined.")
+                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition with no codeName defined.")
                 return
             }
 
@@ -113,6 +113,7 @@
                 if (checkThisDataBranch(lanNetworkNode.dataTasks) === true) { return }
                 if (checkThisTradingBranch(lanNetworkNode.testingTradingTasks) === true) { return }
                 if (checkThisTradingBranch(lanNetworkNode.productionTradingTasks) === true) { return }
+                if (checkThisPortfolioBranch(lanNetworkNode.testingPortfolioTasks) === true) { return }
                 if (checkThisPortfolioBranch(lanNetworkNode.productionPortfolioTasks) === true) { return }
                 if (checkThisLearningBranch(lanNetworkNode.learningTasks) === true) { return }
 

@@ -111,7 +111,7 @@
                     Run the Events Interface.
                     */
                     portfolioManagerEventsInterface.run()
-                    //return
+                    return
 
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
                     if (
@@ -141,7 +141,7 @@
                     let allGood
                     switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
                         case 'Backtesting Portfolio Session': {
-                            allGood = startBackTesting(message)
+                            allGood = startBacktestingPortfolio(message)
                             break
                         }
                         case 'Live Portfolio Session': {
@@ -268,7 +268,7 @@
                     }
                 } else {
                     /* Check that we received valid dates */
-                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
                         if (isNaN(new Date(TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeRange.config.initialDatetime)).valueOf()) {
                             let errorMessage = "Invalid Initial Datetime Property Value"
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -342,7 +342,7 @@
                     */
 
                     /* Initial Datetime */
-                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
                         if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeRange.config.initialDatetime === undefined) {
                             TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeRange.config.initialDatetime = initialDefault
                         } else {
@@ -522,10 +522,6 @@
                     TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.feeStructure.config.taker = 0
                 }
 
-                return true
-            }
-
-            function startBackTesting(message) {
                 return true
             }
 

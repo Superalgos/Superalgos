@@ -7,20 +7,48 @@
             "name": "Target\\target-rate",
             "project": "Foundations"
         },
-        "text": "As I said earlier, the Target Rate is a concept that entails some depth, but we'll keep it simple for the time being!"
+        "text": "As I said earlier, the Target Rate is a concept that entails some depth, but we'll keep it simple for the time being!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wie ich bereits sagte, ist die Target Rate  ein Konzept, das eine gewisse Tiefe aufweist, aber wir wollen es vorerst einfach halten!",
+                "updated": 1639395364013
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The target rate serves several purposes. At this point, we'll place the focus on one of them:"
+            "text": "The target rate serves several purposes. At this point, we'll place the focus on one of them:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Target Rate dient mehreren Zwecken. An dieser Stelle werden wir uns auf einen davon konzentrieren:",
+                    "updated": 1639395456334
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "We will use the target rate as a reference rate."
+            "text": "We will use the target rate as a reference rate.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden Target Rate als Referenzsatz verwenden.",
+                    "updated": 1639395447151
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Later on, we will set up a market order to enter the position. However, market orders&mdash;by definition&mdash;do not specify a rate, as they are filled at the current market price. The system will use the reference rate we define to mark the take position rate in simulations, and will use it as a starting point for internal calculations too."
+            "text": "Later on, we will set up a market order to enter the position. However, market orders&mdash;by definition&mdash;do not specify a rate, as they are filled at the current market price. The system will use the reference rate we define to mark the take position rate in simulations, and will use it as a starting point for internal calculations too.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Später werden wir einen Marktauftrag einrichten, um die Position einzugehen. Marktaufträge geben jedoch per Definition keinen Kurs an, da sie zum aktuellen Marktpreis ausgeführt werden. Das System verwendet den von uns definierten Referenzkurs, um den Kurs für die Positionsübernahme in Simulationen zu markieren, und verwendet ihn auch als Ausgangspunkt für interne Berechnungen.",
+                    "updated": 1639395463074
+                }
+            ]
         }
     ]
 }

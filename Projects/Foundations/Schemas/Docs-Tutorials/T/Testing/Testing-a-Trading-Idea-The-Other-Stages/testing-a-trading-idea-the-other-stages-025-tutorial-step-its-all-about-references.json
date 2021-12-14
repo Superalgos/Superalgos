@@ -8,20 +8,48 @@
             "project": "Foundations"
         },
         "text": "Do you remember what references are and how to establish them? Watch the video for a quick refresher!",
-        "updated": 1617198810582
+        "updated": 1617198810582,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wissen Sie noch, was Referenzen sind und wie man sie herstellt? Schauen Sie sich das Video für eine kurze Auffrischung an!",
+                "updated": 1639399298946
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "References are a crucial concept in Superalgos, as they relate information across nodes and hierarchies!"
+            "text": "References are a crucial concept in Superalgos, as they relate information across nodes and hierarchies!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Referenzen sind ein wichtiges Konzept in Superalgos, da sie Informationen über Knoten und Hierarchien hinweg in Beziehung setzen!",
+                    "updated": 1639399310342
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "You must establish a reference from the Market Sell Order node in the trading system to this Market Sell Order #1 Market Order node in the trading engine hierarchy! Go ahead! Do it!"
+            "text": "You must establish a reference from the Market Sell Order node in the trading system to this Market Sell Order #1 Market Order node in the trading engine hierarchy! Go ahead! Do it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie müssen eine Referenz vom Knoten Market Sell Order im Handelssystem zum Knoten Market Sell Order #1 Market Order in der Hierarchie der Trading Engine herstellen! Machen Sie weiter! Tun Sie es!",
+                    "updated": 1639399322670
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "I'll give you a couple of tips on the next step if you are not sure how to go about this!"
+            "text": "I'll give you a couple of tips on the next step if you are not sure how to go about this!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich gebe Ihnen im nächsten Schritt ein paar Tipps, wenn Sie nicht sicher sind, wie Sie vorgehen sollen!",
+                    "updated": 1639399331508
+                }
+            ]
         }
     ]
 }

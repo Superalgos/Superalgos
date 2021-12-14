@@ -535,6 +535,12 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break
+            case 'Switch To Backtesting Portfolio':
+                {
+                    action.node.type = "Backtesting Portfolio Session"
+                    UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
             case 'Switch To Live Portfolio':
                 {
                     action.node.type = "Live Portfolio Session"

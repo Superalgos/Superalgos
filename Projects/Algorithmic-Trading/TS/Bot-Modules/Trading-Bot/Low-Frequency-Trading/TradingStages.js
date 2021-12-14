@@ -141,8 +141,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                     if (triggerStage !== undefined) {
 
-                        let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOn)
-                        tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signal)
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOn)
+                        tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signals)
 
                         if (triggerStage.triggerOn !== undefined) {
                             for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
@@ -198,8 +198,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 if (triggerStage !== undefined) {
 
-                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
-                    tradingSystem.evalConditions(triggerStage, 'Trigger Off Event', signal)
+                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOff)
+                    tradingSystem.evalConditions(triggerStage, 'Trigger Off Event', signals)
 
                     if (triggerStage.triggerOff !== undefined) {
 
@@ -244,8 +244,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                 if (triggerStage !== undefined) {
 
-                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.takePosition)
-                    tradingSystem.evalConditions(triggerStage, 'Take Position Event', signal)
+                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.takePosition)
+                    tradingSystem.evalConditions(triggerStage, 'Take Position Event', signals)
                     await tradingSystem.evalFormulas(triggerStage, 'Take Position Event')
 
                     if (triggerStage.takePosition !== undefined) {

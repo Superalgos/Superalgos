@@ -59,7 +59,7 @@
             "autoAdd": false
         },
         {
-            "name": "managedTakeProfilSignals",
+            "name": "managedTakeProfitSignals",
             "type": "node",
             "childType": "Managed Take Profit Signals",
             "autoAdd": false

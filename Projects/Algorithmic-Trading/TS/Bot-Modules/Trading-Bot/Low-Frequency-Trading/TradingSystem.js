@@ -71,14 +71,14 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             return passed
         }
 
-        tradingSystem.evalConditions = function (startingNode, descendentOfNodeType, signal) {
+        tradingSystem.evalConditions = function (startingNode, descendentOfNodeType, signals) {
             evalNode(
                 startingNode,
                 'Conditions',
                 descendentOfNodeType,
                 undefined,
                 undefined,
-                signal
+                signals
             )
         }
 
@@ -269,7 +269,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         descendentOfNodeType,
         isDescendent,
         parentNode,
-        signal
+        signals
     ) {
         if (node === undefined) { return }
 
@@ -284,7 +284,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         if (node.type === 'Condition' && evaluating === 'Conditions') {
             /* We will eval this condition */
             if (isDescendent === true) {
-                evalCondition(node, signal)
+                evalCondition(node, signals)
             }
         }
 
@@ -326,7 +326,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                                     descendentOfNodeType,
                                     isDescendent,
                                     node,
-                                    signal
+                                    signals
                                 )
                             }
                             previousPropertyName = property.name
@@ -343,7 +343,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                                     descendentOfNodeType,
                                     isDescendent,
                                     node,
-                                    signal
+                                    signals
                                 )
                             }
                         }
@@ -354,7 +354,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         }
     }
 
-    function evalCondition(node, signal) {
+    function evalCondition(node, signals) {
         let value
         let errorMessage
         let docs
@@ -402,6 +402,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         if (errorMessage !== undefined) {
             tradingSystem.addError([node.id, errorMessage, docs])
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] evalCondition -> errorMessage = ' + errorMessage)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] evalCondition -> code = ' + code)
         }
         if (value !== undefined) {
             tradingSystem.values.push([node.id, value])
@@ -418,27 +419,29 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         try {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
             /*
-            Here we check if we received a signal at the parent of this formula. If we did,
-            users will be able to use the signal at their formula, including value of the
-            formula that triggered this signal. 
+            Here we check if we received signals at the parent of this formula. If we did,
+            users will be able to use the signals at their formula, including value of the
+            formula that triggered these signals. 
 
             Usage Example of Formula Value:
 
-            if (signal !== undefined) {
-                signal.source.tradingSystem.node.formula.value
-            } else {
-                0
+            let lastSignalFormulaValue = 0
+            for (let i = 0; i < signals.length; i++) {
+                let signal = signals[i]
+                lastSignalFormulaValue = signal.source.tradingSystem.node.formula.value
             }
+            lastSignalFormulaValue
+
+            Usage Example of signals Context:
             
-            Usage Example of Signal Context:
-
-            if (signal !== undefined) {
-                signal.source.tradingSystem.node.context.roi
-            } else {
-                0
+            let lastSignalContextValue = 0
+            for (let i = 0; i < signals.length; i++) {
+                let signal = signals[i]
+                lastSignalContextValue = signal.source.tradingSystem.node.context.roi
             }
+            lastSignalContextValue
 
-            When the Signal Context Formula was:
+            Usage Example of Context Formula for Outgoing Signal:
 
             let context = {
                 profitLoss: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value,
@@ -449,7 +452,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             context // return the context object         
           
             */
-            let signal = await incomingTradingSignalsModuleObject.checkForSignals(parentNode)
+            let signals = await incomingTradingSignalsModuleObject.getAllSignals(parentNode)
             /*
             Here is where the Formula Code is evaluated.
             */
@@ -461,7 +464,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             let response = await portfolioManagerClient.askPortfolioFormulaManager(parentNode, value)
             value = response.value
             /*
-            Now we actually have the final value. We will check if we need to broadcast a signal
+            Now we actually have the final value. We will check if we need to broadcast a signals
             with this value as context or not.
             */
             await outgoingTradingSignalsModuleObject.broadcastSignal(parentNode, value)

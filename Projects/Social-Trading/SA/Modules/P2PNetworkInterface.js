@@ -8,8 +8,8 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     */
     let thisObject = {
         p2pNetworkInterface: undefined,
-        userApp: undefined,        
-        getNextSignal: getNextSignal,
+        userApp: undefined,
+        getSignals: getSignals,
         eventReceived: eventReceived,
         signalReceived: signalReceived,
         initialize: initialize,
@@ -54,21 +54,13 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         signalsBySignalDefinitionId.set(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id, signals)
     }
 
-    function getNextSignal(signalDefinitionId) {
+    function getSignals(signalDefinitionId) {
         /*
-        Here we will allow the User App to request the next signal of a certain 
-        type, by providing the id of the Signal Definition Node, at the User Profile
-        providing the signal. 
+        Here we will allow the User App to request the signals of a certain 
+        type, by providing the id of the Signal Definition Node at the User Profile.
         */
         let signals = signalsBySignalDefinitionId.get(signalDefinitionId)
-        if (signals === undefined) { return }
-        let signal = signals[0]
-        if (signal === undefined) { return }
-        /* 
-        If we do have a signal to return, we will remove it from the array where it was stored
-        so that we can not give it again in a next call.
-        */ 
-        signals.splice(0, 1)
-        return signal
+        signalsBySignalDefinitionId.set(signalDefinitionId, [])
+        return signals
     }
 }

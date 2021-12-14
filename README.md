@@ -362,6 +362,11 @@ usage: node setup <options>
 > 
 > In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
+> **NOTE FOR USERS INSTALLING ON LINUX:**
+> 
+> If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
+
+
 Congratulations your installation is complete! Follow the "Running the Application" directions below.
 
 #### Troubleshooting Dependency Installation

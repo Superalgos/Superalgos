@@ -47,7 +47,7 @@
     "addLeftIcons": true,
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Back Learning Session->Live Learning Session->"
+        "compatibleTypes": "->Backtesting Session->Live Trading Session->Paper Trading Session->Forward Testing Session->Back Learning Session->Live Learning Session->Backtesting Portfolio Session->Live Portfolio Session->"
     },
     "childrenNodesProperties": [
         {

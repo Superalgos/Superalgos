@@ -7,7 +7,14 @@
             "project": "Foundations",
             "name": "javascript-code"
         },
-        "text": "We are ready to set up the condition under the Take Position Event! Let's do it!"
+        "text": "We are ready to set up the condition under the Take Position Event! Let's do it!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir sind bereit, die Bedingung unter dem Take Position Event einzurichten! Los geht's!",
+                "updated": 1639389612098
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,12 +25,26 @@
         {
             "style": "Callout",
             "text": "Copy and paste the statement!",
-            "updated": 1610471298083
+            "updated": 1610471298083,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie die Anweisung und fügen Sie sie ein!",
+                    "updated": 1639389620248
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Remember to give the condition a descriptive name! 1H Breakdown?",
-            "updated": 1610471356372
+            "updated": 1610471356372,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, der Bedingung einen aussagekräftigen Namen zu geben! 1H Breakdown?",
+                    "updated": 1639389629142
+                }
+            ]
         }
     ]
 }

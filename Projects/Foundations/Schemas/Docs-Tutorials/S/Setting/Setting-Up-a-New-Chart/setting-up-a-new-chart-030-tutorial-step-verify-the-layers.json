@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Как вы могли заметить, добавленные слои соответствуют Bot Products в узле Candles Data Mine Products .",
                 "updated": 1639079836469
+            },
+            {
+                "language": "DE",
+                "text": "Wie Sie vielleicht bemerkt haben, stimmen die hinzugefügten Ebenen mit den Bot Products unter dem Knoten Candles Data Mine Products überein.",
+                "updated": 1639276637474
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Потратьте несколько минут и проверьте узлы потомства Bot Products  и ваши новые слои. Они совпадают!",
                     "updated": 1639079732143
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit und vergleichen Sie die Bot Products Nachkommenknoten mit Ihren neuen Ebenen. Sie stimmen überein!",
+                    "updated": 1639276702434
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Вы можете более тонко контролировать слои, доступные в ваших диаграммах, добавляя или удаляя отдельные слои. Ваши диаграммы - это действительно ваше!",
                     "updated": 1639079659448
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können die in Ihren Diagrammen verfügbaren Ebenen noch genauer steuern, indem Sie einzelne Ebenen hinzufügen oder löschen. Ihre Diagramme gehören wirklich Ihnen!",
+                    "updated": 1639276753042
                 }
             ]
         }

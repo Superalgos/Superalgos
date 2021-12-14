@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": "initial-targets"
         },
-        "text": "I just brought you to the Initial Targets node in the open stage. Before we start, let's make a quick note for clarity's sake!"
+        "text": "I just brought you to the Initial Targets node in the open stage. Before we start, let's make a quick note for clarity's sake!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich habe Sie soeben zum Knoten Initial Targets in der Open Stage gebracht. Bevor wir beginnen, lassen Sie uns der Klarheit halber noch eine kurze Anmerkung machen!",
+                "updated": 1639395051566
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "You're not in the trading system you set up during the previous tutorial! It's a new one!"
+            "text": "You're not in the trading system you set up during the previous tutorial! It's a new one!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie befinden sich nicht in dem Handelssystem, das Sie im vorherigen Tutorial eingerichtet haben! Es ist ein neues System!",
+                    "updated": 1639395059681
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "I set up a new trading system and named it BB Breakdown 2 so that I have better control of your experience during this tutorial. Notice that I recreated the stages you deleted in the previous tutorials. All I had to do was select Add Missing Stages on the trading strategy menu!"
+            "text": "I set up a new trading system and named it BB Breakdown 2 so that I have better control of your experience during this tutorial. Notice that I recreated the stages you deleted in the previous tutorials. All I had to do was select Add Missing Stages on the trading strategy menu!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe ein neues Handelssystem eingerichtet und ihm den Namen BB Breakdown 2 gegeben, damit ich Ihre Erfahrungen während dieses Tutorials besser kontrollieren kann. Beachten Sie, dass ich die Phasen, die Sie in den vorherigen Tutorials gelöscht haben, wiederhergestellt habe. Alles, was ich tun musste, war, im Menü Trading Strategy die Option Add Missing Stages zu wählen!",
+                    "updated": 1639395098753
+                }
+            ]
         }
     ]
 }

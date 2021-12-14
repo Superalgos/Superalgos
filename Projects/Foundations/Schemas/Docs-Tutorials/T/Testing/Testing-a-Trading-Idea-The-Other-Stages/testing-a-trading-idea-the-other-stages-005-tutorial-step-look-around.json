@@ -7,7 +7,14 @@
             "project": "Foundations",
             "name": "initial-targets"
         },
-        "text": "Take a look at the nodes under Initial Targets. Do you have an intuition as to what they may be about?"
+        "text": "Take a look at the nodes under Initial Targets. Do you have an intuition as to what they may be about?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Werfen Sie einen Blick auf die Knotenpunkte unter Erste Ziele \" Initial Targets \". Haben Sie eine Vorstellung davon, worum es sich dabei handeln könnte?",
+                "updated": 1639395256350
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -16,15 +23,36 @@
         },
         {
             "style": "List",
-            "text": "Target Rate is a reference rate. Think of it as a ball-park rate at which you wish to enter the position. There is a lot more depth to this concept, but the simplification serves us well at this point."
+            "text": "Target Rate is a reference rate. Think of it as a ball-park rate at which you wish to enter the position. There is a lot more depth to this concept, but the simplification serves us well at this point.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Zielsatz \"Target Rate\" ist ein Referenzsatz. Betrachten Sie ihn als einen ungefähren Kurs, zu dem Sie in die Position einsteigen wollen. Dieses Konzept geht noch viel weiter in die Tiefe, aber die Vereinfachung hilft uns an dieser Stelle weiter.",
+                    "updated": 1639395267360
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Target Size In Base Asset and it's brother node, target size in quoted asset, is the definition of the maximum size the position should achieve."
+            "text": "The Target Size In Base Asset and it's brother node, target size in quoted asset, is the definition of the maximum size the position should achieve.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Knoten \" Target Size In Base Asset \" und sein Bruder, die Zielgröße im börsennotierten Asset, ist die Definition der maximalen Größe, die die Position erreichen soll.",
+                    "updated": 1639395285630
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The final rates and size is determined later on, in the definitions of the Execution Algorithm."
+            "text": "The final rates and size is determined later on, in the definitions of the Execution Algorithm.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die endgültigen Kurse und die Größe werden zu einem späteren Zeitpunkt in den Definitionen des Execution Algorithm festgelegt.",
+                    "updated": 1639395293700
+                }
+            ]
         }
     ]
 }

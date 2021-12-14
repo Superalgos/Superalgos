@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Ссылка Trading Engine Reference определяет, какой торговый механизм будет использовать торговый бот для структурирования данных, которые он обрабатывает во время торговой сессии.",
                 "updated": 1639141820714
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret motoru referansı, ticaret botunun ticaret oturumunu çalıştırırken işlediği verileri yapılandırmak için hangi ticaret motorunu kullanacağını belirler.",
+                "updated": 1639486388156
             }
         ]
     },

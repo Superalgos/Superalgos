@@ -7,20 +7,48 @@
             "name": "Close\\close-stage",
             "project": "Foundations"
         },
-        "text": "Let's do some quick reading about the Close Stage! Take a look at this page!"
+        "text": "Let's do some quick reading about the Close Stage! Take a look at this page!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lesen wir schnell etwas über die Close Stage! Werfen Sie einen Blick auf diese Seite!",
+                "updated": 1639417649529
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The close stage features similar workings as the open stage, provides the same level of flexibility to define execution, and requires the same kind of definitions."
+            "text": "The close stage features similar workings as the open stage, provides the same level of flexibility to define execution, and requires the same kind of definitions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Close Stage funktioniert ähnlich wie die Open Stage, bietet denselben Grad an Flexibilität bei der Definition der Ausführung und erfordert dieselbe Art von Definitionen.",
+                    "updated": 1639417662670
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Take a few minutes to think about how to close this position. Think about what our target rate and target size should be."
+            "text": "Take a few minutes to think about how to close this position. Think about what our target rate and target size should be.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um darüber nachzudenken, wie Sie diese Position schließen können. Überlegen Sie, wie hoch der Zielkurs und die Zielgröße sein sollten.",
+                    "updated": 1639417681367
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Also, think about what type of order we should use!"
+            "text": "Also, think about what type of order we should use!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie auch darüber nach, welche Art von Auftrag wir verwenden sollten!",
+                    "updated": 1639417685330
+                }
+            ]
         }
     ]
 }

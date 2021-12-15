@@ -140,8 +140,8 @@
 
                     let allGood
                     switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
-                        case 'Backtesting Session': {
-                            allGood = startBackTesting(message)
+                        case 'Backtesting Portfolio Session': {
+                            allGood = startBacktestingPortfolio(message)
                             break
                         }
                         case 'Live Portfolio Session': {
@@ -268,7 +268,7 @@
                     }
                 } else {
                     /* Check that we received valid dates */
-                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
                         if (isNaN(new Date(TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeRange.config.initialDatetime)).valueOf()) {
                             let errorMessage = "Invalid Initial Datetime Property Value"
                             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -317,7 +317,7 @@
                 let aYearAgo = today - SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 let aYearFromNow = today + SA.projects.foundations.globals.timeConstants.ONE_YEAR_IN_MILISECONDS
                 switch (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type) {
-                    case 'Backtesting Session': {
+                    case 'Backtesting Portfolio Session': {
                         useDefaultDatetimes(aYearAgo, today)
                         break
                     }
@@ -342,7 +342,7 @@
                     */
 
                     /* Initial Datetime */
-                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
+                    if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
                         if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeRange.config.initialDatetime === undefined) {
                             TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeRange.config.initialDatetime = initialDefault
                         } else {
@@ -525,10 +525,6 @@
                 return true
             }
 
-            function startBackTesting(message) {
-                return true
-            }
-
             function checkKey() {
                 if (TS.projects.foundations.globals.taskConstants.TASK_NODE.keyReference === undefined) {
                     let errorMessage = "Key Reference Node Missing"
@@ -594,11 +590,6 @@
             }
 
             function startLivePortfolio() {
-                /* Testing to be removed:  @PLUV */
-                /*for (let key of TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.keys()) {
-                    TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_MAP.get(key).beginListening();
-                }*/
-                /* End Testing */
                 return checkKey()
             }
 
@@ -627,6 +618,10 @@
             }
 
             function startPaperPortfolio(message) {
+                return true
+            }
+
+            function startBacktestingPortfolio(message) {
                 return true
             }
 

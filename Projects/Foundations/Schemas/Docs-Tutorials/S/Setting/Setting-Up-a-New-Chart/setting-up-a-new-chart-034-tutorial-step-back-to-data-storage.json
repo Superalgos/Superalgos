@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Давайте найдем еще несколько Продуктов данных. Вы станете профессионалом в поиске вещей в иерархии хранилища данных.",
                 "updated": 1639083462415
+            },
+            {
+                "language": "DE",
+                "text": " Lassen Sie uns weitere Data Products finden. Sie werden ein Profi darin sein, Dinge in der Data Storage zu finden.",
+                "updated": 1639498409941
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Вы должны заметить, что есть три ветви. По одному для каждого типа данных, к которым мы можем обращаться в наших диаграммах. Поскольку сейчас нас интересуют данные нашей торговой системы (Trading System),нам нужны продукты данных, содержащиеся в иерархии Trading Mines Data .",
                     "updated": 1639083534391
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden feststellen, dass es drei Verzweigungen gibt. Einen für jede Art von Daten, auf die wir in unseren Diagrammen zugreifen können. Da wir nun an den Daten unseres Trading System interessiert sind, benötigen wir die Datenprodukte, die in der Hierarchie der Trading Mines Data enthalten sind.",
+                    "updated": 1639498499529
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Как и раньше, следуйте по иерархии, пока не найдете узлы Trading Mine Products .",
                     "updated": 1639083569550
+                },
+                {
+                    "language": "DE",
+                    "text": "Folgen Sie wie zuvor der Hierarchie, bis Sie die Knoten Trading Mine Products finden.",
+                    "updated": 1639498553923
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Обязательно загляните в узлы справочника торговых сессий Trading Session Reference !",
                     "updated": 1639083602613
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie unbedingt unter dem Knoten Trading Session Reference nach!",
+                    "updated": 1639498668334
                 }
             ]
         }

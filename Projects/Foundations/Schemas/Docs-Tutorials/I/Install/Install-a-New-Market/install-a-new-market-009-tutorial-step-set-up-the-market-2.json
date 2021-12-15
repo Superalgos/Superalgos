@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Stellen Sie einen Verweis vom Knoten Market Base Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
                 "updated": 1635832090712
+            },
+            {
+                "language": "RU",
+                "text": "Установите ссылку от узла Market Base Asset в только что определенном рынке (Market) к соответствующему узлу Asset, определенному в разделе Exchange Assets.",
+                "updated": 1639567352737
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "Wenn Sie mit der Erstellung von Verweisen nicht vertraut sind, lesen Sie bitte in der Dokumentation über dieses Thema.",
                     "updated": 1635832150842
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не знакомы с созданием ссылок, пожалуйста, прочитайте об этом в документации.",
+                    "updated": 1639567245317
                 }
             ]
         }

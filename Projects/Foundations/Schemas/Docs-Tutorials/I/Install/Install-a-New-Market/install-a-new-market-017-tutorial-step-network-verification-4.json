@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Datenspeicherknoten für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636469629780
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что узлы хранения данных для соответствующего Рынка (Market) были успешно созданы.",
+                "updated": 1639583930037
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636469658454
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1639583950421
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Ein Knoten Market Data Products unter Data Mines Data, mit einem Knoten Data Mine Products  für jede Data Mine  im Arbeitsbereich.",
                     "updated": 1636469847598
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Продукты рыночных данных (Market Data Products) под данными шахт данных (Data Mines Data), С узлом продуктов шахты данных (Data Mine Products) для каждого объекта Data Mine в рабочей области.",
+                    "updated": 1639584164764
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Ein Knoten Market Trading Products unter Trading Mines Data, mit einer Trading Session Reference für jede Handelssitzung in den Test- und Produktionsumgebungen.",
                     "updated": 1636469864913
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Market Trading Products в разделе Trading Mines Data с ссылкой на торговую сессию для каждой торговой сессии в тестовой и производственной средах.",
+                    "updated": 1639584724846
                 }
             ]
         }

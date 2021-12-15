@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Herzlichen Glückwunsch... Sie haben das Ende des Tutorials erreicht!",
                 "updated": 1636470750188
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляю... вы дошли до конца этого руководства!",
+                "updated": 1639585771756
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Sie können dieses Lernprogramm jederzeit wieder aufrufen. Wenn Sie im Menü die Option Play wählen, beginnen Sie direkt am Anfang. Wenn Sie stattdessen die Option Resume wählen, beginnen Sie dort, wo Sie zuletzt aufgehört haben oder wo Sie zuletzt einen Schritt übersprungen haben.",
                     "updated": 1636470883959
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете вернуться к этому руководству в любой момент. Если вы выберете в меню опцию \"Play\", вы начнете с самого начала. Если вместо этого вы выберете опцию \"Resume\", вы начнете с того места, где остановились в последний раз, или с того места, где в последний раз пропустили шаг.",
+                    "updated": 1639585863379
                 }
             ]
         }

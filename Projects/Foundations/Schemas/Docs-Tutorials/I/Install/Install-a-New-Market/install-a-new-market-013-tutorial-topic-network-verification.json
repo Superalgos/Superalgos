@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Die Funktion Install Market richtet im lokalen Netzwerk Node viele Datenstrukturen ein.",
                 "updated": 1636356142878
+            },
+            {
+                "language": "RU",
+                "text": "Функция Install Market устанавливает множество структур данных в локальном сетевом узле (Network Node).",
+                "updated": 1639570151829
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "In den nächsten Schritten werden Sie überprüfen, ob jede der erwarteten Datenstrukturen erfolgreich erstellt wurde. Die erwarteten Strukturen sind:",
                     "updated": 1636356136312
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующих нескольких шагах вы убедитесь, что каждая из ожидаемых структур данных была успешно создана. Ожидаемыми структурами являются:",
+                    "updated": 1639570113949
                 }
             ]
         },

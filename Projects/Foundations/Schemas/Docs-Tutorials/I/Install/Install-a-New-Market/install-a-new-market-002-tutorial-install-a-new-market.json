@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Dieses Tutorial führt Sie durch den Prozess der Einrichtung eines neuen Market, auf dem Sie Data-Mining- und Handelsoperationen durchführen können.",
                 "updated": 1635737811408
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник проведет вас через процесс настройки нового рынка (Market), на котором будут выполняться интеллектуальные и торговые операции.",
+                "updated": 1639564466373
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "Die Einrichtung eines neuen Market umfasst Folgendes:",
                     "updated": 1635737994943
+                },
+                {
+                    "language": "RU",
+                    "text": "Создание нового рынка  (Market) включает в себя:",
+                    "updated": 1639564575149
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "DE",
                     "text": "1. Hinzufügen der Vermögenswerte für die gewünschte Börse.",
                     "updated": 1635738091361
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Добавление активов для биржи по выбору.",
+                    "updated": 1639564608944
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "DE",
                     "text": "2. Einrichten eines Marktes mit den genannten Vermögenswerten.",
                     "updated": 1635738118471
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Создание рынка с указанными активами.",
+                    "updated": 1639564623251
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "DE",
                     "text": "3. Installieren des Marktes",
                     "updated": 1635738137290
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Установка рынка",
+                    "updated": 1639564645997
                 }
             ]
         },
@@ -106,6 +131,11 @@
                     "language": "DE",
                     "text": "Wenn Sie auf die Schaltfläche Weiter unten klicken, gelangen Sie zum Knoten Exchange Assets unter Binance in der Crypto Ecosystem Hierarchie. Sie können lernen, wie man einen Markt in dieser Börse installiert, so dass Sie später dasselbe in Ihrer Börse der Wahl tun können.",
                     "updated": 1635738358469
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы нажмете кнопку Next, вы перейдете к узлу Exchange Assets под Binance в иерархии Crypto Ecosystem. Вы можете узнать, как установить рынок на этой бирже, чтобы впоследствии сделать то же самое на выбранной вами бирже",
+                    "updated": 1639564702133
                 }
             ]
         }

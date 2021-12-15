@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Charting Space Datenstrukturen für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636470181662
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что структуры данных Charting Space для соответствующего Рынка (Market) были успешно созданы.",
+                "updated": 1639585249614
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636470213873
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1639585259748
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
                     "updated": 1636470376014
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Time Machine для каждой торговой сессии, созданной в Задачах тестирования торговли (Testing Trading Tasks).",
+                    "updated": 1639585435180
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
                     "updated": 1636470394173
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Time Machine для каждой торговой сессии, созданной в Задачах производственной торговли (Production Trading Tasks).",
+                    "updated": 1639585469753
                 }
             ]
         }

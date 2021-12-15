@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Beschriften Sie die Vermögenswerte mit dem beschreibenden Namen des Coins oder des Tokens, um die Verwendung zu erleichtern. Zum Beispiel: Ether.",
                 "updated": 1635742793479
+            },
+            {
+                "language": "RU",
+                "text": "Пометьте активы описательным названием монеты или токена для удобства использования. Например: Эфир.",
+                "updated": 1639565870937
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "Schritt 3: Knoten beschriften",
                     "updated": 1635742900320
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг 3: Этикетки узлов",
+                    "updated": 1639565951482
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "DE",
                     "text": "Ein aufgeräumter Workspace mit ordnungsgemäßen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung umfangreicher Vorgänge und der Beherrschung der Komplexität.",
                     "updated": 1635742978205
+                },
+                {
+                    "language": "RU",
+                    "text": "Поддержание порядка в рабочем пространстве (Workspace) с соответствующими метками для значимых узлов помогает в управлении большими операциями и администрировании сложностей.",
+                    "updated": 1639565998746
                 }
             ]
         }

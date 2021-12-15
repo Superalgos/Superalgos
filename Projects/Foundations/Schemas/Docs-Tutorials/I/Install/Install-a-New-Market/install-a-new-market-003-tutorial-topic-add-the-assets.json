@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Wenn die Vermögenswerte, mit denen Sie arbeiten möchten, nicht unter Exchange Assets aufgeführt sind, müssen Sie sie zunächst hinzufügen und konfigurieren.\n",
                 "updated": 1635738895005
+            },
+            {
+                "language": "RU",
+                "text": "Если активы, с которыми вы хотите работать, не перечислены в разделе Exchange Assets, их необходимо сначала добавить и настроить.",
+                "updated": 1639564799579
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "In diesem Abschnitt des Tutorials lernen Sie, wie Sie festlegen, mit welchen Vermögenswerte Sie arbeiten möchten.",
                     "updated": 1635739057875
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом разделе учебника вы научитесь определять, с какими активами вы хотите работать.",
+                    "updated": 1639564831789
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "DE",
                     "text": "Jede Börse kann Hunderte von Vermögenswerten auflisten, aber Sie werden wahrscheinlich nur an einigen wenigen interessiert sein. Einige automatisierte Vorgänge können sich auf Ihre Definitionen stützen, daher ist es immer eine gute Idee, sie frei von Gerümpel zu halten.",
                     "updated": 1635739405026
+                },
+                {
+                    "language": "RU",
+                    "text": "На каждой бирже могут быть представлены сотни активов, однако вас, скорее всего, заинтересуют лишь некоторые из них. Некоторые автоматизированные операции могут питаться вашими определениями, поэтому держать их свободными от мусора - всегда хорошая идея.",
+                    "updated": 1639564861197
                 }
             ]
         }

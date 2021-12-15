@@ -28,7 +28,14 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617119241774
+            "updated": 1617119241774,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1639564336754
+                }
+            ]
         },
         {
             "style": "List",

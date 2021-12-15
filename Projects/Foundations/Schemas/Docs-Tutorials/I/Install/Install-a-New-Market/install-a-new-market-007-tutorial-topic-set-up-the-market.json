@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Wenn für das Paar, mit dem Sie arbeiten möchten, unter Exchange Markets kein Market eingerichtet ist, müssen Sie die Marktdefinition vor der Installation einrichten.",
                 "updated": 1635829019620
+            },
+            {
+                "language": "RU",
+                "text": "Если для пары (Market) , с которой вы хотите работать, не установлен рынок в разделе Exchange Markets, то перед его установкой необходимо настроить определение рынка.",
+                "updated": 1639566533237
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "In den nächsten Schritten lernen Sie, wie Sie den Markt einrichten, damit Sie ihn später installieren können.",
                     "updated": 1635829102056
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующие несколько шагов научат вас, как настроить рынок, чтобы впоследствии вы могли его установить.",
+                    "updated": 1639566434442
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass die Kombination aus Market Base Asset und Market Quoted Asset, die Sie als Market in Superalgos definieren möchten, als börsennotierter Markt existiert.",
                     "updated": 1635829254330
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что комбинация рыночного базового актива (Market Base Asset) и рыночного котируемого актива (Market Quoted Asset) который вы хотите определить как рынок (Market) в Superalgos , существует как рынок, зарегистрированный на бирже.",
+                    "updated": 1639566788803
                 }
             ]
         }

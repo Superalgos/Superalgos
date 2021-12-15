@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Production Trading Tasks für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636468982204
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что задачи Production Trading Tasks для соответствующего Рынка успешно созданы.",
+                "updated": 1639581867358
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "ES",
                     "text": "Busca las siguientes estructuras de datos:",
                     "updated": 1629249556254
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1639581880556
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Ein Market Trading Tasks Knoten für den neuen Markt.",
                     "updated": 1636469204941
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Задачи рыночной торговли (Market Trading Tasks) для нового рынка.",
+                    "updated": 1639582037512
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "DE",
                     "text": "Ein Knoten Trading Mine Tasks für jede im Arbeitsbereich enthaltene Handelsmine.",
                     "updated": 1636469220146
+                },
+                {
+                    "language": "RU",
+                    "text": "Один узел Торговые задачи шахты (Trading Mine Tasks) для каждой торговой шахты, включенной в рабочее пространство.",
+                    "updated": 1639581982989
                 }
             ]
         },
@@ -73,6 +93,11 @@
                     "language": "DE",
                     "text": "Ein Task Manager pro Trading Mine und eine Task mit einer Backtesting Session für jedes Trading System im Arbeitsbereich.",
                     "updated": 1636469243913
+                },
+                {
+                    "language": "RU",
+                    "text": "Один диспетчер задач (Task Manager) на торговую шахту (Trading Mine) и одна задача (Task) с сеансом бэктестинга (Backtesting Session) для каждой торговой системы (Trading System) в рабочем пространстве.",
+                    "updated": 1639583659914
                 }
             ]
         }

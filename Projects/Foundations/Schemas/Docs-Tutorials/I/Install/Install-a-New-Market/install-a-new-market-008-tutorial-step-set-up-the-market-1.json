@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Fügen Sie einen neuen Market knoten hinzu, indem Sie die Option Market hinzufügen im Menü wählen.\n",
                 "updated": 1635829868443
+            },
+            {
+                "language": "RU",
+                "text": "Добавьте новый узел Рынок (Market) используя опцию Добавить рынок (Add Market) в меню.",
+                "updated": 1639566911376
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "Ein Market knoten sollte mit zwei Ablegern hinzugefügt werden: einem Market Base Asset und einem Market Quoted Asset.",
                     "updated": 1635830106575
+                },
+                {
+                    "language": "RU",
+                    "text": "Следует добавить узел Market с двумя потомками: рыночным базовым активом (Market Base Asset) и рыночным котируемым активом (Market Quoted Asset).",
+                    "updated": 1639567192467
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "DE",
                     "text": "Bevor Sie fortfahren, vergewissern Sie sich, welches der Basiswert und welches der börsennotierte Vermögenswert in der Börsennotierung ist. In der Regel ist der Basiswert der erste im Namen des Paares, aber das wird nicht an jeder Börse durchgesetzt, also seien Sie wachsam.",
                     "updated": 1635830457846
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем продолжить, убедитесь, какой из них является базовым, а какой - котируемым активом в листинге биржи. Обычно базовый актив является первым в названии пары, но это соблюдается не на всех биржах, поэтому будьте бдительны.",
+                    "updated": 1639566959167
                 }
             ]
         }

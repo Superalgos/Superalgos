@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Bearbeiten Sie die Konfiguration aller neuen Vermögenswerte, die in dem Ticker aufgenommen werden sollen (wie von der Börse aufgelistet), in der Eigenschaft codeName.",
                 "updated": 1635742495525
+            },
+            {
+                "language": "RU",
+                "text": "Отредактируйте конфигурацию каждого из новых активов, введя тикер (как указано на бирже) в свойстве codeName.",
+                "updated": 1639565793810
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1635742555141
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1639565802163
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "DE",
                     "text": "Wenn das Symbol für die konfigurierten Vermögenswerte in der Bildbibliothek vorhanden ist, wird das Standardsymbol automatisch ersetzt.",
                     "updated": 1635742650600
+                },
+                {
+                    "language": "RU",
+                    "text": "Если значок для настроенных активов существует в библиотеке изображений, значок по умолчанию заменяется автоматически.",
+                    "updated": 1639565819488
                 }
             ]
         }

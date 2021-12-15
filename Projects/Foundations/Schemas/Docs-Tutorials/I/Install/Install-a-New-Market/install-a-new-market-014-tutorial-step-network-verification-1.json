@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Data Tasks Aufgaben für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636356364788
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что задачи Data Tasks для соответствующего Рынка (Market) были успешно созданы.",
+                "updated": 1639577113237
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636356678861
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите следующие структуры данных:",
+                    "updated": 1639577269692
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Ein Market Data Tasks Knoten für den neuen Markt.",
                     "updated": 1636356689571
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Задачи рыночных данных (Market Data Tasks) для нового рынка",
+                    "updated": 1639577309747
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Ein Data Mine Tasks Knoten für jeden im Workspace enthaltene Data Mine.",
                     "updated": 1636356757955
+                },
+                {
+                    "language": "RU",
+                    "text": "Один узел задач шахты данных (Data Mine Tasks)для каждой передачи данных (Data Mine) включен в рабочую область (Workspace).",
+                    "updated": 1639577432348
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "DE",
                     "text": "Ein Task Manager pro Data Mine und ein Task für jeden Bot, der in jedem Datenmine definiert ist.",
                     "updated": 1636356814073
+                },
+                {
+                    "language": "RU",
+                    "text": "Один диспетчер задач (Task Manager) для каждой шахты данных (Data Mine) и одна задача (Task) для каждого бота, определенного в каждой шахте данных.",
+                    "updated": 1639577537246
                 }
             ]
         }

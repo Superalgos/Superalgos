@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Stellen Sie nun einen Verweis vom Knoten Market Quoted Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
                 "updated": 1635832310411
+            },
+            {
+                "language": "RU",
+                "text": "Теперь установите ссылку из узла Рыночные котируемые активы (Market Quoted Asset) в только что определенном рынке (Market) на соответствующий узел Активы (Asset), определенный в разделе Активы Биржи (Exchange Assets).",
+                "updated": 1639567534142
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "Sie sind mit diesen Referenzen fast fertig!",
                     "updated": 1635832357018
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы почти закончили с этими ссылками!",
+                    "updated": 1639567423218
                 }
             ]
         }

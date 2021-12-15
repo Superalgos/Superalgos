@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Neben den Datenstrukturen, die in der Netzwerkhierarchie eingerichtet werden, richtet die Funktion Market installieren auch Charts ein, die zu den erstellten Handelssitzungen passen.",
                 "updated": 1636469963838
+            },
+            {
+                "language": "RU",
+                "text": "Помимо структур данных, установленных в иерархии Network, функция Install Market также устанавливает графики, соответствующие созданным торговым сессиям.",
+                "updated": 1639584802824
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "In den nächsten Schritten werden Sie überprüfen, ob die erwarteten Datenstrukturen erfolgreich erstellt wurden.",
                     "updated": 1636470004914
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующих нескольких шагах вы убедитесь, что ожидаемые структуры данных были успешно созданы.",
+                    "updated": 1639584817993
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Die erstellten Charts ermöglichen es, mit jeder der Handelssitzungen unabhängig zu arbeiten.",
                     "updated": 1636470034665
+                },
+                {
+                    "language": "RU",
+                    "text": "Созданные графики позволяют работать с каждой из торговых сессий независимо.",
+                    "updated": 1639584835454
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Beachten Sie bei der Organisation der Charts, dass Superalgos die Skalierung Ihrer Operation auf eine unbegrenzte Anzahl von Handelssystemen und Charts ermöglicht.",
                     "updated": 1636470077906
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на организацию графиков, что Superalgos позволяет масштабировать вашу работу до неограниченного количества торговых систем и графиков.",
+                    "updated": 1639584853828
                 }
             ]
         }

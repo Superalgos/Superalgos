@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Vergewissern Sie sich, dass die erstellten Zeitmaschinen in der Diagrammfläche angezeigt werden....",
                 "updated": 1636470446401
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что созданные машины времени отображаются в пространстве диаграмм... вы должны найти...",
+                "updated": 1639585539995
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Eine Time Machine für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
                     "updated": 1636470668493
+                },
+                {
+                    "language": "RU",
+                    "text": "Машина времени (Time Machine) для каждой торговой сессии, созданной в Задачах тестирования торговли (Testing Trading Tasks).",
+                    "updated": 1639585613958
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Eine Time Machine für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
                     "updated": 1636470688537
+                },
+                {
+                    "language": "RU",
+                    "text": "Машина времени (Time Machine) для каждой торговой сессии, созданной в Задачах производственной торговли (Production Trading Tasks).",
+                    "updated": 1639585656349
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über ein Diagramm, um zu sehen, welche Crypto Exchange und welchen Market es enthält.",
                     "updated": 1636470700735
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор мыши на график, чтобы узнать, какая криптовалютная биржа (Crypto Exchange) и рынок (Market)на нем представлены.",
+                    "updated": 1639585717370
                 }
             ]
         }

@@ -19,6 +19,11 @@
                 "language": "DE",
                 "text": "Beschriften Sie den Market mit den Tickernamen, die dem Market Base Asset und dem Market Quoted Asset entsprechen, genau wie bei der Börsennotierung.",
                 "updated": 1636093674049
+            },
+            {
+                "language": "RU",
+                "text": "Пометьте рынок (Market) названиями тикеров, соответствующими рыночному базовому активу (Market Base Asset) и рыночному котируемому активу (Market Quoted Asset), как и биржевой листинг.",
+                "updated": 1639567751572
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel: ETH/USDT",
                     "updated": 1636093747607
+                },
+                {
+                    "language": "RU",
+                    "text": "Например: ETH/USDT.",
+                    "updated": 1639567657913
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "DE",
                     "text": "Ein aufgeräumter Workspace mit den richtigen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung großer Vorgänge und der Beherrschung der Komplexität. Diese Bezeichnungen können von anderen Knoten verwendet werden!",
                     "updated": 1636093838222
+                },
+                {
+                    "language": "RU",
+                    "text": "Поддержание аккуратной рабочей области (Workspace) с надлежащими метками для значимых узлов помогает в управлении крупными операциями и усложнении администрирования. Эти метки могут использоваться другими узлами!",
+                    "updated": 1639567648753
                 }
             ]
         }

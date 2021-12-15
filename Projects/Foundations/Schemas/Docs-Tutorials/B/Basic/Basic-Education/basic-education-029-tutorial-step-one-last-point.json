@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Gehen Sie zum Menü des Trading System Reference Knotens, klicken Sie auf die Schaltfläche Hilfe und scrollen Sie bis zum Ende der Seite!",
                 "updated": 1634334946591
+            },
+            {
+                "language": "TR",
+                "text": "Düğüm Ekleme Kurallarında ( Node Attaching Rules ) olduğu gibi, referans oluşturabilecek düğümlerin de bu konuda kuralları vardır.",
+                "updated": 1639562245710
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Menü des Trading System Reference Knotens, klicken Sie auf die Schaltfläche Hilfe und scrollen Sie bis zum Ende der Seite!",
                     "updated": 1634334991343
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Sistemi Referansı ( Trading System Reference ) menüsüne gidin, yardım düğmesine tıklayın ve sayfanın en altına gidin!",
+                    "updated": 1639562324910
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Wenn Sie ein Entwickler sind, sollten Sie wissen, dass die Node Attaching Rules und die Node Referencing Rules in der Datei AppSchema.json im Schema-Ordner eines Projekts definiert sind.",
                     "updated": 1634334953417
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğer bir geliştiriciyseniz, Düğüm Ekleme Kuralları ve Düğüm Başvuru Kurallarının ( Node Attaching Rules and Node Referencing Rules ) projenin Şema klasöründeki AppSchema.json dosyasında tanımlanmıştır. ",
+                    "updated": 1639563431641
                 }
             ]
         }

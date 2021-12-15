@@ -16,6 +16,11 @@
                 "language": "RU",
                 "text": "Чтобы установить ссылку, щелкните правой кнопкой мыши первый узел и перетащите его ближе к целевому узлу. Чтобы удалить ссылку, используйте кнопку удаления ссылки в меню.",
                 "updated": 1638346810573
+            },
+            {
+                "language": "TR",
+                "text": "Bir referans oluşturmak için ilk düğüme sağ tıklayın ve onu hedef düğümün yakınına sürükleyin. Bir referansı kaldırmak için menüdeki bağlantıyı kaldır düğmesini kullanın.",
+                "updated": 1639561962381
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "При установлении ссылки серые кольца показывают, с какими узлами вы можете установить ссылку. В случае, если есть несколько узлов, которые принимают ссылку, тот, который находится ближе к узлу, откуда эта ссылка берет начало, выделяется золотым кольцом. Отпускание кнопки мыши устанавливает ссылку с выделенным узлом.",
                     "updated": 1638346833498
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir referans oluştururken, gri halkalar referansı hangi düğümlerle kurabileceğinizi gösterir. Referansı kabul edecek birden fazla düğüm olması durumunda, referansın geldiği düğüme daha yakın olan altın bir halka ile vurgulanır. Fare düğmesinin serbest bırakılması, vurgulanan düğümle referansı oluşturur.",
+                    "updated": 1639562009397
                 }
             ]
         },
@@ -61,6 +71,11 @@
                     "language": "RU",
                     "text": "Ссылка визуально представлена ​​слабой серой пунктирной линией.",
                     "updated": 1638346850624
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans, soluk gri noktalı bir çizgi ile görsel olarak temsil edilir.",
+                    "updated": 1639562057575
                 }
             ],
             "updated": 1637691076887
@@ -73,6 +88,11 @@
                     "language": "RU",
                     "text": "Вы можете включать и выключать эти серые линии, используя: Ctrl + Shift + Alt + Клавиша-R",
                     "updated": 1638346885836
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu gri çizgileri şu tuş kombinasyonunu kullanarak açıp kapatabilirsiniz: Ctrl + Shift + Alt + Key-R",
+                    "updated": 1639562086642
                 }
             ]
         },
@@ -91,6 +111,11 @@
                     "language": "RU",
                     "text": "Чтобы удалить ссылку или разъединить два узла, используйте кнопку отмены связи на узле, откуда возникает ссылка.",
                     "updated": 1638346905258
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir referansı kaldırmak veya iki düğümün bağlantısını kesmek için referansın kaynaklandığı düğümdeki bağlantıyı kaldır düğmesini kullanın.",
+                    "updated": 1639562106807
                 }
             ]
         },
@@ -107,6 +132,11 @@
                     "language": "RU",
                     "text": "Что делать, если узлы находятся далеко или в разных иерархиях?",
                     "updated": 1638346918146
+                },
+                {
+                    "language": "TR",
+                    "text": "Ya Düğümler Uzaktaysa veya Farklı Hiyerarşilerdeyse?",
+                    "updated": 1639558897769
                 }
             ]
         },
@@ -129,6 +159,11 @@
                     "language": "RU",
                     "text": "Процесс точно такой же. Все, что вам нужно сделать, это освоить несколько трюков, чтобы вы могли полностью переместить один из узлов туда, где находится второй узел.",
                     "updated": 1638346936610
+                },
+                {
+                    "language": "TR",
+                    "text": "Süreç tamamen aynı. Tek yapmanız gereken birkaç numarada ustalaşmak, böylece düğümlerden birini ikinci düğümün olduğu yere kadar taşıyabilirsiniz.",
+                    "updated": 1639558919496
                 }
             ]
         },

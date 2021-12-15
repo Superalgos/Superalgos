@@ -3,12 +3,12 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Signal Reference",
-            "relatedUiObject": "Signal Reference",
+            "label": "Add Outgoing Signal Reference",
+            "relatedUiObject": "Outgoing Signal Reference",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Trading-Signals",
             "actionProject": "Visual-Scripting"
-        },
+        },       
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -23,13 +23,13 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trigger On Event->"
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->Order Rate->Create Order Event->Cancel Order Event->Phase->Next Phase Event->Move To Phase Event->Close Stage Event->"
     },
     "childrenNodesProperties": [
         {
-            "name": "signalReferences",
+            "name": "outgoingSignalReferences",
             "type": "array",
-            "childType": "Signal Reference",
+            "childType": "Outgoing Signal Reference",
             "autoAdd": false
         }
     ],

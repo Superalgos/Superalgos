@@ -151,8 +151,10 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
         let lanNetworkNode = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'LAN Network Node', undefined, true, false, true, false)
         if (lanNetworkNode === undefined) { return }
 
+        let backtestingPortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Portfolio Session')
         let livePortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Portfolio Session')
 
+        addMissingSession(backtestingPortfolioSessionsArray)
         addMissingSession(livePortfolioSessionsArray)
 
         function addMissingSession(sessionsArray) {

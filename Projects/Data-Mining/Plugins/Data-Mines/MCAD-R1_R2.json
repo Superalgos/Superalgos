@@ -1,7 +1,7 @@
 {
     "type": "Data Mine",
     "name": "MCAD R1 & R2",
-    "config": "{\n    \"codeName\": \"MACDR1R2\"\n}",
+    "config": "{\"codeName\":\"MCAD-R1_R2\"}",
     "project": "Data-Mining",
     "sensorBots": [],
     "apiDataFetcherBots": [],
@@ -15,7 +15,7 @@
                 {
                     "type": "Process Definition",
                     "name": "Multi-Time-Frame-Market",
-                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"description\": \"Produces the MACD indicator.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"sleepWaitTime\": 3600000,\n    \"comaWaitTime\": 86400000,\n    \"framework\": {\n      \"name\": \"Multi-Time-Frame-Market\"\n    }\n  }",
+                    "config": "{\n  \"codeName\": \"Multi-Time-Frame-Market\",\n  \"description\": \"Produces the MACDR1 indicator.\",\n  \"deadWaitTime\": 0,\n  \"normalWaitTime\": 0,\n  \"retryWaitTime\": 10000,\n  \"sleepWaitTime\": 3600000,\n  \"comaWaitTime\": 86400000,\n  \"framework\": {\n    \"name\": \"Multi-Time-Frame-Market\"\n  }\n}",
                     "project": "Foundations",
                     "processOutput": {
                         "type": "Process Output",
@@ -428,12 +428,12 @@
                     "id": "8256a793-66ee-44f4-9d57-ad0fa2907246",
                     "savedPayload": {
                         "position": {
-                            "x": 25164.099425660308,
-                            "y": 22605.533009460978
+                            "x": 25099.099425660308,
+                            "y": 22624.533009460978
                         },
                         "targetPosition": {
-                            "x": 24951.967391304344,
-                            "y": 22817.66504381694
+                            "x": 24886.967391304344,
+                            "y": 22836.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -451,7 +451,7 @@
                 {
                     "type": "Process Definition",
                     "name": "Multi-Time-Frame-Daily",
-                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"description\": \"Produces the MACD indicator.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"sleepWaitTime\": 3600000,\n    \"comaWaitTime\": 86400000,\n    \"framework\": {\n      \"name\": \"Multi-Time-Frame-Daily\"\n    }\n  }",
+                    "config": "{\n  \"codeName\": \"Multi-Time-Frame-Daily\",\n  \"description\": \"Produces the MACDR1 indicator.\",\n  \"deadWaitTime\": 0,\n  \"normalWaitTime\": 0,\n  \"retryWaitTime\": 10000,\n  \"sleepWaitTime\": 3600000,\n  \"comaWaitTime\": 86400000,\n  \"framework\": {\n    \"name\": \"Multi-Time-Frame-Daily\"\n  }\n}",
                     "project": "Foundations",
                     "processOutput": {
                         "type": "Process Output",
@@ -923,12 +923,12 @@
                     "id": "a0fca692-c935-441a-b6cc-6dcaf7e015b1",
                     "savedPayload": {
                         "position": {
-                            "x": 25251.967391304344,
-                            "y": 22817.66504381694
+                            "x": 25186.967391304344,
+                            "y": 22836.66504381694
                         },
                         "targetPosition": {
-                            "x": 24951.967391304344,
-                            "y": 22817.66504381694
+                            "x": 24886.967391304344,
+                            "y": 22836.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -948,7 +948,7 @@
                 {
                     "type": "Product Definition",
                     "name": "MACD R1",
-                    "config": "{\n  \"codeName\": \"MACD-R1\",\n  \"singularVariableName\": \"MACD-R1\",\n  \"pluralVariableName\": \"MACD-R1\"\n}",
+                    "config": "{\n  \"codeName\": \"MACDR1\",\n  \"singularVariableName\": \"MACDR1\",\n  \"pluralVariableName\": \"MACDR1\"\n}",
                     "project": "Foundations",
                     "datasets": [
                         {
@@ -959,12 +959,12 @@
                             "id": "4f72eb40-8eb4-4627-870b-ffbd364d2c33",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25460.40592783885,
-                                    "y": 22982.866738660836
+                                    "x": 25395.40592783885,
+                                    "y": 23001.866738660836
                                 },
                                 "targetPosition": {
-                                    "x": 25164.099425660308,
-                                    "y": 23029.797078172905
+                                    "x": 25099.099425660308,
+                                    "y": 23048.797078172905
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -987,12 +987,12 @@
                             "id": "c3761dba-f496-416b-8589-c827428b49b7",
                             "savedPayload": {
                                 "position": {
-                                    "x": 25431.401382916818,
-                                    "y": 23165.99422809477
+                                    "x": 25366.401382916818,
+                                    "y": 23184.99422809477
                                 },
                                 "targetPosition": {
-                                    "x": 25164.099425660308,
-                                    "y": 23029.797078172905
+                                    "x": 25099.099425660308,
+                                    "y": 23048.797078172905
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1025,12 +1025,12 @@
                                     "id": "a35789ab-602a-4e1c-bd12-c607935db3b7",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25350.378501783172,
-                                            "y": 23281.394188782746
+                                            "x": 25285.378501783172,
+                                            "y": 23300.394188782746
                                         },
                                         "targetPosition": {
-                                            "x": 25292.43671835579,
-                                            "y": 23377.825510111732
+                                            "x": 25227.43671835579,
+                                            "y": 23396.825510111732
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1048,12 +1048,12 @@
                                 "id": "f0a540af-5c3d-4a8f-bf89-109313fb1317",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25292.43671835579,
-                                        "y": 23377.825510111732
+                                        "x": 25227.43671835579,
+                                        "y": 23396.825510111732
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1080,12 +1080,12 @@
                                     "id": "9b9056e1-9bbd-4092-9326-30c0b1b591f5",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25447.236614438258,
-                                            "y": 23401.00399668786
+                                            "x": 25382.236614438258,
+                                            "y": 23420.00399668786
                                         },
                                         "targetPosition": {
-                                            "x": 25340.865774683334,
-                                            "y": 23437.63041406429
+                                            "x": 25275.865774683334,
+                                            "y": 23456.63041406429
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1103,12 +1103,12 @@
                                 "id": "3cb6b965-82ae-472a-87d6-b947ac1a8fad",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25340.865774683334,
-                                        "y": 23437.63041406429
+                                        "x": 25275.865774683334,
+                                        "y": 23456.63041406429
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1135,12 +1135,12 @@
                                     "id": "fed26fac-8939-465c-8d6a-74ea5eeaddd5",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25444.550530890283,
-                                            "y": 23554.889620088412
+                                            "x": 25379.550530890283,
+                                            "y": 23573.889620088412
                                         },
                                         "targetPosition": {
-                                            "x": 25339.522732909347,
-                                            "y": 23514.573225764565
+                                            "x": 25274.522732909347,
+                                            "y": 23533.573225764565
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1158,12 +1158,12 @@
                                 "id": "bab39766-d613-40f3-b7d1-799bec4e0d17",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25339.522732909347,
-                                        "y": 23514.573225764565
+                                        "x": 25274.522732909347,
+                                        "y": 23533.573225764565
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1190,12 +1190,12 @@
                                     "id": "79d48b2e-4e2e-4f3e-a11d-43eb8e305b01",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25343.577099483835,
-                                            "y": 23671.046265547084
+                                            "x": 25278.577099483835,
+                                            "y": 23690.046265547084
                                         },
                                         "targetPosition": {
-                                            "x": 25289.036017206123,
-                                            "y": 23572.6515484939
+                                            "x": 25224.036017206123,
+                                            "y": 23591.6515484939
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1213,12 +1213,12 @@
                                 "id": "a76c41b6-8b37-47a5-ab60-1be86f31fced",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25289.036017206123,
-                                        "y": 23572.6515484939
+                                        "x": 25224.036017206123,
+                                        "y": 23591.6515484939
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1245,12 +1245,12 @@
                                     "id": "a4076b44-2e41-4f94-bf34-573add5e89d6",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25191.56291096869,
-                                            "y": 23695.122947716445
+                                            "x": 25126.56291096869,
+                                            "y": 23714.122947716445
                                         },
                                         "targetPosition": {
-                                            "x": 25213.02892294855,
-                                            "y": 23584.68988957858
+                                            "x": 25148.02892294855,
+                                            "y": 23603.68988957858
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1268,12 +1268,12 @@
                                 "id": "18467ae4-54c0-4da1-a05d-177bd908cf3e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25213.02892294855,
-                                        "y": 23584.68988957858
+                                        "x": 25148.02892294855,
+                                        "y": 23603.68988957858
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1300,12 +1300,12 @@
                                     "id": "abad57e6-96d5-4148-b221-db66ecdf2cbe",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25059.637093600595,
-                                            "y": 23615.853919426932
+                                            "x": 24994.637093600595,
+                                            "y": 23634.853919426932
                                         },
                                         "targetPosition": {
-                                            "x": 25147.066014264503,
-                                            "y": 23545.055375433825
+                                            "x": 25082.066014264503,
+                                            "y": 23564.055375433825
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1323,12 +1323,12 @@
                                 "id": "43502453-1d7e-43cf-bbe6-540c7d346238",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25147.066014264503,
-                                        "y": 23545.055375433825
+                                        "x": 25082.066014264503,
+                                        "y": 23564.055375433825
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1355,12 +1355,12 @@
                                     "id": "18019269-ea5e-443c-a8a6-03482a3731d1",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25009.529203518225,
-                                            "y": 23470.330039992332
+                                            "x": 24944.529203518225,
+                                            "y": 23489.330039992332
                                         },
                                         "targetPosition": {
-                                            "x": 25122.012069223318,
-                                            "y": 23472.293435716525
+                                            "x": 25057.012069223318,
+                                            "y": 23491.293435716525
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1378,12 +1378,12 @@
                                 "id": "24eb75b9-64ac-40c9-aba1-731ce6fa5a0b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25122.012069223318,
-                                        "y": 23472.293435716525
+                                        "x": 25057.012069223318,
+                                        "y": 23491.293435716525
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1411,12 +1411,12 @@
                                     "id": "36f0e2fc-c5d0-4f22-8cac-6484aed05786",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25074.11914913107,
-                                            "y": 23334.844287780237
+                                            "x": 25009.11914913107,
+                                            "y": 23353.844287780237
                                         },
                                         "targetPosition": {
-                                            "x": 25149.590107153348,
-                                            "y": 23400.450190679287
+                                            "x": 25084.590107153348,
+                                            "y": 23419.450190679287
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1434,12 +1434,12 @@
                                 "id": "031dae9b-d272-482d-9bcd-bde54eb4e5d3",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 25149.590107153348,
-                                        "y": 23400.450190679287
+                                        "x": 25084.590107153348,
+                                        "y": 23419.450190679287
                                     },
                                     "targetPosition": {
-                                        "x": 25234.49493492841,
-                                        "y": 23474.256831440718
+                                        "x": 25169.49493492841,
+                                        "y": 23493.256831440718
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1458,12 +1458,12 @@
                         "id": "220300fd-ebe1-44ba-9cbf-089d5a3d60fa",
                         "savedPayload": {
                             "position": {
-                                "x": 25234.49493492841,
-                                "y": 23474.256831440718
+                                "x": 25169.49493492841,
+                                "y": 23493.256831440718
                             },
                             "targetPosition": {
-                                "x": 25164.099425660308,
-                                "y": 23029.797078172905
+                                "x": 25099.099425660308,
+                                "y": 23048.797078172905
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1493,12 +1493,12 @@
                                 "id": "1fcdbc9b-04c4-4b3e-ae97-3970beb17e8d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24733.405757899287,
-                                        "y": 23417.595398478396
+                                        "x": 24668.405757899287,
+                                        "y": 23436.595398478396
                                     },
                                     "targetPosition": {
-                                        "x": 24815.101613151543,
-                                        "y": 23291.794813286582
+                                        "x": 24750.101613151543,
+                                        "y": 23310.794813286582
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1516,12 +1516,12 @@
                             "id": "95a4250c-4624-4fb0-a307-be4405228b32",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24815.101613151543,
-                                    "y": 23291.794813286582
+                                    "x": 24750.101613151543,
+                                    "y": 23310.794813286582
                                 },
                                 "targetPosition": {
-                                    "x": 24896.797468403798,
-                                    "y": 23165.99422809477
+                                    "x": 24831.797468403798,
+                                    "y": 23184.99422809477
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1547,12 +1547,12 @@
                                 "id": "cd4f8602-0e0c-4125-8d9f-3171fbf67ca2",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24597.208607977424,
-                                        "y": 23150.293441221886
+                                        "x": 24532.208607977424,
+                                        "y": 23169.293441221886
                                     },
                                     "targetPosition": {
-                                        "x": 24747.00303819061,
-                                        "y": 23158.143834658327
+                                        "x": 24682.00303819061,
+                                        "y": 23177.143834658327
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1570,12 +1570,12 @@
                             "id": "61974f4e-4b78-4ab9-aa67-45a0a971720c",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24747.00303819061,
-                                    "y": 23158.143834658327
+                                    "x": 24682.00303819061,
+                                    "y": 23177.143834658327
                                 },
                                 "targetPosition": {
-                                    "x": 24896.797468403798,
-                                    "y": 23165.99422809477
+                                    "x": 24831.797468403798,
+                                    "y": 23184.99422809477
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -1593,12 +1593,12 @@
                         "id": "e8b13f45-abfb-4faa-98ec-624c77ac4d69",
                         "savedPayload": {
                             "position": {
-                                "x": 24896.797468403798,
-                                "y": 23165.99422809477
+                                "x": 24831.797468403798,
+                                "y": 23184.99422809477
                             },
                             "targetPosition": {
-                                "x": 25164.099425660308,
-                                "y": 23029.797078172905
+                                "x": 25099.099425660308,
+                                "y": 23048.797078172905
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -1616,17 +1616,17 @@
                     "id": "180d5f96-a925-49d6-9c02-e2972ce85382",
                     "savedPayload": {
                         "position": {
-                            "x": 25164.099425660308,
-                            "y": 23029.797078172905
+                            "x": 25099.099425660308,
+                            "y": 23048.797078172905
                         },
                         "targetPosition": {
-                            "x": 24951.967391304344,
-                            "y": 22817.66504381694
+                            "x": 24886.967391304344,
+                            "y": 22836.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -1694,7 +1694,7 @@
                 {
                     "type": "Process Definition",
                     "name": "Multi-Time-Frame-Market",
-                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Market\",\n    \"description\": \"Produces the MACD indicator.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"sleepWaitTime\": 3600000,\n    \"comaWaitTime\": 86400000,\n    \"framework\": {\n      \"name\": \"Multi-Time-Frame-Market\"\n    }\n  }",
+                    "config": "{\n  \"codeName\": \"Multi-Time-Frame-Market\",\n  \"description\": \"Produces the MACDR2 indicator.\",\n  \"deadWaitTime\": 0,\n  \"normalWaitTime\": 0,\n  \"retryWaitTime\": 10000,\n  \"sleepWaitTime\": 3600000,\n  \"comaWaitTime\": 86400000,\n  \"framework\": {\n    \"name\": \"Multi-Time-Frame-Market\"\n  }\n}",
                     "project": "Foundations",
                     "processOutput": {
                         "type": "Process Output",
@@ -2107,12 +2107,12 @@
                     "id": "ed7373fa-280b-4da5-8d81-a7412c296ef1",
                     "savedPayload": {
                         "position": {
-                            "x": 24351.967391304344,
-                            "y": 23417.66504381694
+                            "x": 24286.967391304344,
+                            "y": 23436.66504381694
                         },
                         "targetPosition": {
-                            "x": 24351.967391304344,
-                            "y": 23117.66504381694
+                            "x": 24286.967391304344,
+                            "y": 23136.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2130,7 +2130,7 @@
                 {
                     "type": "Process Definition",
                     "name": "Multi-Time-Frame-Daily",
-                    "config": "{\n    \"codeName\": \"Multi-Time-Frame-Daily\",\n    \"description\": \"Produces the MACD indicator.\",\n    \"deadWaitTime\": 0,\n    \"normalWaitTime\": 0,\n    \"retryWaitTime\": 10000,\n    \"sleepWaitTime\": 3600000,\n    \"comaWaitTime\": 86400000,\n    \"framework\": {\n      \"name\": \"Multi-Time-Frame-Daily\"\n    }\n  }",
+                    "config": "{\n  \"codeName\": \"Multi-Time-Frame-Daily\",\n  \"description\": \"Produces the MACDR2 indicator.\",\n  \"deadWaitTime\": 0,\n  \"normalWaitTime\": 0,\n  \"retryWaitTime\": 10000,\n  \"sleepWaitTime\": 3600000,\n  \"comaWaitTime\": 86400000,\n  \"framework\": {\n    \"name\": \"Multi-Time-Frame-Daily\"\n  }\n}",
                     "project": "Foundations",
                     "processOutput": {
                         "type": "Process Output",
@@ -2602,12 +2602,12 @@
                     "id": "454733e6-4875-4d79-8255-0ad25b79d148",
                     "savedPayload": {
                         "position": {
-                            "x": 24139.83535694838,
-                            "y": 23329.797078172905
+                            "x": 24074.83535694838,
+                            "y": 23348.797078172905
                         },
                         "targetPosition": {
-                            "x": 24351.967391304344,
-                            "y": 23117.66504381694
+                            "x": 24286.967391304344,
+                            "y": 23136.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -2627,7 +2627,7 @@
                 {
                     "type": "Product Definition",
                     "name": "MACD R2",
-                    "config": "{\n  \"codeName\": \"MACD-R2\",\n  \"singularVariableName\": \"MACD-R2\",\n  \"pluralVariableName\": \"MACD-R2\"\n}",
+                    "config": "{\n  \"codeName\": \"MACDR2\",\n  \"singularVariableName\": \"MACDR2\",\n  \"pluralVariableName\": \"MACDR2\"\n}",
                     "project": "Foundations",
                     "datasets": [
                         {
@@ -2638,12 +2638,12 @@
                             "id": "de36a17c-c790-4fd6-8b27-01ce4880a537",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23875.6318156166,
-                                    "y": 23360.370142129424
+                                    "x": 23810.6318156166,
+                                    "y": 23379.370142129424
                                 },
                                 "targetPosition": {
-                                    "x": 24051.967391304344,
-                                    "y": 23117.66504381694
+                                    "x": 23986.967391304344,
+                                    "y": 23136.66504381694
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2666,12 +2666,12 @@
                             "id": "481dc0bd-9866-4c44-9395-9acde8f419bc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23766.6504364158,
-                                    "y": 23210.370142129424
+                                    "x": 23701.6504364158,
+                                    "y": 23229.370142129424
                                 },
                                 "targetPosition": {
-                                    "x": 24051.967391304344,
-                                    "y": 23117.66504381694
+                                    "x": 23986.967391304344,
+                                    "y": 23136.66504381694
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -2704,12 +2704,12 @@
                                     "id": "22be1de3-54de-4532-946b-81193efd5b9b",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23757.43856756998,
-                                            "y": 23067.14939645174
+                                            "x": 23692.43856756998,
+                                            "y": 23086.14939645174
                                         },
                                         "targetPosition": {
-                                            "x": 23722.6741557028,
-                                            "y": 22960.155538368534
+                                            "x": 23657.6741557028,
+                                            "y": 22979.155538368534
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -2727,12 +2727,12 @@
                                 "id": "a8ba47b6-6b91-49b1-a3c8-b92328416563",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23722.6741557028,
-                                        "y": 22960.155538368534
+                                        "x": 23657.6741557028,
+                                        "y": 22979.155538368534
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2759,12 +2759,12 @@
                                     "id": "fa22e8c3-b8a4-4b52-a582-3ed5039751f7",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23618.380920101255,
-                                            "y": 23067.14939645174
+                                            "x": 23553.380920101255,
+                                            "y": 23086.14939645174
                                         },
                                         "targetPosition": {
-                                            "x": 23653.145331968437,
-                                            "y": 22960.155538368534
+                                            "x": 23588.145331968437,
+                                            "y": 22979.155538368534
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -2782,12 +2782,12 @@
                                 "id": "72bf6815-980c-48eb-b252-a8a396944067",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23653.145331968437,
-                                        "y": 22960.155538368534
+                                        "x": 23588.145331968437,
+                                        "y": 22979.155538368534
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2814,12 +2814,12 @@
                                     "id": "8924f25d-bba1-4ade-8ad4-8a2fe455ecb6",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23505.880920101255,
-                                            "y": 22985.41336205113
+                                            "x": 23440.880920101255,
+                                            "y": 23004.41336205113
                                         },
                                         "targetPosition": {
-                                            "x": 23596.895331968437,
-                                            "y": 22919.28752116823
+                                            "x": 23531.895331968437,
+                                            "y": 22938.28752116823
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -2837,12 +2837,12 @@
                                 "id": "5df77f64-83b7-4b05-bade-0b18c0b89d2d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23596.895331968437,
-                                        "y": 22919.28752116823
+                                        "x": 23531.895331968437,
+                                        "y": 22938.28752116823
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2869,12 +2869,12 @@
                                     "id": "9708b10c-a893-465f-9b44-4a842997bbf1",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23462.90974383562,
-                                            "y": 22853.161680285328
+                                            "x": 23397.90974383562,
+                                            "y": 22872.161680285328
                                         },
                                         "targetPosition": {
-                                            "x": 23575.40974383562,
-                                            "y": 22853.161680285328
+                                            "x": 23510.40974383562,
+                                            "y": 22872.161680285328
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -2892,12 +2892,12 @@
                                 "id": "985df50a-557c-4fe0-bc47-3c362eb4479d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23575.40974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23510.40974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2924,12 +2924,12 @@
                                     "id": "bd9df164-e703-4a15-99fa-6d262ad9364b",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23505.880920101255,
-                                            "y": 22720.909998519524
+                                            "x": 23440.880920101255,
+                                            "y": 22739.909998519524
                                         },
                                         "targetPosition": {
-                                            "x": 23596.895331968437,
-                                            "y": 22787.035839402426
+                                            "x": 23531.895331968437,
+                                            "y": 22806.035839402426
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -2947,12 +2947,12 @@
                                 "id": "fe0eb600-3beb-4167-a677-fee08f426d1a",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23596.895331968437,
-                                        "y": 22787.035839402426
+                                        "x": 23531.895331968437,
+                                        "y": 22806.035839402426
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -2979,12 +2979,12 @@
                                     "id": "54160773-9791-4f44-ba7a-390a06c964cd",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23618.380920101255,
-                                            "y": 22639.173964118916
+                                            "x": 23553.380920101255,
+                                            "y": 22658.173964118916
                                         },
                                         "targetPosition": {
-                                            "x": 23653.145331968437,
-                                            "y": 22746.167822202122
+                                            "x": 23588.145331968437,
+                                            "y": 22765.167822202122
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3002,12 +3002,12 @@
                                 "id": "f6d1e697-c851-47c6-86d0-4c9ef06ac873",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23653.145331968437,
-                                        "y": 22746.167822202122
+                                        "x": 23588.145331968437,
+                                        "y": 22765.167822202122
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3034,12 +3034,12 @@
                                     "id": "14fc71ea-4f0e-40a9-a1f8-244b4e68610f",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23757.43856756998,
-                                            "y": 22639.173964118916
+                                            "x": 23692.43856756998,
+                                            "y": 22658.173964118916
                                         },
                                         "targetPosition": {
-                                            "x": 23722.6741557028,
-                                            "y": 22746.167822202122
+                                            "x": 23657.6741557028,
+                                            "y": 22765.167822202122
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3057,12 +3057,12 @@
                                 "id": "ce2979fb-8634-44b7-a53d-0da97cd86e6b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23722.6741557028,
-                                        "y": 22746.167822202122
+                                        "x": 23657.6741557028,
+                                        "y": 22765.167822202122
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3090,12 +3090,12 @@
                                     "id": "07e3e3aa-a356-4e81-87c5-d4d8812a7c7a",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23859.825855140294,
-                                            "y": 22728.257314173177
+                                            "x": 23794.825855140294,
+                                            "y": 22747.257314173177
                                         },
                                         "targetPosition": {
-                                            "x": 23778.9241557028,
-                                            "y": 22787.035839402426
+                                            "x": 23713.9241557028,
+                                            "y": 22806.035839402426
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3113,12 +3113,12 @@
                                 "id": "c61ef796-4f16-4796-ad96-e39c35d84bd5",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23778.9241557028,
-                                        "y": 22787.035839402426
+                                        "x": 23713.9241557028,
+                                        "y": 22806.035839402426
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3136,22 +3136,22 @@
                             {
                                 "type": "Record Property",
                                 "name": "sell",
-                                "config": "{ \n  \"codeName\": \"\",\n  \"isString\": false,\n  \"isCalculated\": false\n}",
+                                "config": "{\n  \"codeName\": \"sell\",\n  \"isString\": false\n}",
                                 "project": "Foundations",
                                 "recordFormula": {
                                     "type": "Record Formula",
                                     "name": "New Record Formula",
                                     "code": "variable.sell",
                                     "project": "Foundations",
-                                    "id": "958f126a-efd4-425d-b72a-506d8d181336",
+                                    "id": "1ddbf959-64f0-4bbd-9802-17cca4fb0889",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23900.40974383562,
-                                            "y": 22853.161680285328
+                                            "x": 23835.40974383562,
+                                            "y": 22872.161680285328
                                         },
                                         "targetPosition": {
-                                            "x": 23800.40974383562,
-                                            "y": 22853.161680285328
+                                            "x": 23735.40974383562,
+                                            "y": 22872.161680285328
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3166,15 +3166,15 @@
                                         }
                                     }
                                 },
-                                "id": "ad831fc8-da15-486c-842f-c585da9887ee",
+                                "id": "6d8b8dd1-10ff-4abc-9533-948c62c8f310",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23800.40974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23735.40974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "targetPosition": {
-                                        "x": 23687.90974383562,
-                                        "y": 22853.161680285328
+                                        "x": 23622.90974383562,
+                                        "y": 22872.161680285328
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3193,12 +3193,12 @@
                         "id": "e1119742-8c66-488b-9b83-901faf88068a",
                         "savedPayload": {
                             "position": {
-                                "x": 23687.90974383562,
-                                "y": 22853.161680285328
+                                "x": 23622.90974383562,
+                                "y": 22872.161680285328
                             },
                             "targetPosition": {
-                                "x": 24051.967391304344,
-                                "y": 23117.66504381694
+                                "x": 23986.967391304344,
+                                "y": 23136.66504381694
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -3223,17 +3223,17 @@
                             "project": "Foundations",
                             "procedureJavascriptCode": {
                                 "type": "Procedure Javascript Code",
-                                "code": "// EMA12 and EMA26 \n\nlet candle = record.current\n\nvariable.ema12 = calculateEMA(12, candle.close, variable.previousEMA12)\nvariable.previousEMA12 = variable.ema12\n\nvariable.ema26 = calculateEMA(26, candle.close, variable.previousEMA26)\nvariable.previousEMA26 = variable.ema26\n\n\nfunction calculateEMA(periods, price, previousEMA) {\n    let k = 2 / (periods + 1)\n    return price * k + previousEMA * (1 - k)\n}\n\n// MACD Line \n\nmacdLine = variable.ema12 - variable.ema26\n\nvariable.macdArray.push(macdLine)\nif (variable.macdArray.length > 3) { variable.macdArray.splice(0, 1) }\n\nvariable.line = macdLine.toFixed(2)\n\n// Signal Line\n\nmacdSignal = calculateSignalEMA(9, variable.line, variable.previousSignal)\nvariable.signal = macdSignal.toFixed(2)\nvariable.previousSignal = variable.signal\n\nvariable.signalArray.push(macdSignal)\nif (variable.signalArray.length > 3) { variable.signalArray.splice(0, 1) }\n\nfunction calculateSignalEMA(periods, currentSignal, previousEMA) {\n    let k = 2 / (periods + 1)\n    return currentSignal * k + previousEMA * (1 - k)\n}\n\n// Histogram \n\nhistogram = variable.line - variable.signal\nvariable.histogram = histogram.toFixed(2)\n\n//MACD R1\n//Wait for 3 periods after the crossover to take a position. \n//If during that period another crossover takes place then \n//forget the first crossover and wait for another 3 periods.\nlet MACDR1 =\n    variable.macdArray.length === variable.signalArray.length &&\n    variable.macdArray.every(function (element, index) {\n        return element > variable.signalArray[index]\n    })\n\n//MACD R2\n//An additional condition to MACD R2 for taking the position is to \n//ensure that a pre-decided difference is there between MACD and\n//MACD signal or trigger line even after waiting for 3 periods. \n//Taking into account this difference ensures that another crossover \n//which can make our trade a failure does not take place soon.\n// BUY SIGNAL\nlet MACDR2_percentage_buy = 0.02\nlet MACDR2_buy = \n((macdLine - variable.signalArray[0]) / macdSignal) * -1 > MACDR2_percentage_buy\n\nif (MACDR1 && MACDR2_buy) { \n    variable.buy = 1 } else { variable.buy = 0 \n    }\n\n// SELL SIGNAL\nlet MACDR2_percentage_sell = 0.02\nlet MACDR2_sell = \n((macdLine - variable.signalArray[0]) / macdSignal) < MACDR2_percentage_sell\n\nif (MACDR1 === false && MACDR2_sell) { \n    variable.sell = -1 } else { variable.sell = 0 \n    }\n",
+                                "code": "// EMA12 and EMA26 \n\nlet candle = record.current\n\nvariable.ema12 = calculateEMA(12, candle.close, variable.previousEMA12)\nvariable.previousEMA12 = variable.ema12\n\nvariable.ema26 = calculateEMA(26, candle.close, variable.previousEMA26)\nvariable.previousEMA26 = variable.ema26\n\n\nfunction calculateEMA(periods, price, previousEMA) {\n    let k = 2 / (periods + 1)\n    return price * k + previousEMA * (1 - k)\n}\n\n// MACD Line \n\nmacdLine = variable.ema12 - variable.ema26\n\nvariable.macdArray.push(macdLine)\nif (variable.macdArray.length > 3) { variable.macdArray.splice(0, 1) }\n\nvariable.line = macdLine.toFixed(2)\n\n// Signal Line\n\nmacdSignal = calculateSignalEMA(9, variable.line, variable.previousSignal)\nvariable.signal = macdSignal.toFixed(2)\nvariable.previousSignal = variable.signal\n\nvariable.signalArray.push(macdSignal)\nif (variable.signalArray.length > 3) { variable.signalArray.splice(0, 1) }\n\nfunction calculateSignalEMA(periods, currentSignal, previousEMA) {\n    let k = 2 / (periods + 1)\n    return currentSignal * k + previousEMA * (1 - k)\n}\n\n// Histogram \n\nhistogram = variable.line - variable.signal\nvariable.histogram = histogram.toFixed(2)\n\n//MACD R1\n//Wait for 3 periods after the crossover to take a position. \n//If during that period another crossover takes place then \n//forget the first crossover and wait for another 3 periods.\nlet MACDR1 =\n    variable.macdArray.length === variable.signalArray.length &&\n    variable.macdArray.every(function (element, index) {\n        return element > variable.signalArray[index]\n    })\n\n//MACD R2\n//An additional condition to MACD R2 for taking the position is to \n//ensure that a pre-decided difference is there between MACD and\n//MACD signal or trigger line even after waiting for 3 periods. \n//Taking into account this difference ensures that another crossover \n//which can make our trade a failure does not take place soon.\n\n// BUY SIGNAL\nlet MACDR2_percentage_buy = 0.02\n// SELL SIGNAL\nlet MACDR2_percentage_sell = 0.02\n\nlet MACDR2_buy =\n    ((macdLine - variable.signalArray[0]) / macdSignal) * -1 > MACDR2_percentage_buy\nlet MACDR2_sell =\n    ((macdLine - variable.signalArray[0]) / macdSignal) < MACDR2_percentage_sell\n\nif (MACDR1 && MACDR2_buy) {\n    variable.buy = 1\n} else {\n    variable.buy = 0\n}\n\nif ((MACDR1 === false) && MACDR2_sell) {\n    variable.sell = -1\n} else {\n    variable.sell = 0\n}\n",
                                 "project": "Foundations",
                                 "id": "bac802bd-991f-497f-8da5-1944f87a0c6b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24082.2989823715,
-                                        "y": 22538.90380870825
+                                        "x": 24017.2989823715,
+                                        "y": 22557.90380870825
                                     },
                                     "targetPosition": {
-                                        "x": 24113.485735994163,
-                                        "y": 22685.625948818324
+                                        "x": 24048.485735994163,
+                                        "y": 22704.625948818324
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3251,12 +3251,12 @@
                             "id": "c4c42016-2f57-484a-8f5a-ed6d84100c83",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24113.485735994163,
-                                    "y": 22685.625948818324
+                                    "x": 24048.485735994163,
+                                    "y": 22704.625948818324
                                 },
                                 "targetPosition": {
-                                    "x": 24144.672489616827,
-                                    "y": 22832.348088928396
+                                    "x": 24079.672489616827,
+                                    "y": 22851.348088928396
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -3277,17 +3277,17 @@
                             "project": "Foundations",
                             "procedureJavascriptCode": {
                                 "type": "Procedure Javascript Code",
-                                "code": "/* Initialization Code*/\n\n/* SMA Calculation */\n\n/* \nAlthough we don't really need to set an array to access a number of candles,\nwe will do so in order to reuse the code built for the SMA indicator, and also\nso that the same code may be used for other MACD products that may require\naccessing more candles than are available in the span of two days.\n*/\n\nvariable.last100 = []\n//console.log(timeFrameLabel + \" - Initialization of SMA - *************\")\n\n/* EMA Calculation */\n\nvariable.previousEMA12 = 0\nvariable.previousEMA26 = 0\n\n/* MACD Line calculation */\n\nvariable.previousSignal = 0\n\n\nvariable.macdArray = []\n\nvariable.signalArray = []\n\nvariable.buy = 0\n\nvariable.sell = -1",
+                                "code": "/* Initialization Code*/\n\n/* SMA Calculation */\n\n/* \nAlthough we don't really need to set an array to access a number of candles,\nwe will do so in order to reuse the code built for the SMA indicator, and also\nso that the same code may be used for other MACD products that may require\naccessing more candles than are available in the span of two days.\n*/\n\nvariable.last100 = []\n//console.log(timeFrameLabel + \" - Initialization of SMA - *************\")\n\n/* EMA Calculation */\n\nvariable.previousEMA12 = 0\nvariable.previousEMA26 = 0\n\n/* MACD Line calculation */\n\nvariable.previousSignal = 0\n\n\nvariable.macdArray = []\n\nvariable.signalArray = []\n\nvariable.buy = 0\n\nvariable.sell = 0",
                                 "project": "Foundations",
                                 "id": "732d160a-f45f-4a85-bf99-30a7862b4ab7",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24367.61593726005,
-                                        "y": 22631.608907020738
+                                        "x": 24302.61593726005,
+                                        "y": 22650.608907020738
                                     },
                                     "targetPosition": {
-                                        "x": 24256.144213438438,
-                                        "y": 22731.978497974567
+                                        "x": 24191.144213438438,
+                                        "y": 22750.978497974567
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3305,12 +3305,12 @@
                             "id": "7d1f8cf8-35be-4609-99a0-913a0910ef58",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24256.144213438438,
-                                    "y": 22731.978497974567
+                                    "x": 24191.144213438438,
+                                    "y": 22750.978497974567
                                 },
                                 "targetPosition": {
-                                    "x": 24144.672489616827,
-                                    "y": 22832.348088928396
+                                    "x": 24079.672489616827,
+                                    "y": 22851.348088928396
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -3328,12 +3328,12 @@
                         "id": "9ecec24a-c775-42ac-82ee-5cf58be0811d",
                         "savedPayload": {
                             "position": {
-                                "x": 24144.672489616827,
-                                "y": 22832.348088928396
+                                "x": 24079.672489616827,
+                                "y": 22851.348088928396
                             },
                             "targetPosition": {
-                                "x": 24051.967391304344,
-                                "y": 23117.66504381694
+                                "x": 23986.967391304344,
+                                "y": 23136.66504381694
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -3351,12 +3351,12 @@
                     "id": "ab97457f-ddc5-41d1-b0e6-b1573386151d",
                     "savedPayload": {
                         "position": {
-                            "x": 24051.967391304344,
-                            "y": 23117.66504381694
+                            "x": 23986.967391304344,
+                            "y": 23136.66504381694
                         },
                         "targetPosition": {
-                            "x": 24351.967391304344,
-                            "y": 23117.66504381694
+                            "x": 24286.967391304344,
+                            "y": 23136.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -3425,13 +3425,13 @@
         {
             "type": "Plotter",
             "name": "MACD R1",
-            "config": "{\n    \"codeName\": \"Plotter-MACD-R1\"\n}",
+            "config": "{\n    \"codeName\": \"Plotter-MACDR1\"\n}",
             "project": "Foundations",
             "modules": [
                 {
                     "type": "Plotter Module",
                     "name": "MACD R1",
-                    "config": "{\n        \"codeName\": \"MACD-R1_module\",\n        \"icon\": \"histogram\"\n}",
+                    "config": "{\n        \"codeName\": \"MACDR1_module\",\n        \"icon\": \"histogram\"\n}",
                     "project": "Foundations",
                     "shapes": {
                         "type": "Shapes",
@@ -3455,12 +3455,12 @@
                                             "id": "df4f292d-5afb-4b9a-8306-2784ed691a46",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24092.15977016901,
-                                                    "y": 22967.66504381694
+                                                    "x": 24027.15977016901,
+                                                    "y": 22986.66504381694
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24017.15977016901,
-                                                    "y": 23097.568854384608
+                                                    "x": 23952.15977016901,
+                                                    "y": 23116.568854384608
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3478,12 +3478,12 @@
                                         "id": "93f3206c-9c73-4967-9f12-54d23ca7af5b",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24017.15977016901,
-                                                "y": 23097.568854384608
+                                                "x": 23952.15977016901,
+                                                "y": 23116.568854384608
                                             },
                                             "targetPosition": {
-                                                "x": 23942.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 23877.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3510,12 +3510,12 @@
                                             "id": "6b00b5b5-0661-41a0-862b-57da516f4217",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24242.15977016901,
-                                                    "y": 23227.472664952274
+                                                    "x": 24177.15977016901,
+                                                    "y": 23246.472664952274
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24092.15977016901,
-                                                    "y": 23227.472664952274
+                                                    "x": 24027.15977016901,
+                                                    "y": 23246.472664952274
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3533,12 +3533,12 @@
                                         "id": "26a2f974-e6b4-49e7-a4dd-917de35d180c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24092.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 24027.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "targetPosition": {
-                                                "x": 23942.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 23877.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3565,12 +3565,12 @@
                                             "id": "460fa3f2-363b-4ff6-be87-d4f367895c4d",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24092.15977016901,
-                                                    "y": 23487.280286087607
+                                                    "x": 24027.15977016901,
+                                                    "y": 23506.280286087607
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24017.15977016901,
-                                                    "y": 23357.37647551994
+                                                    "x": 23952.15977016901,
+                                                    "y": 23376.37647551994
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3588,12 +3588,12 @@
                                         "id": "29282140-d792-46a2-b60f-aa036f8f341f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24017.15977016901,
-                                                "y": 23357.37647551994
+                                                "x": 23952.15977016901,
+                                                "y": 23376.37647551994
                                             },
                                             "targetPosition": {
-                                                "x": 23942.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 23877.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3620,12 +3620,12 @@
                                             "id": "45b2fd00-10c8-4e64-b491-27868f289fde",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 23817.15977016901,
-                                                    "y": 23443.979015898385
+                                                    "x": 23752.15977016901,
+                                                    "y": 23462.979015898385
                                                 },
                                                 "targetPosition": {
-                                                    "x": 23867.15977016901,
-                                                    "y": 23357.37647551994
+                                                    "x": 23802.15977016901,
+                                                    "y": 23376.37647551994
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3643,12 +3643,12 @@
                                         "id": "60103e26-2227-4ea1-9fd7-7f168dd54ccb",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23867.15977016901,
-                                                "y": 23357.37647551994
+                                                "x": 23802.15977016901,
+                                                "y": 23376.37647551994
                                             },
                                             "targetPosition": {
-                                                "x": 23942.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 23877.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3675,12 +3675,12 @@
                                             "id": "a1e01092-8793-49fd-9e27-2cf63769c4d6",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 23692.15977016901,
-                                                    "y": 23227.472664952274
+                                                    "x": 23627.15977016901,
+                                                    "y": 23246.472664952274
                                                 },
                                                 "targetPosition": {
-                                                    "x": 23792.15977016901,
-                                                    "y": 23227.472664952274
+                                                    "x": 23727.15977016901,
+                                                    "y": 23246.472664952274
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3698,12 +3698,12 @@
                                         "id": "d3858302-e3d3-4af0-97c3-158a82746ce4",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23792.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 23727.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "targetPosition": {
-                                                "x": 23942.15977016901,
-                                                "y": 23227.472664952274
+                                                "x": 23877.15977016901,
+                                                "y": 23246.472664952274
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3722,12 +3722,12 @@
                                 "id": "23a94b6d-8771-4e38-b337-d48f1ab9d293",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23942.15977016901,
-                                        "y": 23227.472664952274
+                                        "x": 23877.15977016901,
+                                        "y": 23246.472664952274
                                     },
                                     "targetPosition": {
-                                        "x": 23792.15977016901,
-                                        "y": 22967.66504381694
+                                        "x": 23727.15977016901,
+                                        "y": 22986.66504381694
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3755,17 +3755,17 @@
                                     "style": {
                                         "type": "Style",
                                         "name": "New Style",
-                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 0.2,\r\n        \"lineWidth\": 1.5,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_GREEN\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
+                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 1,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_GREEN\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
                                         "project": "Foundations",
                                         "id": "ffd76f04-1f68-4e7a-964a-c2d4356d9a7c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23519.411196778554,
-                                                "y": 23359.146500389208
+                                                "x": 23454.411196778554,
+                                                "y": 23378.146500389208
                                             },
                                             "targetPosition": {
-                                                "x": 23493.5292922683,
-                                                "y": 23262.553917760302
+                                                "x": 23428.5292922683,
+                                                "y": 23281.553917760302
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3789,17 +3789,17 @@
                                             "style": {
                                                 "type": "Style",
                                                 "name": "New Style",
-                                                "config": "{\r\n    \"opacity\": 1,\r\n    \"lineWidth\": 1,\r\n    \"lineDash\": [\r\n        0,\r\n        0\r\n    ],\r\n    \"paletteColor\": \"UI_COLOR.GREY\"\r\n}",
+                                                "config": "{\r\n    \"opacity\": 0.2,\r\n    \"lineWidth\": 2,\r\n    \"lineDash\": [\r\n        0,\r\n        0\r\n    ],\r\n    \"paletteColor\": \"UI_COLOR.GREY\"\r\n}",
                                                 "project": "Foundations",
                                                 "id": "413265e5-b142-4a48-9e81-1e3d28f17169",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 23352.10793603099,
-                                                        "y": 23403.975273997614
+                                                        "x": 23287.10793603099,
+                                                        "y": 23422.975273997614
                                                     },
                                                     "targetPosition": {
-                                                        "x": 23422.818614149644,
-                                                        "y": 23333.264595878958
+                                                        "x": 23357.818614149644,
+                                                        "y": 23352.264595878958
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -3817,12 +3817,12 @@
                                             "id": "986d339d-7297-47e5-8c5e-b84420540fc5",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 23422.818614149644,
-                                                    "y": 23333.264595878958
+                                                    "x": 23357.818614149644,
+                                                    "y": 23352.264595878958
                                                 },
                                                 "targetPosition": {
-                                                    "x": 23493.5292922683,
-                                                    "y": 23262.553917760302
+                                                    "x": 23428.5292922683,
+                                                    "y": 23281.553917760302
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -3841,12 +3841,12 @@
                                     "id": "49c3b15b-aef9-4e23-ba39-b6d756ba6bc3",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23493.5292922683,
-                                            "y": 23262.553917760302
+                                            "x": 23428.5292922683,
+                                            "y": 23281.553917760302
                                         },
                                         "targetPosition": {
-                                            "x": 23532.35214903368,
-                                            "y": 23117.66504381694
+                                            "x": 23467.35214903368,
+                                            "y": 23136.66504381694
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -3869,12 +3869,12 @@
                                         "id": "9d8acc54-c296-4338-8958-990f543d9bd6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23402.448338466013,
-                                                "y": 23192.66504381694
+                                                "x": 23337.448338466013,
+                                                "y": 23211.66504381694
                                             },
                                             "targetPosition": {
-                                                "x": 23532.35214903368,
-                                                "y": 23117.66504381694
+                                                "x": 23467.35214903368,
+                                                "y": 23136.66504381694
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -3939,12 +3939,12 @@
                                         "id": "fa4ec925-673f-423a-ae0b-c11a0de2b228",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23387.46327509032,
-                                                "y": 23078.842187051563
+                                                "x": 23322.46327509032,
+                                                "y": 23097.842187051563
                                             },
                                             "targetPosition": {
-                                                "x": 23532.35214903368,
-                                                "y": 23117.66504381694
+                                                "x": 23467.35214903368,
+                                                "y": 23136.66504381694
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4006,17 +4006,17 @@
                                 "id": "31912e8d-2af2-41e7-a436-3708ffde6063",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23532.35214903368,
-                                        "y": 23117.66504381694
+                                        "x": 23467.35214903368,
+                                        "y": 23136.66504381694
                                     },
                                     "targetPosition": {
-                                        "x": 23792.15977016901,
-                                        "y": 22967.66504381694
+                                        "x": 23727.15977016901,
+                                        "y": 22986.66504381694
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -4231,12 +4231,12 @@
                                 "id": "fe3baa03-db6e-4b16-bef2-2ad40e6c0099",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 23502.38202228229,
-                                        "y": 22890.019330286184
+                                        "x": 23437.38202228229,
+                                        "y": 22909.019330286184
                                     },
                                     "targetPosition": {
-                                        "x": 23792.15977016901,
-                                        "y": 22967.66504381694
+                                        "x": 23727.15977016901,
+                                        "y": 22986.66504381694
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4257,12 +4257,12 @@
                         "id": "b9b6e59b-9d9e-4312-a18d-d25c570e2214",
                         "savedPayload": {
                             "position": {
-                                "x": 23792.15977016901,
-                                "y": 22967.66504381694
+                                "x": 23727.15977016901,
+                                "y": 22986.66504381694
                             },
                             "targetPosition": {
-                                "x": 24051.967391304344,
-                                "y": 22817.66504381694
+                                "x": 23986.967391304344,
+                                "y": 22836.66504381694
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4281,7 +4281,7 @@
                         {
                             "type": "Plotter Panel",
                             "name": "MACD R1",
-                            "config": "{\n    \"codeName\": \"MACD-R1_panel\"\n}",
+                            "config": "{\n    \"codeName\": \"MACDR1_panel\"\n}",
                             "project": "Foundations",
                             "panelData": [
                                 {
@@ -4297,12 +4297,12 @@
                                         "id": "7d580db7-62f8-4c46-b500-c5f4f80a9cad",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23603.61082269386,
-                                                "y": 22526.49888370131
+                                                "x": 23538.61082269386,
+                                                "y": 22545.49888370131
                                             },
                                             "targetPosition": {
-                                                "x": 23752.789106999102,
-                                                "y": 22542.17815319146
+                                                "x": 23687.789106999102,
+                                                "y": 22561.17815319146
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4320,12 +4320,12 @@
                                     "id": "940e6196-4d9e-4f8b-b0f6-db72e8a45e41",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23752.789106999102,
-                                            "y": 22542.17815319146
+                                            "x": 23687.789106999102,
+                                            "y": 22561.17815319146
                                         },
                                         "targetPosition": {
-                                            "x": 23901.967391304344,
-                                            "y": 22557.85742268161
+                                            "x": 23836.967391304344,
+                                            "y": 22576.85742268161
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -4353,12 +4353,12 @@
                                         "id": "a515e303-14fc-424c-b86a-49bd2f51a95d",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23627.90375401156,
-                                                "y": 22435.836429758867
+                                                "x": 23562.90375401156,
+                                                "y": 22454.836429758867
                                             },
                                             "targetPosition": {
-                                                "x": 23764.935572657952,
-                                                "y": 22496.846926220238
+                                                "x": 23699.935572657952,
+                                                "y": 22515.846926220238
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4376,12 +4376,12 @@
                                     "id": "84b4b52c-6c7b-412e-8b93-0523fd38fef1",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23764.935572657952,
-                                            "y": 22496.846926220238
+                                            "x": 23699.935572657952,
+                                            "y": 22515.846926220238
                                         },
                                         "targetPosition": {
-                                            "x": 23901.967391304344,
-                                            "y": 22557.85742268161
+                                            "x": 23836.967391304344,
+                                            "y": 22576.85742268161
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -4409,12 +4409,12 @@
                                         "id": "87483d7e-767f-4570-a75b-a75d8a1bbe48",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 23839.593884059017,
-                                                "y": 22264.413142461464
+                                                "x": 23774.593884059017,
+                                                "y": 22283.413142461464
                                             },
                                             "targetPosition": {
-                                                "x": 23870.78063768168,
-                                                "y": 22411.135282571537
+                                                "x": 23805.78063768168,
+                                                "y": 22430.135282571537
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4432,12 +4432,12 @@
                                     "id": "57e5c3c5-8ad6-4eca-8412-627328ceeca4",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23870.78063768168,
-                                            "y": 22411.135282571537
+                                            "x": 23805.78063768168,
+                                            "y": 22430.135282571537
                                         },
                                         "targetPosition": {
-                                            "x": 23901.967391304344,
-                                            "y": 22557.85742268161
+                                            "x": 23836.967391304344,
+                                            "y": 22576.85742268161
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -4465,12 +4465,12 @@
                                         "id": "b9c29b96-2272-4730-a63e-8e0786f12684",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24003.651552073294,
-                                                "y": 22329.471058270956
+                                                "x": 23938.651552073294,
+                                                "y": 22348.471058270956
                                             },
                                             "targetPosition": {
-                                                "x": 23962.977887765715,
-                                                "y": 22420.825604035217
+                                                "x": 23897.977887765715,
+                                                "y": 22439.825604035217
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4488,12 +4488,12 @@
                                     "id": "319d46b3-fc16-438e-93fb-5b8b61807a90",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 23962.977887765715,
-                                            "y": 22420.825604035217
+                                            "x": 23897.977887765715,
+                                            "y": 22439.825604035217
                                         },
                                         "targetPosition": {
-                                            "x": 23901.967391304344,
-                                            "y": 22557.85742268161
+                                            "x": 23836.967391304344,
+                                            "y": 22576.85742268161
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -4512,12 +4512,12 @@
                             "id": "8f1fbd26-46ae-4862-a41c-00200897057a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 23901.967391304344,
-                                    "y": 22557.85742268161
+                                    "x": 23836.967391304344,
+                                    "y": 22576.85742268161
                                 },
                                 "targetPosition": {
-                                    "x": 24051.967391304344,
-                                    "y": 22817.66504381694
+                                    "x": 23986.967391304344,
+                                    "y": 22836.66504381694
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -4536,12 +4536,12 @@
                     "id": "7d640aac-7c09-4c9f-9803-66e12169b944",
                     "savedPayload": {
                         "position": {
-                            "x": 24051.967391304344,
-                            "y": 22817.66504381694
+                            "x": 23986.967391304344,
+                            "y": 22836.66504381694
                         },
                         "targetPosition": {
-                            "x": 24351.967391304344,
-                            "y": 22817.66504381694
+                            "x": 24286.967391304344,
+                            "y": 22836.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4583,13 +4583,13 @@
         {
             "type": "Plotter",
             "name": "MACD R2",
-            "config": "{\n    \"codeName\": \"Plotter-MACD-R2\"\n}",
+            "config": "{\n    \"codeName\": \"Plotter-MACDR2\"\n}",
             "project": "Foundations",
             "modules": [
                 {
                     "type": "Plotter Module",
                     "name": "MACD R2",
-                    "config": "{\n        \"codeName\": \"MACD-R2_module\",\n        \"icon\": \"histogram\"\n}",
+                    "config": "{\n        \"codeName\": \"MACDR2_module\",\n        \"icon\": \"histogram\"\n}",
                     "project": "Foundations",
                     "shapes": {
                         "type": "Shapes",
@@ -4613,12 +4613,12 @@
                                             "id": "58dedb43-3310-4419-a76a-93f72856ba79",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24600.81706982306,
-                                                    "y": 22165.100083451944
+                                                    "x": 24535.81706982306,
+                                                    "y": 22184.100083451944
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24451.022639609873,
-                                                    "y": 22172.950476888385
+                                                    "x": 24386.022639609873,
+                                                    "y": 22191.950476888385
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4636,12 +4636,12 @@
                                         "id": "64f55917-1de9-4168-b138-b8ec5849ef7e",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24451.022639609873,
-                                                "y": 22172.950476888385
+                                                "x": 24386.022639609873,
+                                                "y": 22191.950476888385
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4668,12 +4668,12 @@
                                             "id": "6f385913-d706-4256-b4ae-a64a9ff7f743",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24524.171657039908,
-                                                    "y": 22381.540052232485
+                                                    "x": 24459.171657039908,
+                                                    "y": 22400.540052232485
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24412.699933218297,
-                                                    "y": 22281.170461278656
+                                                    "x": 24347.699933218297,
+                                                    "y": 22300.170461278656
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4691,12 +4691,12 @@
                                         "id": "23a8eb04-561a-40aa-965b-94dad49ca85f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24412.699933218297,
-                                                "y": 22281.170461278656
+                                                "x": 24347.699933218297,
+                                                "y": 22300.170461278656
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4723,12 +4723,12 @@
                                             "id": "51dd5d3d-e30f-4fc9-8bbf-5b8f20f76758",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24316.92899626957,
-                                                    "y": 22480.3897307512
+                                                    "x": 24251.92899626957,
+                                                    "y": 22499.3897307512
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24309.078602833128,
-                                                    "y": 22330.595300538014
+                                                    "x": 24244.078602833128,
+                                                    "y": 22349.595300538014
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4746,12 +4746,12 @@
                                         "id": "4a98d258-6336-4b54-881f-c7f023416e17",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24309.078602833128,
-                                                "y": 22330.595300538014
+                                                "x": 24244.078602833128,
+                                                "y": 22349.595300538014
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4778,12 +4778,12 @@
                                             "id": "deee4f4b-0895-4420-bde7-ba2a4677791c",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24133.945557806972,
-                                                    "y": 22366.587076694177
+                                                    "x": 24068.945557806972,
+                                                    "y": 22385.587076694177
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24200.858618442857,
-                                                    "y": 22292.272594146438
+                                                    "x": 24135.858618442857,
+                                                    "y": 22311.272594146438
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4801,12 +4801,12 @@
                                         "id": "f5fe181c-316b-4a05-aa1e-39c9d2b2d37e",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24200.858618442857,
-                                                "y": 22292.272594146438
+                                                "x": 24135.858618442857,
+                                                "y": 22311.272594146438
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4833,12 +4833,12 @@
                                             "id": "9a674b56-94cc-4284-ae6a-affc6d2d0ce5",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24051.57082570804,
-                                                    "y": 22193.884859385562
+                                                    "x": 23986.57082570804,
+                                                    "y": 22212.884859385562
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24151.4337791835,
-                                                    "y": 22188.65126376127
+                                                    "x": 24086.4337791835,
+                                                    "y": 22207.65126376127
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4856,12 +4856,12 @@
                                         "id": "415ffc24-b5fa-41c5-a38a-539563ad8a04",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24151.4337791835,
-                                                "y": 22188.65126376127
+                                                "x": 24086.4337791835,
+                                                "y": 22207.65126376127
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4878,22 +4878,22 @@
                                     },
                                     {
                                         "type": "Point",
-                                        "name": "MACD R2 Sell Begin",
+                                        "name": "MACD R2 SELL begin",
                                         "project": "Foundations",
                                         "pointFormula": {
                                             "type": "Point Formula",
                                             "name": "New Point Formula",
                                             "code": "x = record.begin\ny = record.previous.sell",
                                             "project": "Foundations",
-                                            "id": "e4c6e5b4-bc8c-494c-aeb7-8c69f38dbcbc",
+                                            "id": "13ab473a-0893-4223-8a21-b5c5c30cabe7",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24115.442003027336,
-                                                    "y": 22013.518218735113
+                                                    "x": 24050.442003027336,
+                                                    "y": 22032.518218735113
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24189.756485575075,
-                                                    "y": 22080.431279370998
+                                                    "x": 24124.756485575075,
+                                                    "y": 22099.431279370998
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4908,15 +4908,15 @@
                                                 }
                                             }
                                         },
-                                        "id": "0432276d-ca15-4b1d-b8d2-5d2dcf9c0143",
+                                        "id": "fd291e88-9559-404a-ae51-1eaee2e87d72",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24189.756485575075,
-                                                "y": 22080.431279370998
+                                                "x": 24124.756485575075,
+                                                "y": 22099.431279370998
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4933,22 +4933,22 @@
                                     },
                                     {
                                         "type": "Point",
-                                        "name": "MACD R2 Sell End",
+                                        "name": "MACD R2 Sell end",
                                         "project": "Foundations",
                                         "pointFormula": {
                                             "type": "Point Formula",
                                             "name": "New Point Formula",
                                             "code": "x = record.end\ny = record.sell",
                                             "project": "Foundations",
-                                            "id": "9b31197a-c4b6-4962-ad84-9df28b5bf0e2",
+                                            "id": "6bdc9b72-eb59-4681-a367-fd6373dc6fb9",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24288.14422033595,
-                                                    "y": 21931.14348663618
+                                                    "x": 24223.14422033595,
+                                                    "y": 21950.14348663618
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24293.377815960244,
-                                                    "y": 22031.00644011164
+                                                    "x": 24228.377815960244,
+                                                    "y": 22050.00644011164
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -4963,15 +4963,15 @@
                                                 }
                                             }
                                         },
-                                        "id": "c0e5f26b-af32-4537-9e35-4beb3ffa1123",
+                                        "id": "ea62d422-4f89-4171-b7c9-955dce3d7efe",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24293.377815960244,
-                                                "y": 22031.00644011164
+                                                "x": 24228.377815960244,
+                                                "y": 22050.00644011164
                                             },
                                             "targetPosition": {
-                                                "x": 24301.228209396686,
-                                                "y": 22180.800870324827
+                                                "x": 24236.228209396686,
+                                                "y": 22199.800870324827
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -4990,17 +4990,17 @@
                                 "id": "eb615032-81f4-4281-8ee3-6e227ec6b38b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24301.228209396686,
-                                        "y": 22180.800870324827
+                                        "x": 24236.228209396686,
+                                        "y": 22199.800870324827
                                     },
                                     "targetPosition": {
-                                        "x": 24501.967391304344,
-                                        "y": 21957.85742268161
+                                        "x": 24436.967391304344,
+                                        "y": 21976.85742268161
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -5023,17 +5023,17 @@
                                     "style": {
                                         "type": "Style",
                                         "name": "New Style",
-                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 0.2,\r\n        \"lineWidth\": 1.5,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_GREEN\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
+                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 1,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_GREEN\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
                                         "project": "Foundations",
                                         "id": "1c20c3a2-0de9-4ddc-abdf-2f9de268ef22",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24045.362456653398,
-                                                "y": 21819.432537711895
+                                                "x": 23980.362456653398,
+                                                "y": 21838.432537711895
                                             },
                                             "targetPosition": {
-                                                "x": 24129.22951344794,
-                                                "y": 21764.968634210392
+                                                "x": 24064.22951344794,
+                                                "y": 21783.968634210392
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5057,17 +5057,17 @@
                                             "style": {
                                                 "type": "Style",
                                                 "name": "New Style",
-                                                "config": "{\r\n    \"opacity\": 1,\r\n    \"lineWidth\": 1,\r\n    \"lineDash\": [\r\n        0,\r\n        0\r\n    ],\r\n    \"paletteColor\": \"UI_COLOR.GREY\"\r\n}",
+                                                "config": "{\r\n    \"opacity\": 0.2,\r\n    \"lineWidth\": 2,\r\n    \"lineDash\": [\r\n        0,\r\n        0\r\n    ],\r\n    \"paletteColor\": \"UI_COLOR.GREY\"\r\n}",
                                                 "project": "Foundations",
-                                                "id": "f38b050a-3a37-44bc-8632-334898558ef5",
+                                                "id": "98690812-3e0a-43e0-8f0c-40ca2d779ca4",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 23951.028208610263,
-                                                        "y": 21674.17053426248
+                                                        "x": 23886.028208610263,
+                                                        "y": 21693.17053426248
                                                     },
                                                     "targetPosition": {
-                                                        "x": 24040.1288610291,
-                                                        "y": 21719.569584236437
+                                                        "x": 23975.1288610291,
+                                                        "y": 21738.569584236437
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -5082,15 +5082,15 @@
                                                     }
                                                 }
                                             },
-                                            "id": "4d3a22e9-863b-493f-913d-7fde35afd8b3",
+                                            "id": "c73194b1-9639-4848-9287-eacb2efdd489",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24040.1288610291,
-                                                    "y": 21719.569584236437
+                                                    "x": 23975.1288610291,
+                                                    "y": 21738.569584236437
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24129.22951344794,
-                                                    "y": 21764.968634210392
+                                                    "x": 24064.22951344794,
+                                                    "y": 21783.968634210392
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -5109,12 +5109,12 @@
                                     "id": "15314a59-4df2-40b2-942f-b05d23556ca7",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 24129.22951344794,
-                                            "y": 21764.968634210392
+                                            "x": 24064.22951344794,
+                                            "y": 21783.968634210392
                                         },
                                         "targetPosition": {
-                                            "x": 24279.023943661126,
-                                            "y": 21757.11824077395
+                                            "x": 24214.023943661126,
+                                            "y": 21776.11824077395
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -5137,12 +5137,12 @@
                                         "id": "a5e7f2d0-5b0e-489b-9a1b-c55105bcdaa6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24167.552219839516,
-                                                "y": 21656.74864982012
+                                                "x": 24102.552219839516,
+                                                "y": 21675.74864982012
                                             },
                                             "targetPosition": {
-                                                "x": 24279.023943661126,
-                                                "y": 21757.11824077395
+                                                "x": 24214.023943661126,
+                                                "y": 21776.11824077395
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5207,12 +5207,12 @@
                                         "id": "c40554e4-d27f-4883-8641-ac4a7ebb1d28",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24271.173550224685,
-                                                "y": 21607.323810560763
+                                                "x": 24206.173550224685,
+                                                "y": 21626.323810560763
                                             },
                                             "targetPosition": {
-                                                "x": 24279.023943661126,
-                                                "y": 21757.11824077395
+                                                "x": 24214.023943661126,
+                                                "y": 21776.11824077395
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5274,17 +5274,17 @@
                                 "id": "71e636d2-fa39-424c-a44b-132f2dd75c9e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24279.023943661126,
-                                        "y": 21757.11824077395
+                                        "x": 24214.023943661126,
+                                        "y": 21776.11824077395
                                     },
                                     "targetPosition": {
-                                        "x": 24501.967391304344,
-                                        "y": 21957.85742268161
+                                        "x": 24436.967391304344,
+                                        "y": 21976.85742268161
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -5499,12 +5499,12 @@
                                 "id": "f70c67bf-a211-41d0-8e85-2a9b7060bd8a",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24439.593884059017,
-                                        "y": 21664.413142461468
+                                        "x": 24374.593884059017,
+                                        "y": 21683.413142461468
                                     },
                                     "targetPosition": {
-                                        "x": 24501.967391304344,
-                                        "y": 21957.85742268161
+                                        "x": 24436.967391304344,
+                                        "y": 21976.85742268161
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -5521,7 +5521,7 @@
                             },
                             {
                                 "type": "Polygon",
-                                "name": "MACD R2 Sell",
+                                "name": "New Polygon",
                                 "project": "Foundations",
                                 "polygonBorder": {
                                     "type": "Polygon Border",
@@ -5530,17 +5530,17 @@
                                     "style": {
                                         "type": "Style",
                                         "name": "New Style",
-                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 0.2,\r\n        \"lineWidth\": 1.5,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_RED\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
+                                        "config": "{\r\n    \"default\": {\r\n        \"opacity\": 1,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.TRUE_RED\"\r\n    },\r\n    \"atMousePosition\": {\r\n        \"opacity\": 0.3,\r\n        \"lineWidth\": 2,\r\n        \"lineDash\": [\r\n            0,\r\n            0\r\n        ],\r\n        \"paletteColor\": \"UI_COLOR.RUSTED_RED\"\r\n    }\r\n}",
                                         "project": "Foundations",
-                                        "id": "1ea937a1-053c-4f1e-887e-9f14376222d4",
+                                        "id": "b5897ed4-2b57-4124-b15c-a4559af3849b",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24492.51859564959,
-                                                "y": 21480.824682309263
+                                                "x": 24427.51859564959,
+                                                "y": 21499.824682309263
                                             },
                                             "targetPosition": {
-                                                "x": 24570.233191795287,
-                                                "y": 21543.756721414247
+                                                "x": 24505.233191795287,
+                                                "y": 21562.756721414247
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5564,17 +5564,17 @@
                                             "style": {
                                                 "type": "Style",
                                                 "name": "New Style",
-                                                "config": "{\r\n    \"opacity\": 1,\r\n    \"lineWidth\": 1,\r\n    \"lineDash\": [\r\n        0,\r\n        0\r\n    ],\r\n    \"paletteColor\": \"UI_COLOR.GREY\"\r\n}",
+                                                "config": "{\r\n    \"opacity\": 0.2,\r\n    \"lineWidth\": 2,\r\n    \"lineDash\": [\r\n        0,\r\n        0\r\n    ],\r\n    \"paletteColor\": \"UI_COLOR.GREY\"\r\n}",
                                                 "project": "Foundations",
-                                                "id": "bfae0be4-bb75-4350-96e3-ab7706fdf64d",
+                                                "id": "129472a6-caef-4b21-8716-b5497346b15f",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 24601.52008480333,
-                                                        "y": 21346.219053295223
+                                                        "x": 24536.52008480333,
+                                                        "y": 21365.219053295223
                                                     },
                                                     "targetPosition": {
-                                                        "x": 24585.87663829931,
-                                                        "y": 21444.987887354735
+                                                        "x": 24520.87663829931,
+                                                        "y": 21463.987887354735
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -5589,15 +5589,15 @@
                                                     }
                                                 }
                                             },
-                                            "id": "3a305cf7-a859-489e-a809-789d6bf6dd62",
+                                            "id": "8376e5f8-061f-4cd9-8951-192bba244455",
                                             "savedPayload": {
                                                 "position": {
-                                                    "x": 24585.87663829931,
-                                                    "y": 21444.987887354735
+                                                    "x": 24520.87663829931,
+                                                    "y": 21463.987887354735
                                                 },
                                                 "targetPosition": {
-                                                    "x": 24570.233191795287,
-                                                    "y": 21543.756721414247
+                                                    "x": 24505.233191795287,
+                                                    "y": 21562.756721414247
                                                 },
                                                 "floatingObject": {
                                                     "isPinned": false,
@@ -5613,15 +5613,15 @@
                                             }
                                         }
                                     ],
-                                    "id": "3d2fd58a-7683-40cc-a7e0-4af51fe921fd",
+                                    "id": "c761926e-231c-414c-8720-aa343b4cf2ca",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 24570.233191795287,
-                                            "y": 21543.756721414247
+                                            "x": 24505.233191795287,
+                                            "y": 21562.756721414247
                                         },
                                         "targetPosition": {
-                                            "x": 24623.988384227083,
-                                            "y": 21683.79378538883
+                                            "x": 24558.988384227083,
+                                            "y": 21702.79378538883
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -5639,24 +5639,24 @@
                                 "polygonVertexes": [
                                     {
                                         "type": "Polygon Vertex",
-                                        "name": " MACD R2 Sell Begin",
+                                        "name": " MACD R2 SELL begin",
                                         "project": "Foundations",
-                                        "id": "186255ba-febc-4837-83cd-676a07d763a7",
+                                        "id": "ebd4278e-bb63-4010-92a7-74f29fcaebf2",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24684.998880688454,
-                                                "y": 21546.761966742437
+                                                "x": 24681.00937714982,
+                                                "y": 21428.73014809605
                                             },
                                             "targetPosition": {
-                                                "x": 24623.988384227083,
-                                                "y": 21683.79378538883
+                                                "x": 24558.988384227083,
+                                                "y": 21702.79378538883
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": false,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 2,
+                                                "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -5664,69 +5664,57 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Point",
-                                                "name": "MACD R2 Sell Begin",
-                                                "id": "0432276d-ca15-4b1d-b8d2-5d2dcf9c0143"
+                                                "name": "MACD R2 SELL begin",
+                                                "id": "fd291e88-9559-404a-ae51-1eaee2e87d72"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "MCAD R1 & R2",
-                                                    "Data Mine",
-                                                    "Data-Mining",
-                                                    "c8e9b9b2-86c3-4cb9-9408-c647b64e9b9c"
+                                                    "Data Mine"
                                                 ],
                                                 [
                                                     "MACD R2",
-                                                    "Plotter",
-                                                    "Foundations",
-                                                    "6e92e9ad-73bc-4834-ae2b-e318c3a953f4"
+                                                    "Plotter"
                                                 ],
                                                 [
                                                     "MACD R2",
-                                                    "Plotter Module",
-                                                    "Foundations",
-                                                    "52d1bba5-98c6-41b7-882b-c88246b680a6"
+                                                    "Plotter Module"
                                                 ],
                                                 [
                                                     "New Shapes",
-                                                    "Shapes",
-                                                    "Foundations",
-                                                    "64521dec-9e27-4da9-8662-5eb4cff096b3"
+                                                    "Shapes"
                                                 ],
                                                 [
                                                     "New Chart Points",
-                                                    "Chart Points",
-                                                    "Foundations",
-                                                    "eb615032-81f4-4281-8ee3-6e227ec6b38b"
+                                                    "Chart Points"
                                                 ],
                                                 [
-                                                    "MACD R2 Sell Begin",
-                                                    "Point",
-                                                    "Foundations",
-                                                    "0432276d-ca15-4b1d-b8d2-5d2dcf9c0143"
+                                                    "MACD R2 SELL begin",
+                                                    "Point"
                                                 ]
                                             ]
                                         }
                                     },
                                     {
                                         "type": "Polygon Vertex",
-                                        "name": " MACD R2 Sell End",
+                                        "name": " MACD R2 Sell end",
                                         "project": "Foundations",
-                                        "id": "25bb6866-8146-4561-9bb2-05a8aaa2894d",
+                                        "id": "ce691146-23ec-4e61-bacb-c4d3a8d5a222",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 24764.025448201664,
-                                                "y": 21630.038592957033
+                                                "x": 24839.062512176242,
+                                                "y": 21595.283400525237
                                             },
                                             "targetPosition": {
-                                                "x": 24623.988384227083,
-                                                "y": 21683.79378538883
+                                                "x": 24558.988384227083,
+                                                "y": 21702.79378538883
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": false,
                                                 "angleToParent": 2,
-                                                "distanceToParent": 2,
+                                                "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
                                             "uiObject": {
@@ -5734,64 +5722,52 @@
                                             },
                                             "referenceParent": {
                                                 "type": "Point",
-                                                "name": "MACD R2 Sell End",
-                                                "id": "c0e5f26b-af32-4537-9e35-4beb3ffa1123"
+                                                "name": "MACD R2 Sell end",
+                                                "id": "ea62d422-4f89-4171-b7c9-955dce3d7efe"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "MCAD R1 & R2",
-                                                    "Data Mine",
-                                                    "Data-Mining",
-                                                    "c8e9b9b2-86c3-4cb9-9408-c647b64e9b9c"
+                                                    "Data Mine"
                                                 ],
                                                 [
                                                     "MACD R2",
-                                                    "Plotter",
-                                                    "Foundations",
-                                                    "6e92e9ad-73bc-4834-ae2b-e318c3a953f4"
+                                                    "Plotter"
                                                 ],
                                                 [
                                                     "MACD R2",
-                                                    "Plotter Module",
-                                                    "Foundations",
-                                                    "52d1bba5-98c6-41b7-882b-c88246b680a6"
+                                                    "Plotter Module"
                                                 ],
                                                 [
                                                     "New Shapes",
-                                                    "Shapes",
-                                                    "Foundations",
-                                                    "64521dec-9e27-4da9-8662-5eb4cff096b3"
+                                                    "Shapes"
                                                 ],
                                                 [
                                                     "New Chart Points",
-                                                    "Chart Points",
-                                                    "Foundations",
-                                                    "eb615032-81f4-4281-8ee3-6e227ec6b38b"
+                                                    "Chart Points"
                                                 ],
                                                 [
-                                                    "MACD R2 Sell End",
-                                                    "Point",
-                                                    "Foundations",
-                                                    "c0e5f26b-af32-4537-9e35-4beb3ffa1123"
+                                                    "MACD R2 Sell end",
+                                                    "Point"
                                                 ]
                                             ]
                                         }
                                     }
                                 ],
-                                "id": "8c4024ce-d391-4fbd-9df2-9b4cbc2e6808",
+                                "id": "dd902e73-b8b5-46c6-a179-ef13bd4269e8",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 24623.988384227083,
-                                        "y": 21683.79378538883
+                                        "x": 24558.988384227083,
+                                        "y": 21702.79378538883
                                     },
                                     "targetPosition": {
-                                        "x": 24501.967391304344,
-                                        "y": 21957.85742268161
+                                        "x": 24436.967391304344,
+                                        "y": 21976.85742268161
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -5807,17 +5783,17 @@
                         "id": "64521dec-9e27-4da9-8662-5eb4cff096b3",
                         "savedPayload": {
                             "position": {
-                                "x": 24501.967391304344,
-                                "y": 21957.85742268161
+                                "x": 24436.967391304344,
+                                "y": 21976.85742268161
                             },
                             "targetPosition": {
-                                "x": 24651.967391304344,
-                                "y": 22217.66504381694
+                                "x": 24586.967391304344,
+                                "y": 22236.66504381694
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -5831,121 +5807,9 @@
                         {
                             "type": "Plotter Panel",
                             "name": "MACD R2",
-                            "config": "{\n    \"codeName\": \"MACD-R2_panel\"\n}",
+                            "config": "{\n    \"codeName\": \"MACDR2_panel\"\n}",
                             "project": "Foundations",
                             "panelData": [
-                                {
-                                    "type": "Panel Data",
-                                    "name": "Line",
-                                    "config": "{\n     \"valueDecimals\": 2\n}",
-                                    "project": "Foundations",
-                                    "dataFormula": {
-                                        "type": "Data Formula",
-                                        "name": "New Data Formula",
-                                        "code": "record.line",
-                                        "project": "Foundations",
-                                        "id": "e7c08972-dcec-40e3-9769-fddf832ea984",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 24911.775012439677,
-                                                "y": 21767.66504381694
-                                            },
-                                            "targetPosition": {
-                                                "x": 24911.775012439677,
-                                                "y": 21917.66504381694
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    "id": "bac3134e-2b7a-46c8-805f-0312eb160345",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24911.775012439677,
-                                            "y": 21917.66504381694
-                                        },
-                                        "targetPosition": {
-                                            "x": 24911.775012439677,
-                                            "y": 22067.66504381694
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 2,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Panel Data",
-                                    "name": "Signal",
-                                    "config": "{\n     \"valueDecimals\": 2\n}",
-                                    "project": "Foundations",
-                                    "dataFormula": {
-                                        "type": "Data Formula",
-                                        "name": "New Data Formula",
-                                        "code": "record.signal",
-                                        "project": "Foundations",
-                                        "id": "74e4594f-c3bc-4050-a985-02b59d0233f3",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 24911.775012439677,
-                                                "y": 21767.66504381694
-                                            },
-                                            "targetPosition": {
-                                                "x": 24911.775012439677,
-                                                "y": 21917.66504381694
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 1,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    "id": "366c446c-31b2-437d-9ec0-b1bd6d675357",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 24911.775012439677,
-                                            "y": 21917.66504381694
-                                        },
-                                        "targetPosition": {
-                                            "x": 24911.775012439677,
-                                            "y": 22067.66504381694
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 1,
-                                            "distanceToParent": 2,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
                                 {
                                     "type": "Panel Data",
                                     "name": "Histogram",
@@ -5959,12 +5823,12 @@
                                         "id": "1858ed3c-3072-449f-8575-f84eaf4a77db",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 25171.58263357501,
-                                                "y": 21917.66504381694
+                                                "x": 24586.967391304344,
+                                                "y": 21936.66504381694
                                             },
                                             "targetPosition": {
-                                                "x": 25041.678823007343,
-                                                "y": 21992.66504381694
+                                                "x": 24716.87120187201,
+                                                "y": 22011.66504381694
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -5982,18 +5846,18 @@
                                     "id": "0f89b90f-d010-46fb-9dd3-a020d6e00b39",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25041.678823007343,
-                                            "y": 21992.66504381694
+                                            "x": 24716.87120187201,
+                                            "y": 22011.66504381694
                                         },
                                         "targetPosition": {
-                                            "x": 24911.775012439677,
-                                            "y": 22067.66504381694
+                                            "x": 24846.775012439677,
+                                            "y": 22086.66504381694
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 4,
+                                            "angleToParent": 1,
                                             "distanceToParent": 2,
                                             "arrangementStyle": 0
                                         },
@@ -6015,12 +5879,12 @@
                                         "id": "e806277c-0a43-49c0-be2e-a0ab1532cb3f",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 25161.775012439677,
-                                                "y": 22067.66504381694
+                                                "x": 24846.775012439677,
+                                                "y": 21836.66504381694
                                             },
                                             "targetPosition": {
-                                                "x": 25061.775012439677,
-                                                "y": 22067.66504381694
+                                                "x": 24846.775012439677,
+                                                "y": 21936.66504381694
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6038,18 +5902,18 @@
                                     "id": "15adee82-7ae6-4ae7-a4f7-2819edfd0b47",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25061.775012439677,
-                                            "y": 22067.66504381694
+                                            "x": 24846.775012439677,
+                                            "y": 21936.66504381694
                                         },
                                         "targetPosition": {
-                                            "x": 24911.775012439677,
-                                            "y": 22067.66504381694
+                                            "x": 24846.775012439677,
+                                            "y": 22086.66504381694
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
                                             "distanceToParent": 2,
                                             "arrangementStyle": 0
                                         },
@@ -6061,7 +5925,7 @@
                                 {
                                     "type": "Panel Data",
                                     "name": "MACD R2 Sell Signal",
-                                    "config": "{\n  \"valueDecimals\": 10\n}",
+                                    "config": "{\n  \"valueDecimals\": 0\n}",
                                     "project": "Foundations",
                                     "dataFormula": {
                                         "type": "Data Formula",
@@ -6071,12 +5935,12 @@
                                         "id": "2acfd3e1-480e-4f60-92f3-9b8f61597a9b",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 25128.281363385788,
-                                                "y": 22192.66504381694
+                                                "x": 25063.281363385788,
+                                                "y": 21961.66504381694
                                             },
                                             "targetPosition": {
-                                                "x": 25041.678823007343,
-                                                "y": 22142.66504381694
+                                                "x": 24976.678823007343,
+                                                "y": 22011.66504381694
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6094,18 +5958,130 @@
                                     "id": "09daf2d1-1f11-4f5d-9cd2-6b3b965fb8c5",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 25041.678823007343,
-                                            "y": 22142.66504381694
+                                            "x": 24976.678823007343,
+                                            "y": 22011.66504381694
                                         },
                                         "targetPosition": {
-                                            "x": 24911.775012439677,
-                                            "y": 22067.66504381694
+                                            "x": 24846.775012439677,
+                                            "y": 22086.66504381694
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
                                             "isFrozen": false,
                                             "isCollapsed": false,
-                                            "angleToParent": 2,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Panel Data",
+                                    "name": "Line",
+                                    "config": "{\n     \"valueDecimals\": 2\n}",
+                                    "project": "Foundations",
+                                    "dataFormula": {
+                                        "type": "Data Formula",
+                                        "name": "New Data Formula",
+                                        "code": "record.line",
+                                        "project": "Foundations",
+                                        "id": "24d89f39-b02f-4173-88d2-0f4f39582435",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25106.58263357501,
+                                                "y": 22236.66504381694
+                                            },
+                                            "targetPosition": {
+                                                "x": 24976.678823007343,
+                                                "y": 22161.66504381694
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "2d1286e3-2371-4235-bf98-422da3e039a1",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24976.678823007343,
+                                            "y": 22161.66504381694
+                                        },
+                                        "targetPosition": {
+                                            "x": 24846.775012439677,
+                                            "y": 22086.66504381694
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
+                                            "distanceToParent": 2,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Panel Data",
+                                    "name": "Signal",
+                                    "config": "{\n     \"valueDecimals\": 2\n}",
+                                    "project": "Foundations",
+                                    "dataFormula": {
+                                        "type": "Data Formula",
+                                        "name": "New Data Formula",
+                                        "code": "record.signal",
+                                        "project": "Foundations",
+                                        "id": "fbb2f78b-445b-4cec-96fc-34a59c0ae2c8",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 24846.775012439677,
+                                                "y": 22386.66504381694
+                                            },
+                                            "targetPosition": {
+                                                "x": 24846.775012439677,
+                                                "y": 22236.66504381694
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    "id": "6c0593db-d553-44a3-abec-78872d663a53",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 24846.775012439677,
+                                            "y": 22236.66504381694
+                                        },
+                                        "targetPosition": {
+                                            "x": 24846.775012439677,
+                                            "y": 22086.66504381694
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 1,
                                             "distanceToParent": 2,
                                             "arrangementStyle": 0
                                         },
@@ -6118,17 +6094,17 @@
                             "id": "8c3f6a41-6632-43c4-b4d2-34f825669af3",
                             "savedPayload": {
                                 "position": {
-                                    "x": 24911.775012439677,
-                                    "y": 22067.66504381694
+                                    "x": 24846.775012439677,
+                                    "y": 22086.66504381694
                                 },
                                 "targetPosition": {
-                                    "x": 24651.967391304344,
-                                    "y": 22217.66504381694
+                                    "x": 24586.967391304344,
+                                    "y": 22236.66504381694
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
                                     "isFrozen": false,
-                                    "isCollapsed": true,
+                                    "isCollapsed": false,
                                     "angleToParent": 1,
                                     "distanceToParent": 3,
                                     "arrangementStyle": 0
@@ -6142,12 +6118,12 @@
                     "id": "52d1bba5-98c6-41b7-882b-c88246b680a6",
                     "savedPayload": {
                         "position": {
-                            "x": 24651.967391304344,
-                            "y": 22217.66504381694
+                            "x": 24586.967391304344,
+                            "y": 22236.66504381694
                         },
                         "targetPosition": {
-                            "x": 24651.967391304344,
-                            "y": 22517.66504381694
+                            "x": 24586.967391304344,
+                            "y": 22536.66504381694
                         },
                         "floatingObject": {
                             "isPinned": false,

@@ -2,7 +2,14 @@
     "type": "Asset Weight Vote",
     "definition": {
         "text": "Use this node to establish a reference with an Asset node in an Assets hierarchy. With this vote, you are passing on Weight Power to the referenced node. That way, the node gets more of the Token Rewards available in the hierarchy. This is how you influence how different areas of the project are incentivized.",
-        "updated": 1630356598807
+        "updated": 1630356598807,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот узел, чтобы установить ссылку на узел Asset в иерархии Assets. Этим голосованием вы передаете Weight Power указанному узлу. Таким образом, узел получает больше Token Rewards, доступных в иерархии. Таким образом вы влияете на стимулирование различных областей проекта.",
+                "updated": 1639138880919
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -16,7 +23,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Working on Multiple Workspaces"
+            "text": "Working on Multiple Workspaces",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Работа с несколькими рабочими пространствами",
+                    "updated": 1639138743646
+                }
+            ]
         },
         {
             "style": "Include",
@@ -32,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639138757214
+                }
+            ]
         }
     ]
 }

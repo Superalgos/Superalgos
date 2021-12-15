@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El concepto de un interruptor puede usarse a través de diferentes programas en la jearquía en el User Profile. Un interruptor es un dispsitivo usado para contribuir en el flujo del Token Power a los nodos de la descendencia. En el caso del Token Power Switch, es el único nodo descendiente de la jerarquía del User Profile usada para distribuir Token Power a los diferentes programas.",
                 "updated": 1633513107006
+            },
+            {
+                "language": "RU",
+                "text": "Концепция переключателя может использоваться в различных программах в иерархии профиля пользователя. Switch - это устройство, используемое для распределения потока Token Power между дочерними узлами. В случае Token Power Switch, это единственный дочерний узел иерархии профилей пользователей, используемый для распределения Token Power между различными программами.",
+                "updated": 1639126693151
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "La mayoría de los nodos de la jerarquía actúan como interruptores, aún cuando su nombre no incluya la palabra interruptor!",
                     "updated": 1633513212883
+                },
+                {
+                    "language": "RU",
+                    "text": "Большинство узлов в иерархии действуют как переключатели, даже если их имя не включает слово переключатель!",
+                    "updated": 1639126728649
                 }
             ]
         },
@@ -36,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639126742901
+                }
+            ]
         }
     ]
 }

@@ -10,8 +10,13 @@
             },
             {
                 "language": "RU",
-                "text": "Шкала времени управляет масштабом горизонтальной оси, т.е. временной шкалой соответствующей машины времени и всех графиков временной шкалы в ней.",
-                "updated": 1636202596939
+                "text": "Time Scale управляет масштабом горизонтальной оси, т.е. временной шкалой соответствующей машины времени и всех графиков временной шкалы в ней.",
+                "updated": 1639378855173
+            },
+            {
+                "language": "TR",
+                "text": "Zaman ölçeği, yatay eksenin ölçeğini, yani ilgili zaman makinesinin zaman çizelgesini ve içindeki tüm zaman çizelgesi çizelgelerini kontrol eder.",
+                "updated": 1639214212622
             }
         ]
     },
@@ -22,49 +27,126 @@
         },
         {
             "style": "Title",
-            "text": "Scale Minimum and Maximum Values"
+            "text": "Scale Minimum and Maximum Values",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Минимальные и максимальные значения шкалы",
+                    "updated": 1639378866376
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A time scale has a minimum and a maximum value. The minimum value is the value at the left border of the chart. The maximum, is the value at the right border of the chart."
+            "text": "A time scale has a minimum and a maximum value. The minimum value is the value at the left border of the chart. The maximum, is the value at the right border of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шкала времени имеет минимальное и максимальное значение. Минимальное значение - это значение на левой границе диаграммы. Максимум - это значение на правой границе диаграммы.",
+                    "updated": 1639378879524
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan across the charts, you are directly affecting the minimum and maximum scale values. That said, the actual scale doesn't change when panning across a chart."
+            "text": "In technical terms, the minimum and maximum scale values are constantly changing as, whenever you pan across the charts, you are directly affecting the minimum and maximum scale values. That said, the actual scale doesn't change when panning across a chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С технической точки зрения, минимальные и максимальные значения шкалы постоянно меняются, поскольку всякий раз, когда вы перемещаетесь по диаграммам, вы напрямую влияете на минимальные и максимальные значения шкалы. Тем не менее, фактический масштаб не меняется при панорамировании диаграммы.",
+                    "updated": 1639378903430
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Automatic Scale"
+            "text": "Automatic Scale",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Автоматическое масштабирование",
+                    "updated": 1639379015745
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The system features an automatic adjustment of the scale, which is turned on by default in some of the Plugin Workspaces. The scale may be automatic in its minimum value, in its maximum value, in both, or none (manual mode).",
-            "updated": 1616506577511
+            "updated": 1616506577511,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В системе предусмотрена автоматическая регулировка масштаба, которая по умолчанию включена в некоторых Plugin Workspaces. Шкала может быть автоматической с минимальным значением, максимальным значением, с обоими значениями или без (ручной режим).",
+                    "updated": 1639379000530
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the scale is automatic in the minimum value, the scale is adjusted so that the chart shows all data from the beginning of the market. Panning the charts under such setting has the effect of compressing and decompressing the data against the left border of the chart."
+            "text": "When the scale is automatic in the minimum value, the scale is adjusted so that the chart shows all data from the beginning of the market. Panning the charts under such setting has the effect of compressing and decompressing the data against the left border of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда шкала устанавливается автоматически на минимальное значение, шкала настраивается так, чтобы на графике отображались все данные с начала рынка. Панорамирование диаграмм при такой настройке приводит к сжатию и распаковке данных относительно левой границы диаграммы.",
+                    "updated": 1639379035472
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the scale is automatic in the maximum value, the scale is adjusted so that the chart shows all data until the end of the market. In such case, panning the charts has the effect of compressing and decompressing the data against the right border of the chart."
+            "text": "When the scale is automatic in the maximum value, the scale is adjusted so that the chart shows all data until the end of the market. In such case, panning the charts has the effect of compressing and decompressing the data against the right border of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда шкала устанавливается автоматически на максимальное значение, шкала настраивается так, чтобы на графике отображались все данные до конца рынка. В таком случае панорамирование диаграмм приводит к сжатию и распаковке данных относительно правой границы диаграммы.",
+                    "updated": 1639379048770
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "When the scale is automatic in both the minimum and maximum value, the scale is adjusted so that the chart shows the whole market. In such case, when you click and drag to pan the charts, the settings turns back to manual on both ends of the chart."
+            "text": "When the scale is automatic in both the minimum and maximum value, the scale is adjusted so that the chart shows the whole market. In such case, when you click and drag to pan the charts, the settings turns back to manual on both ends of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда шкала устанавливается автоматически как по минимальному, так и по максимальному значению, масштаб настраивается так, чтобы на графике отображался весь рынок. В таком случае, когда вы щелкаете и перетаскиваете, чтобы панорамировать диаграммы, настройки возвращаются к ручным на обоих концах диаграммы.",
+                    "updated": 1639379062428
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Having the time scale set to automatic by default helps finding the data as soon as it starts being processed the first time you run the Masters Data Mine Bots.",
-            "updated": 1616506548663
+            "updated": 1616506548663,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установка шкалы времени на автоматический по умолчанию помогает находить данные, как только они начинают обрабатываться при первом запуске ботов Masters Data Mine Bots.",
+                    "updated": 1639379116176
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Manual Scale"
+            "text": "Manual Scale",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ручное масштабирвание",
+                    "updated": 1639379132747
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The scale features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning through a chart. This is the natural state of the time scale."
+            "text": "The scale features a manual mode. When in manual mode the scale does not change, even if the minimum and maximum values change while panning through a chart. This is the natural state of the time scale.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шкала имеет ручной режим. В ручном режиме масштаб не меняется, даже если минимальное и максимальное значения изменяются при панорамировании диаграммы. Это естественное состояние шкалы времени.",
+                    "updated": 1639379164628
+                }
+            ]
         },
         {
             "style": "Block",
@@ -72,7 +154,14 @@
         },
         {
             "style": "Title",
-            "text": "Time Scale at the Charts"
+            "text": "Time Scale at the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Шкала времени на графиках",
+                    "updated": 1639379182745
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -82,33 +171,82 @@
         {
             "style": "Text",
             "text": "To change the automatic scale settings, place the mouse pointer over the corresponding time box, press the Shift key and slowly scroll the wheel of the mouse.",
-            "updated": 1616506660450
+            "updated": 1616506660450,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы изменить настройки автоматического масштабирования, наведите указатель мыши на соответствующее поле времени, нажмите клавишу Shift и медленно прокрутите колесико мыши.",
+                    "updated": 1639379212672
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If you run into issues using the mouse wheel (certain OS + browser + mouse combinations may not work as expected), you may also point the mouse at the scale box and use ↑ ↓ to toggle through the different automatic modes.",
-            "updated": 1616506765350
+            "updated": 1616506765350,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникнут проблемы с использованием колесика мыши (некоторые комбинации ОС + браузер + мышь могут работать не так, как ожидалось), вы также можете навести указатель мыши на рамку шкалы и использовать ↑ ↓ для переключения между различными автоматическими режимами.",
+                    "updated": 1639379296260
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Notice the tiny green triangles to the sides of the time scale icon.",
-            "updated": 1616506804850
+            "updated": 1616506804850,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на крошечные зеленые треугольники по бокам от значка шкалы времени.",
+                    "updated": 1639379310372
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A triangle pointing right means that the maximum value of the scale is automatic."
+            "text": "A triangle pointing right means that the maximum value of the scale is automatic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Треугольник, указывающий вправо, означает, что максимальное значение шкалы установлено автоматически.",
+                    "updated": 1639379323291
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "A triangle pointing left means that the minimum value of the scale is automatic."
+            "text": "A triangle pointing left means that the minimum value of the scale is automatic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Треугольник, указывающий влево, означает, что минимальное значение шкалы установлено автоматически.",
+                    "updated": 1639379333234
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Both triangles present at the same time means that both minimum and maximum values are automatic."
+            "text": "Both triangles present at the same time means that both minimum and maximum values are automatic.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наличие обоих треугольников одновременно означает, что и минимальное, и максимальное значения устанавливаются автоматически.",
+                    "updated": 1639379345219
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "No triangle means that both minimum and maximum values are in manual mode."
+            "text": "No triangle means that both minimum and maximum values are in manual mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отсутствие треугольника означает, что и минимальное, и максимальное значения указаны в ручном режиме.",
+                    "updated": 1639379356446
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -118,15 +256,36 @@
         {
             "style": "Text",
             "text": "To adjust the scale, make sure either or both minimum and maximum values are in manual mode. Place the mouse pointer over the time box and scroll the wheel of the mouse. The scale will increase or decrease accordingly, depending on which values are set to manual.",
-            "updated": 1616512684144
+            "updated": 1616512684144,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы настроить шкалу, убедитесь, что одно или оба минимального и максимального значений указаны в ручном режиме. Поместите указатель мыши на рамку времени и прокрутите колесико мыши. Масштаб будет соответственно увеличиваться или уменьшаться в зависимости от того, какие значения установлены вручную.",
+                    "updated": 1639379380689
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Notice that, while changing the scale, a number is displayed replacing the actual datetime. This is a reference value of the scale, that may serve for comparison purposes, with scales in other charts."
+            "text": "Notice that, while changing the scale, a number is displayed replacing the actual datetime. This is a reference value of the scale, that may serve for comparison purposes, with scales in other charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что при изменении масштаба отображается число, заменяющее фактическую дату и время. Это справочное значение шкалы, которое может использоваться для сравнения со шкалами других диаграмм.",
+                    "updated": 1639379420224
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "This action has no effect when both minimum and maximum values are set to automatic mode."
+            "text": "This action has no effect when both minimum and maximum values are set to automatic mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это действие не имеет эффекта, если как минимальное, так и максимальное значения установлены в автоматический режим.",
+                    "updated": 1639379445742
+                }
+            ]
         },
         {
             "style": "Block",
@@ -136,29 +295,71 @@
         {
             "style": "Title",
             "text": "Time Scale Configuration",
-            "updated": 1609782618234
+            "updated": 1609782618234,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Time Scale",
+                    "updated": 1639379492306
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609782652970
+            "updated": 1609782652970,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639379499880
+                }
+            ]
         },
         {
             "style": "List",
             "text": "minValue is a date in the Epoch time format that represents the value of the scale at the left border of the chart.",
-            "updated": 1609782661151
+            "updated": 1609782661151,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "minValue - это дата в формате времени эпохи, представляющая значение шкалы на левой границе диаграммы.",
+                    "updated": 1639379518229
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "maxValue is a date in the Epoch time format that represents the value of the scale at the right border of the chart."
+            "text": "maxValue is a date in the Epoch time format that represents the value of the scale at the right border of the chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maxValue - это дата в формате времени эпохи, представляющая значение шкалы на правой границе диаграммы.",
+                    "updated": 1639379529005
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual."
+            "text": "autoMinScale sets the mode of the scale for the minimum value; true sets the value to automatic, false sets the value to manual.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "autoMinScale устанавливает режим шкалы по минимальному значению; true устанавливает значение автоматически, false устанавливает значение вручную.",
+                    "updated": 1639379544452
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual."
+            "text": "autoMaxScale sets the mode of the scale for the maximum value; true sets the value to automatic, false sets the value to manual.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "autoMaxScale устанавливает режим шкалы на максимальное значение; true устанавливает значение автоматически, false устанавливает значение вручную.",
+                    "updated": 1639379560233
+                }
+            ]
         }
     ]
 }

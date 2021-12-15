@@ -7,20 +7,48 @@
             "name": "Open\\open-stage",
             "project": "Foundations"
         },
-        "text": "As soon as the Take Position Event validates true, both the open stage and the manage stage become active."
+        "text": "As soon as the Take Position Event validates true, both the open stage and the manage stage become active.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sobald \"Take Position Event\" als wahr bestätigt wird, werden sowohl die Open Stage als auch die Manage Stage aktiv.",
+                "updated": 1639395001702
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "The Open Stage is activated to deal with order execution in entering the position."
+            "text": "The Open Stage is activated to deal with order execution in entering the position.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Open Stage wird aktiviert, um die Auftragsausführung beim Eingehen der Position zu bearbeiten.",
+                    "updated": 1639395010697
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Manage Stage is activated to monitor stop loss and take profit targets. It is possible that targets are hit even before actually executing the orders to take the position, and that is the reason why the stage must be activated immediately."
+            "text": "The Manage Stage is activated to monitor stop loss and take profit targets. It is possible that targets are hit even before actually executing the orders to take the position, and that is the reason why the stage must be activated immediately.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Manage Stage wird aktiviert, um Stop Loss- und Take Profit-Ziele zu überwachen. Es ist möglich, dass die Ziele erreicht werden, noch bevor die Aufträge zur Positionsübernahme tatsächlich ausgeführt werden, weshalb die Phase sofort aktiviert werden muss.",
+                    "updated": 1639395023763
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Read these first few paragraphs about the open stage!"
+            "text": "Read these first few paragraphs about the open stage!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie diese ersten Absätze über die Open Stage!",
+                    "updated": 1639395032743
+                }
+            ]
         }
     ]
 }

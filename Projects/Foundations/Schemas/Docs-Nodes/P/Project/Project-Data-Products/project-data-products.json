@@ -4,11 +4,25 @@
         {
             "style": "Note",
             "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
-            "updated": 1609667425394
+            "updated": 1609667425394,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos организует структуры данных в сети Network  по проектам для обеспечения масштабируемости.",
+                    "updated": 1639148562474
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Project Data Products node is an organizational device grouping all Bot Products corresponding to the same Project.",
-        "updated": 1609667851639
+        "updated": 1609667851639,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Project Data Products - это организационное устройство, объединяющее все продукты ботов, соответствующие одному и тому же проекту.",
+                "updated": 1639148492588
+            }
+        ]
     }
 }

@@ -25,7 +25,7 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                             socialBot.botInstance = TS.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot(processIndex)
                             socialBot.botInstance.initialize(config)
                         } else if (socialBot.type === "Slack Bot") {
-                            socialBot.botInstance = TS.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot(processIndex)
+                            socialBot.botInstance = SA.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot()
                             socialBot.botInstance.initialize(config)
                         } else if (socialBot.type === "Twitter Bot") {
                             socialBot.botInstance = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(processIndex)

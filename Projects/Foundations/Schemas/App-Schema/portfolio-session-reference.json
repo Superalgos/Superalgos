@@ -48,7 +48,7 @@
     "level": 3,
     "alternativeIcons": "Use Reference Parent",
     "referencingRules": {
-        "compatibleTypes": "->Live Portfolio Session->"
+        "compatibleTypes": "->Backtesting Portfoio Session->Live Portfolio Session->"
     },
     "attachingRules": {
         "compatibleTypes": "->Market Portfolio Products->"

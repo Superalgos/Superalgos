@@ -10,8 +10,13 @@
             },
             {
                 "language": "RU",
-                "text": "Trading Process Instance - это ссылка на определение процесса торгового бота, как это определено в хранилище данных Masters.",
+                "text": "Trading Process Instance - это ссылка на определ��ние процесса торгового бота, как это определено в хранилище данных Masters.",
                 "updated": 1638601889130
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret süreci örneği, Masters veri madeninde tanımlandığı gibi ticaret botunun süreç tanımına bir referanstır.",
+                "updated": 1639233053277
             }
         ]
     },

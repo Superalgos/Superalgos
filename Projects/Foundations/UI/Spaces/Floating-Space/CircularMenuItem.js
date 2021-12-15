@@ -1,6 +1,6 @@
 
 function newCircularMenuItem() {
-    const MODULE_NAME = 'Circular Menu Iem'
+    const MODULE_NAME = 'Circular Menu Item'
 
     let thisObject = {
         type: undefined,
@@ -39,6 +39,8 @@ function newCircularMenuItem() {
         angle: undefined,
         container: undefined,
         payload: undefined,
+        circularMenu: undefined,
+        menu: undefined,
         relatedUiObject: undefined,
         relatedUiObjectProject: undefined,
         dontShowAtFullscreen: undefined,
@@ -47,6 +49,7 @@ function newCircularMenuItem() {
         internalClick: internalClick,
         physics: physics,
         invisiblePhysics: invisiblePhysics,
+        toggleMenu: toggleMenu,
         drawBackground: drawBackground,
         drawForeground: drawForeground,
         getContainer: getContainer,
@@ -105,6 +108,8 @@ function newCircularMenuItem() {
         thisObject.actionStatus = undefined
         thisObject.disableIfPropertyIsDefined = undefined
         thisObject.propertyToCheckFor = undefined
+        thisObject.menu = undefined
+        thisObject.circularMenu = undefined
     }
 
     function initialize(pPayload) {
@@ -143,6 +148,18 @@ function newCircularMenuItem() {
         if (thisObject.isDeployed === true) {
             if (thisObject.container.frame.isThisPointHere(point, true, false) === true) {
                 return thisObject.container
+            } else if (thisObject.menu !== undefined) {
+                if (thisObject.menu.isDeployed === true) {
+                    for (let i = 0; i < thisObject.menu.menuItems.length; i++) {
+                        let menuItem = thisObject.menu.menuItems[i]
+                        if (menuItem.visible === true) {
+                            container = menuItem.getContainer(point)
+                        }
+                        if (container !== undefined) { return container }
+                    }
+                } else {
+                    return undefined
+                }
             } else {
                 return undefined
             }
@@ -150,6 +167,9 @@ function newCircularMenuItem() {
     }
 
     function invisiblePhysics() {
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.invisiblePhysics()
+        }
         temporaryStatusPhysics()
     }
 
@@ -168,7 +188,13 @@ function newCircularMenuItem() {
     }
 
     function physics() {
+        thisObject.payload.targetPosition.x = thisObject.payload.position.x
+        thisObject.payload.targetPosition.y = thisObject.payload.position.y
+
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.physics()
+        }
         positionPhysics()
         temporaryStatusPhysics()
         disablePhysics()
@@ -391,6 +417,10 @@ function newCircularMenuItem() {
         }
 
         function executeAction() {
+            if (thisObject.action === "Open Menu") {
+                thisObject.toggleMenu()
+                return
+            }
             if (temporaryStatus === STATUS_NO_ACTION_TAKEN_YET || temporaryStatus === STATUS_WAITING_CONFIRMATION) {
                 /* We need to execute the main Action */
                 /* If there is a working label defined, we use it here. */
@@ -485,14 +515,36 @@ function newCircularMenuItem() {
         }
     }
 
+    function toggleMenu() {
+        if (thisObject.menu === undefined) { return }
+        if (thisObject.menu.isOpen === true) {
+            thisObject.menu.setMenuOpenState(false)
+        } else {
+            thisObject.menu.setMenuOpenState(true)
+            for (let i = 0; i < thisObject.circularMenu.menuItems.length; i++) {
+                if (thisObject.circularMenu.menuItems[i].menu !== undefined) {
+                    if (thisObject.menu.container.id !== thisObject.circularMenu.menuItems[i].menu.container.id)
+                    thisObject.circularMenu.menuItems[i].menu.setMenuOpenState(false)
+                }
+            }
+        }
+    }
+
     function drawBackground() {
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
+
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.drawBackground()
+        }
 
         if (thisObject.container.frame.position.x > 0 && thisObject.isDeployed === true && thisObject.currentRadius >= thisObject.targetRadius) {
             if (thisObject.type === 'Icon & Text') {
                 let backgroundColor = backgroundColorToUse
                 if (thisObject.isEnabled === false) {
                     backgroundColor = UI_COLOR.GREY
+                }
+                if (thisObject.menu !== undefined && thisObject.menu.isOpen === true) {
+                    backgroundColor = UI_COLOR.MIDNIGHT_GREEN
                 }
                 let params = {
                     cornerRadius: 5,
@@ -517,6 +569,10 @@ function newCircularMenuItem() {
 
     function drawForeground() {
         if (thisObject.dontShowAtFullscreen === true && AT_FULL_SCREEN_MODE === true) { return }
+
+        if (thisObject.menu !== undefined) {
+            thisObject.menu.drawForeground()
+        }
 
         let menuPosition = {
             x: thisObject.currentRadius * 1.5,

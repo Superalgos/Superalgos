@@ -50,6 +50,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         tradingEpisodeModuleObject.initialize()
         outgoingTradingSignalsModuleObject.initialize()
         incomingTradingSignalsModuleObject.initialize()
+        portfolioManagerClient.initialize()
     }
 
     function finalize() {
@@ -80,6 +81,9 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
         incomingTradingSignalsModuleObject.finalize()
         incomingTradingSignalsModuleObject = undefined
+
+        portfolioManagerClient.finalize()
+        portfolioManagerClient = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -135,10 +139,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     let strategy = tradingSystem.tradingStrategies[j]
                     let triggerStage = strategy.triggerStage
 
-                    let signal = await incomingTradingSignalsModuleObject.checkForSignals(triggerStage.triggerOff)
-                    tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signal)
-
                     if (triggerStage !== undefined) {
+
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOn)
+                        await tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signals)
+
                         if (triggerStage.triggerOn !== undefined) {
                             for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
                                 let situation = triggerStage.triggerOn.situations[k]
@@ -191,9 +196,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                tradingSystem.evalConditions(strategy, 'Trigger Off Event')
-
                 if (triggerStage !== undefined) {
+
+                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOff)
+                    await tradingSystem.evalConditions(triggerStage, 'Trigger Off Event', signals)
+
                     if (triggerStage.triggerOff !== undefined) {
 
                         for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
@@ -235,10 +242,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                tradingSystem.evalConditions(strategy, 'Take Position Event')
-                await tradingSystem.evalFormulas(strategy, 'Take Position Event')
-
                 if (triggerStage !== undefined) {
+
+                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.takePosition)
+                    await tradingSystem.evalConditions(triggerStage, 'Take Position Event', signals)
+                    await tradingSystem.evalFormulas(triggerStage, 'Take Position Event')
+
                     if (triggerStage.takePosition !== undefined) {
                         for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
                             let situation = triggerStage.takePosition.situations[k]
@@ -349,14 +358,14 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let executionNode = tradingSystemStage.openExecution
 
                 /* Evaluate conditions and formulas so they are ready during the execution run */
-                tradingSystem.evalConditions(executionNode, 'Open Execution')
+                await tradingSystem.evalConditions(executionNode, 'Open Execution')
                 await tradingSystem.evalFormulas(executionNode, 'Open Execution')
 
                 await tradingExecutionModuleObject.runExecution(
                     executionNode,
                     tradingEngineStage
                 )
-                checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Open Stage')
+                await checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Open Stage')
 
                 /* User Defined Code if runWhileAtStage==true */
                 if (tradingEngine.tradingCurrent.strategyOpenStage.status.value === 'Open') {
@@ -379,7 +388,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 Check if there are unfilled orders, we will check if they were executed, 
                 and cancel the ones that were not. 
                 */
-                tradingSystem.evalConditions(tradingSystemStage, 'Open Execution')
+                await tradingSystem.evalConditions(tradingSystemStage, 'Open Execution')
                 await tradingSystem.evalFormulas(tradingSystemStage, 'Open Execution')
 
                 await tradingExecutionModuleObject.runExecution(
@@ -475,7 +484,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let manageStage = strategy.manageStage
 
                 /* Evaluate all the stage conditions and formulas to have them ready */
-                tradingSystem.evalConditions(manageStage, 'Manage Stage')
+                await tradingSystem.evalConditions(manageStage, 'Manage Stage')
                 await tradingSystem.evalFormulas(manageStage, 'Manage Stage')
 
                 /* Stop Loss Management */
@@ -896,7 +905,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyCloseStage
                 let executionNode = tradingSystemStage.closeExecution
 
-                tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
+                await tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
                 await tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
 
                 await tradingExecutionModuleObject.runExecution(
@@ -904,7 +913,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     tradingEngine.tradingCurrent.strategyCloseStage
                 )
 
-                checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
+                await checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, 'Close Stage')
                 /* If User Defined Code exists check for runWhileAtStage */
                 if (tradingEngine.tradingCurrent.strategyCloseStage.status.value === 'Open') {
                     checkUserDefinedCode('Close Stage', 'Running', 'last');
@@ -926,7 +935,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 Check if there are unfilled orders, we will check if they were executed,
                 and cancel the ones that were not.
                 */
-                tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
+                await tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
                 await tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
 
                 await tradingExecutionModuleObject.runExecution(
@@ -1048,7 +1057,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         }
     }
 
-    function checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, stageName) {
+    async function checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, stageName) {
         /*
         The Stage is closed when the fillSize + feesPaid reaches the targetSize. 
         
@@ -1104,16 +1113,16 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         ) {
             positionFilled()
         } else {
-            checkCloseStageEvent(tradingSystemStage)
+            await checkCloseStageEvent(tradingSystemStage)
         }
 
         function positionFilled() {
             changeStageStatus(stageName, 'Closed', 'Position Size Filled')
         }
 
-        function checkCloseStageEvent(tradingSystemStage) {
+        async function checkCloseStageEvent(tradingSystemStage) {
             /* Check the Close Stage Event */
-            tradingSystem.evalConditions(tradingSystemStage, 'Close Stage Event')
+            await tradingSystem.evalConditions(tradingSystemStage, 'Close Stage Event')
             if (checkStopStageEvent(tradingSystemStage) === true) {
                 changeStageStatus(stageName, 'Closing', 'Close Stage Event')
             }

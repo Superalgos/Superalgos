@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Машина времени синхронизирует несколько графиков временной шкалы на одной и той же временной шкале. Графики временной шкалы в машине времени могут иметь разные шкалы скорости или шкалы временных рамок, но их шкала времени всегда будет совпадать.",
                 "updated": 1636199722951
+            },
+            {
+                "language": "TR",
+                "text": "Zaman makinesi, aynı zaman çizelgesi üzerinde (Şu anda gördüğünüz beyaz alan) birden çok zaman çizelgesi grafiğini (farklı varlık çiftlerini) senkronize eder. Bir zaman makinesi içindeki zaman çizelgesi çizelgeleri, farklı hız ölçeklerine veya zaman çerçevesi ölçeklerine sahip olabilir, ancak zaman ölçekleri her zaman eşleşir.",
+                "updated": 1639214110869
             }
         ],
         "updated": 1628644911381
@@ -24,11 +29,25 @@
         },
         {
             "style": "Text",
-            "text": "Think of a time machine as an aide that helps you keep any number of pieces of information synchronized on the same time scale. Every data structure that you set up within the same time machine, will always be synchronized in time. Put in other words, the open and closing datetime of each dataset will always be aligned on the vertical axis."
+            "text": "Think of a time machine as an aide that helps you keep any number of pieces of information synchronized on the same time scale. Every data structure that you set up within the same time machine, will always be synchronized in time. Put in other words, the open and closing datetime of each dataset will always be aligned on the vertical axis.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Думайте о машине времени как о помощнике, который помогает вам синхронизировать любое количество фрагментов информации в одной временной шкале. Каждая структура данных, которую вы настраиваете на одной машине времени, всегда будет синхронизирована во времени. Другими словами, даты и время открытия и закрытия каждого набора данных всегда будут выровнены по вертикальной оси.",
+                    "updated": 1639378092423
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On the other hand, when you arrange charts on different time machines, they are completely independent of one another."
+            "text": "On the other hand, when you arrange charts on different time machines, they are completely independent of one another.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, когда вы размещаете графики на разных машинах времени, они полностью независимы друг от друга.",
+                    "updated": 1639378105969
+                }
+            ]
         }
     ]
 }

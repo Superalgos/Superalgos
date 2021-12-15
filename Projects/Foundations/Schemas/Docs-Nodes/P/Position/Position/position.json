@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Position es la sección de la estructura de datos que realiza un seguimiento de la información dentro del alcance de cada puesto, y durante el tiempo que un puesto está abierto.",
                 "updated": 1629580398836
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon, veri yapısının her pozisyon kapsamında ve pozisyonun açık olduğu süre boyunca bilgileri takip eden bölümüdür.",
+                "updated": 1639225406261
             }
         ]
     },

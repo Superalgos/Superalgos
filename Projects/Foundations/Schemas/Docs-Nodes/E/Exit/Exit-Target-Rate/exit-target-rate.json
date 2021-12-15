@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Exit Target Rate - это целевая ставка, установленная при первоначальном определении целей на завершающей стадии стратегии.",
                 "updated": 1638786239333
+            },
+            {
+                "language": "TR",
+                "text": "Çıkış hedef oranı, stratejinin kapanış aşamasında ilk hedef tanımında belirlenen hedef orandır.",
+                "updated": 1639224935599
             }
         ]
     },

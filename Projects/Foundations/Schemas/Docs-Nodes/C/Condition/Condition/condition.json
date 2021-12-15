@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Condition - это п��авила внутри ситуации. Когда все условия в ситуации проверяются на истинность, ситуация также проверяется, и запускается соответствующее событие.",
                 "updated": 1638647829118
+            },
+            {
+                "language": "TR",
+                "text": "Koşullar, bir durum içindeki kurallardır. Bir durum altındaki tüm koşullar doğru olduğunda, durum da doğrulanır ve ilgili olay tetiklenir.",
+                "updated": 1639222523066
             }
         ]
     },

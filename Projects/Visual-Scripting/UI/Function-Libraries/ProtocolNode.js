@@ -20,7 +20,10 @@ function newVisualScriptingFunctionLibraryProtocolNode() {
         excludeChildrenOfType
     ) {
         if (node === undefined) { return }
-        if (node.payload === undefined) { return }
+        if (node.payload === undefined) { 
+            console.log("[WARN] getProtocolNode -> Could not process node. Most likely it was deleted.")
+            return 
+        }
 
         let schemaDocument = getSchemaDocument(node)
         if (schemaDocument !== undefined) {

@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "Let's shift the mouse pointer to the next candle, on February 26th!"
+        "text": "Let's shift the mouse pointer to the next candle, on February 26th!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Bewegen wir den Mauszeiger auf die nächste Kerze, den 26. Februar!",
+                "updated": 1639267100411
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "On the 26th the direction is Down and the slope is Gentle. Both conditions are met, so the strategy is triggered as soon as the candle closes."
+            "text": "On the 26th the direction is Down and the slope is Gentle. Both conditions are met, so the strategy is triggered as soon as the candle closes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Am 26. Februar ist die Richtung abwärts und die Neigung ist leicht. Beide Bedingungen sind erfüllt, so dass die Strategie ausgelöst wird, sobald die Kerze geschlossen wird.",
+                    "updated": 1639267109162
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times!"
+            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass jede Kerze erst ausgewertet wird, nachdem sie geschlossen wurde! Jede Eigenschaft eines jeden Produktes eines jeden Indikators bezieht sich auf geschlossene Kerzen! Dies ist eine wichtige Information, insbesondere wenn Sie mit mehreren Zeitrahmen arbeiten. Ich werde später noch darauf eingehen, aber denken Sie immer daran!",
+                    "updated": 1639267117530
+                }
+            ]
         }
     ]
 }

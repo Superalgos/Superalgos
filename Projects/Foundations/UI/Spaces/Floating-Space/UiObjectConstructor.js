@@ -513,42 +513,52 @@ function newUiObjectConstructor() {
                 floatingObject.positionLocked = true
             }
 
-            for (let i = 0; i < schemaDocument.menuItems.length; i++) {
-                let menutItemDefinition = schemaDocument.menuItems[i]
-                let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
+            processMenuItems(schemaDocument.menuItems, menuItemsInitialValues)
 
-                /* We need to reference the real function based on its name */
-                if (menutItemDefinition.actionFunction !== undefined) {
-                    try {
-                        newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
-                    } catch (err) {
-                        console.log('Error at Menu Item Action Function: ' + menutItemDefinition.actionFunction + ' ' + err.stack)
-                        continue
+            function processMenuItems(menuItems, array) {
+
+                for (let i = 0; i < menuItems.length; i++) {
+
+                    let menuItemDefinition = menuItems[i]
+                    let newMenuItem = JSON.parse(JSON.stringify(menuItemDefinition))
+
+                    /* We need to reference the real function based on its name */
+                    if (menuItemDefinition.actionFunction !== undefined) {
+                        try {
+                            newMenuItem.actionFunction = eval(menuItemDefinition.actionFunction)
+                        } catch (err) {
+                            console.log('Error at Menu Item Action Function: ' + menuItemDefinition.actionFunction + ' ' + err.stack)
+                        }
                     }
-                }
 
-                /* Adding default values */
-                if (newMenuItem.visible === undefined) {
-                    newMenuItem.visible = true
-                }
+                    /* Adding default values */
+                    if (newMenuItem.visible === undefined && menuItemsInitialValues === array) {
+                        newMenuItem.visible = true
+                    }
 
-                if (newMenuItem.rawRadius === undefined) {
-                    newMenuItem.rawRadius = 12
-                }
+                    if (newMenuItem.rawRadius === undefined) {
+                        newMenuItem.rawRadius = 12
+                    }
 
-                if (newMenuItem.targetRadius === undefined) {
-                    newMenuItem.targetRadius = 0
-                }
+                    if (newMenuItem.targetRadius === undefined) {
+                        newMenuItem.targetRadius = 0
+                    }
 
-                if (newMenuItem.currentRadius === undefined) {
-                    newMenuItem.currentRadius = 0
-                }
+                    if (newMenuItem.currentRadius === undefined) {
+                        newMenuItem.currentRadius = 0
+                    }
 
-                if (newMenuItem.actionProject === undefined) {
-                    newMenuItem.actionProject = payload.node.project
-                }
+                    if (newMenuItem.actionProject === undefined) {
+                        newMenuItem.actionProject = payload.node.project
+                    }
 
-                menuItemsInitialValues.push(newMenuItem)
+                    if (menuItemDefinition.menuItems !== undefined) {
+                        newMenuItem.menuItems = []
+                        processMenuItems(menuItemDefinition.menuItems, newMenuItem.menuItems)
+                    }
+
+                    array.push(newMenuItem)
+                }
             }
         } else {
             if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }

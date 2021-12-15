@@ -7,21 +7,49 @@
             "name": "Target\\target-size-in-quoted-asset",
             "project": "Foundations"
         },
-        "text": "I didn't mention this earlier: we will define the target size in the quoted asset, not the base asset as we did for the open stage!"
+        "text": "I didn't mention this earlier: we will define the target size in the quoted asset, not the base asset as we did for the open stage!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich habe es nicht erwähnt: Wir werden die Zielgröße im quotierten Asset definieren, nicht im Basis-Asset, wie wir es in der Open Stage getan haben!",
+                "updated": 1639417915504
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It's natural we do so, as that is the asset we now have!"
+            "text": "It's natural we do so, as that is the asset we now have!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist auch ganz natürlich, denn das ist das Asset, das wir jetzt haben!",
+                    "updated": 1639417928856
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Delete the Target Size In Base Asset node!"
+            "text": "Delete the Target Size In Base Asset node!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "<i>Löschen</i> Sie den Knoten \" Target Size \" im Base Asset Knoten!",
+                    "updated": 1639417970793
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "I built this for the target size formula copying paths... Use it, making sure you don't introduce line breaks on the nodes' paths!",
-            "updated": 1610473186038
+            "updated": 1610473186038,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe dies für die Zielgrößenformel zum Kopieren von Pfaden erstellt... Verwenden Sie es und achten Sie darauf, dass Sie keine Zeilenumbrüche in die Pfade der Knoten einfügen!",
+                    "updated": 1639417982215
+                }
+            ]
         },
         {
             "style": "Javascript",

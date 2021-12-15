@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Irgendwann werden Sie eine Referenz erstellen müssen, also lassen Sie uns ein paar grundlegende Übungen durchführen, um die erforderlichen Fähigkeiten zu entwickeln!",
                 "updated": 1634334474059
+            },
+            {
+                "language": "TR",
+                "text": "Bir noktada, bir referans oluşturmanız gerekecek, bu yüzden gereken zorlu becerileri geliştirmek için bazı temel eğitimler yapalım!",
+                "updated": 1639486721337
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Doppelklicken Sie auf die Schaltfläche Delink im Menü des Knotens Trading System Reference!",
                     "updated": 1634334490234
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Sistemi Referans ( Trading System Reference ) düğümünün menüsündeki bağlantı kesme düğmesine çift tıklayın!",
+                    "updated": 1639486776130
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Sie haben gerade die Referenz zerstört! Aber keine Sorge... wir werden sie in den nächsten Schritten wiederherstellen!",
                     "updated": 1634334499633
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Referansı kaldırdınız! Ama merak etmeyin... sonraki adımlarda yeniden oluşturacağız!",
+                    "updated": 1639486829739
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Um eine Referenz zu erstellen, folgen Sie demselben Prozess, den Sie zum Anhängen eines Knotens verwenden. Klicken Sie also mit der rechten Maustaste auf den Knoten, von dem die Referenz ausgehen soll, ziehen Sie ihn in die Nähe des Knotens, mit dem die Referenz hergestellt werden soll, und lassen Sie den Klick los, sobald der orangefarbene Ring erscheint!",
                     "updated": 1634334505328
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir referans oluşturmak için, bir düğüm eklerken kullandığınız yolun aynısını izleyin. Yani, referansın başlayacağı düğüme sağ tıklayın, referansın oluşturulacağı düğümün yakınına sürükleyin ve turuncu halka göründüğünde tıklamayı bırakın. (Düğümü, farenizin sağ tuşuna basılı şekilde CTRL+ sağ,sol,aşağı ve yukarı ok tuşlarını kullanarak sürükleyebilirsiniz.)",
+                    "updated": 1639487060734
                 }
             ]
         },

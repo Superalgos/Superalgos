@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Хотите получить дополнительную помощь в определении сложных конфигураций графиков? Вам повезло! У меня есть несколько друзей, которые с радостью помогут вам.",
                 "updated": 1639084894980
+            },
+            {
+                "language": "DE",
+                "text": "Sie möchten mehr Hilfe bei der Erstellung komplexer Diagrammkonfigurationen? Sie haben Glück! Ich habe einige Freunde, die Ihnen gerne helfen würden.",
+                "updated": 1639500810597
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Зажгите одного из моих друзей, чтобы продолжать!",
                     "updated": 1639085023418
+                },
+                {
+                    "language": "DE",
+                    "text": "Feuern Sie einen meiner Freunde an, damit er weitermacht!",
+                    "updated": 1639501191878
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Следующие учебники находятся в стадии разработки: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
                     "updated": 1639085041797
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgenden Tutorials sind derzeit noch in Arbeit: How to customize a Layer Manager Tutorial, How to set up a custom Rate Scale Tutorial, How to combine Markets in a Chart Tutorial, How to combine Exchanges in a Chart Tutorial",
+                    "updated": 1639501201792
                 }
             ]
         },

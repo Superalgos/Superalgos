@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Ссылка Trading System Reference определяет, какая торговая система должна быть оценена торговым ботом для запуска торговой сессии.",
                 "updated": 1639141725781
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret motoru referansı, ticaret oturumunu çalıştırmak için ticaret botu tarafından hangi ticaret sisteminin değerlendirileceğini belirler.",
+                "updated": 1639486349166
             }
         ]
     },

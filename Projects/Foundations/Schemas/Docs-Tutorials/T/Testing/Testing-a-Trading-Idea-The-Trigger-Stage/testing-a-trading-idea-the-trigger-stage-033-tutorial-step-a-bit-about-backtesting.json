@@ -7,12 +7,26 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance!"
+        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken!",
+                "updated": 1639266038745
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Backtesting is a science in and of itself! There are entire books written on backtesting alone. It is a deep and complex subject mainly because humans designing and testing strategies are prone to introducing biases that may lead to overfitting, that is, adjusting the rules of the trading system to fit the data set in the quest to get good backtesting results. Superalgos offers tools to flexibly handle the data set to avoid spoiling it, like the time range parameter that allows splitting the data set as required, or setting up and running multiple sessions in parallel. That said, we are not going to cover the topic in this tutorial! The current focus is on creating the definitions of a trading idea, not backtesting per se."
+            "text": "Backtesting is a science in and of itself! There are entire books written on backtesting alone. It is a deep and complex subject mainly because humans designing and testing strategies are prone to introducing biases that may lead to overfitting, that is, adjusting the rules of the trading system to fit the data set in the quest to get good backtesting results. Superalgos offers tools to flexibly handle the data set to avoid spoiling it, like the time range parameter that allows splitting the data set as required, or setting up and running multiple sessions in parallel. That said, we are not going to cover the topic in this tutorial! The current focus is on creating the definitions of a trading idea, not backtesting per se.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Backtesting ist eine Wissenschaft für sich! Es gibt ganze Bücher, die allein über Backtesting geschrieben wurden. Es ist ein tiefgründiges und komplexes Thema, vor allem weil Menschen, die Strategien entwerfen und testen, dazu neigen, Verzerrungen einzuführen, die zu einer Überanpassung führen können, d. h. die Regeln des Handelssystems an den Datensatz anzupassen, um gute Backtesting-Ergebnisse zu erzielen. Superalgos bietet Werkzeuge zur flexiblen Handhabung des Datensatzes, um diesen nicht zu verderben, wie z. B. den Zeitbereichsparameter, der es ermöglicht, den Datensatz nach Bedarf aufzuteilen oder mehrere Sitzungen parallel einzurichten und auszuführen. Wir werden dieses Thema jedoch nicht in diesem Tutorial behandeln! Der Schwerpunkt liegt derzeit auf der Definition einer Handelsidee und nicht auf dem Backtesting an sich.",
+                    "updated": 1639266092831
+                }
+            ]
         }
     ]
 }

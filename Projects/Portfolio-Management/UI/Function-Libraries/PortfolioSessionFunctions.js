@@ -171,7 +171,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         let portfolioEngine = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.portfolioEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
-            'Backtesting Session->Paper Portfolio Session->Forward Testing Session->Live Portfolio Session->' +
+            'Backtesting Portfolio Session->Paper Portfolio Session->Forward Testing Session->Live Portfolio Session->' +
             'Portfolio Parameters->' +
             'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
             'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot->' +

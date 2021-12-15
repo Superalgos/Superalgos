@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Вы нашли \"Машину времени\" (Time Machine),которую добавили? Не забывайте перемещаться по пространству чартов (Charting Space), я знаю, что оно здесь!",
                 "updated": 1638175402508
+            },
+            {
+                "language": "DE",
+                "text": "Hast du die Time Machine gefunden, die du hinzugefügt hast? Vergessen Sie nicht, sich im Charting Space zu bewegen, ich weiß, dass sie hier ist!",
+                "updated": 1639113202408
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Вы должны увидеть три графика в пространстве графиков (Charting Space).",
                     "updated": 1638175440080
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten drei Charts im Charting Space sehen.",
+                    "updated": 1639113247073
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Прочитайте названия и найдите то, что вы добавили!",
                     "updated": 1638175465519
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie die Titel und finden Sie den Titel, den Sie hinzugefügt haben!",
+                    "updated": 1639113292655
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Если увеличить масштаб, то пока не на что смотреть. Но это нормально. Мы на пути к созданию вашей собственной индивидуальной диаграммы. Ух ты! Давайте продолжим и добавим некоторые данные в вашу новую машину времени (Time Machine).",
                     "updated": 1638175495560
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie heranzoomen, gibt es noch nicht viel zu sehen. Aber das ist in Ordnung. Wir sind auf dem Weg zu Ihrem ganz persönlichen Diagramm. Hurra! Machen wir weiter und fügen wir Ihrer neuen Time Machine einige Daten hinzu.",
+                    "updated": 1639113345756
                 }
             ]
         },

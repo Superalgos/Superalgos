@@ -7,28 +7,70 @@
             "name": "Market\\market-order",
             "project": "Foundations"
         },
-        "text": "This is the node you have to create the reference to: Market Buy Order #1."
+        "text": "This is the node you have to create the reference to: Market Buy Order #1.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist der Knoten, zu dem Sie den Bezug herstellen müssen: Market Buy Order #1.",
+                "updated": 1639418046336
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Remember the tricks for the trip!"
+            "text": "Remember the tricks for the trip!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Merken Sie sich die Tricks für die Reise!",
+                    "updated": 1639418054977
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Use the design space map as many times as required to find your way from node to node."
+            "text": "Use the design space map as many times as required to find your way from node to node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie die Karte des design space so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
+                    "updated": 1639418065682
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions."
+            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Pinnen Sie den Knoten, den Sie im design space verschieben wollen, an, so dass Sie ihn an jedem beliebigen Punkt loslassen können, um die design space map auf Richtungen zu überprüfen.",
+                    "updated": 1639418074198
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!"
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
+                    "updated": 1639418096221
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
+                    "updated": 1639418109161
+                }
+            ]
         }
     ]
 }

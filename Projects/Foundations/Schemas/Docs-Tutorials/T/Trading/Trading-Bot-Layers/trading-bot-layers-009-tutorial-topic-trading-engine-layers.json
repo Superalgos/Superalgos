@@ -4,8 +4,8 @@
     "type": "Tutorial Topic - Trading Engine Layers",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "trading-engine"
+            "name": "Trading/trading-engine",
+            "project": "Foundations"
         },
         "text": "You are familiar with the concept of the Trading Engine, right? I will teach you which layers affect which sections of the hierarchy so that you may access the info!",
         "translations": [

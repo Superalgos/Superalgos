@@ -30,7 +30,9 @@ function newSocialBotsActionSwitch() {
                 break
             case 'Send Slack Test Message':
                 {
-                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node, action.callBackFunction)
+                    UI.projects.socialBots.functionLibraries.socialBotsFunctions.sendSlackTestMessage(action.node)
+                        .then(action.callBackFunction)
+                        .catch(action.callBackFunction)
                 }
                 break
             case 'Send Twitter Test Message':

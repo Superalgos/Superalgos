@@ -530,7 +530,7 @@
                                                 waitTime = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeFrame.config.value
                                                 break
                                             }
-                                            case 'Backtesting Session': {
+                                            case 'Backtesting Portfolio Session': {
                                                 waitTime = 0
                                                 break
                                             }

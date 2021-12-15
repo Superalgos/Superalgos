@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Indikator-Bots sind in der Lage, benutzerdefinierten Code auszuführen oder von einem Framework bereitgestellten Code auszuführen, um ihre Aufgabe zu erfüllen.",
                 "updated": 1634679374909
+            },
+            {
+                "language": "RU",
+                "text": "Боты Indicator Bot готовы запускать собственный код или код, предоставленный фреймворком, для выполнения своей работы.",
+                "updated": 1639400664176
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Arten von Indikator-Implementierungen:",
                     "updated": 1634679396279
+                },
+                {
+                    "language": "RU",
+                    "text": "Типы реализации индикатора",
+                    "updated": 1639400684299
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Custom Code: Dies bedeutet, dass der Indikator-Bot benutzerdefinierten Code verwendet, um alle Datentransformationen durchzuführen.",
                     "updated": 1634679427408
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский код: это означает, что Indicator Bot будет использовать специальный код для обработки всех преобразований данных.",
+                    "updated": 1639400726486
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "DE",
                     "text": "Bei der Ausführung von benutzerdefiniertem Code haben die Benutzer die volle Kontrolle über den Prozess, und es gibt keine Einschränkungen bei der Daten-Verarbeitung/manipulation. Der Nachteil ist, dass der Benutzer ein developer (Entwickler) sein muss.",
                     "updated": 1634679493287
+                },
+                {
+                    "language": "RU",
+                    "text": "При запуске пользовательского кода пользователи получают полный контроль над процессом, и нет никаких ограничений на то, что можно сделать с точки зрения манипулирования данными. Компромисс в том, что пользователь должен быть разработчиком.",
+                    "updated": 1639400746757
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "UI-Defined: Dies bedeutet, dass der Indictor Bot sein Verhalten auf die Definitionen auf der UI (Benutzeroberfläche), einschließlich der verfügbaren Frameworks, sowie auf die vom Benutzer bereitgestellten Codeschnipsel stützt.",
                     "updated": 1634679552250
+                },
+                {
+                    "language": "RU",
+                    "text": "Определенный пользовательским интерфейсом: это означает, что Indicator Bot будет основывать свое поведение на определениях в пользовательском интерфейсе, включая доступные фреймворки, а также на фрагментах кода, предоставленных пользователем.",
+                    "updated": 1639400834174
                 }
             ]
         },
@@ -70,6 +95,11 @@
                     "language": "DE",
                     "text": "Durch den Einsatz eines der verfügbaren Frameworks kann ein Indikator leistungsstarke Funktionen ausführen, wobei nur ein winziger Teil des Codes für die Datenumwandlung geschrieben werden muss. In diesem Fall ist die Flexibilität im Vergleich zu benutzerdefiniertem Code eingeschränkt, aber die Entwicklungsfreundlichkeit wird erheblich gesteigert.",
                     "updated": 1634679804230
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустив одну из доступных сред, индикатор может делать мощные вещи, оставляя только задачу написания очень маленького фрагмента кода для преобразования данных. В этом случае гибкость снижается по сравнению с пользовательским кодом, но значительно увеличивается простота разработки.",
+                    "updated": 1639400860406
                 }
             ]
         },
@@ -81,6 +111,11 @@
                     "language": "DE",
                     "text": "Sie müssen kein Entwickler/Programmierer sein, um diese Codeschnipsel zu schreiben, meistens handelt es sich um sehr einfachen Javascript-Code.",
                     "updated": 1634680675568
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам не нужно быть разработчиком, чтобы писать эти фрагменты кода, в большинстве случаев это очень простой код javascript.",
+                    "updated": 1639400874213
                 }
             ]
         },
@@ -93,6 +128,11 @@
                     "language": "DE",
                     "text": "Benutzerdefinierte Code-Indicators:",
                     "updated": 1634680705374
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикаторы пользовательского кода",
+                    "updated": 1639400887417
                 }
             ]
         },
@@ -104,6 +144,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1634680725432
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1639400897350
                 }
             ]
         },
@@ -115,6 +160,11 @@
                     "language": "DE",
                     "text": "Diese beiden Indikatoren werden derzeit mit benutzerdefiniertem Code implementiert:",
                     "updated": 1634681185936
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти два индикатора в настоящее время реализованы с помощью специального кода.",
+                    "updated": 1639400910468
                 }
             ]
         },
@@ -127,6 +177,11 @@
                     "language": "DE",
                     "text": "Candles-Volumes: Zu finden in der Candles Data Mine",
                     "updated": 1634681341936
+                },
+                {
+                    "language": "RU",
+                    "text": "Candles-Volumes: Расположен в  Candles Data Mine.",
+                    "updated": 1639400944531
                 }
             ]
         },
@@ -139,6 +194,11 @@
                     "language": "DE",
                     "text": "Bollinger-Bands: Zu finden in der Bollinger Data Mine",
                     "updated": 1634681442242
+                },
+                {
+                    "language": "RU",
+                    "text": "Bollinger-Bands: Расположен в Bollinger Data Mine",
+                    "updated": 1639400963065
                 }
             ]
         },
@@ -151,6 +211,11 @@
                     "language": "DE",
                     "text": "Wie man custom (benutzerdefinierten) Code implementiert:",
                     "updated": 1634681585244
+                },
+                {
+                    "language": "RU",
+                    "text": "Как реализовать собственный код",
+                    "updated": 1639400972848
                 }
             ]
         },
@@ -163,6 +228,11 @@
                     "language": "DE",
                     "text": "Um einen benutzerdefinierten Code-Indikator zu implementieren, muss die Konfiguration für die Prozessdefinition des Bots mithilfe der Eigenschaft botModule eingerichtet werden. Dadurch wird dem Bot mitgeteilt, dass für diesen Indikator ein benutzerdefinierter Code verwendet wird. Dies ist ein Beispiel dafür, wie es aussehen sollte:",
                     "updated": 1634681692004
+                },
+                {
+                    "language": "RU",
+                    "text": "Способ реализации индикатора пользовательского кода - настроить конфигурацию для определения процесса Process Definition бота с помощью свойства botModule. Это сообщает боту, что для этого индикатора будет использоваться собственный код. Это пример того, как это должно выглядеть:",
+                    "updated": 1639401142832
                 }
             ]
         },
@@ -180,6 +250,11 @@
                     "language": "DE",
                     "text": "Dann müssen Sie die Project Schema File (Datei) für das Projekt finden, zu dem Ihr Bot gehört. In dieser Datei müssen Sie einige Definitionen hinzufügen, damit das System in der Lage ist, Ihr neues Modul zur Laufzeit zu laden und später auszuführen, wenn Benutzer Ihren auf diese Weise implementierten Bot ausführen.",
                     "updated": 1634681801694
+                },
+                {
+                    "language": "RU",
+                    "text": "Затем вам нужно будет найти файл Project Schema для проекта, которому принадлежит ваш бот. Внутри этого файла вам нужно будет добавить некоторые определения, чтобы система могла загружать ваш новый модуль во время выполнения и позже запускать его, когда пользователи запускают вашего бота, реализованного таким образом.",
+                    "updated": 1639401248159
                 }
             ]
         },
@@ -192,6 +267,11 @@
                     "language": "DE",
                     "text": "Höchstwahrscheinlich wird Ihr neuer Bot zum Superalgos-Projekt hinzugefügt, so dass Sie die Project Schema File (Datei) im Ordner Projects finden sollten.",
                     "updated": 1634681854110
+                },
+                {
+                    "language": "RU",
+                    "text": "Скорее всего, ваш новый бот будет добавлен в проект Superalgos, поэтому вы должны найти файл Project Schema проекта в папке Projects.",
+                    "updated": 1639401291725
                 }
             ]
         },
@@ -204,6 +284,11 @@
                     "language": "DE",
                     "text": "Die Definition, die Sie in der Schemadatei hinzufügen müssen, sollte etwa so aussehen:",
                     "updated": 1634681979851
+                },
+                {
+                    "language": "RU",
+                    "text": "Определение, которое вам нужно будет добавить в файл схемы, должно выглядеть примерно так:",
+                    "updated": 1639401313905
                 }
             ]
         },
@@ -221,6 +306,11 @@
                     "language": "DE",
                     "text": "Schließlich müssen Sie ein neues Javascript-Modul mit Ihrem Code zur Codebasis hinzufügen und dabei denselben Dateinamen verwenden, den Sie in der Schema-Datei definiert haben.",
                     "updated": 1634682668873
+                },
+                {
+                    "language": "RU",
+                    "text": "Наконец, вам нужно будет добавить новый модуль Javascript с вашим кодом в кодовую базу, используя то же имя файла, которое вы определили в файле схемы.",
+                    "updated": 1639401337611
                 }
             ]
         },
@@ -233,6 +323,11 @@
                     "language": "DE",
                     "text": "UI-definierte Indikatoren:",
                     "updated": 1634682711171
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикаторы, определяемые пользовательским интерфейсом",
+                    "updated": 1639403163730
                 }
             ]
         },
@@ -244,6 +339,11 @@
                     "language": "DE",
                     "text": "In diesem Fall ist die Liste lang, da fast alle anderen existierenden Indikatoren mit Hilfe eines Frameworks erstellt und auf der UI (Benutzeroberfläche) mit einem Minimum an Code von den Benutzern, die sie erstellt haben, definiert wurden.",
                     "updated": 1634682778514
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом случае список длинный, поскольку почти все другие существующие индикаторы были созданы с использованием инфраструктуры и определены в пользовательском интерфейсе с минимальным объемом кода, написанного пользователями, которые их создали.",
+                    "updated": 1639403187935
                 }
             ]
         },
@@ -256,6 +356,11 @@
                     "language": "DE",
                     "text": "Indikator Frameworks:",
                     "updated": 1634682793982
+                },
+                {
+                    "language": "RU",
+                    "text": "Indicator Frameworks ",
+                    "updated": 1639403840394
                 }
             ]
         },
@@ -268,6 +373,11 @@
                     "language": "DE",
                     "text": "Dies ist die vollständige Liste der verfügbaren Indicator Frameworks:",
                     "updated": 1634682819570
+                },
+                {
+                    "language": "RU",
+                    "text": "Это полный список доступных Indicator Framework.",
+                    "updated": 1639405408745
                 }
             ]
         },
@@ -280,6 +390,11 @@
                     "language": "DE",
                     "text": "From-One-Min-To-Multi-Time-Frame-Daily: Es wird verwendet, um ein Dataset (Datensatz) vom Typ One-Min-Daily zu Multi-Time-Frame-Daily zu konvertieren.",
                     "updated": 1634683018997
+                },
+                {
+                    "language": "RU",
+                    "text": "From-One-Min-To-Multi-Time-Frame-Daily: Он используется для преобразования одного набора данных из типа One-Min-Daily в Multi-Time-Frame-Daily.",
+                    "updated": 1639403528161
                 }
             ]
         },
@@ -292,6 +407,11 @@
                     "language": "DE",
                     "text": "From-One-Min-To-Multi-Time-Frame-Market: Es wird verwendet, um ein Dataset (Datensatz) vom Typ One-Min-Daily zu Multi-Time-Frame-Market zu konvertieren.",
                     "updated": 1634683080955
+                },
+                {
+                    "language": "RU",
+                    "text": "From-One-Min-To-Multi-Time-Frame-Market: Он используется для преобразования одного набора данных из типа One-Min-Daily в Multi-Time-Frame-Market.",
+                    "updated": 1639403540818
                 }
             ]
         },
@@ -304,6 +424,11 @@
                     "language": "DE",
                     "text": "Multi-Time-Frame-Daily: Sie wird verwendet, um Daten zu verarbeiten, die derzeit in einem Dataset (Datensatz) des Typs Multi-Time-Frame-Daily vorhanden sind, und erzeugt als Ausgabe ein Dataset (Datensatz) desselben Typs. Wie die Daten umgewandelt werden, bleibt dem Benutzer überlassen, da er auf der Benutzeroberfläche Code-snippets (Code-Schnippsel) für die Datenumwandlung an der Node Data Building Procedure bereitstellen kann.",
                     "updated": 1634683354237
+                },
+                {
+                    "language": "RU",
+                    "text": "Multi-Time-Frame-Daily: Он используется для обработки данных, доступных в настоящее время в наборе данных типа Multi-Time-Frame-Daily, и производит в качестве выходных данных набор данных того же типа. Как данные будут преобразованы, зависит от пользователя, поскольку в пользовательском интерфейсе пользователи могут предоставить фрагменты кода для обработки преобразования данных в узле Data Building Procedure.",
+                    "updated": 1639403724883
                 }
             ]
         },
@@ -316,6 +441,11 @@
                     "language": "DE",
                     "text": "Multi-Time-Frame-Market: Es wird verwendet, um Daten zu verarbeiten, die derzeit in einem Dataset (Datensatz) des Typs Multi-Time-Frame-Market vorhanden sind, und erzeugt als Ausgabe ein Dataset (Datensatz) desselben Typs. Wie die Daten umgewandelt werden, bleibt dem Benutzer überlassen, da er auf der UI (Benutzeroberfläche) Code-snippets (Code-Schnipsel) für die Datenumwandlung an der Node Data Building Procedure bereitstellen kann.",
                     "updated": 1634683338887
+                },
+                {
+                    "language": "RU",
+                    "text": "Multi-Time-Frame-Market: Он используется для обработки данных, доступных в настоящее время в наборе данных типа Multi-Time-Frame-Market, и производит в качестве выходных данных набор данных того же типа. Как данные будут преобразованы, зависит от пользователя, поскольку в пользовательском интерфейсе пользователи могут предоставить фрагменты кода для обработки преобразования данных в узле  Data Building Procedure.",
+                    "updated": 1639403756987
                 }
             ]
         },
@@ -328,6 +458,11 @@
                     "language": "DE",
                     "text": "Wie man ein Indicator Framework benutzt:",
                     "updated": 1634683417986
+                },
+                {
+                    "language": "RU",
+                    "text": "Как использовать Indicator Framework",
+                    "updated": 1639403789186
                 }
             ]
         },
@@ -340,6 +475,11 @@
                     "language": "DE",
                     "text": "Um ein Framework in Ihrem Indicator Bot zu verwenden, müssen Sie lediglich den Namen des Frameworks in der Process Definition (Prozessdefinition) unter der Eigenschaft Framework angeben.",
                     "updated": 1634683522971
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы использовать фреймворк в своем Indicator Bot, все, что вам нужно сделать, это указать имя фреймворка в узле Process Definition в свойстве \"framework\".",
+                    "updated": 1639405566568
                 }
             ]
         },
@@ -352,6 +492,11 @@
                     "language": "DE",
                     "text": "In diesem Beispiel wird der Prozess das \"From-One-Min-To-Multi-Time-Frame-Daily\" Framework verwenden:",
                     "updated": 1634683598320
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом примере процесс будет использовать фреймворк From-One-Min-To-Multi-Time-Frame-Daily.",
+                    "updated": 1639405601189
                 }
             ]
         },
@@ -369,6 +514,11 @@
                     "language": "DE",
                     "text": "Hier ist ein Beispiel welches das Multi-Time-Frame-Market Framework verwendet:",
                     "updated": 1634683708431
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот пример использования фреймворка Multi-Time-Frame-Market.",
+                    "updated": 1639405643669
                 }
             ]
         },

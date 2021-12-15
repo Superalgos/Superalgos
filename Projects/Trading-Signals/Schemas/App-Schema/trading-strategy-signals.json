@@ -1,5 +1,5 @@
 {
-    "type": "Trigger Stage Signals",
+    "type": "Trading Strategy Signals",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,32 +12,42 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "triggerOnSignal",
+            "propertyToCheckFor": "triggerStageSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Trigger On Signal",
-            "relatedUiObject": "Trigger On Signal",
+            "label": "Add Trigger Stage Signals",
+            "relatedUiObject": "Trigger Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "triggerOffSignal",
+            "propertyToCheckFor": "openStageSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Trigger Off Signal",
-            "relatedUiObject": "Trigger Off Signal",
+            "label": "Add Open Stage Signals",
+            "relatedUiObject": "Open Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },        
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "takePositionSignal",
+            "propertyToCheckFor": "manageStageSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Take Position Signal",
-            "relatedUiObject": "Take Position Signal",
+            "label": "Add Manage Stage Signals",
+            "relatedUiObject": "Manage Stage Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },          
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "closeStageSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Close Stage Signals",
+            "relatedUiObject": "Close Stage Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -58,26 +68,32 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trading Strategy Signals->"
+        "compatibleTypes": "->Trading System Signals->"
     },
-    "propertyNameAtParent": "triggerStageSignals",
+    "propertyNameAtParent": "tradingStrategySignals",
     "childrenNodesProperties": [
         {
-            "name": "triggerOnSignal",
+            "name": "triggerStageSignals",
             "type": "node",
-            "childType": "Trigger On Signal",
+            "childType": "Trigger Stage Signals",
             "autoAdd": true
         },
         {
-            "name": "triggerOffSignal",
+            "name": "openStageSignals",
             "type": "node",
-            "childType": "Trigger Off Signal",
+            "childType": "Open Stage Signals",
             "autoAdd": true
         },
         {
-            "name": "takePositionSignal",
+            "name": "manageStageSignals",
             "type": "node",
-            "childType": "Take Position Signal",
+            "childType": "Manage Stage Signals",
+            "autoAdd": true
+        },
+        {
+            "name": "closeStageSignals",
+            "type": "node",
+            "childType": "Close Stage Signals",
             "autoAdd": true
         }
     ]

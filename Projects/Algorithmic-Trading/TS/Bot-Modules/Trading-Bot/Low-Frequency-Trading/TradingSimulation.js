@@ -121,6 +121,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             candle available since it is not considered a closed candle, but a candle
             that still can change. So effectively will be processing all closed candles. 
             */
+            let initialTime = (new Date).valueOf()
             for (let i = initialCandle; i < candles.length - 1; i++) {
                 tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = i
 
@@ -277,6 +278,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     }
                 }
             }
+            let finalTime = (new Date).valueOf()
+            console.log("[INFO] Trading Simulation ran in " + (finalTime - initialTime) / 1000) + " seconds."
 
             tradingSystemModuleObject.finalize()
             tradingRecordsModuleObject.finalize()

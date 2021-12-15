@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Beachten Sie die beiden Knotenpunkte unter der Backtesting Session: Trading System Reference und Trading Engine Reference. Wozu brauchen wir diese Knoten?",
                 "updated": 1634334187982
+            },
+            {
+                "language": "TR",
+                "text": "Geriye Dönük Test Oturumu ( Backtesting Session ) altındaki iki düğüme dikkat edin: Ticaret Sistemi Referansı ( Trading System Reference ) ve Ticaret Motoru Referansı ( Trading Engine Reference ). Neden bu düğümlere ihtiyacımız var?",
+                "updated": 1639485591800
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Die Backtesting Session muss auf das Handelssystem verweisen, damit sie die Regeln für den Handel erhalten kann. Sie muss auch auf die Trading Engine verweisen, damit sie Informationen in Bezug auf die Handelssitzung speichern kann. Ein Knoten darf jedoch nur einen ausgehenden Verweis herstellen!",
                     "updated": 1634334194200
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye Dönük Test Oturumunun, alım satım kurallarını alabilmesi için Ticaret Sistemine ( Trading System ) başvurması gerekir. Ayrıca, işlem oturumuyla ilgili bilgileri depolayabilmesi için İşlem Motoruna da (Trading Engine ) referans vermelidir. Ancak, bir düğüm yalnızca bir giden referans oluşturabilir!",
+                    "updated": 1639485763127
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Aus diesem Grund gibt es diese Knoten: Sie sind ein Hilfsmittel für den Knoten Backtesting Session, so dass jeder von ihnen auf einen Knoten verweisen kann!",
                     "updated": 1634334201093
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümlerin var olmasının nedeni budur: Geriye Dönük Test Oturumu ( Backtesting Session )düğümüne yardımcı olurlar, böylece her biri bir düğüme başvurabilir!",
+                    "updated": 1639485804632
                 }
             ]
         }

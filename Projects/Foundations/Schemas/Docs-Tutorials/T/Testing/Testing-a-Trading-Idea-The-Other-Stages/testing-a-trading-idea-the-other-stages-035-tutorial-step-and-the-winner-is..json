@@ -7,24 +7,59 @@
             "name": "Target\\target-size",
             "project": "Foundations"
         },
-        "text": "The answer is Size Filled minus Fees Paid! I'll explain why none of the other nodes fit the bill!"
+        "text": "The answer is Size Filled minus Fees Paid! I'll explain why none of the other nodes fit the bill!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Antwort lautet: Größe der Gefüllten Position minus gezahlte Gebühren ( Size Filled minus Fees Paid ) ! Ich erkläre, warum keiner der anderen Knotenpunkte passt!",
+                "updated": 1639417837022
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Target Size: no, because this is just the target we defined!"
+            "text": "Target Size: no, because this is just the target we defined!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Target Size: nein, denn dies ist nur das Ziel, das wir definiert haben!",
+                    "updated": 1639417852485
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Size Placed: closer, but no, because the order won't necessarily fill for the exact amount placed, due to decimal roundings or other reasons!"
+            "text": "Size Placed: closer, but no, because the order won't necessarily fill for the exact amount placed, due to decimal roundings or other reasons!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Size Placed: näher dran, aber nein, denn der Auftrag wird nicht unbedingt für den exakten Betrag ausgeführt, der platziert wurde, aufgrund von Dezimalrundungen oder anderen Gründen!",
+                    "updated": 1639417867555
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Size Filled: yes! But remember the exchange takes its cut too, so you must subtract the fees!"
+            "text": "Size Filled: yes! But remember the exchange takes its cut too, so you must subtract the fees!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Size Filled: ja! Aber denken Sie daran, dass die Börse auch ihren Anteil nimmt, also müssen Sie die Gebühren abziehen!",
+                    "updated": 1639417882169
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Can you produce the correct syntax for the formula? Remember you can copy the paths of the nodes holding the data we need!"
+            "text": "Can you produce the correct syntax for the formula? Remember you can copy the paths of the nodes holding the data we need!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Können Sie die korrekte Syntax für die Formel erstellen? Denken Sie daran, dass Sie die Pfade der Knoten kopieren können, die die benötigten Daten enthalten!",
+                    "updated": 1639417892615
+                }
+            ]
         }
     ]
 }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Fails подсчитывает количество позиций, которые закрылись с убытком от прибыли, в контексте родительского узла.",
                 "updated": 1638962610008
+            },
+            {
+                "language": "DE",
+                "text": "Fails zählt die Anzahl der Positionen(positions), die mit einem negativen Gewinnverlust(negative profit loss) geschlossen wurden, im Kontext der parent node (übergeordneten Knotens).",
+                "updated": 1639495235069
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Работа счетчиков промахов аналогична работе счетчиков попаданий, меняя знак. То есть, когда  прибыль отрицательная, он засчитывается как промах. Пожалуйста, обратитесь к определению Hits для получения подробной информации.",
                     "updated": 1638962874567
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Funktionsweise der fail counts ist analog zur Funktionsweise der hits counts, wobei das Vorzeichen umgekehrt wird. Das heißt, wenn der Gewinnverlust(profit loss) negativ ist, wird er als Fehlschlag (fail) gezählt. Einzelheiten hierzu finden Sie in der Definition von hits.",
+                    "updated": 1639495318222
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Fails",
                     "updated": 1638962902809
+                },
+                {
+                    "language": "DE",
+                    "text": "Fails Konfiguration",
+                    "updated": 1639495328269
                 }
             ]
         },

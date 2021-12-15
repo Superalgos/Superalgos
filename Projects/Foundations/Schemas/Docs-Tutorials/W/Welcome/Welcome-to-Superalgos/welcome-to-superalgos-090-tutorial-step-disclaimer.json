@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu uyarı tam ekran modunda gösterilecektir.",
                 "updated": 1636404372696
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582707427
             }
         ]
     },

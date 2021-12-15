@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Вы уловили это трюк для масштабирования времени из предыдущего видео? Если нет, перейдите к предыдущему шагу и внимательно посмотрите.",
                 "updated": 1636206379436
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu sudah menggunakan trik untuk menskalakan waktu dari video sebelumnya? Jika tidak, lanjutkan ke langkah sebelumnya dan perhatikan dengan seksama!",
+                "updated": 1639584638017
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Прокрутка колесика мыши в верхней части окна шкалы времени уменьшает и увеличивает время!  Кроме того, Вы можете навести курсор мыши на шкалу и нажать боковые клавиши со стрелками ← →.",
                     "updated": 1636206456010
+                },
+                {
+                    "language": "ID",
+                    "text": "Menggulir mouse wheel di atas time scale box mengecil dan memperbesar waktu! Atau, kamu dapat mengarahkan mouse pointer ke scale box dan tekan tombol panah samping ← →",
+                    "updated": 1639584995574
                 }
             ],
             "updated": 1616495837967
@@ -103,6 +113,11 @@
                     "language": "RU",
                     "text": "В предыдущем видео есть одна интересная деталь: когда шкала времени выходит из автоматического режима, два крошечных зеленых треугольника, указывающих на каждый конец автоматической шкалы, - исчезают! Масштаб может быть установлен на автоматический как с одной, так или с обеих сторон.",
                     "updated": 1636206743590
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada satu detail menarik lagi yang perlu diperhatikan dalam video sebelumnya: ketika skala waktu keluar dari mode otomatis, dua segitiga hijau kecil yang menunjukkan setiap ujung skala otomatis menghilang! Skala dapat diatur ke otomatis di salah satu, tidak ada, atau kedua sisi!",
+                    "updated": 1639584899904
                 }
             ],
             "updated": 1616504911488

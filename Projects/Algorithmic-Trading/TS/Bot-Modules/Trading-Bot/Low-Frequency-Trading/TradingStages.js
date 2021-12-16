@@ -196,7 +196,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                if (triggerStage !== undefined) 
+                if (triggerStage !== undefined) {
                     if (triggerStage.triggerOff !== undefined) {
 
                         let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOff)
@@ -241,7 +241,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                if (triggerStage !== undefined) 
+                if (triggerStage !== undefined) {
                     if (triggerStage.takePosition !== undefined) {
 
                         let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.takePosition)
@@ -269,7 +269,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingPositionModuleObject.openPosition(situation.name)
 
-                                outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.takePosition)
+                                await outgoingTradingSignalsModuleObject.broadcastSignal(triggerStage.takePosition)
                                 announcementsModuleObject.makeAnnouncements(triggerStage.takePosition)
 
                                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Session') {
@@ -742,7 +742,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingPositionModuleObject.updateTakeProfit(tradingEngine.tradingCurrent.position.takeProfit.takeProfitPhase.value + 1)
 
-                                outgoingTradingSignalsModuleObject.broadcastSignal(nextPhaseEvent)
+                                await outgoingTradingSignalsModuleObject.broadcastSignal(nextPhaseEvent)
                                 announcementsModuleObject.makeAnnouncements(nextPhaseEvent)
 
                                 /* Reset this counter */
@@ -759,7 +759,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             let signals = await incomingTradingSignalsModuleObject.getAllSignals(moveToPhaseEvent)
                             await tradingSystem.evalConditions(moveToPhaseEvent, 'Move To Phase Event', signals)
-                            
+
                             for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
                                 let situation = moveToPhaseEvent.situations[k]
                                 let passed
@@ -798,7 +798,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                         continue
                                     }
 
-                                    outgoingTradingSignalsModuleObject.broadcastSignal(moveToPhaseEvent)
+                                    await outgoingTradingSignalsModuleObject.broadcastSignal(moveToPhaseEvent)
                                     announcementsModuleObject.makeAnnouncements(moveToPhaseEvent)
 
                                     /* Reset this counter */
@@ -1159,7 +1159,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     tradingSystem.highlights.push(closeStageEvent.id)
                     tradingSystem.highlights.push(stage.id)
 
-                    outgoingTradingSignalsModuleObject.broadcastSignal(closeStageEvent)
+                    await outgoingTradingSignalsModuleObject.broadcastSignal(closeStageEvent)
                     announcementsModuleObject.makeAnnouncements(closeStageEvent)
                     return true
                 }

@@ -484,12 +484,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 await tradingSystem.evalFormulas(manageStage, 'Manage Stage')
 
                 /* Stop Loss Management */
-                checkStopPhasesEvents()
+                await checkStopPhasesEvents()
                 calculateStopLoss()
                 calculateStopLossPosition()
 
                 /* Take Profit Management */
-                checkTakeProfitPhaseEvents()
+                await checkTakeProfitPhaseEvents()
                 calculateTakeProfit()
                 calculateTakeProfitPosition()
 
@@ -580,7 +580,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 }
             }
 
-            function checkStopPhasesEvents() {
+            async function checkStopPhasesEvents() {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let manageStage = strategy.manageStage
                 let parentNode
@@ -694,7 +694,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 }
             }
 
-            function checkTakeProfitPhaseEvents() {
+            async function checkTakeProfitPhaseEvents() {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let openStage = strategy.openStage
                 let manageStage = strategy.manageStage
@@ -1134,13 +1134,13 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             /* Check the Close Stage Event */
             let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemStage.closeStageEvent)
             await tradingSystem.evalConditions(tradingSystemStage, 'Close Stage Event', signals)
-            if (checkStopStageEvent(tradingSystemStage) === true) {
+            if (await checkStopStageEvent(tradingSystemStage) === true) {
                 changeStageStatus(stageName, 'Closing', 'Close Stage Event')
             }
         }
     }
 
-    function checkStopStageEvent(stage) {
+    async function checkStopStageEvent(stage) {
         /* Check the Close Stage Event. */
         let closeStageEvent = stage.closeStageEvent
         if (closeStageEvent !== undefined) {

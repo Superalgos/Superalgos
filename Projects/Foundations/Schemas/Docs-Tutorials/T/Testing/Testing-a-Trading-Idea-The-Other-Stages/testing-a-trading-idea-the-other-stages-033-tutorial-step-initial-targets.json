@@ -7,24 +7,59 @@
             "project": "Foundations",
             "name": "initial-targets"
         },
-        "text": "For the target rate, we can use the same principle as earlier: chart.at01hs.candle.close Use it for the formula!"
+        "text": "For the target rate, we can use the same principle as earlier: chart.at01hs.candle.close Use it for the formula!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Für den Zielkurs können wir das gleiche Prinzip wie zuvor verwenden: chart.at01hs.candle.close Verwenden Sie es für die Formel!",
+                "updated": 1639417705751
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "For the target size, we should consider the following:"
+            "text": "For the target size, we should consider the following:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für die Zielgröße sollten wir Folgendes berücksichtigen:",
+                    "updated": 1639417713974
+                }
+            ]
         },
         {
             "style": "List",
-            "text": " We wish to use all the USDT we obtained upon entering the position."
+            "text": " We wish to use all the USDT we obtained upon entering the position.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir möchten alle USDT verwenden, die wir bei der Eröffnung der Position erhalten haben.",
+                    "updated": 1639417720483
+                }
+            ]
         },
         {
             "style": "List",
-            "text": " The exchange charges fees by subtracting from the asset we obtain on any given transaction."
+            "text": " The exchange charges fees by subtracting from the asset we obtain on any given transaction.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Börse erhebt Gebühren, indem sie von dem Vermögenswert, den wir bei einer bestimmten Transaktion erhalten, etwas abzieht.",
+                    "updated": 1639417728078
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Consider the above and pay a visit to the Trading Engine. Find the nodes that store the information we need and try to come up with a formula for the target size!"
+            "text": "Consider the above and pay a visit to the Trading Engine. Find the nodes that store the information we need and try to come up with a formula for the target size!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Berücksichtigen Sie die oben genannten Punkte und besuchen Sie die Trading Engine. Suchen Sie die Knoten, die die benötigten Informationen speichern, und versuchen Sie, eine Formel für die Zielgröße zu finden!",
+                    "updated": 1639417738121
+                }
+            ]
         }
     ]
 }

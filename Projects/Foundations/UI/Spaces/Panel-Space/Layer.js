@@ -170,7 +170,7 @@ function newLayer() {
                 'Data Mines Data->Trading Mines Data->Portfolio Mines Data->Learning Mines Data->Data Storage->LAN Network Node->' +
                 'Data Storage->LAN Network Node->' +
                 'Backtesting Session->Paper Trading Session->Forward Testing Session->Live Trading Session->' +
-                'Live Portfolio Session->' +
+                'Backtesting Portfolio Session->Live Portfolio Session->' +
                 'Back Learning Session->Live Learning Session->' +
                 'Trading System Reference->Trading Engine Reference->Trading System->Trading Engine->' +
                 'Portfolio System Reference->Portfolio Engine Reference->Portfolio System->Portfolio Engine->' +

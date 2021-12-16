@@ -18,6 +18,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
     let exchangeAPIModuleObject = TS.projects.algorithmicTrading.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
+    let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+    let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
 
     return thisObject
 
@@ -28,6 +30,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
         exchangeAPIModuleObject.initialize()
         announcementsModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
+        incomingTradingSignalsModuleObject.initialize()        
     }
 
     function finalize() {
@@ -40,6 +44,12 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
         announcementsModuleObject.finalize()
         announcementsModuleObject = undefined
+
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
+
+        incomingTradingSignalsModuleObject.finalize()
+        incomingTradingSignalsModuleObject = undefined
     }
 
     function mantain() {

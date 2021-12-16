@@ -140,11 +140,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     let triggerStage = strategy.triggerStage
 
                     if (triggerStage !== undefined) {
-
-                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOn)
-                        await tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signals)
-
                         if (triggerStage.triggerOn !== undefined) {
+
+                            let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOn)
+                            await tradingSystem.evalConditions(triggerStage, 'Trigger On Event', signals)
+
                             for (let k = 0; k < triggerStage.triggerOn.situations.length; k++) {
                                 let situation = triggerStage.triggerOn.situations[k]
                                 let passed
@@ -196,12 +196,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                if (triggerStage !== undefined) {
-
-                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOff)
-                    await tradingSystem.evalConditions(triggerStage, 'Trigger Off Event', signals)
-
+                if (triggerStage !== undefined) 
                     if (triggerStage.triggerOff !== undefined) {
+
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.triggerOff)
+                        await tradingSystem.evalConditions(triggerStage, 'Trigger Off Event', signals)
 
                         for (let k = 0; k < triggerStage.triggerOff.situations.length; k++) {
                             let situation = triggerStage.triggerOff.situations[k]
@@ -242,13 +241,13 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let strategy = tradingSystem.tradingStrategies[tradingEngine.tradingCurrent.strategy.index.value]
                 let triggerStage = strategy.triggerStage
 
-                if (triggerStage !== undefined) {
-
-                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.takePosition)
-                    await tradingSystem.evalConditions(triggerStage, 'Take Position Event', signals)
-                    await tradingSystem.evalFormulas(triggerStage, 'Take Position Event')
-
+                if (triggerStage !== undefined) 
                     if (triggerStage.takePosition !== undefined) {
+
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(triggerStage.takePosition)
+                        await tradingSystem.evalConditions(triggerStage, 'Take Position Event', signals)
+                        await tradingSystem.evalFormulas(triggerStage, 'Take Position Event')
+
                         for (let k = 0; k < triggerStage.takePosition.situations.length; k++) {
                             let situation = triggerStage.takePosition.situations[k]
                             let passed
@@ -387,7 +386,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 Check if there are unfilled orders, we will check if they were executed, 
                 and cancel the ones that were not. 
                 */
-                await tradingSystem.evalConditions(tradingSystemStage, 'Open Execution')
                 await tradingSystem.evalFormulas(tradingSystemStage, 'Open Execution')
 
                 await tradingExecutionModuleObject.runExecution(
@@ -483,7 +481,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let manageStage = strategy.manageStage
 
                 /* Evaluate all the stage conditions and formulas to have them ready */
-                await tradingSystem.evalConditions(manageStage, 'Manage Stage')
                 await tradingSystem.evalFormulas(manageStage, 'Manage Stage')
 
                 /* Stop Loss Management */
@@ -606,6 +603,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     /* Check the next Phase Event. */
                     let nextPhaseEvent = phase.nextPhaseEvent
                     if (nextPhaseEvent !== undefined) {
+
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(nextPhaseEvent)
+                        await tradingSystem.evalConditions(nextPhaseEvent, 'Next Phase Event', signals)
+
                         for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
                             let situation = nextPhaseEvent.situations[k]
                             let passed
@@ -639,6 +640,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
                         let moveToPhaseEvent = phase.moveToPhaseEvents[n]
                         if (moveToPhaseEvent !== undefined) {
+
+                            let signals = await incomingTradingSignalsModuleObject.getAllSignals(moveToPhaseEvent)
+                            await tradingSystem.evalConditions(moveToPhaseEvent, 'Move To Phase Event', signals)
+
                             for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
                                 let situation = moveToPhaseEvent.situations[k]
                                 let passed
@@ -713,6 +718,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     /* Check the next Phase Event. */
                     let nextPhaseEvent = phase.nextPhaseEvent
                     if (nextPhaseEvent !== undefined) {
+
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(nextPhaseEvent)
+                        await tradingSystem.evalConditions(nextPhaseEvent, 'Next Phase Event', signals)
+
                         for (let k = 0; k < nextPhaseEvent.situations.length; k++) {
                             let situation = nextPhaseEvent.situations[k]
                             let passed
@@ -747,6 +756,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     for (let n = 0; n < phase.moveToPhaseEvents.length; n++) {
                         let moveToPhaseEvent = phase.moveToPhaseEvents[n]
                         if (moveToPhaseEvent !== undefined) {
+
+                            let signals = await incomingTradingSignalsModuleObject.getAllSignals(moveToPhaseEvent)
+                            await tradingSystem.evalConditions(moveToPhaseEvent, 'Move To Phase Event', signals)
+                            
                             for (let k = 0; k < moveToPhaseEvent.situations.length; k++) {
                                 let situation = moveToPhaseEvent.situations[k]
                                 let passed
@@ -904,7 +917,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyCloseStage
                 let executionNode = tradingSystemStage.closeExecution
 
-                await tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
                 await tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
 
                 await tradingExecutionModuleObject.runExecution(
@@ -934,7 +946,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 Check if there are unfilled orders, we will check if they were executed,
                 and cancel the ones that were not.
                 */
-                await tradingSystem.evalConditions(tradingSystemStage, 'Close Execution')
                 await tradingSystem.evalFormulas(tradingSystemStage, 'Close Execution')
 
                 await tradingExecutionModuleObject.runExecution(
@@ -1121,7 +1132,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
         async function checkCloseStageEvent(tradingSystemStage) {
             /* Check the Close Stage Event */
-            await tradingSystem.evalConditions(tradingSystemStage, 'Close Stage Event')
+            let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemStage.closeStageEvent)
+            await tradingSystem.evalConditions(tradingSystemStage, 'Close Stage Event', signals)
             if (checkStopStageEvent(tradingSystemStage) === true) {
                 changeStageStatus(stageName, 'Closing', 'Close Stage Event')
             }

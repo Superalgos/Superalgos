@@ -68,7 +68,15 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                                 formula: {
                                     value: formulaValue
                                 },
-                                context: context
+                                context: context,
+                                candle: {
+                                    begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value, 
+                                    end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
+                                    open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
+                                    close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
+                                    min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
+                                    max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+                                }
                             }
                         }
                     },

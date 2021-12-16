@@ -358,7 +358,6 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let executionNode = tradingSystemStage.openExecution
 
                 /* Evaluate conditions and formulas so they are ready during the execution run */
-                await tradingSystem.evalConditions(executionNode, 'Open Execution')
                 await tradingSystem.evalFormulas(executionNode, 'Open Execution')
 
                 await tradingExecutionModuleObject.runExecution(

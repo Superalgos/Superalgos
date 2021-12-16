@@ -43,6 +43,12 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             let tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
             tradingEpisodeModuleObject.initialize()
 
+            let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
+            incomingTradingSignalsModuleObject.initialize()
+
+            let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+            outgoingTradingSignalsModuleObject.initialize()
+
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
@@ -127,14 +133,55 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 /* This is the current candle the Simulation is working at. */
                 let candle = candles[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value]
-
+                /*
+                Logging abount the current candle
+                */
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
 
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle) // We move the current candle we are standing at, to the trading engine data structure to make it available to anyone, including conditions and formulas.
+                /*                
+                We move the current candle we are standing at, to the trading engine data structure 
+                to make it available to anyone, including conditions and formulas.
+                */
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
+                /*
+                Incoming Signals
+                */
+                if (
+                    tradingSystem.incomingSignals !== undefined &&
+                    tradingSystem.incomingSignals.incomingSignalReferences !== undefined &&
+                    tradingSystem.incomingSignals.incomingSignalReferences.length > 0
+                ) {
+                    /*
+                    This means that the user that defined the Trading System, wants it to be
+                    syncronized by signals comming from other bots.
 
+                    Check for the signal that would allow us to syncronize the simulation 
+                    loop with the simulation loop of the bot sending us signals.
+                    */
+                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(
+                        tradingSystem
+                    )
+
+                    let signal = signals[0]
+                    if (signal === undefined) {
+                        /*
+                        This means that the signal we are waiting for has not yet arrived, so
+                        we are going to break the simulation loop so that the bot goes to sleep
+                        and the next time the signal might be there.
+                        */
+                        break
+                    }
+                }
+                /*
+                Outgoing Signals
+                */
+                await outgoingTradingSignalsModuleObject.broadcastSignal(
+                    tradingSystem,
+                    undefined
+                )
                 /* We emit a heart beat so that the UI can now where we are at the overall process.*/
                 heartBeat()
 
@@ -279,15 +326,20 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 }
             }
             let finalTime = (new Date).valueOf()
-            console.log("[INFO] Trading Simulation ran in " + (finalTime - initialTime) / 1000) + " seconds."
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000) + " seconds."
 
             tradingSystemModuleObject.finalize()
             tradingRecordsModuleObject.finalize()
             tradingEpisodeModuleObject.finalize()
+            incomingTradingSignalsModuleObject.finalize()
+            outgoingTradingSignalsModuleObject.finalize()
 
             tradingSystemModuleObject = undefined
             tradingRecordsModuleObject = undefined
             tradingEpisodeModuleObject = undefined
+            incomingTradingSignalsModuleObject = undefined
+            outgoingTradingSignalsModuleObject = undefined         
 
             await writeFiles()
 

@@ -123,12 +123,13 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
             'User Defined Code->Javascript Code->' +
             'Outgoing Signals->Incoming Signals->Outgoing Signal Reference->Incoming Signal Reference->Signal Context Formula->' +
+            'Trading System Signal->' +
             'Trigger On Signal->Trigger Off Signal->Take Position Signal->' +
             'Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->' +
             'Create Order Signal->Cancel Order Signal->Order Rate Signal->' +
             'Limit Sell Order Signals->Limit Buy Order Signals->Market Sell Order Signals->Market Buy Order Signals->' +
             'Trigger Stage Signals->Open Stage Signals->Manage Stage Signals->Close Stage Signals->' +
-            'Available Signals->Social Trading Bot->Signing Account->' +
+            'Trading Strategy Signals->Trading System Signals->Available Signals->Social Trading Bot->Signing Account->' +
             'Ask Portfolio Events Manager->Confirm Event->Raise Event->Ask Portfolio Formula Manager->Set Formula->Confirm Forumula->'
 
         let tradingSystem = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)

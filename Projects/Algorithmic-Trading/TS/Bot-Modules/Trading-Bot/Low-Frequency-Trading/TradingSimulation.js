@@ -161,27 +161,22 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     Check for the signal that would allow us to syncronize the simulation 
                     loop with the simulation loop of the bot sending us signals.
                     */
-                    let signals = await incomingTradingSignalsModuleObject.getAllSignals(
-                        tradingSystem
-                    )
-
-                    let signal = signals[0]
-                    if (signal === undefined) {
-                        /*
-                        This means that the signal we are waiting for has not yet arrived, so
-                        we are going to break the simulation loop so that the bot goes to sleep
-                        and the next time the signal might be there.
-                        */
-                        break
+                    while (true) {
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(
+                            tradingSystem
+                        )
+                        let signal = signals[0]
+                        if (signal === undefined) {
+                            /*
+                            This means that the signal we are waiting for has not yet arrived, so
+                            we are going to wait for one second and check it again.
+                            */
+                            await SA.projects.foundations.utilities.asyncFunctions.sleep(500)
+                        } else {
+                            break
+                        }
                     }
                 }
-                /*
-                Outgoing Signals
-                */
-                await outgoingTradingSignalsModuleObject.broadcastSignal(
-                    tradingSystem,
-                    undefined
-                )
                 /* We emit a heart beat so that the UI can now where we are at the overall process.*/
                 heartBeat()
 
@@ -234,7 +229,16 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /* Add new records to the process output */
                 tradingRecordsModuleObject.appendRecords()
 
-                if (breakLoop === true) { break }
+                if (breakLoop === true) {
+                    /*
+                    Outgoing Episode Syncronization Signal Sent before breaking the loop. 
+                    */
+                    await outgoingTradingSignalsModuleObject.broadcastSignal(
+                        tradingSystem,
+                        undefined
+                    )
+                    break
+                }
                 /* 
                 Run the second cycle of the Trading System. During this second run
                 some new orders might be created at slots freed up during the first 
@@ -245,7 +249,13 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 */
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
                 await runCycle()
-
+                /*
+                Outgoing Episode Syncronization Signal Sent at the end of both cycles. 
+                */
+                await outgoingTradingSignalsModuleObject.broadcastSignal(
+                    tradingSystem,
+                    undefined
+                )
                 checkIfWeNeedToStopAfterBothCycles()
 
                 /* Add new records to the process output */
@@ -339,7 +349,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             tradingRecordsModuleObject = undefined
             tradingEpisodeModuleObject = undefined
             incomingTradingSignalsModuleObject = undefined
-            outgoingTradingSignalsModuleObject = undefined         
+            outgoingTradingSignalsModuleObject = undefined
 
             await writeFiles()
 

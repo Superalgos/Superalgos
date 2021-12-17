@@ -237,6 +237,10 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         tradingSystem,
                         undefined
                     )
+                    /*
+                    Mantain Signal Storage.
+                    */
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.mantain(candle)
                     break
                 }
                 /* 
@@ -256,6 +260,13 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     tradingSystem,
                     undefined
                 )
+                /*
+                Mantain Signal Storage.
+                */
+                TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.mantain(candle)
+                /*
+                Check if we need to stop.
+                */
                 checkIfWeNeedToStopAfterBothCycles()
 
                 /* Add new records to the process output */

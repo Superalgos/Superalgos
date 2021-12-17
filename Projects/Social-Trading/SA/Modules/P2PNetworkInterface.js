@@ -9,6 +9,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     let thisObject = {
         p2pNetworkInterface: undefined,
         userApp: undefined,
+        mantain: mantain,
         getSignals: getSignals,
         eventReceived: eventReceived,
         signalReceived: signalReceived,
@@ -17,6 +18,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     }
 
     let signalsByCandleAndSignalDefinitionId = new Map()
+    let keysByCandle = new Map()
 
     return thisObject
 
@@ -57,6 +59,29 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         if (signals === undefined) { signals = [] }
         signals.push(signalMessage.signal)
         signalsByCandleAndSignalDefinitionId.set(key, signals)
+
+        let candleKey =
+            signalMessage.signal.source.tradingSystem.node.candle.begin + '-' +
+            signalMessage.signal.source.tradingSystem.node.candle.end
+
+        let keys = keysByCandle.get(candleKey)
+        if (keys === undefined) { keys = [] }
+        keys.push(key)
+        keysByCandle.set(candleKey, keys)
+    }
+
+    function mantain(candle) {
+        let candleKey =
+            candle.begin + '-' +
+            candle.end
+
+        let keys = keysByCandle.get(candleKey)
+        if (keys === undefined) { return }
+        for (let i = 0; i < keys.length; i++) {
+            let key = keys[i]
+            signalsByCandleAndSignalDefinitionId.delete(key)
+        }
+        keysByCandle.delete(candleKey)
     }
 
     function getSignals(candle, signalDefinitionId) {

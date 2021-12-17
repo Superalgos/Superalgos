@@ -639,7 +639,7 @@
                     "onMouseWheelIndex": 6,
                     "onMouseOverIndex": 7,
                     "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 6
+                    "onMouseDownIndex": 7
                 },
                 {
                     "name": "Top Space",
@@ -651,7 +651,7 @@
                     "animationDrawIndex": 4,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
-                    "onMouseDownIndex": 2
+                    "onMouseDownIndex": 1
                 },
                 {
                     "name": "Cockpit Space",
@@ -664,7 +664,7 @@
                     "onMouseWheelIndex": 4,
                     "onMouseOverIndex": 3,
                     "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 3
+                    "onMouseDownIndex": 2
                 },
                 {
                     "name": "Design Space",
@@ -677,7 +677,7 @@
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 6,
                     "onMouseClickIndex": 0,
-                    "onMouseDownIndex": 1
+                    "onMouseDownIndex": 0
                 },
                 {
                     "name": "Panel Space",
@@ -690,7 +690,7 @@
                     "onMouseWheelIndex": 3,
                     "onMouseOverIndex": 4,
                     "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 4
+                    "onMouseDownIndex": 3
                 },
                 {
                     "name": "Charting Space",
@@ -703,7 +703,7 @@
                     "onMouseWheelIndex": 5,
                     "onMouseOverIndex": 5,
                     "onMouseClickIndex": 8,
-                    "onMouseDownIndex": 5
+                    "onMouseDownIndex": 8
                 },
                 {
                     "name": "Side Space",
@@ -716,7 +716,7 @@
                     "onMouseWheelIndex": 2,
                     "onMouseOverIndex": 3,
                     "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 0
+                    "onMouseDownIndex": 4
                 },
                 {
                     "name": "Workspace Space",
@@ -729,7 +729,7 @@
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 2,
                     "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 7
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Chat Space",
@@ -748,7 +748,7 @@
                     "onMouseWheelIndex": 7,
                     "onMouseOverIndex": 6,
                     "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 8
+                    "onMouseDownIndex": 5
                 }
             ]
         },
@@ -947,12 +947,6 @@
         "PL": {
             "utilities": [
                 {
-                    "name": "Async Functions",
-                    "propertyName": "asyncFunctions",
-                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
-                    "fileName": "AsyncFunctions.js"
-                },
-                {
                     "name": "Web Access",
                     "propertyName": "webAccess",
                     "functionName": "newFoundationsUtilitiesWebAccess",
@@ -999,6 +993,12 @@
                     "propertyName": "httpRequests",
                     "functionName": "newFoundationsUtilitiesHttpRequests",
                     "fileName": "HttpRequests.js"
+                },
+                {
+                    "name": "Async Functions",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
                 }
             ]
         },

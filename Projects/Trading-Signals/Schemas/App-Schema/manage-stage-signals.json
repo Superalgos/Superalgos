@@ -48,7 +48,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Available Signals->"
+        "compatibleTypes": "->Trading Strategy Signals->"
     },
     "propertyNameAtParent": "manageStageSignals",
     "childrenNodesProperties": [

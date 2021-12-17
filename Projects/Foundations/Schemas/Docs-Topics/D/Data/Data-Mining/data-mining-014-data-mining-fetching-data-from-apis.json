@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Superalgos ermöglicht es seinen Nutzern, Daten von jeder API im Internet abzurufen, ohne dass sie Code schreiben müssen. Stattdessen entwerfen die Benutzer eine API Map, die eine Reihe von Definitionen dafür enthält, wie ein Bot auf eine bestimmte API zugreifen kann und wie die Antworten des API Servers zu interpretieren sind. Mit dieser API Map kann ein API Data Fetcher Bot so konfiguriert werden, dass er Daten von einem beliebigen API Server extrahiert und Rohdaten im System speichert. Diese Rohdaten können später von anderen Bots verarbeitet und konsumiert werden.",
                 "updated": 1635182898612
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos позволяет пользователям получать данные из любого API в Интернете без необходимости писать код. Вместо этого пользователи создают API Map, которая представляет собой набор определений того, как бот может получить доступ к определенному API и как интерпретировать ответы сервера API Server. С помощью этого бот API Data Fetcher Bot может быть настроен для извлечения данных с любого сервера и хранения необработанных данных Raw Data внутри системы. Эти необработанные данные могут позже обрабатываться и использоваться другими ботами.",
+                "updated": 1639581078565
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "DE",
                     "text": "Wie holt man sich Daten von einer API?",
                     "updated": 1635182922828
+                },
+                {
+                    "language": "RU",
+                    "text": "Как получить данные по API?",
+                    "updated": 1639581246065
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "DE",
                     "text": "Der Hauptarbeitsablauf, um dies zu erreichen, ist ziemlich einfach. Es ist überhaupt keine Programmierung erforderlich. Folgen Sie diesem Leitfaden, und Sie werden im Handumdrehen Daten aus jeder beliebigen Quelle im Internet für Ihre Handelsstrategien nutzen können.",
                     "updated": 1635183311281
+                },
+                {
+                    "language": "RU",
+                    "text": "Основной рабочий процесс для этого довольно прост. Он вообще не требует кодирования. Следуйте этому руководству, и вы сразу же сможете использовать данные из любого источника в интернете для своих торговых стратегий.",
+                    "updated": 1639581276317
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "DE",
                     "text": "1. Wähle eine API: Die aktuelle Version ist nur auf öffentliche APIs beschränkt. Gesicherte APIs folgen in Kürze.",
                     "updated": 1635183357574
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Выберите API: текущая версия ограничена только общедоступными API. Скоро появятся защищенные API.",
+                    "updated": 1639581299361
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "DE",
                     "text": "2. Designe eine API Map: Lesen Sie die Online-Dokumentation der APIs und ermitteln Sie die Endpunkte, die die Daten zurückgeben, die Sie abrufen möchten. Ordnen-(map) Sie die Endpunkte sorgfältig zu und legen Sie die Parameter fest, die der API Server bei jedem Aufruf erwartet, und wie die Antwort des API Server formatiert wird.",
                     "updated": 1635183765303
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Разработайте API Map: прочтите онлайн-документацию по API и определите конечные точки, которые возвращают данные, которые вы хотите получить. Тщательно сопоставьте конечные точки, определяя параметры, которые сервер API ожидает при каждом вызове, а также то, как форматируется ответ сервера API.",
+                    "updated": 1639581367988
                 }
             ]
         },
@@ -76,6 +101,11 @@
                     "language": "DE",
                     "text": "3. Einrichten eines API Data Fetcher Bot: Erstellen Sie eine Data Mine für diese API und fügen Sie einen API Data Fetcher Bot hinzu. In den Datensatzeigenschaften dieses Bots müssen Sie auf die vom API Server zurückgegebenen Felder/Daten verweisen, die in der API Map definiert sind. Auf diese Weise legen Sie fest, welche Felder aus jeder Antwort auf der Festplatte gespeichert werden sollen. Möglicherweise müssen Sie hier auch Abfrage- oder Pfadparameter definieren.",
                     "updated": 1635183922700
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Настройте API Data Fetcher Bot: создайте Data Mine для этого API и добавьте бота API Data Fetcher Bot. В свойствах этого бота вам нужно будет указать поля, возвращаемые сервером API, определенные на API Map. Таким образом вы определяете, какие поля из каждого ответа вы собираетесь сохранять на диск. Вам также может потребоваться определить здесь параметры запроса или пути.",
+                    "updated": 1639581719021
                 }
             ]
         },
@@ -88,6 +118,11 @@
                     "language": "DE",
                     "text": "4. Einrichten eines Indicator Bot für die Dataset Type Konvertierung: Die auf der Festplatte gespeicherten Raw Data (Rohdaten) müssen für den Verbrauch organisiert werden. Sie müssen einen Indicator Bot einrichten, der eine Dataset Type -Konvertierung von Raw Data (Rohdaten) in einen Standard Dataset vornimmt. Dieser Prozess führt eine Datenaggregation durch, um die Elemente mit einem festen Zeitbereich für jeden möglichen Time Frame (Zeitrahmen) zu erzeugen.",
                     "updated": 1635184195592
+                },
+                {
+                    "language": "RU",
+                    "text": "4. Настройте Indicator Bot для преобразования типа набора данных: необработанные данные, сохраненные на диск, необходимо организовать для использования. Вам нужно будет настроить ваш Indicator Bot, который будет выполнять преобразование типа набора данных из необработанных данных Raw Data в стандартный тип набора данных Dataset Type. Этот процесс будет выполнять агрегирование данных, чтобы сгенерировать элементы с фиксированным временным диапазоном для каждого возможного таймфрейма.",
+                    "updated": 1639582680749
                 }
             ]
         },
@@ -100,6 +135,11 @@
                     "language": "DE",
                     "text": "5. Einrichten eines Indicator Bots: Sobald die Daten konvertiert sind, können Sie aus ihnen bestimmte Datensätze extrahieren. Diese Datensätze können verwendet werden, um eine Reihe von Indikatoren zu definieren, die Sie aus diesen Daten erstellen können. Bei diesen Indikatoren kann es sich um einfache Umstrukturierungen der Daten handeln (mit einigen Anpassungen der Feldnamen und der Aufteilung der Daten in verschiedene Indikatoren), oder sie können auf Wunsch einige Datenverarbeitungen/-transformationen umfassen (dies würde ein wenig Programmierung erfordern).",
                     "updated": 1635184307328
+                },
+                {
+                    "language": "RU",
+                    "text": "5. Настройка ботов Indicator Bot: после преобразования данных вы можете извлекать из них определенные наборы данных. Эти наборы данных можно использовать для определения набора индикаторов, которые вы можете построить на основе этих данных. Эти индикаторы могут быть такими же простыми, как реорганизация данных (с некоторыми корректировками имен полей и разделением данных на разные индикаторы),или он может включать некоторую обработку / преобразование данных, если хотите (это потребует некоторый программный код).",
+                    "updated": 1639583053953
                 }
             ]
         },
@@ -112,6 +152,11 @@
                     "language": "DE",
                     "text": "6. Plotter einrichten: Nachdem Sie Ihre Indikatoren eingerichtet haben, können Sie, wenn Sie möchten, Plotter für sie entwerfen.",
                     "updated": 1635184425815
+                },
+                {
+                    "language": "RU",
+                    "text": "6. Настройка плоттеров Plotter: после настройки индикаторов вы можете разработать для них плоттеры, если хотите.",
+                    "updated": 1639583067239
                 }
             ]
         },
@@ -124,6 +169,11 @@
                     "language": "DE",
                     "text": "7. Daten für Trading Strategies nutzen: Diese Indikatoren können von Ihren Handelsstrategien genutzt werden.",
                     "updated": 1635184615790
+                },
+                {
+                    "language": "RU",
+                    "text": "7. Используйте данные для торговых стратегий: эти индикаторы можно использовать в ваших торговых стратегиях.",
+                    "updated": 1639583082960
                 }
             ]
         },
@@ -136,6 +186,11 @@
                     "language": "DE",
                     "text": "Es gibt ein Workspace namens API Data Fetcher Bot Demo mit einem einfachen Arbeitsbeispiel der vorherigen Schritte, den Sie als Referenz verwenden können.",
                     "updated": 1635184665178
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует рабочее пространство Workspace под названием API Data Fetcher Bot Demo с простым рабочим примером предыдущих шагов, которые вы можете использовать в качестве справки.",
+                    "updated": 1639583153738
                 }
             ]
         },
@@ -152,6 +207,11 @@
                     "language": "DE",
                     "text": "Wie funktioniert die Datenaggregation?",
                     "updated": 1635184724739
+                },
+                {
+                    "language": "RU",
+                    "text": "Как работает агрегирование данных?",
+                    "updated": 1639583179200
                 }
             ]
         },
@@ -164,6 +224,11 @@
                     "language": "DE",
                     "text": "Wenn Raw Data (Rohdaten) aus dem Internet abgerufen werden, müssen sie in einen Dataset Type umgewandelt werden, der entweder zum Typ Multi-Time-Frame-Daily oder Multi-Time-Frame-Market gehört. In der Regel handelt es sich bei Raw Data um einen Datensatz mit Zeitstempel und einem timesStamp Feld, oder sie haben Anfangs- und Endeigenschaften, wenn sie in Zeitschlitze von einer Minute unterteilt sind.",
                     "updated": 1635185031815
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда необработанные данные Raw Data извлекаются из интернета, их необходимо преобразовать в тип набора данных Dataset Type либо в тип Multi-Time-Frame-Daily или Multi-Time-Frame-Market. Обычно необработанные данные представляют собой набор данных с отметкой времени с полем timesStamp или у него есть свойства начала и конца, если они фрагментированы во временных интервалах в одну минуту.",
+                    "updated": 1639592111110
                 }
             ]
         },
@@ -175,6 +240,11 @@
                     "language": "DE",
                     "text": "Von dort aus muss der Konvertierungsprozess Elemente mit Zeitschlitzen von 2 min, 3 min, 4 min, 5 min, 10, min,... bis zu 24 Stunden erzeugen. Um dies zu erreichen, muss jedes Feld auf eine bestimmte Weise aggregiert werden.",
                     "updated": 1635185072820
+                },
+                {
+                    "language": "RU",
+                    "text": "Отсюда процесс преобразования должен генерировать элементы с временными интервалами от 2 минут, 3 минут, 4 минут, 5 минут, 10, минут, ... до 24 часов. Для этого необходимо определенным образом агрегировать каждое поле.",
+                    "updated": 1639592141298
                 }
             ]
         },
@@ -187,6 +257,11 @@
                     "language": "DE",
                     "text": "Im Bot, in dem diese Konvertierung stattfindet, müssen die nodes der Datensatzeigenschaft über eine aggregationMethod config property (Konfigurationseigenschaft) verfügen, die definiert, wie dies gehandhabt werden soll. Hier ist eine Liste der unterstützten aggregation methods (Aggregationsmethoden), die während dieses Konvertierungsvorgangs verwendet werden können:",
                     "updated": 1635185366691
+                },
+                {
+                    "language": "RU",
+                    "text": "В боте, где происходит это преобразование, узлы Record Property должны иметь свойство конфигурации aggregationMethod, которое определяет, как это будет обрабатываться. Вот список поддерживаемых методов агрегирования, которые можно использовать во время этой процедуры преобразования:",
+                    "updated": 1639592207422
                 }
             ]
         },
@@ -198,6 +273,11 @@
                     "language": "DE",
                     "text": "First: Das bedeutet, dass der erste Wert, der innerhalb des zu verarbeitenden Zeitraums gefunden wird, den Wert der Record Property (Datensatzeigenschaft) bestimmt.",
                     "updated": 1635186034021
+                },
+                {
+                    "language": "RU",
+                    "text": "First: Это означает, что первое значение, найденное в обрабатываемом диапазоне времени, будет определять значение Record Property.",
+                    "updated": 1639592268016
                 }
             ]
         },
@@ -209,6 +289,11 @@
                     "language": "DE",
                     "text": "Last: Das bedeutet, dass von allen Werten, die im aktuellen Zeitbereich gefunden wurden, der letzte für den endgültigen Wert der ausgewerteten node der Record Property ausgewählt wird.",
                     "updated": 1635185724585
+                },
+                {
+                    "language": "RU",
+                    "text": "Last: Это означает, что из всех значений, найденных в текущем временном диапазоне, последнее будет выбрано в качестве окончательного значения оцениваемого узла Record Property.",
+                    "updated": 1639592324372
                 }
             ]
         },
@@ -221,6 +306,11 @@
                     "language": "DE",
                     "text": "Min: Das bedeutet, dass der mathematische Mindestwert aus allen im Zeitbereich gefundenen Werten als Wert für die Record Property verwendet wird.",
                     "updated": 1635186027188
+                },
+                {
+                    "language": "RU",
+                    "text": "Min: Это означает, что математическое минимальное значение из всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
+                    "updated": 1639592368578
                 }
             ]
         },
@@ -233,6 +323,11 @@
                     "language": "DE",
                     "text": "Max: Das bedeutet, dass der mathematische Maximalwert aus allen im Zeitbereich gefundenen Werten als Wert für die Record Property verwendet wird.",
                     "updated": 1635186252288
+                },
+                {
+                    "language": "RU",
+                    "text": "Max: Это означает, что математическое максимальное значение из всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
+                    "updated": 1639592398114
                 }
             ]
         },
@@ -245,6 +340,11 @@
                     "language": "DE",
                     "text": "Sum: Das bedeutet, dass die Summe aller im Zeitbereich gefundenen Werte als Wert für die Record Property verwendet wird.",
                     "updated": 1635186286151
+                },
+                {
+                    "language": "RU",
+                    "text": "Sum: Это означает, что сумма всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
+                    "updated": 1639592421169
                 }
             ]
         },
@@ -257,6 +357,11 @@
                     "language": "DE",
                     "text": "Avg: Das bedeutet, dass der Durchschnitt aller im Zeitbereich gefundenen Werte als Wert für die Record Property verwendet wird.",
                     "updated": 1635186324151
+                },
+                {
+                    "language": "RU",
+                    "text": "Avg: Это означает, что среднее значение всех значений, найденных во временном диапазоне, будет использоваться в качестве значения для Record Property.",
+                    "updated": 1639592453807
                 }
             ]
         },
@@ -273,6 +378,11 @@
                     "language": "DE",
                     "text": "Schritt für Schritt Anleitung zum Abrufen von Daten aus einer API",
                     "updated": 1635186345495
+                },
+                {
+                    "language": "RU",
+                    "text": "Пошаговое руководство по извлечению данных по API",
+                    "updated": 1639593336973
                 }
             ]
         },
@@ -285,6 +395,11 @@
                     "language": "DE",
                     "text": "Dies ist eine ausführliche Anleitung zur Einrichtung eines Data Mining-Vorgangs, der Daten von einer Internet-API abruft.",
                     "updated": 1635186372690
+                },
+                {
+                    "language": "RU",
+                    "text": "Это подробное руководство о том, как настроить операцию интеллектуального анализа данных, извлекающую данные из интернет-API.",
+                    "updated": 1639593681217
                 }
             ]
         },
@@ -297,6 +412,11 @@
                     "language": "DE",
                     "text": "Schritt #1: Öffnen Sie den API Data Fetcher Bot Demo Plugin Workspace und arbeiten sie eine Weile mit ihm. Führen Sie die Tasks darin aus, beobachten Sie, wie die Daten verarbeitet werden, prüfen Sie die Charts und führen Sie schließlich die Trading Task aus, die die verarbeiteten Daten verwendet.",
                     "updated": 1635186793995
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 1: Откройте рабочее пространство API Data Fetcher Bot Demo Plugin Workspace и изучите ее некоторое время. Запустите там задачи, посмотрите, как обрабатываются данные, проверьте графики и, наконец, запустите торговую задачу Trading Task, которая использует обработанные данные.",
+                    "updated": 1639654353623
                 }
             ]
         },
@@ -309,6 +429,11 @@
                     "language": "DE",
                     "text": "Schritt #2: Öffnen Sie eine zweite UI (Benutzeroberfläche) (dadurch wird verhindert, dass die vorherige die Änderungen speichert, aber das ist nicht nötig). Sie werden die erste Ui verwenden, um von Zeit zu Zeit zu überprüfen, wie die nodes dort konfiguriert sind, und die zweite UI, um Ihre eigene Data Mining Operation von Grund auf zu erstellen. Die restlichen Schritte werden Sie innerhalb der zweiten UI durchführen.",
                     "updated": 1635186922408
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 2: Откройте второй пользовательский интерфейс UI (это помешает предыдущему сохранить изменения, но вам не нужно этого делать). Вы будете использовать первый UI, чтобы время от времени проверять, как там настроены узлы, а второй UI - для создания собственной операции интеллектуального анализа данных с нуля. Остальные шаги вы будете выполнять во втором UI.",
+                    "updated": 1639594328460
                 }
             ]
         },
@@ -321,6 +446,11 @@
                     "language": "DE",
                     "text": "Schritt #3: Wählen Sie eine API aus dem Internet mit Daten, die für Ihre Trading Strategy (Handelsstrategie) nützlich sein könnten.",
                     "updated": 1635186996482
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 3: Выберите API из Интернета с данными, которые могут быть полезны в вашей торговой стратегии Trading Strategy.",
+                    "updated": 1639595531345
                 }
             ]
         },
@@ -333,6 +463,11 @@
                     "language": "DE",
                     "text": "Schritt #4: Lesen Sie die API-Dokumentation, identifizieren Sie die Endpunkte, welche Parameter sie benötigen und welche Daten sie Ihnen zur Verfügung stellen werden. Eine weitere hilfreiche Methode, um zu sehen, wie die API antwortet, ist die Eingabe des API-Endpunkts in Ihren Browser und die Betrachtung der Rohausgabe.",
                     "updated": 1635187040956
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 4: Прочтите документацию по API, определите конечные точки, какие параметры им требуются и какие данные они вам предоставят. Еще один полезный способ узнать, как реагирует api, - это ввести конечную точку api в свой браузер и просмотреть необработанный вывод.",
+                    "updated": 1639654349803
                 }
             ]
         },
@@ -345,6 +480,11 @@
                     "language": "DE",
                     "text": "Schritt #5: Erstellen sie bei Superalgos einen freien Workspace, ohne vorinstallierte Plugins.",
                     "updated": 1635187084897
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 5: Создайте в Superalgos чистое рабочее пространство без предустановленных плагинов.",
+                    "updated": 1639595678796
                 }
             ]
         },
@@ -357,6 +497,11 @@
                     "language": "DE",
                     "text": "Schritt #6: Erstellen Sie einen API Map node und beginnen Sie damit, die dokumentierte API abzubilden, indem Sie ihr \"children\" hinzufügen. Achten Sie insbesondere auf unbenannte Arrays und Objekte, die die Daten umhüllen können.",
                     "updated": 1635187292260
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 6: Создайте узел API Map и начните сопоставлять задокументированный API, добавляя к нему дочерние элементы. Особенно обратите внимание на безымянные массивы и объекты, которые могут обернуть данные.",
+                    "updated": 1639595770230
                 }
             ]
         },
@@ -369,6 +514,11 @@
                     "language": "DE",
                     "text": "Schritt #7: Lesen Sie für jede node, die Sie hinzufügen, die Dokumentseite der node. So sparen Sie Zeit, wenn Sie versuchen zu erraten, wie das alles funktioniert.",
                     "updated": 1635187355089
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 7: Для каждого добавляемого узла прочтите страницу документации узла. Это сэкономит вам время, пытаясь угадать, как все это работает.",
+                    "updated": 1639596038033
                 }
             ]
         },
@@ -381,6 +531,11 @@
                     "language": "DE",
                     "text": "Schritt #8: Definieren Sie zunächst einen API Endpoint, und sobald der erste funktioniert, gehen Sie zu den übrigen verfügbaren Endpunkten über.",
                     "updated": 1635187398066
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 8: Сначала определите одну конечную точку API Endpoint, после того как первая заработает, перейдите к остальным доступным конечным точкам.",
+                    "updated": 1639629818131
                 }
             ]
         },
@@ -393,6 +548,11 @@
                     "language": "DE",
                     "text": "Schritt #9: Definieren Sie die Abfrage- oder Pfadparameter und die Antworten. Lesen Sie in der Hilfe der jeweiligen node für Details, wie Sie es richtig machen.",
                     "updated": 1635187429959
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 9: Определите параметры запроса или пути и ответы. Прочтите справку по каждому узлу, чтобы узнать, как это сделать правильно.",
+                    "updated": 1639629873312
                 }
             ]
         },
@@ -405,6 +565,11 @@
                     "language": "DE",
                     "text": "Schritt #10: Erstellen Sie ein Trading System mit einer leeren Strategy. Dadurch kann das Verfahren \"New Market\" installiert werden und trading tasks erstellt werden, die sich auf dieses Trading System beziehen.",
                     "updated": 1635187557139
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 10: Создайте торговую систему Trading System с пустой стратегией Strategy.. Это позволит процедуре Install New Market для создания торговых задач, ссылающихся на эту торговую систему.",
+                    "updated": 1639629960162
                 }
             ]
         },
@@ -417,6 +582,11 @@
                     "language": "DE",
                     "text": "Schritt #11: Erstellen Sie eine neue Data Mine mit dem Namen des Unternehmens, das die API hostet.",
                     "updated": 1635187589477
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 11: Создайте новый узел Data Mine с названием компании, в которой размещен API.",
+                    "updated": 1639630033121
                 }
             ]
         },
@@ -429,6 +599,11 @@
                     "language": "DE",
                     "text": "Schritt #12: Fügen Sie innerhalb der Data Mine einen API Data Fetcher Bot hinzu. Konfigurieren Sie die node des Bots entsprechend dem Beispiel auf der UI #1.",
                     "updated": 1635187627867
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 12: Добавьте в Data Mine бот API Data Fetcher Bot. Настройте узлы бота, следуя примеру в  UI №1.",
+                    "updated": 1639630378985
                 }
             ]
         },
@@ -441,6 +616,11 @@
                     "language": "DE",
                     "text": "Schritt #13: Installieren Sie einen \"new market\". Dieser Vorgang wird viele Dinge für Sie einrichten. Er erkennt die API Map und die Data Mine, die Sie erstellt haben, und erstellt die entsprechenden tasks, um Ihren API Fetcher Bot auszuführen.",
                     "updated": 1635187739595
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 13: Установите новый рынок. Эта процедура многое настроит для вас. Он обнаружит API Map и созданный вами Data Mine и создаст соответствующие задачи Task для запуска вашего API Data Fetcher Bot.",
+                    "updated": 1639630535373
                 }
             ]
         },
@@ -452,6 +632,11 @@
                     "language": "DE",
                     "text": "Schritt #14: Achten Sie auf die Eigenschaft nodePath in der  API Response Schema node der API Map. Prüfen Sie die docs der node für Details.",
                     "updated": 1635187793966
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 14: Обратите внимание на свойство nodePath в узле API Response Schema. Подробности см. на странице документации узла.",
+                    "updated": 1639654342520
                 }
             ]
         },
@@ -464,6 +649,11 @@
                     "language": "DE",
                     "text": "Schritt #15: Definieren sie in der API Data Fetcher Bot's Product Definition Record Properties, die Felder die sie von der Api Server Antwort speichern möchten. Sie müssen nicht alles speichern, sondern nur das, was für Sie sinnvoll ist.",
                     "updated": 1635188106919
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 15: В узлах Record Property определения продукта Product Definition бота API Data Fetcher Bot определите поля, которые вы хотите сохранить из ответа сервера API Server. Вам не нужно сохранять все, только то, что имеет для вас смысл.",
+                    "updated": 1639654368661
                 }
             ]
         },
@@ -475,6 +665,11 @@
                     "language": "DE",
                     "text": "Schritt #16: Stellen Sie einen Verweis von jeder untergeordneten API Response Field Reference node (Datensatzeigenschaft) auf einen Knoten in der API Map vom Typ API Response Field her. Tun Sie dies sorgfältig für jede Record Property.",
                     "updated": 1635188259246
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 16: Установите ссылку API Response Field Reference от каждого дочернего узла Record Property на узел типа API Response Field на карте API Map. Делайте это внимательно для каждого Record Property.",
+                    "updated": 1639654373997
                 }
             ]
         },
@@ -487,6 +682,11 @@
                     "language": "DE",
                     "text": "Schritt #17: Die timestamp record property ist die einzige erforderliche Eigenschaft. Sie hilft, die von Ihnen gespeicherten Datensätze zu organisieren. Darüber hinaus kann der Zeitstempel in der Kopfzeile der API-Antwort stehen. Lesen Sie die Dokumentation der API Response Field Reference node, um die Eigenschaft nodePath einzurichten, falls erforderlich.",
                     "updated": 1635188586279
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 17: Свойство записи timestamp - единственное обязательное свойство. Это помогает организовывать сохраняемые вами записи. Кроме того, временная метка может находиться в заголовке ответа API. Прочтите документацию узла справки по полю ответа API, чтобы при необходимости настроить свойство nodePath.",
+                    "updated": 1639653850071
                 }
             ]
         },
@@ -499,6 +699,11 @@
                     "language": "DE",
                     "text": "Es ist eine gute Idee, sicherzustellen, dass der Api-Fetcher-Bot läuft und gedebuggt wird (Das Entfernen aller Bugs/Fehler aus dem Code), bevor Sie zum nächsten Schritt übergehen.",
                     "updated": 1635188659088
+                },
+                {
+                    "language": "RU",
+                    "text": "Перед переходом к следующему шагу рекомендуется убедиться, что у вас запущен и отлажен API Data Fetcher Bot.",
+                    "updated": 1639653939392
                 }
             ]
         },
@@ -511,6 +716,11 @@
                     "language": "DE",
                     "text": "Step #18: Richten Sie in Ihrer Data Mine einen Indicator Bot ein und konfigurieren Sie seine Process Definition nodes für das Framework, das Datensätze von One-Min-Daily in Multi-Time-Frame-Daily und Multi-Period-Market konvertiert. Sehen Sie sich an, wie das in der UI #1 gemacht wurde.",
                     "updated": 1635244805304
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 18: В вашем Data Mine настройте Indicator Bot и настройте его узлы Process Definition на платформу, которая будет преобразовывать типы наборов данных Dataset с One-Min-Daily на Multi-Time-Frame-Daily and Multi-Period-Market. Посмотрите, как это было сделано в UI №1.",
+                    "updated": 1639654131787
                 }
             ]
         },
@@ -523,6 +733,11 @@
                     "language": "DE",
                     "text": "Step #19: Definieren Sie in dem soeben hinzugefügten Indicator Bot die nodes der Record Property auf der Grundlage der Informationen, die Sie aus Raw Data konvertieren möchten. Vergewissern Sie sich, dass Sie eine Anfangs- und eine Ende-Record Property (Datensatzeigenschaft) hinzufügen, auch wenn diese in den Rohdaten nicht vorhanden sind, damit der Indikator-Bot korrekt ausgeführt werden kann.",
                     "updated": 1635245425484
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 19: В только что добавленном Indicator Bot определите узлы Record Property на основе информации, которую вы хотите преобразовать из необработанных данных Raw Data. Убедитесь, что вы добавили свойства begin и end записи, даже если оно не существует в необработанных данных, чтобы Indicator Bot работал правильно.",
+                    "updated": 1639677386954
                 }
             ]
         },
@@ -535,6 +750,11 @@
                     "language": "DE",
                     "text": "Schritt #20: Konfigurieren Sie die Eigenschaft aggregationMethod für jede Record Property. Prüfen Sie die docs dieser node für Details.",
                     "updated": 1635190124011
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 20: Настройте свойство aggregationMethod для каждого Record Property. За подробностями обращайтесь к документации этого узла.",
+                    "updated": 1639654586451
                 }
             ]
         },
@@ -547,6 +767,11 @@
                     "language": "DE",
                     "text": "Schritt #21: Wenn Sie möchten, können Sie mehrere Indicator Bot`s erstellen, um den Datensatz in verschiedene Gruppen von Record Property aufzuteilen.",
                     "updated": 1635190629588
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 21: При желании вы можете создать несколько Indicator Bots, чтобы разделить набор данных на разные группы Record Property.",
+                    "updated": 1639654823323
                 }
             ]
         },
@@ -558,6 +783,11 @@
                     "language": "DE",
                     "text": "Schritt #22: Richten Sie einen Plotter in Ihrer neuen Data Mine ein, und referenzieren Sie ihn in der Product Definition des zuletzt erstellten Indicator Bot.",
                     "updated": 1635190802408
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 22: Установите Plotter в вашем новом Data Mine и укажите на него ссылку из Product Definition последнего созданного Indicator Bot.",
+                    "updated": 1639655125610
                 }
             ]
         },
@@ -569,6 +799,11 @@
                     "language": "DE",
                     "text": "Schritt #23: Jetzt können Sie die Task ausführen, in dem die Data Fetcher Bot Process Instance definiert ist.",
                     "updated": 1635190919943
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 23: Теперь вы готовы к запуску задачи Task, в которой определен экземпляр процесса бота API Data Fetcher Bot.",
+                    "updated": 1639655304673
                 }
             ]
         },
@@ -580,6 +815,11 @@
                     "language": "DE",
                     "text": "Schritt #24: Wenn etwas nicht funktioniert hat, überprüfen Sie die Workspace Map, um zu sehen, ob es eine node mit einem error/Fehler gibt. Suchen Sie die node, klicken Sie auf den Fehler und sehen Sie die Fehlerseite in der Documentation. Versuchen Sie zu verstehen, was falsch ist, beheben Sie den Fehler und versuchen Sie es erneut.",
                     "updated": 1635191377038
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 24: Если что-то не сработало, проверьте карту рабочего пространства, чтобы увидеть, есть ли узел с ошибкой. Найдите узел, щелкните ошибку и просмотрите страницу с ошибкой в ​​документе. Попытайтесь понять, что не так, исправьте и попробуйте еще раз.",
+                    "updated": 1639655350002
                 }
             ]
         },
@@ -592,6 +832,11 @@
                     "language": "DE",
                     "text": "Schritt #25: Iterieren Sie durch den Schritt #24, bis alles funktioniert. Lesen Sie die docs von Node erneut, bis Sie die Details der dortigen Erklärungen verstanden haben. Lesen Sie diesen Leitfaden oder das ganze Thema noch einmal von Anfang an, bis Sie die erklärten Konzepte verstanden haben.",
                     "updated": 1635191475882
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 25: Повторяйте шаг № 24, пока все не заработает. Перечитайте документацию узла, пока не получите все подробности. Перечитайте это руководство или всю эту тему с самого начала, пока не усвоите объясненные концепции.",
+                    "updated": 1639655549136
                 }
             ]
         },
@@ -604,6 +849,11 @@
                     "language": "DE",
                     "text": "Schritt #26: Wenn Sie nach dem durchforsten der docs und der Befolgung all dieser Ratschläge immer noch nicht in der Lage sind, das Programm zum Laufen zu bringen, gehen Sie zur Telegram Support group und bitten Sie um Hilfe.",
                     "updated": 1635191614474
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 26: Если после изучения документов и следования всем этим советам вы все еще не смогли заставить его работать, перейдите в группу поддержки Telegram Support и попросите о помощи.",
+                    "updated": 1639655446982
                 }
             ]
         },
@@ -616,6 +866,11 @@
                     "language": "DE",
                     "text": "Schritt #27: Wenn alles gut läuft, richten Sie Ihre Trading Strategy so ein, dass Sie testen können, ob Sie Zugang zu den verarbeiteten Daten haben (die von de, zuletzt erstellten Indicator Bots bereitgestellt werden).",
                     "updated": 1635191934607
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 27: Как только все заработает, настройте свою торговую стратегию Trading Strategy таким образом, чтобы вы могли проверить, есть ли у вас доступ к обработанным данным (предоставленным последними созданными индикаторными ботами).",
+                    "updated": 1639656452233
                 }
             ]
         },
@@ -628,6 +883,11 @@
                     "language": "DE",
                     "text": "Schritt #29: Sobald die Daten korrekt von Ihrer Trading Strategy genutzt werden, führen Sie diese Anleitung immerweider durch, indem Sie einen weiteren API Endpoint zur API Map hinzufügen. Sie müssen einen zusätzlichen API Fetcher Bot hinzufügen.",
                     "updated": 1635192207098
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг № 29: После того, как данные будут правильно использованы вашей торговой стратегией, выполните итерацию по этому руководству, добавив еще одну конечную точку API Endpoint на карту API Map. Вам нужно будет добавить дополнительный API Data Fetcher Bot.",
+                    "updated": 1639656543620
                 }
             ]
         },
@@ -640,6 +900,11 @@
                     "language": "DE",
                     "text": "Schritt #30: Sobald Sie die gesamte API erfolgreich gemappt haben und alle benötigten API Data Fetchers, Indicator Bots und Plotter getestet haben, können Sie Ihre API Map und Data Mine als Plugin mit der Community teilen und SA Tokens im Austausch für Ihren Beitrag/contribution erhalten.",
                     "updated": 1635192382540
+                },
+                {
+                    "language": "RU",
+                    "text": "После того, как вы успешно сопоставили весь API и протестировали все необходимое: API Data Fetcher Bot, Indicator Bot и плоттеры Plotter - вы можете поделиться своей картой API Map и Data Mine с сообществом в качестве плагина и получить токены SA Token в обмен на ваш вклад.",
+                    "updated": 1639657964609
                 }
             ]
         },

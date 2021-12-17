@@ -508,7 +508,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     if (phase.formula !== undefined) {
                         let previousValue = tradingEngine.tradingCurrent.position.stopLoss.value
 
-                        await tradingSystem.evalFormulas(phase.formula, 'Formula')
+                        await tradingSystem.evalFormulas(phase.formula, 'Formula', phase)
                         tradingPositionModuleObject.applyStopLossFormula(tradingSystem.formulas, phase.formula.id)
 
                         if (tradingEngine.tradingCurrent.position.stopLoss.value !== previousValue) {
@@ -533,7 +533,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                     if (phase.formula !== undefined) {
                         let previousValue = tradingEngine.tradingCurrent.position.takeProfit.value
 
-                        await tradingSystem.evalFormulas(phase.formula, 'Formula')
+                        await tradingSystem.evalFormulas(phase.formula, 'Formula', phase)
                         tradingPositionModuleObject.applyTakeProfitFormula(tradingSystem.formulas, phase.formula.id)
 
                         if (tradingEngine.tradingCurrent.position.takeProfit.value !== previousValue) {

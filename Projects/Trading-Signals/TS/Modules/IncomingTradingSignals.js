@@ -7,17 +7,14 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
     }
 
     let tradingEngine
-    let web3
     return thisObject
 
     function initialize() {
         tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
-        web3 = new SA.nodeModules.web3()
     }
 
     function finalize() {
         tradingEngine = undefined
-        web3 = undefined
     }
 
     async function getAllSignals(node, candle) {

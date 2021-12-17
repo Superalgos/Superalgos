@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "У вас проблемы с торговыми слоями (Trading Layers)? Важно знать, что вы ищете, иначе вы можете этого не найти.",
                 "updated": 1639084442197
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie Probleme mit den Trading Layers? Es ist wichtig, dass Sie wissen, wonach Sie suchen, sonst finden Sie es vielleicht nicht.",
+                "updated": 1639500186980
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Не забудьте обратить внимание на временные рамки (Time Frame) и даты, в которые проводилась сессия. Иначе вы ничего не увидите!",
                     "updated": 1639084486874
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie auf den Time Frame und die Daten, unter denen die Sitzung durchgeführt wurde. Sonst werden Sie nichts sehen!",
+                    "updated": 1639500251377
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Бэктестинг сессии Lightning Strike проводился на минутном таймфрейме с 1 сентября 2020 года по 2 сентября 2020 года.",
                     "updated": 1639084540044
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Lightning Strike Backtesting Session wurde im einminütigen Zeitrahmen vom 1. September 2020 bis zum 2. September 2020 durchgeführt.",
+                    "updated": 1639500311080
                 }
             ]
         },

@@ -14,6 +14,7 @@ function newCanvas() {
     let containerBeingDragged
     let viewPortBeingDragged = false
     let ignoreNextClick = false
+    let mouseDownContainer
 
     let dragVector = {
         downX: 0,
@@ -800,6 +801,9 @@ function newCanvas() {
                     let spaceInstance = projectInstance.events.onMouseDownMap.get(j)
                     if (spaceInstance === undefined) { continue }
 
+                    /* Store clickable container for onMouseClick() */
+                    mouseDownContainer = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+
                     /*
                     Here we manage a few exceptional behaviours. Specifically with the
                     charting space and the floating space, since they have a non standard
@@ -914,6 +918,8 @@ function newCanvas() {
                     container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
 
                     if (container !== undefined && container.isClickeable === true) {
+                        /* Pick the container that last got the mousedown event */
+                        if (container !== mouseDownContainer) { continue }
                         container.eventHandler.raiseEvent('onMouseClick', point)
                         return
                     }

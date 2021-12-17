@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->Order Rate->Create Order Event->Cancel Order Event->Phase->Next Phase Event->Move To Phase Event->Close Stage Event->"
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->Order Rate->Create Order Event->Cancel Order Event->Phase->Next Phase Event->Move To Phase Event->Close Stage Event->Trading System->"
     },
     "childrenNodesProperties": [
         {

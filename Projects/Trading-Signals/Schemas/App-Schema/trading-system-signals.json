@@ -1,5 +1,5 @@
 {
-    "type": "Manage Stage Signals",
+    "type": "Trading System Signals",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,21 +11,19 @@
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedStopLossSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Managed Stop Loss Signals",
-            "relatedUiObject": "Managed Stop Loss Signals",
+            "label": "Add Trading Strategy Signals",
+            "relatedUiObject": "Trading Strategy Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedTakeProfilSignals",
+            "propertyToCheckFor": "incomingSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Managed Take Profit Signals",
-            "relatedUiObject": "Managed Take Profit Signals",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
@@ -48,21 +46,21 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trading Strategy Signals->"
+        "compatibleTypes": "->Available Signals->"
     },
-    "propertyNameAtParent": "manageStageSignals",
+    "propertyNameAtParent": "tradingSystemSignals",
     "childrenNodesProperties": [
         {
-            "name": "managedStopLossSignals",
-            "type": "node",
-            "childType": "Managed Stop Loss Signals",
+            "name": "tradingStrategySignals",
+            "type": "array",
+            "childType": "Trading Strategy Signals",
             "autoAdd": false
         },
         {
-            "name": "managedTakeProfitSignals",
+            "name": "tradingSystemSignal",
             "type": "node",
-            "childType": "Managed Take Profit Signals",
-            "autoAdd": false
+            "childType": "Trading System Signal",
+            "autoAdd": true
         }
     ]
 }

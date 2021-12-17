@@ -201,8 +201,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Jika semua proses up to date, pilih Stop All Tasks pada Masters Task Manager. Jika tidak, tunggu lebih lama!",
-                    "updated": 1616774172365,
+                    "text": "Ketika semua proses terupdate, pilih \"Stop All Tasks\" di node Market Data Tasks. Perhatikan bahwa kita dapat menghentikan tasks dari node yang berbeda dari node yang kita gunakan untuk memulai!",
+                    "updated": 1639745135081,
                     "style": "Callout"
                 },
                 {

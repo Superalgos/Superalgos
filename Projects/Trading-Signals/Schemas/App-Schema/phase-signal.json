@@ -1,5 +1,5 @@
 {
-    "type": "Manage Stage Signals",
+    "type": "Phase Signal",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,20 +12,18 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedStopLossSignals",
+            "propertyToCheckFor": "nextPhaseSignal",
             "actionFunction": "payload.executeAction",
-            "label": "Add Managed Stop Loss Signals",
-            "relatedUiObject": "Managed Stop Loss Signals",
+            "label": "Add Next Phase Signal",
+            "relatedUiObject": "Next Phase Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "managedTakeProfilSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Managed Take Profit Signals",
-            "relatedUiObject": "Managed Take Profit Signals",
+            "label": "Add Move To Phase Signal",
+            "relatedUiObject": "Move To Phase Signal",
             "relatedUiObjectProject": "Trading-Signals"
         },
         {
@@ -48,20 +46,20 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Available Signals->"
+        "compatibleTypes": "->Managed Stop Loss Signals->"
     },
-    "propertyNameAtParent": "manageStageSignals",
+    "propertyNameAtParent": "phaseSignals",
     "childrenNodesProperties": [
         {
-            "name": "managedStopLossSignals",
+            "name": "nextPhaseSignal",
             "type": "node",
-            "childType": "Managed Stop Loss Signals",
+            "childType": "Next Phase Signal",
             "autoAdd": false
         },
         {
-            "name": "managedTakeProfitSignals",
-            "type": "node",
-            "childType": "Managed Take Profit Signals",
+            "name": "moveToPhaseSignals",
+            "type": "array",
+            "childType": "Move To Phase Signal",
             "autoAdd": false
         }
     ]

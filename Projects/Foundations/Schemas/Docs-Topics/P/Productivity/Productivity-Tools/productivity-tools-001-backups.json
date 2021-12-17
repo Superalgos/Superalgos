@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "La función  backup está diseñada para preservar la integridad de las referencias, como esperaría cuando desees restaurar una estructura de datos a un estado anterior.",
                 "updated": 1628036272845
+            },
+            {
+                "language": "TR",
+                "text": "Yedekleme özelliği, bir veri yapısını önceki bir duruma geri yüklemek istediğinizde referansların bütünlüğünü korumak için tasarlanmıştır.",
+                "updated": 1639484850205
             }
         ]
     },

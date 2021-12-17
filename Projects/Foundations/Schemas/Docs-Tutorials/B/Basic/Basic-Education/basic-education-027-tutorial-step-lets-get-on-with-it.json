@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Was tun, wenn die Knoten weit voneinander entfernt sind, vielleicht sogar in verschiedenen Hierarchien? Sehen Sie sich das Video an und lernen Sie ein paar Tricks!",
                 "updated": 1634334595517
+            },
+            {
+                "language": "TR",
+                "text": "Ya Düğümler birbirinden çok uzaktaysa, hatta belki farklı hiyerarşilerdeyse? Birkaç püf noktası öğrenmek için videoyu izleyin!",
+                "updated": 1639488625000
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Diese UI-Tricks können Ihnen das Leben leichter machen:",
                     "updated": 1634334609357
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu UI ( User Interface ) hileleri hayatınızı kolaylaştırabilir:",
+                    "updated": 1639488655612
                 }
             ]
         },

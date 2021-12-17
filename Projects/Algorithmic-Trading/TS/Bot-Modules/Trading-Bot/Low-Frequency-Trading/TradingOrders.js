@@ -235,7 +235,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
             /* Check if we need to Cancel this Order */
-            let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemOrder.createOrderEvent)
+            let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemOrder.cancelOrderEvent)
             await tradingSystem.evalConditions(tradingSystemOrder.cancelOrderEvent, 'Cancel Order Event', signals)
             let situationName = await checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
             if (situationName !== undefined) {

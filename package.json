@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@babel/core": "7.12.3",
+    "@discordjs/rest": "^0.1.0-canary.0",
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.1.1",
@@ -43,6 +44,8 @@
     "ccxt": "^1.61.93",
     "child_process": "^1.0.2",
     "css-loader": "4.3.0",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "electron-updater": "^4.6.1",

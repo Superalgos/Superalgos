@@ -53,7 +53,11 @@ SA.nodeModules = {
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),
-    twitter: require('twitter-api-v2')
+    twitter: require('twitter-api-v2'),
+    slack: require('@slack/web-api'),
+    discordjs: require('discord.js'),
+    discordRest: require('@discordjs/rest'),
+    discordTypes: require('discord-api-types/v9')
 }
 /*
 Setting up Secrets.

@@ -390,6 +390,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                 if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'Order Rate Node Missing', tradingSystemOrder) }
                 if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'Formula Node Missing', tradingSystemOrder) }
 
+                /* Calculate the order rate formula */
+                await tradingSystem.evalFormulas(tradingSystemOrder.orderRate.formula, 'Formula')
                 /* Extract the rate value from the user-defined formula */
                 tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 

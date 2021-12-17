@@ -188,13 +188,10 @@ function newUiObject() {
         thisObject.fitFunction = undefined
         thisObject.isVisibleFunction = undefined
 
-
-
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.finalize()
             thisObject.conditionEditor = undefined
         }
-
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.finalize()
@@ -241,6 +238,7 @@ function newUiObject() {
         /* Initialize the Menu */
 
         thisObject.menu = newCircularMenu()
+        thisObject.menu.isOpen = true
         thisObject.menu.initialize(menuItemsInitialValues, thisObject.payload)
         thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
 
@@ -338,11 +336,27 @@ function newUiObject() {
         thisObject.menu.physics()
         thisObject.uiObjectMessage.physics()
 
+        /* Count how many menu's are open and expand as required */
+        let openMenuCount = 0
+
+        evaluateMenu(thisObject.menu)
+
+        function evaluateMenu(menu) {
+            if (menu !== undefined) {
+                if (menu.isOpen === true) {
+                    openMenuCount++
+                }
+                for (let i = 0; i < menu.menuItems.length; i++) {
+                    evaluateMenu(menu.menuItems[i].menu)
+                }
+            }
+        }
+
+        thisObject.payload.floatingObject.container.frame.radius = thisObject.payload.floatingObject.targetRadius + ((openMenuCount - 1) * (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
         }
-
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.physics()
@@ -1611,8 +1625,6 @@ function newUiObject() {
     }
 
     function isEditorVisible() {
-
-
 
         if (thisObject.conditionEditor !== undefined) {
             if (thisObject.conditionEditor.visible === true) { return true }

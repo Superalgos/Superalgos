@@ -45,7 +45,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Live Portfolio Session->"
+        "compatibleTypes": "->Backtesting Portfolio Session->Live Portfolio Session->"
     },
     "childrenNodesProperties": [
         {

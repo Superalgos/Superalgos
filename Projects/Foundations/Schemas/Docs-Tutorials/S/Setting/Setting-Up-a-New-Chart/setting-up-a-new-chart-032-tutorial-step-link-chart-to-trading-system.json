@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Мы в ударе! Надеюсь, вы готовы увидеть свою торговую систему (Trading System) в действии дальше!",
                 "updated": 1639080261066
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben einen Lauf! Ich hoffe, Sie sind bereit, Ihr Trading System als nächstes in Aktion zu sehen!",
+                "updated": 1639497372330
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Следующее, что вы захотите связать с большинством графиков, - это результаты ваших торговых сессий. По большей части это то же самое, что и подключение к шахте данных (Data Mine). Я расскажу вам о нескольких отличиях. Одно из основных отличий заключается в том, что каждая машина времени (Time Machine)может ссылаться только на одну торговую сессию (Trading Session). Например, одна сессия бэктестинга (Backtesting Session) связанная с одной торговой системой (Trading System). Это поможет сохранить ваши диаграммы чистыми и читаемыми. Было бы непонятно видеть ордера на покупку от двух разных торговых систем одновременно! Для подключения графика это означает, что нам необходимо установить две ссылки для того, чтобы все работало.",
                     "updated": 1639080477529
+                },
+                {
+                    "language": "DE",
+                    "text": "Das nächste, was Sie mit den meisten Charts verbinden möchten, sind die Ergebnisse Ihrer Handelssitzungen. Im Großen und Ganzen ist dies dasselbe wie die Verbindung zu einer Data Mine. Es gibt nur ein paar Unterschiede, die ich Ihnen erläutern werde. Ein wesentlicher Unterschied besteht darin, dass jede Time Machine nur eine Trading Session referenzieren kann. Zum Beispiel eine Backtesting Session, die mit einem Trading System verbunden ist. Dies trägt dazu bei, dass Ihre Charts übersichtlich und lesbar bleiben. Es wäre verwirrend, Kaufaufträge von zwei verschiedenen Handelssystemen auf einmal zu sehen! Für das Verbinden eines Diagramms bedeutet dies, dass wir zwei Referenzen erstellen müssen, damit die Dinge funktionieren.",
+                    "updated": 1639497542248
                 }
             ]
         }

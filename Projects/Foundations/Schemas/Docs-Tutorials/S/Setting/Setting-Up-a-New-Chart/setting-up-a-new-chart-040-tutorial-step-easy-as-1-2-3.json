@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Ты сделал это! Я знал, что ты можешь. Вы успешно добавили свой первый пользовательский график. Надеюсь, вам было так же весело, как и мне!",
                 "updated": 1639084604572
+            },
+            {
+                "language": "DE",
+                "text": "Du hast es geschafft! Ich wusste, dass Sie es können. Sie haben erfolgreich Ihren ersten benutzerdefinierte Chart erstellt. Ich hoffe, Sie hatten genauso viel Spaß wie ich!",
+                "updated": 1639500375357
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Поздравляем, ваш пользовательский график теперь подключен и работает! Теперь вы знаете основные этапы создания графика. Вы можете повторить те же шаги, добавляя больше временных диаграмм, чтобы соединить любую комбинацию данных, которую вы хотите. Небольшое напоминание: три типа узлов, к которым можно подключить менеджер слоев временной диаграммы (Timeline Chart’s Layer Manager) следующие:",
                     "updated": 1639084668034
+                },
+                {
+                    "language": "DE",
+                    "text": "Herzlichen Glückwunsch, Ihr benutzerdefiniertes Diagramm ist jetzt angeschlossen und funktioniert! Sie kennen nun die grundlegenden Schritte der Diagrammerstellung. Sie können dieselben Schritte wiederholen und weitere Timeline Charts hinzufügen, um jede beliebige Kombination von Daten zu verbinden. Zur Erinnerung: Sie können den Timeline Chart’s Layer Manager mit den folgenden drei Knotentypen verbinden:",
+                    "updated": 1639500524753
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Data Mine Products – для получения рыночных данных (Market Data) и индикаторов.",
                     "updated": 1639084719551
+                },
+                {
+                    "language": "DE",
+                    "text": "Data Mine Products  - für Market Data und Indikatoren.",
+                    "updated": 1639500719128
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Trading Mine Products– для результатов сессии торговой системы (Trading System’s) бэктестинга (Backtesting Session) реальной торговой сессии (Live Trading Session).",
                     "updated": 1639084838280
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Mine Products - für die Ergebnisse einer Trading System’s Backtesting Session oder Live Trading Session.",
+                    "updated": 1639500737942
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Learning Mine Products – для данных, выводимых алгоритмами обучения.",
                     "updated": 1639084851586
+                },
+                {
+                    "language": "DE",
+                    "text": "Learning Mine Products - für die Datenausgabe von Lernalgorithmen.",
+                    "updated": 1639500758749
                 }
             ]
         }

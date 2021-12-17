@@ -7,23 +7,51 @@
             "name": "Trading\\trading-strategy",
             "project": "Foundations"
         },
-        "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!"
+        "text": "We are on a new chart! Let's set it up so that we may see the results of the backtest!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir befinden uns in einem neuen Chart! Richten wir ihn so ein, dass wir die Ergebnisse des Backtests sehen können!",
+                "updated": 1639418188840
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Turn on the following layers in each of the layer managers (fell free to close all plotter panels):",
-            "updated": 1622549690952
+            "updated": 1622549690952,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die folgenden Ebenen in den Ebenenmanagern ein (Sie können auch alle Plotter-Panels schließen)",
+                    "updated": 1639418198295
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Candles Data: \"Candles\".",
-            "updated": 1622549387433
+            "updated": 1622549387433,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Candles Data: \"Candles\". ",
+                    "updated": 1639418248951
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bollinger Data: \"Bollinger Bands\".",
-            "updated": 1622549394686
+            "updated": 1622549394686,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bollinger Data: \"Bollinger Bänder\".",
+                    "updated": 1639418271307
+                }
+            ]
         },
         {
             "style": "List",
@@ -33,11 +61,25 @@
         {
             "style": "List",
             "text": "Trading System: \"Trading System Errors\" and \"Trading System Warnings\".",
-            "updated": 1622549431740
+            "updated": 1622549431740,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading System: \"Trading System Errors\" und \"Trading System Warnings\".",
+                    "updated": 1639418281823
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "The next step shows what you should see!"
+            "text": "The next step shows what you should see!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der nächste Schritt zeigt, was Sie sehen sollten!",
+                    "updated": 1639418292878
+                }
+            ]
         }
     ]
 }

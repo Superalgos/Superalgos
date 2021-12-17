@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Вы уже делали это раньше! Убедитесь, что вы добавили эти слои. Пустые таблицы - это не весело.",
                 "updated": 1639084120513
+            },
+            {
+                "language": "DE",
+                "text": "Das haben Sie schon einmal gemacht! Stellen Sie sicher, dass Sie diese Ebenen hinzufügen. Leere Diagramme sind kein Spaß.",
+                "updated": 1639499545570
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Наведите курсор на Менеджер слоев (Layer Manager) и нажмите Add All Mine Layers(Добавить все слои шахты).",
                     "updated": 1639084185006
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über den Layer Manager und klicken Sie auf <I>Add All Mine Layers</I>.",
+                    "updated": 1639499665390
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Этот шаг легко забыть, но он очень важен! Если в менеджере слоев нет ни одного слоя, ничего не отобразится, как бы вы ни старались.",
                     "updated": 1639084203715
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Schritt wird leicht vergessen, ist aber sehr wichtig! Wenn sich unter dem Ebenenmanager keine Ebenen befinden, wird nichts angezeigt, egal wie sehr Sie sich bemühen.",
+                    "updated": 1639499729307
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Когда слои начинают накапливаться, все может выйти из-под контроля. Это хорошая идея - потратить некоторое время и упорядочить и свернуть узлы слоев и папки, чтобы все выглядело чисто.",
                     "updated": 1639084219158
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn sich die Ebenen zu stapeln beginnen, kann das Ganze etwas unübersichtlich werden. Es ist eine gute Idee, sich etwas Zeit zu nehmen und die Ebenenknoten und Ordner zu ordnen und zu reduzieren, damit die Dinge sauber aussehen.",
+                    "updated": 1639499814909
                 }
             ]
         }

@@ -321,6 +321,11 @@
                     "language": "EL",
                     "text": "Κινώντας τους Κόμβους",
                     "updated": 1639094762353
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümleri Hareket Ettirme",
+                    "updated": 1639559194080
                 }
             ]
         },
@@ -337,6 +342,11 @@
                     "language": "EL",
                     "text": "Υπάρχουν δύο κύριοι τρόποι για να μετακινήσετε έναν κόμβο:",
                     "updated": 1639094794874
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümü hareket ettirmenin iki ana yolu vardır:",
+                    "updated": 1639559222099
                 }
             ]
         },
@@ -354,6 +364,11 @@
                     "language": "EL",
                     "text": "Ανεξάρτητα από τη μέθοδο που χρησιμοποιείτε, βεβαιωθείτε ότι ο κόμβος είναι Καρφιτσωμένος. Διαφορετικά θα ξανακουμπώσει στην αρχική του θέση.",
                     "updated": 1639094818032
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi yöntemi kullanırsanız kullanın, düğümün Sabitlendiğinden emin olun. Aksi takdirde ilk konumuna geri dönecektir.",
+                    "updated": 1639559259613
                 }
             ]
         },
@@ -370,6 +385,11 @@
                     "language": "EL",
                     "text": "Κάντε κλικ σε έναν κόμβο κρατώντας πατημένο το Ctrl. Στη συνέχεια, χρησιμοποιήστε τα πλήκτρα βέλους ← → ↑ ↓ για να σύρετε τον κόμβο στην επιθυμητή θέση.",
                     "updated": 1639094858999
+                },
+                {
+                    "language": "TR",
+                    "text": "Ctrl tuşunu basılı tutarken bir düğüme tıklayın. Ardından, düğümü istediğiniz konuma sürüklemek için ← → ↑ ↓ ok tuşlarını kullanın.",
+                    "updated": 1639559282110
                 }
             ]
         },
@@ -387,6 +407,11 @@
                     "language": "EL",
                     "text": "Η δεύτερη μέθοδος αντιγράφει τον κόμβο που θέλετε να μετακινήσετε και στη συνέχεια τον κουμπώνει στη νέα θέση. Για να το κάνετε αυτό, βρείτε πρώτα την επιλογή του μενού Αποθήκευση Node (Κόμβου) για να μετακινήσετε τον κόμβο που θέλετε να μετακινήσετε και κάντε κλικ σε αυτόν. Στη συνέχεια, μετακινηθείτε σε έναν διαφορετικό κόμβο κοντά στο σημείο που θα θέλατε τον τρέχοντα κόμβο και κάντε κλικ στο κουμπί Snap Saved Node (Αποθήκευση Σωσμένου Κόμβου) για να τον Position (Τοποθετήσετε).",
                     "updated": 1639096689752
+                },
+                {
+                    "language": "TR",
+                    "text": "İkinci yöntem, taşımak istediğiniz düğümü kopyalar ve ardından onu yeni konumuna tutturur. Bunu yapmak için öncelikle taşımak istediğiniz düğüm üzerinde \"Save Node to Move\" menü seçeneğini bulun ve tıklayın. Ardından, mevcut düğümü istediğiniz yere yakın farklı bir düğüme gidin ve \"Snap Saved Node to Position\" düğmesini tıklayın.",
+                    "updated": 1639559518430
                 }
             ]
         },
@@ -409,6 +434,11 @@
                     "language": "EL",
                     "text": "Υπάρχουν επίσης συντομεύσεις πληκτρολογίου για την πραγματοποίηση της απόσπασης κόμβων. Δείτε τη σελίδα Συντόμευσης πληκτρολογίου Γρήγορος Οδηγός για περισσότερες λεπτομέρειες.",
                     "updated": 1639096780616
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğüm tutturmayıı gerçekleştirmek için klavye kısayolları da vardır. Daha fazla ayrıntı için Klavye kısayolları kılavuz (keyboard Shortcut Quick Guide) sayfasına bakın.",
+                    "updated": 1639559996161
                 }
             ]
         },
@@ -426,6 +456,11 @@
                     "language": "EL",
                     "text": "Αυτά τα κόλπα διεπαφής χρήστη μπορεί επίσης να κάνουν τη ζωή σας πιο εύκολη:",
                     "updated": 1639096803237
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu UI hileleri hayatınızı da kolaylaştırabilir:",
+                    "updated": 1639560015801
                 }
             ]
         },
@@ -442,6 +477,11 @@
                     "language": "EL",
                     "text": "Χρησιμοποιήστε τον χάρτη χώρου σχεδίασης όσες φορές απαιτείται για να βρείτε το δρόμο σας από τη μια ιεραρχία στην άλλη.",
                     "updated": 1639096827682
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir hiyerarşiden diğerine yolunuzu bulmak için tasarım alanı haritasını kullanın.",
+                    "updated": 1639560044722
                 }
             ]
         },
@@ -458,6 +498,11 @@
                     "language": "EL",
                     "text": "Αφαιρέστε την καρφίτσα μόλις καθοριστεί η αναφορά, έτσι ώστε ο κόμβος να επιστρέψει στη θέση του.",
                     "updated": 1639096849807
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra pini kaldırın",
+                    "updated": 1639560070536
                 }
             ]
         },
@@ -478,6 +523,11 @@
                     "language": "EL",
                     "text": "Συντομεύσεις πληκτρολογίου",
                     "updated": 1639096867588
+                },
+                {
+                    "language": "TR",
+                    "text": "Klavye Kısayolları",
+                    "updated": 1639560087669
                 }
             ]
         },

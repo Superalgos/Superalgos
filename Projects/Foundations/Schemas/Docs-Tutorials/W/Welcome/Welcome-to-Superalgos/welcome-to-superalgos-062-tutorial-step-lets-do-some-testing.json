@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Мы вернулись к сетевой иерархии, чтобы показать Вам один из основных ресурсов для тестирования стратегий, встроенных в Trading Bot.",
                 "updated": 1636747011896
+            },
+            {
+                "language": "ID",
+                "text": "Kita kembali ke hierarki Network untuk menunjukkan kepadamu salah satu core strategy-testing yang ada di Trading Bot.",
+                "updated": 1639710806131
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Но прежде чем Вы запустите свою первую Backtesting Session, давайте быстро продолжим  разведочную миссию, чтобы понять, как настроен узел Testing Trading Tasks.",
                     "updated": 1636747139887
+                },
+                {
+                    "language": "ID",
+                    "text": "Tetapi sebelum kamu menjalankan Backtesting Session pertamamu, mari kita lakukan misi pencarian cepat untuk memahami bagaimana Testing Trading Tasks node diatur.",
+                    "updated": 1639710881281
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Разверните узел Testing Trading Tasks и посмотрите на структуру узлов-потомков... Выглядит знакомо?",
                     "updated": 1636747199218
+                },
+                {
+                    "language": "ID",
+                    "text": "Perluas Testing Trading Tasks node dan lihat struktur node turunannya... Terlihat familiar?",
+                    "updated": 1639710931330
                 }
             ]
         },
@@ -137,6 +152,11 @@
                     "language": "RU",
                     "text": "Действительно! Это похоже на раздел Data Tasks: задачи организованы по бирже, рынку и торговой шахте, вот поэтому Вы можете протестировать любое количество стратегий, оптимизированных для разных рынков и на нескольких биржах.",
                     "updated": 1636747320904
+                },
+                {
+                    "language": "ID",
+                    "text": "Memang! Ini menyerupai bagian Data Tasks: tugas diatur berdasarkan exchange, market, dan trading mine, sehingga kamu dapat menguji sejumlah strategi yang dioptimalkan untuk markets yang berbeda, di banyak exchanges.",
+                    "updated": 1639711778514
                 }
             ]
         }

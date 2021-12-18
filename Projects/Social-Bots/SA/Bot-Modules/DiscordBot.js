@@ -92,10 +92,6 @@ exports.newSocialBotsBotModulesDiscordBot = function () {
         return formattedMessage
     }
 
-    function logInfo(message) {
-        console.log('[INFO]', message)
-    }
-
     function logError(message) {
         console.error('[ERROR]', message)
     }

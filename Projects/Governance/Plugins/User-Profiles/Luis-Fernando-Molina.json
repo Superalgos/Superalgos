@@ -6718,11 +6718,11 @@
         "savedPayload": {
             "position": {
                 "x": 33633.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -6745,11 +6745,11 @@
         "savedPayload": {
             "position": {
                 "x": 33520.38027389096,
-                "y": 19034.54944474041
+                "y": 23834.54944474041
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7259,11 +7259,11 @@
         "savedPayload": {
             "position": {
                 "x": 33266.577053146444,
-                "y": 19092.478373654547
+                "y": 23892.478373654547
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7420,11 +7420,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 32724.954991387654,
-                                "y": 19590.617815763602
+                                "y": 24390.617815763602
                             },
                             "targetPosition": {
                                 "x": 32623.755995172804,
-                                "y": 19308.20187576533
+                                "y": 24108.20187576533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7448,11 +7448,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 32539.627778381004,
-                                "y": 19596.1644482282
+                                "y": 24396.1644482282
                             },
                             "targetPosition": {
                                 "x": 32623.755995172804,
-                                "y": 19308.20187576533
+                                "y": 24108.20187576533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -9063,11 +9063,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 32386.4346847759,
-                                "y": 19491.719165499835
+                                "y": 24291.719165499835
                             },
                             "targetPosition": {
                                 "x": 32623.755995172804,
-                                "y": 19308.20187576533
+                                "y": 24108.20187576533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -9090,18 +9090,18 @@
                         "storageContainerReferences": [
                             {
                                 "type": "Storage Container Reference",
-                                "name": "",
+                                "name": "Github Repository My-Trading-Signals",
                                 "config": "{}",
                                 "project": "Open-Storage",
                                 "id": "bd5d0ff5-f0f0-40b8-bb05-4998cb56da11",
                                 "savedPayload": {
                                     "position": {
                                         "x": 32024.024535802702,
-                                        "y": 19326.151155466974
+                                        "y": 24126.151155466974
                                     },
                                     "targetPosition": {
                                         "x": 32323.890265487753,
-                                        "y": 19317.176515616153
+                                        "y": 24117.176515616153
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -9122,19 +9122,27 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Luis-Fernando-Molina",
-                                            "User Profile"
+                                            "User Profile",
+                                            "Governance",
+                                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                         ],
                                         [
                                             "New User Storage",
-                                            "User Storage"
+                                            "User Storage",
+                                            "Open-Storage",
+                                            "70d2d75b-ad84-4386-93f5-13ad56c111f7"
                                         ],
                                         [
                                             "New Github Storage",
-                                            "Github Storage"
+                                            "Github Storage",
+                                            "Open-Storage",
+                                            "f141613b-ea77-425c-8e3b-9874a638fcab"
                                         ],
                                         [
                                             "Github Repository My-Trading-Signals",
-                                            "Storage Container"
+                                            "Storage Container",
+                                            "Open-Storage",
+                                            "51548a10-7f67-4850-8687-e34a9e49ab4e"
                                         ]
                                     ]
                                 }
@@ -9144,11 +9152,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 32323.890265487753,
-                                "y": 19317.176515616153
+                                "y": 24117.176515616153
                             },
                             "targetPosition": {
                                 "x": 32623.755995172804,
-                                "y": 19308.20187576533
+                                "y": 24108.20187576533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -9167,16 +9175,16 @@
                     "savedPayload": {
                         "position": {
                             "x": 32623.755995172804,
-                            "y": 19308.20187576533
+                            "y": 24108.20187576533
                         },
                         "targetPosition": {
                             "x": 32792.75201259189,
-                            "y": 19060.330243470533
+                            "y": 23860.330243470533
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -9251,11 +9259,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 32493.590873437533,
-                            "y": 19037.911215394604
+                            "y": 23837.911215394604
                         },
                         "targetPosition": {
                             "x": 32792.75201259189,
-                            "y": 19060.330243470533
+                            "y": 23860.330243470533
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -9275,11 +9283,11 @@
             "savedPayload": {
                 "position": {
                     "x": 32792.75201259189,
-                    "y": 19060.330243470533
+                    "y": 23860.330243470533
                 },
                 "targetPosition": {
                     "x": 33063.04267296261,
-                    "y": 18930.165121735266
+                    "y": 23730.165121735266
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -9298,11 +9306,11 @@
         "savedPayload": {
             "position": {
                 "x": 33063.04267296261,
-                "y": 18930.165121735266
+                "y": 23730.165121735266
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -9576,11 +9584,11 @@
         "savedPayload": {
             "position": {
                 "x": 33063.04267296261,
-                "y": 18669.834878264734
+                "y": 23469.834878264734
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -9718,11 +9726,11 @@
         "savedPayload": {
             "position": {
                 "x": 33266.577053146444,
-                "y": 18507.521626345453
+                "y": 23307.521626345453
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -9757,11 +9765,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 33894.4741550062,
-                            "y": 18096.351665778773
+                            "y": 22896.351665778773
                         },
                         "targetPosition": {
                             "x": 33707.42721444858,
-                            "y": 18330.901110519182
+                            "y": 23130.901110519182
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -9781,11 +9789,11 @@
             "savedPayload": {
                 "position": {
                     "x": 33707.42721444858,
-                    "y": 18330.901110519182
+                    "y": 23130.901110519182
                 },
                 "targetPosition": {
                     "x": 33520.38027389096,
-                    "y": 18565.45055525959
+                    "y": 23365.45055525959
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -9804,11 +9812,11 @@
         "savedPayload": {
             "position": {
                 "x": 33520.38027389096,
-                "y": 18565.45055525959
+                "y": 23365.45055525959
             },
             "targetPosition": {
                 "x": 33333.333333333336,
-                "y": 18800
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -9827,11 +9835,11 @@
     "savedPayload": {
         "position": {
             "x": 33333.333333333336,
-            "y": 18800
+            "y": 23600
         },
         "targetPosition": {
             "x": 33333.333333333336,
-            "y": 18800
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": true,

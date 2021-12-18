@@ -1994,7 +1994,14 @@
             "modules": []
         },
         "SA": {
-            "utilities": []
+            "utilities": [
+                {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
+                }
+            ]
         }
     }
 ]

@@ -1,0 +1,68 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 7,
+    "type": "Williams Fractal - quantum Indicator",
+    "definition": {
+        "text": "The fractal indicator is based on a simple price pattern that is frequently seen in financial markets. The indicator isolates potential turning points on a price chart. It then draws arrows to indicate the existence of a pattern.",
+        "updated": 1611662439678
+    },
+    "paragraphs": [
+		{
+            "style": "Title",
+            "text": "Williams Fractals On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The Williams Fractal is an indicator, developed by Bill Williams, that aims to detect reversal points (highs and lows) and marks them with arrows. Up fractals and down fractals have specific shapes. The Williams Fractal indicator helps users determine in which direction price will develop. It is often used in combination with the Alligator Indicator with specific rules on when to enter and exit trades. A long signal would be if the fractal is above the alligator\u0027s teeth and a short signal would be if the fractal is below the alligator\u0027s teeth.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Text",
+            "text": "The bullish fractal pattern signals the price could move higher. A bearish fractal signals the price could move lower. Bullish fractals are marked by an up arrow, and bearish fractals are marked by a down arrow.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Text",
+            "text": "Please keep in mind that this is a lagging indicator by nature, and the fractal is printed a short time after the pivot point happens.",
+            "updated": 1611662450791
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-WilliamsFractal-on-the-chart.png",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Currently the indicator is set to look at 2 periods either side of the pivot, so the pattern needs to be 5 candles long before a fractal could be printed."
+        },
+        {
+            "style": "Title",
+            "text": "Williams Fractal Products & Properties"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Setting | Product Variable | Properties |\n| WilliamsFractal | WilliamsFractal | direction |",
+            "updated": 1611662546677
+        },       
+        {
+            "style": "Text",
+            "text": "Possible values for direction is \"Up\", \"Down\", or \"None\" ",
+            "updated": 1611662641354
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611662641354
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy can be built by entering a trade when the price action rises above an EMA and an Up fractal is produced."
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at30min.WilliamsFractal.direction === \"Up\"",
+            "updated": 1611662656647
+        }
+    ]
+}

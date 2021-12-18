@@ -82,11 +82,13 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             )
         }
 
-        tradingSystem.evalFormulas = async function (startingNode, descendentOfNodeType) {
+        tradingSystem.evalFormulas = async function (startingNode, descendentOfNodeType, parentNode) {
             await evalNode(
                 startingNode,
                 'Formulas',
-                descendentOfNodeType
+                descendentOfNodeType,
+                undefined,
+                parentNode
             )
         }
 

@@ -1,5 +1,5 @@
 {
-    "type": "Available Signals",
+    "type": "Trading System Signal",
     "menuItems": [
         {
             "action": "Configure",
@@ -8,16 +8,6 @@
             "iconPathOn": "configuration",
             "iconPathOff": "configuration"
         },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tradingSystemSignals",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Trading System Signals",
-            "relatedUiObject": "Trading System Signals",
-            "relatedUiObjectProject": "Trading-Signals"
-        },        
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -38,15 +28,8 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Social Trading Bot->"
+        "compatibleTypes": "->Trading System Signals->"
     },
-    "propertyNameAtParent": "availableSignals",
-    "childrenNodesProperties": [
-        {
-            "name": "tradingSystemSignals",
-            "type": "node",
-            "childType": "Trading System Signals",
-            "autoAdd": true
-        }
-    ]
+    "propertyNameAtParent": "tradingSystemSignal",
+    "childrenNodesProperties": []
 }

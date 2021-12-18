@@ -1893,6 +1893,13 @@
         "SA": {
             "botModules": [
                 {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                },
+                {
                     "name": "Slack Bot",
                     "propertyName": "slackBot",
                     "functionName": "newSocialBotsBotModulesSlackBot",
@@ -1929,13 +1936,6 @@
                     "propertyName": "telegramBot",
                     "functionName": "newSocialBotsBotModulesTelegramBot",
                     "fileName": "TelegramBot.js",
-                    "folderName": ""
-                },
-                {
-                    "name": "Discord Bot",
-                    "propertyName": "discordBot",
-                    "functionName": "newSocialBotsBotModulesDiscordBot",
-                    "fileName": "DiscordBot.js",
                     "folderName": ""
                 }
             ]

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Shares sind wie Backups, aber die resultierende Datei ist frei von sensiblen persönlichen Informationen!",
                 "updated": 1634586443245
+            },
+            {
+                "language": "TR",
+                "text": "Paylaşımlar tıpkı Yedekler ( Backups ) gibidir, ancak ortaya çıkan dosya hassas kişisel bilgilerden arındırılır!",
+                "updated": 1639740983804
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Gewöhnen Sie sich daran, Shares zu teilen! Diese gute Praxis wird Ihnen helfen, in Zukunft gefährliche Fehler zu vermeiden!",
                     "updated": 1634586450108
+                },
+                {
+                    "language": "TR",
+                    "text": "İhtiyacınız olduğunda dosyalarınızı Share işlevini kullanarak paylaşın. Bu alışkanlığınız, gelecekte tehlikeli hatalardan kaçınmanıza yardımcı olacaktır!",
+                    "updated": 1639743191701
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Lesen Sie die Seite über Shares für weitere Informationen!",
                     "updated": 1634586458598
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha fazla bilgi için Shares hakkındaki sayfayı okuyun!",
+                    "updated": 1639741096920
                 }
             ]
         },
@@ -97,6 +112,11 @@
                     "language": "DE",
                     "text": "Wann immer Sie Ihre Arbeit freigeben möchten, geben Sie niemals Ihre Workspace Dateien oder Backups frei. Diese Dateien können sensible Informationen wie Ihren Exchange Account Key enthalten. Geben Sie stattdessen Ihre Shares frei!",
                     "updated": 1634586464169
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışmanızı paylaşmak isterseniz, Çalışma Alanı dosyalarınızı veya Yedeklerinizi ( Backups ) asla paylaşmayın. Bu dosyalar, Borsa Hesap Anahtarınız gibi hassas bilgiler içerebilir. Bunun yerine, share işlevini kullanarak paylaşın!",
+                    "updated": 1639743396391
                 }
             ]
         }

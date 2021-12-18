@@ -7,30 +7,72 @@
             "name": "Trading\\trading-engine",
             "project": "Foundations"
         },
-        "text": "Let me walk you through the reasoning to find the required information on the Trading Engine"
+        "text": "Let me walk you through the reasoning to find the required information on the Trading Engine",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lassen Sie mich Ihnen erklären, wie Sie die benötigten Informationen in der Trading Engine finden",
+                "updated": 1639417757292
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "We are in the Trading Current > Strategy Open Stage > Stage Quoted Asset section. This is why:",
-            "updated": 1617205430340
+            "updated": 1617205430340,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir befinden uns im Abschnitt Trading Current > Strategy Open Stage > Stage Quoted Asset. Das ist der Grund:",
+                    "updated": 1639417767361
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Trading Current: it's all about the current position.",
-            "updated": 1617205459033
+            "updated": 1617205459033,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Current: Hier geht es um die aktuelle Position.",
+                    "updated": 1639417783553
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Strategy Open Stage : because the transaction to enter the position happened during this stage. We want to know how much USDT we got!"
+            "text": "Strategy Open Stage : because the transaction to enter the position happened during this stage. We want to know how much USDT we got!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Strategy Open Stage: weil die Transaktion zur Eingabe der Position in dieser Phase stattfand. Wir wollen wissen, wie viel USDT wir bekommen haben!",
+                    "updated": 1639417795471
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Stage Quoted Asset : because we sold the base asset and obtained the quoted asset, and it's the quoted asset we want to get rid of during the close stage! The question is how much of it!"
+            "text": "Stage Quoted Asset : because we sold the base asset and obtained the quoted asset, and it's the quoted asset we want to get rid of during the close stage! The question is how much of it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stage Quoted Asset: weil wir den Basiswert verkauft und den quotierten Vermögenswert erhalten haben, und es ist der quotierte Vermögenswert, den wir in der Close Stage loswerden wollen! Die Frage ist, wie viel davon!",
+                    "updated": 1639417812713
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Any ideas for the formula?"
+            "text": "Any ideas for the formula?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Irgendwelche Ideen für die Formel?",
+                    "updated": 1639417825100
+                }
+            ]
         }
     ]
 }

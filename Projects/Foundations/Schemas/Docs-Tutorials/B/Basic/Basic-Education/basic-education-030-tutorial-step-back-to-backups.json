@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Jetzt, da Sie die Referenzen verstanden haben, können wir uns näher mit Backups befassen und vielleicht sogar die Unterschiede zu Clones diskutieren!",
                 "updated": 1634585586598
+            },
+            {
+                "language": "TR",
+                "text": "Artık referansları anladığınıza göre, daha derine inebilir ve  Yedekler ( Backups ) ile Klonlar ( Clones ) arasındaki farka bakabiliriz.",
+                "updated": 1639564320216
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie müssen noch etwas lesen! Bitte lesen Sie diese Seite sorgfältig und lassen Sie die Informationen auf sich wirken!",
                     "updated": 1634585594377
+                },
+                {
+                    "language": "TR",
+                    "text": "Okuman gereken daha çok sayfa var! Lütfen bu sayfayı dikkatlice okuyun ve bilgileri öğrendiğinizden emin olun.",
+                    "updated": 1639564382848
                 }
             ]
         },
@@ -99,6 +109,11 @@
                     "language": "DE",
                     "text": "Ausgehende Referenzen: Sie werden immer beibehalten.",
                     "updated": 1634585629017
+                },
+                {
+                    "language": "TR",
+                    "text": "Giden referanslar (Outgoing references): Her zaman olduğu gibi tutulurlar.",
+                    "updated": 1639564508215
                 }
             ]
         },
@@ -123,6 +138,11 @@
                     "language": "DE",
                     "text": "Eingehende Referenzen: Sie werden nur beibehalten, wenn die Originalstruktur vor der Wiederherstellung der Sicherung gelöscht wird.",
                     "updated": 1634585637023
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen referanslar (Incoming references): Yalnızca yedeklemeyi geri yüklemeden önce orijinal yapı silindiğinde tutulurlar.",
+                    "updated": 1639567244914
                 }
             ]
         },
@@ -147,6 +167,11 @@
                     "language": "DE",
                     "text": "Interne Referenzen: Sie bleiben nur dann intern, wenn die ursprüngliche Struktur zuerst gelöscht wird.",
                     "updated": 1634585642707
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahili referanslar (Internal references): Yalnızca orijinal yapı ilk silindiğinde tutulurlar.",
+                    "updated": 1639567329284
                 }
             ]
         }

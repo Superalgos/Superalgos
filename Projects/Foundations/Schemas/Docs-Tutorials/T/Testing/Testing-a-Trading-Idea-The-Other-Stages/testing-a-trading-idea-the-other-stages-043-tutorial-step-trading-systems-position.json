@@ -3,7 +3,14 @@
     "pageNumber": 43,
     "type": "Tutorial Step - Trading Systems Position",
     "definition": {
-        "text": "This step will play a video in full screen mode."
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639418312185
+            }
+        ]
     },
     "paragraphs": [
         {

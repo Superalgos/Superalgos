@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn Sie es noch nicht getan haben, stellen Sie einen Trading System Reference zum  Lightning Strike Trading System her!",
                 "updated": 1634334724601
+            },
+            {
+                "language": "TR",
+                "text": "Henüz yapmadıysanız, devam edin ve Trading System Reference düğümünden,Lightning Strike Trading System düğümüne bir referans oluşturun!",
+                "updated": 1639561668806
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Vielleicht finden Sie diese Methode, einen Verweis zu erstellen, etwas ungeschickt oder unpraktisch. Wenn Sie eine bessere Idee haben oder wissen, wie man sie verbessern kann, können Sie gerne eine Funktionsanfrage stellen. Beachten Sie bitte Folgendes:",
                     "updated": 1634334734634
+                },
+                {
+                    "language": "TR",
+                    "text": "Referans oluşturmak için bu teknik biraz hantal veya pratik olmayabilir. Daha iyi bir fikriniz varsa veya nasıl geliştireceğinizi biliyorsanız, bu konuda fikrinizi bize ulaştırmaktan çekinmeyin.Bunu yaparkenaAşağıdakileri dikkate aldığınızdan emin olun:",
+                    "updated": 1639561720192
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "In einem komplexen Workspace kann es Hunderte von Knoten geben, die eine Referenz akzeptieren können.",
                     "updated": 1634334744672
+                },
+                {
+                    "language": "TR",
+                    "text": "Karmaşık bir çalışma alanında, bir referans oluşturabileceğiniz yüzlerce düğüm olabilir.",
+                    "updated": 1639561802732
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Die Referenz muss eindeutig von einem bestimmten Knoten zu einem anderen bestimmten Knoten hergestellt werden.",
                     "updated": 1634334760002
+                },
+                {
+                    "language": "TR",
+                    "text": "Başvuru, belirli bir düğümden başka bir düğüme kesin olarak oluşturulmalıdır.",
+                    "updated": 1639561860379
                 }
             ]
         },
@@ -121,6 +141,11 @@
                     "language": "DE",
                     "text": "In der Zwischenzeit kann ich Ihnen versichern, dass es gar nicht so schwer ist, wenn Sie es ein paar Mal gemacht haben!",
                     "updated": 1634334766682
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu arada, referans oluşturma işlemini birkaç kez yaptığınızda o kadar da zor olmadığını göreceksiniz.!",
+                    "updated": 1639561910211
                 }
             ]
         },

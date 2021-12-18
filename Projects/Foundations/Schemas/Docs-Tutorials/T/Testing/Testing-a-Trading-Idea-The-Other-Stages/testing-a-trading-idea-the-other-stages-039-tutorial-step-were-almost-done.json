@@ -7,16 +7,37 @@
             "name": "Close\\close-stage-event",
             "project": "Foundations"
         },
-        "text": "We're virtually ready to run a new backtest, this time, with complete definitions in all stages!"
+        "text": "We're virtually ready to run a new backtest, this time, with complete definitions in all stages!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir sind praktisch bereit, einen neuen Backtest durchzuführen, dieses Mal mit vollständigen Definitionen in allen Phasen!",
+                "updated": 1639418119159
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Before we do that, let's delete the Close Stage Event as we are not going to use it either!"
+            "text": "Before we do that, let's delete the Close Stage Event as we are not going to use it either!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor wir das tun, sollten wir das Close Stage Event löschen, da wir es auch nicht verwenden werden!",
+                    "updated": 1639418128027
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "That's it! It wasn't hard at all right? This basic set up is OK for testing simple trading ideas. In the next few tutorials, we're going to go through more elaborate management and execution setups!"
+            "text": "That's it! It wasn't hard at all right? This basic set up is OK for testing simple trading ideas. In the next few tutorials, we're going to go through more elaborate management and execution setups!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das war's! Das war doch gar nicht so schwer, oder? Diese Grundeinstellung ist für das Testen einfacher Handelsideen geeignet. In den nächsten Tutorials werden wir ausführlichere Verwaltungs- und Ausführungs-Setups durchgehen!",
+                    "updated": 1639418135544
+                }
+            ]
         }
     ]
 }

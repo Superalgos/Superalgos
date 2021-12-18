@@ -18,6 +18,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
     let exchangeAPIModuleObject = TS.projects.algorithmicTrading.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
+    let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+    let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
 
     return thisObject
 
@@ -28,6 +30,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
         exchangeAPIModuleObject.initialize()
         announcementsModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
+        incomingTradingSignalsModuleObject.initialize()        
     }
 
     function finalize() {
@@ -40,6 +44,12 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
         announcementsModuleObject.finalize()
         announcementsModuleObject = undefined
+
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
+
+        incomingTradingSignalsModuleObject.finalize()
+        incomingTradingSignalsModuleObject = undefined
     }
 
     function mantain() {
@@ -145,6 +155,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                             }
                         }
                         /* Check if we need to Create this Order */
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemOrder.createOrderEvent)
+                        await tradingSystem.evalConditions(tradingSystemOrder.createOrderEvent, 'Create Order Event', signals)
                         let situationName = await checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (situationName !== undefined) {
 
@@ -223,6 +235,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
             /* Check if we need to Cancel this Order */
+            let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemOrder.cancelOrderEvent)
+            await tradingSystem.evalConditions(tradingSystemOrder.cancelOrderEvent, 'Cancel Order Event', signals)
             let situationName = await checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
             if (situationName !== undefined) {
 
@@ -376,6 +390,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                 if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'Order Rate Node Missing', tradingSystemOrder) }
                 if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'Formula Node Missing', tradingSystemOrder) }
 
+                /* Calculate the order rate formula */
+                await tradingSystem.evalFormulas(tradingSystemOrder.orderRate.formula, 'Formula', tradingSystemOrder.orderRate)
                 /* Extract the rate value from the user-defined formula */
                 tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 
@@ -1262,6 +1278,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     tradingSystem.highlights.push(executionAlgorithm.id)
                     tradingSystem.highlights.push(executionNode.id)
 
+                    await outgoingTradingSignalsModuleObject.broadcastSignal(event)
                     announcementsModuleObject.makeAnnouncements(event)
                     return situation.name  // if the event is triggered, we return the name of the situation that passed
                 }

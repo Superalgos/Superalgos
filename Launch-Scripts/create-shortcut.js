@@ -59,7 +59,7 @@ if (os.platform() == "win32") {
             Name=${name}
             Comment=Launch Shortcut for Superalgos 
             Path=${__dirname}
-            Exec=gnome-terminal -e ${__dirname}/launch-linux-mac.sh
+            Exec=${__dirname}/launch-linux-mac.sh
             Terminal=true
             Icon=${icon}
             Categories=Application;`,

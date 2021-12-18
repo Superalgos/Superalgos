@@ -36,7 +36,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Available Storage",
             "relatedUiObject": "Available Storage",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Open-Storage"
         },    
         {
             "action": "Delete UI Object",
@@ -84,6 +84,7 @@
             "name": "availableStorage",
             "type": "node",
             "childType": "Available Storage",
+            "actionProject": "Foundations",
             "autoAdd": false
         }
     ]

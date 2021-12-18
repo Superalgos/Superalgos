@@ -1978,9 +1978,23 @@
                     "name": "Signal Validations",
                     "propertyName": "signalValidations",
                     "functionName": "newTradingSignalsUtilitiesSignalValidations",
-                    "fileName": "SignalValidations.js" 
-                } 
+                    "fileName": "SignalValidations.js"
+                }
             ]
+        }
+    },
+    {
+        "name": "Open-Storage",
+        "propertyName": "openStorage",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "modules": []
+        },
+        "SA": {
+            "utilities": []
         }
     }
 ]

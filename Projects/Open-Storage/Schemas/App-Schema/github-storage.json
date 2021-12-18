@@ -1,5 +1,5 @@
 {
-    "type": "Available Storage",
+    "type": "Github Storage",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,10 +12,10 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Storage Container Reference",
-            "relatedUiObject": "Storage Container Reference",
-            "relatedUiObjectProject": "Governance"
-        },
+            "label": "Add Storage Container",
+            "relatedUiObject": "Storage Container",
+            "relatedUiObjectProject": "Open-Storage"
+        },      
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -36,14 +36,14 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network Node->Social Persona->Social Trading Bot->"
+        "compatibleTypes": "->User Storage->"
     },
-    "propertyNameAtParent": "availableStorage",
+    "propertyNameAtParent": "githubStorage",
     "childrenNodesProperties": [
         {
-            "name": "storageContainerReferences",
+            "name": "storageContainers",
             "type": "array",
-            "childType": "Storage Container Reference",
+            "childType": "Storage Container",
             "autoAdd": false
         }
     ]

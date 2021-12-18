@@ -16,7 +16,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Github Storage",
             "relatedUiObject": "Github Storage",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Open-Storage"
         },
         {
             "action": "Add UI Object",
@@ -26,7 +26,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Superalgos Storage",
             "relatedUiObject": "Superalgos Storage",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Open-Storage"
         },        
         {
             "action": "Delete UI Object",

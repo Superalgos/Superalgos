@@ -14,7 +14,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Storage Container",
             "relatedUiObject": "Storage Container",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Open-Storage"
         },      
         {
             "action": "Delete UI Object",

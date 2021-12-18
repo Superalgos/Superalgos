@@ -82,7 +82,7 @@
                     "actionFunction": "payload.executeAction",
                     "label": "Add User Storage",
                     "relatedUiObject": "User Storage",
-                    "relatedUiObjectProject": "Governance"
+                    "relatedUiObjectProject": "Open-Storage"
                 }
             ]
         },
@@ -169,6 +169,7 @@
             "name": "userStorage",
             "type": "node",
             "childType": "User Storage",
+            "project": "Open-Storage",
             "autoAdd": false
         }
     ],

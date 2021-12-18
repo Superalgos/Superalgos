@@ -10,6 +10,7 @@ function newContainer() {
         notDraggingOnX: false,
         notDraggingOnY: false,
         isClickeable: false,
+        isDoubleClickable: false,
         isWheelable: false,
         detectMouseOver: false,
         name: undefined,
@@ -212,6 +213,11 @@ function newContainer() {
                     break
                 case GET_CONTAINER_PURPOSE.MOUSE_CLICK:
                     if (thisObject.isClickeable === true) {
+                        return true
+                    }
+                    break
+                case GET_CONTAINER_PURPOSE.DOUBLE_CLICK:
+                    if (thisObject.isDoubleClickable === true) {
                         return true
                     }
                     break

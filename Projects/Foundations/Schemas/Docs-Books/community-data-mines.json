@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El Community Data Mines book es un compendio de minas de datos y sus indicadores aportados por la Comunidad.",
                 "updated": 1628046154075
+            },
+            {
+                "language": "TR",
+                "text": "Topluluk Veri Madenleri kitabı, Topluluk tarafından katkıda bulunulan veri madenlerinin ve göstergelerinin bir özetidir.",
+                "updated": 1639836670009
             }
         ]
     },

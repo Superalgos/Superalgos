@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "In dieser Videoserie wird der gesamte Prozess der Erstellung eines Indicators Schritt für Schritt erläutert.",
                 "updated": 1635521417011
+            },
+            {
+                "language": "TR",
+                "text": "Bu video serisi, adım adım bir gösterge oluşturma sürecinin anlatmaktadır.",
+                "updated": 1639835640940
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Diese Videoreihe konzentriert sich auf den \"How to\"-Aspekt der Erstellung eines Indikators. Es werden weder Definitionen erläutert noch die zugrunde liegenden Konzepte erklärt. Es wird daher dringend empfohlen, die Seite über Datenminen sowie die Seiten über Indikator-Bots zu lesen, bevor Sie versuchen, einen Indikator zu erstellen.",
                     "updated": 1635522063282
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu video serisi, bir gösterge oluşturmanın \"nasıl yapıldığına\" odaklanır. Tanımları içermez ve temel kavramları açıklamaz. Bu nedenle, bir gösterge oluşturmaya çalışmadan önce Data Mine sayfasının yanı sıra Indıcator Bot'ları hakkındaki sayfaları okumanız şiddetle tavsiye edilir.",
+                    "updated": 1639835656540
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Die ganze docs zu lesen hilft Verständnis über Indikatoren und Plotter zu erlangen und ist sicherlich wünschenswert und wird Ihnen langfristig Zeit sparen.",
                     "updated": 1635522428663
+                },
+                {
+                    "language": "TR",
+                    "text": "Indicator ve Ploter'lar ile ilgili tüm belgeleri okumak kesinlikle tavsiye edilir ve uzun vadede size zaman kazandıracaktır.",
+                    "updated": 1639835661930
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Die Videoserie über die Erstellung eines Indicators wurde für die Beta 5 Version des Systems produziert (inzwischen sind wir bei 1.0.0); die Funktionalität funktioniert jedoch immer noch ähnlich. Allerdings kann es geringfügige Unterschiede geben, die noch zu dokumentieren sind. Schauen Sie in der Develop group vorbei und stellen Sie Ihre Fragen, insbesondere wenn etwas nicht wie erwartet oder wie in den Videos beschrieben funktioniert. Die Gruppe ist in der Fußzeile verlinkt.",
                     "updated": 1635522983953
+                },
+                {
+                    "language": "TR",
+                    "text": "İndikatörün nasıl oluşturulacağını anlatan video serisi sistemin Beta 5 sürümü (Bu arada beta süreci bitti, Şu anda Superalgos 1.0 sürümünde) için hazırlanmıştır; ancak, işlevsellik yine de benzer şekilde çalışır. Bununla birlikte, henüz belgelenmemiş küçük farklılıklar olabilir. Lütfen Geliştirme ( Develop ) grubuna katılın ve özellikle bir şey beklendiği gibi veya videolarda belirtildiği gibi çalışmıyorsa, tüm sorularınızı sorun.",
+                    "updated": 1639835731547
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "DE",
                     "text": "Schritt 1  - \"Visual Definitions\":",
                     "updated": 1635523040592
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 1 - Görsel Tanımlar",
+                    "updated": 1639835751249
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "DE",
                     "text": "Einrichtung der Prozessdefinitionen für den Multi-Time-Frame-Market und den Multi-Time-Frame-Daily, der Status- und Datenabhängigkeiten, der Ausführungsereignisse (execution events) und der Dataset-Definitionen für das main product.",
                     "updated": 1635523111913
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana ürün için Multi-Time-Frame-Market ve Multi-Time-Frame-Daily süreç tanımlarını, durum ve veri bağımlılıklarını, yürütme olaylarını ve veri kümesi tanımlarını ayarlama.",
+                    "updated": 1639835836234
                 }
             ]
         },
@@ -88,6 +118,11 @@
                     "language": "DE",
                     "text": "Schritt 2 - \"Code & Record Definition\":",
                     "updated": 1635523134273
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 2 - Kod ve Kayıt Tanımı",
+                    "updated": 1639835883734
                 }
             ]
         },
@@ -100,6 +135,11 @@
                     "language": "DE",
                     "text": "Überprüfung gängiger coding (programmier)-praktiken und Konfiguration von record properties und deren Formeln.",
                     "updated": 1635523212258
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortak kodlama uygulamasını gözden geçirme ve kayıt özelliklerini ve formüllerini yapılandırma.",
+                    "updated": 1639835897929
                 }
             ]
         },
@@ -117,6 +157,11 @@
                     "language": "DE",
                     "text": "Schritt 3 - \"Testing & Troubleshooting\":",
                     "updated": 1635523224909
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Adım - Test Etme ve Sorun Giderme",
+                    "updated": 1639835912112
                 }
             ]
         },
@@ -129,6 +174,11 @@
                     "language": "DE",
                     "text": "Einrichten einer Data-Mining-Task zur Ausführung der Bot-Instanz, Prüfen der Datensatz-Dateien auf Fehler und Beheben allgemeiner Probleme mit dem Code und den Prozessdefinitionen (process definitions).",
                     "updated": 1635523304414
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot örneğini çalıştırmak için bir veri madenciliği görevi ayarlama, veri kümesi dosyalarını hatalara karşı kontrol etme ve kod ve süreç tanımlarıyla ilgili genel sorunları giderme.",
+                    "updated": 1639835930012
                 }
             ]
         },
@@ -146,6 +196,11 @@
                     "language": "DE",
                     "text": "Schritt 4 - Plotters",
                     "updated": 1635523314690
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 4 - Ploterler",
+                    "updated": 1639835943019
                 }
             ]
         },
@@ -158,6 +213,11 @@
                     "language": "DE",
                     "text": "So erstellen Sie das Gerät, das den vom Indikator erzeugten Datensatz interpretiert und eine grafische Darstellung in den Diagrammen wiedergibt.",
                     "updated": 1635523333565
+                },
+                {
+                    "language": "TR",
+                    "text": "Indikatör tarafından oluşturulan veri setini yorumlayacak ve çizelgeler üzerinde grafiksel bir sunum yapacak süreç nasıl oluşturulur.",
+                    "updated": 1639836023838
                 }
             ]
         },
@@ -175,6 +235,11 @@
                     "language": "DE",
                     "text": "Schritt 5 - \"Trading Bot Dependencies\":",
                     "updated": 1635523346918
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 5 - Bot Bağımlılıkları",
+                    "updated": 1639836047855
                 }
             ]
         },
@@ -187,6 +252,11 @@
                     "language": "DE",
                     "text": "Bevor Sie den neuen Indikator in einem Handelssystem verwenden können, müssen Sie die entsprechenden Abhängigkeiten auf dem Low Frequency Trading Bot erstellen.",
                     "updated": 1635523409654
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni göstergeyi bir ticaret sisteminde kullanmadan önce, Low frequency Trading Bot'unda ilgili bağımlılıkları oluşturmalısınız.",
+                    "updated": 1639836125846
                 }
             ]
         },
@@ -199,6 +269,11 @@
                     "language": "DE",
                     "text": "Um die Eigenschaften eines neuen Indicator aus den Definitionen eines trading system heraus aufrufen zu können, müssen Sie zunächst dem Low Frequency-trading bot mitteilen, dass Ihre data mine existiert. Zu diesem Zweck müssen Sie die entsprechenden data dependencies zu den trading bot’s Trading process definitions des Trading-Bots hinzufügen.",
                     "updated": 1635523501772
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Trading System tanımlarından yeni bir indikatörün özelliklerini çağırmak için, öncelikle veri madenciliğinizin var olduğu Düşük Frekanslı ticaret botuna izin vermeniz gerekir. Bunu yapmak için, ticaret botunun Ticaret süreci tanımlarına karşılık gelen veri bağımlılıklarını eklemeniz gerekir.",
+                    "updated": 1639836298367
                 }
             ]
         },
@@ -216,6 +291,11 @@
                     "language": "DE",
                     "text": "Da es sich beim Low Frequency Trading Bot um ein Plugin handelt, bleiben die Änderungen, die Sie an der Hierarchie vornehmen, nach dem Schließen der Frontend-App nicht erhalten. Die Abhilfe besteht darin, nach den Änderungen ein Backup der Hierarchie zu erstellen und die Plugin-Datei durch das Backup zu ersetzen. Sollten Sie sich dazu entschließen, Ihre data mine zum Projekt beizusteuern, werden wir die dependencies in die offizielle Version einbauen.",
                     "updated": 1635523596673
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşük Frekanslı ticaret botu bir eklenti olduğundan, hiyerarşide yaptığınız değişiklikler ön uç uygulamasını kapattıktan sonra devam etmez. Çözüm, değişiklikleri yaptıktan sonra hiyerarşinin yedeğini almak ve eklenti dosyasını yedekle değiştirmektir. Veri madenciliğinizi projeye katkıda bulunmaya karar verirseniz, bağımlılıkları resmi sürüme dahil edebiliriz.",
+                    "updated": 1639836331116
                 }
             ]
         }

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Apropos getestete Börsen und Plugins: Es gibt einen Plugin Workspace, den Sie als saubere Schiefertafel verwenden können, wenn Sie neue Sachen entwerfen!",
                 "updated": 1634589661481
+            },
+            {
+                "language": "TR",
+                "text": "Test edilmiş borsalar ve eklentilerden bahsetmişken, yeni şeyler tasarlarken temiz bir sayfa olarak kullanabileceğiniz bir eklenti çalışma alanı var!",
+                "updated": 1639823713705
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Es ist der Blank Template Plugin Workspace!",
                     "updated": 1634589668492
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Blank Template Plugin Workspace!",
+                    "updated": 1639823744077
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Ihre anfängliche Ausbildung mit allen vorhandenen Tutorials abgeschlossen haben, werden Sie schließlich bereit sein, mit dem Aufbau Ihres eigenen Trading Systems zu beginnen. Dies ist der Plugin Workspace, den Sie zu diesem Zweck verwenden können!",
                     "updated": 1634589676279
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut tüm eğitimleri alarak ilk eğitiminizi tamamladığınızda, kendi Ticaret Sisteminizi oluşturmaya başlamaya hazır olacaksınız. Bu çalışma alanı, bu amaçla kullanabileceğiniz eklenti çalışma alanıdır!",
+                    "updated": 1639823794327
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Hier finden Sie ein sauberes Trading System, das sofort einsatzbereit ist, das New Market Tutorial installieren und eine Reihe von getesteten Börsen, die Sie verwenden können.",
                     "updated": 1634589725969
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çalışma alanı kutudan çıktığı gibi temiz bir Ticaret Sistemi , Yeni Pazar Kur Eğitimi ( Install New Market Tutorial )  ve kullanabileceğiniz test edilmiş borsalar dizisi içerir.",
+                    "updated": 1639823948749
                 }
             ]
         }

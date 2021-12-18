@@ -144,7 +144,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     Now, we will extract the information from the User Profile, specifically the user app that it is being used.
                     */
                     if (
-                        networkClient.id === SA.secrets.map.get(userAppCodeName).nodeId
+                        networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
                     ) {
                         p2pNetworkClientIdentity.node = networkClient
                         p2pNetworkClientIdentity.blockchainAccount = blockchainAccount

@@ -56,22 +56,8 @@ exports.newNetworkRoot = function newNetworkRoot() {
         /*
         Setting up Secrets.
         */
-        try {
-            SA.secrets = {
-                array: require('./My-Secrets/Secrets.json').secrets,
-                map: new Map()
-            }
-        } catch (err) {
-            SA.secrets = {
-                array: [],
-                map: new Map()
-            }
-        }
-
-        for (let i = 0; i < SA.secrets.array.length; i++) {
-            let secret = SA.secrets.array[i]
-            SA.secrets.map.set(secret.nodeCodeName, secret)
-        }
+        let SECRETS = require('./Secrets.js')
+        SECRETS.initialize()
 
         NT.app = require('./Network/NetwokNode.js').newNetworkNode()
         NT.app.run()

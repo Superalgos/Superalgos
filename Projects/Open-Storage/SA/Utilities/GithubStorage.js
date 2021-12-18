@@ -7,16 +7,16 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
     return thisObject
 
-    async function saveFile(fileName, filePath, fileContent, sotrageContainer) {
+    async function saveFile(fileName, filePath, fileContent, storageContainer) {
 
-        const token = SA.secrets.apisSecrets.map.get(sotrageContainer.config.codeName).apiToken
+        const token = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName).apiToken
         const { Octokit } = SA.nodeModules.octokit
         const octokit = new Octokit({
             auth: token,
             userAgent: 'Superalgos ' + SA.version
         })
-        const repo = sotrageContainer.config.repositoryName
-        const owner = sotrageContainer.config.githubUserName
+        const repo = storageContainer.config.repositoryName
+        const owner = storageContainer.config.githubUserName
         const branch = 'main'
         const message = 'Open Storage: New File.'
         const completePath = filePath + '/' + fileName + '.json'
@@ -70,11 +70,11 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
         })
     }
 
-    async function loadFile(fileName, filePath, sotrageContainer) {
+    async function loadFile(fileName, filePath, storageContainer) {
 
         const completePath = filePath + '/' + fileName + '.json'
-        const repo = sotrageContainer.config.repositoryName
-        const owner = sotrageContainer.config.githubUserName
+        const repo = storageContainer.config.repositoryName
+        const owner = storageContainer.config.githubUserName
         const branch = 'main'
         const URL = "https://raw.githubusercontent.com/" + owner + "/" + repo + "/" + branch + "/" + completePath
         /*

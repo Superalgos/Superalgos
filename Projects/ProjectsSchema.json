@@ -1991,7 +1991,15 @@
             "utilities": []
         },
         "TS": {
-            "modules": []
+            "modules": [
+                {
+                    "name": "Open Storage Client",
+                    "propertyName": "openStorageClient",
+                    "functionName": "newOpenStorageModulesOpenStorageClient",
+                    "fileName": "OpenStorageClient.js",
+                    "folderName": ""
+                }
+            ]
         },
         "SA": {
             "utilities": [

@@ -101,7 +101,9 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                 let userProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
                     userProfilePlugin
                 )
-
+                /*
+                Store in memory all User Profiles
+                */
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
@@ -152,7 +154,6 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     }
                 }
             }
-
         }
     }
 }

@@ -93,6 +93,7 @@ exports.newTaskServer = function newTaskServer() {
         async function bootingProcess() {
             try {
                 initializeProjectDefinitionNode()
+                await setupOpenStorage()
                 await setupP2PNetwork()
                 setupTaskHeartbeats()
                 startProcesses()
@@ -119,6 +120,26 @@ exports.newTaskServer = function newTaskServer() {
                     }
                 }
 
+                async function setupOpenStorage() {
+                    /*
+                    If we received a Bot Instance with a child Social Trading Bot Reference with a reference parent, 
+                    that would mean that we will need Open Storage
+                    */
+                    if (
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent.availableStorage === undefined
+                    ) {
+                        return
+                    }
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE =
+                        SA.projects.openStorage.modules.openStorageClient.newOpenStorageModulesOpenStorageClient()
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.initialize()
+
+                    //TEST IT FROM HERE.
+                }
+
                 async function setupP2PNetwork() {
                     /*
                     If we received a App Server Reference Node and a Signing Account, then we will connect to the P2P Network
@@ -134,7 +155,8 @@ exports.newTaskServer = function newTaskServer() {
                     /*
                     We set up the object that will hold our p2p network client identity, meaning the identity we will present to the network.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity =
+                        SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity.initialize()
                     /*
                     We will read all user profiles plugins, store them in memory and get from there our own network client identity.
@@ -163,7 +185,7 @@ exports.newTaskServer = function newTaskServer() {
                         'Network Client',
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface, 
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS
                     )
                     /*

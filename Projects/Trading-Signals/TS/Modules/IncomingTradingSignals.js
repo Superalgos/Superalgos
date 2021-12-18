@@ -6,18 +6,18 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
         finalize: finalize
     }
 
-    let web3
+    let tradingEngine
     return thisObject
 
     function initialize() {
-        web3 = new SA.nodeModules.web3()
+        tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
     }
 
     function finalize() {
-        web3 = undefined
+        tradingEngine = undefined
     }
 
-    async function getAllSignals(node) {
+    async function getAllSignals(node, candle) {
         if (node === undefined) { return }
         if (node.incomingSignals === undefined) { return }
         if (node.incomingSignals.incomingSignalReferences === undefined) { return }
@@ -32,7 +32,15 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
             if (signalReference.referenceParent === undefined) { return }
             let signalDefinition = signalReference.referenceParent
 
-            let signals = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.getSignals(signalDefinition.id)
+            let candle = {
+                begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
+                end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
+                open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
+                close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
+                min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
+                max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+            }
+            let signals = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.getSignals(candle, signalDefinition.id)
             if (signals !== undefined) {
                 allSignals = allSignals.concat(signals)
             }

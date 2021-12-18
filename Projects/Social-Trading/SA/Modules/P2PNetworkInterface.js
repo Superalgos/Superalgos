@@ -16,7 +16,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         finalize: finalize
     }
 
-    let signalsBySignalDefinitionId = new Map()
+    let signalsByCandleAndSignalDefinitionId = new Map()
 
     return thisObject
 
@@ -48,19 +48,28 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         /*
         Next, we will add the signal to an array of signals received from the same Social Trading Bot / Signal Definition.
         */
-        let signals = signalsBySignalDefinitionId.get(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id)
+        let key =
+            signalMessage.signal.source.tradingSystem.node.candle.begin + '-' +
+            signalMessage.signal.source.tradingSystem.node.candle.end + '-' +
+            signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id
+
+        let signals = signalsByCandleAndSignalDefinitionId.get(key)
         if (signals === undefined) { signals = [] }
         signals.push(signalMessage.signal)
-        signalsBySignalDefinitionId.set(signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id, signals)
+        signalsByCandleAndSignalDefinitionId.set(key, signals)
     }
 
-    function getSignals(signalDefinitionId) {
+    function getSignals(candle, signalDefinitionId) {
         /*
         Here we will allow the User App to request the signals of a certain 
         type, by providing the id of the Signal Definition Node at the User Profile.
         */
-        let signals = signalsBySignalDefinitionId.get(signalDefinitionId)
-        signalsBySignalDefinitionId.set(signalDefinitionId, [])
+        let key =
+            candle.begin + '-' +
+            candle.end + '-' +
+            signalDefinitionId
+
+        let signals = signalsByCandleAndSignalDefinitionId.get(key)
         return signals
     }
 }

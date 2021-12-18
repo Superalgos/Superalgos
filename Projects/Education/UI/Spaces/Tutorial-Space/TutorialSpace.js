@@ -769,7 +769,7 @@ function newEducationTutorialSpace() {
                 return
             }
             let position = nodeConfig.position
-            if (UI.projects.education.spaces.docsSpace.isVisible === true || UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+            if (UI.projects.education.spaces.docsSpace.isVisible === true) {
                 position = 'Left'
             }
 

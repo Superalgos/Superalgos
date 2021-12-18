@@ -68,15 +68,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                                 formula: {
                                     value: formulaValue
                                 },
-                                context: context,
-                                candle: {
-                                    begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value, 
-                                    end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
-                                    open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
-                                    close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
-                                    min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
-                                    max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
-                                }
+                                context: context
                             }
                         }
                     },
@@ -100,6 +92,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
                     socialTradingBot: {}
                 }
             }
+
             signalMessage.signatures.userApp = web3.eth.accounts.sign(JSON.stringify(signalMessage.signal), SA.secrets.map.get(userAppCodeName).privateKey)
             signalMessage.signatures.socialTradingBot = web3.eth.accounts.sign(JSON.stringify(signalMessage.signal), SA.secrets.map.get(socialTradingBotCodeName).privateKey)
 

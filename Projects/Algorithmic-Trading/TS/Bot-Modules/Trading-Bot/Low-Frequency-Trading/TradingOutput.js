@@ -55,8 +55,8 @@ exports.newAlgorithmicTradingBotModulesTradingOutput = function (processIndex) {
             tradingSimulationModuleObject.finalize()
             return
 
-            async function writeOutputFiles() {
-                await TS.projects.foundations.functionLibraries.outputManagementFunctions.writeFiles(
+            function writeOutputFiles() {
+                TS.projects.foundations.functionLibraries.outputManagementFunctions.writeFiles(
                     processIndex,
                     outputDatasets,
                     outputDatasetsMap,

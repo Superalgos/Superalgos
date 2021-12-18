@@ -947,6 +947,12 @@
         "PL": {
             "utilities": [
                 {
+                    "name": "Async Functions",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
+                },
+                {
                     "name": "Web Access",
                     "propertyName": "webAccess",
                     "functionName": "newFoundationsUtilitiesWebAccess",
@@ -993,12 +999,6 @@
                     "propertyName": "httpRequests",
                     "functionName": "newFoundationsUtilitiesHttpRequests",
                     "fileName": "HttpRequests.js"
-                },
-                {
-                    "name": "Async Functions",
-                    "propertyName": "asyncFunctions",
-                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
-                    "fileName": "AsyncFunctions.js"
                 }
             ]
         },

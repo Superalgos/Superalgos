@@ -1,13 +1,13 @@
 exports.newOpenStorageUtilitiesGithubStorage = function () {
 
     let thisObject = {
-        saveData: saveData,
-        fetchData: fetchData
+        saveFile: saveFile,
+        loadFile: loadFile
     }
 
     return thisObject
 
-    async function saveData(fileName, filePath, fileContent, sotrageContainer) {
+    async function saveFile(fileName, filePath, fileContent, sotrageContainer) {
 
         const token = SA.secrets.apisSecrets.map.get(sotrageContainer.config.codeName).apiToken
         const { Octokit } = SA.nodeModules.octokit
@@ -43,7 +43,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             repository.name === undefined ||
             repository.object === null
         ) {
-            console.log('[ERROR] Github Storage -> Save Data -> SHA graphql failed.')
+            console.log('[ERROR] Github Storage -> Save File -> SHA graphql failed.')
             return
         }
 
@@ -52,7 +52,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
         if (
             sha === undefined
         ) {
-            console.log('[ERROR] Github Storage -> Save Data -> SHA calculation failed.')
+            console.log('[ERROR] Github Storage -> Save File -> SHA calculation failed.')
             return
         }
 
@@ -70,7 +70,33 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
         })
     }
 
-    async function fetchData(fileName, sotrageContainer) {
+    async function loadFile(fileName, filePath, sotrageContainer) {
 
+        const completePath = filePath + '/' + fileName + '.json'
+        const repo = sotrageContainer.config.repositoryName
+        const owner = sotrageContainer.config.githubUserName
+        const branch = 'main'
+        const URL = "https://raw.githubusercontent.com/" + owner + "/" + repo + "/" + branch + "/" + completePath
+        /*
+        This function helps a caller to use await syntax while the called
+        function uses callbacks, specifically for retrieving files.
+        */
+        let promise = new Promise((resolve, reject) => {
+
+            const axios = SA.nodeModules.axios
+            axios
+                .get(URL)
+                .then(res => {
+                    //console.log(`statusCode: ${res.status}`)
+
+                    resolve(res.data)
+                })
+                .catch(error => {
+                    console.error('[ERROR] Github Storage -> Load File -> Error = ' + error)
+                    reject()
+                })
+        })
+
+        return promise
     }
 }

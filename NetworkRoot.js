@@ -52,7 +52,8 @@ exports.newNetworkRoot = function newNetworkRoot() {
             web3: require('web3'),
             ws: require('ws'),
             simpleGit: require('simple-git'),
-            graphql: require("@octokit/graphql")
+            graphql: require("@octokit/graphql"),
+            axios: require('axios')
         }
         SA.version = require('./package.json').version
         /*

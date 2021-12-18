@@ -54,7 +54,8 @@ SA.nodeModules = {
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),
     twitter: require('twitter-api-v2'),
-    graphql: require("@octokit/graphql")
+    graphql: require("@octokit/graphql"),
+    axios: require('axios')
 }
 SA.version = require('./package.json').version
 /*

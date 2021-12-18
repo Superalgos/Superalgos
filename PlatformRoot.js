@@ -54,7 +54,8 @@ SA.nodeModules = {
     process: require('process'),
     childProcess: require('child_process'),
     twitter: require('twitter-api-v2'),
-    slack: require('@slack/web-api')
+    slack: require('@slack/web-api'),
+    axios: require('axios')
 }
 
 SA.version = require('./package.json').version

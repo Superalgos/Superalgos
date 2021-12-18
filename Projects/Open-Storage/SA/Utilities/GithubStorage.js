@@ -9,7 +9,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
     async function saveData(fileName, filePath, fileContent, sotrageContainer) {
 
-        const token = 'GET THE TOKEN FROM THE SECRETS FILE'
+        const token = SA.secrets.apisSecrets.map.get(sotrageContainer.config.codeName).apiToken
         const { Octokit } = SA.nodeModules.octokit
         const octokit = new Octokit({
             auth: token,

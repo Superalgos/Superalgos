@@ -53,8 +53,10 @@ SA.nodeModules = {
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),
-    twitter: require('twitter-api-v2')
+    twitter: require('twitter-api-v2'),
+    graphql: require("@octokit/graphql")
 }
+SA.version = require('./package.json').version
 /*
 Setting up Secrets.
 */

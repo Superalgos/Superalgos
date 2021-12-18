@@ -51,8 +51,10 @@ exports.newNetworkRoot = function newNetworkRoot() {
             nodeFetch: require('node-fetch'),
             web3: require('web3'),
             ws: require('ws'),
-            simpleGit: require('simple-git')
+            simpleGit: require('simple-git'),
+            graphql: require("@octokit/graphql")
         }
+        SA.version = require('./package.json').version
         /*
         Setting up Secrets.
         */

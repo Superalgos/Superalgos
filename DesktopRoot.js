@@ -53,8 +53,10 @@ exports.newDesktopRoot = function newDesktopRoot() {
             http: require('http'),
             octokit: require("@octokit/rest"),
             simpleGit: require('simple-git'),
-            nodeFetch: require('node-fetch')
+            nodeFetch: require('node-fetch'),
+            graphql: require("@octokit/graphql")
         }
+        SA.version = require('./package.json').version
         /*
         Setting up Secrets.
         */

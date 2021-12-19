@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Plugins sind Datenstrukturen, die mit dem System geliefert werden und die Sie über die Plugins-Hierarchie in jedem Workspace aufrufen können.",
                 "updated": 1634588386781
+            },
+            {
+                "language": "TR",
+                "text": "Eklentiler, (Plugins) sistemle birlikte gelen ve Eklentiler (Plugins) hiyerarşisini kullanarak herhangi bir çalışma alanına çağrı yapabileceğiniz veri yapılarıdır.",
+                "updated": 1639944008758
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Plugins sind Datenstrukturen, die wiederverwendet werden sollen. Aus diesem Grund werden sie als Plugins ausgeliefert, so dass Sie sie in jedem Workspace platzieren können.",
                     "updated": 1634588379363
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentiler, (Plugins) yeniden kullanım için tasarlanmış veri yapılarıdır. Bu nedenle, eklentileri herhangi bir çalışma alanına yerleştirebilirsiniz.",
+                    "updated": 1639944393417
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Erweitern Sie den Knoten Plugins!",
                     "updated": 1634588371523
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentiler (Plugins) düğümünü genişletin!",
+                    "updated": 1639944424969
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Wie Sie an der Struktur der Hierarchie erkennen können, gibt es mehrere Arten von Plugins! Sie werden als JSON-Dateien ausgeliefert, die nach Typ im Plugins-Ordner sortiert sind. Probieren Sie es aus!",
                     "updated": 1634588393321
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşinin yapısından da anlayabileceğiniz gibi, çeşitli eklenti türleri vardır! Eklentiler klasöründeki türe göre sıralanmış JSON dosyaları olarak sevk edilirler. Kontrol et!",
+                    "updated": 1639944547110
                 }
             ]
         },

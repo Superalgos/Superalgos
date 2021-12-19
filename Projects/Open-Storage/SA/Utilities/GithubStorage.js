@@ -26,7 +26,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
         await octokit.repos.createOrUpdateFileContents({
             owner: owner,
             repo: repo,
-            filePath: completePath,
+            path: completePath,
             message: message,
             content: content,
             branch: branch

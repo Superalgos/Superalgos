@@ -51,7 +51,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         }
     }
 
-    async function loadFile() {
+    async function loadFile(fileName, filePath) {
         /*
         We are going to load this file from the Storage Containers defined.
         We are going to try to read it first from the first Storage container

@@ -138,6 +138,15 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.initialize()
 
                     //TEST IT FROM HERE.
+
+                    let fileName = "My-File-Name"
+                    let filePath = "My-Folder"
+                    let fileContent = "This is the File Content!."
+
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.saveFile(fileName, filePath, fileContent)
+
+                    let receivedFileContent = TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.saveFile(fileName, filePath)
+                    console.log(receivedFileContent)
                 }
 
                 async function setupP2PNetwork() {

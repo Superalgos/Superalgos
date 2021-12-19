@@ -61,7 +61,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
         /*
         Setting up Secrets.
         */
-        let SECRETS = require('./Secrets.js')
+        let SECRETS = require('./Secrets.js').newSecrets()
         SECRETS.initialize()
 
         run()

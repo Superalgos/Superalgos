@@ -1,10 +1,10 @@
-exports.newSecrets = function () {
+exports.newSecrets = function newSecrets () {
  
     let thisObject = {
         initialize: initialize
     }
 
-    return thisObject;
+    return thisObject
 
     function initialize() {
 
@@ -20,13 +20,13 @@ exports.newSecrets = function () {
         }
 
         try {
-            SA.secrets.signingAccountSecrets = require('./My-Secrets/SigningAccountsSecrets.json').secrets
+            SA.secrets.signingAccountSecrets.array = require('./My-Secrets/SigningAccountsSecrets.json').secrets
         } catch (err) {
             // Still have an empty array.
         }
 
         try {
-            SA.secrets.apisSecrets = require('./My-Secrets/ApisSecrets.json').secrets
+            SA.secrets.apisSecrets.array = require('./My-Secrets/ApisSecrets.json').secrets
         } catch (err) {
             // Still have an empty array.
         }

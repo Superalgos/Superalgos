@@ -59,7 +59,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         /*
         Setting up Secrets.
         */
-        let SECRETS = require('./Secrets.js')
+        let SECRETS = require('./Secrets.js').newSecrets()
         SECRETS.initialize()
 
         NT.app = require('./Network/NetwokNode.js').newNetworkNode()

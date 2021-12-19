@@ -28,19 +28,54 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     }
 
     async function saveFile(fileName, filePath, fileContent) {
-
+        /*
+        We are going to save this file all of the Storage Containers defined.
+        */
         for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
             let storageContainerReference = availableStorage.storageContainerReferences[i]
-            if (availableStorage.storageContainerReferences.referenceParent === undefined) { continue }
-            if (availableStorage.storageContainerReferences.referenceParent.parentNode === undefined) { continue }
+            if (storageContainerReference.referenceParent === undefined) { continue }
+            if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
 
-            let storageContainer = availableStorage.storageContainerReferences.referenceParent
+            let storageContainer = storageContainerReference.referenceParent
 
-            await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
+            switch (storageContainer.parentNode.type) {
+                case 'Github Storage': {
+                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
+                    break
+                }
+                case 'Superalgos Storage': {
+                    // TODO Build the Superalgos Storage Provider
+                    break
+                }
+            }
         }
     }
 
     async function loadFile() {
+        /*
+        We are going to load this file from the Storage Containers defined.
+        We are going to try to read it first from the first Storage container
+        and if it is not possible we will try with the next ones.
+        */
+        let fileContent
+        for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
+            let storageContainerReference = availableStorage.storageContainerReferences[i]
+            if (storageContainerReference.referenceParent === undefined) { continue }
+            if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
 
+            let storageContainer = storageContainerReference.referenceParent
+
+            switch (storageContainer.parentNode.type) {
+                case 'Github Storage': {
+                    fileContent = await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                    break
+                }
+                case 'Superalgos Storage': {
+                    // TODO Build the Superalgos Storage Provider
+                    break
+                }
+            }
+        }
+        return fileContent
     }
 }

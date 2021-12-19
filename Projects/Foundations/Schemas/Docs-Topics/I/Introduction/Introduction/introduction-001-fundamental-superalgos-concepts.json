@@ -4,7 +4,14 @@
     "type": "Fundamental Superalgos Concepts",
     "definition": {
         "text": "Superalgos breaks up complexity and describes the fundamental concepts that make up trading intelligence in hierarchies of nodes. Nodes may reference other nodes to access information in other hierarchies.",
-        "updated": 1609943915544
+        "updated": 1609943915544,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Superalgos, karmaşıklığı ortadan kaldırır ve düğüm hiyerarşilerinde ticaret zekasını oluşturan temel kavramları tanımlar. Düğümler, diğer hiyerarşilerdeki bilgilere erişmek için diğer düğümlere başvurabilir.",
+                "updated": 1639925727351
+            }
+        ]
     },
     "paragraphs": [
         {

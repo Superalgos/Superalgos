@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Ich hoffe, Sie haben die Feinheiten von Backups verstanden und wissen, wie Referenzen in jedem einzelnen Wiederherstellungsfall betroffen sind!",
                 "updated": 1634586159314
+            },
+            {
+                "language": "TR",
+                "text": "Umarım yedeklemelerin inceliklerini ve her bir özel kurtarma durumunda referansların nasıl etkilendiğini anlamışsınızdır!",
+                "updated": 1639936782089
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie müssen die einzelnen Fälle nicht auswendig lernen. Wenn Sie stattdessen den zugrundeliegenden Mechanismus mit den Referenzen verstehen, können Sie das Verhalten in jedem Fall ableiten!",
                     "updated": 1634586166198
+                },
+                {
+                    "language": "TR",
+                    "text": "Olayları tek tek ezberlemeye gerek yok. Bunun yerine, referansları içeren temel mekanizmayı anlıyorsanız her bir örnek olaydaki davranışı anlarsınız!",
+                    "updated": 1639936992863
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass jeder Knoten eine bestimmte ID hat! Wenn ein Verweis hergestellt wird, haben beide beteiligten Knoten eine eindeutige ID. Ausgehende Referenzen hängen nicht von der ID des Knotens ab, eingehende jedoch schon! Wenn der gesicherte Knoten mit der gleichen ID wiederhergestellt werden kann, bleiben die eingehenden Verweise bestehen; andernfalls ändern sie sich oder gehen verloren!",
                     "updated": 1634586177224
+                },
+                {
+                    "language": "TR",
+                    "text": "Her düğümün belirli bir kimliği olduğunu unutmayın! Bir referans oluşturulduğunda, dahil olan her iki düğümün de benzersiz bir kimliği vardır. Giden referanslar düğümün kimliğine bağlı değildir, ancak gelen referanslar bağlıdır! Yedeklenen düğüm aynı kimlikle geri yüklenebilirse, gelen referanslar devam eder; aksi takdirde değişirler veya kaybolurlar!",
+                    "updated": 1639937173140
                 }
             ]
         }

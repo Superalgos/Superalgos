@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Clones unterscheiden sich von Backups insofern, als dass die Funktion darauf ausgelegt ist, Datenstrukturen zu replizieren, so dass die Kopien dem Original ähneln.",
                 "updated": 1634586258905
+            },
+            {
+                "language": "TR",
+                "text": "Klonlar, (Clones) özelliğinin kopyaların orijinale benzemesi veri yapılarını çoğaltmak için tasarlanmış olması nedeniyle yedeklemelerden farklıdır.",
+                "updated": 1639938165943
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Lesen Sie diese Seite aufmerksam!",
                     "updated": 1634586264863
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfayı dikkatlice okuyun!",
+                    "updated": 1639937913046
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Zusammengefasst:",
                     "updated": 1634586271229
+                },
+                {
+                    "language": "TR",
+                    "text": "Özetle:",
+                    "updated": 1639938200568
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Clones verhalten sich gleich, ob das Original bei der Wiederherstellung vorhanden ist oder nicht.",
                     "updated": 1634586276607
+                },
+                {
+                    "language": "TR",
+                    "text": "Klonlar, (Clones) restorasyon sırasında orijinalin mevcut olup olmadığına bakılmaksızın aynı şekilde davranır.",
+                    "updated": 1639938355317
                 }
             ]
         },
@@ -122,6 +142,11 @@
                     "language": "DE",
                     "text": "Eingehende Referenzen werden immer verworfen.",
                     "updated": 1634586293349
+                },
+                {
+                    "language": "TR",
+                    "text": "Gelen referanslar her zaman göz ardı edilir.",
+                    "updated": 1639938428629
                 }
             ]
         },
@@ -146,6 +171,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich die Zeit, die Funktion Clones selbst zu testen! Wir gehen ohne weiteres zu anderen Themen über!",
                     "updated": 1634586287700
+                },
+                {
+                    "language": "TR",
+                    "text": "Klonlar (Clones) özelliğini kendi başınıza test etmek için zaman ayırmaktan çekinmeyin! Lafı daha fazla uzatmadan diğer konulara geçeceğiz!",
+                    "updated": 1639938521520
                 }
             ]
         }

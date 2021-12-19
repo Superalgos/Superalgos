@@ -20,42 +20,6 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
         const branch = 'main'
         const message = 'Open Storage: New File.'
         const completePath = filePath + '/' + fileName + '.json'
-        const { graphql } = SA.nodeModules.graphql
-        const { repository } = await graphql(
-            '{  ' +
-            '  repository(name: "SuperAlgos", owner: "' + owner + '") {' +
-            '    object(expression: "' + branch + ':' + completePath + '") {' +
-            '      ... on Blob {' +
-            '        oid' +
-            '      }' +
-            '    }' +
-            '    name' +
-            '  }' +
-            '}',
-            {
-                headers: {
-                    authorization: 'token ' + token
-                }
-            }
-        )
-
-        if (
-            repository.name === undefined ||
-            repository.object === null
-        ) {
-            console.log('[ERROR] Github Storage -> Save File -> SHA graphql failed.')
-            return
-        }
-
-        const sha = repository.object.oid
-
-        if (
-            sha === undefined
-        ) {
-            console.log('[ERROR] Github Storage -> Save File -> SHA calculation failed.')
-            return
-        }
-
         const buff = new Buffer.from(fileContent, 'utf-8');
         const content = buff.toString('base64');
 
@@ -65,9 +29,13 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             filePath: completePath,
             message: message,
             content: content,
-            sha: sha,
             branch: branch
         })
+            .catch(githubError)
+
+        function githubError(err) {
+            console.log(err)
+        }
     }
 
     async function loadFile(fileName, filePath, storageContainer) {

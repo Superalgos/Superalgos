@@ -58,6 +58,7 @@ SA.nodeModules = {
   discordjs: require('discord.js'),
   discordRest: require('@discordjs/rest'),
   discordTypes: require('discord-api-types/v9'),
+  octokit: require('@octokit/rest'),
   graphql: require('@octokit/graphql'),
   axios: require('axios')
 }

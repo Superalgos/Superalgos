@@ -1990,7 +1990,8 @@
             "functionLibraries": [],
             "utilities": []
         },
-        "TS": {
+        "TS": {},
+        "SA": {
             "modules": [
                 {
                     "name": "Open Storage Client",
@@ -1999,9 +2000,7 @@
                     "fileName": "OpenStorageClient.js",
                     "folderName": ""
                 }
-            ]
-        },
-        "SA": {
+            ],
             "utilities": [
                 {
                     "name": "Github Storage",

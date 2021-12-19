@@ -143,9 +143,9 @@ exports.newTaskServer = function newTaskServer() {
                     let filePath = "My-Folder"
                     let fileContent = "This is the File Content!."
 
-                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.saveFile(fileName, filePath, fileContent)
+                    await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.saveFile(fileName, filePath, fileContent)
 
-                    let receivedFileContent = TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.saveFile(fileName, filePath)
+                    let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.loadFile(fileName, filePath)
                     console.log(receivedFileContent)
                 }
 

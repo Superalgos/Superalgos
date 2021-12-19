@@ -11,6 +11,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     where the file is localted. 
     */
     let thisObject = {
+        callbackWhenFileIsSaved: undefined,
         persit: persit,
         loadFile: loadFile,
         initialize: initialize,
@@ -45,12 +46,16 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
     }
 
-    async function loadFile(fileName, filePath) {
+    async function loadFile(fileKey) {
         /*
         We are going to load this file from the Storage Containers defined.
         We are going to try to read it first from the first Storage container
         and if it is not possible we will try with the next ones.
         */
+        let fileName = fileKey.fileName
+        let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
+        let password = fileKey.password
+
         let fileContent
         for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
             let storageContainerReference = availableStorage.storageContainerReferences[i]
@@ -61,7 +66,8 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
             switch (storageContainer.parentNode.type) {
                 case 'Github Storage': {
-                    fileContent = await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                    let encryptedFileContent = await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                    fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
                     break
                 }
                 case 'Superalgos Storage': {
@@ -79,7 +85,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         if (saveOneFileCanRun === false) { return }
 
         saveOneFileCanRun = false
-        
+
         let timestamp = (new Date()).valueOf()
         let file = {
             timestamp: timestamp,
@@ -87,7 +93,9 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         }
 
         let fileContent = JSON.stringify(file)
-        let fileName = web3.eth.accounts.hashMessage(fileContent)
+        let password = SA.projects.foundations.utilities.encryption.randomPassword()
+        let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
+        let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
         let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
         /*
         We are going to save this file at all of the Storage Containers defined.
@@ -101,9 +109,9 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
             switch (storageContainer.parentNode.type) {
                 case 'Github Storage': {
-                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
-                    .then(fileSaved)
-                    .catch(fileNodeSaved)
+                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
+                        .then(onFileSaved)
+                        .catch(onFileNodeSaved)
                     break
                 }
                 case 'Superalgos Storage': {
@@ -111,17 +119,27 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
                     break
                 }
             }
+
+            function onFileSaved() {
+
+                recordsToSave = []
+
+                let fileKey = {
+                    timestamp: timestamp,
+                    fileName: fileName,
+                    storageContainerId: storageContainer.id,
+                    password: password
+                }
+                callbackWhenFileIsSaved(fileKey)
+            }
+
+            function onFileNodeSaved() {
+                /*
+                The content then will be saved at the next run of this function.
+                */
+            }
         }
 
-        function fileSaved() {
-            recordsToSave = []            
-        }
-
-        function fileNodeSaved() {
-            /*
-            The content then will be saved at the next run of this function.
-            */
-        }
         saveOneFileCanRun = true
     }
 }

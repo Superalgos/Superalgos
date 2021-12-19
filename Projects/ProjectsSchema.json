@@ -999,6 +999,12 @@
                     "propertyName": "asyncFunctions",
                     "functionName": "newFoundationsUtilitiesAsyncFunctions",
                     "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Encryption",
+                    "propertyName": "encryption",
+                    "functionName": "newFoundationsUtilitiesEncryption",
+                    "fileName": "Encryption.js"
                 }
             ]
         },

@@ -1,7 +1,14 @@
 {
     "type": "Point Formula",
     "definition": {
-        "text": "A point formula is a node used to input the [x,y] coordinates of a point."
+        "text": "A point formula is a node used to input the [x,y] coordinates of a point.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Point Formula - это узел, используемый для ввода координат [x,y] точки Point.",
+                "updated": 1639726401405
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,11 +18,25 @@
         {
             "style": "Text",
             "text": "To represent some form of variation of the price or a price derivative over time, a typical point formula consists of the following two coordinates: ",
-            "updated": 1610559758845
+            "updated": 1610559758845,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы представить некоторую форму изменения цены или производной цены во времени, типичная формула точки состоит из следующих двух координат:",
+                    "updated": 1639726449305
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "x = datetime and "
+            "text": "x = datetime and ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "x = datetime",
+                    "updated": 1639726466851
+                }
+            ]
         },
         {
             "style": "List",
@@ -24,7 +45,14 @@
         {
             "style": "Title",
             "text": "For example",
-            "updated": 1609852495437
+            "updated": 1609852495437,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1639726481630
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -37,15 +65,36 @@
         },
         {
             "style": "Text",
-            "text": "The example above shows the definition of the first of two points necessary to draw the segment of the 20-periods SMA curve for any particular period or candle. In this case, x = record.begin is the starting datetime of the period and y = record.previous.sma20 is the rate of the 20-periods SMA of the previous period."
+            "text": "The example above shows the definition of the first of two points necessary to draw the segment of the 20-periods SMA curve for any particular period or candle. In this case, x = record.begin is the starting datetime of the period and y = record.previous.sma20 is the rate of the 20-periods SMA of the previous period.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В примере выше показано определение первой из двух точек, необходимых для построения сегмента кривой 20-периодной SMA для любого конкретного периода или свечи. В данном случае x = record.begin - это время начала периода, а y = record.previous.sma20 - это значение 20-периодной SMA предыдущего периода.",
+                    "updated": 1639726590989
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The above variables are constructed with information originating at the product definition that references the corresponding plotter module."
+            "text": "The above variables are constructed with information originating at the product definition that references the corresponding plotter module.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенные выше переменные строятся на основе информации, полученной из определения продукта Product Definition, которое ссылается на соответствующий модуль плоттера.",
+                    "updated": 1639726670401
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To complete the line segment corresponding to a single period, the closing datetime of the period and the closing rate for the 20-periods SMA are required:"
+            "text": "To complete the line segment corresponding to a single period, the closing datetime of the period and the closing rate for the 20-periods SMA are required:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для завершения сегмента линии, соответствующего одному периоду, требуется дата закрытия периода и курс закрытия для 20-периодной SMA:",
+                    "updated": 1639726734547
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -58,15 +107,36 @@
         },
         {
             "style": "Text",
-            "text": "The above system works very well for plotting all sorts of information over the candles, on the charts."
+            "text": "The above system works very well for plotting all sorts of information over the candles, on the charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенная выше система очень хорошо работает для построения всевозможной информации по свечам, на графиках.",
+                    "updated": 1639726803651
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An oscillator like RSI too needs the definition of the starting and ending datetime of the period as the value for the x-axis. However, the value for axis y fits a different scale."
+            "text": "An oscillator like RSI too needs the definition of the starting and ending datetime of the period as the value for the x-axis. However, the value for axis y fits a different scale.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Такой осциллятор, как RSI, тоже нуждается в определении времени начала и окончания периода в качестве значения для оси x. Однако значение для оси y соответствует другой шкале.",
+                    "updated": 1639726842173
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Anyway, the points definition is just as straight forward, for example:"
+            "text": "Anyway, the points definition is just as straight forward, for example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В любом случае, определение точек такое же простое, например:",
+                    "updated": 1639726871803
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -88,7 +158,14 @@
         },
         {
             "style": "Text",
-            "text": "Points do not necessarily need to refer to values on the dataset produced by the corresponding data product. For example, absolute values for the y-axis may be used to describe fixed graphical elements, for instance, a horizontal line, or a box."
+            "text": "Points do not necessarily need to refer to values on the dataset produced by the corresponding data product. For example, absolute values for the y-axis may be used to describe fixed graphical elements, for instance, a horizontal line, or a box.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Точки не обязательно должны ссылаться на значения в наборе данных, созданных соответствующим продуктом данных. Например, абсолютные значения для оси y могут быть использованы для описания фиксированных графических элементов, например, горизонтальной линии или рамки.",
+                    "updated": 1639726926280
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -128,11 +205,25 @@
         },
         {
             "style": "Text",
-            "text": "The above four points are used to paint the background of the 20 to 30 value range of the RSI chart. The first two points are also used to draw the dotted line signaling the 20-value mark, and the last two are used for the dotted line indicating the 30-value mark."
+            "text": "The above four points are used to paint the background of the 20 to 30 value range of the RSI chart. The first two points are also used to draw the dotted line signaling the 20-value mark, and the last two are used for the dotted line indicating the 30-value mark.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Указанные выше четыре точки используются для рисования границ диапазона значений от 20 до 30 на графике RSI. Первые две точки также используются для построения пунктирной линии, обозначающей отметку 20 значений, а последние две - для пунктирной линии, обозначающей отметку 30 значений.",
+                    "updated": 1639727072960
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The reason from separating the definition of points from the definition of polygons is that any point may be used by one or more polygons."
+            "text": "The reason from separating the definition of points from the definition of polygons is that any point may be used by one or more polygons.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Причина разделения определения точек и определения полигонов заключается в том, что любая точка может быть использована одним или несколькими полигонами.",
+                    "updated": 1639727112033
+                }
+            ]
         }
     ]
 }

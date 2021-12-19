@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Plotter lesen von Bots erstellte Datenprodukte und bilden bestimmte Koordinatenpunkte ab, um sie als Eckpunkte für Polygone zu verwenden, denen Stile zugewiesen werden, um grafische Darstellungen der zugrunde liegenden Daten zu erstellen.",
                 "updated": 1635368884704
+            },
+            {
+                "language": "RU",
+                "text": "Плоттеры читают продукты данных, созданные ботами, и наносят на экран определенные координатные точки, чтобы использовать их в качестве вершин для многоугольников, которым назначаются стили для создания графических представлений базовых данных.",
+                "updated": 1639724065813
             }
         ]
     },

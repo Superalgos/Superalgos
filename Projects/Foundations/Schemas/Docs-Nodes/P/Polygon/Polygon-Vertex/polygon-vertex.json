@@ -1,7 +1,14 @@
 {
     "type": "Polygon Vertex",
     "definition": {
-        "text": "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as a vertex of a shape."
+        "text": "A polygon vertex is a reference to a point defined in the chart points, constituting a specific coordinate to be used as a vertex of a shape.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Polygon Vertex - это ссылка на точку, определенную в точке графика, представляющую собой конкретную координату для использования в качестве вершины фигуры.",
+                "updated": 1639730306526
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "Vertices are the main element defining polygons. Once created, each vertex must establish a reference to the corresponding point in the charts point."
+            "text": "Vertices are the main element defining polygons. Once created, each vertex must establish a reference to the corresponding point in the charts point.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вершины являются основным элементом, определяющим полигоны. После создания каждая вершина должна установить ссылку на соответствующую точку в диаграмме.",
+                    "updated": 1639730462467
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Drawing curves requires two vertices. Painting areas, such as the background of a chart, likely requires four vertices. Note that vertices are not capable of featuring a style. Instead, styles are applied to polygon borders and polygon bodies."
+            "text": "Drawing curves requires two vertices. Painting areas, such as the background of a chart, likely requires four vertices. Note that vertices are not capable of featuring a style. Instead, styles are applied to polygon borders and polygon bodies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для рисования кривых требуется две вершины. Для рисования областей, таких как фон графика, вероятно, потребуется четыре вершины. Обратите внимание, что вершины не могут иметь стиль. Вместо этого стили применяются к границам полигонов Polygon Border и телам полигонов Polygon Body.",
+                    "updated": 1639730551925
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Bear in mind that the order in which vertices in a polygon are arranged around the parent polygon node when their rotational symmetry property is selected, is the order in which the plotter computes the points. This means that points need to be in the correct order, for example, when drawing a box. Imagine drawing a box on a piece of paper without lifting the pencil... that is how the plotter does it."
+            "text": "Bear in mind that the order in which vertices in a polygon are arranged around the parent polygon node when their rotational symmetry property is selected, is the order in which the plotter computes the points. This means that points need to be in the correct order, for example, when drawing a box. Imagine drawing a box on a piece of paper without lifting the pencil... that is how the plotter does it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следует помнить, что порядок расположения вершин многоугольника вокруг родительского узла полигона при выборе свойства вращательной симметрии - это порядок, в котором плоттер вычисляет точки. Это означает, что точки должны располагаться в правильном порядке, например, при рисовании рамки. Представьте, что вы рисуете рамку на листе бумаги, не поднимая карандаша... именно так это делает плоттер.",
+                    "updated": 1639730622309
+                }
+            ]
         }
     ]
 }

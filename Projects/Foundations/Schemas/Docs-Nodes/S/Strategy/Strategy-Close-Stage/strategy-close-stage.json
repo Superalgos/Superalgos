@@ -1,7 +1,14 @@
 {
     "type": "Strategy Close Stage",
     "definition": {
-        "text": "Strategy close stage is the section of the data structure that keeps track of information specific to the scope of the close stage during the period the stage is open."
+        "text": "Strategy close stage is the section of the data structure that keeps track of information specific to the scope of the close stage during the period the stage is open.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Strategy Close Stage - это раздел структуры данных, который отслеживает информацию, относящуюся к области действия стадии закрытия Close Stage.",
+                "updated": 1639563791437
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The close stage is active from the instant either the stop loss or take profit targets are hit until the instant the target size is filled or the close stage event is triggered."
+            "text": "The close stage is active from the instant either the stop loss or take profit targets are hit until the instant the target size is filled or the close stage event is triggered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стадия закрытия активна с момента достижения целевых значений стоп-лосса или тейк-профита до момента заполнения целевого размера или срабатывания события стадии закрытия.",
+                    "updated": 1639563308474
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Therefore, this section of the data structure features information spanning those periods only."
+            "text": "Therefore, this section of the data structure features information spanning those periods only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому в этом разделе структуры данных содержится информация, охватывающая только эти периоды.",
+                    "updated": 1639563338640
+                }
+            ]
         }
     ]
 }

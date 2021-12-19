@@ -23,7 +23,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         finalize: finalize
     }
 
-    let web3 = new SA.nodeModules.web3()
+    let web3
 
     return thisObject
 
@@ -40,6 +40,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     }
 
     function initialize() {
+
+        web3 = new SA.nodeModules.web3()
+
         let port = NT.networkNode.p2pNetworkNode.node.config.webSocketsPort
 
         thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })

@@ -11,44 +11,38 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     where the file is localted. 
     */
     let thisObject = {
-        saveFile: saveFile,
+        persit: persit,
         loadFile: loadFile,
         initialize: initialize,
         finalize: finalize
     }
     let availableStorage
+    let web3
+    let saveIntervalId
+    let recordsToSave
+    let saveOneFileCanRun
+
     return thisObject
 
     function finalize() {
         availableStorage = undefined
+        web3 = undefined
+        clearInterval(saveIntervalId)
     }
 
     async function initialize() {
+        recordsToSave = []
+        saveOneFileCanRun = true
+        web3 = new SA.nodeModules.web3()
         availableStorage = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent.availableStorage
+
+        saveIntervalId = setInterval(saveOneFile, 1000)
     }
 
-    async function saveFile(fileName, filePath, fileContent) {
-        /*
-        We are going to save this file all of the Storage Containers defined.
-        */
-        for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
-            let storageContainerReference = availableStorage.storageContainerReferences[i]
-            if (storageContainerReference.referenceParent === undefined) { continue }
-            if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
+    async function persit(record) {
 
-            let storageContainer = storageContainerReference.referenceParent
+        recordsToSave.push(record)
 
-            switch (storageContainer.parentNode.type) {
-                case 'Github Storage': {
-                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
-                    break
-                }
-                case 'Superalgos Storage': {
-                    // TODO Build the Superalgos Storage Provider
-                    break
-                }
-            }
-        }
     }
 
     async function loadFile(fileName, filePath) {
@@ -77,5 +71,57 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
             }
         }
         return fileContent
+    }
+
+    async function saveOneFile() {
+
+        if (recordsToSave.length === 0) { return }
+        if (saveOneFileCanRun === false) { return }
+
+        saveOneFileCanRun = false
+        
+        let timestamp = (new Date()).valueOf()
+        let file = {
+            timestamp: timestamp,
+            content: recordsToSave
+        }
+
+        let fileContent = JSON.stringify(file)
+        let fileName = web3.eth.accounts.hashMessage(fileContent)
+        let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+        /*
+        We are going to save this file at all of the Storage Containers defined.
+        */
+        for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
+            let storageContainerReference = availableStorage.storageContainerReferences[i]
+            if (storageContainerReference.referenceParent === undefined) { continue }
+            if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
+
+            let storageContainer = storageContainerReference.referenceParent
+
+            switch (storageContainer.parentNode.type) {
+                case 'Github Storage': {
+                    await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, fileContent, storageContainer)
+                    .then(fileSaved)
+                    .catch(fileNodeSaved)
+                    break
+                }
+                case 'Superalgos Storage': {
+                    // TODO Build the Superalgos Storage Provider
+                    break
+                }
+            }
+        }
+
+        function fileSaved() {
+            recordsToSave = []            
+        }
+
+        function fileNodeSaved() {
+            /*
+            The content then will be saved at the next run of this function.
+            */
+        }
+        saveOneFileCanRun = true
     }
 }

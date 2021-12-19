@@ -139,14 +139,12 @@ exports.newTaskServer = function newTaskServer() {
 
                     //TEST IT FROM HERE.
 
-                    let fileName = "My-File-Name-1"
-                    let filePath = "My-Folder"
-                    let fileContent = "This is the File Content!."
+                    let data = "This is the File Content, test 1 file per second."
 
-                    await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.saveFile(fileName, filePath, fileContent)
+                    await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.persit(data)
 
-                    let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.loadFile(fileName, filePath)
-                    console.log(receivedFileContent)
+                    //let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.loadFile(fileName, filePath)
+                    //console.log(receivedFileContent)
                 }
 
                 async function setupP2PNetwork() {

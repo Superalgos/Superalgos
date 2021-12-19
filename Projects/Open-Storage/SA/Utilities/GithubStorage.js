@@ -9,33 +9,46 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
     async function saveFile(fileName, filePath, fileContent, storageContainer) {
 
-        const token = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName).apiToken
-        const { Octokit } = SA.nodeModules.octokit
-        const octokit = new Octokit({
-            auth: token,
-            userAgent: 'Superalgos ' + SA.version
-        })
-        const repo = storageContainer.config.repositoryName
-        const owner = storageContainer.config.githubUserName
-        const branch = 'main'
-        const message = 'Open Storage: New File.'
-        const completePath = filePath + '/' + fileName + '.json'
-        const buff = new Buffer.from(fileContent, 'utf-8');
-        const content = buff.toString('base64');
+        let promise = new Promise(saveAtGithub)
 
-        await octokit.repos.createOrUpdateFileContents({
-            owner: owner,
-            repo: repo,
-            path: completePath,
-            message: message,
-            content: content,
-            branch: branch
-        })
-            .catch(githubError)
+        async function saveAtGithub(resolve, reject) {
 
-        function githubError(err) {
-            console.log(err)
+            const token = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName).apiToken
+            const { Octokit } = SA.nodeModules.octokit
+            const octokit = new Octokit({
+                auth: token,
+                userAgent: 'Superalgos ' + SA.version
+            })
+            const repo = storageContainer.config.repositoryName
+            const owner = storageContainer.config.githubUserName
+            const branch = 'main'
+            const message = 'Open Storage: New File.'
+            const completePath = filePath + '/' + fileName + '.json'
+            const buff = new Buffer.from(fileContent, 'utf-8');
+            const content = buff.toString('base64');
+
+            await octokit.repos.createOrUpdateFileContents({
+                owner: owner,
+                repo: repo,
+                path: completePath,
+                message: message,
+                content: content,
+                branch: branch
+            })
+                .then(githubSaysOK)
+                .catch(githubError)
+
+            function githubSaysOK() {
+                resolve()
+            }
+
+            function githubError(err) {
+                console.log('[ERROR] Github Storage -> saveFile -> err = ' + err)
+                reject()
+            }
         }
+
+        return promise
     }
 
     async function loadFile(fileName, filePath, storageContainer) {

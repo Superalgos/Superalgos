@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "В этой серии видеороликов пошагово рассматривается весь процесс построения индикатора.",
                 "updated": 1639730672324
+            },
+            {
+                "language": "TR",
+                "text": "Bu video serisi, adım adım bir gösterge oluşturma sürecinin anlatmaktadır.",
+                "updated": 1639835640940
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Эта серия видеороликов посвящена тому, как построить индикатор. В нем не рассматриваются определения и не объясняются основные концепции. Поэтому настоятельно рекомендуется прочитать страницу о Data Mine, а также страницы об индикаторных ботах Indicator Bot, прежде чем пытаться создавать индикатор.",
                     "updated": 1639730790694
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu video serisi, bir gösterge oluşturmanın \"nasıl yapıldığına\" odaklanır. Tanımları içermez ve temel kavramları açıklamaz. Bu nedenle, bir gösterge oluşturmaya çalışmadan önce Data Mine sayfasının yanı sıra Indıcator Bot'ları hakkındaki sayfaları okumanız şiddetle tavsiye edilir.",
+                    "updated": 1639835656540
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Чтение всей документации по индикаторам и плоттерам, конечно, желательно и в конечном итоге сэкономит вам время.",
                     "updated": 1639730812107
+                },
+                {
+                    "language": "TR",
+                    "text": "Indicator ve Ploter'lar ile ilgili tüm belgeleri okumak kesinlikle tavsiye edilir ve uzun vadede size zaman kazandıracaktır.",
+                    "updated": 1639835661930
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Серия видео о том, как построить индикатор, была подготовлена для версии Beta 5 ( сейчас мы находимся на Beta12) системы; однако функциональность по-прежнему работает аналогично. Тем не менее, могут быть незначительные различия, которые еще предстоит задокументировать. Пожалуйста, заходите в группу Develop и задавайте любые вопросы, особенно если что-то работает не так, как ожидалось, или не так, как показано в видео. Ссылка на группу находится в нижнем колонтитуле.",
                     "updated": 1639730872689
+                },
+                {
+                    "language": "TR",
+                    "text": "İndikatörün nasıl oluşturulacağını anlatan video serisi sistemin Beta 5 sürümü (Bu arada beta süreci bitti, Şu anda Superalgos 1.0 sürümünde) için hazırlanmıştır; ancak, işlevsellik yine de benzer şekilde çalışır. Bununla birlikte, henüz belgelenmemiş küçük farklılıklar olabilir. Lütfen Geliştirme ( Develop ) grubuna katılın ve özellikle bir şey beklendiği gibi veya videolarda belirtildiği gibi çalışmıyorsa, tüm sorularınızı sorun.",
+                    "updated": 1639835731547
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Шаг 1 - Визуальные определения",
                     "updated": 1639730912479
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 1 - Görsel Tanımlar",
+                    "updated": 1639835751249
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "RU",
                     "text": "Настройка определений процессов Multi-Time-Frame-Market и Multi-Time-Frame-Daily, зависимостей состояния Status Dependency и данных Data Dependency, событий выполнения Execution Event и определений наборов данных Dataset Definition для основного продукта.",
                     "updated": 1639731126515
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana ürün için Multi-Time-Frame-Market ve Multi-Time-Frame-Daily süreç tanımlarını, durum ve veri bağımlılıklarını, yürütme olaylarını ve veri kümesi tanımlarını ayarlama.",
+                    "updated": 1639835836234
                 }
             ]
         },
@@ -123,6 +153,11 @@
                     "language": "RU",
                     "text": "Шаг 2 - Программный код и определение записи (Record Definition)",
                     "updated": 1639731267487
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 2 - Kod ve Kayıt Tanımı",
+                    "updated": 1639835883734
                 }
             ]
         },
@@ -140,6 +175,11 @@
                     "language": "RU",
                     "text": "Обзор общей практики программирования и настройка свойств записей и их формул.",
                     "updated": 1639731292953
+                },
+                {
+                    "language": "TR",
+                    "text": "Ortak kodlama uygulamasını gözden geçirme ve kayıt özelliklerini ve formüllerini yapılandırma.",
+                    "updated": 1639835897929
                 }
             ]
         },
@@ -162,6 +202,11 @@
                     "language": "RU",
                     "text": "Шаг 3 - Тестирование и устранение неполадок",
                     "updated": 1639731308459
+                },
+                {
+                    "language": "TR",
+                    "text": "3. Adım - Test Etme ve Sorun Giderme",
+                    "updated": 1639835912112
                 }
             ]
         },
@@ -179,6 +224,11 @@
                     "language": "RU",
                     "text": "Настройка задачи добычи данных для запуска экземпляра бота, проверка файлов набора данных на наличие ошибок и устранение общих проблем с кодом и определениями процессов.",
                     "updated": 1639731346398
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot örneğini çalıştırmak için bir veri madenciliği görevi ayarlama, veri kümesi dosyalarını hatalara karşı kontrol etme ve kod ve süreç tanımlarıyla ilgili genel sorunları giderme.",
+                    "updated": 1639835930012
                 }
             ]
         },
@@ -201,6 +251,11 @@
                     "language": "RU",
                     "text": "Шаг 4 - Плоттеры",
                     "updated": 1639731359012
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 4 - Ploterler",
+                    "updated": 1639835943019
                 }
             ]
         },
@@ -218,6 +273,11 @@
                     "language": "RU",
                     "text": "Как создать устройство, которое будет интерпретировать набор данных, генерируемый индикатором, и отобразить его на графике.",
                     "updated": 1639731534115
+                },
+                {
+                    "language": "TR",
+                    "text": "Indikatör tarafından oluşturulan veri setini yorumlayacak ve çizelgeler üzerinde grafiksel bir sunum yapacak süreç nasıl oluşturulur.",
+                    "updated": 1639836023838
                 }
             ]
         },
@@ -240,6 +300,11 @@
                     "language": "RU",
                     "text": "Шаг 5 - Зависимости торгового бота",
                     "updated": 1639731555983
+                },
+                {
+                    "language": "TR",
+                    "text": "Adım 5 - Bot Bağımlılıkları",
+                    "updated": 1639836047855
                 }
             ]
         },
@@ -257,6 +322,11 @@
                     "language": "RU",
                     "text": "Прежде чем использовать новый индикатор в торговой системе, необходимо создать соответствующие зависимости на боте для низкочастотной торговли.",
                     "updated": 1639731579709
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni göstergeyi bir ticaret sisteminde kullanmadan önce, Low frequency Trading Bot'unda ilgili bağımlılıkları oluşturmalısınız.",
+                    "updated": 1639836125846
                 }
             ]
         },
@@ -274,6 +344,11 @@
                     "language": "RU",
                     "text": "Чтобы вызвать свойства нового индикатора из определений торговой системы, сначала необходимо сообщить низкочастотному торговому боту о существовании вашего источника данных. Для этого необходимо добавить соответствующие зависимости данных в определениях торговых процессов торгового бота.",
                     "updated": 1639731675184
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Trading System tanımlarından yeni bir indikatörün özelliklerini çağırmak için, öncelikle veri madenciliğinizin var olduğu Düşük Frekanslı ticaret botuna izin vermeniz gerekir. Bunu yapmak için, ticaret botunun Ticaret süreci tanımlarına karşılık gelen veri bağımlılıklarını eklemeniz gerekir.",
+                    "updated": 1639836298367
                 }
             ]
         },
@@ -296,6 +371,11 @@
                     "language": "RU",
                     "text": "Поскольку бот для низкочастотной торговли является плагином, изменения, внесенные в иерархию, не сохраняются после закрытия фронтенд-приложения. Обходным решением является создание резервной копии иерархии после внесения изменений и замена файла плагина на резервную копию. Если вы решите внести свой источник данных в проект, мы включим зависимости в официальный выпуск.",
                     "updated": 1639731769954
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşük Frekanslı ticaret botu bir eklenti olduğundan, hiyerarşide yaptığınız değişiklikler ön uç uygulamasını kapattıktan sonra devam etmez. Çözüm, değişiklikleri yaptıktan sonra hiyerarşinin yedeğini almak ve eklenti dosyasını yedekle değiştirmektir. Veri madenciliğinizi projeye katkıda bulunmaya karar verirseniz, bağımlılıkları resmi sürüme dahil edebiliriz.",
+                    "updated": 1639836331116
                 }
             ]
         }

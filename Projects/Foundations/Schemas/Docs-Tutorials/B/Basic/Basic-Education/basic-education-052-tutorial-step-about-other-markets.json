@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Sie können mit jedem der an der Börse gelisteten Märkte arbeiten! Werfen Sie einen Blick auf die Einrichtung im Knoten Exchange Markets!",
                 "updated": 1634590229826
+            },
+            {
+                "language": "TR",
+                "text": "Borsada listelenen işlem çiftlerinden herhangi biriyle çalışabilirsiniz! Exchange Markets düğümündeki kuruluma bir göz atın!",
+                "updated": 1639833320638
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Ich werde nicht erklären, wie man neue Märkte einrichtet, da das Thema im Tutorial Install a New Market Tutorial im the Install a New Market Tutorial Plugin Workspace behandelt wird. Ich wollte Sie nur wissen lassen, dass es ganz einfach ist!",
                     "updated": 1634590236889
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir market'in (herhangi bir işlem çifti için) nasıl kurulacağı  ( Install a New Market Tutorial ) Çalışma Alanında gösterildiği için burada tekrar açıklanmayacaktır. Sadece kolay olduğunu bilmeni istedim!",
+                    "updated": 1639833692046
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Werfen Sie einen Blick auf das Menü des BTC/USDT-Marktes! Beachten Sie die Schaltflächen  \"Install Market\" und \"Uninstall Market\"! So machen Sie es!",
                     "updated": 1634590245917
+                },
+                {
+                    "language": "TR",
+                    "text": "BTC/USDT Çiftinin menüsüne bir göz atın! \"Install Market\" ve \"Uninstall Market\" düğmelerine dikkat edin! Herhangi bir işlem çiftine ait marketi bu şekilde kurabilir ve kaldırabilirsiniz.",
+                    "updated": 1639833782204
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": " Ich lasse es dabei bewenden und überlasse Ihnen das Install a New Market Tutorial, wenn die Zeit reif ist!",
                     "updated": 1634590252957
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu konuyu burada kağtacağım ve zamanı geldiğinde Yeni Pazar Kurma Eğitimini ( Install a New Market Tutorial ) konusunda tekrar değineceğim.!",
+                    "updated": 1639833840253
                 }
             ]
         }

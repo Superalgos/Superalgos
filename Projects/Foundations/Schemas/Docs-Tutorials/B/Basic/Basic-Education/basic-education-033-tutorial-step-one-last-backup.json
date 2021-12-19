@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Versuchen wir es mit dem dritten Beispiel! Beachten Sie die Verweise, die von Polygonscheiteln zu Punkten unter dem Knoten Chart Points fließen!",
                 "updated": 1634586079127
+            },
+            {
+                "language": "TR",
+                "text": "Üçüncü örneği deneyelim! plygon düğümünden Grafik Noktaları ( Chart Points ) düğümünün altındaki noktalara akan referanslara dikkat edin!",
+                "updated": 1639723270170
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Erstellen Sie eine Sicherungskopie des Knotens Shapes und stellen Sie diese wieder her, ohne das Original zu löschen. Wiederholen Sie den Vorgang, aber löschen Sie das Original, bevor Sie die Sicherung wiederherstellen!",
                     "updated": 1634586087146
+                },
+                {
+                    "language": "TR",
+                    "text": "Shapes düğümünün yedeğini alın ve orijinali silmeden yan tarafa geri yükleyin (çalışma alanına sürükleyrek bırakın). Bunu yaptıktan sonra bu sefer aynı işlemi ojinal düğümü silerek tekrarlayın.",
+                    "updated": 1639723389534
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass im ersten Fall die Verweise auf die ursprünglichen Punkte zu externen Verweisen werden! Im zweiten Fall hingegen bleiben die Referenzen intern!",
                     "updated": 1634586093378
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk durumda, referansların harici referanslara dönüşen orijinal noktaları gösterdiğine dikkat edin! Aksine, ikinci durumda, referanslar dahili kalır!",
+                    "updated": 1639724259925
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass Referenzen nur dann intern bleiben, wenn Sie die Originalstruktur zuerst löschen!",
                     "updated": 1634586099423
+                },
+                {
+                    "language": "TR",
+                    "text": "Referansların yalnızca ilk önce orijinal yapıyı sildiğinizde dahili kaldığını unutmayın!",
+                    "updated": 1639724279947
                 }
             ]
         }

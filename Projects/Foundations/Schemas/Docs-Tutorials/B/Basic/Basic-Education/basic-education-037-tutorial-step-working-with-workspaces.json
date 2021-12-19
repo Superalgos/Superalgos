@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Sie können sich einen Workspace wie eine Bühne im Theater vorstellen. Er ist der Rahmen, auf dem sich etwas abspielt!",
                 "updated": 1634587175719
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma alanını bir tiyatro sahnesi olarak düşünebilirsiniz. Herhangi birşey ile oynayabileceğiniz bir yer.",
+                "updated": 1639743696784
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Sie können so viele Workspaces einrichten, wie Sie möchten, jeder davon für einen bestimmten Anwendungsfall. Zum Beispiel:",
                     "updated": 1634587186919
+                },
+                {
+                    "language": "TR",
+                    "text": "Her biri farklı kullanım durumları için istediğiniz kadar çalışma alanı oluşturabilirsiniz. Örneğin:",
+                    "updated": 1639745440768
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Sie können einen Workspace einrichten, um ein Trading System aufzubauen, das bestimmte Indikatoren aus einer bestimmten Data Mine benötigt.",
                     "updated": 1634587193298
+                },
+                {
+                    "language": "TR",
+                    "text": "Belirli bir Veri Madeninden ( Data Mine ) belirli göstergelere ihtiyaç duyacak bir Ticaret Sistemi ( Trading System ) oluşturmak için bir çalışma alanı oluşturabilirsiniz.",
+                    "updated": 1639745526299
                 }
             ],
             "updated": 1622374580811
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Sie können einen anderen Workspace mit allen verfügbaren Indikatoren einrichten, damit Sie die Funktionsweise jedes einzelnen Indikators studieren können.",
                     "updated": 1634587201243
+                },
+                {
+                    "language": "TR",
+                    "text": "Her birinin nasıl çalıştığını inceleyebilmeniz için mevcut tüm göstergelere sahip başka bir çalışma alanı kurulumunuz olabilir.",
+                    "updated": 1639745549535
                 }
             ]
         },
@@ -123,6 +143,11 @@
                     "language": "DE",
                     "text": "Lesen Sie diese Seite, um die Grundlagen über den Umgang mit Workspaces zu erfahren...",
                     "updated": 1634587206424
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanlarıyla nasıl başa çıkılacağına ilişkin temel bilgileri öğrenmek için bu sayfayı okuyun... Workspaces",
+                    "updated": 1639746575260
                 }
             ]
         }

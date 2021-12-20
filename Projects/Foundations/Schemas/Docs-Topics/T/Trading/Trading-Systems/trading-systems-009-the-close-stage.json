@@ -4,7 +4,14 @@
     "type": "The Close Stage",
     "definition": {
         "text": "The close stage is a mirror of the open stage, with definitions concerning the closing of the position, including the close execution.",
-        "updated": 1610206979676
+        "updated": 1610206979676,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Стадия закрытия является зеркальным отражением стадии открытия, с определениями, касающимися закрытия позиции, включая выполнение закрытия.",
+                "updated": 1639847628100
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -25,7 +32,14 @@
         {
             "style": "Success",
             "text": "If the data structure depicted in the table above looks familiar, it is because it is a mirror of the Open Stage. Refer to those definitions in case you need a refresher.",
-            "updated": 1610207351033
+            "updated": 1610207351033,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если структура данных, изображенная в таблице выше, выглядит знакомой, то это потому, что она является зеркальным отражением Open Stage. Обратитесь к этим определениям, если вам нужно освежить информацию.",
+                    "updated": 1639847583819
+                }
+            ]
         }
     ]
 }

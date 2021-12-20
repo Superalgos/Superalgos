@@ -1,7 +1,14 @@
 {
     "type": "Simulated Exchange Events",
     "definition": {
-        "text": "The simulated exchange event node allows to override the parameters set at the level of the trading session on a per order basis to determine how each order shall be simulated."
+        "text": "The simulated exchange event node allows to override the parameters set at the level of the trading session on a per order basis to determine how each order shall be simulated.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Simulated Exchange Events позволяет переопределить параметры, установленные на уровне торговой сессии, на основе каждого ордера, чтобы определить, как будет имитироваться каждый ордер.",
+                "updated": 1639845807833
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The offspring nodes under simulated exchange events allow setting order-specific parameters for the size filled, actual rate, and fees paid, so that each order may be simulated in a specific manner."
+            "text": "The offspring nodes under simulated exchange events allow setting order-specific parameters for the size filled, actual rate, and fees paid, so that each order may be simulated in a specific manner.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В дочерних узлах при имитации биржевых событий можно установить специфические параметры ордера для размера заполнения, фактического курса и уплаченных комиссионных, так что каждый ордер может быть смоделирован специфическим образом.",
+                    "updated": 1639845858833
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If either of the offspring nodes is not present or is undefined, then the parameters configured at the level of the trading session are factored in by default."
+            "text": "If either of the offspring nodes is not present or is undefined, then the parameters configured at the level of the trading session are factored in by default.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ни один из дочерних узлов не определен или не существует, то по умолчанию учитываются параметры, настроенные на уровне торговой сессии.",
+                    "updated": 1639846008934
+                }
+            ]
         }
     ]
 }

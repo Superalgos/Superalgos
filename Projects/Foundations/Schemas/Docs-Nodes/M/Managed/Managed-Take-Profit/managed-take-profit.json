@@ -1,7 +1,14 @@
 {
     "type": "Managed Take Profit",
     "definition": {
-        "text": "The managed take profit node features the definition of the phases that make up the management of the take profit target as the position develops."
+        "text": "The managed take profit node features the definition of the phases that make up the management of the take profit target as the position develops.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Managed Take Profit включает в себя определение фаз, которые формируют управление целью тейк-профита по мере развития позиции.",
+                "updated": 1639847302819
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "A take profit target bears an important role in your strategy, as it plays a crucial role in determining the risk/reward ratio of the trading opportunity that materialized, and upon which your strategy acted to take a position."
+            "text": "A take profit target bears an important role in your strategy, as it plays a crucial role in determining the risk/reward ratio of the trading opportunity that materialized, and upon which your strategy acted to take a position.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Цель тейк-профита играет важную роль в вашей стратегии, поскольку она играет решающую роль в определении соотношения риск/вознаграждение торговой возможности, которая возникла и по которой ваша стратегия приняла решение занять позицию.",
+                    "updated": 1639847415222
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The foremost goal of trading is to increase your capital, and how you set your initial take profit target and manage it afterward determines how much you may increase your capital given a favorable price action."
+            "text": "The foremost goal of trading is to increase your capital, and how you set your initial take profit target and manage it afterward determines how much you may increase your capital given a favorable price action.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Главной целью торговли является увеличение вашего капитала, и от того, как вы установите первоначальную цель тейк-профита и будете управлять ею в дальнейшем, зависит, насколько вы сможете увеличить свой капитал при благоприятном ценовом движении.",
+                    "updated": 1639847444721
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The system provides the same functionality for managing the take profit target as explained for the managed stop loss target, so please make sure you go through that section too. "
+            "text": "The system provides the same functionality for managing the take profit target as explained for the managed stop loss target, so please make sure you go through that section too. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система предоставляет те же функции для управления целью тейк-профита, что и для управления целью стоп-лосса, поэтому, пожалуйста, убедитесь, что вы изучили и этот раздел.",
+                    "updated": 1639847465043
+                }
+            ]
         }
     ]
 }

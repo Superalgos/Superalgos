@@ -2,6 +2,8 @@ import "./Post.css"
 import React, {useState} from 'react';
 import {Avatar, Card, Stack} from "@mui/material";
 import pic from "../../images/superalgos.png"
+import PostFooter from "../PostFooter/PostFooter";
+import FooterReply from "../FooterReply/FooterReply";
 
 const Post = ({userName, postBody}) => {
 

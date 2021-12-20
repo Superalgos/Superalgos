@@ -32,7 +32,7 @@
         }
     ],
     "initialValues": {
-        "config": "{\n\"webhookURL\": \"Paste the webhook url obtained from Discord > Channel Settings > Integrations > Webhooks > New Webhook\"\n}"
+        "config": "{\n\"token\": \"DISCORD_BOT_AUTH_TOKEN_FROM_DEVELOPER_PORTAL\"\n\"channelId\": \"CHANNEL_ID_FROM_DISCORD\"\n}"
     },
     "addLeftIcons": true,
     "level": 3,

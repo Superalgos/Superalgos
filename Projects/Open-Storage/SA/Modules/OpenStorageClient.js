@@ -11,7 +11,6 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     where the file is localted. 
     */
     let thisObject = {
-        callbackWhenFileIsSaved: undefined,
         persit: persit,
         loadFile: loadFile,
         initialize: initialize,
@@ -40,10 +39,8 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         saveIntervalId = setInterval(saveOneFile, 1000)
     }
 
-    async function persit(record) {
-
+    function persit(record) {
         recordsToSave.push(record)
-
     }
 
     async function loadFile(fileKey) {
@@ -130,7 +127,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
                     storageContainerId: storageContainer.id,
                     password: password
                 }
-                callbackWhenFileIsSaved(fileKey)
+                await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(fileKey)
             }
 
             function onFileNodeSaved() {

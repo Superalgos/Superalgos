@@ -93,6 +93,7 @@ exports.newTaskServer = function newTaskServer() {
         async function bootingProcess() {
             try {
                 initializeProjectDefinitionNode()
+                setupTradingSignals()
                 await setupOpenStorage()
                 await setupP2PNetwork()
                 setupTaskHeartbeats()
@@ -120,6 +121,27 @@ exports.newTaskServer = function newTaskServer() {
                     }
                 }
 
+                function setupTradingSignals() {
+                    /*
+                    If we received a Bot Instance with a child Social Trading Bot Reference with a reference parent, 
+                    that would mean that we will need Trading Signals.
+                    */
+                    if (
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
+                    ) {
+                        return
+                    }
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS = {
+                        incomingCandleSignals: SA.projects.tradingSignals.modules.outgoingCandleSignals.newTradingSignalsModulesIncomingCandleSignals(),
+                        outgoingCandleSignals: SA.projects.tradingSignals.modules.outgoingCandleSignals.newTradingSignalsModulesOutgoingCandleSignals()
+                    }
+
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.initialize()
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.initialize()
+                }
+
                 async function setupOpenStorage() {
                     /*
                     If we received a Bot Instance with a child Social Trading Bot Reference with a reference parent, 
@@ -139,9 +161,9 @@ exports.newTaskServer = function newTaskServer() {
 
                     //TEST IT FROM HERE.
 
-                    let data = "This is the File Content, test 1 file per second."
+                    //let data = "This is the File Content, test 1 file per second."
 
-                    await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.persit(data)
+                    //TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.persit(data)
 
                     //let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.loadFile(fileName, filePath)
                     //console.log(receivedFileContent)

@@ -103,7 +103,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             signalMessage.signatures.userApp = web3.eth.accounts.sign(JSON.stringify(signalMessage.signal), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
             signalMessage.signatures.socialTradingBot = web3.eth.accounts.sign(JSON.stringify(signalMessage.signal), SA.secrets.signingAccountSecrets.map.get(socialTradingBotCodeName).privateKey)
 
-            await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signalMessage)
+            TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastSignal(signalMessage)
         }
     }
 }

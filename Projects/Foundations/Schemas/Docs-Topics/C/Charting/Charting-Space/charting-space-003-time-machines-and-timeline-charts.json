@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Time Machines and Timeline Charts - это устройства, которые отображают графическую информацию в окне Viewport.",
                 "updated": 1639374797512
+            },
+            {
+                "language": "EL",
+                "text": "Οι Μηχανές χρόνου και τα γραφήματα χρονογραμμών είναι οι συσκευές που αποδίδουν γραφικές πληροφορίες στο Viewport (Θύρα Προβολής).",
+                "updated": 1639991158743
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Time Machine",
-            "updated": 1610135798826
+            "updated": 1610135798826,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Time Machine (Μηχανή Χρόνου)",
+                    "updated": 1639993741366
+                }
+            ]
         },
         {
             "style": "Include",
@@ -40,7 +52,14 @@
         },
         {
             "style": "Title",
-            "text": "Timeline Chart"
+            "text": "Timeline Chart",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Timeline Chart (Χρονοδιάγραμμα)",
+                    "updated": 1639993841007
+                }
+            ]
         },
         {
             "style": "Include",

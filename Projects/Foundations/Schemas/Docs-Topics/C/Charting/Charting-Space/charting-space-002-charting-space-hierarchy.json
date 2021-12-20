@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Иерархия Charting Space организует диаграммы на Viewport и контролирует их поведение.",
                 "updated": 1639375906816
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία του χώρου χαρτογράφησης οργανώνει τα γραφήματα στο Viewport (Θύρα Προβολής) και ελέγχει τη συμπεριφορά τους.",
+                "updated": 1639750362638
             }
         ]
     },
@@ -40,7 +45,14 @@
         {
             "style": "Title",
             "text": "Viewport",
-            "updated": 1610134925124
+            "updated": 1610134925124,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Viewport (Παράθυρο Προβολής)",
+                    "updated": 1640019077846
+                }
+            ]
         },
         {
             "style": "Include",
@@ -55,7 +67,14 @@
         {
             "style": "Title",
             "text": "Space Style",
-            "updated": 1610134940862
+            "updated": 1610134940862,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Space Style (Στυλ Χώρου)",
+                    "updated": 1639750620288
+                }
+            ]
         },
         {
             "style": "Include",
@@ -65,7 +84,14 @@
         {
             "style": "Title",
             "text": "Space Settings",
-            "updated": 1610135200205
+            "updated": 1610135200205,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Space Settings (Ρυθμίσεις Χώρου)",
+                    "updated": 1639750605109
+                }
+            ]
         },
         {
             "style": "Include",
@@ -75,7 +101,14 @@
         {
             "style": "Title",
             "text": "Project Dashboards",
-            "updated": 1610135093870
+            "updated": 1610135093870,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Project Dashboards (Πίνακες Ελέγχου Έργου)",
+                    "updated": 1639750647031
+                }
+            ]
         },
         {
             "style": "Include",
@@ -85,7 +118,14 @@
         {
             "style": "Title",
             "text": "Dashboard",
-            "updated": 1610135137855
+            "updated": 1610135137855,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Dashboard (Ταμπλό)",
+                    "updated": 1639750688295
+                }
+            ]
         },
         {
             "style": "Include",

@@ -7,9 +7,9 @@
         "updated": 1610050221585,
         "translations": [
             {
-                "language": "RU",
-                "text": "Сетевая иерархия поддерживает развертывание с несколькими биржами, несколькими рынками и несколькими шахтами, и задачи организованы по этим критериям.",
-                "updated": 1638357947652
+                "language": "EL",
+                "text": "Η ιεραρχία του δικτύου υποστηρίζει μια ανάπτυξη πολλαπλών ανταλλακτηρίων, πολλαπλών αγορών και εξορύξεων και οι εργασίες οργανώνονται με βάση αυτά τα κριτήρια.",
+                "updated": 1639494742750
             }
         ]
     },
@@ -20,9 +20,9 @@
             "updated": 1610050241056,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Прежде чем погрузиться в работу каждой из операций, которые вы можете определять и контролировать из сетевой иерархии, стоит указать на определенную общность между ними.",
-                    "updated": 1638357973058
+                    "language": "EL",
+                    "text": "Πριν μπούμε στο σκοπό καθεμιάς από τις λειτουργίες που μπορείτε να ορίσετε και να ελέγξετε μέσα από την ιεραρχία του Δικτύου, αξίζει να επισημάνουμε κάτι κοινό μεταξύ τους.",
+                    "updated": 1639494852242
                 }
             ]
         },
@@ -31,16 +31,23 @@
             "text": "Because Superalgos supports deploying data mining and trading operations on multiple exchanges, multiple markets, and using bots originating in multiple data and trading mines, the organization of the different data structures under the network node follows the same pattern in each of them:",
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Поскольку Superalgos поддерживает развертывание интеллектуального анализа данных и торговых операций на нескольких биржах, на нескольких рынках и с использованием ботов, происходящих из нескольких источников данных и торговых рудников, организация различных структур данных в узле сети следует одному и тому же шаблону в каждом из них:",
-                    "updated": 1638358006810
+                    "language": "EL",
+                    "text": "Επειδή το Superalgos υποστηρίζει την ανάπτυξη λειτουργιών εξόρυξης δεδομένων και συναλλαγών σε πολλαπλά χρηματιστήρια, πολλαπλές αγορές και χρησιμοποιεί ρομπότ που μπορούν να δουλέψουν σε πολλαπλά εξορυκτήρια δεδομένων και συναλλαγών, η οργάνωση των διαφορετικών δομών δεδομένων στον κόμβο δικτύου ακολουθεί το ίδιο μοτίβο σε καθένα από αυτά:",
+                    "updated": 1639495116318
                 }
             ]
         },
         {
             "style": "Callout",
             "text": "Type of operation > Project Reference > Crypto Exchange Reference > Market Reference > Mine involved in the operation.",
-            "updated": 1610050392306
+            "updated": 1610050392306,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Τύπος λειτουργίας > Project Reference (Αναφορά Έργου) > Crypto Exchange Reference (Παραπομπή Κρυπτο-Ανταλλακτηρίου) > Market Reference (Αναφορά αγοράς) > Εξορυκτήριο που εμπλέκεται στη λειτουργία.",
+                    "updated": 1639495508668
+                }
+            ]
         },
         {
             "style": "Text",
@@ -48,9 +55,9 @@
             "updated": 1610050437663,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Например, это структура данных в разделе Data Tasks:",
-                    "updated": 1638358102441
+                    "language": "EL",
+                    "text": "Για παράδειγμα, αυτή είναι η δομή δεδομένων στις Εργασίες Δεδομένων:",
+                    "updated": 1639495569215
                 }
             ]
         },
@@ -65,9 +72,9 @@
             "updated": 1610050482112,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Обратите внимание, как шаблон повторяется под узлом Testing Trading Tasks:",
-                    "updated": 1638358129563
+                    "language": "EL",
+                    "text": "Παρατηρήστε πώς επαναλαμβάνεται το μοτίβο στον κόμβο Testing Trading Tasks (Εργασίες Δοκιμής Συναλλαγών):",
+                    "updated": 1639495737215
                 }
             ]
         },
@@ -86,9 +93,9 @@
             "updated": 1610050572647,
             "translations": [
                 {
-                    "language": "RU",
-                    "text": "Структура данных Production Trading Tasks практически такая же:",
-                    "updated": 1638358150300
+                    "language": "EL",
+                    "text": "Η δομή δεδομένων του Production Trading Tasks είναι σχεδόν η ίδια:",
+                    "updated": 1639495791596
                 }
             ]
         },
@@ -100,14 +107,7 @@
         {
             "style": "Text",
             "text": "The case of Data Storage is slightly different because there is a split in the structure into Data Mines Data, Trading Mines Data, and Learning Mines Data. However, each of the resulting structures of nodes bare a similarity with the organizational criteria explained above:",
-            "updated": 1610050788902,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Случай с хранилищем данных Data Storage немного отличается, потому что структура разделена на данные Data Mines, данные Trading Mines и данные Learning Mines. Однако каждая из результирующих структур узлов имеет сходство с организационными критериями, описанными выше:",
-                    "updated": 1638358249953
-                }
-            ]
+            "updated": 1610050788902
         },
         {
             "style": "Hierarchy",
@@ -117,14 +117,7 @@
         {
             "style": "Text",
             "text": "This kind of organization is required for scalable operations, as it helps in keeping a logical grouping of tasks, and helps avoid mixing up tasks from different exchanges, markets, or mines.",
-            "updated": 1610050968717,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Такая организация необходима для масштабируемых операций, поскольку она помогает сохранять логическую группировку задач и помогает избежать смешения задач с разных бирж, рынков или шахт.",
-                    "updated": 1638358283632
-                }
-            ]
+            "updated": 1610050968717
         }
     ]
 }

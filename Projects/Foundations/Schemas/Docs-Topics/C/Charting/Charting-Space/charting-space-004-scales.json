@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Машины времени содержат Time Scale, Rate Scale и Time Frame Scale. Графики временной шкалы могут реализовать последние два.\n\n",
                 "updated": 1636563402808
+            },
+            {
+                "language": "EL",
+                "text": "Οι Μηχανές Χρόνου διαθέτουν Time Scale  (Χρονική Κλίμακα), Rate Scale (Κλίμακα Τιμής) και Time Frame Scale (Κλίμακα Χρονικού Πλαισίου). Τα γραφήματα χρονοδιαγράμματος ενδέχεται να υλοποιήσουν τα δύο τελευταία.",
+                "updated": 1639994058526
             }
         ]
     },
@@ -27,7 +32,14 @@
         {
             "style": "Title",
             "text": "Time Scale",
-            "updated": 1610137166709
+            "updated": 1610137166709,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Time Scale (Χρονική Κλίμακα)",
+                    "updated": 1639994081447
+                }
+            ]
         },
         {
             "style": "Include",

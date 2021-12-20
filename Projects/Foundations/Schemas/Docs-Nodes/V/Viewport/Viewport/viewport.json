@@ -22,6 +22,11 @@
                 "language": "DE",
                 "text": "Der Viewport (Ansichtsfenster) ist ein Fenster, durch das Sie in den charting space (Diagrammbereich) schauen können.",
                 "updated": 1639572498929
+            },
+            {
+                "language": "EL",
+                "text": "Το παράθυρο προβολής είναι ένα παράθυρο μέσω του οποίου μπορείτε να κοιτάξετε στον χώρο χαρτογράφησης.",
+                "updated": 1640002149450
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "DE",
                     "text": "Der viewport bietet einen Einblick in die visuelle Umgebung, in der Sie alle Daten, die mit dem Handel von Kryptowährungen zu tun haben, sehen, analysieren und Stück für Stück durchgehen können:",
                     "updated": 1639572554620
+                },
+                {
+                    "language": "EL",
+                    "text": "Η θύρα προβολής προσφέρει ένα άνοιγμα στο οπτικό περιβάλλον στο οποίο μπορείτε να δείτε, να αναλύσετε και να εξετάσετε όλα τα δεδομένα που εμπλέκονται στη διαδικασία διαπραγμάτευσης κρυπτονομισμάτων:",
+                    "updated": 1640002186594
                 }
             ]
         },
@@ -59,6 +69,11 @@
                     "language": "DE",
                     "text": "Live und historische market data;",
                     "updated": 1639572566087
+                },
+                {
+                    "language": "EL",
+                    "text": "Πραγματικού χρόνου και ιστορικά δεδομένα αγοράς.",
+                    "updated": 1640002237136
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "DE",
                     "text": "Daten in Form von Indikatoren aufbereitet;",
                     "updated": 1639572594027
+                },
+                {
+                    "language": "EL",
+                    "text": "Τα δεδομένα συσπώνται με τη μορφή δεικτών.",
+                    "updated": 1640002251943
                 }
             ]
         },
@@ -91,6 +111,11 @@
                     "language": "DE",
                     "text": "Die spezifischen Auswirkungen der Regeln, die Sie in Ihre Strategien programmieren werden, und wie sich die Strategien während der Test und Live trading session verhalten.",
                     "updated": 1639572633892
+                },
+                {
+                    "language": "EL",
+                    "text": "Τα συγκεκριμένα αποτελέσματα των κανόνων που θα προγραμματίσετε στις στρατηγικές σας και πώς συμπεριφέρονται οι στρατηγικές κατά τη διάρκεια δοκιμών και συνεδριάσεων ζωντανών συναλλαγών.",
+                    "updated": 1640002273895
                 }
             ]
         },
@@ -107,6 +132,11 @@
                     "language": "DE",
                     "text": "Die Informationen, die nicht im Fokus sind, d. h. außerhalb des Viewport, werden weder gelesen noch grafisch dargestellt und verbrauchen daher keine Ressourcen.",
                     "updated": 1639572666390
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι πληροφορίες που είναι εκτός εστίασης, δηλαδή έξω από το παράθυρο προβολής, δεν διαβάζονται ούτε αποδίδονται γραφικά, επομένως, δεν καταναλώνουν πόρους.",
+                    "updated": 1640002295220
                 }
             ]
         },
@@ -128,6 +158,11 @@
                     "language": "DE",
                     "text": "Viewport Konfiguration",
                     "updated": 1639572674187
+                },
+                {
+                    "language": "EL",
+                    "text": "Viewport Configuration (Διαμόρφωση Παραθύρου Προβολής)",
+                    "updated": 1640002336767
                 }
             ]
         }

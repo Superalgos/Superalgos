@@ -8,6 +8,11 @@
                 "language": "RU",
                 "text": "Этот узел позволяет пользователю определить, как пространство документов будет загружено текущей рабочей областью.",
                 "updated": 1638526506560
+            },
+            {
+                "language": "EL",
+                "text": "Αυτός ο κόμβος επιτρέπει στο χρήστη να προσδιορίσει πώς θα φορτωθεί ο χώρος των εγγράφων από τον τρέχοντα χώρο εργασίας.",
+                "updated": 1640004661826
             }
         ]
     },
@@ -15,11 +20,25 @@
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1631587516173
+            "updated": 1631587516173,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Properties (Ιδιότητες)",
+                    "updated": 1640004679422
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "indexContent defines whether the contents of the docs space will be indexed for searching upon loading the workspace. If false docs space will be disabled allowing faster load times for development."
+            "text": "indexContent defines whether the contents of the docs space will be indexed for searching upon loading the workspace. If false docs space will be disabled allowing faster load times for development.",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Το indexContent καθορίζει εάν τα περιεχόμενα του χώρου εγγράφων θα προσπελαστούν για αναζήτηση κατά τη φόρτωση του χώρου εργασίας. Εάν ο χώρος ψευδή έγγραφα απενεργοποιηθεί, επιτρέπει ταχύτερους χρόνους φόρτωσης για ανάπτυξη.",
+                    "updated": 1640004786459
+                }
+            ]
         }
     ]
 }

@@ -4,7 +4,14 @@
     "type": "Situations, Conditions, and Formulas",
     "definition": {
         "text": "The trading framework implemented in Trading Systems and Trading Strategies carries some low-level trading logic in and of itself. However, the bulk of the logic specific to each strategy derives from the way you describe market situations, and how you define the actions the Trading Bot must take.",
-        "updated": 1610211518547
+        "updated": 1610211518547,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговая инфраструктура, реализованная в Trading Systems и Trading Strategies, сама по себе несет в себе некоторую низкоуровневую торговую логику. Однако основная часть логики, специфичной для каждой стратегии, вытекает из того, как вы описываете рыночные ситуации и как вы определяете действия, которые должен предпринять торговый бот Trading Bot.",
+                "updated": 1639849493436
+            }
+        ]
     },
     "paragraphs": [
         {

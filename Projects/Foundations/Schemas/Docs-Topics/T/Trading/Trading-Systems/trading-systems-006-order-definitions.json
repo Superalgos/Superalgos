@@ -4,7 +4,14 @@
     "type": "Order Definitions",
     "definition": {
         "text": "All types of orders have similar definitions. The one difference between market and limit orders is that market orders do no have an Order Rate definition.",
-        "updated": 1610197366077
+        "updated": 1610197366077,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Все типы ордеров имеют схожие определения. Единственное различие между рыночными и лимитными ордерами заключается в том, что рыночные ордера не имеют определения ставки ордера Order Rate.",
+                "updated": 1639845531784
+            }
+        ]
     },
     "paragraphs": [
         {

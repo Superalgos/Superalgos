@@ -1,7 +1,14 @@
 {
     "type": "Target Size In Base Asset",
     "definition": {
-        "text": "Target size in base asset is used to define the size of the position, denominating it in the base asset."
+        "text": "Target size in base asset is used to define the size of the position, denominating it in the base asset.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Target Size In Base Asset используется для определения размера позиции, выраженного в базовом активе.",
+                "updated": 1639822252669
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,43 +17,113 @@
         },
         {
             "style": "Text",
-            "text": "The system supports defining the size of the position in either asset involved in the market: the base asset, or the quoted asset, as per the exchange listing of the market."
+            "text": "The system supports defining the size of the position in either asset involved in the market: the base asset, or the quoted asset, as per the exchange listing of the market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система поддерживает определение размера позиции в любом из активов, участвующих в рынке: базовом или котируемом активе, в соответствии с листингом на бирже.",
+                    "updated": 1639822363197
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The target size may be defined in one of the two assets only, to avoid inconsistencies."
+            "text": "The target size may be defined in one of the two assets only, to avoid inconsistencies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Целевой размер может быть определен только в одном из двух активов, чтобы избежать несоответствий.",
+                    "updated": 1639822384282
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The target size is the maximum size the position may achieve. That is, the definition of the target size is used as a cap for the total size of orders that may be placed during the open stage."
+            "text": "The target size is the maximum size the position may achieve. That is, the definition of the target size is used as a cap for the total size of orders that may be placed during the open stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Целевой размер - это максимальный размер, до которого может дойти размер позиции. То есть, определение целевого размера используется в качестве ограничения на общий размер ордеров, которые могут быть размещены на стадии открытия.",
+                    "updated": 1639822440634
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you prefer to define the size of the position denominated in the base asset, then use this node and delete the target size in quoted asset node."
+            "text": "If you prefer to define the size of the position denominated in the base asset, then use this node and delete the target size in quoted asset node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы предпочитаете определять размер позиции, выраженный в базовом активе, то используйте этот узел и удалите целевой размер в узле котируемого актива.",
+                    "updated": 1639822497702
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Only one target size definition may exist at a time."
+            "text": "Only one target size definition may exist at a time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одновременно может существовать только одно определение размера цели.",
+                    "updated": 1639822516759
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Even though the definition of the target size is denominated in one of the two assets in the market, the system keeps track of accounts for both assets. That is, performance metrics such as profit loss, ROI, hit ratio, or the annualized rate of return are calculated both based on the base asset and the quoted asset. In fact, metrics are also calculated in a consolidated manner, taking into account both assets at the same time."
+            "text": "Even though the definition of the target size is denominated in one of the two assets in the market, the system keeps track of accounts for both assets. That is, performance metrics such as profit loss, ROI, hit ratio, or the annualized rate of return are calculated both based on the base asset and the quoted asset. In fact, metrics are also calculated in a consolidated manner, taking into account both assets at the same time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Даже если определение целевого размера выражено в одном из двух активов на рынке, система отслеживает счета по обоим активам. То есть, такие показатели эффективности, как упущенная выгода, ROI, коэффициент попадания или годовая норма прибыли, рассчитываются как на основе базового актива, так и на основе котируемого актива. Более того, показатели также рассчитываются обобщенно, с одновременным учетом обоих активов.",
+                    "updated": 1639822623996
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All of this information is made available for multiple contexts, for instance, for each position or the whole episode, through the data structure of the trading engine."
+            "text": "All of this information is made available for multiple contexts, for instance, for each position or the whole episode, through the data structure of the trading engine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вся эта информация становится доступной для различных контекстов, например, для каждой позиции или всего эпизода, через структуру данных торгового движка.",
+                    "updated": 1639822687416
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When tracking the results of your trading operation, make sure you refer to the set of accounts that make sense for your trading system. This will all become clearer once you read about the trading engine and the layer managers available on the charts."
+            "text": "When tracking the results of your trading operation, make sure you refer to the set of accounts that make sense for your trading system. This will all become clearer once you read about the trading engine and the layer managers available on the charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При отслеживании результатов своей торговой операции убедитесь, что вы обращаетесь к тому набору счетов, который имеет смысл для вашей торговой системы. Все это станет более понятным, когда вы прочитаете о торговом движке и менеджерах слоев, доступных на графиках.",
+                    "updated": 1639822730578
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "<H4>Examples</H4>"
+            "text": "<H4>Examples</H4>",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1639822737785
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you are trading the whole balance assigned to the trading system on each position, then your target size will look like this:"
+            "text": "If you are trading the whole balance assigned to the trading system on each position, then your target size will look like this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы торгуете всем балансом, назначенным торговой системе, для каждой позиции, то ваш целевой размер будет выглядеть следующим образом:",
+                    "updated": 1639822796444
+                }
+            ]
         },
         {
             "style": "Text",
@@ -54,7 +131,14 @@
         },
         {
             "style": "Text",
-            "text": "... or..."
+            "text": "... or...",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "... или ...",
+                    "updated": 1639822806697
+                }
+            ]
         },
         {
             "style": "Text",
@@ -62,7 +146,14 @@
         },
         {
             "style": "Text",
-            "text": "If you are not trading the entire balance on each position, then you may define the target size as a percentage of the balances, or in any other way you may see fit. For such cases, the following formula may be  of use for the close stage target size:"
+            "text": "If you are not trading the entire balance on each position, then you may define the target size as a percentage of the balances, or in any other way you may see fit. For such cases, the following formula may be  of use for the close stage target size:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы не торгуете всем балансом для каждой позиции, то вы можете определить размер цели в процентах от баланса или любым другим способом, который вы сочтете нужным. В таких случаях для определения целевого размера на этапе закрытия может пригодиться следующая формула:",
+                    "updated": 1639822854974
+                }
+            ]
         },
         {
             "style": "Text",
@@ -70,7 +161,14 @@
         },
         {
             "style": "Text",
-            "text": "Of course, you may need to adjust the above to use stageBaseAsset or stageQuotedAsset, as required. In short, the formula returns the amount of the asset obtained by the transactions triggered during the open stage, minus the fees (and slippage, which is already subtracted from the size filled)."
+            "text": "Of course, you may need to adjust the above to use stageBaseAsset or stageQuotedAsset, as required. In short, the formula returns the amount of the asset obtained by the transactions triggered during the open stage, minus the fees (and slippage, which is already subtracted from the size filled).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конечно, вам может понадобиться скорректировать вышесказанное, чтобы использовать stageBaseAsset или stageQuotedAsset, в соответствии с потребностью. Короче говоря, формула возвращает размер актива, полученного в результате сделок, совершенных на стадии открытия, за вычетом комиссий (и проскальзывания, которое уже вычитается из исполненного размера).",
+                    "updated": 1639822946813
+                }
+            ]
         }
     ]
 }

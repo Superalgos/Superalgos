@@ -4,7 +4,14 @@
     "type": "Open Stage Initial Targets",
     "definition": {
         "text": "The initial targets section features the first few definitions required to open a position: the definition of target rate and the target size.",
-        "updated": 1610185761943
+        "updated": 1610185761943,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Раздел Initial Targets содержит первые несколько определений, необходимых для открытия позиции: определение целевой ставки Target Rate и размера цели Target Size.",
+                "updated": 1639758182002
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -34,7 +41,14 @@
         {
             "style": "Callout",
             "text": "In this page, we will cover the Initial Targets definitions.",
-            "updated": 1610185946482
+            "updated": 1610185946482,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На этой странице мы рассмотрим определения начальных целей Initial Targets.",
+                    "updated": 1639763859557
+                }
+            ]
         },
         {
             "style": "Title",

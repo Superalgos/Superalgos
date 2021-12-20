@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Trading: Trading Bots können Data Dependencies (Datenabhängigkeiten) von jedem Indicator Bot haben, der Datenprodukte herausgibt. Dadurch können Trading Strategies auf die von Indicator Bots verarbeiteten Daten aufbauen.",
                 "updated": 1635246035756
+            },
+            {
+                "language": "RU",
+                "text": "Торговые боты могут иметь зависимости данных от любого индикаторного бота Indicator Bot, который выпускает информационные продукты. Это позволяет торговым стратегиям Trading Strategies действовать на основе данных, обрабатываемых индикаторными ботами.",
+                "updated": 1639658220693
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Dies ist das Herz und die Seele des Data Mining Prozesses, der es den Nutzern ermöglicht, trading bots zu erstellen, die auf der Grundlage anspruchsvoller/durchdachter Daten und Datenanalyselogiken zu handeln.",
                     "updated": 1635246242278
+                },
+                {
+                    "language": "RU",
+                    "text": "Это сердце и душа процесса интеллектуального анализа данных, позволяющая пользователям создавать торговых ботов, которые действуют на основе сложных данных и логики анализа данных.",
+                    "updated": 1639658272103
                 }
             ]
         }

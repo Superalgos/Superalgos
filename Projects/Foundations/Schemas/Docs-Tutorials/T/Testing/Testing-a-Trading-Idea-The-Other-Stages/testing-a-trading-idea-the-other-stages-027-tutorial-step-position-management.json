@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "manage-stage"
         },
-        "text": "We finished the definitions required to take a position and we are ready to define the initial stop loss and take profit targets!"
+        "text": "We finished the definitions required to take a position and we are ready to define the initial stop loss and take profit targets!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir haben die Definitionen abgeschlossen, die erforderlich sind, um eine Position einzugehen, und wir sind bereit, die anfänglichen Stop Loss- und Take Profit-Ziele zu definieren!",
+                "updated": 1639399757423
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's remember what we had decided our targets would be while developing the idea."
+            "text": "Let's remember what we had decided our targets would be while developing the idea.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erinnern wir uns an die Ziele, die wir bei der Entwicklung der Idee festgelegt hatten.",
+                    "updated": 1639399766122
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "For downtrends: we will set 3% stop loss and 10% take profit targets."
+            "text": "For downtrends: we will set 3% stop loss and 10% take profit targets.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für Abwärtstrends: Wir werden 3 % Stop Loss und 10 % Take Profit als Ziele festlegen.",
+                    "updated": 1639399773990
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Collapse the open stage node as we are not going to touch it for a while. <br/><br/>Now expand the Manage Stage node and take a look inside!"
+            "text": "Collapse the open stage node as we are not going to touch it for a while. <br/><br/>Now expand the Manage Stage node and take a look inside!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Deaktivieren Sie den Knoten Open Stage, da wir ihn eine Zeit lang nicht anfassen werden.<br><br>Erweitern Sie nun den Knoten Manage Stage und werfen Sie einen Blick hinein!",
+                    "updated": 1639399796287
+                }
+            ]
         }
     ]
 }

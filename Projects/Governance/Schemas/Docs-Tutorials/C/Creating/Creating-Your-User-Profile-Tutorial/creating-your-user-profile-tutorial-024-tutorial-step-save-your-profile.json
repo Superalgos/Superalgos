@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Güzel! Temelleri tamamladık! Artık çalışan bir Kullanıcı Profiliniz ( User Profile ) var ve ilk iki Yönetim Programına katılmış vaziyettesiniz!",
                 "updated": 1637441576231
+            },
+            {
+                "language": "RU",
+                "text": "Круто! Мы рассмотрели основы! Теперь у вас есть рабочий профиль пользователя, и вы уже участвуете в первых двух программах управления!",
+                "updated": 1639049447477
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Şimdi Kullanıcı Profilinizi kaydetme zamanı!",
                     "updated": 1637441605026
+                },
+                {
+                    "language": "RU",
+                    "text": "Пришло время сохранить свой профиль пользователя User Profile!",
+                    "updated": 1639049473213
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "Geçerli Çalışma Alanını kaydetmek için Ctrl + Shift + Alt + Key-S 'e tıklayın.",
                     "updated": 1637441684311
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + Shift + Alt + Key-S, чтобы сохранить текущую рабочее пространство Current Workspace.",
+                    "updated": 1639049513816
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "Çalışma alanını her kaydettiğinizde profilinizi Eklenti olarak kaydedecek şekilde ayarladık! Plugins düğümünü genişleterek Governance Plugin Project düğümünü bulun.Bu düğümün altında Plugin User Profiles düğümünü de genişletrek kullanıcı profilinize erişin ve \"Save Plugin File\" butonuna tıklayarak profilinizi kaydedin.",
                     "updated": 1637442025686
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы настраиваем ваш профиль на сохранение в виде плагина Plugin каждый раз, когда вы сохраняете рабочее пространство! Так что это тоже должно сохранить ваш профиль пользователя User Profile!",
+                    "updated": 1639049606134
                 }
             ]
         }

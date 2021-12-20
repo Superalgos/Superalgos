@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": "formula"
         },
-        "text": "Awesome! We have the path of the appropriate Balance node and we now may use it in our formula!"
+        "text": "Awesome! We have the path of the appropriate Balance node and we now may use it in our formula!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wahnsinn! Wir haben den Pfad des entsprechenden Balance-Knotens und können ihn nun in unserer Formel verwenden!",
+                "updated": 1639398342953
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Paste the string you copied in the formula of the Target Size In Base Asset node! That's it!"
+            "text": "Paste the string you copied in the formula of the Target Size In Base Asset node! That's it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie die kopierte Zeichenfolge in die Formel des Knotens \"Target Size In Base Asset\" ein! Das war's!",
+                    "updated": 1639398380949
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Notice that using the balance for the target size is an arbitrary decision! We could have used anything else! A percentage of the balance, a fixed number, a percentage of the initial balance... anything! Or, actually, whatever makes sense for your strategy!"
+            "text": "Notice that using the balance for the target size is an arbitrary decision! We could have used anything else! A percentage of the balance, a fixed number, a percentage of the initial balance... anything! Or, actually, whatever makes sense for your strategy!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Beachten Sie, dass die Verwendung des Gleichgewichts für die Zielgröße eine willkürliche Entscheidung ist! Wir hätten auch etwas anderes verwenden können! Ein Prozentsatz des Saldos, eine feste Zahl, ein Prozentsatz des Anfangssaldos... alles! Oder, was auch immer für Ihre Strategie sinnvoll ist!",
+                    "updated": 1639398387991
+                }
+            ]
         }
     ]
 }

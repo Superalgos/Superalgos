@@ -4,60 +4,144 @@
     "type": "Building Your Profile",
     "definition": {
         "text": "Building your User Profile involves linking your Governance Address to your identity in Github.com, using the Profile Constructor. ",
-        "updated": 1630067747645
+        "updated": 1630067747645,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Создание вашего профиля пользователя User Profile включает в себя привязку вашего адреса управления Governance Address к вашей учетной записи в Github.com, используя конструктор профилей Profile Constructor.",
+                "updated": 1638705526912
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This guide will get you up to speed in just a few minutes. This is what you’ll need (requirements):",
-            "updated": 1630066775182
+            "updated": 1630066775182,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это руководство введет вас в курс дела всего за несколько минут. Это то, что вам понадобится (требования):",
+                    "updated": 1638705547441
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Up-to-date software: the latest version of the Superalgos Platform in the Develop branch.",
-            "updated": 1630067794445
+            "updated": 1630067794445,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Актуальное программное обеспечение: последняя версия платформы Superalgos в ветке Develop.",
+                    "updated": 1638705573108
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Prior knowledge: a basic understanding of how the Superalgos Platform works. If you haven't yet, make sure you do the tutorials in the Getting Started Tutorials Plugin Workspace before diving into the Governance Project.",
-            "updated": 1630067826681
+            "updated": 1630067826681,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предварительные знания: базовое понимание того, как работает платформа Superalgos. Если вы еще этого не сделали, убедитесь, что вы изучили учебные материалы в рабочей области подключаемого модуля Getting Started Tutorials Plugin Workspace, прежде чем погрузиться в проект управления Governance Project.",
+                    "updated": 1638705588992
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Identity: your GitHub.com username.",
-            "updated": 1630066924264
+            "updated": 1630066924264,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идентификация: ваше имя пользователя на GitHub.com.",
+                    "updated": 1638705611232
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key."
+            "text": "Optional: Trust Wallet, or any wallet that may import a Binance Smart Chain (BSC) private key.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Необязательно: Trust Wallet или любой кошелек, который может импортировать закрытый ключ Binance Smart Chain (BSC).",
+                    "updated": 1638705637928
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The process described below is covered, step by step, in the Creating Your User Profile Tutorial. Doing the tutorial is highly recommended. If you do, then you do not need to follow the below instructions.",
-            "updated": 1630067119898
+            "updated": 1630067119898,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Описанный ниже процесс шаг за шагом описан в руководстве Creating Your User Profile Tutorial. Настоятельно рекомендуется пройти обучение. Если вы это сделали, то вам не нужно следовать приведенным ниже инструкциям.",
+                    "updated": 1638705658357
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Let’s Do This!"
+            "text": "Let’s Do This!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давай сделаем это!",
+                    "updated": 1638705675315
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "1. Load the Token Distribution Superalgos Plugin Workspace"
+            "text": "1. Load the Token Distribution Superalgos Plugin Workspace",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Загрузите модуль Token Distribution Superalgos Plugin Workspace",
+                    "updated": 1638705693035
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may start with the Token Distribution Superalgos Plugin Workspace so that you may later interact with the top-level Superalgos Project definitions.",
-            "updated": 1630435453964
+            "updated": 1630435453964,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете начать с рабочей области плагина Token Distribution Superalgos Plugin Workspace, чтобы позже взаимодействовать с определениями верхнего уровня проекта Superalgos Project.",
+                    "updated": 1638705889923
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "2. Spawn and Configure the Profile Constructor",
-            "updated": 1630079965869
+            "updated": 1630079965869,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. 2. Создайте и настройте конструктор профиля Profile Constructor",
+                    "updated": 1638705920631
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Profile Constructor is the device you will use to link your Github.com identity with the BSC address where you hold or plan to hold your Superalgos SA Tokens. We call it your Governance Address.",
-            "updated": 1630080366604
+            "updated": 1630080366604,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Profile Constructor - это устройство, которое вы будете использовать, чтобы связать вашу учетную запись на Github.com с адресом BSC, на котором вы держите или планируете хранить свои токены Superalgos SA. Мы называем это вашим управленческим адресом Governance Address.",
+                    "updated": 1638706238530
+                }
+            ]
         },
         {
             "style": "Include",
@@ -65,52 +149,129 @@
         },
         {
             "style": "Important",
-            "text": "Once you are done setting up the address, you need to back up your private key in whatever way you desire, and delete the Profile Constructor so that the private key is removed from the Workspace. No worries… I’ll remind you of all this when the time comes."
+            "text": "Once you are done setting up the address, you need to back up your private key in whatever way you desire, and delete the Profile Constructor so that the private key is removed from the Workspace. No worries… I’ll remind you of all this when the time comes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того, как вы закончите настройку адреса, вам необходимо создать резервную копию вашего закрытого ключа любым способом и удалить конструктор профиля Profile Constructor, чтобы закрытый ключ был удален из рабочего пространства Workspace. Не беспокойтесь ... Я вам обо всем этом напомню, когда придет время.",
+                    "updated": 1639119004963
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Go to the Governance Project hierarchy and select Add Profile Constructor on the menu.",
-            "updated": 1630079909997
+            "updated": 1630079909997,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перейдите в иерархию Governance Project и выберите в меню Add Profile Constructor.",
+                    "updated": 1639119096275
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Access the configuration and enter your GitHub.com username.",
-            "updated": 1630080009714
+            "updated": 1630080009714,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Войдите в конфигурацию и введите свое имя пользователя GitHub.com.",
+                    "updated": 1639119120828
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you already have a Superalgos SA Token address, you may enter the associated mnemonic phrase to verify the ownership of the address. If you don't have an address, leave the mnemonic property empty so that the Profile Constructor creates a new address for you.",
-            "updated": 1630080154442
+            "updated": 1630080154442,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас уже есть адрес токена Superalgos SA Token , вы можете ввести соответствующую мнемоническую фразу, чтобы подтвердить право собственности на адрес. Если у вас нет адреса, оставьте мнемоническое свойство пустым, чтобы конструктор профиля Profile Constructor создал для вас новый адрес.",
+                    "updated": 1639119426332
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Go ahead and select Add Profile Constructor too."
+            "text": "Go ahead and select Add Profile Constructor too.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продолжайте и тоже выберите Add Profile Constructor.",
+                    "updated": 1639119683507
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "3. Build Your Profile"
+            "text": "3. Build Your Profile",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Создайте свой профиль",
+                    "updated": 1639119719570
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The next step involves building the profile, but before you do so, let me explain what the process involves:"
+            "text": "The next step involves building the profile, but before you do so, let me explain what the process involves:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующий шаг включает построение профиля, но прежде чем вы это сделаете, позвольте мне объяснить, что включает в себя этот процесс:",
+                    "updated": 1639120608949
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you didn't enter a mnemonic, a BSC address and the corresponding private key will be generated.",
-            "updated": 1630080750557
+            "updated": 1630080750557,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы не ввели мнемонику, будут сгенерированы адрес BSC и соответствующий закрытый ключ.",
+                    "updated": 1639120625911
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A cryptographic message with your GitHub.com username will be signed with the private key corresponding to the address just generated or the mnemonic you entered. This message will be stored in your User Profile so that we may authenticate it comes from you once you submit your profile as a plugin in the Governance Project.",
-            "updated": 1630080772975
+            "updated": 1630080772975,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Криптографическое сообщение с вашим именем пользователя GitHub.com будет подписано закрытым ключом, соответствующим только что сгенерированному адресу или введенной вами мнемонике. Это сообщение будет храниться в вашем профиле пользователя User Profile, чтобы мы могли подтвердить, что оно исходит от вас после того, как вы отправите свой профиль в качестве плагина в проект управления Governance Project.",
+                    "updated": 1639120761084
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Ok… let’s do this!"
+            "text": "Ok… let’s do this!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хорошо ... давай сделаем это!",
+                    "updated": 1639120777219
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Access the menu of the Profile Constructor and click the Build Profile option. Click again to confirm the operation."
+            "text": "Access the menu of the Profile Constructor and click the Build Profile option. Click again to confirm the operation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню Profile Constructor и выберите опцию Build Profile. Щелкните еще раз, чтобы подтвердить операцию.",
+                    "updated": 1639120856856
+                }
+            ]
         },
         {
             "style": "Text",
@@ -120,7 +281,14 @@
         {
             "style": "Note",
             "text": "If you already have tokens in your Governance Address, you should see the Blockchain Power coming into your User Profile. It may take a minute or so for the system to get the data from the blockchain. If you have no tokens, then you will get zero Blockchain Power.",
-            "updated": 1630082879935
+            "updated": 1630082879935,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас уже есть токены в вашем адресе управления Governance Address, вы должны увидеть, что Blockchain Power входит в ваш профиль пользователя User Profile. Системе может потребоваться около минуты для получения данных из цепочки блоков. Если у вас нет токенов, вы получите нулевой Blockchain Power.",
+                    "updated": 1639120978871
+                }
+            ]
         },
         {
             "style": "Png",
@@ -129,11 +297,25 @@
         {
             "style": "Title",
             "text": "Check Your Configurations",
-            "updated": 1630082922435
+            "updated": 1630082922435,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте свои конфигурации",
+                    "updated": 1639120996979
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Now, take a minute to check the configuration of the User Profile node. You should see a message similar to the one below:"
+            "text": "Now, take a minute to check the configuration of the User Profile node. You should see a message similar to the one below:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь найдите минутку, чтобы проверить конфигурацию узла профиля пользователя User Profile. Вы должны увидеть сообщение, подобное приведенному ниже:",
+                    "updated": 1639121054881
+                }
+            ]
         },
         {
             "style": "Json",
@@ -143,31 +325,73 @@
         {
             "style": "Text",
             "text": "This is how the governance system will know that this User Profile belongs to the private key that signed the message, which in turn belongs to the address that will hold the tokens that confer your profile with Token Power.",
-            "updated": 1630080906578
+            "updated": 1630080906578,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Таким образом система управления узнает, что этот профиль пользователя принадлежит закрытому ключу, подписавшему сообщение, который, в свою очередь, принадлежит адресу, на котором будут храниться токены, присваивающие вашему профилю Token Power.",
+                    "updated": 1639121096766
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Back-Up Your Keys",
-            "updated": 1630083527720
+            "updated": 1630083527720,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сделайте резервную копию ваших ключей",
+                    "updated": 1639121109072
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "If you used a mnemonic to authenticate an existing address, you may safely disregard what comes next.",
-            "updated": 1630083542691
+            "updated": 1630083542691,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы использовали мнемонику для аутентификации существующего адреса, вы можете спокойно не обращать внимания на то, что будет дальше.",
+                    "updated": 1639121134445
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "This is very important! If you chose to generate a new address, you must back up your private key! Later on, you will hold Superalgos SA Tokens in this address. Before you do that, you must safely store the private key that you will use to access the address.",
-            "updated": 1630083582536
+            "updated": 1630083582536,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это очень важно! Если вы решили сгенерировать новый адрес, вы должны создать резервную копию своего закрытого ключа! Позже по этому адресу вы будете хранить токены Superalgos SA Tokens. Перед тем, как сделать это, вы должны безопасно сохранить закрытый ключ, который вы будете использовать для доступа к адресу.",
+                    "updated": 1639121187554
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "At this point, Superalgos doesn’t offer a built-in solution to securely back up your private keys. All the system does at this point is create a BSC address / private key pair and deliver it in the configuration of the Profile Constructor node. It is up to you to decide how you are going to handle this sensitive information.",
-            "updated": 1630083613308
+            "updated": 1630083613308,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данный момент Superalgos не предлагает встроенного решения для безопасного резервного копирования ваших закрытых ключей. Все, что система делает на этом этапе, - это создает пару адрес BSC / закрытый ключ и доставляет ее в конфигурации узла Profile Constructor. Вам решать, как вы собираетесь обрабатывать эту конфиденциальную информацию.",
+                    "updated": 1639121302011
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Access the configuration of the Profile Constructor. You will find the address and private key in the following format, so that you may back up the information in whatever way you see fit."
+            "text": "Access the configuration of the Profile Constructor. You will find the address and private key in the following format, so that you may back up the information in whatever way you see fit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Войдите в конфигурации Profile Constructor. Вы найдете адрес и закрытый ключ в следующем формате, чтобы вы могли создать резервную копию информации любым удобным для вас способом.",
+                    "updated": 1639121390421
+                }
+            ]
         },
         {
             "style": "Json",
@@ -181,12 +405,26 @@
         {
             "style": "Title",
             "text": "Delete the Constructor",
-            "updated": 1630083196550
+            "updated": 1630083196550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удалите конструктор",
+                    "updated": 1639121409096
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "Once you are satisfied with your backup of the private key, or if you used a mnemonic of an existing address, you must delete the Profile Constructor node! It is not safe to store your private key at the Workspace, as you may accidentally submit it to GitHub.com with one of your contributions. Also, remember that workspaces are saved on disk as unencrypted JSON files, with no security whatsoever.",
-            "updated": 1630083271674
+            "updated": 1630083271674,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только вы убедитесь, что создали резервную копию закрытого ключа или если вы использовали мнемонику существующего адреса, вы должны удалить узел Profile Constructor! Хранить ваш закрытый ключ в рабочем пространстве небезопасно, так как вы можете случайно отправить его на GitHub.com вместе с одним из ваших вкладов. Также, помните, что рабочие пространства сохраняются на диске в виде незашифрованных файлов JSON без какой-либо защиты.",
+                    "updated": 1639121598233
+                }
+            ]
         },
         {
             "style": "Anchor",
@@ -195,33 +433,82 @@
         },
         {
             "style": "Title",
-            "text": "Import Private Key in a Wallet"
+            "text": "Import Private Key in a Wallet",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Импортируйте закрытый ключ в кошелек",
+                    "updated": 1639121758029
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This step is not required for interacting with governance, however, we’ll cover it as you will, most likely, want to do it at some point, and it is recommended anyway, even if not strictly necessary.",
-            "updated": 1630435748864
+            "updated": 1630435748864,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот шаг не требуется для взаимодействия с управлением, однако мы рассмотрим его, поскольку вы, скорее всего, захотите это сделать в какой-то момент, и в любом случае рекомендуется, даже если это не является строго необходимым.",
+                    "updated": 1639121800996
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This step is relevant only if you created a new BSC address. If instead, you entered the mnemonic of an existing address, then you may safely skip this part.",
-            "updated": 1630083638851
+            "updated": 1630083638851,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот шаг актуален только в том случае, если вы создали новый адрес BSC. Если вместо этого вы ввели мнемонику существующего адреса, то можете спокойно пропустить эту часть.",
+                    "updated": 1639121818165
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The idea is to import the address / private key you just created into a functional hardware or software wallet, so that you may control the tokens you will eventually send to this address."
+            "text": "The idea is to import the address / private key you just created into a functional hardware or software wallet, so that you may control the tokens you will eventually send to this address.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идея состоит в том, чтобы импортировать адрес / закрытый ключ, который вы только что создали, в функциональный аппаратный или программный кошелек, чтобы вы могли контролировать токены, которые вы в конечном итоге отправите на этот адрес.",
+                    "updated": 1639121840964
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos SA Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!"
+            "text": "This is not required to interact with governance, as all you need to do so is send Superalgos SA Tokens to the address. However, it is rather obvious that at some point you may want to move those tokens. You also want to make sure that you do indeed control the address before sending tokens there. So, let’s get on with it!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не требуется для взаимодействия с управлением, так как все, что вам нужно сделать, это отправить токены Superalgos SA по указанному адресу. Однако довольно очевидно, что в какой-то момент вы можете захотеть переместить эти токены. Вы также хотите убедиться, что действительно контролируете адрес, прежде чем отправлять туда токены. Итак, давайте продолжим!",
+                    "updated": 1639121876780
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "We’ll cover how to import your private key into Trust Wallet. If you’re using any other wallet, you’ll need to figure out the equivalent process."
+            "text": "We’ll cover how to import your private key into Trust Wallet. If you’re using any other wallet, you’ll need to figure out the equivalent process.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы расскажем, как импортировать ваш закрытый ключ в Trust Wallet. Если вы используете какой-либо другой кошелек, вам потребуется выполнить аналогичный процесс.",
+                    "updated": 1639121892767
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Click the “Settings” button."
+            "text": "Click the “Settings” button.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку \"Settings\".",
+                    "updated": 1639122079595
+                }
+            ]
         },
         {
             "style": "Png",
@@ -230,7 +517,14 @@
         },
         {
             "style": "List",
-            "text": "Click on the “Wallets” option."
+            "text": "Click on the “Wallets” option.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите на опцию “Wallets”.",
+                    "updated": 1639121976304
+                }
+            ]
         },
         {
             "style": "Png",
@@ -240,7 +534,14 @@
         {
             "style": "List",
             "text": "Click on the plus sign ( + ) on the top-right corner.",
-            "updated": 1624724858681
+            "updated": 1624724858681,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните значок плюса (+) в правом верхнем углу.",
+                    "updated": 1639121993270
+                }
+            ]
         },
         {
             "style": "Png",
@@ -249,7 +550,14 @@
         },
         {
             "style": "List",
-            "text": "Click on the “I Already Have a Wallet” option."
+            "text": "Click on the “I Already Have a Wallet” option.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите на опцию “I Already Have a Wallet”.",
+                    "updated": 1639122022520
+                }
+            ]
         },
         {
             "style": "Png",
@@ -258,7 +566,14 @@
         },
         {
             "style": "List",
-            "text": "Click “Smart Chain”."
+            "text": "Click “Smart Chain”.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите “Smart Chain”.",
+                    "updated": 1639122035614
+                }
+            ]
         },
         {
             "style": "Png",
@@ -267,24 +582,59 @@
         },
         {
             "style": "List",
-            "text": "Click on the “Private Key” tab."
+            "text": "Click on the “Private Key” tab.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните вкладку “Private Key”.",
+                    "updated": 1639122063201
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "We have no images of the previous and the next few screens as Trust Wallet won't allow capturing these pages.",
-            "updated": 1630082470933
+            "updated": 1630082470933,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "У нас нет изображений предыдущего и нескольких следующих экранов, так как Trust Wallet не позволяет захватывать эти страницы.",
+                    "updated": 1639122097953
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Copy your Private Key and click “PASTE”. I know, Trust Wallet runs on your mobile phone, so you need to figure out how to access your private key from your phone."
+            "text": "Copy your Private Key and click “PASTE”. I know, Trust Wallet runs on your mobile phone, so you need to figure out how to access your private key from your phone.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Скопируйте свой закрытый ключ и нажмите “PASTE”. Я знаю, что Trust Wallet работает на вашем мобильном телефоне, поэтому вам нужно выяснить, как получить доступ к своему закрытому ключу с вашего телефона.",
+                    "updated": 1639122147590
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter a Name for the wallet (something along the lines of “Superalgos Profile”?) and click the “IMPORT” button."
+            "text": "Enter a Name for the wallet (something along the lines of “Superalgos Profile”?) and click the “IMPORT” button.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите имя кошелька (что-то вроде “Superalgos Profile”?) И нажмите кнопку “IMPORT”.",
+                    "updated": 1639122218943
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You should get a message along the lines of “Your wallet was successfully created”. This means you have control of the address!"
+            "text": "You should get a message along the lines of “Your wallet was successfully created”. This means you have control of the address!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы должны получить сообщение вроде “Your wallet was successfully created”. Это означает, что вы контролируете адрес!",
+                    "updated": 1639122267263
+                }
+            ]
         },
         {
             "style": "Png",

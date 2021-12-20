@@ -10,8 +10,18 @@
             },
             {
                 "language": "RU",
-                "text": "Окно просмотра - это окно, через которое Вы можете заглянуть в пространство построения графиков.",
-                "updated": 1636199260241
+                "text": "Viewport - это окно, через которое можно заглянуть в пространство построения графиков.",
+                "updated": 1639376048757
+            },
+            {
+                "language": "TR",
+                "text": "Görünüm penceresi, grafik alanına bakabileceğiniz bir penceredir.",
+                "updated": 1639144901429
+            },
+            {
+                "language": "DE",
+                "text": "Der Viewport (Ansichtsfenster) ist ein Fenster, durch das Sie in den charting space (Diagrammbereich) schauen können.",
+                "updated": 1639572498929
             }
         ]
     },
@@ -22,23 +32,83 @@
         },
         {
             "style": "Text",
-            "text": "The viewport offers an opening into the visual environment in which you may see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:"
+            "text": "The viewport offers an opening into the visual environment in which you may see, analyze and go over every piece of data involved in the process of trading cryptocurrencies:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Окно просмотра предлагает вход в визуальную среду, в которой вы можете видеть, анализировать и просматривать каждую часть данных, участвующих в процессе торговли криптовалютами:",
+                    "updated": 1639376129484
+                },
+                {
+                    "language": "DE",
+                    "text": "Der viewport bietet einen Einblick in die visuelle Umgebung, in der Sie alle Daten, die mit dem Handel von Kryptowährungen zu tun haben, sehen, analysieren und Stück für Stück durchgehen können:",
+                    "updated": 1639572554620
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Live and historic market data;"
+            "text": "Live and historic market data;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущие и исторические рыночные данные;",
+                    "updated": 1639376139591
+                },
+                {
+                    "language": "DE",
+                    "text": "Live und historische market data;",
+                    "updated": 1639572566087
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Data crunched in the form of indicators;"
+            "text": "Data crunched in the form of indicators;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Данные, сжатые в виде индикаторов;",
+                    "updated": 1639376164388
+                },
+                {
+                    "language": "DE",
+                    "text": "Daten in Form von Indikatoren aufbereitet;",
+                    "updated": 1639572594027
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The specific effects of the rules you will program into your strategies, and how strategies behave during testing and live trading sessions."
+            "text": "The specific effects of the rules you will program into your strategies, and how strategies behave during testing and live trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конкретные эффекты правил, которые вы запрограммируете в свои стратегии, и то, как стратегии ведут себя во время тестирования и торговых сессий в реальном времени.",
+                    "updated": 1639376187002
+                },
+                {
+                    "language": "DE",
+                    "text": "Die spezifischen Auswirkungen der Regeln, die Sie in Ihre Strategien programmieren werden, und wie sich die Strategien während der Test und Live trading session verhalten.",
+                    "updated": 1639572633892
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The information that is out of focus, that is, out of the viewport, is not read nor rendered graphically, thus, does not consume resources."
+            "text": "The information that is out of focus, that is, out of the viewport, is not read nor rendered graphically, thus, does not consume resources.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация, которая находится вне фокуса, то есть вне области просмотра, не читается и не отображается графически, поэтому не потребляет ресурсы.",
+                    "updated": 1639376204855
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen, die nicht im Fokus sind, d. h. außerhalb des Viewport, werden weder gelesen noch grafisch dargestellt und verbrauchen daher keine Ressourcen.",
+                    "updated": 1639572666390
+                }
+            ]
         },
         {
             "style": "Block",
@@ -47,7 +117,19 @@
         },
         {
             "style": "Title",
-            "text": "Viewport Configuration"
+            "text": "Viewport Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Viewport",
+                    "updated": 1639376217386
+                },
+                {
+                    "language": "DE",
+                    "text": "Viewport Konfiguration",
+                    "updated": 1639572674187
+                }
+            ]
         }
     ]
 }

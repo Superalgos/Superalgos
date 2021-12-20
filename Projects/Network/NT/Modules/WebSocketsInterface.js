@@ -18,6 +18,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
+        broadcastToClients: broadcastToClients,
         initialize: initialize,
         finalize: finalize
     }
@@ -512,20 +513,25 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
-            function broadcastToClients(messageHeader, caller) {
-                let callerIdToAVoid
-                if (caller.role === 'Network Client') {
-                    callerIdToAVoid = caller.socket.id
-                }
-                for (let i = 0; i < thisObject.networkClients.length; i++) {
-                    let networkClient = thisObject.networkClients[i]
-                    if (networkClient.socket.id === callerIdToAVoid) { continue }
-                    networkClient.socket.send(messageHeader.payload)
-                }
-            }
-
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+        }
+    }
+
+    function broadcastToClients(messageHeader, caller) {
+        try {
+            let callerIdToAVoid
+            if (caller !== undefined && caller.role === 'Network Client') {
+                callerIdToAVoid = caller.socket.id
+            }
+            for (let i = 0; i < thisObject.networkClients.length; i++) {
+                let networkClient = thisObject.networkClients[i]
+                if (networkClient.socket.id === callerIdToAVoid) { continue }
+                networkClient.socket.send(messageHeader.payload)
+            }
+            return true
+        } catch (err) {
+            console.log('[ERROR] Web Sockets Interface -> broadcastToClients -> err.stack = ' + err.stack)
         }
     }
 }

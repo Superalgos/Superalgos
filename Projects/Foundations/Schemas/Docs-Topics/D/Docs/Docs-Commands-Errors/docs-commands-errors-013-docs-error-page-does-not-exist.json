@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Seite, die Sie zu löschen versuchen, existiert nicht.",
                 "updated": 1633899478071
+            },
+            {
+                "language": "RU",
+                "text": "Страница, которую вы пытаетесь удалить, не существует.",
+                "updated": 1638530352655
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie den Docs Page Name (Namen), den Sie für den Befehl verwendet haben. Es scheint, dass eine Seite mit diesem Namen nicht existiert.",
                     "updated": 1633899534291
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте имя страницы документов Docs Page Name, которое вы использовали в команде. Похоже, страницы с таким названием не существует.",
+                    "updated": 1638530389737
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633899542503
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638530401580
                 }
             ]
         },

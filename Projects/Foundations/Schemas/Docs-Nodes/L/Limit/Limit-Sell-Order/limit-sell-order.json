@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Лимитный ордер на продажу - это приказ, отправленный на биржу для продажи базового актива, для исполнения по определенному курсу или выше.\n",
                 "updated": 1637596266339
+            },
+            {
+                "language": "TR",
+                "text": "Limit satış emri, belirli bir fiyattan veya daha iyi bir fiyattan baz varlığın satılması için borsaya gönderilen bir talimattır.",
+                "updated": 1639222173017
             }
         ]
     },

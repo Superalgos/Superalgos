@@ -13,6 +13,11 @@
                 "language": "ES",
                 "text": "Un Trading System rige las estrategias trading proporciona un marco flexible, pero estructurado, para desarrollarlas.",
                 "updated": 1629587546135
+            },
+            {
+                "language": "DE",
+                "text": "Ein Trading System regelt die Handelsstrategien und bietet einen flexiblen, aber strukturierten Rahmen, um sie aufzubauen.",
+                "updated": 1639147285749
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "Por favor, lea esta página para ponerse al día con el funcionamiento de los sistemas comerciales.",
                     "updated": 1629587573430
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte lesen Sie diese Seite, um zu erfahren, wie Trading Systeme funktionieren!",
+                    "updated": 1639147295415
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "ES",
                     "text": "¡No hay sustituto para el conocimiento, por lo que tendrás que leer un poco antes de que me ensucie las manos con la buena lógica del trading!",
                     "updated": 1629587618899
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt keinen Ersatz für Wissen, also müssen Sie etwas lesen, bevor ich Ihre Hände mit der guten alten Handelslogik schmutzig mache!",
+                    "updated": 1639147361194
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "ES",
                     "text": "Saltarse la lectura puede resultar en un deterioro neurológico permanente. ¡Tu llamada!",
                     "updated": 1629587887766
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Überspringen der Lektüre kann zu dauerhaften neurologischen Beeinträchtigungen führen. Ihre Entscheidung!",
+                    "updated": 1639147370087
                 }
             ]
         }

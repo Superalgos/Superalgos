@@ -10,13 +10,18 @@
             },
             {
                 "language": "RU",
-                "text": "Бот-индикатор - это алгоритм, который обрабатывает информацию, сгенерированную другими ботами, и создает сложные наборы данных для использования другими.",
-                "updated": 1636192708246
+                "text": "Indicator Bot - это алгоритм, который обрабатывает информацию, сгенерированную другими ботами, и создает сложные наборы данных для использования другими.",
+                "updated": 1639407131724
             },
             {
                 "language": "DE",
                 "text": "Ein Indikator-Bot ist ein Algorithmus, der Informationen verarbeitet, die andere Bots generiert haben, und umfangreiche Datensätze erstellt, die von anderen genutzt werden können.",
                 "updated": 1636658543393
+            },
+            {
+                "language": "TR",
+                "text": "Gösterge botu, diğer botların oluşturduğu bilgileri işleyen ve diğerlerinin kullanabilmesi için ayrıntılı veri kümeleri üreten bir algoritmadır.",
+                "updated": 1639144364847
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Die indicator bot node enthält alle Definitionen, die für die Funktion eines indicator bot erforderlich sind. Die Definitionen sind aufgeteilt in die Definition von Prozessen und Produkten. Prozesse (Processes) sind Algorithmen, die einen Eingabedatensatz durchlaufen, bestimmte Berechnungen durchführen und eine Ausgabe erzeugen. Products sind das Ergebnis der von diesen Algorithmen geleisteten Arbeit in Form von ausgearbeiteten Datensätzen.",
                     "updated": 1636658558739
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Indicator Bot содержит все определения, необходимые для функционирования индикаторного бота. Определения делятся на определение процессов и продуктов. Процессы - это алгоритмы, которые обрабатывают входной набор данных, выполняют определенные вычисления и производят выходные данные. Продукты - это результат работы этих алгоритмов, в виде сложных наборов данных.",
+                    "updated": 1639407191325
                 }
             ]
         },
@@ -44,6 +54,11 @@
                     "language": "DE",
                     "text": "Der Großteil des von einem indicator-Bot erwarteten Verhaltens wird durch die Struktur der nodes in der hierarchy und die references (Verweise) zwischen den nodes innerhalb dieser Definitionen festgelegt. Daher müssen Sie keine der Funktionen, die die infrastructure functionality ausmachen, programmieren. Dependencies, outputs, data structures, execution sequences und verschiedene andere Probleme werden durch die Definitionen in der Struktur der nodes, aus denen ein indicator bot besteht, gehandhabt und werden in der visuellen Umgebung des Design Space konfiguriert. Die Programmierung beschränkt sich auf die eigentlichen Berechnungs/Datenaufbau -Verfahren.",
                     "updated": 1636658578266
+                },
+                {
+                    "language": "RU",
+                    "text": "Большая часть поведения, ожидаемого от индикаторного бота, определяется структурой узлов в иерархии и ссылками между узлами в этих определениях. Таким образом, вам не нужно кодировать какие-либо функции, составляющие функциональность инфраструктуры. Зависимости, выходы, структуры данных, последовательности выполнения, и несколько других проблем решаются с помощью определений, воплощенных в структуре узлов, составляющих индикатор, и конфигурируются в визуальной среде пространства дизайна. Кодирование ограничивается фактическими процедурами расчета и построения данных.",
+                    "updated": 1639407239669
                 }
             ]
         },
@@ -60,13 +75,25 @@
                     "language": "DE",
                     "text": "Indicator Bot Konfiguration:",
                     "updated": 1636658588076
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Indicator Bot",
+                    "updated": 1639407254890
                 }
             ]
         },
         {
             "style": "Text",
             "text": "Properties",
-            "updated": 1609789156452
+            "updated": 1609789156452,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639407265849
+                }
+            ]
         },
         {
             "style": "List",
@@ -76,6 +103,11 @@
                     "language": "DE",
                     "text": "codeName ist der Name des Bots, wie er im (Programm)-Code des Systems verwendet wird.",
                     "updated": 1636658601783
+                },
+                {
+                    "language": "RU",
+                    "text": "codeName - это название бота, используемое в коде системы.",
+                    "updated": 1639407293199
                 }
             ]
         }

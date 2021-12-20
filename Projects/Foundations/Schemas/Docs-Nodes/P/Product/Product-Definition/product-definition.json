@@ -1,7 +1,14 @@
 {
     "type": "Product Definition",
     "definition": {
-        "text": "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of."
+        "text": "The product definition node holds all definitions that make up a product, including how the product is calculated and the datasets the product is comprised of.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Product Definition содержит все определения, составляющие продукт, в том числе то, как продукт рассчитывается, и наборы данных, из которых он состоит.",
+                "updated": 1639657776169
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "A bot may feature multiple products, thus, there may be multiple product definitions. Three main aspects need to be defined in terms of products: the characteristics of the dataset, the composition of each record, and the way records are calculated."
+            "text": "A bot may feature multiple products, thus, there may be multiple product definitions. Three main aspects need to be defined in terms of products: the characteristics of the dataset, the composition of each record, and the way records are calculated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бот может содержать несколько продуктов, поэтому может быть несколько определений продуктов. С точки зрения продуктов необходимо определить три основных аспекта: характеристики набора данных, состав каждой записи и способ вычисления записей.",
+                    "updated": 1639657804191
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "A product definition usually references a plotter module, which provides a graphic representation of the underlying dataset"
+            "text": "A product definition usually references a plotter module, which provides a graphic representation of the underlying dataset",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение продукта обычно ссылается на модуль плоттера, который обеспечивает графическое представление базового набора данных.",
+                    "updated": 1639657830265
+                }
+            ]
         },
         {
             "style": "Block",
@@ -23,20 +44,48 @@
         {
             "style": "Title",
             "text": "Product Definition Configuration",
-            "updated": 1609788267834
+            "updated": 1609788267834,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Product Definition",
+                    "updated": 1639657845846
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609788279998
+            "updated": 1609788279998,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639657854144
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the product as it is used within the bot's code."
+            "text": "codeName is the name of the product as it is used within the bot's code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это название продукта, используемое в коде бота.",
+                    "updated": 1639657865418
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "pluralVariableName is the plural form of the variable."
+            "text": "pluralVariableName is the plural form of the variable.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "pluralVariableName - это форма переменной во множественном числе.",
+                    "updated": 1639657905705
+                }
+            ]
         }
     ]
 }

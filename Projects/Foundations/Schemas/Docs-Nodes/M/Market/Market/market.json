@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Рынок - это определение пары активов (например, BTC-USDT), перечисленных на соответствующей бирже.",
                 "updated": 1635592307113
+            },
+            {
+                "language": "TR",
+                "text": "Market, ilgili borsada listelenen bir çift varlığın (örn. BTC-USDT) tanımıdır.",
+                "updated": 1639119566603
             }
         ]
     },

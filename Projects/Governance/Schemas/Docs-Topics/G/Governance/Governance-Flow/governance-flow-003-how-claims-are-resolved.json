@@ -43,8 +43,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Ya sabe que los Token Rewards en un nodo de definición — una Position, Feature, o Asset node — determinan cuántos tokens están disponibles para incentivar la producción y / o el mantenimiento del concepto representado por el nodo.",
-                    "updated": 1635600697216
+                    "text": "Ya sabe que los Token Rewards en un nodo de definición — un nodo de Position, Feature, o Asset — determinan cuántos tokens están disponibles para incentivar la producción y / o el mantenimiento del concepto representado por el nodo.",
+                    "updated": 1639135353125
                 }
             ]
         },
@@ -88,8 +88,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Su  solicitud puede tener un Claim Power gual, menor o mayor que el  Token Rewards disponible en el nodo.",
-                    "updated": 1635601139948
+                    "text": "Su solicitud puede tener un Claim Power igual, menor o mayor que el Token Rewards disponible en el nodo.",
+                    "updated": 1639135372442
                 }
             ]
         },

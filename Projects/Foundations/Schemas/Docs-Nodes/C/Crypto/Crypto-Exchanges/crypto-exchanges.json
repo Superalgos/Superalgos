@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Los grupos de nodos  de los exchanges cripto  definen los diferentes exchanges con los que el usuario puede interactuar.",
                 "updated": 1636365203486
+            },
+            {
+                "language": "RU",
+                "text": "Узел Crypto Exchanges группирует определения различных бирж, с которыми может взаимодействовать пользователь.",
+                "updated": 1638648933625
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "ES",
                     "text": "El workspace (espacio de trabajo) predeterminado presenta varios tipos de nodos, cada uno con un propósito:",
                     "updated": 1636365369249
+                },
+                {
+                    "language": "RU",
+                    "text": "В рабочем пространстве по умолчанию есть несколько узлов этого типа, каждый из которых предназначен для:",
+                    "updated": 1638648949414
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "ES",
                     "text": "Tested ( testeados): Crypto Exchange caracteriza a nodos de exchanges que ya han sido testados minuciosamente.",
                     "updated": 1636365489754
+                },
+                {
+                    "language": "RU",
+                    "text": "Tested:  особенности узлов Crypto Exchange, которые были тщательно протестированы.",
+                    "updated": 1638649035681
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "ES",
                     "text": "Untested ( sin testear): presenta una colección de nodos de  Crypto Exchange de exchangesno testeados que cumplen con el conjunto de requisitos  de la API de la CCXT library que Superalgosnecesita para funcionar function.",
                     "updated": 1636365625749
+                },
+                {
+                    "language": "RU",
+                    "text": "Untested: содержит набор узлов Crypto Exchange непроверенных бирж, которые соответствуют набору требований API библиотеки CCXT, необходимых Superalgos для работы.",
+                    "updated": 1638649058992
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "ES",
                     "text": "Testing Queue (fila de testeo): puede usar este nodo para implementar nodos Crypto Exchange mientras los testea.",
                     "updated": 1636365750538
+                },
+                {
+                    "language": "RU",
+                    "text": "Testing Queue: вы можете использовать этот узел для развертывания узлов Crypto Exchange во время их тестирования.",
+                    "updated": 1638649074711
                 }
             ]
         },

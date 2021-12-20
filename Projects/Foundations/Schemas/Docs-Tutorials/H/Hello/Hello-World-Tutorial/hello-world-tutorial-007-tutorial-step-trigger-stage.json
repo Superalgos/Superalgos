@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Trigger Stagees es nuestro talento scout",
                 "updated": 1629348587860
+            },
+            {
+                "language": "IT",
+                "text": "Il Trigger Stage è il nostro Talent Scout",
+                "updated": 1639077137307
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "Nuestra estrategia se basa en el cruce de SMA y es en este nodo donde podemos instruir al bot para que busque las condiciones que deben cumplirse para realizar una operación.",
                     "updated": 1629348884906
+                },
+                {
+                    "language": "IT",
+                    "text": "La nostra strategia si basa sull'incrocio di 2 medie. Ed è in questo nodo che inseriamo le informazioni da dare al nostro bot per decidere quando entrare nel mercato.",
+                    "updated": 1639076778420
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "ES",
                     "text": "¡Esta etapa se trata de verificar el mercado y decidir si algunas condiciones valen la pena o no!",
                     "updated": 1629348903247
+                },
+                {
+                    "language": "IT",
+                    "text": "In questa fase il mercato viene studiato per verificare se e quando le nostre condizioni iniziali vengano soddisfatte.",
+                    "updated": 1639077044786
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "ES",
                     "text": "¡Echemos un vistazo a sus 3 descendientes y te muestro algunos pequeños trucos para implementar la estrategia de la manera más rápida posible!",
                     "updated": 1629348921004
+                },
+                {
+                    "language": "IT",
+                    "text": "Diamo un'occhiata ai 3 figli del Trigger Stage, vi mostrerò alcuni piccoli trucchi per implementare la strategia nel modo più veloce possibile!",
+                    "updated": 1639077107348
                 }
             ]
         }

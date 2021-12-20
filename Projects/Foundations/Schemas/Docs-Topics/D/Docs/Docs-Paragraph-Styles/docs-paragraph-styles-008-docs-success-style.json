@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Mit diesem Stil wird der Text innerhalb einer Success Box dargestellt.",
                 "updated": 1633953686071
+            },
+            {
+                "language": "RU",
+                "text": "Этот стиль будет отображать текст внутри окна успеха.",
+                "updated": 1638533499019
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Jeder Text, der mit diesem Stil formatiert wurde, wird in einer Success Box angezeigt.",
                     "updated": 1633953830759
+                },
+                {
+                    "language": "RU",
+                    "text": "Любой текст, отформатированный в этом стиле, будет показан в окне успеха.",
+                    "updated": 1638533517029
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633953741067
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533733959
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Beispiel für einen Absatz im Erfolgsstil.",
                     "updated": 1633953763088
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример абзаца в стиле успеха.",
+                    "updated": 1638533550524
                 }
             ]
         }

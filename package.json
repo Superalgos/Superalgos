@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@babel/core": "7.12.3",
+    "@discordjs/rest": "^0.1.0-canary.0",
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.1.1",
@@ -27,6 +28,7 @@
     "@octokit/rest": "^18.12.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@reduxjs/toolkit": "^1.6.2",
+    "@slack/web-api": "^6.5.1",
     "@svgr/webpack": "5.5.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
@@ -42,6 +44,8 @@
     "ccxt": "^1.61.93",
     "child_process": "^1.0.2",
     "css-loader": "4.3.0",
+    "discord-api-types": "^0.25.2",
+    "discord.js": "^13.3.1",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "electron-updater": "^4.6.1",
@@ -108,7 +112,7 @@
     "webpack-dev-server": "3.11.1",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4",
-    "ws": "^8.2.3"
+    "ws": "^8.3.0"
   },
   "optionalDependencies": {
     "@tensorflow/tfjs-node": "^2.8.6"

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Das Wort \"to\" ist Teil der Syntax des Befehls, und Sie haben es nicht eingefügt.",
                 "updated": 1633897633449
+            },
+            {
+                "language": "RU",
+                "text": "Слово «to» является частью синтаксиса команды, и вы его не включили.",
+                "updated": 1638529971867
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Prüfen Sie die Syntax des Befehls und sehen Sie nach, wo das Wort \"to\" stehen muss.",
                     "updated": 1633897710144
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте синтаксис команды и посмотрите, где разместить слово «to».",
+                    "updated": 1638529995887
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633897718700
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638530005854
                 }
             ]
         },

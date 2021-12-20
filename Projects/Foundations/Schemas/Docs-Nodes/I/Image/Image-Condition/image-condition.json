@@ -1,7 +1,14 @@
 {
     "type": "Image Condition",
     "definition": {
-        "text": "An image condition is a rule that allows establishing when an image shall be rendered and when not."
+        "text": "An image condition is a rule that allows establishing when an image shall be rendered and when not.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Image Condition - это правило, которое позволяет установить, когда изображение должно быть отображено, а когда нет.",
+                "updated": 1638969651620
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The node is optional. When the node is not present in the definition of the image or when the condition validates true, the image is rendered on screen. When the condition validates false the image is not rendered. As such, the node allows dynamically switching the rendering of the corresponding image on and off ."
+            "text": "The node is optional. When the node is not present in the definition of the image or when the condition validates true, the image is rendered on screen. When the condition validates false the image is not rendered. As such, the node allows dynamically switching the rendering of the corresponding image on and off .",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел не является обязательным. Когда узел отсутствует в определении изображения или когда условие проверяется как true (истинное), изображение отображается на экране. Когда условие проверяется как false (ложное), изображение не отображается. Таким образом, узел позволяет динамически включать и выключать отображение соответствующего изображения.",
+                    "updated": 1638969616390
+                }
+            ]
         }
     ]
 }

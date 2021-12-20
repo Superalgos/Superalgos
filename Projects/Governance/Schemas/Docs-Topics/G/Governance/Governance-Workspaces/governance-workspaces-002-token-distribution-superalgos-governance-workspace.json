@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Este es el workspace principal de la gobernanaza donde ampliar definiciones en vivo del Superalgos Project (el proyecto Superalgos).",
                 "updated": 1637406477955
+            },
+            {
+                "language": "RU",
+                "text": "Это основное рабочее пространство управления, в котором живут широкие определения проекта Superalgos Project.",
+                "updated": 1639027999638
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Tutorials",
-            "updated": 1630576501552
+            "updated": 1630576501552,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Руководства",
+                    "updated": 1639028024429
+                }
+            ]
         },
         {
             "style": "List",
@@ -33,7 +45,14 @@
         },
         {
             "style": "Title",
-            "text": "User Profiles"
+            "text": "User Profiles",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Профили пользователей",
+                    "updated": 1639028079124
+                }
+            ]
         },
         {
             "style": "List",
@@ -43,12 +62,24 @@
                     "language": "ES",
                     "text": "Pérfiles de los miembros del  Core Team ( equipo central) y Community Mods  (moderadores de la comunidad).",
                     "updated": 1637406590297
+                },
+                {
+                    "language": "RU",
+                    "text": "Профили основной команды Core Team и Community Mods.",
+                    "updated": 1639028152519
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Scope of Definitions"
+            "text": "Scope of Definitions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Область определений ",
+                    "updated": 1639028298849
+                }
+            ]
         },
         {
             "style": "Text",
@@ -59,6 +90,11 @@
                     "language": "ES",
                     "text": "Este workspaceincluye definiciones que abarcan todo el Superalgos Project.",
                     "updated": 1637406627595
+                },
+                {
+                    "language": "RU",
+                    "text": "В рабочем пространстве представлены определения, которые охватывают весь проект Superalgos Project.",
+                    "updated": 1639028246534
                 }
             ]
         },
@@ -75,6 +111,11 @@
                     "language": "ES",
                     "text": "Jerarquías Superalgos Pools.",
                     "updated": 1637406655122
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархия Superalgos Pools",
+                    "updated": 1639028316171
                 }
             ]
         },
@@ -91,6 +132,11 @@
                     "language": "ES",
                     "text": "Superalgos Marketing (posiciones relacionadas con el marketing de todo el proyecto),",
                     "updated": 1637406711264
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos Marketing (должности, связанные с маркетингом в рамках проекта),",
+                    "updated": 1639028346035
                 }
             ]
         },
@@ -103,6 +149,11 @@
                     "language": "ES",
                     "text": "Superalgos (posiciones de todo el proyecto como Community Mods, Core Team, or Business Lead).",
                     "updated": 1637406807754
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos (должности в рамках проекта, такие как Community Mods, Core Team или Business Lead).",
+                    "updated": 1639028413313
                 }
             ]
         },
@@ -119,6 +170,11 @@
                     "language": "ES",
                     "text": "Superalgos (características de todo el proyecto, como Charting Space, el diseñador visual, la integración de Tensor Flow, etc.).",
                     "updated": 1637406897904
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos (функции всего проекта, такие как Charting Space, Visual Designer, интеграция Tensor Flow и т. д.).",
+                    "updated": 1639028447144
                 }
             ]
         },
@@ -135,6 +191,11 @@
                     "language": "ES",
                     "text": "Superalgos Exchanges (activos relacionados con el listado de los exchange),",
                     "updated": 1637406934412
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos Exchanges (активы, связанные с биржевыми листингами),",
+                    "updated": 1639028471584
                 }
             ]
         },
@@ -147,6 +208,11 @@
                     "language": "ES",
                     "text": "Superalgos Marketing (activos relacionados con el marketing de todo el proyecto),",
                     "updated": 1637406967294
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos Marketing (активы, связанные с маркетингом в масштабах проекта),",
+                    "updated": 1639028491683
                 }
             ]
         },

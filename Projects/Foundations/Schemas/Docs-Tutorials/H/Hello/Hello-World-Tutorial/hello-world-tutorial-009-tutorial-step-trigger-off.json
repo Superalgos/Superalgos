@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Si no necesitas una condición, configúrela en False o True!",
                 "updated": 1629352241171
+            },
+            {
+                "language": "IT",
+                "text": "Se non hai bisogno di una condizione, impostala su False o True!",
+                "updated": 1639077650052
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "Para mi backtest no necesito un Trigger Off condición, así que solo escribo false en codigo Javascript",
                     "updated": 1629354481694
+                },
+                {
+                    "language": "IT",
+                    "text": "Per il mio backtest non ho bisogno di una condizione Trigger Off, quindi scrivo solo false nel codice Javascript",
+                    "updated": 1639077681031
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "ES",
                     "text": "Recuerda que Conditions puede ser solo True o False. Cuando escribo código Javascript dentro de este tipo de nodos, deben evaluar True o False porque esencialmente lo que estoy escribiendo es una prueba.",
                     "updated": 1629354487276
+                },
+                {
+                    "language": "IT",
+                    "text": "Ricorda che le condizioni possono essere solo true o false. Quando scrivo del codice Javascript all'interno di questo tipo di nodi, viene valutato True o False perché essenzialmente quello che sto scrivendo è un test.",
+                    "updated": 1639077755545
                 }
             ]
         }

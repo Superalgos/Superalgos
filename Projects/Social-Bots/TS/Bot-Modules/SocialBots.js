@@ -22,10 +22,16 @@ exports.newSocialBotsBotModulesSocialBots = function (processIndex) {
                             socialBot.botInstance = TS.projects.socialBots.botModules.telegramBot.newSocialBotsBotModulesTelegramBot(processIndex)
                             socialBot.botInstance.initialize(config, commands)
                         } else if (socialBot.type === "Discord Bot") {
-                            socialBot.botInstance = TS.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot(processIndex)
+                            socialBot.botInstance = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
                             socialBot.botInstance.initialize(config)
+                                .then(response => {
+                                    console.log('Discord bot ready', response)
+                                })
+                                .catch(err => {
+                                    console.error(err)
+                                })
                         } else if (socialBot.type === "Slack Bot") {
-                            socialBot.botInstance = TS.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot(processIndex)
+                            socialBot.botInstance = SA.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot()
                             socialBot.botInstance.initialize(config)
                         } else if (socialBot.type === "Twitter Bot") {
                             socialBot.botInstance = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(processIndex)

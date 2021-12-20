@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "La función clone está diseñada para producir copias de estructuras de datos cuando necesita replicar estructuras de nodos y espera que las copias se comporten de manera similar al original.",
                 "updated": 1628036115149
+            },
+            {
+                "language": "TR",
+                "text": "Klonlama özelliği, düğüm yapılarını çoğaltmanız gerektiğinde ve kopyaların orijinaline benzer şekilde davranmasını beklediğinizde veri yapılarının kopyalarını üretmek için tasarlanmıştır.",
+                "updated": 1639485185668
             }
         ]
     },
@@ -21,29 +26,71 @@
         },
         {
             "style": "Text",
-            "text": "We will analyze the case of clones under the same lens we analyzed how backups work: we will study how clones treat outgoing, incoming and internal references."
+            "text": "We will analyze the case of clones under the same lens we analyzed how backups work: we will study how clones treat outgoing, incoming and internal references.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yedeklemelerin nasıl çalıştığını anlattığımız gibi aynı şekilde klonların durumunuda analiz edeceğiz: klonların giden, gelen ve dahili referanslarla nasıl çalıştığını inceleyeceğiz.",
+                    "updated": 1639727583977
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Unlike backups, clones behave in the same way independently of the existence of the original structure of nodes in the workspace, therefore, we will not make such distinction in the following paragraphs.",
-            "updated": 1615832413196
+            "updated": 1615832413196,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yedeklemelerden farklı olarak klonlar, çalışma alanındaki düğümlerin orijinal yapısının varlığından bağımsız olarak davranırlar, bu nedenle aşağıdaki paragraflarda böyle bir ayrım yapmayacağız.",
+                    "updated": 1639727826510
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Outgoing References"
+            "text": "Outgoing References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Giden Referanslar",
+                    "updated": 1639727842811
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Outgoing references are kept intact."
+            "text": "Outgoing references are kept intact.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Giden referanslar bozulmadan korunur.",
+                    "updated": 1639727871092
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Pretty much like with backups, a clone preserves outgoing references."
+            "text": "Pretty much like with backups, a clone preserves outgoing references.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yedeklemelerde olduğu gibi, bir klon giden referansları korur.",
+                    "updated": 1639727911841
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The same example as with backups apply: cloning a Task running a Backtesting Session produces a copy of the Task with the Trading Process Instance maintaining the reference to the Trading Bot Multi-Time-Frame process, Trading Session Reference maintaining the reference to the corresponding Trading System, and the Trading Engine Reference keeping the reference to the Trading Engine hierarchy.",
-            "updated": 1615832824246
+            "updated": 1615832824246,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yedeklerdeki kurallar geçerlidir: Bir Geri Test Oturumu ( Backtesting Session ) çalıştıran bir Görevin klonlanması, Trading Process Instance ile Trading Bot Multi-Time-Frame process'e referansı koruyan Görevin bir kopyasını üretir.",
+                    "updated": 1639733042252
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -52,16 +99,37 @@
         },
         {
             "style": "Title",
-            "text": "Incoming References"
+            "text": "Incoming References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gelen Referanslar",
+                    "updated": 1639733053281
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Incoming references are discarded."
+            "text": "Incoming references are discarded.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Gelen referanslar iptal olur:",
+                    "updated": 1639733147674
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Let’s go back to the example of a Trading System, like we did when exploring backups:",
-            "updated": 1615838266411
+            "updated": 1615838266411,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yedekler konusunda olduğu gibi,Ticaret Sistemi ( Trading System ) örneğine geri dönelim:",
+                    "updated": 1639733230695
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -70,20 +138,48 @@
         },
         {
             "style": "Text",
-            "text": "The capture above shows that restoring a clone of a trading system does not restore incoming references, even when the original structure of nodes is deleted before restoration."
+            "text": "The capture above shows that restoring a clone of a trading system does not restore incoming references, even when the original structure of nodes is deleted before restoration.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki videoda,klonlanmış Trading system düğümü geri yüklendiğinde, orjinal düğüm silinse de  gelen referansların yüklenmediğini görüyorsunuz.",
+                    "updated": 1639733443540
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Internal References"
+            "text": "Internal References",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dahili Referanslar",
+                    "updated": 1639733458461
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Internal references are kept intact."
+            "text": "Internal references are kept intact.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Dahili referanslar olduğu gibi korunur.",
+                    "updated": 1639733485229
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Going back to the shapes node example, the capture below shows how restoring a clone keeps internal references intact:",
-            "updated": 1615838297924
+            "updated": 1615838297924,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Shape düğümü örneğine geri dönersek, aşağıdaki video, bir klonu geri yüklemenin dahili referansları koruduğunu gösterir:",
+                    "updated": 1639733528241
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -92,11 +188,25 @@
         },
         {
             "style": "Title",
-            "text": "Conclusion"
+            "text": "Conclusion",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sonuç",
+                    "updated": 1639733544334
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The clone feature is designed to produce copies of data structures when you need to replicate nodes and expect the copies to behave similarly to the original."
+            "text": "The clone feature is designed to produce copies of data structures when you need to replicate nodes and expect the copies to behave similarly to the original.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Klonlama özelliği, düğümleri çoğaltmanız gerektiğinde ve kopyaların orijinaline benzer şekilde davranmasını beklediğiniz durumlarda veri yapılarının kopyalarını üretmek için tasarlanmıştır.",
+                    "updated": 1639733583210
+                }
+            ]
         },
         {
             "style": "Text",

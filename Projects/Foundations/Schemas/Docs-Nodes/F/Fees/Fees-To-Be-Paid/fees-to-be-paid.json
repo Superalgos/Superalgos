@@ -2,7 +2,14 @@
     "type": "Fees To Be Paid",
     "definition": {
         "text": "Fees To Be Paid is the amount of fees that would be paid in the case the order filled entirely.",
-        "updated": 1609927953008
+        "updated": 1609927953008,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Fees To Be Paid - это сумма комиссий, которые будут уплачены в случае полного исполнения ордера.",
+                "updated": 1638963968599
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         {
             "style": "Text",
             "text": "It's a value handled at some point internally, but with minor significance to the user.",
-            "updated": 1609927981434
+            "updated": 1609927981434,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это значение, обрабатываемое в какой-то момент внутренне, но не имеет большого значения для пользователя.",
+                    "updated": 1638964171684
+                }
+            ]
         },
         {
             "style": "Block",
@@ -22,17 +36,38 @@
         {
             "style": "Title",
             "text": "Fees To Be Paid Configuration",
-            "updated": 1609927726292
+            "updated": 1609927726292,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Fees To Be Paid",
+                    "updated": 1638964187411
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638964196144
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638964204731
+                }
+            ]
         }
     ]
 }

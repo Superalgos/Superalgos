@@ -8,24 +8,59 @@
             "name": "execution-algorithm"
         },
         "text": "Take a look at this page about the Execution Algorithm! Read the Configuration section too!",
-        "updated": 1617197894850
+        "updated": 1617197894850,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration!",
+                "updated": 1639398534498
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "For our test&mdash;and for most simple strategies&mdash;one execution algorithm is all we need."
+            "text": "For our test&mdash;and for most simple strategies&mdash;one execution algorithm is all we need.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für unseren Test - und für die meisten einfachen Strategien - brauchen wir nur einen Ausführungsalgorithmus.",
+                    "updated": 1639398542318
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Once you finish reading, take a look at the configuration of the algorithm!"
+            "text": "Once you finish reading, take a look at the configuration of the algorithm!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus!",
+                    "updated": 1639398548509
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Notice that the algo is assigned&mdash;by default&mdash;100% of the stage's size."
+            "text": "Notice that the algo is assigned&mdash;by default&mdash;100% of the stage's size.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass dem Algorithmus standardmäßig 100 % der Größe der Stufe zugewiesen wird.",
+                    "updated": 1639398554644
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This is the first instance in which the target size we defined earlier comes into the scene!"
+            "text": "This is the first instance in which the target size we defined earlier comes into the scene!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt!",
+                    "updated": 1639398562678
+                }
+            ]
         }
     ]
 }

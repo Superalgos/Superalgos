@@ -1,7 +1,14 @@
 {
     "type": "Begin",
     "definition": {
-        "text": "Begin is the datetime at the moment the object represented by the parent node began to exist."
+        "text": "Begin is the datetime at the moment the object represented by the parent node began to exist.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Begin - это дата и время в момент, когда объект, представленный родительским узлом, начал существовать.",
+                "updated": 1638644335548
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a candle, it is the datetime of the open of the candle as provided by the exchange."
+            "text": "In the context of a candle, it is the datetime of the open of the candle as provided by the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте свечи это дата и время открытия свечи, как предусмотрено биржей.",
+                    "updated": 1638644373868
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Begin Configuration",
-            "updated": 1609880063550
+            "updated": 1609880063550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Begin",
+                    "updated": 1638644390347
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638644397978
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638644408378
+                }
+            ]
         }
     ]
 }

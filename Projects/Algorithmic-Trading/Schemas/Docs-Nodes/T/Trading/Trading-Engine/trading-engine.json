@@ -10,8 +10,13 @@
             },
             {
                 "language": "RU",
-                "text": "Trading Engine - это структура данных, используемая торговым ботом для обеспечения высокого доступа к информации во время выполнения и ее доступности для других торговых ботов.",
-                "updated": 1638338951505
+                "text": "Иерархия Trading Engine - это структура данных, используемая торговым ботом для обеспечения высокого уровня доступности к информации во время выполнения и ее доступности для других торговых ботов.",
+                "updated": 1639550928060
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret motoru hiyerarşisi, ticaret botu tarafından çalışma zamanı bilgilerini yüksek düzeyde erişilebilir ve ulaşılabilir tutmak için kullanılan veri yapısıdır.",
+                "updated": 1639221739186
             }
         ]
     },

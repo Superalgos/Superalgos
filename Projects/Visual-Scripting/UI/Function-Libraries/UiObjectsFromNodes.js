@@ -974,7 +974,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     tradingSessionsFoundAtWorkspace.push(node)
                 }
             }
-            if (uiObjectType === 'Live Portfolio Session') {
+            if (uiObjectType === 'Live Portfolio Session' || uiObjectType === 'Backtesting Portfolio Session') {
                 if (portfolioSessionsFoundAtWorkspace !== undefined) { // it might be undefined when you are spawning a session that was running while backed up
                     portfolioSessionsFoundAtWorkspace.push(node)
                 }

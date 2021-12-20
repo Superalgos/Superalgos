@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Erinnern Sie sich, dass ich sagte, dass die Plugin-Datei jedes Mal geladen wird, wenn der Workspace geladen wird? Diese Funktion hat eine unmittelbare Konsequenz...",
                 "updated": 1634588859041
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma alanı her yüklendiğinde eklenti dosyasının yüklendiğini söylediğimi hatırlıyor musunuz? Bu özelliğin bir sonucu vardır ...",
+                "updated": 1639816667363
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Hierarchies , die als Plugins im Workspace platziert werden, werden standardmäßig nicht mit dem Workspace gespeichert. Infolgedessen bleiben Änderungen in diesen Hierarchien nicht erhalten, es sei denn, Sie speichern sie manuell oder aktivieren die automatische Speicherung.",
                     "updated": 1634588866809
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanına eklenti olarak yerleştirilen hiyerarşiler ( Hierarchies ), varsayılan olarak çalışma alanına kaydedilmez. Sonuç olarak, bu hiyerarşilerde yapılan değişiklikler, siz onları manuel olarak kaydetmediğiniz veya otomatik kaydetmeyi etkinleştirmediğiniz sürece kalıcı olmaz.Bu hem iyidir hem de kötü. Yanlışlıkla yaptığınız bir değişikliği eğer kaydetmezseniz sayfayı yeniden yükleyerek yanlışlıktan kurtulabilirsiniz.Bu iyi tarafıdır. Eğer kaydetmezseniz, gerçekten daha sonra kulllanmak için oluşturduğunuz değişiklikleri kaybedersiniz. Bu da kötü tarafıdır.",
+                    "updated": 1639817009487
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Es gibt zwei Hauptanwendungsfälle für die Änderung von Plugins:",
                     "updated": 1634588872603
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklentileri değiştirmenin iki ana kullanım durumu ve amacı vardır:",
+                    "updated": 1639816873852
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "DE",
                     "text": "Sie möchten ein Plugin ändern, um es sich zu eigen zu machen und in Zukunft mit der geänderten Version weiter zu arbeiten.",
                     "updated": 1634588878910
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir eklentiyi kendinize ait kılmak için değiştirmek ve gelecekte bu değiştirilmiş sürümle çalışmaya devam etmek istiyorsunuzdur.",
+                    "updated": 1639816831319
                 }
             ]
         },
@@ -110,6 +130,11 @@
                     "language": "DE",
                     "text": "Sie möchten ein Plugin aktualisieren und verbessern, um die Verbesserungen zum Projekt beizutragen.",
                     "updated": 1634588884937
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye iyileştirmelere katkıda bulunmak için bir eklentiyi güncellemek ve geliştirmek istiyorsunuzdur.",
+                    "updated": 1639816847799
                 }
             ]
         }

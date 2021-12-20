@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "Endpoints sind wichtige Aspekte der Interaktion mit serverseitigen Web-APIs, da sie angeben, wo auf Ressourcen zugegriffen werden kann. Normalerweise erfolgt der Zugriff über eine URL, an die HTTP-Anforderungen gesendet werden. Sobald diese Anfragen korrekt übermittelt wurden, antwortet die API mit den angeforderten Daten.",
                 "updated": 1637406311302
+            },
+            {
+                "language": "RU",
+                "text": "Конечные точки Endpoints являются важными аспектами взаимодействия с серверными веб-API, поскольку они определяют, где можно получить доступ к ресурсам. Обычно доступ осуществляется через URL-адрес, по которому отправляются HTTP-запросы. Как только эти запросы будут отправлены правильно, API ответит запрошенными данными.",
+                "updated": 1638623872530
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "So verwenden sie Endpoint Node`s:",
                     "updated": 1637406356154
+                },
+                {
+                    "language": "RU",
+                    "text": "Как использовать узел Endpoint",
+                    "updated": 1638623903002
                 }
             ]
         },
@@ -33,6 +43,11 @@
                     "language": "DE",
                     "text": "Lesen Sie die Dokumentation der API, die Sie abbilden möchten, und stellen Sie fest, welche endpoints sie unterstützt. Von dort aus können Sie wählen, welcher Endpunkt die Informationen enthält, an denen Sie interessiert sind, und damit beginnen, diese zuzuordnen (mapping). Eine detaillierte Beschreibung der Vorgehensweise finden Sie in der folgenden Beschreibung. Darüber hinaus finden Sie auf der Seite API-Map und im Data Mining topic weitere wichtige Konzepte zur Einrichtung einer API-Map.",
                     "updated": 1637406471296
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочтите документацию API, который вы пытаетесь сопоставить, и определите, какие конечные точки они поддерживают. Оттуда вы можете выбрать, какая конечная точка содержит интересующую вас информацию, и начать ее сопоставление. Далее будет подробное описание того, как это сделать. Кроме того, ознакомтесь со страницей API Map, а также изучите тему Data Mining, чтобы узнать о других важных концепциях, связанных с настройкой карты API.",
+                    "updated": 1638624891957
                 }
             ]
         },
@@ -44,6 +59,11 @@
                     "language": "DE",
                     "text": "Die erste Seite des Themas Data Mining lautet: Data Mining - Introduction.",
                     "updated": 1637406539017
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая страница темы Data Mining - это Data Mining - Introduction.",
+                    "updated": 1638624871759
                 }
             ]
         },

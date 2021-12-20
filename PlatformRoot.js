@@ -53,7 +53,11 @@ SA.nodeModules = {
     lookpath: require('lookpath'),
     process: require('process'),
     childProcess: require('child_process'),
-    twitter: require('twitter-api-v2')
+    twitter: require('twitter-api-v2'),
+    slack: require('@slack/web-api'),
+    discordjs: require('discord.js'),
+    discordRest: require('@discordjs/rest'),
+    discordTypes: require('discord-api-types/v9')
 }
 
 SA.version = require('./package.json').version

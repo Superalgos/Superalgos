@@ -62,6 +62,13 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Switch To Backtesting Portfolio",
+            "label": "Switch To Backtesting Portfolio",
+            "relatedUiObject": "Backtesting Portfolio Session",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Add Missing Children",
             "label": "Add Missing Children",
             "relatedUiObject": "Portfolio Parameters",

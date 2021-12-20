@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Reden wir über meine Freundin, das Suchfeld in den Docs. Sie führt ein Doppelleben: Sie sucht, aber sie befiehlt auch!",
                 "updated": 1634819878309
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar'daki arama kutusu olan arkadaşım hakkında konuşalım. Biraz çifte hayatı var: hem araştırıyor hem de emrediyor!",
+                "updated": 1639861462859
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Ich meine, das Suchfeld ist auch eine Befehlszeilenschnittstelle! Die aktuelle Liste der Befehle hat zu tun mit:",
                     "updated": 1634819893918
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani arama kutusu aynı zamanda bir komut satırı arayüzüdür! Geçerli komut listesi şunlarla ilgilidir:",
+                    "updated": 1639861481713
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Erstellen und Bearbeiten der Docs.",
                     "updated": 1634819900164
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanların üretilmesi ve düzenlenmesi.",
+                    "updated": 1639861494950
                 }
             ]
         },
@@ -92,6 +107,11 @@
                     "language": "DE",
                     "text": "Aktualisierungen erhalten.",
                     "updated": 1634819905627
+                },
+                {
+                    "language": "TR",
+                    "text": "Güncellemelerin alınması.",
+                    "updated": 1639861514290
                 }
             ]
         },
@@ -116,6 +136,11 @@
                     "language": "DE",
                     "text": "Arbeiten zum Projekt beitragen.",
                     "updated": 1634819911378
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye katkı sağlamak.",
+                    "updated": 1639861525708
                 }
             ]
         },
@@ -140,6 +165,11 @@
                     "language": "DE",
                     "text": "Lassen Sie uns an einem praktischen Beispiel arbeiten, das diese beiden Punkte beinhaltet! Ich zeige Ihnen, wie Sie die Dokumente bearbeiten und wie Sie mit einigen Befehlen zum Projekt beitragen können!",
                     "updated": 1634819926122
+                },
+                {
+                    "language": "TR",
+                    "text": "İkisini içeren pratik bir örnek üzerinde çalışalım! Size dokümanları nasıl düzenleyeceğinizi ve birkaç komut kullanarak nasıl katkıda bulunacağınızı öğreteceğim!",
+                    "updated": 1639861545268
                 }
             ]
         },
@@ -164,6 +194,11 @@
                     "language": "DE",
                     "text": "Ich werde die nächsten Schritte mit einer kleinen Geschichte einleiten... Ich hoffe, die Idee gefällt Ihnen!",
                     "updated": 1634819933239
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımı küçük bir hikayeyle hazırlayacağım... Umarım fikri beğenirsiniz!",
+                    "updated": 1639861563729
                 }
             ]
         }

@@ -2,13 +2,27 @@
     "type": "API Data Fetcher Process Instance",
     "definition": {
         "text": "This node represents an instance of a API Data Fetcher process. When running it will display the process's status.",
-        "updated": 1621023315985
+        "updated": 1621023315985,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел представляет собой экземпляр процесса API Data Fetcher. При запуске он будет отображать статус процесса.",
+                "updated": 1638623675316
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Please see the Process Definition page for a more indepth description of what a process is and how it works.",
-            "updated": 1622896365184
+            "updated": 1622896365184,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, ознакомьтесь со страницей Process Definition для более подробного описания того, что такое процесс и как он работает.",
+                    "updated": 1638623760705
+                }
+            ]
         }
     ]
 }

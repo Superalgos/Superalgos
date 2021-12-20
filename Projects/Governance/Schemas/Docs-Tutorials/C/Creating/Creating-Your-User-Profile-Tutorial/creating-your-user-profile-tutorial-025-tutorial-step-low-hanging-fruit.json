@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Şimdi sizi, kurulumu oldukça kolay olan ve size daha fazla jeton kazandıracak olan Topluluk Oluşturma Programları ( Community Building Programs ) ile tanıştıracağım!",
                 "updated": 1637443015636
+            },
+            {
+                "language": "RU",
+                "text": "Теперь я подключу вас к программам Community Building Programs, которые также довольно легко настроить, и они принесут вам больше токенов!",
+                "updated": 1639049644752
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Token Güç Anahtarı ( Token Power Switch ) düğümüne gidin ve menüden Topluluk Oluşturma Programları Ekle'yi (Add Comunity Buildings Programs) seçin.",
                     "updated": 1637443107132
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите к узлу Token Power Switch и выберите в меню Add Comunity Building Programs.",
+                    "updated": 1639049660528
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Superalgos, katkılar ve işbirliği yoluyla gelişir. Bu programları, üyelerin her zaman yardım etmeye ve karşılık vermeye hazır olduğu bir topluluğu teşvik etmek için tasarladık!",
                     "updated": 1637443174686
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos процветает благодаря вкладу и сотрудничеству. Мы разработали эти программы для развития сообщества, члены которого всегда готовы помочь!",
+                    "updated": 1639049742662
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "Bu programlar, işleyişlerinde biraz daha ayrıntılıdırlar... Ama Onları seveceksiniz!",
                     "updated": 1637443220077
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти программы немного сложнее в своей работе ... они вам понравятся!",
+                    "updated": 1639049754712
                 }
             ]
         }

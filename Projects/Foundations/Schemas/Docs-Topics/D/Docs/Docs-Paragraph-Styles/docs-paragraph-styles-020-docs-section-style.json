@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Stil, um große Bereiche einer Seite in verschiedene Abschnitte zu unterteilen.",
                 "updated": 1633957742738
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль, чтобы разделить большие области страницы на разные разделы.",
+                "updated": 1638543021864
             }
         ]
     },
@@ -22,6 +27,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen.",
                     "updated": 1633957774754
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638543033845
                 }
             ]
         }

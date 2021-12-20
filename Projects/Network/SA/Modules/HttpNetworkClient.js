@@ -8,6 +8,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         p2pNetworkClientIdentity: undefined,
         p2pNetworkClientCodeName: undefined,
         sendMessage: sendMessage,
+        sendTestMessage: sendTestMessage,
         initialize: initialize,
         finalize: finalize
     }
@@ -28,7 +29,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
-        thisObject.p2pNetworkNode = p2pNetworkNode        
+        thisObject.p2pNetworkNode = p2pNetworkNode
 
         thisObject.host = thisObject.p2pNetworkNode.node.config.host
         thisObject.port = thisObject.p2pNetworkNode.node.config.webPort
@@ -42,12 +43,12 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         let promise = new Promise((resolve, reject) => {
 
             const axios = require('axios')
-            console.log('Sending Message to P2P Network Node')
             axios
-                .post('http://localhost:31248/New-Signal', message)
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
-                    console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
+                    //console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
+                    // TODO : Do something when Network Node could not process this signal.
                     resolve()
                 })
                 .catch(error => {
@@ -56,6 +57,31 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                 })
         })
 
+        return promise
+    }
+
+    async function sendTestMessage() {
+        /*
+        This function us to check if a network node is online and will 
+        receive an http request when needed.
+        */
+        let promise = new Promise((resolve, reject) => {
+
+            const axios = require('axios')
+            axios
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
+                .then(res => {
+                    if (res.data.indexOf("Pong") >= 0) {
+                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        resolve()
+                    } else {
+                        reject()
+                    }
+                })
+                .catch(error => {
+                    reject()
+                })
+        })
         return promise
     }
 }

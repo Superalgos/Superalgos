@@ -406,7 +406,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         /*
                         Next we complete the missing stuff at Testing Portfolio Tasks
                         */
-                        //installEnvironment('Testing Portfolio Tasks')
+                        installEnvironment('Testing Portfolio Tasks')
                         /*
                         Next we complete the missing stuff at Production Portfolio Tasks
                         */
@@ -444,14 +444,13 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 UI.projects.foundations.utilities.menu.menuClickOfNodeArray(marketPortfolioTask.portfolioMineTasks, 'Add All Tasks', true)
 
                                 /* This will be needed at the charting space, for creating Dashboards */
-                                //let backtestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Backtesting Session')
+                                let backtestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Backtesting Portfolio Session')
                                 let livePortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Live Portfolio Session')
                                 //let paperPortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Paper Portfolio Session')
                                 //let forwardSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(marketPortfolioTask, 'Forward Testing Session')
-                                let allSessionsArray = livePortfolioSessionsArray;
-                                    /*backtestingSessionsArray
+                                let allSessionsArray = backtestingSessionsArray
                                     .concat(livePortfolioSessionsArray)
-                                    .concat(paperPortfolioSessionsArray)
+                                    /*.concat(paperPortfolioSessionsArray)
                                     .concat(forwardSessionsArray)*/
                                 portfolioSessionsCreatedArray = portfolioSessionsCreatedArray.concat(allSessionsArray)
 

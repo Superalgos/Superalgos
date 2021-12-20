@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo como un dispositivo organizacional, para abrir nodos Position Contribution Claim (solicitud de contribución de posición), para mapear estructuras enteras en una jerarquía de Positions (posiciones) para colocar múltiples solcitudes de Contribution al mismo tiempo.",
                 "updated": 1636112230234
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы Position Contribution Claim и отображать целые структуры в иерархии Positions для одновременного размещения нескольких Contribution Claims.",
+                "updated": 1639133920871
             }
         ]
     },
@@ -23,7 +28,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639133377856
+                }
+            ]
         }
     ]
 }

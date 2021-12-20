@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die angegebene Kategorie existiert nicht.",
                 "updated": 1633896330763
+            },
+            {
+                "language": "RU",
+                "text": "Указанная категория не существует.",
+                "updated": 1638529325548
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Gültige Kategorien sind: Node, Concept, Topic, Tutorial and Review. Bei diesem Parameter wird zwischen Groß- und Kleinschreibung unterschieden (Case sensitive)",
                     "updated": 1633896416197
+                },
+                {
+                    "language": "RU",
+                    "text": "Допустимые категории: Node, Concept, Topic, Tutorial и Review. Этот параметр чувствителен к регистру.",
+                    "updated": 1638529385453
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633896436048
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529412945
                 }
             ]
         },

@@ -1,21 +1,29 @@
 import "./SuggestedUsers.css"
-import React, {useEffect} from 'react';
-import UserCard from "../User/UserCard";
+import React, {useEffect, useState} from 'react';
 import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
 import {Stack} from "@mui/material";
+import {getProfiles, STATUS_OK} from "../../api/service";
+import UserCard from "../User/UserCard";
 
 
-const SuggestedUsers = ({showMoreCallback}) => {
-    const usersIds = [1, 2, 3, 4, 5];
+const SuggestedUsers = () => {
 
+    const [users, setUsers] = useState([]);
+    const loadProfiles = async () => {
+        let {data, result} = await getProfiles().then(response => response.json());
+        if (result === STATUS_OK) {
+            let mappedUsers = data.map((profile, index) => {
+                let callBack = () => console.log(`Clicked follow on user${profile.userProfileHandle}`);
+                return <UserCard key={index} id={index} name={`user${profile.userProfileHandle}`}
+                                 followCallback={callBack}/>
+            });
+            setUsers(mappedUsers);
+        }
 
-    const users = usersIds.map(value => {
-        let callBack = () => console.log(`Clicked follow on user${value}`);
-        return <UserCard key={value} id={value} name={`user${value}`} followCallback={callBack}/>
-    })
+    }
 
     useEffect(() => {
-        console.log("SuggestedUsersConstructor called")
+        return loadProfiles();
     }, []);
 
 
@@ -25,7 +33,7 @@ const SuggestedUsers = ({showMoreCallback}) => {
                alignItems="center"
                spacing={1}>
             {users}
-            <ShowMoreUsers showMoreCallback={showMoreCallback}/>
+            <ShowMoreUsers/>
         </Stack>
     );
 };

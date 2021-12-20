@@ -1,4 +1,3 @@
-const express = require("./backend/src/index");
 exports.newDesktopApp = function newDesktopApp() {
 
     let thisObject = {
@@ -39,6 +38,10 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
             await thisObject.p2pNetwork.initialize('Network Client')
             /*
+            This is where we will process all the events comming from the p2p network.
+            */
+            thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
+            /*
             Set up the connections to network nodes.
             */
             thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
@@ -46,6 +49,7 @@ exports.newDesktopApp = function newDesktopApp() {
                 'Network Client',
                 thisObject.p2pNetworkClientIdentity,
                 thisObject.p2pNetwork,
+                thisObject.p2pNetworkInterface,
                 global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
             )
         }
@@ -54,28 +58,21 @@ exports.newDesktopApp = function newDesktopApp() {
             /*
             This is where we will process all the messages comming from our web app.
             */
-            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface() // this sends events to the p2p network
-            /*
-            This is where we will process all the events comming from the p2p network.
-            */
-            thisObject.p2pNetworkInterface = DK.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface() // this receives events from p2p network
+            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
             /*
             This is the Personal Social Graph for the user running this App.
             */
-            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph() //
+            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
             await thisObject.socialGraph.initialize()
 
-
+            /* TODO use new port settings*/
             let express = require('./backend/src/index')
-            let expressPort = JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webPort;
-            express.startExpress(expressPort,SA);
-            console.log('express Interface ................................................ Listening at port ' + expressPort);
+            express.startExpress(DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
+            console.log('express Interface ................................................ Listening at port ' );
 
-            /*TODO change this to have a definite port number*/
             let react = require('./frontend/scripts/start')
-            let reactPort = (+JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webPort + 1);
-            react.start(reactPort);
-            console.log('react Interface ................................................ Listening at port ' + reactPort);
+            react.start(+DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort + 1);
+            console.log('react Interface ................................................ Listening at port ' );
         }
     }
 }

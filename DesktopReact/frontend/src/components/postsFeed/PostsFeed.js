@@ -1,16 +1,27 @@
 import './PostsFeed.css';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Stack} from "@mui/material";
 import Post from "../post/Post";
+import {getPosts, STATUS_OK} from "../../api/service";
 
 const PostsFeed = () => {
-    const postFeed = [1, 2, 3, 4, 5];
+    const [posts, setPosts] = useState([]);
 
-    const posts = postFeed.map(
-        value => {
-            return <Post key={value} id={value} name={`user${value}`}/>
+    const loadProfiles = async () => {
+        let {data, result} = await getPosts().then(response => response.json());
+        if (result === STATUS_OK) {
+            let mappedPosts = data.map((post, index) => <Post key={index} id={index}
+                                                              userName={post.emitterUserProfile.userProfileHandle}
+                                                              postBody={post.postText}/>
+            );
+            setPosts(mappedPosts);
         }
-    )
+    }
+
+    useEffect(() => {
+        return loadProfiles();
+    }, []);
+
 
     return (
         <div className="postFeedContainer">

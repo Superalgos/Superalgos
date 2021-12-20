@@ -16,7 +16,7 @@ const Root = () => {
                     <Route path='Profile' element={<UserProfile/>}>
                         {/*<Route path=':profileId' element={<UserProfile/>}/>*/}
                     </Route>
-                    <Route path='Post' element={<PostPlaceholder/>}/>
+                    <Route path='PostPlaceholder' element={<PostPlaceholder />}/>
                 </Route>
                 <Route
                     path="*"

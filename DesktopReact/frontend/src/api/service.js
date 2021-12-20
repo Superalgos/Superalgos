@@ -1,28 +1,40 @@
-const baseURL = 'http://localhost:33249'
-const GET = 'GET'
-const POST = 'POST'
-const DELETE = 'DELETE'
-const UPDATE = 'UPDATE'
+const baseURL = 'http://localhost:33248';
+const GET = 'GET';
+const POST = 'POST';
+const DELETE = 'DELETE';
+const UPDATE = 'UPDATE';
+const STATUS_OK = 'Ok';
 
-function getProfiles(){
+function followUser() {
+
+}
+function unfollowUser() {
+
+}
+
+function getProfiles() {
     return call('/profiles', GET);
 }
 
-function getClientNode(){
-    return call('/ClientNode', GET);
+function createPost(postBody) {
+    return call('/createPost', POST, postBody);
 }
 
-function call(endpoint, method, body){
-    return new Promise(async(resolve, reject) => {
-        fetch(baseURL + endpoint, { method:method, body:body })
-            .then(response => resolve(response))
-            .catch(error => reject(error))
-    })
-    
+function getPosts(postBody) {
+    return call('/getPosts', GET, postBody);
+}
+
+function call(endpoint, method, body) {
+    return fetch(baseURL + endpoint, {method: method, body: body})
+        .then(response => response)
+        .catch(error => error)
 }
 
 export {
+    STATUS_OK,
     getProfiles,
-    getClientNode
+    createPost,
+    followUser,
+    getPosts
 }
 

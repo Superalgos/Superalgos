@@ -154,7 +154,7 @@ function openConsoleWindow() {
 
 app.on('ready', function () {
   autoUpdater.checkForUpdatesAndNotify()
-  createMainMenus()
+  //createMainMenus()
 })
 
 app.on('window-all-closed', function () {
@@ -166,13 +166,13 @@ app.on('activate', function () {
 })
 
 function createMainMenus() {
-  function logsActive() {
+  /* function logsActive() {
     if(consoleWindow) {
       return true
     } else {
       return false
     }
-  } 
+  } */ 
 
   const mainTemplate = [
     {
@@ -220,15 +220,17 @@ function createMainMenus() {
       ]
     },
     {
-      label: 'Logs',
-      enabled: logsActive(),
-      click () {
-        if(consoleWindow) {
-          consoleWindow.show()
-        } else {
-          openConsoleWindow()
+      label: 'Console',
+      submenu: [
+        {
+          label: 'Show logs',
+          click () {consoleWindow ? consoleWindow.show() : openConsoleWindow()}
+        },
+        {
+          label: 'Hide logs',
+          click () {consoleWindow.hide()}
         }
-      }
+      ]
     },
     {
       label: 'Profile',
@@ -238,7 +240,7 @@ function createMainMenus() {
           click: async() => {
             data = {newUser: ["Governance", "Plugin → Token-Distribution-Superalgos"]}
             mainWindow.webContents.send("fromMaster", data)
-            data
+            //data
             //mainWindow.loadURL('http://localhost:34248/LoadPlugin/Governance/Workspaces/Token-Distribution-Superalgos.json')
           }
         },
@@ -319,10 +321,8 @@ function createConsoleMenus () {
     {
       label: 'Show UI',
       id: 'ui',
-      enabled: uiActive(),
-      click () {
-        mainWindow.show()
-      }
+      //enabled: uiActive(),
+      click () {mainWindow.isVisible() ? true : mainWindow.show()}
     }
   ]
 

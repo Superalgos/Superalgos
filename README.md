@@ -373,7 +373,7 @@ Congratulations your installation is complete! Follow the "Running the Applicati
 
 If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
 
-1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
+1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 16.6 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
 2. If you are installing Superalgos in an administratively protected directory you will need to do one of the following:
    - For Windows start your command prompt as an administrator.
    - For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.

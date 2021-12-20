@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El evento trigger-off define la situación en la que se activará la estrategia correspondiente. Una estrategia que se activa libera el capital en reserva y lo pone a disposición de otras estrategias en el sistema de trading.",
                 "updated": 1629580571614
+            },
+            {
+                "language": "RU",
+                "text": "Trigger Off Event (событие выключения) определяет ситуацию, в которой соответствующая стратегия должна быть выключена. Выключенная стратегия освобождает резервный капитал и делает его доступным для других стратегий в торговой системе.",
+                "updated": 1639736651020
             }
         ]
     },
@@ -17,15 +22,36 @@
         },
         {
             "style": "Text",
-            "text": "In conceptual terms, the trigger-off event is the mechanism you use to define the situation in which the corresponding strategy should stop considering the trading opportunity signaled by the trigger-on event. That is, you use the trigger off event to describe the scenario for the invalidation of the trading idea behind the strategy."
+            "text": "In conceptual terms, the trigger-off event is the mechanism you use to define the situation in which the corresponding strategy should stop considering the trading opportunity signaled by the trigger-on event. That is, you use the trigger off event to describe the scenario for the invalidation of the trading idea behind the strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В концептуальном плане событие выключения - это механизм, который вы используете для определения ситуации, в которой соответствующая стратегия должна прекратить рассматривать торговую возможность, о которой сигнализирует событие включения. Иными словами, вы используете событие выключения для описания сценария отмены торговой идеи, лежащей в основе стратегии.",
+                    "updated": 1639736793351
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once a strategy is triggered-on, only two possible scenarios may follow. Either the take position event is triggered, thus, taking a position, or the trigger-off event is triggered first."
+            "text": "Once a strategy is triggered-on, only two possible scenarios may follow. Either the take position event is triggered, thus, taking a position, or the trigger-off event is triggered first.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда стратегия включена, возможны только два сценария развития событий. Либо срабатывает событие открытия позиции, что приводит к открытию позиции, либо сначала срабатывает событие закрытия позиции.",
+                    "updated": 1639736885955
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the first scenario, the strategy remains on until the position is closed. As the position is closed, the strategy is triggered-off. In the second scenario, the strategy is triggered-off immediately."
+            "text": "In the first scenario, the strategy remains on until the position is closed. As the position is closed, the strategy is triggered-off. In the second scenario, the strategy is triggered-off immediately.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В первом случае стратегия остается включенной до тех пор, пока позиция не будет закрыта. Когда позиция закрывается, стратегия отключается. Во втором случае стратегия срабатывает немедленно.",
+                    "updated": 1639736973779
+                }
+            ]
         }
     ]
 }

@@ -9,7 +9,7 @@
             {
                 "language": "RU",
                 "text": "Иерархия LAN Network организует инфраструктуру для запуска ботов и хранения данных. Это иерархия, которую вы будете использовать чаще всего для управления системой.",
-                "updated": 1638353465913
+                "updated": 1639561679466
             }
         ]
     },
@@ -36,14 +36,7 @@
         },
         {
             "style": "Title",
-            "text": "LAN Network Node",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Узел LAN Network",
-                    "updated": 1638353490875
-                }
-            ]
+            "text": "LAN Network Node"
         },
         {
             "style": "Include",
@@ -58,26 +51,12 @@
         {
             "style": "Title",
             "text": "Main Sections Under a Network Node",
-            "updated": 1610049583621,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Основные разделы под узлом сети",
-                    "updated": 1638354739556
-                }
-            ]
+            "updated": 1610049583621
         },
         {
             "style": "Text",
             "text": "We will briefly mention the main data structures under a Network Node, and study each of them in detail in the next few pages.",
-            "updated": 1610049737464,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Мы кратко упомянем основные структуры данных в сетевом узле и подробно изучим каждую из них на следующих нескольких страницах.",
-                    "updated": 1638354767861
-                }
-            ]
+            "updated": 1610049737464
         },
         {
             "style": "Title",

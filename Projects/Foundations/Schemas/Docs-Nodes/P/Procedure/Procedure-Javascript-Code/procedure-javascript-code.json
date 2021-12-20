@@ -8,6 +8,11 @@
                 "language": "DE",
                 "text": "Die JavaScript-Code-Node \"Procedure\" kann einen beliebigen gültigen JavaScript-Ausschnitt enthalten.",
                 "updated": 1639913948496
+            },
+            {
+                "language": "RU",
+                "text": "Узел Procedure Javascript Code может содержать любой фрагмент допустимого кода JavaScript.",
+                "updated": 1639660938246
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Das System bietet Entwicklern große Flexibilität, da jeder gültige JavaScript-Code zulässig ist.",
                     "updated": 1639913971997
+                },
+                {
+                    "language": "RU",
+                    "text": "Система предоставляет разработчикам большую гибкость, так как разрешен весь допустимый код JavaScript.",
+                    "updated": 1639660952852
                 }
             ]
         }

@@ -1,12 +1,26 @@
 {
     "type": "Process Output",
     "definition": {
-        "text": "The process output groups the definitions of which datasets are impacted by the process, that is, which datasets the process builds or takes a part in building."
+        "text": "The process output groups the definitions of which datasets are impacted by the process, that is, which datasets the process builds or takes a part in building.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В выходных данных процесса группируются определения, на какие наборы данных влияет процесс, то есть на какие наборы данных процесс создает или принимает участие.",
+                "updated": 1639659593733
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1639659607025
+                }
+            ]
         }
     ]
 }

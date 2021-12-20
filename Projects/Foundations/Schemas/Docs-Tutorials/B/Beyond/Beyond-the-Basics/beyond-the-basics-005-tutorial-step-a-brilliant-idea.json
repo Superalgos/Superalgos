@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Superalgos ist für jeden kostenlos, weil wir Ihre Hilfe wollen! Wir möchten, dass die besten Köpfe in diesem Bereich uns helfen, die ultimative Handelsautomatisierungsplattform zu bauen!",
                 "updated": 1634820114946
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos herkes için ücretsizdir çünkü yardımınızı istiyoruz! En üst düzey ticaret otomasyon platformunu oluşturmamıza yardımcı olacak en iyi beyinleri istiyoruz!",
+                "updated": 1639862797572
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Ihr erster Beitrag ist Ihr Feedback!",
                     "updated": 1634820120530
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk katkınız geri bildiriminizdir!",
+                    "updated": 1639862814128
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Sie haben wahrscheinlich Stunden damit verbracht, Superalgos zu entdecken. Wir möchten Ihren ersten Eindruck haben, frisch aus der jüngsten Erfahrung! Und wir möchten, dass Ihr erstes Feedback der erste von vielen Beiträgen zu diesem Projekt ist.",
                     "updated": 1634820126153
+                },
+                {
+                    "language": "TR",
+                    "text": "Muhtemelen Superalgos'u keşfetmek için saatler harcadınız. Superalgos hakkında ilk izleniminizi almak istiyoruz! Ve ilk geri bildiriminizin projeye yapacağınız birçok katkının ilki olmasını istiyoruz.",
+                    "updated": 1639862913082
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Sie müssen kein Starprogrammierer oder professioneller Händler sein, um einen Beitrag zu leisten. Von jedem Nutzer wird erwartet, dass er etwas zurückgibt! Ich sage Ihnen wie!",
                     "updated": 1634820132090
+                },
+                {
+                    "language": "TR",
+                    "text": "Katkıda bulunmak için yıldız programcı veya profesyonel tüccar olmanıza gerek yok. Her kullanıcı katkı sunabilir! Sana nasıl olduğunu söyleyeceğim!",
+                    "updated": 1639862964818
                 }
             ]
         }

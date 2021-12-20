@@ -13,19 +13,66 @@ process.env.DATA_PATH = app.getPath('documents')
 const WINDOW_WIDTH = 1280
 const WINDOW_HEIGHT = 768
 
-let mainWindow, consoleWindow, platform
+let mainWindow, consoleWindow, selectWindow, platform
 
 const port = 34248 // Default HTTP port
 
-run()
+// Check if it's the first time you run this app
+function firstRun() {
+  const configPath = path.join(process.env.DATA_PATH, '/Superalgos_Data/FirstRun');
 
-function run() {
+  if (fs.existsSync(configPath)) {
+    return false;
+  }
+
+  try {
+    fs.writeFileSync(configPath, '');
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      makeDir.sync(path.join(process.env.DATA_PATH, '/Superalgos_Data/FirstRun'));
+      return firstRun();
+    }
+
+    throw error;
+  }
+
+  return true;
+};
+
+// Create a selection window for first run
+function selectionWindow() {
+  let bw_options = {
+    width: WINDOW_WIDTH,
+    height: WINDOW_HEIGHT,
+    resizable: true,
+    webPreferences: {
+      nodeIntegration: false, // is default value after Electron v5
+      contextIsolation: true, // protect against prototype pollution
+      enableRemoteModule: false, // turn off remote
+      preload: path.join(__dirname, "preload.js") // use a preload script
+    }
+  }
+  selectWindow = new BrowserWindow(
+    bw_options
+  )
+  selectWindow.loadFile('./selection.html')
+  selectWindow.on('focus', function () {
+    // Something
+  })
+}
+
+//run()
+
+function run(workspace) {
   const { fork } = require('child_process')
-  platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+  var options = ["noBrowser"]
+  if (workspace) {options.push(workspace)}
+  platform = fork(path.join(__dirname, '/PlatformRoot.js'), options, {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
 
   platform.on('message', _ => {
     openMain()
     openConsoleWindow()
+    if (selectWindow) {selectWindow.close()}
   })
 }
 
@@ -37,6 +84,9 @@ ipcMain.on("toMain", (event, args) => {
         consoleWindow.webContents.send("fromMain", data);
       }
     })
+  } else if (args.includes("workspace-")) {
+    var exchange = args.split('workspace-')[1]
+    run(exchange)
   }
 })
 
@@ -154,6 +204,13 @@ function openConsoleWindow() {
 
 app.on('ready', function () {
   autoUpdater.checkForUpdatesAndNotify()
+  // Check for first run and present selection if true
+  const isFirstRun = firstRun()
+  if (isFirstRun) {
+    selectionWindow()
+  } else {
+    run()
+  }
   //createMainMenus()
 })
 

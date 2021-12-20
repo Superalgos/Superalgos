@@ -27,11 +27,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 3968.232428203754,
-                            "y": 23189.9360306208
+                            "y": 18389.9360306208
                         },
                         "targetPosition": {
                             "x": 4261.676708423895,
-                            "y": 23252.309537866127
+                            "y": 18452.309537866127
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -50,11 +50,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4261.676708423895,
-                        "y": 23252.309537866127
+                        "y": 18452.309537866127
                     },
                     "targetPosition": {
                         "x": 4555.120988644037,
-                        "y": 23314.683045111455
+                        "y": 18514.683045111455
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -82,11 +82,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 4956.599352459352,
-                            "y": 22868.79614982502
+                            "y": 18068.79614982502
                         },
                         "targetPosition": {
                             "x": 4755.860170551695,
-                            "y": 23091.739597468237
+                            "y": 18291.739597468237
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -105,11 +105,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4755.860170551695,
-                        "y": 23091.739597468237
+                        "y": 18291.739597468237
                     },
                     "targetPosition": {
                         "x": 4555.120988644037,
-                        "y": 23314.683045111455
+                        "y": 18514.683045111455
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 4555.120988644037,
-                    "y": 23314.683045111455
+                    "y": 18514.683045111455
                 },
                 "targetPosition": {
                     "x": 4647.826086956522,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -167,11 +167,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 4956.900707893749,
-                                "y": 23004.623750312032
+                                "y": 18204.623750312032
                             },
                             "targetPosition": {
                                 "x": 5133.236283581491,
-                                "y": 23247.328848624515
+                                "y": 18447.328848624515
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -208,11 +208,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 5375.941381893976,
-                            "y": 23070.993272936772
+                            "y": 18270.993272936772
                         },
                         "targetPosition": {
                             "x": 5133.236283581491,
-                            "y": 23247.328848624515
+                            "y": 18447.328848624515
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -235,11 +235,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 5309.571859269233,
-                            "y": 23490.033946936997
+                            "y": 18690.033946936997
                         },
                         "targetPosition": {
                             "x": 5133.236283581491,
-                            "y": 23247.328848624515
+                            "y": 18447.328848624515
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -258,11 +258,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 5133.236283581491,
-                        "y": 23247.328848624515
+                        "y": 18447.328848624515
                     },
                     "targetPosition": {
                         "x": 4890.5311852690065,
-                        "y": 23423.664424312257
+                        "y": 18623.664424312257
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -281,11 +281,11 @@
             "savedPayload": {
                 "position": {
                     "x": 4890.5311852690065,
-                    "y": 23423.664424312257
+                    "y": 18623.664424312257
                 },
                 "targetPosition": {
                     "x": 4647.826086956522,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -303,7 +303,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 1\n}",
+            "config": "{\n    \"percentage\": 20\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -604,7 +604,7 @@
                                             },
                                             "targetPosition": {
                                                 "x": 5681.363558167051,
-                                                "y": 23708.62916553001
+                                                "y": 18908.62916553001
                                             },
                                             "floatingObject": {
                                                 "isPinned": true,
@@ -630,11 +630,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 5955.427195459832,
-                                                "y": 23586.60817260727
+                                                "y": 18786.60817260727
                                             },
                                             "targetPosition": {
                                                 "x": 5681.363558167051,
-                                                "y": 23708.62916553001
+                                                "y": 18908.62916553001
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -695,11 +695,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 5803.384551089792,
-                                                "y": 23982.69280282279
+                                                "y": 19182.69280282279
                                             },
                                             "targetPosition": {
                                                 "x": 5681.363558167051,
-                                                "y": 23708.62916553001
+                                                "y": 18908.62916553001
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -759,11 +759,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 5681.363558167051,
-                                        "y": 23708.62916553001
+                                        "y": 18908.62916553001
                                     },
                                     "targetPosition": {
                                         "x": 5407.299920874271,
-                                        "y": 23830.650158452747
+                                        "y": 19030.650158452747
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -803,11 +803,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 5407.299920874271,
-                                "y": 23830.650158452747
+                                "y": 19030.650158452747
                             },
                             "targetPosition": {
                                 "x": 5133.236283581491,
-                                "y": 23952.671151375485
+                                "y": 19152.671151375485
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -831,11 +831,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 5101.877744601195,
-                            "y": 24251.027719985967
+                            "y": 19451.027719985967
                         },
                         "targetPosition": {
                             "x": 5133.236283581491,
-                            "y": 23952.671151375485
+                            "y": 19152.671151375485
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -854,11 +854,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 5133.236283581491,
-                        "y": 23952.671151375485
+                        "y": 19152.671151375485
                     },
                     "targetPosition": {
                         "x": 4890.5311852690065,
-                        "y": 23776.335575687743
+                        "y": 18976.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -877,11 +877,11 @@
             "savedPayload": {
                 "position": {
                     "x": 4890.5311852690065,
-                    "y": 23776.335575687743
+                    "y": 18976.335575687743
                 },
                 "targetPosition": {
                     "x": 4647.826086956522,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -914,11 +914,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 4369.710792019068,
-                            "y": 24455.950864665636
+                            "y": 19655.950864665636
                         },
                         "targetPosition": {
                             "x": 4462.415890331553,
-                            "y": 24170.63390977709
+                            "y": 19370.63390977709
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -937,11 +937,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 4462.415890331553,
-                        "y": 24170.63390977709
+                        "y": 19370.63390977709
                     },
                     "targetPosition": {
                         "x": 4555.120988644037,
-                        "y": 23885.316954888545
+                        "y": 19085.316954888545
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -960,11 +960,11 @@
             "savedPayload": {
                 "position": {
                     "x": 4555.120988644037,
-                    "y": 23885.316954888545
+                    "y": 19085.316954888545
                 },
                 "targetPosition": {
                     "x": 4647.826086956522,
-                    "y": 23600
+                    "y": 18800
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -983,11 +983,11 @@
         "savedPayload": {
             "position": {
                 "x": 4647.826086956522,
-                "y": 23600
+                "y": 18800
             },
             "targetPosition": {
                 "x": 4347.826086956522,
-                "y": 23600
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1010,11 +1010,11 @@
         "savedPayload": {
             "position": {
                 "x": 4047.826086956522,
-                "y": 23600
+                "y": 18800
             },
             "targetPosition": {
                 "x": 4347.826086956522,
-                "y": 23600
+                "y": 18800
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1033,11 +1033,11 @@
     "savedPayload": {
         "position": {
             "x": 4347.826086956522,
-            "y": 23600
+            "y": 18800
         },
         "targetPosition": {
             "x": 4347.826086956522,
-            "y": 23600
+            "y": 18800
         },
         "floatingObject": {
             "isPinned": false,

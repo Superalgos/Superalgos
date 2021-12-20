@@ -1,7 +1,14 @@
 {
     "type": "Status",
     "definition": {
-        "text": "Status refers to the state of the object represented by the parent node at the moment of evaluation."
+        "text": "Status refers to the state of the object represented by the parent node at the moment of evaluation.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Status относится к состоянию объекта, представленного родительским узлом в момент проведения оценки.",
+                "updated": 1639548483599
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "There are three possible status:"
+            "text": "There are three possible status:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть три возможных статуса:",
+                    "updated": 1639548504077
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Not Open: the object is not open at the current candle."
+            "text": "Not Open: the object is not open at the current candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Not Open: объект не открыт на текущей свече.",
+                    "updated": 1639548523752
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Open: the object is open at the current candle."
+            "text": "Open: the object is open at the current candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Open: объект открыт на текущей свече.",
+                    "updated": 1639548533038
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Closed: the object closes at the current candle."
+            "text": "Closed: the object closes at the current candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Closed: объект закрывается на текущей свече.",
+                    "updated": 1639548553920
+                }
+            ]
         },
         {
             "style": "Block",
@@ -32,17 +67,38 @@
         {
             "style": "Title",
             "text": "Status Configuration",
-            "updated": 1609880144610
+            "updated": 1609880144610,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Status",
+                    "updated": 1639548577150
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609880158050
+            "updated": 1609880158050,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639548583943
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609880181465
+            "updated": 1609880181465,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1639548593623
+                }
+            ]
         }
     ]
 }

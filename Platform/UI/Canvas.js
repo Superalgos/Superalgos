@@ -67,6 +67,7 @@ function newCanvas() {
                 browserCanvas.removeEventListener('mouseup', onMouseUp, false)
                 browserCanvas.removeEventListener('mousemove', onMouseMove, false)
                 browserCanvas.removeEventListener('click', onMouseClick, false)
+                browserCanvas.removeEventListener('dblclick', onDoubleClick, false)
                 browserCanvas.removeEventListener('mouseout', onMouseOut, false)
 
                 browserCanvas.removeEventListener('dragenter', onDragEnter, false)
@@ -247,6 +248,7 @@ function newCanvas() {
                 browserCanvas.addEventListener('mouseup', onMouseUp, false)
                 browserCanvas.addEventListener('mousemove', onMouseMove, false)
                 browserCanvas.addEventListener('click', onMouseClick, false)
+                browserCanvas.addEventListener('dblclick', onDoubleClick, false)
                 browserCanvas.addEventListener('mouseout', onMouseOut, false)
 
                 browserCanvas.addEventListener('mousewheel', onMouseWheel, false) // IE9, Chrome, Safari, Opera
@@ -802,7 +804,9 @@ function newCanvas() {
                     if (spaceInstance === undefined) { continue }
 
                     /* Store clickable container for onMouseClick() */
-                    mouseDownContainer = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+                    if (spaceInstance.getContainer !== undefined) {
+                        mouseDownContainer = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.MOUSE_CLICK)
+                    }
 
                     /*
                     Here we manage a few exceptional behaviours. Specifically with the
@@ -928,6 +932,46 @@ function newCanvas() {
 
         } catch (err) {
             if (ERROR_LOG === true) { logger.write('[ERROR] onMouseClick -> err = ' + err.stack) }
+        }
+    }
+
+    function onDoubleClick(event) {
+        try {
+            if (ignoreNextClick === true) {
+                ignoreNextClick = false
+                return
+            }
+
+            let point = event
+            point.x = event.pageX
+            point.y = event.pageY - CURRENT_TOP_MARGIN
+
+            let container
+            
+            for (let i = PROJECTS_SCHEMA.length - 1; i >= 0; i--) {
+                let projectDefinition = PROJECTS_SCHEMA[i]
+                let projectInstance = UI.projects[projectDefinition.propertyName]
+                if (projectInstance === undefined) { continue }
+
+                if (projectDefinition.UI === undefined) { continue }
+                if (projectDefinition.UI.spaces === undefined) { continue }
+                for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
+                    // We can just use the single-click priority map
+                    let spaceInstance = projectInstance.events.onMouseClickMap.get(j)
+                    if (spaceInstance === undefined) { continue }
+
+                    if (spaceInstance.getContainer === undefined) { continue }
+                    container = spaceInstance.getContainer(point, GET_CONTAINER_PURPOSE.DOUBLE_CLICK)
+
+                    if (container !== undefined && container.isDoubleClickable === true) {
+                        container.eventHandler.raiseEvent('onDoubleClick', point)
+                        return
+                    }
+                }
+            }
+
+        } catch (err) {
+            if (ERROR_LOG === true) { logger.write('[ERROR] onDoubleClick -> err = ' + err.stack) }
         }
     }
 

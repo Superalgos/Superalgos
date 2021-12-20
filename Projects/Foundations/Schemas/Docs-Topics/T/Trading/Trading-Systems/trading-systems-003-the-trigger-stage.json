@@ -4,7 +4,14 @@
     "type": "The Trigger Stage",
     "definition": {
         "text": "The trigger stage features the definitions of the Trigger-On Event, Trigger-Off Event, and Take Position Event.",
-        "updated": 1610139390213
+        "updated": 1610139390213,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Стадия запуска включает в себя события Trigger-On Event, Trigger-Off Event и Take Position Event.",
+                "updated": 1639734147778
+            }
+        ]
     },
     "paragraphs": [
         {

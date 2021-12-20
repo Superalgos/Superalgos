@@ -22,11 +22,25 @@
         },
         {
             "style": "Text",
-            "text": "Polygons are defined by two or more vertices, which map points in a charts point. The graphic representation of polygons originates in styles applied to either or both polygon bodies and polygon borders."
+            "text": "Polygons are defined by two or more vertices, which map points in a charts point. The graphic representation of polygons originates in styles applied to either or both polygon bodies and polygon borders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Полигоны определяются двумя или более вершинами, которые отображают точки в точке диаграммы. Графическое представление полигонов создается стилями, применяемыми к телу полигонов Polygon Body и их границам.",
+                    "updated": 1639728182619
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The order in which polygons are ordered around the parent shapes node determines the order in which they are drawn on the screen. In cases on which polygons intersect, those drawn last are drawn on top of those drawn first."
+            "text": "The order in which polygons are ordered around the parent shapes node determines the order in which they are drawn on the screen. In cases on which polygons intersect, those drawn last are drawn on top of those drawn first.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Порядок, в котором полигоны располагаются вокруг родительского узла фигуры, определяет порядок их отрисовки на экране. В случаях, когда полигоны пересекаются, полигоны, нарисованные последними, рисуются поверх полигонов, нарисованных первыми.",
+                    "updated": 1639727439429
+                }
+            ]
         }
     ]
 }

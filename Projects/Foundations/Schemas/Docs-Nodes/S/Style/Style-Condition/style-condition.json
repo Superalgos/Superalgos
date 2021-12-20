@@ -1,7 +1,14 @@
 {
     "type": "Style Condition",
     "definition": {
-        "text": "A style condition is a rule that allows applying an alternative style in cases where the rule validates true."
+        "text": "A style condition is a rule that allows applying an alternative style in cases where the rule validates true.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Style Condition - это правило, которое позволяет применять альтернативный стиль в случаях, когда правило является истинным.",
+                "updated": 1639729695532
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "Style conditions offer a way to introduce additional intelligence on the visual representation of data by using styles that respond to certain conditions."
+            "text": "Style conditions offer a way to introduce additional intelligence on the visual representation of data by using styles that respond to certain conditions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Условия стиля дают возможность привнести дополнительный смысл в визуальное представление данных, используя стили, которые реагируют на определенные условия.",
+                    "updated": 1639729776142
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, the Percentage Bandwidth plotter module assigns a different color to the Moving Average line when it's going up or down."
+            "text": "For example, the Percentage Bandwidth plotter module assigns a different color to the Moving Average line when it's going up or down.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, модуль плоттера Percentage Bandwidth присваивает другой цвет линии Moving Average, когда она идет вверх или вниз.",
+                    "updated": 1639729801150
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To do that, a style condition features it's own style so that, when the condition validates true, the new style is applied."
+            "text": "To do that, a style condition features it's own style so that, when the condition validates true, the new style is applied.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этого условие стиля включает свой собственный стиль, чтобы при подтверждении истинности условия применялся новый стиль.",
+                    "updated": 1639729886531
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Style conditions me be created in a sequence so that the style may continue changing upon the validation of a series of style conditions. The system evaluates all style conditions in a sequential order determined by their position in the rotational symmetry around the parent node. Each condition that is met may modify or add up to the resulting style that is rendered on screen. That is, the final style is the result of the sequential application of the styles defined for each condition that is met, on top of the default style."
+            "text": "Style conditions me be created in a sequence so that the style may continue changing upon the validation of a series of style conditions. The system evaluates all style conditions in a sequential order determined by their position in the rotational symmetry around the parent node. Each condition that is met may modify or add up to the resulting style that is rendered on screen. That is, the final style is the result of the sequential application of the styles defined for each condition that is met, on top of the default style.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Условия стиля могут быть созданы в последовательности, чтобы стиль мог продолжать изменяться после подтверждения ряда условий стиля. Система оценивает все условия стиля в последовательном порядке, определяемом их положением во вращательной симметрии вокруг родительского узла. Каждое выполненное условие может изменить или дополнить результирующий стиль, который отображается на экране. То есть, конечный стиль является результатом последовательного применения стилей, определенных для каждого выполненного условия, поверх стиля по умолчанию.",
+                    "updated": 1639729938695
+                }
+            ]
         },
         {
             "style": "Block",
@@ -31,15 +66,36 @@
         {
             "style": "Title",
             "text": "Style Condition Configuration",
-            "updated": 1609860654525
+            "updated": 1609860654525,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Style Condition",
+                    "updated": 1639729956329
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Style conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module."
+            "text": "Style conditions work pretty much like conditions used on trading systems. The main difference is that the variables available are solely those provided by the bot product definition that reference the corresponding plotter module.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Условия стиля работают практически так же, как условия, используемые в торговых системах. Основное отличие заключается в том, что доступными переменными являются только те, которые предусмотрены определением продукта Product Definition бота, ссылающегося на соответствующий модуль плоттера Plotter Module.",
+                    "updated": 1639730028138
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To continue the example of the Percentage Bandwidth plotter, the following is the condition that determines the newly added styles:"
+            "text": "To continue the example of the Percentage Bandwidth plotter, the following is the condition that determines the newly added styles:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы продолжить пример с плоттером Percentage Bandwidth, ниже приведено условие, определяющее новые дополнительные стили:",
+                    "updated": 1639730057511
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -47,11 +103,25 @@
         },
         {
             "style": "Text",
-            "text": "As hinted earlier, when the condition is met, the default style is modified by a second style that may be created on the menu of the style condition node."
+            "text": "As hinted earlier, when the condition is met, the default style is modified by a second style that may be created on the menu of the style condition node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как уже говорилось ранее, при выполнении условия стиль по умолчанию модифицируется вторым стилем, который может быть создан в меню узла Style Condition.",
+                    "updated": 1639730117613
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the atMousePosition property may no longer be defined:"
+            "text": "The definition of secondary styles is slightly different from that of the default style, as&mdash;in such cases&mdash;the atMousePosition property may no longer be defined:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение дополнительных стилей несколько отличается от определения стиля по умолчанию, поскольку в таких случаях свойство atMousePosition может быть не определено:",
+                    "updated": 1639730219505
+                }
+            ]
         },
         {
             "style": "Json",

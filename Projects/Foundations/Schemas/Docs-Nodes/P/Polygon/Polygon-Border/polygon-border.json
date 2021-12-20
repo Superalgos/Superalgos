@@ -1,7 +1,14 @@
 {
     "type": "Polygon Border",
     "definition": {
-        "text": "A polygon border is a shape defined by at least two vertices used to draw lines or to apply a style to the stroke of a closed shape."
+        "text": "A polygon border is a shape defined by at least two vertices used to draw lines or to apply a style to the stroke of a closed shape.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Polygon Border - это фигура, определяемая как минимум двумя вершинами, используемая для рисования линий или применения стиля к обводке замкнутой фигуры",
+                "updated": 1639728753249
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "A polygon border needs at least two vertices to be defined. A border serves to create a stroke for the outlines of any sort of polygon, either closed or open, by giving it a style."
+            "text": "A polygon border needs at least two vertices to be defined. A border serves to create a stroke for the outlines of any sort of polygon, either closed or open, by giving it a style.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для определения границы полигона необходимо наличие как минимум двух вершин. Граница служит для создания обводки контуров любого многоугольника, как замкнутого, так и открытого, придавая ему стиль.",
+                    "updated": 1639728788537
+                }
+            ]
         }
     ]
 }

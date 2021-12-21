@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Мы почти на месте. Теперь нажмите Build Profile и посмотрите, как происходит волшебство. Правильно, вы только что создали свой профиль!",
                 "updated": 1639047257246
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind fast am Ziel. Klicken Sie jetzt auf <i>Build Profile</i> und beobachten Sie, wie die Magie geschieht. Richtig, Sie haben gerade Ihr Profil erstellt!",
+                "updated": 1640073239787
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Хотя нам не пришлось беспокоиться о создании вашего профиля, за кулисами происходили довольно удивительные вещи.",
                     "updated": 1639047272620
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl wir bei der Erstellung Ihres Profils nicht ins Schwitzen gekommen sind, sind hinter den Kulissen einige erstaunliche Dinge passiert.",
+                    "updated": 1640073250598
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Конструктор только что сгенерировал ваш профиль пользователя и либо связал ваш адрес, либо создал уникальный адрес Governance Address токенов SA.",
                     "updated": 1639047406304
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Konstruktor hat gerade Ihr Benutzerprofil erstellt und entweder Ihre Adresse verknüpft oder eine eindeutige SA Token Governance Address erstellt.",
+                    "updated": 1640073263975
                 }
             ]
         }

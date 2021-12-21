@@ -15,11 +15,6 @@
                 "text": "In diesem Tutorial zeige ich dir, wie die Layer des Trading Bot funktionieren! Ich meine die, die in den Charts zu sehen sind und mit allen Arten von Trading Sessions verbunden sind!",
                 "updated": 1622984863588,
                 "style": "Definition"
-            },
-            {
-                "language": "TR",
-                "text": "Bu eğitimde size Trading Bot'un katmanlarının nasıl çalıştığını göstereceğim! Her türlü alım satım seansıyla ilişkili grafiklerde gösterilenleri kastediyorum!",
-                "updated": 1640083231402
             }
         ]
     },
@@ -34,11 +29,6 @@
                     "text": "Legen wir los! Der Trading Bot gibt Dutzende von Produkten aus, die alle in drei separaten Layer Managers (\"Ebenenmanagern\") dargestellt werden:",
                     "updated": 1622984878617,
                     "style": "Text"
-                },
-                {
-                    "language": "TR",
-                    "text": "Hadi devam edelim! Alım Satım Botu ( Trading Bot ) düzinelerce ürün üretir ve bu ürünlerin hepsi üç ayrı Katman Yöneticisinde ( Layer Manager ) bulunur:",
-                    "updated": 1640083642188
                 }
             ]
         },
@@ -52,11 +42,6 @@
                     "text": "Trading Engine: Verfügt über Ebenen, die das Reporting der Werte von Knoten in der Trading Engine-Hierarchie ein- und ausschalten.",
                     "updated": 1622984891979,
                     "style": "List"
-                },
-                {
-                    "language": "TR",
-                    "text": "Trading Engine: Trading Engine hiyerarşisindeki düğümlerin değerlerinin raporlanmasını açan ve kapatan katmanlara sahiptir.",
-                    "updated": 1640083350330
                 }
             ]
         },
@@ -70,11 +55,6 @@
                     "text": "Trading System: Enthält Ebenen, die mehrere Arten von Berichten auf der Ebene des Handelssystems ein- und ausschalten.",
                     "updated": 1622984907055,
                     "style": "List"
-                },
-                {
-                    "language": "TR",
-                    "text": "Trading System: Alım Satım Sistemi ( Trading System ) düzeyinde birden çok rapor türünü açan ve kapatan katmanlar içerir.",
-                    "updated": 1640083401336
                 }
             ]
         },
@@ -88,11 +68,6 @@
                     "text": "Simulationsobjekte: Enthält Ebenen, die das Rendern von visuellen Informationen über die Diagramme beeinflussen.",
                     "updated": 1622984919431,
                     "style": "List"
-                },
-                {
-                    "language": "TR",
-                    "text": "Simulation Objects: grafikler üzerinde görsel bilgilerin işlenmesini etkileyen katmanları içerir.",
-                    "updated": 1640083534642
                 }
             ]
         }

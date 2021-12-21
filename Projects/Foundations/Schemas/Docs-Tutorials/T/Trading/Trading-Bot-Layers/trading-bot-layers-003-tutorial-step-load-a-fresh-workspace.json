@@ -14,11 +14,6 @@
                 "text": "Aber bevor wir weitergehen, lasst uns sicherstellen, dass wir mit einem frischen Workspace beginnen!\n",
                 "updated": 1622984994787,
                 "style": "Definition"
-            },
-            {
-                "language": "TR",
-                "text": "Ancak daha ileri gitmeden önce, yeni bir çalışma alanıyla başladığımızdan emin olalım!",
-                "updated": 1640084888223
             }
         ]
     },
@@ -33,11 +28,6 @@
                     "text": "Workspaces, die als Plugin Workspaces gekennzeichnet sind, werden mit der Software ausgeliefert. Die übrigen gehören dir. Wenn du einen Plugin Workspace öffnest, wird eine Kopie davon für dich erstellt. Plugins bleiben immer unverändert.",
                     "updated": 1622985089032,
                     "style": "Note"
-                },
-                {
-                    "language": "TR",
-                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) olarak işaretlenen çalışma alanları ( Workspaces ), yazılımla birlikte gönderilir.  Bir eklenti çalışma alanını açtığınızda, sizin için bu alanın bir kopyası yapılır. Eklentiler ( Plugins ) her zaman değişmeden kalır.",
-                    "updated": 1640084984802
                 }
             ]
         },
@@ -51,11 +41,6 @@
                     "text": "Dieses Tutorial erfordert den Start mit einem frischen Plugin Weak-hands Buster v2 Workspace. Wenn du also das Plugin Workspace nicht direkt vor dem Start geladen hast, wähle es bitte aus dem Workspace-Panel auf der linken Seite aus und komm zurück zu mir, nachdem der Workspace geladen wurde - klicke einfach auf Resume in meinem Menü!",
                     "updated": 1622985298857,
                     "style": "Important"
-                },
-                {
-                    "language": "TR",
-                    "text": "Bu öğretici, yeni bir Plugin Weak-hands Buster v2 çalışma alanıyla başlamayı gerektirir. Bu nedenle, çalışma alanını başlamadan hemen önce yüklemediyseniz, lütfen soldaki çalışma alanı panelinden Plugin Weak-hands Buster v2 eklentisini seçin ve çalışma alanı yüklendikten sonra bu öğreticiye geri dönün - menümde Sürdür'ü (Resume) tıklamanız yeterli!",
-                    "updated": 1640085109208
                 }
             ]
         }

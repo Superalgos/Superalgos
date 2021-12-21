@@ -14,11 +14,6 @@
                 "text": "Ich habe dir noch etwas zu sagen, bevor wir weitermachen, aber ich finde nicht die richtigen Worte... Ich möchte einfach nicht wie ein Kontrollfreak rüberkommen!",
                 "updated": 1622985341980,
                 "style": "Definition"
-            },
-            {
-                "language": "TR",
-                "text": "Devam etmeden önce sana söylemem gereken bir şey var ama doğru kelimeleri bulmakta zorlanıyorum... Bir kontrol manyağı olduğumu düşünmeni istemem!",
-                "updated": 1640085210216
             }
         ]
     },
@@ -32,11 +27,6 @@
                     "text": "Es ist nicht so, dass du etwas kaputt machen könntest oder so... überhaupt nichts zu befürchten... es ist nur so... Ich verlasse mich auf den frischen Zustand des Workspaces, um vorherzusagen, was du sehen wirst, wenn ich dich an Orte bringe. Ich kommentiere vielleicht, was du auf der Reise erleben wirst, und nutze meine Vorhersagen, um die Tour saftiger und interessanter zu machen! Also …",
                     "updated": 1622985357489,
                     "style": "Text"
-                },
-                {
-                    "language": "TR",
-                    "text": "Herhangi bir şey bozabileceğiniz birşey değil... Bu yüzden korkacak bir şey yok...Sizi bir yere götürdüğümde ne göreceğinizden emin olmak için yeni bir çalışma alanına güveniyorum. Yolculuk boyunca deneyimleyeceğiniz şeyler hakkında yorum yapabilirim ve turu daha çekici ve ilginç hale getirmek için tahminlerimi kullanabilirim! Böyle...",
-                    "updated": 1640086101086
                 }
             ]
         },
@@ -49,11 +39,6 @@
                     "text": "Na schön! Mach, was du willst! Wenn du jemals das Gefühl hast, dass ich dich abgehängt habe, fang einfach mit einem neuen Workspace an!",
                     "updated": 1622985372686,
                     "style": "Callout"
-                },
-                {
-                    "language": "TR",
-                    "text": "Ben söylemedikçe çok fazla oyalanma! Yani, etrafına bakabilirsin ama ortalığı dağıtma! Ne istiyorsan onu yap! Eğer birşeyleri bozduğunu hisseder ve korkarsan hiç panik yapma. Yeni bir çalışma alanıyla baştan başla!",
-                    "updated": 1640086324660
                 }
             ]
         }

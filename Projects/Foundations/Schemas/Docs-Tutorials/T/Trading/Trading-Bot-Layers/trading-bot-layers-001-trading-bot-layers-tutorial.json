@@ -16,11 +16,6 @@
                 "language": "ES",
                 "text": "Este tutorial lo guía a través de las capas que ofrece el Trading Bot oen los gráficos, en particular, las capas asociadas con todo tipo de sesiones de Trading. Ejecutará una prueba retrospectiva del sistema BTC-USDT - Weak-hands Buster - WHB de trading y explorar alguno de los trades mientras aprende como usar las capas.",
                 "updated": 1636726168093
-            },
-            {
-                "language": "TR",
-                "text": "Bu eğitim, Ticaret Botu tarafından grafiklerde kullanıma sunulan, her türlü ticaret oturumu ile alakalı katmanlarda size yol gösterir. Bu öğreticide, BTC-USDT - Weak-hands Buster - WHB ticaret sisteminin geriye dönük testini yapacak ve katmanları nasıl kullanacağınızı öğrenirken bazı işlemleri keşfedeceksiniz.",
-                "updated": 1640082891515
             }
         ]
     },
@@ -28,25 +23,11 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617111575959,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Bu Eğitim Hakkında",
-                    "updated": 1640082912626
-                }
-            ]
+            "updated": 1617111575959
         },
         {
             "style": "List",
-            "text": "Workspace: Weak-Hands Buster v2 Demo Plugin Workspace.",
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Çalışma alanı ( Workspace ) : Weak-Hands Buster v2 Demo Plugin Workspace.",
-                    "updated": 1640082943833
-                }
-            ]
+            "text": "Workspace: Weak-Hands Buster v2 Demo Plugin Workspace."
         },
         {
             "style": "List",

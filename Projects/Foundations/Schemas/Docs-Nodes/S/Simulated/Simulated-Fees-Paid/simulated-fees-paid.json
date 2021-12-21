@@ -1,7 +1,14 @@
 {
     "type": "Simulated Fees Paid",
     "definition": {
-        "text": "The simulated fees paid node allows setting a specific fee for the simulation of each order, overriding the fee structure parameter of the trading session."
+        "text": "The simulated fees paid node allows setting a specific fee for the simulation of each order, overriding the fee structure parameter of the trading session.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Simulated Fees Paid позволяет установить конкретную комиссию для симуляции каждого ордера, переопределяя параметр комиссии структуры торговой сессии.",
+                "updated": 1639846497793
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The fee structure parameter of the trading session allows setting a blanket fee structure (maker and taker) for all orders in the trading system. The simulated fees paid node allows control on a per-order basis, so each order may be simulated with a specific fee."
+            "text": "The fee structure parameter of the trading session allows setting a blanket fee structure (maker and taker) for all orders in the trading system. The simulated fees paid node allows control on a per-order basis, so each order may be simulated with a specific fee.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр структуры комиссии торговой сессии позволяет установить общую структуру комиссии (maker и taker) для всех ордеров в торговой системе. Узел имитации уплаченных комиссионных сборов позволяет управлять на основе каждого ордера, так что каждый ордер может быть имитирован с определенной комиссией.",
+                    "updated": 1639846589801
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If the node is not present or the parameter is undefined, the fee structure parameter set up for the trading session is used."
+            "text": "If the node is not present or the parameter is undefined, the fee structure parameter set up for the trading session is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если узел отсутствует или параметр не определен, используется параметр структуры комиссии, установленный для торговой сессии.",
+                    "updated": 1639846603337
+                }
+            ]
         },
         {
             "style": "Block",
@@ -23,16 +44,37 @@
         {
             "style": "Title",
             "text": "Simulated Fees Paid Configuration",
-            "updated": 1609607768058
+            "updated": 1609607768058,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Simulated Fees Paid",
+                    "updated": 1639846617678
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609607777687
+            "updated": 1609607777687,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639846624805
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentage is the percentage to be applied to calculate the fees for the specific order."
+            "text": "percentage is the percentage to be applied to calculate the fees for the specific order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percentage - это процент, который будет применяться для расчета комиссии для конкретного ордера.",
+                    "updated": 1639846702338
+                }
+            ]
         }
     ]
 }

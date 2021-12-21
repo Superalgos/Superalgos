@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел JavaScript Code может содержать любой действительный фрагмент кода JavaScript.",
                 "updated": 1638972934906
+            },
+            {
+                "language": "DE",
+                "text": "Die JavaScript Code Node kann einen beliebigen Ausschnitt eines gültigen JavaScript Skripts enthalten.",
+                "updated": 1639913649455
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Система предоставляет разработчикам большую гибкость, так как разрешен весь допустимый код JavaScript.",
                     "updated": 1638972960809
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System bietet Entwicklern große Flexibilität, da jeder gültige JavaScript-Code zulässig ist.",
+                    "updated": 1639913683475
                 }
             ]
         }

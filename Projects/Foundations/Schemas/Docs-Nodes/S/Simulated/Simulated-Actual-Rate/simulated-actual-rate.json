@@ -1,7 +1,14 @@
 {
     "type": "Simulated Actual Rate",
     "definition": {
-        "text": "The simulated actual rate node allows setting a specific rate value for the simulation of each order, overriding the slippage parameter of the trading session."
+        "text": "The simulated actual rate node allows setting a specific rate value for the simulation of each order, overriding the slippage parameter of the trading session.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Simulated Actual Rate позволяет установить конкретное значение ставки для имитации каждого ордера, переопределяя параметр проскальзывания торговой сессии.",
+                "updated": 1639846326204
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The slippage parameter of the trading session allows setting a blanket slippage for all orders in the trading system. The simulated actual rate node allows control on a per-order basis, so each order may be simulated with a specific rate."
+            "text": "The slippage parameter of the trading session allows setting a blanket slippage for all orders in the trading system. The simulated actual rate node allows control on a per-order basis, so each order may be simulated with a specific rate.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр проскальзывания торговой сессии позволяет установить общее проскальзывание для всех ордеров в торговой системе. Узел имитации реальной ставки позволяет управлять на основе каждого ордера, поэтому для каждого ордера может быть смоделирована определенная ставка.",
+                    "updated": 1639846367023
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If the node is not present or the parameter is undefined, the slippage parameter set up for the trading session is used."
+            "text": "If the node is not present or the parameter is undefined, the slippage parameter set up for the trading session is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если узел отсутствует или параметр не определен, используется параметр проскальзывания, установленный для данной торговой сессии.",
+                    "updated": 1639846393863
+                }
+            ]
         }
     ]
 }

@@ -2,7 +2,8 @@ import './PostsFeed.css';
 import React, {useEffect, useState} from 'react';
 import {Stack} from "@mui/material";
 import Post from "../post/Post";
-import {getPosts, STATUS_OK} from "../../api/httpService";
+import { STATUS_OK } from "../../api/httpConfig";
+import { getPosts } from "../../api/post.httpService";
 
 const PostsFeed = () => {
     const [posts, setPosts] = useState([]);

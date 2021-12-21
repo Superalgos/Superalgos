@@ -2,7 +2,8 @@ import "./SuggestedUsers.css"
 import React, {useEffect, useState} from 'react';
 import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
 import {Stack} from "@mui/material";
-import {getProfiles, STATUS_OK} from "../../api/httpService";
+import {STATUS_OK} from "../../api/httpConfig";
+import { getProfiles } from "../../api/profile.httpService";
 import UserCard from "../User/UserCard";
 
 

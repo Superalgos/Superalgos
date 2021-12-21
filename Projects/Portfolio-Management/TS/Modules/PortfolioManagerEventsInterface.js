@@ -9,10 +9,12 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
         finalize: finalize
     }
 
+    var MANAGERS_KEY;
+
     return thisObject
 
     function initialize() {
-
+        MANAGERS_KEY = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY;
     }
 
     function finalize() {
@@ -39,16 +41,49 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     onRequest)
         
                 function onRequest() {
-                    message = arguments[0].event
-                    let response = 'This is the response'///portfolioSystem.newRequest(message)
+                    let message  = arguments[0].event;
+                    message.returnToCallerId = arguments[0].callerId;
+                    inbound(message);
+                    
+                    /*let response = 'This is the response'///portfolioSystem.newRequest(message)
         
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                         SESSION_KEY,
                         'Response From Profile Manager',
                         response
-                    )
+                    )*/
                 }
             }            
         }
+    }
+
+    function inbound(message) {
+        // First, listen for processed response:
+        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
+            MANAGERS_KEY,
+            message.returnToCallerId,
+            undefined,
+            undefined,
+            undefined,
+            outbound
+        );
+
+        // Second, hand off event to PortfolioManager BotModule:
+        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
+            MANAGERS_KEY,
+            message.question,
+            message
+        );
+    }
+
+    function outbound() {
+        let message = arguments[0];
+
+
+        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
+            message.event.returnToCallerId,
+            'Response From Portfolio Manager',
+            message.event
+        )
     }
 }

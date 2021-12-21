@@ -33,15 +33,17 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             return response
         }
 
-        if (eventStatus === true) {
+        if ((eventStatus == true && eventNode.type !== 'Trigger Off Event') ||
+            (eventStatus == false && eventNode.type === 'Trigger Off Event')) {
             /*
             First we will check if the Portfolio Manager confirms this event
             can be raised.
             */
             if (eventNode.askPortfolioEventsManager.confirmEvent !== undefined) {
                 let message = {
-                    question: "Confirm This Event Can Be Raised",
-                    event: eventNode.type
+                    question: "Confirm This Event",
+                    event: eventNode.type,
+                    eventNodeId: eventNode.id
                 }
                 response = await portfolioManagerEventsClient.sendMessage(message)
             }

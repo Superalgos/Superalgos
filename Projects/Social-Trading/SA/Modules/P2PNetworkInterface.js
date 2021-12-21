@@ -34,7 +34,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         // DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
     }
 
-    async function signalReceived(signalMessage) {
-        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived(signalMessage)
+    async function signalReceived(signal) {
+        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived(signal)
     }
 }

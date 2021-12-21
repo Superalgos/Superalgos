@@ -155,17 +155,17 @@ exports.newTaskServer = function newTaskServer() {
                     ) {
                         return
                     }
-                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE =
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
                         SA.projects.openStorage.modules.openStorageClient.newOpenStorageModulesOpenStorageClient()
-                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.initialize()
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.initialize()
 
                     //TEST IT FROM HERE.
 
                     //let data = "This is the File Content, test 1 file per second."
 
-                    //TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.persit(data)
+                    //TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(data)
 
-                    //let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.loadFile(fileName, filePath)
+                    //let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(fileName, filePath)
                     //console.log(receivedFileContent)
                 }
 

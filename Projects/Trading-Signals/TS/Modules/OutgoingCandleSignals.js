@@ -18,14 +18,13 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
         socialTradingBotsMap = undefined
     }
 
-    function broadcastSignal(signalMessage, socialTradingBot) {
+    function broadcastSignal(tradingSignalMessage, socialTradingBot) {
 
         let candleSignals = socialTradingBotsMap.get(socialTradingBot.id)
         if (candleSignals === undefined) { 
             candleSignals = [] 
             socialTradingBotsMap.set(socialTradingBot.id, candleSignals)
         }
-
         /*
         We are going to accumulate all the signals that are not the 
         "candle signal", which menas the signal that represents that 
@@ -34,11 +33,11 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
         Once we receive the "candle Signal", then we send the whole package
         to the Open Storage.
         */
-        if (signalMessage.signal.source.tradingSystem.node.type !== 'Trading System') {
-            candleSignals.push(signalMessage)
+        if (tradingSignalMessage.tradingSignal.source.tradingSystem.node.type !== 'Trading System') {
+            candleSignals.push(tradingSignalMessage)
         } else {
-            candleSignals.push(signalMessage)
-            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE.persit(candleSignals, socialTradingBot)
+            candleSignals.push(tradingSignalMessage)
+            TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(candleSignals, socialTradingBot)
             socialTradingBotsMap.delete(socialTradingBot.id)
         }
     }
@@ -59,7 +58,7 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
         if (socialTradingBot === undefined) { return }
         if (socialTradingBot.signingAccount === undefined) { return }
 
-        let signalMessage = {
+        let signal = {
             fileKey: fileKey,
             broadcaster: {
                 userApp: {
@@ -77,9 +76,9 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
             }
         }
 
-        signalMessage.signatures.userApp = web3.eth.accounts.sign(JSON.stringify(signalMessage.fileKey), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
-        signalMessage.signatures.socialTradingBot = web3.eth.accounts.sign(JSON.stringify(signalMessage.fileKey), SA.secrets.signingAccountSecrets.map.get(socialTradingBotCodeName).privateKey)
+        signal.signatures.userApp = web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
+        signal.signatures.socialTradingBot = web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(socialTradingBotCodeName).privateKey)
 
-        await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signalMessage)
+        await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signal)
     }
 }

@@ -47,7 +47,7 @@ exports.newTradingSignalsModulesOutgoingTradingSignals = function (processIndex)
             This is the signal message we are going to send.
             */
             let tradingSignalMessage = {
-                signal: {
+                tradingSignal: {
                     uniqueId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                     timestamp: (new Date()).valueOf(),
                     source: {

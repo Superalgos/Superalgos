@@ -23,45 +23,56 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
         keysByCandle = undefined
     }
 
-    function signalReceived(signalMessage) {
+    async function signalReceived(signal) {
+        /*
+        We will run some validations to be sure the signal received is legit.
+        */
+        let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signal)
+        if (response !== undefined) {
+            console.log('[WARN] Signal received could not be accepted -> cause = ' + response.message)
+            return
+        }
         /*
         What we have just received are not Trading Signals, but a Signal Meesage
         that represents the File Key needed to locate and open a file with all the
         trading signals stored at the open internet. To get the trading signals
         we will ask them to the Open Storage.
         */
-        signalMessage.fileKey
+        let fileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(signal.fileKey)
+        let file = JSON.parse(fileContent)
+        let recordsLoaded = file.content
 
-
-
-        /*
-        We will run some validations to be sure the signal received is legit.
-        */
-        if (SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signalMessage) !== undefined) {
-            console.log('[WARN] Signal received could not be accepted -> cause = ' + response.message)
-            return
+        for (let i = 0; i < recordsLoaded.length; i++) {
+            let candleSignals = recordsLoaded[i]
+            for (let j = 0; j < candleSignals.length; j++) {
+                let tradingSignalMessage = candleSignals[j]
+                tradingSignalMessageReceived(tradingSignalMessage)
+            }
         }
-        /*
-        Next, we will add the signal to an array of signals received from the same Social Trading Bot / Signal Definition.
-        */
-        let key =
-            signalMessage.signal.source.tradingSystem.node.candle.begin + '-' +
-            signalMessage.signal.source.tradingSystem.node.candle.end + '-' +
-            signalMessage.signal.signalDefinition.id
 
-        let signals = signalsByCandleAndSignalDefinitionId.get(key)
-        if (signals === undefined) { signals = [] }
-        signals.push(signalMessage.signal)
-        signalsByCandleAndSignalDefinitionId.set(key, signals)
+        function tradingSignalMessageReceived(tradingSignalMessage) {
+            /*
+            Next, we will add the signal to an array of signals received from the same Social Trading Bot / Signal Definition.
+            */
+            let key =
+                tradingSignalMessage.tradingSignal.source.tradingSystem.node.candle.begin + '-' +
+                tradingSignalMessage.tradingSignal.source.tradingSystem.node.candle.end + '-' +
+                tradingSignalMessage.tradingSignal.signalDefinition.id
 
-        let candleKey =
-            signalMessage.signal.source.tradingSystem.node.candle.begin + '-' +
-            signalMessage.signal.source.tradingSystem.node.candle.end
+            let signals = signalsByCandleAndSignalDefinitionId.get(key)
+            if (signals === undefined) { signals = [] }
+            signals.push(tradingSignalMessage.signal)
+            signalsByCandleAndSignalDefinitionId.set(key, signals)
 
-        let keys = keysByCandle.get(candleKey)
-        if (keys === undefined) { keys = [] }
-        keys.push(key)
-        keysByCandle.set(candleKey, keys)
+            let candleKey =
+                tradingSignalMessage.tradingSignal.source.tradingSystem.node.candle.begin + '-' +
+                tradingSignalMessage.tradingSignal.source.tradingSystem.node.candle.end
+
+            let keys = keysByCandle.get(candleKey)
+            if (keys === undefined) { keys = [] }
+            keys.push(key)
+            keysByCandle.set(candleKey, keys)
+        }
     }
 
     function mantain(candle) {

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn Sie ein Entwickler sind oder zumindest ein grundlegendes Verständnis von JavaScript haben, werden Sie in der Lage sein, Ihre eigenen Indikatoren zu erstellen!",
                 "updated": 1634590305087
+            },
+            {
+                "language": "TR",
+                "text": "Bir geliştiriciyseniz veya en azından temel bir JavaScript bilgisine sahipseniz, kendi göstergelerinizi oluşturabilirsiniz!",
+                "updated": 1639834040491
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Dies ist eine wichtige Funktion von Superalgos, denn ohne die Möglichkeit, Marktdaten zu analysieren, kann keine Handelsintelligenz entstehen! Ich werde an dieser Stelle nicht näher darauf eingehen, wie man Indikatoren erstellt, aber ich möchte Sie darauf hinweisen, dass wir für Sie da sind!",
                     "updated": 1634590310614
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, Superalgos'un çok önemli bir özelliğidir, çünkü ticaret zekası, piyasa verilerini analiz etme yeteneği olmadan ortaya çıkamaz! Yine, bu noktada göstergelerin nasıl oluşturulacağına değinmeyeceğim.",
+                    "updated": 1639834127231
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Es gibt eine umfassende Reihe von Vid eo-Tutorials, die den gesamten Prozess erklären! Werfen Sie einen kurzen Blick auf diese Seite in den Docs!",
                     "updated": 1634590316626
+                },
+                {
+                    "language": "TR",
+                    "text": "Tüm süreci açıklayan kapsamlı bir dizi video eğitimi var! Dokümanlar'daki bu sayfaya hızlıca bir göz atın!",
+                    "updated": 1639834143931
                 }
             ]
         }

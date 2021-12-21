@@ -2,13 +2,27 @@
     "type": "API Data Fetcher Bot",
     "definition": {
         "text": "This bot can fetch data from any API on the internet as long as it is provided with an API Map at runtime.",
-        "updated": 1622895037822
+        "updated": 1622895037822,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот бот может получать данные из любого API в интернете, если ему предоставляется карта API Map во время выполнения.",
+                "updated": 1639657096978
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "An API Data Fetcher Bot is similar to a Sensor Bot, except that a Sensor Bot requires a dev users to code an algorithm to extract the data, while an API Data Fetcher Bot can do it without coding using an API Map.",
-            "updated": 1622895168429
+            "updated": 1622895168429,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "API Data Fetcher Bot похож на Sensor Bot, за исключением того, что Sensor Bot требует, чтобы пользователи кодировали алгоритм для извлечения данных, в то время как API Data Fetcher Bot может делать это без кодирования с использованием API Map.",
+                    "updated": 1639657268001
+                }
+            ]
         },
         {
             "style": "Include",

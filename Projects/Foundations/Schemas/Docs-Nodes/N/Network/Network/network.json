@@ -1,0 +1,103 @@
+{
+    "type": "LAN Network",
+    "definition": {
+        "text": "The network hierarchy provides the control functions for running data-mining and trading operations. Because operations may be run either on a single machine or distributed over a network of machines, it also contains definitions regarding the physical location in which nodes live or function.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "La jerarquia de la network proporciona las funciones de control para ejecutar el procesamiento de datos y las operaciones de trading. Dado que las operaciones pueden ejecutarse en una sola máquina o distribuirse en una red de máquinas, también contiene definiciones con respecto a la ubicación física en la que los nodos viven o funcionan.",
+                "updated": 1624281124469
+            },
+            {
+                "language": "RU",
+                "text": "LAN Network обеспечивает функции управления для выполнения операций интеллектуального анализа данных и торговых операций. Поскольку операции могут выполняться либо на одной машине, либо распределяться по сети машин, он также содержит определения, касающиеся физического местоположения, в котором узлы находятся или функционируют.",
+                "updated": 1638336238608
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The network hierarchy defines where in the network you run each of the bots you choose to run, and where the data they output is stored.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "LAN Network определяет, где в сети вы запускаете каждого из выбранных вами ботов и где хранятся данные, которые они выводят.",
+                    "updated": 1638336271918
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You will use the network hierarchy for the following purposes:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы будете использовать LAN Network для следующих целей:",
+                    "updated": 1638336311510
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "To control your data mining operation — that is, tasks running sensor and indicator bots. Data mining tasks process data that may be consumed by others; for example, so that your trading systems may count with quality information.",
+            "updated": 1611058647352,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для управления операциями интеллектуального анализа данных, то есть задачами, запускающими сенсорные и индикаторные боты. Задачи интеллектуального анализа данных обрабатывают данные, которые могут быть использованы другими; например, чтобы ваши торговые системы могли рассчитывать на качественную информацию.",
+                    "updated": 1638337563157
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "To control your testing environment — that is, trading sessions including backtesting and paper trading sessions.",
+            "updated": 1611073262412,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для управления вашей тестовой средой, то есть торговыми сессиями, включая бэктестирование и бумажные торговые сессии.",
+                    "updated": 1638337582273
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "To control your production environment&mdash;that is, forward testing, and live trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для управления производственной средой, то есть форвард-тестирования и торговых сессий в реальном времени.",
+                    "updated": 1638337597816
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "To manage the storage of the data produced by the bots you run as outputs. This includes administering the physical locations on which the data products produced by bots reside.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы управлять хранением данных, созданных ботами, вы запускаете их в качестве выходных данных. Это включает в себя администрирование физических местоположений, на которых размещаются информационные продукты, созданные ботами.",
+                    "updated": 1638337618647
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "At this stage, the system does not implement any form of security measures, therefore, Superalgos is to be run in the context of a restricted Local Area Network only, unless you implement your own network security.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данном этапе в системе не реализованы какие-либо меры безопасности, поэтому Superalgos следует запускать только в контексте ограниченной локальной сети, если вы не реализуете собственную сетевую безопасность.",
+                    "updated": 1638337639123
+                }
+            ]
+        }
+    ]
+}

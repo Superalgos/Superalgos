@@ -11,6 +11,11 @@
                 "text": "Este tópico cubre los resultados de los trabajos de testeo de la comunidad en los exchanges. Cada página en el tópico describe el resultados de los testeos realizados en un exchange, y explica si el exchange es utilizable o no.",
                 "updated": 1633284067216,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Bu konu, Topluluğun Borsa test sonuçlarını kapsar. Konudaki her sayfa, bir borsada yapılan testlerin sonuçlarını açıklar ve değişimin kullanılabilir olup olmadığını açıklar.",
+                "updated": 1639819511102
             }
         ]
     },
@@ -18,7 +23,14 @@
         {
             "style": "Title",
             "text": "CCXT Library",
-            "updated": 1616154563847
+            "updated": 1616154563847,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "CCXT Kütüphanesi",
+                    "updated": 1639819519935
+                }
+            ]
         },
         {
             "style": "Text",
@@ -29,6 +41,11 @@
                     "text": "Superalgos utiliza el  CCXT library para comunicarse con los exchanges. CCXT es proyecto de código abierto que intenta estandarizar el acceso a las APIs de los exchanges .",
                     "updated": 1633284193717,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, borsalarla iletişim kurmak için CCXT kitaplığını kullanır. CCXT, değişim API 'lerine erişimi standartlaştırmaya çalışan açık kaynaklı bir projedir.",
+                    "updated": 1639819978823
                 }
             ]
         },
@@ -42,6 +59,11 @@
                     "text": "El proyecto lista más de 120 exchanges as \"supported\" and a few dozen exchanges as \"certified\". See the list in the following ink:",
                     "updated": 1633284228947,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje, 120'den fazla borsayı \"desteklenen\" ve birkaç düzine borsayı \"onaylı\" olarak listeliyor. Aşağıdaki listeye bakın:",
+                    "updated": 1639820030406
                 }
             ]
         },
@@ -60,6 +82,11 @@
                     "text": "De todos modos, no está muy claro exactamente cuales están respaldados y cuales certificados. Experiencias actuales muestran que la estandarización todavía tiene un largo recorrido por delante.",
                     "updated": 1633284466832,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, tam olarak neyin desteklendiği veya neyin sertifikalandırıldığı açık değildir. Mevcut deneyim, standardizasyonun daha kat etmesi gereken uzun bir yol olduğunu göstermektedir.",
+                    "updated": 1639820050305
                 }
             ]
         },
@@ -73,13 +100,25 @@
                     "text": "Para saber si su exchange preferido está listo para ser utiliado por Superalgos, consulte la página correspondiente a este tópico.",
                     "updated": 1633284553628,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz borsanın Superalgos'ta kullanılmaya hazır olup olmadığını öğrenmek için bu konudaki ilgili sayfaya bakın.",
+                    "updated": 1639820067403
                 }
             ]
         },
         {
             "style": "Title",
             "text": "If Your Preferred Exchange Is Not Tested",
-            "updated": 1616154613520
+            "updated": 1616154613520,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Tercih Ettiğiniz Borsa Test Edilmemişse",
+                    "updated": 1639820095701
+                }
+            ]
         },
         {
             "style": "Text",
@@ -91,6 +130,11 @@
                     "text": "Si tu exchange preferido no está incluído en este listado, significa que no ha sido probado. Puede querer preguntar en el Develop Group si alguien ha comenzado con el testeo.",
                     "updated": 1633284684470,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tercih ettiğiniz borsa bu listede görünmüyorsa, test edilmemiş demektir. Geliştirme Grubunda ( Develop Group ) testlere başlayan biri olup olmadığını öğrenmek isteyebilirsiniz.",
+                    "updated": 1639820140696
                 }
             ]
         },
@@ -103,6 +147,11 @@
                     "text": "Si eres un developer, puedes querer aprender How to Test New Exchanges y ayudar a la comunidad en la búsqueda de expandir el listado.",
                     "updated": 1633284798025,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir geliştiriciyseniz, Yeni Değişimlerin Nasıl Test Edileceğini öğrenmek ( How to Test New Exchanges )  ve Topluluğa ( Communıty ) listeyi genişletme arayışında yardımcı olmak isteyebilirsiniz.",
+                    "updated": 1639820195464
                 }
             ]
         }

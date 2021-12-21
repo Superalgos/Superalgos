@@ -1,7 +1,14 @@
 {
     "type": "Process Definition",
     "definition": {
-        "text": "The process definition node groups all definitions required for a process to function. The Multi-Time-Frame-Market Process deals with time frames of one hour and above. The Multi-Time-Frame-Daily Process deals with time frames of 45 minutes and below."
+        "text": "The process definition node groups all definitions required for a process to function. The Multi-Time-Frame-Market Process deals with time frames of one hour and above. The Multi-Time-Frame-Daily Process deals with time frames of 45 minutes and below.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Process Definition группирует все определения, необходимые для функционирования процесса. Процесс с Multi-Time-Frame-Market имеет дело с таймфреймами от одного часа и более. Процесс с Multi-Time-Frame-Daily имеет дело с таймфреймами от 45 минут и ниже.",
+                "updated": 1639658616328
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "As hinted above, most bots&mdash;in particular indicators&mdash;have two different processes. The reason is that different data structures need to be handled in different manners. The Multi-Time-Frame-Daily process handles daily files, while the Multi-Time-Frame-Market process handles market files."
+            "text": "As hinted above, most bots&mdash;in particular indicators&mdash;have two different processes. The reason is that different data structures need to be handled in different manners. The Multi-Time-Frame-Daily process handles daily files, while the Multi-Time-Frame-Market process handles market files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как указывалось выше, у большинства ботов, в частности индикаторов, есть два разных процесса. Причина в том, что с разными структурами данных нужно обращаться по-разному. Процесс Multi-Time-Frame-Daily обрабатывает ежедневные файлы, а процесс Multi-Time-Frame-Market обрабатывает файлы рынка.",
+                    "updated": 1639659148180
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Multi-Time-Frame-Market process deals with time frames of one hour and above. Because these time frames produce relatively small numbers of records, the process builds one single file per time frame spanning the whole market history&mdash;hence the name Multi-Time-Frame-Market."
+            "text": "The Multi-Time-Frame-Market process deals with time frames of one hour and above. Because these time frames produce relatively small numbers of records, the process builds one single file per time frame spanning the whole market history&mdash;hence the name Multi-Time-Frame-Market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процесс Multi-Time-Frame-Market имеет дело с таймфреймами от одного часа и выше. Поскольку эти таймфреймы производят относительно небольшое количество записей, процесс создает один единственный файл для каждого временного интервала, охватывающего всю историю рынка - отсюда и название Multi-Time-Frame-Market.",
+                    "updated": 1639659227260
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On the other hand, the Multi-Time-Frame-Daily process deals with time frames below one hour. These time frames produce huge numbers of records, therefore, the corresponding data must be fragmented in multiple files. The Multi-Time-Frame-Daily process builds one file per day for each time frame&mdash;hence the name Multi-Time-Frame-Daily."
+            "text": "On the other hand, the Multi-Time-Frame-Daily process deals with time frames below one hour. These time frames produce huge numbers of records, therefore, the corresponding data must be fragmented in multiple files. The Multi-Time-Frame-Daily process builds one file per day for each time frame&mdash;hence the name Multi-Time-Frame-Daily.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, процесс Multi-Time-Frame-Daily имеет дело с таймфреймами менее одного часа. Эти таймфреймы создают огромное количество записей, поэтому соответствующие данные должны быть фрагментированы в несколько файлов. Процесс Multi-Time-Frame-Daily создает один файл в день для каждого временного интервала - отсюда и название Multi-Time-Frame-Daily.",
+                    "updated": 1639659322360
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The way in which datasets are structured by each of the processes is determined by the corresponding dataset definitions."
+            "text": "The way in which datasets are structured by each of the processes is determined by the corresponding dataset definitions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Способ структурирования наборов данных каждым из процессов определяется соответствующими определениями наборов данных.",
+                    "updated": 1639659400254
+                }
+            ]
         },
         {
             "style": "Block",
@@ -31,16 +66,37 @@
         {
             "style": "Title",
             "text": "Process Definition Configuration",
-            "updated": 1609786986097
+            "updated": 1609786986097,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Process Definition",
+                    "updated": 1639659414296
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609787034890
+            "updated": 1609787034890,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639659421728
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName is the name of the process as used within the code of the system."
+            "text": "codeName is the name of the process as used within the code of the system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName - это имя процесса, используемое в коде системы.",
+                    "updated": 1639659435204
+                }
+            ]
         }
     ]
 }

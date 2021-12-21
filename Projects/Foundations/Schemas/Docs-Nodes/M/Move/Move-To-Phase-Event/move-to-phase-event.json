@@ -1,7 +1,14 @@
 {
     "type": "Move To Phase Event",
     "definition": {
-        "text": "The move to phase event determines when there should be a switch of phases from the current phase to an arbitrary phase determined by a reference."
+        "text": "The move to phase event determines when there should be a switch of phases from the current phase to an arbitrary phase determined by a reference.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Событие Move To Phase Event определяет, когда должно произойти переключение фаз с текущей фазы на произвольную фазу, установленную по ссылке.",
+                "updated": 1639849900481
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "While phases are defined in a sequence and you may choose to manage the position by shifting from one phase to the next in the sequence, the move to phase event offers an alternative."
+            "text": "While phases are defined in a sequence and you may choose to manage the position by shifting from one phase to the next in the sequence, the move to phase event offers an alternative.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя фазы определяются в последовательности, и вы можете выбрать управление позицией, переходя от одной фазы к следующей в последовательности, событие перехода к фазе предлагает альтернативу.",
+                    "updated": 1639849948671
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "With the move to phase event, you may arbitrarily decide which will be the next phase. To do that, you must establish a reference from the move to phase event, to the phase that should be activated once the event is triggered."
+            "text": "With the move to phase event, you may arbitrarily decide which will be the next phase. To do that, you must establish a reference from the move to phase event, to the phase that should be activated once the event is triggered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С помощью события перехода к фазе вы можете произвольно решить, какая фаза будет следующей. Для этого необходимо установить ссылку от события перехода к фазе на фазу, которая должна быть активирована после срабатывания этого события.",
+                    "updated": 1639849973615
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Any number of move-to-phase events may be set up for each and every phase, allowing complete flexibility on how the position is managed. This feature allows setting up versatile position-management algorithms that may switch to different formulas back and forth, or in any configuration imaginable."
+            "text": "Any number of move-to-phase events may be set up for each and every phase, allowing complete flexibility on how the position is managed. This feature allows setting up versatile position-management algorithms that may switch to different formulas back and forth, or in any configuration imaginable.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для каждой фазы может быть установлено любое количество событий перехода к фазе, что обеспечивает полную гибкость в управлении позицией. Эта функция позволяет создавать универсальные алгоритмы управления позицией, которые могут переключаться на различные формулы туда и обратно или в любой другой конфигурации, которую только можно себе представить.",
+                    "updated": 1639850029480
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "A move-to-phase event must reference a phase node. When the situation in the move-to-phase event evaluates true the management shifts to the referenced phase."
+            "text": "A move-to-phase event must reference a phase node. When the situation in the move-to-phase event evaluates true the management shifts to the referenced phase.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие перехода в фазу должно ссылаться на узел фазы Phase. Когда ситуация в событии перехода к фазе оценивается как истинная (true), управление переходит к фазе, на которую ссылается событие.",
+                    "updated": 1639850084798
+                }
+            ]
         }
     ]
 }

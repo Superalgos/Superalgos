@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Ваши вознаграждения токенами Superalgos SA будут отправлены на только что сгенерированный адрес, поэтому вам следует безопасно хранить закрытый ключ, который вы будете использовать для доступа к этому адресу.",
                 "updated": 1639047825007
+            },
+            {
+                "language": "DE",
+                "text": "Ihre Superalgos SA Token Belohnungen gehen an die Adresse, die Sie gerade generiert haben, daher sollten Sie den privaten Schlüssel, den Sie für den Zugriff auf die Adresse verwenden, sicher aufbewahren.",
+                "updated": 1640077305680
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Superalgos не предлагает встроенного решения для безопасного резервного копирования ваших закрытых ключей. Система генерирует пару адрес BSC / закрытый ключ и доставляет ее в конфигурацию Profile Constructor. Вам решать, как вы собираетесь обрабатывать эту конфиденциальную информацию.",
                     "updated": 1639047875011
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos bietet keine eingebaute Lösung, um Ihre privaten Schlüssel sicher zu sichern. Das System generiert ein BSC-Adress-/Privatschlüssel-Paar und liefert es in der Konfiguration des Profile Constructor . Es liegt an Ihnen zu entscheiden, wie Sie mit diesen sensiblen Informationen umgehen wollen.",
+                    "updated": 1640077324949
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Получите доступ к конфигурации Profile Constructor. Найдите адрес и закрытый ключ и сделайте резервную копию информации любым удобным для вас способом.",
                     "updated": 1639047907170
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Konfiguration des Profile Constructor auf. Suchen Sie die Adresse und den privaten Schlüssel und sichern Sie die Informationen auf die Art, die Sie für angemessen halten.",
+                    "updated": 1640077337255
                 }
             ]
         },

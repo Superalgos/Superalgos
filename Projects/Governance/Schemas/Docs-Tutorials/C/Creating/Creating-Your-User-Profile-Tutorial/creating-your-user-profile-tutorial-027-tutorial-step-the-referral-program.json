@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Реферальная программа Referral Program стимулирует продвижение проекта из уст в уста или «массово» через статьи, сообщения в социальных сетях, видео и другие формы влиятельного маркетинга!",
                 "updated": 1639050000505
+            },
+            {
+                "language": "DE",
+                "text": "Das Empfehlungsprogramm ( Referral Program ) bietet Anreize für die Werbung für das Projekt, entweder durch Mundpropaganda oder \"in Masse\" durch Artikel, Beiträge in sozialen Medien, Videos und andere Formen des Influencer-Marketings!",
+                "updated": 1640079326751
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Перейдите в узел Community Building Programs и нажмите Add Referral Program.",
                     "updated": 1639050045885
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Knoten Community Building Programs und klicken Sie auf <i>Add Referral Program</i>.",
+                    "updated": 1640079348295
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Во-первых, давайте выясним, какие правила вы должны выполнить, чтобы заработать свой бонус в виде токенов!",
                     "updated": 1639050059573
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns zunächst klären, welche Regeln Sie erfüllen müssen, um Ihren Token Bonus zu erhalten!",
+                    "updated": 1640079366144
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "RU",
                     "text": "Вы должны развернуть программу: Готово!",
                     "updated": 1639050074195
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen das Programm bereitstellen: Erledigt!",
+                    "updated": 1640079431424
                 }
             ]
         },
@@ -118,6 +138,11 @@
                     "language": "RU",
                     "text": "Вы должны указать своего реферера: мы сделаем это дальше!",
                     "updated": 1639050089422
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen Ihren Referenzgeber angeben: Das machen wir als nächstes!",
+                    "updated": 1640079463169
                 }
             ]
         },
@@ -141,6 +166,11 @@
                     "language": "RU",
                     "text": "Вы должны вбить Token Power в программу: Ух ... сила токена ... звучит аккуратно? Вы делаете ставку!",
                     "updated": 1639050128437
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen Token Power in das Programm einbringen: Wooh... Token Power... klingt das nicht toll? Und ob!",
+                    "updated": 1640079480513
                 }
             ]
         }

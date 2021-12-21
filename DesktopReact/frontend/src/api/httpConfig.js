@@ -8,7 +8,7 @@ const   GET = 'GET',
 
 function httpRequest(endpoint, method, body) {
     console.log(body)
-    return fetch(baseURL + endpoint, {method: method, body: body, headers: headers, mode: 'cors'})
+    return fetch(baseURL + endpoint, {method: method, body: JSON.stringify(body), headers: headers})
         .then(response => response)
         .catch(error => error)
 }

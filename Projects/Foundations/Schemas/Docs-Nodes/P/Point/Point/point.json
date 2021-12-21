@@ -1,7 +1,14 @@
 {
     "type": "Point",
     "definition": {
-        "text": "A point is a definition of an [x,y] coordinate. The value [x] usually represents a datetime. The value [y] may refer to a price or some other concept."
+        "text": "A point is a definition of an [x,y] coordinate. The value [x] usually represents a datetime. The value [y] may refer to a price or some other concept.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Point (точка) - это определение координат [x,y]. Значение [x] обычно представляет собой дату и время Значение [y] может относиться к цене или какому-либо другому понятию.",
+                "updated": 1639724916649
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,12 +17,26 @@
         },
         {
             "style": "Text",
-            "text": "These coordinate points are used to define polygons. Values for [x,y]coordinates are entered with a point formula."
+            "text": "These coordinate points are used to define polygons. Values for [x,y]coordinates are entered with a point formula.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти координатные точки используются для определения полигонов. Значения для координат [x,y] вводятся с помощью формулы точки Point Formula.",
+                    "updated": 1639724857037
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Give points a significant name so that it is easier to identify them at the time of establishing references with polygon vertices.",
-            "updated": 1609852471920
+            "updated": 1609852471920,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Дайте точкам значимое имя, чтобы их было легче идентифицировать при установлении связей с вершинами полигонов.",
+                    "updated": 1639724902277
+                }
+            ]
         }
     ]
 }

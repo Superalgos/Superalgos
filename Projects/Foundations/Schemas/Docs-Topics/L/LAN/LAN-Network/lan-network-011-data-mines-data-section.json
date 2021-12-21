@@ -4,7 +4,14 @@
     "type": "Data Mines Data Section",
     "definition": {
         "text": "The Data Mines Data section of the hierarchy controls where and how the sensor and indicator bots store the data they produce.",
-        "updated": 1610123085597
+        "updated": 1610123085597,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Раздел иерархии Data Mines Data контролирует, где и как боты-сенсоры и индикаторы хранят производимые ими данные.",
+                "updated": 1639561802972
+            }
+        ]
     },
     "paragraphs": [
         {

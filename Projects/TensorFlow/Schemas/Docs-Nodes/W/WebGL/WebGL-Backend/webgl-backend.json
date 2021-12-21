@@ -2,7 +2,14 @@
     "type": "WebGL Backend",
     "definition": {
         "text": "The WebGL Backend,'webgl', is currently the most powerful Backend for the browser. This backend is up to 100x faster than the vanilla CPU backend. Tensors are stored as WebGL textures and mathematical operations are implemented in WebGL shaders.",
-        "updated": 1613058352372
+        "updated": 1613058352372,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das WebGL-Backend, 'webgl', ist derzeit das leistungsfähigste Backend für den Browser. Dieses Backend ist bis zu 100x schneller als das vanilla CPU Backend. Tensoren werden als WebGL-Texturen gespeichert und mathematische Operationen werden in WebGL-Shadern implementiert.",
+                "updated": 1639913439287
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El shapes node contiene definiciones de polígonos y estilos que se deben representar por período en los gráficos.",
                 "updated": 1628036833969
+            },
+            {
+                "language": "RU",
+                "text": "Узел Shapes содержит определения полигонов Polygon и стилей Style, которые должны отображаться на графиках для каждого периода.",
+                "updated": 1639554031449
             }
         ]
     },
@@ -17,27 +22,69 @@
         },
         {
             "style": "Text",
-            "text": "A plotter recursively renders graphics for each period or candle. This means that a definition of what shapes need to be drawn for a single period is required. The plotter does the same thing for every period or candle that is visible on the screen at any point in time, for any time frame, as long as the corresponding data is available."
+            "text": "A plotter recursively renders graphics for each period or candle. This means that a definition of what shapes need to be drawn for a single period is required. The plotter does the same thing for every period or candle that is visible on the screen at any point in time, for any time frame, as long as the corresponding data is available.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Плоттер (Plotter) рекурсивно отображает графики для каждого периода или свечи. Это означает, что требуется определение того, какие фигуры необходимо нарисовать за один период. Плоттер делает то же самое для каждого периода или свечи, которые видны на экране в любой момент времени, для любого таймфрейма, пока доступны соответствующие данные.",
+                    "updated": 1639554155994
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In general terms, the process of defining what is going to be rendered on the screen consist of the following four steps:"
+            "text": "In general terms, the process of defining what is going to be rendered on the screen consist of the following four steps:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В общем, процесс определения того, что будет отображаться на экране, состоит из следующих четырех шагов:",
+                    "updated": 1639554177859
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " 1. Identifying points defined by [x,y] coordinates"
+            "text": " 1. Identifying points defined by [x,y] coordinates",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Определение точек, определяемых координатами [x, y]",
+                    "updated": 1639554197616
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " 2. Defining polygons"
+            "text": " 2. Defining polygons",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Определение полигонов",
+                    "updated": 1639554208855
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " 3. Defining default styles"
+            "text": " 3. Defining default styles",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Определение стилей по умолчанию",
+                    "updated": 1639554230324
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " 4. Defining conditional styles"
+            "text": " 4. Defining conditional styles",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "4. Определение условных стилей",
+                    "updated": 1639554259302
+                }
+            ]
         }
     ]
 }

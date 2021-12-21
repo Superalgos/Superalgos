@@ -8,7 +8,7 @@ exports.newFoundationsGlobalsProcessVariables = function () {
         ENDED_PROCESSES_COUNTER: 0,
         TOTAL_PROCESS_INSTANCES_CREATED: 0,
         VARIABLES_BY_PROCESS_INDEX_MAP: new Map(),
-        PM_COMMUNICATION_MODULE: undefined
+        PORTFOLIO_MANAGER_EVENTS_INTERFACE: undefined   // This is an instance of the Events Interface.
     }
 
     /*

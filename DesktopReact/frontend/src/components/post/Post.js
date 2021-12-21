@@ -7,11 +7,11 @@ import FooterReply from "../FooterReply/FooterReply";
 
 const Post = ({userName, postBody}) => {
 
-    const [collapse, setCollapse] = useState(true)
-    const Toggle = () => setCollapse(!collapse)
+    const [collapse, setCollapse] = useState(false)
+    const ToggleCollapseComment = () => setCollapse(!collapse)
 
     return (
-        <div className="postWrapper" onClick={(e) => {
+        <div className="postWrapper" onClick={(e) => { // TODO needs to handle onclick event in post
             e.stopPropagation()
             //console.log("Hello from clicked post: ")
         }}
@@ -28,16 +28,9 @@ const Post = ({userName, postBody}) => {
                 <Stack className="postBody">
                     {postBody}
                 </Stack>
-                <PostFooter/>
-                {/*<Collapse in={collapse}> /!*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js *!/*/}
-                {/*    <Divider />*/}
-                {/*    <FooterReply/>*/}
-                {/*</Collapse>*/}
-                {/*<Collapse in={true}> /!*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js *!/*/}
-                {/*    <Divider />*/}
-                {/*    <FooterReply/>*/}
-                {/*</Collapse>*/}
-                <FooterReply show={collapse}/>
+                <PostFooter stateCallback={ToggleCollapseComment}/>
+                <FooterReply show={collapse}
+                />
             </Card></div>
     );
 };

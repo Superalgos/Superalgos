@@ -14,6 +14,7 @@ const style = {
     p: 4,
 };
 
+const body = "Duis mollis, est non commodo luctus, nisi erat porttitor ligula."
 const FooterReplyModal = () => {
     return (
         <Box sx={style}>
@@ -21,7 +22,7 @@ const FooterReplyModal = () => {
                 Text in a modal
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula. {/* TODO make constants text be a variable*/}
+                 {body}
             </Typography>
         </Box>
     );
